@@ -1,0 +1,18 @@
+{
+  "name": "t3d-definitions",
+  "version": "0.0.0",
+  "description": "Binary format definitions",
+  "author": "Njibhu <manu@njibhu.eu>",
+  "homepage": "https://github.com/njibhu/t3d#readme",
+  "license": "MIT",
+  "directories": {
+    "test": "tests"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njibhu/t3d.git"
+  }
+}

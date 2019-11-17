@@ -1,0 +1,15 @@
+{
+  "name": "t3d-utils",
+  "version": "0.0.0",
+  "description": "Utils to help generate definitions and parsing various useful files",
+  "author": "Njibhu <manu@njibhu.eu>",
+  "homepage": "https://github.com/njibhu/t3d#readme",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njibhu/t3d.git"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "t3d-parser",
+  "version": "0.0.0",
+  "description": "Parser for binary archives",
+  "author": "Njibhu <manu@njibhu.eu>",
+  "homepage": "https://github.com/njibhu/t3d#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njibhu/t3d.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  }
+}
