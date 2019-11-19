@@ -11,5 +11,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/njibhu/t3d.git"
+  },
+  "dependencies": {
+    "r2pipe": "^2.7.2"
   }
 }
