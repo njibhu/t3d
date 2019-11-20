@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 
-const r2pipe = require("r2pipe");
+const r2pipe = require('r2pipe');
 
 const filePath = process.argv[2];
 
 if (!filePath) {
-  console.error("Require path to executable file");
+  console.error('Require path to executable file');
   process.exit(1);
 }
 
-console.log("Opening exe file...");
+console.log('Opening exe file...');
 const r2 = r2pipe.open(filePath);
-const segments = r2.cmdj("iSj");
+const segments = r2.cmdj('iSj');
 
-const rdata = segments.find(i => i.name === ".rdata");
+const rdata = segments.find(i => i.name === '.rdata');
 
 function isAscii(byte) {
   return (
@@ -26,35 +26,39 @@ function isAscii(byte) {
 const stringFound = [];
 
 if (rdata) {
-  console.log("Found rdata!");
+  console.log('Found rdata!');
   console.log(rdata);
   const maxRDataAddress = rdata.vaddr + rdata.vsize;
 
   let cursor = rdata.vaddr;
   r2.cmd(`s ${cursor}`);
   let progress = 0;
+  console.log(progress);
+  const fullBuffer = r2.cmdj(`pxj ${rdata.vsize}`);
 
   while (cursor < maxRDataAddress) {
-    // TODO: This is super inefficient, load up a bigger buffer and iterate and refill over time
-    // instead of putting load on IPC
-    const buffer = r2.cmdj("pxj 4");
+    const buffer = fullBuffer.slice(
+      cursor - rdata.vaddr,
+      cursor - rdata.vaddr + 4,
+    );
+
     if (
       isAscii(buffer[0]) &&
       isAscii(buffer[1]) &&
       isAscii(buffer[2]) &&
       (buffer[3] == 0 || isAscii(buffer[3]))
     ) {
-      r2.cmd(`s +8`);
-      const structPtr = r2.cmdj("pfjN8")[0].value;
+      r2.cmd(`s ${cursor + 8}`);
+      const structPtr = r2.cmdj('pfjN8')[0].value;
       if (structPtr > rdata.vaddr && structPtr < rdata.vaddr + rdata.vsize) {
         r2.cmd(`s -8`);
-        stringFound.push(r2.cmd("ps"));
-        console.log(r2.cmd("ps"));
+        stringFound.push(r2.cmd('ps'));
+        console.log(r2.cmd('ps'));
       }
     }
 
     const newProgress = Math.floor(
-      ((cursor - rdata.vaddr) / rdata.vsize) * 100
+      ((cursor - rdata.vaddr) / rdata.vsize) * 100,
     );
     if (progress != newProgress) {
       progress = newProgress;
@@ -62,7 +66,6 @@ if (rdata) {
     }
 
     cursor += 4;
-    r2.cmd(`s ${cursor}`);
   }
 
   console.log(stringFound);
