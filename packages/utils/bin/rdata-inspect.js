@@ -19,7 +19,19 @@ const rdata = segments.find(i => i.name === ".rdata");
 const stringFound = [];
 
 if (rdata) {
-  const { vsize, vaddr } = rdata;
+  const { vaddr, vsize } = rdata;
+  const rdataMin = rdata.vaddr;
+  const rdataMax = rdata.vaddr + rdata.vsize;
+
+  function offsetAddr(loadedAddress){
+    return loadedAddress - rdataMin;
+  }
+  
+  function isValidAddr(address){
+    const nAddress = address + rdataMin;
+    return nAddress > rdataMin && nAddress < rdataMax;
+  }
+
   console.log("Found rdata!");
   r2.cmd(`s ${vaddr}`);
 
@@ -30,15 +42,23 @@ if (rdata) {
     const buffer = arrayBuffer.slice(cursor, cursor + 4);
 
     if (isFourAscii(buffer)) {
-      const structPtr = getUint64(dataView, cursor + 8, true);
-      if (structPtr > vaddr && structPtr < vaddr + vsize) {
-        // Register found string
-        stringFound.push(ascii.write(arrayBuffer.slice(cursor, cursor + 4)));
+      const structPtr = offsetAddr(getUint64(dataView, cursor + 8));
+      const fourcc = buffer;
+      const versions = dataView.getUint32(cursor + 4, true);
+      if (versions > 0 && versions < 100) {
+        if (isValidAddr(structPtr)) {
+          if (isANStructTab(structPtr, { dataView, versions, rdataMin, rdataMax, offsetAddr, isValidAddr })) {
+            // Register found string
+            stringFound.push(ascii.write(fourcc).replace(/\u0000/, ""));
+          }
+        }
       }
     }
   }
 
-  console.log(stringFound);
+  const filteredStrings = Array.from(new Set(stringFound));
+  console.log(filteredStrings.join("\n"));
+  console.log(filteredStrings.length);
 }
 
 r2.quit();
@@ -46,6 +66,47 @@ r2.quit();
 //
 // Functions
 //
+function isANStruct(address, { dataView, offsetAddr, isValidAddr }) {
+  if(!isValidAddr(address)){
+    return false;
+  }
+
+  let currentAddress = address;
+  let loopGuard = 50;
+
+  while (dataView.getUint16(currentAddress, true) != 0 && loopGuard > 0) {
+    if (dataView.getUint16(currentAddress, true) > 29) {
+      return false;
+    }
+
+    currentAddress += 32;
+    loopGuard -= 1;
+  }
+
+  const destAddr = offsetAddr(getUint64(dataView, currentAddress + 8));
+  return loopGuard != 0 && isValidAddr(destAddr) && isFourAscii([dataView.getUint8(destAddr), dataView.getUint8(destAddr+1), dataView.getUint8(destAddr+2), dataView.getUint8(destAddr+3)]);
+}
+
+function isANStructTab(address, { dataView, versions, offsetAddr, isValidAddr }) {
+  if(!isValidAddr(address)){
+    return false;
+  }
+
+  let currentAddress = address;
+  let loopIndex = 0;
+
+  while (loopIndex < versions) {
+    if (getUint64(dataView, currentAddress) != 0) {
+      if (!isANStruct(offsetAddr(getUint64(dataView, currentAddress)), { dataView, offsetAddr, isValidAddr })) {
+        break;
+      }
+    }
+    currentAddress += 24;
+    loopIndex += 1;
+  }
+
+  return loopIndex === versions;
+}
 
 function isFourAscii(buffer) {
   return (
@@ -65,7 +126,7 @@ function isAscii(byte) {
 }
 
 // This is coming from MDN
-function getUint64(dataview, byteOffset, littleEndian) {
+function getUint64(dataview, byteOffset, littleEndian = true) {
   // split 64-bit number into two 32-bit (4-byte) parts
   const left = dataview.getUint32(byteOffset, littleEndian);
   const right = dataview.getUint32(byteOffset + 4, littleEndian);
