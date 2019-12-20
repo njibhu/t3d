@@ -70,4 +70,15 @@ export class RDataView {
   public get length(): number {
     return this.dataView.byteLength;
   }
+
+  public getAsciiString(address){
+    let currentAddress = address;
+    let result = "";
+    while(this.isAscii){
+      result += this.getAscii(currentAddress);
+      currentAddress += 1;
+    }
+
+    return result;
+  }
 }
