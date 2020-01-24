@@ -1,33 +1,46 @@
 import { RDataView } from "./rdataview";
 import { AnetType, legacyTypes } from "./anet-types";
 
+interface StructTab {
+  versions: number,
+  structArray: Struct[],
+  chunkName: string
+}
+
+interface Struct {
+  name: string,
+  members?: string[]
+}
+
 export class StructTabParser {
   private parsedStructsId: Set<number>;
   private rdataView : RDataView;
 
-  private structName : String;
+  private structName : string;
 
   constructor(dataView: DataView,  rdataMin: number, rdataMax: number){
     this.parsedStructsId = new Set();
     this.rdataView = new RDataView(dataView, rdataMin, rdataMax);
   }
 
-  public parseStructTab(address: number, nbVersions: number) {
+  public parseStructTab(address: number, nbVersions: number, chunkName: string) {
     let currentAddress = address;
     let loopIndex = nbVersions - 1;
     const historyDepth = 100;
+    const structArray = [];
 
     while (loopIndex >= 0 && loopIndex >= nbVersions - historyDepth) {
       currentAddress = this.rdataView.getAddress(address + (24 * loopIndex));
-      // subAddress = this.rdataView.getAddress(currentAddress + 24 * loopIndex + 8);
       if (currentAddress > 0){
-        this.parseStruct(currentAddress, true);
+        structArray.push(this.parseStruct(currentAddress, true));
       }
       loopIndex -= 1;
     }
+
+    return { structArray, versions: nbVersions, chunkName }
   }
 
-  getSimpleTypeName(address: number){
+  getSimpleTypeName(address: number): string{
     const typeId = this.rdataView.getUint8(address);
     return legacyTypes[typeId];
   }
@@ -44,10 +57,10 @@ export class StructTabParser {
     else if(typeId === 1){
       let psAdr = this.rdataView.getAddress(address + 16);
       if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) === 0){
-        tempOutput = `'${memberName}', ['[]', ${this.parseStruct(psAdr)}, ${this.rdataView.getUint32(address + 24)}]`;
+        tempOutput = `'${memberName}', ['[]', ${this.parseStruct(psAdr).name}, ${this.rdataView.getUint32(address + 24)}]`;
       }
       else {
-        tempOutput = `'${memberName}', ['[]', this.${this.parseStruct(psAdr)}, ${this.rdataView.getUint32(address + 24)}]`;
+        tempOutput = `'${memberName}', ['[]', this.${this.parseStruct(psAdr).name}, ${this.rdataView.getUint32(address + 24)}]`;
       }
       optimized = false;
     }
@@ -55,9 +68,9 @@ export class StructTabParser {
     else if(typeId === 2){
       let psAdr = this.rdataView.getAddress(address + 16);
       if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', Utils.getArrayReader(${this.parseStruct(psAdr)})`
+        tempOutput = `'${memberName}', Utils.getArrayReader(${this.parseStruct(psAdr).name})`
       } else {
-        tempOutput = `'${memberName}', Utils.getArrayReader(this.${this.parseStruct(psAdr)})`;
+        tempOutput = `'${memberName}', Utils.getArrayReader(this.${this.parseStruct(psAdr).name})`;
       }
 
       optimized = false;
@@ -66,9 +79,9 @@ export class StructTabParser {
     else if(typeId === 3){
       let psAdr = this.rdataView.getAddress(address + 16);
       if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', Utils.getRefArrayReader(${this.parseStruct(psAdr)})`
+        tempOutput = `'${memberName}', Utils.getRefArrayReader(${this.parseStruct(psAdr).name})`
       } else {
-        tempOutput = `'${memberName}', Utils.getRefArrayReader(this.${this.parseStruct(psAdr)})`;
+        tempOutput = `'${memberName}', Utils.getRefArrayReader(this.${this.parseStruct(psAdr).name})`;
       }
 
       optimized = false;
@@ -137,9 +150,9 @@ export class StructTabParser {
     else if (typeId === 16){
       let psAdr = this.rdataView.getAddress(address + 16);
       if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', Utils.getPointerReader(${this.parseStruct(psAdr)})`
+        tempOutput = `'${memberName}', Utils.getPointerReader(${this.parseStruct(psAdr).name})`
       } else {
-        tempOutput = `'${memberName}', Utils.getPointerReader(this.${this.parseStruct(psAdr)})`;
+        tempOutput = `'${memberName}', Utils.getPointerReader(this.${this.parseStruct(psAdr).name})`;
       }
 
       optimized = false;
@@ -163,9 +176,9 @@ export class StructTabParser {
     else if(typeId === 20){
       let psAdr = this.rdataView.getAddress(address + 16);
       if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', ${this.parseStruct(psAdr)}`
+        tempOutput = `'${memberName}', ${this.parseStruct(psAdr).name}`
       } else {
-        tempOutput = `'${memberName}', this.${this.parseStruct(psAdr)}`;
+        tempOutput = `'${memberName}', this.${this.parseStruct(psAdr).name}`;
       }
 
       optimized = false;
@@ -214,9 +227,9 @@ export class StructTabParser {
     else if(typeId === 29){
       let psAdr = this.rdataView.getAddress(address + 16);
       if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', ${this.parseStruct(psAdr)}`
+        tempOutput = `'${memberName}', ${this.parseStruct(psAdr).name}`
       } else {
-        tempOutput = `'${memberName}', this.${this.parseStruct(psAdr)}`;
+        tempOutput = `'${memberName}', this.${this.parseStruct(psAdr).name}`;
       }
 
       optimized = false;
@@ -226,12 +239,10 @@ export class StructTabParser {
       throw new InvalidTypeId(typeId, memberName);
     }
 
-    console.log(tempOutput);
-
     return tempOutput;
   }
 
-  parseStruct(address: number, isBase: boolean = false){
+  parseStruct(address: number, isBase: boolean = false): Struct{
     let currentAddress = address;
     let optimized = false;
     const alreadyParsed = this.parsedStructsId.has(address);
@@ -240,22 +251,23 @@ export class StructTabParser {
     // Simple types
     if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) === 0){
       const simpleType = this.getSimpleTypeName(address);
-      console.log(simpleType);
-      return simpleType;
-    }
 
+      return { name: simpleType };
+    }
+    
+    const members = [];
     while(this.rdataView.getUint16(currentAddress) != 0){
       const member = this.parseMember(currentAddress);
       if(member === null){
         break;
       }
+      members.push(member);
       currentAddress += 32;
     }
 
     this.structName = this.rdataView.getAsciiString(this.rdataView.getAddress(currentAddress + 8));
-    console.log(this.structName);
-    
-    return this.structName;
+
+    return { name: this.structName, members};
   }
 }
 
