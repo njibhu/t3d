@@ -1,4 +1,4 @@
-enum AnetType {
+export enum AnetType {
   Byte = 5, //0x05
   Byte4 = 6, //0x06
   Double = 7, //0x07
@@ -18,4 +18,27 @@ enum AnetType {
   DWord4 = 25, //0x19
   Word3 = 26, //0x1A
   Fileref = 27, //0x1B
+}
+
+// Syntax copied from old parser
+export const legacyTypes = {
+  [AnetType.Byte]: "'uinnt8'",
+  [AnetType.Byte4]: "['[]','uint8',4]",
+  [AnetType.Double]: "'float64'",
+  [AnetType.DWord]: "'uint32'",
+  [AnetType.Filename]: "Utils.getFileNameReader()",
+  [AnetType.Float]: "'float32'",
+  [AnetType.Float2]: "['[]', 'float32', 2]",
+  [AnetType.Float3]: "['[]', 'float32', 3]",
+  [AnetType.Float4]: "['[]', 'float32', 4]",
+  [AnetType.QWord]: "Utils.getQWordReader()",
+  [AnetType.WCharPtr]: "Utils.getString16Reader()",
+  [AnetType.CharPtr]: "Utils.getStringReader()",
+  [AnetType.Word]: "'uint16'",
+  [AnetType.Byte16]: "['[]', 'uint8', 16]",
+  [AnetType.Byte3]: "['[]', 'uint8', 3]",
+  [AnetType.DWord2]: "['[]', 'uint32', 2]",
+  [AnetType.DWord4]: "['[]', 'uint32', 4]",
+  [AnetType.Word3]:  "['[]', 'uint16', 3]",
+  [AnetType.Fileref]: "Utils.getFileNameReader()"
 }

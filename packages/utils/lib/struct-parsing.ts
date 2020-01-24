@@ -1,4 +1,5 @@
 import { RDataView } from "./rdataview";
+import { AnetType, legacyTypes } from "./anet-types";
 
 export class StructTabParser {
   private parsedStructsId: Set<number>;
@@ -27,14 +28,12 @@ export class StructTabParser {
   }
 
   getSimpleTypeName(address: number){
-    return "abcd";
+    const typeId = this.rdataView.getUint8(address);
+    return legacyTypes[typeId];
   }
 
   parseMember(address: number){
-
-
     const memberName = this.rdataView.getAsciiString(this.rdataView.getAddress(address + 8));
-    console.log("member", memberName)
     const typeId = this.rdataView.getUint16(address);
     let tempOutput;
     let optimized;
@@ -227,6 +226,8 @@ export class StructTabParser {
       throw new InvalidTypeId(typeId, memberName);
     }
 
+    console.log(tempOutput);
+
     return tempOutput;
   }
 
@@ -238,11 +239,12 @@ export class StructTabParser {
   
     // Simple types
     if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) === 0){
-      return this.getSimpleTypeName(address);
+      const simpleType = this.getSimpleTypeName(address);
+      console.log(simpleType);
+      return simpleType;
     }
 
     while(this.rdataView.getUint16(currentAddress) != 0){
-      console.log(currentAddress);
       const member = this.parseMember(currentAddress);
       if(member === null){
         break;
@@ -252,6 +254,8 @@ export class StructTabParser {
 
     this.structName = this.rdataView.getAsciiString(this.rdataView.getAddress(currentAddress + 8));
     console.log(this.structName);
+    
+    return this.structName;
   }
 }
 
