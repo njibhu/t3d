@@ -1,6 +1,7 @@
 #!/usr/bin/env ts-node
 import * as r2pipe from "r2pipe";
 import { RDataParser } from "../lib/rdata-parsing";
+import { StructTabParser } from "../lib/struct-parsing";
 
 async function run(){
   const filePath = process.argv[2];
@@ -25,11 +26,16 @@ async function run(){
     const arrayBuffer = new Uint8Array(r2.cmdj(`pxj ${vsize}`));
     const dataView = new DataView(arrayBuffer.buffer);
 
-    const parser = new RDataParser(dataView, vaddr, vaddr + vsize);
-    const chunks = parser.listChunks();
+    const simpleParser = new RDataParser(dataView, vaddr, vaddr + vsize);
+    const structParser = new StructTabParser(dataView, vaddr, vaddr + vsize);
+    const chunks = simpleParser.listChunks();
+
+    for(const chunk of chunks){
+      structParser.parseStructTab(chunk.offset, chunk.versions);
+    }
   
-    console.log(Array.from(chunks).join("\n"));
-    console.log(chunks.size);
+    console.log(chunks.map(c => c.name).join("\n"));
+    console.log(chunks.length);
   
   }
   

@@ -1,17 +1,17 @@
 import { RDataView } from "./rdataview";
 
-class StructTabParser {
+export class StructTabParser {
   private parsedStructsId: Set<number>;
   private rdataView : RDataView;
 
   private structName : String;
 
-  constructor(rdataView: RDataView){
+  constructor(dataView: DataView,  rdataMin: number, rdataMax: number){
     this.parsedStructsId = new Set();
-    this.rdataView = rdataView;
+    this.rdataView = new RDataView(dataView, rdataMin, rdataMax);
   }
 
-  parseStructTab(address: number, nbVersions: number) {
+  public parseStructTab(address: number, nbVersions: number) {
     let currentAddress = address;
     let loopIndex = nbVersions - 1;
     const historyDepth = 100;

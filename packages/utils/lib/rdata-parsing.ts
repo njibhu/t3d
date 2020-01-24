@@ -1,5 +1,11 @@
 import { RDataView } from "./rdataview";
 
+interface Chunks {
+  name: string;
+  offset: number;
+  versions: number;
+}
+
 export class RDataParser {
   rdataView: RDataView;
 
@@ -56,8 +62,8 @@ export class RDataParser {
   
   // Public
 
-  listChunks(): Set<string>{
-    const chunks : Set<string> = new Set();
+  listChunks(): Array<Chunks>{
+    const chunks = [];
 
     for (let cursor = 0; cursor < this.rdataView.length; cursor += 4) {
       if (this.rdataView.isAscii4(cursor)) {
@@ -67,8 +73,16 @@ export class RDataParser {
 
         if (versions > 0 && versions < 100) {
           if (this.isANStructTab(structPtr, versions)) {
-            // Register found string
-            chunks.add(ascii.replace(/\u0000/, ""));
+            const currentChunk = {
+              name: ascii.replace(/\u0000/, ""),
+              versions: versions,
+              offset: structPtr
+            }
+
+            // Chunks can be found multiple times, so we dedupe them
+            if(!chunks.find(c => c.name === currentChunk.name)){
+              chunks.push(currentChunk);
+            }
           }
         }
       }
