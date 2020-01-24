@@ -1,5 +1,5 @@
 import { RDataView } from "./rdataview";
-import { AnetType, legacyTypes } from "./anet-types";
+import { basicTypes } from "./anet-types";
 
 interface StructTab {
   versions: number,
@@ -23,7 +23,7 @@ export class StructTabParser {
     this.rdataView = new RDataView(dataView, rdataMin, rdataMax);
   }
 
-  public parseStructTab(address: number, nbVersions: number, chunkName: string) {
+  public parseStructTab(address: number, nbVersions: number, chunkName: string): StructTab {
     let currentAddress = address;
     let loopIndex = nbVersions - 1;
     const historyDepth = 100;
@@ -42,16 +42,17 @@ export class StructTabParser {
 
   getSimpleTypeName(address: number): string{
     const typeId = this.rdataView.getUint8(address);
-    return legacyTypes[typeId];
+    return basicTypes[typeId];
   }
 
   parseMember(address: number){
     const memberName = this.rdataView.getAsciiString(this.rdataView.getAddress(address + 8));
     const typeId = this.rdataView.getUint16(address);
     let tempOutput;
-    let optimized;
-    if(typeId === 0){
-      throw new InvalidTypeId(typeId, memberName);
+
+    // Cover basic types
+    if(basicTypes[typeId]){
+      tempOutput = `'${memberName}', ${basicTypes[typeId]}`;
     }
 
     else if(typeId === 1){
@@ -62,7 +63,6 @@ export class StructTabParser {
       else {
         tempOutput = `'${memberName}', ['[]', this.${this.parseStruct(psAdr).name}, ${this.rdataView.getUint32(address + 24)}]`;
       }
-      optimized = false;
     }
 
     else if(typeId === 2){
@@ -73,7 +73,6 @@ export class StructTabParser {
         tempOutput = `'${memberName}', Utils.getArrayReader(this.${this.parseStruct(psAdr).name})`;
       }
 
-      optimized = false;
     }
 
     else if(typeId === 3){
@@ -84,67 +83,6 @@ export class StructTabParser {
         tempOutput = `'${memberName}', Utils.getRefArrayReader(this.${this.parseStruct(psAdr).name})`;
       }
 
-      optimized = false;
-    }
-
-    else if(typeId === 4){
-      tempOutput = `'${memberName}', Unknown0x04`;
-      optimized = true;
-    }
-
-    else if(typeId === 5){
-      tempOutput = `'${memberName}', "uint8"`;
-      optimized = true;
-    }
-
-    else if(typeId === 6){
-      tempOutput = `'${memberName}', "['[]', 'uint8', 4]"`;
-      optimized = true;
-    }
-
-    else if(typeId === 7){
-      tempOutput = `'${memberName}', "float64"`;
-      optimized = true;
-    }
-
-    else if(typeId === 8){
-      tempOutput = `'${memberName}', "Unknown0x08"`;
-      optimized = true;
-    }
-
-    else if(typeId === 9){
-      tempOutput = `'${memberName}', "Unknown0x09"`;
-      optimized = true;
-    }
-
-    else if(typeId === 10){
-      tempOutput = `'${memberName}', "uint32"`;
-      optimized = true;
-    }
-    
-    else if(typeId === 11){
-      tempOutput = `'${memberName}', "Utils.getFileNameReader()"`;
-      optimized = true;
-    }
-
-    else if(typeId === 12){
-      tempOutput = `'${memberName}', "float32"`;
-      optimized = true;
-    }
-
-    else if(typeId === 13){
-      tempOutput = `'${memberName}', "['[]', 'float32', 2]"`;
-      optimized = true;
-    }
-
-    else if(typeId === 14){
-      tempOutput = `'${memberName}', "['[]', 'float32', 3]"`;
-      optimized = true;
-    }
-
-    else if(typeId === 15){
-      tempOutput = `'${memberName}', "['[]', 'float32', 4]"`;
-      optimized = true;
     }
 
     else if (typeId === 16){
@@ -155,22 +93,6 @@ export class StructTabParser {
         tempOutput = `'${memberName}', Utils.getPointerReader(this.${this.parseStruct(psAdr).name})`;
       }
 
-      optimized = false;
-    }
-
-    else if(typeId === 17){
-      tempOutput = `'${memberName}', Utils.getQWordReader()`;
-      optimized = true;
-    }
-
-    else if(typeId === 18){
-      tempOutput = `'${memberName}', Utils.getString16Reader()`;
-      optimized = false;
-    }
-
-    else if(typeId === 19){
-      tempOutput = `'${memberName}', Utils.getStringReader()`;
-      optimized = false;
     }
 
     else if(typeId === 20){
@@ -181,47 +103,6 @@ export class StructTabParser {
         tempOutput = `'${memberName}', this.${this.parseStruct(psAdr).name}`;
       }
 
-      optimized = false;
-    }
-
-    else if(typeId === 21){
-      tempOutput = `'${memberName}', "uint16"`;
-      optimized = false;
-    }
-
-    else if(typeId === 22){
-      tempOutput = `'${memberName}', "['[]', 'uint8', 16]"`;
-      optimized = false;
-    }
-
-    else if(typeId === 23){
-      tempOutput = `'${memberName}', "['[]', 'uint8', 3]"`;
-      optimized = false;
-    }
-
-    else if(typeId === 24){
-      tempOutput = `'${memberName}', "['[]', 'uint32', 2]"`;
-      optimized = false;
-    }
-
-    else if(typeId === 25){
-      tempOutput = `'${memberName}', "['[]', 'uint32', 4]"`;
-      optimized = false;
-    }
-
-    else if(typeId === 26){
-      tempOutput = `'${memberName}', "['[]', 'uint16', 3]"`;
-      optimized = false;
-    }
-
-    else if(typeId === 27){
-      tempOutput = `'${memberName}', "Utils.getFileNameReader()"`;
-      optimized = false;
-    }
-
-    else if(typeId === 28){
-      tempOutput = `'${memberName}', "Unknown0x1C"`;
-      optimized = false;
     }
 
     else if(typeId === 29){
@@ -231,8 +112,11 @@ export class StructTabParser {
       } else {
         tempOutput = `'${memberName}', this.${this.parseStruct(psAdr).name}`;
       }
+    }
 
-      optimized = false;
+    // Unknown types
+    else if([4, 8, 9, 28].includes(typeId)){
+      tempOutput = `'${memberName}', "Unknown${typeId}"`;
     }
 
     else {
@@ -244,7 +128,6 @@ export class StructTabParser {
 
   parseStruct(address: number, isBase: boolean = false): Struct{
     let currentAddress = address;
-    let optimized = false;
     const alreadyParsed = this.parsedStructsId.has(address);
     this.parsedStructsId.add(address);
   

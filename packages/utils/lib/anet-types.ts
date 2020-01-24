@@ -21,9 +21,9 @@ export enum AnetType {
 }
 
 // Syntax copied from old parser
-export const legacyTypes = {
-  [AnetType.Byte]: "'uinnt8'",
-  [AnetType.Byte4]: "['[]','uint8',4]",
+export const basicTypes = {
+  [AnetType.Byte]: "'uint8'",
+  [AnetType.Byte4]: "['[]', 'uint8', 4]",
   [AnetType.Double]: "'float64'",
   [AnetType.DWord]: "'uint32'",
   [AnetType.Filename]: "Utils.getFileNameReader()",
