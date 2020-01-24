@@ -9,13 +9,15 @@ interface StructTab {
 
 interface Struct {
   name: string,
-  members?: string[]
+  members?: string[],
+  version?: number
 }
 
 export class StructTabParser {
   private parsedStructsId: Set<number>;
   private rdataView : RDataView;
 
+  // TODO remove, creates bug with non root structs
   private structName : string;
 
   constructor(dataView: DataView,  rdataMin: number, rdataMax: number){
@@ -32,7 +34,7 @@ export class StructTabParser {
     while (loopIndex >= 0 && loopIndex >= nbVersions - historyDepth) {
       currentAddress = this.rdataView.getAddress(address + (24 * loopIndex));
       if (currentAddress > 0){
-        structArray.push(this.parseStruct(currentAddress, true));
+        structArray.push(this.parseStruct(currentAddress, loopIndex));
       }
       loopIndex -= 1;
     }
@@ -126,7 +128,7 @@ export class StructTabParser {
     return tempOutput;
   }
 
-  parseStruct(address: number, isBase: boolean = false): Struct{
+  parseStruct(address: number, version?: number): Struct{
     let currentAddress = address;
     const alreadyParsed = this.parsedStructsId.has(address);
     this.parsedStructsId.add(address);
@@ -150,7 +152,7 @@ export class StructTabParser {
 
     this.structName = this.rdataView.getAsciiString(this.rdataView.getAddress(currentAddress + 8));
 
-    return { name: this.structName, members};
+    return { name: this.structName, members, version};
   }
 }
 
