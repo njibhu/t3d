@@ -17,11 +17,12 @@ export class StructTabParser {
     const historyDepth = 100;
 
     while (loopIndex >= 0 && loopIndex >= nbVersions - historyDepth) {
-      currentAddress = this.rdataView.getAddress(currentAddress + 24 * loopIndex);
+      currentAddress = this.rdataView.getAddress(address + (24 * loopIndex));
       // subAddress = this.rdataView.getAddress(currentAddress + 24 * loopIndex + 8);
-      if (currentAddress != 0 && currentAddress != -1){
+      if (currentAddress > 0){
         this.parseStruct(currentAddress, true);
       }
+      loopIndex -= 1;
     }
   }
 
@@ -30,7 +31,10 @@ export class StructTabParser {
   }
 
   parseMember(address: number){
+
+
     const memberName = this.rdataView.getAsciiString(this.rdataView.getAddress(address + 8));
+    console.log("member", memberName)
     const typeId = this.rdataView.getUint16(address);
     let tempOutput;
     let optimized;
@@ -238,11 +242,16 @@ export class StructTabParser {
     }
 
     while(this.rdataView.getUint16(currentAddress) != 0){
-      this.parseMember(currentAddress);
+      console.log(currentAddress);
+      const member = this.parseMember(currentAddress);
+      if(member === null){
+        break;
+      }
       currentAddress += 32;
     }
 
     this.structName = this.rdataView.getAsciiString(this.rdataView.getAddress(currentAddress + 8));
+    console.log(this.structName);
   }
 }
 

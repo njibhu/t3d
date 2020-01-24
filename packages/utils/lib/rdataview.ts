@@ -74,7 +74,7 @@ export class RDataView {
   public getAsciiString(address){
     let currentAddress = address;
     let result = "";
-    while(this.isAscii){
+    while(this.isAscii(currentAddress)){
       result += this.getAscii(currentAddress);
       currentAddress += 1;
     }

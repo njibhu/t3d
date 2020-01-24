@@ -31,11 +31,9 @@ async function run(){
     const chunks = simpleParser.listChunks();
 
     for(const chunk of chunks){
+      console.log(`Parsing ${chunk.name}`);
       structParser.parseStructTab(chunk.offset, chunk.versions);
     }
-  
-    console.log(chunks.map(c => c.name).join("\n"));
-    console.log(chunks.length);
   
   }
   
@@ -43,4 +41,7 @@ async function run(){
 
 }
 
-run();
+run().catch(error => {
+  console.error(error);
+  process.exit(1);
+}).then(()=> process.exit(0));
