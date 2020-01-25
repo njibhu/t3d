@@ -10,7 +10,8 @@ interface StructTab {
 interface Struct {
   name: string,
   members?: string[],
-  version?: number
+  version?: number,
+  definitions?: any[]
 }
 
 export class StructTabParser {
@@ -49,79 +50,64 @@ export class StructTabParser {
   parseMember(address: number){
     const memberName = this.rdataView.getAsciiString(this.rdataView.getAddress(address + 8));
     const typeId = this.rdataView.getUint16(address);
-    let tempOutput;
+    const tempOutput = { member: undefined, definition: undefined};
+    let memberDefinition;
 
     // Cover basic types
     if(basicTypes[typeId]){
-      tempOutput = `'${memberName}', ${basicTypes[typeId]}`;
+      tempOutput.member = `'${memberName}', ${basicTypes[typeId]}`;
     }
 
-    else if(typeId === 1){
-      let psAdr = this.rdataView.getAddress(address + 16);
-      if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) === 0){
-        tempOutput = `'${memberName}', ['[]', ${this.parseStruct(psAdr).name}, ${this.rdataView.getUint32(address + 24)}]`;
-      }
-      else {
-        tempOutput = `'${memberName}', ['[]', this.${this.parseStruct(psAdr).name}, ${this.rdataView.getUint32(address + 24)}]`;
-      }
-    }
-
-    else if(typeId === 2){
-      let psAdr = this.rdataView.getAddress(address + 16);
-      if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', Utils.getArrayReader(${this.parseStruct(psAdr).name})`
-      } else {
-        tempOutput = `'${memberName}', Utils.getArrayReader(this.${this.parseStruct(psAdr).name})`;
-      }
-
-    }
-
-    else if(typeId === 3){
-      let psAdr = this.rdataView.getAddress(address + 16);
-      if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', Utils.getRefArrayReader(${this.parseStruct(psAdr).name})`
-      } else {
-        tempOutput = `'${memberName}', Utils.getRefArrayReader(this.${this.parseStruct(psAdr).name})`;
-      }
-
-    }
-
-    else if (typeId === 16){
-      let psAdr = this.rdataView.getAddress(address + 16);
-      if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', Utils.getPointerReader(${this.parseStruct(psAdr).name})`
-      } else {
-        tempOutput = `'${memberName}', Utils.getPointerReader(this.${this.parseStruct(psAdr).name})`;
-      }
-
-    }
-
-    else if(typeId === 20){
-      let psAdr = this.rdataView.getAddress(address + 16);
-      if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', ${this.parseStruct(psAdr).name}`
-      } else {
-        tempOutput = `'${memberName}', this.${this.parseStruct(psAdr).name}`;
-      }
-
-    }
-
-    else if(typeId === 29){
-      let psAdr = this.rdataView.getAddress(address + 16);
-      if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) == 0){
-        tempOutput = `'${memberName}', ${this.parseStruct(psAdr).name}`
-      } else {
-        tempOutput = `'${memberName}', this.${this.parseStruct(psAdr).name}`;
-      }
-    }
-
-    // Unknown types
-    else if([4, 8, 9, 28].includes(typeId)){
-      tempOutput = `'${memberName}', "Unknown${typeId}"`;
-    }
-
+    // Complex types
     else {
-      throw new InvalidTypeId(typeId, memberName);
+      const psAdr = this.rdataView.getAddress(address + 16);
+
+      const isGlobalStruct = psAdr > 0 ? this.rdataView.getUint8(this.rdataView.getAddress(psAdr + 8)) === 0 : true;
+      memberDefinition = psAdr > 0 ? this.parseStruct(psAdr) : undefined;
+
+      if(typeId === 1){
+        tempOutput.member = isGlobalStruct ?
+        `'${memberName}', ['[]', ${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]` :
+        `'${memberName}', ['[]', this.${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]`;
+      }
+
+      else if(typeId === 2){
+        tempOutput.member = isGlobalStruct ?
+          `'${memberName}', Utils.getArrayReader(${memberDefinition.name})` :
+          `'${memberName}', Utils.getArrayReader(this.${memberDefinition.name})`;
+      }
+
+      else if(typeId === 3){
+        tempOutput.member = isGlobalStruct ?
+          `'${memberName}', Utils.getRefArrayReader(${memberDefinition.name})` :
+          `'${memberName}', Utils.getRefArrayReader(this.${memberDefinition.name})`;
+      }
+
+      else if (typeId === 16){ // 0x10
+        tempOutput.member = isGlobalStruct ?
+          `'${memberName}', Utils.getPointerReader(${memberDefinition.name})` : 
+          `'${memberName}', Utils.getPointerReader(this.${memberDefinition.name})`;
+      }
+
+      else if([20,29].includes(typeId)){ //0x14 and 0x1D
+        tempOutput.member = isGlobalStruct ?
+          `'${memberName}', ${memberDefinition.name}`:
+          `'${memberName}', this.${memberDefinition.name}`;
+      }
+
+      // Unknown types
+      else if([4, 8, 9, 28].includes(typeId)){
+        tempOutput.member = `'${memberName}', "Unknown${typeId}"`;
+      }
+
+      else {
+        throw new InvalidTypeId(typeId, memberName);
+      }
+
+      // Attach the custom type definition to the return object
+      if(!isGlobalStruct){
+        tempOutput.definition = memberDefinition;
+      }
     }
 
     return tempOutput;
@@ -140,8 +126,25 @@ export class StructTabParser {
     }
     
     const members = [];
+    let definitions = [];
+
     while(this.rdataView.getUint16(currentAddress) != 0){
-      const member = this.parseMember(currentAddress);
+      const { member, definition } = this.parseMember(currentAddress);
+      
+      if(Array.isArray(definition)){
+        definitions = dedupe(definitions.concat(flatDefinitions(definition)));
+      }
+
+      if(definition && !definitions.find(d => d.name === definition.name)){
+        // Flat-out sub definitions
+        const subDefs = definition.definitions ? definition.definitions : [];
+        for(const subDefinition of subDefs){
+          if(!definitions.find(d=>d.name === subDefinition.name)){
+            definitions.push(subDefinition);
+          }
+        }
+        definitions.push(definition);
+      }
       if(member === null){
         break;
       }
@@ -151,7 +154,11 @@ export class StructTabParser {
 
     this.structName = this.rdataView.getAsciiString(this.rdataView.getAddress(currentAddress + 8));
 
-    return { name: this.structName, members, version};
+    if(definitions.length > 0){
+      return { name: this.structName, members, version, definitions};
+    } else {
+      return { name: this.structName, members, version };
+    }
   }
 }
 
@@ -159,4 +166,24 @@ class InvalidTypeId extends TypeError {
   constructor(typeId, memberName){
     super(`Invalid typeId: ${typeId} in ${memberName}`);
   }
+}
+
+function flatDefinitions(defs){
+  let flatDefs = []
+  for(const {definitions, name, version, member} of defs){
+    if(Array.isArray(definitions)){
+      flatDefs = flatDefs.concat(flatDefinitions(definitions));
+    }
+    flatDefs.push({name, version, member})
+  }
+  return flatDefs;
+}
+
+function dedupe(array: Array<any>){
+  return array.reduce((pv, cv) => {
+    if(!pv.find(i => i.name === cv.name)){
+      pv.push(cv);
+    }
+    return pv;
+  }, [])
 }
