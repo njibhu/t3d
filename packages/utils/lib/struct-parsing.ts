@@ -17,7 +17,6 @@ export class StructTabParser {
   private parsedStructsId: Set<number>;
   private rdataView : RDataView;
 
-  // TODO remove, creates bug with non root structs
   private structName : string;
 
   constructor(dataView: DataView,  rdataMin: number, rdataMax: number){

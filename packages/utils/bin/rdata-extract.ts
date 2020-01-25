@@ -2,16 +2,18 @@
 import * as r2pipe from "r2pipe";
 import { RDataParser } from "../lib/rdata-parsing";
 import { StructTabParser } from "../lib/struct-parsing";
+import { writeFileSync } from "fs";
 
 async function run(){
   const filePath = process.argv[2];
+  const destinationFile = process.argv[3];
 
   if (!filePath) {
     console.error("Require path to executable file");
     process.exit(1);
   }
   
-  console.log("// Opening exe file...");
+  console.log("Opening exe file...");
   const r2 = r2pipe.open(filePath);
   const segments = r2.cmdj("iSj");
   
@@ -20,7 +22,7 @@ async function run(){
   
   if (rdata) {
     const { vaddr, vsize } = rdata;
-    console.log("// Found rdata!");
+    console.log("Found rdata!");
     r2.cmd(`s ${vaddr}`);
   
     const arrayBuffer = new Uint8Array(r2.cmdj(`pxj ${vsize}`));
@@ -32,11 +34,11 @@ async function run(){
 
     const parsedChunks = [];
     for(const chunk of chunks){
-      console.log(`// Parsing ${chunk.name}`);
+      console.log(`Parsing ${chunk.name}`);
       parsedChunks.push(structParser.parseStructTab(chunk.offset, chunk.versions, chunk.name));
     }
 
-    console.log(JSON.stringify(parsedChunks, null, 2));
+    writeFileSync(destinationFile, JSON.stringify(parsedChunks, null, 2));
   
   }
   
