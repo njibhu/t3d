@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: util/MaterialUtils.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: util/MaterialUtils.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+Copyright © Tyria3DLibrary project contributors
+
+This file is part of the Tyria 3D Library.
+
+Tyria 3D Library is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Tyria 3D Library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the Tyria 3D Library. If not, see &lt;http://www.gnu.org/licenses/>.
+*/
+
+/*
+	guid 1683952224941671000 is fucked up floor in SAB HUB
+	materialFilename for that mesh is 564821, shared with lots of stuff
+	lod 1 and 2 are both 0
+	material flags is 2056
+*/
+
+/**
+ * Collection of methods for generating THREE materials and textures
+ * from Guild Wars 2 data formats.
+ * @namespace MaterialUtils
+ */
+
+
+
+/**
+ * Builds a custom vertex shader for a given number of uv cannels.
+ * WIP not implemented yet!
+ * 
+ * @memberof MaterialUtils
+ * @param  {Number} numUv Number of UV channels used by this shader
+ * @return {String}       Genereted vertex shader source
+ */
+function buildVS(numUv){
+
+	var vdefs = "";
+	var adefs = "";
+	var reads = "";
+	for(var i=0; i&lt; numUv; i++){
+		vdefs += "varying vec2 vUv_"+(i+1)+";\n";
+		
+		/// uv and uv2 are defined by THREE
+		if(i>1)
+			adefs += "attribute vec2 uv"+(i+1)+";\n";
+
+
+		reads += "vUv_" + (i+1) + " = uv"+(i>0?(i+1):"")+";\n";
+	}
+
+	return adefs + vdefs +
+	    "void main()\n"+
+	    "{\n"+
+	        reads+
+	        "vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );\n"+
+	        "gl_Position = projectionMatrix * mvPosition;\n"+
+	    "}";
+}
+
+
+/**
+ * Generate a texture of a specified color, used to be part of THREEjs
+ * 
+ * @memberof MaterialUtils
+ * @param {Number} width 
+ * @param {Number} height 
+ * @param {THREE.Color} color 
+ * @returns {THREE.DataTexture}
+ */
+function generateDataTexture(width, height, color){
+	// create a buffer with color data
+	var size = width * height;
+	var data = new Uint8Array( 4 * size );
+	var r = Math.floor( color.r * 255 );
+	var g = Math.floor( color.g * 255 );
+	var b = Math.floor( color.b * 255 );
+	var a = 255;
+
+	for ( var i = 0; i &lt; size; i ++ ) {
+		var stride = i * 4;
+
+		data[ stride ] = r;
+		data[ stride + 1 ] = g;
+		data[ stride + 2 ] = b;
+		data[ stride + 3 ] = a;
+	}
+	// used the buffer to create a DataTexture
+	return new THREE.DataTexture( data, width, height, THREE.RGBAFormat );
+}
+
+/**
+ * Builds a custom pixel shader for a given number of uv cannels.
+ * WIP not implemented yet!
+ * 
+ * @memberof MaterialUtils
+ * @param  {Array}  textures  THREE textures
+ * @param  {Number} numUv     Number of UV channels used by this shader
+ * @param  {Number} alphaTest Texture see-trough alpha treshold
+ * @param  {any} lightMap  TODO
+ * @returns {string}
+ */
+function buildPS(textures, numUv, alphaTest, lightMap){
+	var t1uv = "vUv_"+(textures[0].uvIdx+1);
+	
+
+	var discard = "";
+
+	if(alphaTest){
+		discard = "    if (c1.a &lt; 0.5) \n"+
+    	"       discard;\n";	
+	}
+
+    /// Color from 1st text or lighted by 2nd?
+    var writeColor = "gl_FragColor = c1;\n";
+
+    if(lightMap){
+    	var texIdx = 0;
+    	//var t2uv = "vUv_4";//+(3-textures[texIdx].uvIdx+1);
+    	var t2uv = "vUv_1";// + (textures[texIdx].uvIdx+1);
+    	//console.log("t2uv",t2uv);
+
+    	writeColor = "   vec4 c2 = texture2D( texture"+(texIdx+1)+", "+t2uv+" );\n"+
+	    "     gl_FragColor = c2;\n";
+	    //"     gl_FragColor = vec4(c2.rgb * c1.r/.5, c2.a);\n";
+    }
+
+
+    var uniforms = ""
+    textures.forEach(function(t,idx){
+    	uniforms += "uniform sampler2D texture"+(idx+1)+";\n";
+    });
+	/*uniforms += "uniform sampler2D texture1;\n";
+	if(lightMap)
+		uniforms += "uniform sampler2D texture2;\n";*/
+
+	var varyings = "";	
+	for(var i=0; i&lt; numUv; i++){
+		varyings += "varying vec2 vUv_"+(i+1)+";\n";
+
+	}
+
+	return uniforms + varyings +
+    "void main( void ) {\n"+
+    "    vec4 c1 = texture2D( texture1, "+t1uv+" );\n"+
+    discard +
+    writeColor +
+    "}";
+}
+
+/**
+ * WIP, concept for generatin materials to render multi UV chanelled meshes.
+ * 
+ * @memberof MaterialUtils
+ * @param  {Array} 	textures  THREE texture
+ * @param  {Number} numUV     Number of UV channels used by this shader
+ * @param  {Number} alphaTest Texture see-trough alpha treshold
+ * @return {THREE.ShaderMaterial} Generated shader
+ */
+function getUVMat(textures, numUV, alphaTest){
+
+	var lightMap = false;
+	var uniforms = {};
+
+	textures.forEach(function(t,idx){
+		uniforms["texture"+idx] = { type: "t", value: t };
+	});
+
+	if(textures.length>1){
+		lightMap = true;		
+	}
+
+	var attributes = {};
+
+	for(var i=2; i&lt;numUV; i++){
+		attributes["uv"+(i+1)] =  { type: 'v2', value: [] };
+	}
+
+	var vs = buildVS(numUV);
+
+	return new THREE.ShaderMaterial( {
+		uniforms: uniforms,
+		vertexShader: vs,
+		fragmentShader: buildPS(
+				textures,
+				numUV,
+				alphaTest,
+				lightMap
+			), 
+		attributes: attributes,
+		side: THREE.FrontSide,
+	} );
+
+}
+
+/**
+ * Builds a THREE texture from a ModelMaterialData by reading settings and
+ * loading any required data from the localReader. Uses sharedTextures for 
+ * texture caching.
+ *
+ * This method is full of guesses and estimations, and could be improved on
+ * a lot, allowing rendering of multi UV channeled materials, or special
+ * materials like custom color chanelled gear.
+ * 
+ * @memberof MaterialUtils
+ * @param  {ModelMaterialData} material 	A value object often automaticaly  
+ *                                       	generated by a
+ *                                       	{{#crossLink "GW2Chunk"}}{{/crossLink}}
+ *                                       	structure definitions can be found in 
+ *                                       	AllFormats.js, look for the latest 
+ *                                       	version of ModelMaterialData
+ *                                       	
+ * @param  {GW2File} materialFile   A GW2File instance, must be of type AMAT
+ * @param  {LocalReader} localReader The LocalReader to load the file contents from.   
+ * @param  {Object} sharedTextures  Value Object for keeping the texture cache
+ * @return {THREE.Material}         A THREE Material with the generated contents and settings.
+ */
+function getMaterial(material, materialFile, localReader, sharedTextures){
+
+	if(!materialFile)
+		return;
+	
+	var dxChunk =  materialFile.getChunk("dx9s");
+	var grChunk = materialFile.getChunk("grmt");
+
+	/// Append all textures to the custom material
+	var finalTextures = [];
+	
+	//Some materials don't use textures..
+	if(material &amp;&amp; material.textures.length/* &amp;&amp; material.textures[texIndex]*/){
+
+		/// TODO: check for flags!			
+		/// 
+		/// techinques[] -> passes[] -> effects[] -> samplerIndex[]
+		/// 
+		//console.log("num effects",dxChunk.data.techniques[0].passes[0].effects.length);
+
+		//if(grChunk.data.flags!=76)
+		//	return;
+
+		/// 3 teqs : high medium low								GRAPHICS LEVEL SETTINGS
+		/// 1 passes												DON'T CARE
+		/// 15 effects			Each effect has a pixel shader 		HOW??
+		/// 1 or 2 sampler indices 									USE ALL! (Multi material)
+		
+		var effects = dxChunk.data.techniques[0].passes[0].effects;
+		//var effect = effects[10];
+		var effect = effects[0];
+
+		var shader = dxChunk.data.shaders[effect.pixelShader];
+		
+		/*effects.forEach(function (eff) {
+			if(eff.samplerIndex.length > effect.samplerIndex.length)
+				effect = eff;
+		});*/
+		//var samplerIdx = effect.samplerIndex[0];
+
+		var samplerTextures = [];
+		for(var i=0; i&lt;effect.samplerIndex.length; i++)
+		{
+
+			var samplerIdx = effect.samplerIndex[i];
+			var sampler = dxChunk.data.samplers[samplerIdx];
+
+			/// SHOULD NEVER HAPPEN, hide mesh!
+			if(!sampler)
+				continue;//return;
+
+			var textureToken = sampler &amp;&amp; grChunk.data.texTokens[sampler.textureIndex];
+			if(!textureToken)
+				textureToken = "0-0";
+			/*else
+				textureToken =textureToken.val;*/
+
+			/// Find the texture reffered by this sampler
+			var samplerTex = null;
+
+			material.textures.forEach(function(tex, index){
+
+				///Seems like only 1st part of token is used...
+				if(!samplerTex &amp;&amp; tex.token.split("-")[0] == textureToken.split("-")[0]){
+					//console.log("TEX match",tex.token, textureToken)
+					samplerTex = tex;
+				}
+			});
+
+			/// Add this sampler's texture to the collection of all textures
+			if(samplerTex){
+				samplerTextures.push(samplerTex);
+			}
+			else{
+				///FALLBACK, just guess what texture we should use
+				if(sampler)
+					samplerTextures.push(material.textures[sampler.textureIndex]);
+				else if(material.textures.length>0)
+					samplerTextures.push(material.textures[0]);
+				else return;
+			}
+
+
+		}/// END for each sampler index in effect
+
+		/// We now have all textures
+		//console.log("textures from sampler", samplerTextures);
+				
+
+		/// Fallback to using whatever texture there is.
+		if(samplerTextures.length &lt;= 0){
+			return;
+			//mainTex =  material.textures[0];			
+		}
+
+
+		//console.log("num samplers ",samplerTextures.length);
+		samplerTextures.forEach(function(texture, idx){
+
+			if(!texture)
+				return;
+			
+			/// Set texture "URL"
+			var texURL = texture &amp;&amp; texture.filename;
+
+			/// Load texture from RAM or local reader:
+			finalTextures[idx] = getTexture(texURL, localReader, sharedTextures)
+			if(finalTextures[idx]){
+				finalTextures[idx].uvIdx = texture.uvPSInputIndex;	
+			}
+			
+		});
+		
+
+	}/// End if material and texture			
+
+	var finalMaterial;
+
+
+	/// Create custom shader material if there are textures
+	if(finalTextures){
+
+		// TODO: make this work!
+		if(false &amp;&amp; finalTextures.length>0){
+			finalMaterial = getUVMat( finalTextures, material.texCoordCount, grChunk.data.flags!=16460 );	
+		}
+		else{
+			var ft=false;
+			var nt=false;
+			material.textures.forEach(function(t){
+				//Flag for diffuse map
+				if(!ft &amp;&amp; t.token.split("-")[0] == "1733499172")
+					ft = t;
+
+				//Flag for normal map
+				if(!nt &amp;&amp; t.token.split("-")[0] == "404146670")
+					nt = t;
+			});
+			
+			if(!ft || ft.filename&lt;=0)
+				return;
+
+			finalMaterial = new THREE.MeshPhongMaterial({
+				side: THREE.FrontSide, map:getTexture(ft.filename, localReader, sharedTextures)
+			}); 
+			if(nt) {
+				var normalMap = getTexture(nt.filename, localReader, sharedTextures);
+				normalMap.flipY = true;
+				finalMaterial.normalMap = normalMap;
+			}
+
+				
+			finalMaterial.textureFilename = ft.filename;
+			if(grChunk.data.flags!=16460){
+				//console.log("Setting alpha flag for ",grChunk.data.flags)
+				finalMaterial.alphaTest = 0.05;
+			}
+		}
+			
+	}
+
+	/// Fallback material is monocolored red
+	else{
+		finalMaterial = new THREE.MeshBasicMaterial({
+			side: THREE.FrontSide,
+			color:0xff0000,
+			shading: THREE.FlatShading}); 
+	}
+
+	
+	finalMaterial.needsUpdate = true;
+
+
+	/// Set material props
+	/// disable for now in order for custom shaders not to fuck up
+	
+	if(material){
+
+		var alphaMask0 = 0x0001;// + 0x0100 + 0x0200;
+    	var alphaMask1 = 0x0010
+    	var alphaMask2 = 0x0100 + 0x0200;
+    	var alphaMask2b =  0x0200;
+
+		
+		var grChunk = materialFile.getChunk("grmt");
+
+		//Enable alpha test for transparent flags
+    	if( (
+    		 material.materialFlags &amp; alphaMask0 ||
+    		 material.materialFlags &amp; alphaMask1 ||
+    		 material.materialFlags &amp; alphaMask2
+    		) //&amp;&amp; solidColor != null
+		){
+    		//return;
+    		//mesh.material.transparent = true;
+    		//mesh.material.opacity = 2.0;
+
+    		//var clr = solidColor;
+    		//var propAlpha = 0;
+
+    		///Backgroud color adds to alpha
+    		//if( mesh.materialFlags == 2569  ){
+
+    		/// This is rly just guesswork
+    		/// Check material flag  2568 (as int) and compare material filename 27353 to 20041
+    		/// Same flags but some have alpha and some don't
+    		//if( mesh.materialFlags &amp; alphaMask2b  ){
+    		//	propAlpha =  (clr[3] - 128)/128;
+    		//	//propAlpha = Math.max(0,propAlpha);
+    		//}
+
+    		//mesh.material.alphaTest = Math.max(0, 0.1 );//- propAlpha*2);
+    		
+    	}
+
+
+		/// GRCHUNK -> DATA -> FLAGS
+
+		///HAS LIGHT - TEX - ? - EMISSIVE16460
+		///
+		
+		/// 56533 LOD FOR TOMBSTONE?
+		
+		//	16460			0100 0000 0100 1100			"standard" stuff rendering OK in SAB (no alpha test)
+
+		//	
+		//	16452(SAB)		0100 0000 0100 0100			yellow numbers in sab signs
+		//	16448(SAB)		0100 0000 0100 0000			faces on rocks, cloudmen, skybox portal images, holes in walls, floor plates...
+		//												no lighting??
+		//	
+		//	 8268			0010 0000 0100 1100	
+		//	 3392			0000 1101 0100 0000			Moto machine light bulbs
+		//	 2380			0000 1001 0100 1100
+		//	 2368			0000 1001 0100 0000			Fountain water with rings, portal border and circular "light"
+		//	  332			0000 0001 0100 1100
+		//	  324			0000 0001 0100 0100			Moto face sprites
+		//	  
+		//	  320(SAB)		0000 0001 0100 0000			portal textures (normal maps ish)
+		//	  
+		//	   76			0000 0000 0100 1100			LOTS OF STUFF
+		//	   											Tree leaves, ground, hills, some roofs, flags, street lights
+		//	   											sheild textures, some fences, water tops, waterfall
+		//	   											
+		//	   											IN KHYLO "everything with alpha"
+		//	   
+		//	   
+		//	   68			0000 0000 0100 0100			Some flowers (lo res?) fountain edges foam
+		//	   
+		//	   64(SAB)		0000 0000 0100 0000			clouds, sun iamge
+
+
+		var lightMask = 8;
+		
+		var knownFileFlags = [
+			16460,
+			16452,
+			16448,
+			8268,
+			3392,
+			2380,
+			2368,
+			332,
+			324,
+			320,
+			76,
+			68,
+			64];
+
+		if(knownFileFlags.indexOf(grChunk.data.flags)&lt;0){
+			T3D.Logger.log(
+				T3D.Logger.TYPE_WARNING,
+				"unknown GR flag",grChunk.data.flags
+			);
+		}
+
+		if( !(grChunk.data.flags &amp; lightMask) ){
+			//debugger;
+			//console.log("no light");
+			finalMaterial =  new THREE.MeshBasicMaterial({
+				side: THREE.FrontSide,
+				map: finalMaterial.map
+			});
+
+		}
+		
+		if(grChunk.data.flags!=16460){
+			finalMaterial.alphaTest = 0.05;
+		}
+
+
+	}/// End if material
+	
+
+	return finalMaterial;
+
+}
+
+
+/**
+ * Load image data into a THREE.Texture from a texture file in the .dat file, using a LocalReader.
+ * Any loaded tetures are added to sharedTextures, allowing for texture caching and fewer reads.
+ * 
+ * @memberof MaterialUtils
+ * @param  {Number} texURL         The fileId or baseId of the file to load image data from.
+ * @param  {LocalReader} localReader    The LocalReader to load the file contents from.
+ * @param  {Object} sharedTextures Value Object for keeping the texture cache
+ * @return {THREE.Texture} A texture that will be populated by the file data when it is loaded.
+ */
+function getTexture(texURL, localReader, sharedTextures){
+
+	var finalTexture;
+
+	/// Read texture from shared array of loaded textures
+	/// or read it from URL and add to shared ones!			
+	if(texURL &amp;&amp; sharedTextures[texURL]){
+
+		/// Just read from already loaded textures.
+		finalTexture = sharedTextures[texURL];
+
+	}
+	else if(texURL){
+
+		/// Load and add to shared array.
+		finalTexture = loadLocalTexture(localReader,texURL);
+
+		/// Set standard texture functionality.
+		finalTexture.wrapT = THREE.RepeatWrapping;
+		finalTexture.wrapS = THREE.RepeatWrapping;
+		finalTexture.flipY = false;
+
+		sharedTextures[texURL] = finalTexture;
+	}
+
+	return finalTexture;
+}
+
+
+
+/**
+ * Load image data into a THREE.Texture from a texture file in the .dat file, using a LocalReader.
+ * If you're loading multiple textures, make sure to use
+ * {{#crossLink "MaterialUtils/getTexture"}}{{/crossLink}} that allows you to cache textures.
+ * 
+ * @memberof MaterialUtils
+ * @param {LocalReader} localReader - The LocalReader to load the file contents from.
+ * @param {Number} fileId - The fileId or baseId of the file to load image data from.
+ * @param {Number} mapping - What THREE mapping the returned texture will use, not implemented.
+ 
+ * @return {THREE.Texture} A texture that will be populated by the file data when it is loaded.
+ */
+function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror){
+	
+	if(defaultColor === undefined){
+		defaultColor = Math.floor( 0xffffff * Math.random() )
+	}
+
+	/// Temporary texture that will be returned by the function.
+	/// Color is randomized in order to differentiate different textures during loading.
+	var texture =  generateDataTexture(
+		1, // Width
+		1, // Height
+		new THREE.Color( defaultColor ) // Color
+	);
+
+	//Threejs r71 is using these settings by default, r72+ changed it
+	texture.minFilter = THREE.LinearMipMapLinearFilter;
+	texture.magFilter = THREE.LinearFilter;
+	texture.generateMipmaps = true;
+	texture.flipY = true;
+
+	/// Only allow non-zero fileId, otherwise jsut return static texture
+	if( parseInt(fileId) &lt;= 0 ){
+		if(onerror)
+			onerror();
+		return texture;
+	}
+
+	/// Load file using LocalReader.
+	localReader.loadTextureFile(fileId,
+		function(inflatedData, dxtType, imageWidth, imageHeigth){
+
+			/// Require infalted data to be returned.
+			if(!inflatedData){
+				if(onerror)
+					onerror();
+				return;
+			}
+
+			/// Create image using returned data.
+			var image = {
+				data   : new Uint8Array(inflatedData),
+				width  : imageWidth,
+				height : imageHeigth
+			};
+
+			/// Use RGBA for all textures for now...
+			/// TODO: don't use alpha for some formats!
+			texture.format = (dxtType==3 || dxtType==5 || true) ? THREE.RGBAFormat : THREE.RGBFormat;
+
+			/// Update texture with the loaded image.
+			texture.image = image;
+			texture.needsUpdate = true;
+		}
+	);	
+
+	/// Return texture with temporary content.
+	return texture;
+};
+
+module.exports = {
+	buildVS: buildVS,
+	generateDataTexture: generateDataTexture,
+	buildPS: buildPS,
+	getUVMat: getUVMat,
+	getMaterial: getMaterial,
+	loadLocalTexture: loadLocalTexture
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-T3D.html">T3D</a></li></ul><h3>Classes</h3><ul><li><a href="DataReader.html">DataReader</a></li><li><a href="DataRenderer.html">DataRenderer</a></li><li><a href="EnvironmentRenderer.html">EnvironmentRenderer</a></li><li><a href="GW2Chunk.html">GW2Chunk</a></li><li><a href="GW2File.html">GW2File</a></li><li><a href="HavokRenderer.html">HavokRenderer</a></li><li><a href="LocalReader.html">LocalReader</a></li><li><a href="PersistantStore.html">PersistantStore</a></li><li><a href="PropertiesRenderer.html">PropertiesRenderer</a></li><li><a href="SingleModelRenderer.html">SingleModelRenderer</a></li><li><a href="StringRenderer.html">StringRenderer</a></li><li><a href="TerrainRenderer.html">TerrainRenderer</a></li><li><a href="ZoneRenderer.html">ZoneRenderer</a></li></ul><h3>Namespaces</h3><ul><li><a href="ArchiveParser.html">ArchiveParser</a></li><li><a href="FileTypes.html">FileTypes</a></li><li><a href="Logger.html">Logger</a></li><li><a href="MaterialUtils.html">MaterialUtils</a></li><li><a href="MathUtils.html">MathUtils</a></li><li><a href="ParserUtils.html">ParserUtils</a></li><li><a href="RenderUtils.html">RenderUtils</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun May 06 2018 14:40:59 GMT+0200 (Paris, Madrid (heure d’été))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

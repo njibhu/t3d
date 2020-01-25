@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: LocalReader/PersistantStore.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: LocalReader/PersistantStore.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+Copyright © Tyria3DLibrary project contributors
+
+This file is part of the Tyria 3D Library.
+
+Tyria 3D Library is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Tyria 3D Library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the Tyria 3D Library. If not, see &lt;http://www.gnu.org/licenses/>.
+*/
+
+/// T3DLib version
+const version = require('../T3DLib').version;
+
+/// Indexed DB versioning
+const DB_VERSION = 4;
+
+/**
+ * This class handles offline storage of the .dat indexes and files metadata
+ * @class PersistantStore
+ */
+class PersistantStore{
+
+    constructor() {
+        //They may be multiple connection request issued at the same time, but it's actually okay since
+        //as soon as they are registered, the not-used ones will get garbage collected
+        this._dbConnection = undefined;
+        this._getConnection(()=>{});
+    }
+
+    /**
+     *   Initialize the IndexedDB connection and manages version changes.
+     * 
+     * @async
+     * @private
+     * @returns {Promise&lt;IDBDatabase>} Promise to the Database connection
+     */
+    _getConnection(){
+        let self = this;
+        return new Promise((resolve, reject) => {
+            if(self._dbConnection)
+                resolve(self._dbConnection);
+
+            // Let us open our database
+            let request = window.indexedDB.open("Tyria3DLibrary", DB_VERSION);
+            
+            /// onblocked is fired when the db needs an upgrade but an older version is opened in another tab
+            request.onblocked = (event) =>  {
+                T3D.Logger.log(
+                    T3D.Logger.TYPE_ERROR,
+                    "The T3D persistant database cannot be upgraded while the app is opened somewhere else."
+                );
+            }
+
+            /// fired when the database needs to be upgraded (or the first time)
+            request.onupgradeneeded = (event) => {
+                /** @type {IDBDatabase} */
+                let db = event.target.result;
+                let currentVersion = event.oldVersion;
+
+                if(currentVersion &lt; 2){
+                    let newstore = db.createObjectStore("listings", {autoIncrement: true});
+                }
+
+                if(currentVersion &lt; 3){
+                    let storeListing = event.currentTarget.transaction.objectStore("listings");
+                    storeListing.createIndex('filename', 'filename', {unique: false});
+                }
+
+            }
+
+            request.onsuccess = (event) => {
+                self._dbConnection = event.target.result;
+                self.isReady = true;
+                resolve(self._dbConnection);
+            }
+
+            request.onerror = (event) => {
+                T3D.Logger.log(
+                    T3D.Logger.TYPE_ERROR,
+                    "The T3D persistant database could not be opened."
+                );
+                reject();
+            }
+        });
+    }
+
+    /**
+     *   Add or update a listing into the database
+     * 
+     * @async
+     * @param {number|undefined} id This ID doesn't really matter, it's just the index of the object in the database, can be undefined
+     * @param {Array} listing 
+     * @param {string} fileName .dat file name, allows to have multiple listings for different .dat files.
+     * @param {boolean} isComplete Keep back the information if that was the last update on the current scan or not.
+     * @returns {Promise&lt;number>} On success, the number is the object key in the database
+     */
+    putListing(id, listing, fileName, isComplete){
+        let self = this;
+        return new Promise((resolve, reject) => {
+            self._getConnection().then((db) => {
+                let store = db.transaction(["listings"], "readwrite").objectStore("listings");
+
+                let request = (id) ? store.put({array: listing, filename: fileName, complete: isComplete}, id) : store.put({array: listing, name: fileName});
+    
+                request.onsuccess = (event) => {
+                    resolve(request.result);
+                }
+                request.onerror = (event) => {
+                    reject();
+                }
+            })
+        });
+    }
+
+    /**
+     * Returns the last valid listing in the database
+     * 
+     * @async
+     * @param {string} fileName .dat file name, allows to have multiple listings for different .dat files.
+     * @returns {Promise&lt;{array: Array, key: number, complete: boolean}>}
+     *      array: the last listing
+     *      key: the index of the last listing in the database
+     */
+    getLastListing(fileName) {
+        let self = this;
+        return new Promise((resolve, reject) => {
+            self._getConnection().then((db) => {
+                let listingsStore = db.transaction(["listings"], "readonly")
+                    .objectStore("listings").index("filename");
+                
+                listingsStore.openCursor(IDBKeyRange.only(fileName), "prev").onsuccess = (event) => {
+                    let cursor = event.target.result;
+                    if(!cursor)
+                        resolve({array: [], key: undefined, complete: true});
+                    else {
+                        resolve({array: cursor.value.array, key: cursor.primaryKey, complete: cursor.value.complete});
+                    }
+                        
+                }
+            });
+        });
+    }
+}
+
+module.exports = PersistantStore;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-T3D.html">T3D</a></li></ul><h3>Classes</h3><ul><li><a href="DataReader.html">DataReader</a></li><li><a href="DataRenderer.html">DataRenderer</a></li><li><a href="EnvironmentRenderer.html">EnvironmentRenderer</a></li><li><a href="GW2Chunk.html">GW2Chunk</a></li><li><a href="GW2File.html">GW2File</a></li><li><a href="HavokRenderer.html">HavokRenderer</a></li><li><a href="LocalReader.html">LocalReader</a></li><li><a href="PersistantStore.html">PersistantStore</a></li><li><a href="PropertiesRenderer.html">PropertiesRenderer</a></li><li><a href="SingleModelRenderer.html">SingleModelRenderer</a></li><li><a href="StringRenderer.html">StringRenderer</a></li><li><a href="TerrainRenderer.html">TerrainRenderer</a></li><li><a href="ZoneRenderer.html">ZoneRenderer</a></li></ul><h3>Namespaces</h3><ul><li><a href="ArchiveParser.html">ArchiveParser</a></li><li><a href="FileTypes.html">FileTypes</a></li><li><a href="Logger.html">Logger</a></li><li><a href="MaterialUtils.html">MaterialUtils</a></li><li><a href="MathUtils.html">MathUtils</a></li><li><a href="ParserUtils.html">ParserUtils</a></li><li><a href="RenderUtils.html">RenderUtils</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun May 06 2018 14:40:58 GMT+0200 (Paris, Madrid (heure d’été))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

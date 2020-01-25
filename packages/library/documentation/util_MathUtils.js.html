@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: util/MathUtils.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: util/MathUtils.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+Copyright © Tyria3DLibrary project contributors
+
+This file is part of the Tyria 3D Library.
+
+Tyria 3D Library is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Tyria 3D Library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the Tyria 3D Library. If not, see &lt;http://www.gnu.org/licenses/>.
+*/
+
+const base32Max = Math.pow(2, 32);
+
+/**
+ * Collection Math and sorting methods
+ * @namespace MathUtils
+ */
+
+/**
+ * Takes an integer and calculates what the 16 bit float
+ * representation of the binary data used to read the integer is.
+ *
+ * @memberof MathUtils
+ * @param  {Number} h Integer value
+ * @return {Number} Float value
+ */
+function f16(h) {
+    var s = (h &amp; 0x8000) >> 15;
+    var e = (h &amp; 0x7C00) >> 10;
+    var f = h &amp; 0x03FF;
+
+    if (e == 0) {
+        return (s ? -1 : 1) * Math.pow(2, -14) * (f / Math.pow(2, 10));
+    } else if (e == 0x1F) {
+        return f ? NaN : ((s ? -1 : 1) * Infinity);
+    }
+
+    return (s ? -1 : 1) * Math.pow(2, e - 15) * (1 + (f / Math.pow(2, 10)));
+}
+
+/**
+ * Calculates the number of binary ones present in the data used to
+ * generate the input integer.
+ * 
+ * @memberof MathUtils
+ * @param  {Number} bits Integer
+ * @return {Number}      Number of binary ones in the data
+ */
+function popcount(bits) {
+    var SK5 = 0x55555555,
+        SK3 = 0x33333333,
+        SKF0 = 0x0f0f0f0f,
+        SKFF = 0xff00ff;
+
+    bits -= (bits >> 1) &amp; SK5;
+    bits = (bits &amp; SK3) + ((bits >> 2) &amp; SK3);
+    bits = (bits &amp; SKF0) + ((bits >> 4) &amp; SKF0);
+    bits += bits >> 8;
+
+    return (bits + (bits >> 15)) &amp; 63;
+}
+
+/**
+ * Calculates the 64 bit integer value of two 32 bit integers. Only works up to 
+ * the limit of the javascript Number maximum value.
+ * 
+ * @memberof MathUtils
+ * @param  {Number[]} arr     Input integers, length should be 2.
+ * @return {Number}      64 bit representation of the two integers.
+ */
+function arr32To64(arr) {
+    /// Re-read as uint64 (still little endian)
+    /// Warn: this will not work for ~50+ bit longs cus all JS numbers are 64 bit floats...
+    return base32Max * arr[1] + arr[0];
+}
+
+/**
+ * Sorts an array and returns unique values only.
+ * 
+ * @memberof MathUtils
+ * @param  {Array} arr_in     Input array
+ * @param  {Function} comparator A comparator function between the objects in arr_in
+ * @return {Array}            Sorted and unique value.
+ */
+function sort_unique(arr_in, comparator) {
+    var arr = Array.prototype.sort.call(arr_in, comparator);
+
+    var u = {},
+        a = [];
+    for (var i = 0, l = arr.length; i &lt; l; ++i) {
+        if (u.hasOwnProperty(arr[i])) {
+            continue;
+        }
+        a.push(arr[i]);
+        u[arr[i]] = 1;
+    }
+
+    return a;
+}
+
+
+module.exports = {
+    f16: f16,
+    popcount: popcount,
+    arr32To64: arr32To64,
+    sort_unique: sort_unique
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-T3D.html">T3D</a></li></ul><h3>Classes</h3><ul><li><a href="DataReader.html">DataReader</a></li><li><a href="DataRenderer.html">DataRenderer</a></li><li><a href="EnvironmentRenderer.html">EnvironmentRenderer</a></li><li><a href="GW2Chunk.html">GW2Chunk</a></li><li><a href="GW2File.html">GW2File</a></li><li><a href="HavokRenderer.html">HavokRenderer</a></li><li><a href="LocalReader.html">LocalReader</a></li><li><a href="PersistantStore.html">PersistantStore</a></li><li><a href="PropertiesRenderer.html">PropertiesRenderer</a></li><li><a href="SingleModelRenderer.html">SingleModelRenderer</a></li><li><a href="StringRenderer.html">StringRenderer</a></li><li><a href="TerrainRenderer.html">TerrainRenderer</a></li><li><a href="ZoneRenderer.html">ZoneRenderer</a></li></ul><h3>Namespaces</h3><ul><li><a href="ArchiveParser.html">ArchiveParser</a></li><li><a href="FileTypes.html">FileTypes</a></li><li><a href="Logger.html">Logger</a></li><li><a href="MaterialUtils.html">MaterialUtils</a></li><li><a href="MathUtils.html">MathUtils</a></li><li><a href="ParserUtils.html">ParserUtils</a></li><li><a href="RenderUtils.html">RenderUtils</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun May 06 2018 14:40:59 GMT+0200 (Paris, Madrid (heure d’été))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

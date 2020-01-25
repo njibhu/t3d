@@ -1,0 +1,15 @@
+{
+    "plugins": ["plugins/markdown"],
+    "source" : {
+        "include" : [
+            "src/"
+        ],
+        "exclude": [
+            "src/format/chunks/"
+        ]
+    },
+    "opts" : {
+        "destination": "./documentation/",
+        "recurse": true
+    }
+}

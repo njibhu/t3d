@@ -1,0 +1,118 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+    	
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <title>Tyria3D beta 1.0.6</title>
+        
+        <link rel="stylesheet" href="https://d1h9a8s8eodvjz.cloudfront.net/fonts/menomonia/08-02-12/menomonia.css">
+        <link rel="stylesheet" href="vendor/normalize.css">
+        <link rel="stylesheet" href="vendor/jquery/jquery-ui.min.css">
+        <link rel="stylesheet" href="css/3d.css">
+        
+        <script src="vendor/modernizr/modernizr-2.8.0.min.js"></script> 
+    </head>
+    <body>
+        <div id="intro">
+            <div class="content diagonalBG">
+
+                <h1>Welcome to Tyria 3D</h1>
+
+                <nav class="darkBG"/>
+                    <div class="buttonHolder">
+                        <button id="ILoveYouDiddi" class="hidden big">Start exploring</button>
+                    </div>
+                    
+                    <div id="errorGL" class="hidden error">
+                        WebGL was not detected
+                        <a href="http://get.webgl.org" target ="_blank" class="link">
+                            get it here!
+                        </a>
+                    </div>
+
+                    <div id="frontpageLoader" class="error">Loading...</div>
+                </nav>
+
+                <p>
+                    <strong>This is a Guild Wars 2 fansite.</strong><br/>
+                    Tyria 3D lets you explore textured Guild Wars 2 map files in 3D, directly in your web browser.
+                    The purpose of this project is to allow a unique look into the amazing world of Guild Wars 2, Tyria.
+                    This site  atempts to visualize some of the in-game graphics but is missing
+                    the animation, lighting and visual effects that makes Guild Wars 2 the most beautiful MMO out there.
+                </p>
+                
+                <p>
+                    <strong>This is a developement version !</strong><br/>
+                    The official Tyria3D is available at: <a href="http://tyria3d.com/" class="link">tyria3d.com</a>.<br/>
+                </p>
+
+                <p>
+                    <strong>What's new ?</strong><br />
+                    <ul>
+                        <li><p><strong>1.0.5</strong><br/>
+                            The navigation menu before loading the map is fixed.<br/>
+                            It's now possible to share what you can see ! Load the map copy the url and give it to your friend !
+                        </p></li>
+                        <li><p><strong>1.0.4</strong><br/>
+                            Ported from Google Chrome to current browsers ! (Tested with Firefox and Edge).<br/>
+                            Automatically detects 76 new maps.<br/>
+                            Re-orgnanisation of the map selection.<br/>
+                            Many updates in the code, many small fixes.<br/>
+                        </p></li>
+                    </ul>
+                </p>
+                
+                <p>
+                    <strong>Contacts</strong><br/>
+                    This is a fork of the official Tyria3D, it is now two different things.
+                    If you have questions don't hesitate to contact me !<br/>
+                    <ul>
+                        <li>By mail: ev@njibhu.eu</li>
+                        <li>If you have a bug: submit an issue on <a href="https://github.com/njibhu/Tyria3DApp/issues"><strong>Github!</strong></a></li>
+                        <li>Ingame: Aquila.4832</li>
+                        <li>Reddit: /u/Njibhu_</li>
+                    </ul>
+                </p>
+                
+                <p>
+                    <strong>Thanks !</strong>
+                    <ul>
+                        <li><strong><a href="https://github.com/RequestTimeout408">RequestTimeout408</a></strong> to make Tyria3D</li>
+                        <li><strong><a href="https://github.com/ahom">Ahom</a></strong> for <a href="https://github.com/ahom/gw2_reverse">github.com/ahom/gw2_reverse</a></li>
+                        <li><strong><a href="https://reddit.com/u/gw2reverser">/u/gw2reverser</a></strong> for helping RequestTimeout408</li>
+                        <li><strong><a href="https://reddit.com/u/that_shaman">/u/that_shaman</a></strong> too</li>
+                        <li><strong><a href="https://www.youtube.com/channel/UCYUY9_i44IDNOs_Ja815mlA">WoodenPotatoes</a></strong> for being a great background company while doing stuff like this</li>
+                        <li>And everyone working at <strong>Arenanet</strong> of course !</strong>
+                    </ul>
+                </p>
+                
+                <div class="push"></div>
+
+            </div>
+            <div class="copyright darkBG">
+                <p>
+                    Tyria 3D uses:
+                    <a href="http://threejs.org/" target="_blank">three.js</a>
+                    <a href="https://jquery.com/" target="_blank">jQuery</a>
+                    <a href="https://github.com/kig/DataStream.js" target="_blank">DataStream.js</a>
+                </p>
+                
+                <p>
+                    ArenaNet copyright notice: © 2018 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.
+                </p>
+            </div>
+        </div>
+        <script src="js/DataStream.js"></script>
+
+        <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
+        <script src="vendor/jquery/jquery-ui.min.js"></script>
+
+        <script src="build/vendor/three-bundle.js"></script>
+        
+        <script src="js/T3D/T3D-1.0.5.js"></script>
+        <script src="js/T3D/T3D-1.0.4.Formats.min.js"></script>
+        <script src="build/T3DAPP-1.0.6.min.js"></script>
+    </body>
+</html>

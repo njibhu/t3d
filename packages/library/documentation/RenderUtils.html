@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: RenderUtils</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: RenderUtils</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>RenderUtils</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Collection of methods used for generating THREE meshes from Guild Wars 2 data formats.</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_RenderUtils.js.html">util/RenderUtils.js</a>, <a href="util_RenderUtils.js.html#line52">line 52</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getFilesUsedByModel"><span class="type-signature">(async, static) </span>getFilesUsedByModel<span class="signature">(filename, localReader, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>WIP, Tries to find all fileIds refered by a model file.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>filename</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Model file Id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>localReader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>LocalReader instance to read from</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>First argument is list of used file IDs</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_RenderUtils.js.html">util/RenderUtils.js</a>, <a href="util_RenderUtils.js.html#line663">line 663</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getMeshesForFilename"><span class="type-signature">(async, static) </span>getMeshesForFilename<span class="signature">(filename, color, localReader, sharedMeshes, sharedTextures, showUnmaterialed, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Gets a mesh array from Model file and sends as argument to callback. Uses a cache of meshes in order
+to never read the same model file twice.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>filename</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The fileId or baseId of the Model file to load</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>RGBA array of 4 integers</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>localReader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The LocalReader object used to read data from the GW2 .dat file.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sharedMeshes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Value Object for keeping the texture cache.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sharedTextures</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Value Object for keeping the texture cache.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>showUnmaterialed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If false does not render any models with missing materials.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Fired once all meshes have been loaded.
+three arguments are passed to the callback function.</p>
+<p>The first argument is an Array with each textured THREE.Mesh objects.</p>
+<p>The second argument is a boolean, true indicates that these meshes were not
+loaded from the dat file, but retrieved from the run time cache.</p>
+<p>The third argument is the bounding spehere of this model file.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_RenderUtils.js.html">util/RenderUtils.js</a>, <a href="util_RenderUtils.js.html#line623">line 623</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".loadLocalTexture"><span class="type-signature">(static) </span>loadLocalTexture<span class="signature">(localReader, fileId, mapping, defaultColor, onerror)</span><span class="type-signature"> &rarr; {THREE.Texture}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Load image data into a THREE.Texture from a file within the GW2 .dat file using a LocalReader.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>localReader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The LocalReader to load the file contents from.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fileId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The fileId or baseId of the file to load image data from.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mapping</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>What THREE mapping the returned texture will use, not implemented.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>defaultColor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>RGBA array of 4 integers. The default solid color of the mesh, should texture loading fail.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onerror</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Error callback, not implemented.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Please use the original function from MaterialUtils</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_RenderUtils.js.html">util/RenderUtils.js</a>, <a href="util_RenderUtils.js.html#line112">line 112</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A texture that will be populated by the file data when it is loaded.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">THREE.Texture</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".loadMeshFromModelFile"><span class="type-signature">(async, static) </span>loadMeshFromModelFile<span class="signature">(filename, solidColor, localReader, sharedTextures, showUnmaterialed, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Loads mesh array from Model file and sends as argument to callback.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>filename</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Name of the model file to load data from.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>solidColor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>RGBA array of 4 integers</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>localReader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The LocalReader to load the file contents from.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sharedTextures</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Value Object for keeping the texture cache.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>showUnmaterialed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If false does not render any models with missing materials.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Fired once all meshes have been loaded.
+two arguments are passed to the callback function.</p>
+<p>The first argument is an Array with each textured THREE.Mesh objects.</p>
+<p>The second argument is the bounding spehere of this model file.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_RenderUtils.js.html">util/RenderUtils.js</a>, <a href="util_RenderUtils.js.html#line421">line 421</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".renderGeomChunk"><span class="type-signature">(static) </span>renderGeomChunk<span class="signature">(localReader, chunk, modelDataChunk, sharedTextures, showUnmaterialed)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns a THREE representation of the data contained by a GW2 model file.
+The data is read using a LocalReader reference into the GW2 .dat.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>localReader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The LocalReader to load the file contents from.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>chunk</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Model GEOM chunk.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>modelDataChunk</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Model MODL chunk.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sharedTextures</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Value Object for keeping the texture cache.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>showUnmaterialed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If false does not render any models with missing materials.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_RenderUtils.js.html">util/RenderUtils.js</a>, <a href="util_RenderUtils.js.html#line130">line 130</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Each geometry in the model file represented by a textured THREE.Mesh object</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".renderRect"><span class="type-signature">(static) </span>renderRect<span class="signature">(rect, yPos, material, dy)</span><span class="type-signature"> &rarr; {THREE.Mesh}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Creates a mesh representing a single plane.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>rect</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>An object with x1,x2,y1 and y2 properties.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>yPos</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Vertical position of the rectangle.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>material</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">THREE.Material</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Mesh material to apply.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dy</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Mesh height.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="util_RenderUtils.js.html">util/RenderUtils.js</a>, <a href="util_RenderUtils.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The generated mesh.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">THREE.Mesh</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-T3D.html">T3D</a></li></ul><h3>Classes</h3><ul><li><a href="DataReader.html">DataReader</a></li><li><a href="DataRenderer.html">DataRenderer</a></li><li><a href="EnvironmentRenderer.html">EnvironmentRenderer</a></li><li><a href="GW2Chunk.html">GW2Chunk</a></li><li><a href="GW2File.html">GW2File</a></li><li><a href="HavokRenderer.html">HavokRenderer</a></li><li><a href="LocalReader.html">LocalReader</a></li><li><a href="PersistantStore.html">PersistantStore</a></li><li><a href="PropertiesRenderer.html">PropertiesRenderer</a></li><li><a href="SingleModelRenderer.html">SingleModelRenderer</a></li><li><a href="StringRenderer.html">StringRenderer</a></li><li><a href="TerrainRenderer.html">TerrainRenderer</a></li><li><a href="ZoneRenderer.html">ZoneRenderer</a></li></ul><h3>Namespaces</h3><ul><li><a href="ArchiveParser.html">ArchiveParser</a></li><li><a href="FileTypes.html">FileTypes</a></li><li><a href="Logger.html">Logger</a></li><li><a href="MaterialUtils.html">MaterialUtils</a></li><li><a href="MathUtils.html">MathUtils</a></li><li><a href="ParserUtils.html">ParserUtils</a></li><li><a href="RenderUtils.html">RenderUtils</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun May 06 2018 14:40:59 GMT+0200 (Paris, Madrid (heure d’été))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

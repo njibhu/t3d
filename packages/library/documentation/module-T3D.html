@@ -1,0 +1,3515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: T3D</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: T3D</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Tyria 3D Library main module.</p>
+<p>Use this static class to access file parsers- and data renderer classes.</p>
+<p>This class also works as a factory for creating
+LocalReader instances that looks up and inflates files from the Guild Wars 2 .dat.</p></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".DataRenderer"><span class="type-signature">(static, readonly) </span>DataRenderer<span class="type-signature"> :Class</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the DataRenderer class, the preferred way of
+accessing this class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Class</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>DataRenderer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line90">line 90</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".EnvironmentRenderer"><span class="type-signature">(static, readonly) </span>EnvironmentRenderer<span class="type-signature"> :Class</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the EnvironmentRenderer class, the preferred way of
+accessing this class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Class</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>EnvironmentRenderer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line100">line 100</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".FileTypes"><span class="type-signature">(static, readonly) </span>FileTypes<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the FileTypes tools and list.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>FileTypes</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line270">line 270</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".HavokRenderer"><span class="type-signature">(static, readonly) </span>HavokRenderer<span class="type-signature"> :Class</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the HavokRenderer class, the preferred way of
+accessing this class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Class</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>HavokRenderer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line110">line 110</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".Logger"><span class="type-signature">(static) </span>Logger<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the static Logger object, the preferred way of
+accessing this object. A simple way of providing your own logging methods
+is to simply overwrite any or all of the logging methods specified in 
+{{#crossLink &quot;Logger/logFunctions:property&quot;}}{{/crossLink}}</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Logger</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line176">line 176</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".MapFileList"><span class="type-signature">(static, readonly) </span>MapFileList<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Contains a list of known map fileID:s and their names. Used in order to quickly
+look up what maps are in a .dat file. Note that this property is hard coded and
+has high probablity of being outdated. Also note that the names are just guesses
+by RequestTimeout.</p>
+<p>The format of this list objects is</p>
+<pre class="prettyprint source"><code>{ 
+ maps : [
+          {
+            name:&quot;World Area Name&quot;,
+               maps:[
+                 { fileName :&quot;[numeric fileId].data&quot;, name:&quot;Map Name One&quot; },
+                   { fileName :&quot;[numeric fileId].data&quot;, name:&quot;Map Name Two&quot; },        
+                 { fileName :&quot;[numeric fileId].data&quot;, name:&quot;Map Name Three&quot; }
+              ]
+      },
+         {
+            name:&quot;Another World Area Name&quot;,
+                maps:[
+                    { fileName :&quot;[numeric fileId].data&quot;, name:&quot;Map Name 408&quot; }
+            ]
+         }
+    ]</code></pre><p>  }</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>MapFileList</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line213">line 213</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".MaterialUtils"><span class="type-signature">(static, readonly) </span>MaterialUtils<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the MaterialUtils class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>MaterialUtils</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line224">line 224</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".MathUtils"><span class="type-signature">(static, readonly) </span>MathUtils<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the MathUtils class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>MathUtils</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line233">line 233</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".ParserUtils"><span class="type-signature">(static, readonly) </span>ParserUtils<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the ParserUtils class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ParserUtils</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line242">line 242</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".PersistantStore"><span class="type-signature">(static, readonly) </span>PersistantStore<span class="type-signature"> :Class</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the PersistantStore class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Class</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>PersistantStore</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line261">line 261</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".PropertiesRenderer"><span class="type-signature">(static, readonly) </span>PropertiesRenderer<span class="type-signature"> :Class</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the PropertiesRenderer class, the preferred way of
+accessing this class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Class</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>PropertiesRenderer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line120">line 120</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".RenderUtils"><span class="type-signature">(static, readonly) </span>RenderUtils<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the RenderUtils class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>RenderUtils</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line252">line 252</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".SingleModelRenderer"><span class="type-signature">(static, readonly) </span>SingleModelRenderer<span class="type-signature"> :Class</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the SingleModelRenderer class, the preferred way of
+accessing this class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Class</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>SingleModelRenderer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line130">line 130</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".StringRenderer"><span class="type-signature">(static, readonly) </span>StringRenderer<span class="type-signature"> :Class</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the StringRenderer class, the preferred way of
+accessing this class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Class</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>StringRenderer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line160">line 160</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".TerrainRenderer"><span class="type-signature">(static, readonly) </span>TerrainRenderer<span class="type-signature"> :Class</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the TerrainRenderer class, the preferred way of
+accessing this class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Class</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>TerrainRenderer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line140">line 140</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".version"><span class="type-signature">(static) </span>version<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The current library version. Used to make sure local storage caches are not
+shared between different releases.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>version</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".ZoneRenderer"><span class="type-signature">(static, readonly) </span>ZoneRenderer<span class="type-signature"> :Class</span></h4>
+
+
+
+
+<div class="description">
+    <p>A static reference to the ZoneRenderer class, the preferred way of
+accessing this class.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Class</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ZoneRenderer</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line150">line 150</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getContextValue"><span class="type-signature">(static) </span>getContextValue<span class="signature">(context, clazz, propName, defaultValue)</span><span class="type-signature"> &rarr; {any}</span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A shared renderer context value object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>clazz</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Class</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A class extending
+                                   {{#crossLink &quot;DataRenderer&quot;}}{{/crossLink}}.
+                                   Specifies for renderer class you want to read 
+                                   output.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>propName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name of the property written by the
+                                   renderer that should retrtieved.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>defaultValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>This value is passed back if no data could
+                                 be found.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line525">line 525</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The specified value from the conext if any,
+                                 otherwise defaultValue.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">any</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getFileListAsync"><span class="type-signature">(async, static) </span>getFileListAsync<span class="signature">(localReader, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Utility method for acceccing a list containing information about all files
+in the .dat connected to the provided LocalReader instance. This method first
+tries to read a local indexing list from the client's localstorage and
+fallbacks to generating the list by scanning the MFT indices of the .dat
+and peeking each file in order to find out what filetype it has.</p>
+<p>Note that peeking the files is the time consuming task, so if you don't want
+yout application to spend time indexing the .dat and have a priori knowledge
+about the required file Id's you should not use this method.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>localReader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A fully initialized LocalReader instance</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Fires when the index has been loaded
+                                        from the localstorage or after it has
+                                        been built and stored in localstorage.
+                                        Takes the generated object list of
+                                        files as an argument. This list groups
+                                        arrays of MFT indices per file type,
+                                        for exmample:</p>
+<pre class="prettyprint source"><code>{
+      &quot;Unknown&quot;    : [444, 555, 333],
+      &quot;MODL&quot;        : [444, 555, 333],
+      &quot;String&quot;    : [666, 777, 888]
+}</code></pre><p>For more details see
+{{#crossLink &quot;LocalReader/listFiles:method&quot;}}{{/crossLink}}</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line336">line 336</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getLocalReader"><span class="type-signature">(async, static) </span>getLocalReader<span class="signature">(file, callback, t3dtoolsWorker)</span><span class="type-signature"> &rarr; {<a href="LocalReader.html">LocalReader</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Creates a new instance of LocalReader with an pNaCl inflater connected to it.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">File</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Core JS File instance, must refer to a GW2 .dat file</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback function, fired when the file index is fully
+                                    constructed. Takes no arguments.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>t3dtoolsWorker</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>URL to the inflater file. If omitted
+                                  _settings.t3dtoolsWorker will be used instead.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line290">line 290</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The contructed LocalReader, note that this object
+                                    will not be fully initialized until the callback
+                                    is fired.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getMapListAsync"><span class="type-signature">(async, static) </span>getMapListAsync<span class="signature">(localReader, callback, searchAll)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Utility method for acceccing a list containing information about all map files
+in the .dat connected to the provided LocalReader instance. This method first
+tries to read a local indexing list from the client's localstorage and
+fallbacks to generating the list by scanning the MFT indices of the .dat
+and peeking each file in order to find out what filetype it has.</p>
+<p>If the searchAll flag is not set to true, this process will only scan files
+from the {{#crossLink &quot;T3D/MapFileList:property&quot;}}{{/crossLink}}</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>localReader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A fully initialized LocalReader instance</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Fires when the index has been loaded
+                                    from the localstorage or after it has
+                                    been built and stored in localstorage.
+                                    Takes the generated object list of
+                                    files as an argument. This list groups
+                                    arrays of MFT indices per file type,
+                                    for exmample:</p>
+<pre class="prettyprint source"><code>    {    
+        maps:[
+            {
+                name: 'Heart of Maguuma',
+                maps: [
+                    {fileName:1151420, name:'HoT BWE3 Raid'},
+                    {fileName:969663, name:'Verdant Brink}
+                ]
+            },
+            {
+                name: 'Unknown maps',
+                maps: [
+                    {fileName:12345678, name:'Unknown map 12345678'}
+                ]
+            }
+        ]
+    };</code></pre></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>searchAll</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>if true forces re-indexing of entire dat.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line393">line 393</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".renderMapContentsAsync"><span class="type-signature">(async, static) </span>renderMapContentsAsync<span class="signature">(localReader, fileName, renderers, callback, logger)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Utility method used for rendering map files. Loads a map file and applies
+the provided renderers to it.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>localReader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A fully initialized LocalReader instance</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fileName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The File Id of a mapc file.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>renderers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>An array of renderer classes. Each
+                                      class should extend 
+                                      {{#crossLink &quot;DataRenderer&quot;}}{{/crossLink}}</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback function, takes the shared
+                                        renderer context as an argument.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>logger</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Class</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A logger class of the same type as
+                                      {{#crossLink &quot;Logger&quot;}}{{/crossLink}}</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line431">line 431</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".runRenderer"><span class="type-signature">(async, static) </span>runRenderer<span class="signature">(renderClass, localReader, settings, context, cb)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Utility method for applying a single renderer to a LocalReader insatnce.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>renderClass</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Class</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A class extending 
+                                   {{#crossLink &quot;DataRenderer&quot;}}{{/crossLink}}</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>localReader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="LocalReader.html">LocalReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A fully initialized LocalReader instance</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>settings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Settings passed to the renderer. Often
+                                  specifies thinks like what file ID should
+                                  be loaded.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The shared renderer context value object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cb</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback method passed to the renderAsync
+                                    method of the renderer.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="T3DLib.js.html">T3DLib.js</a>, <a href="T3DLib.js.html#line501">line 501</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-T3D.html">T3D</a></li></ul><h3>Classes</h3><ul><li><a href="DataReader.html">DataReader</a></li><li><a href="DataRenderer.html">DataRenderer</a></li><li><a href="EnvironmentRenderer.html">EnvironmentRenderer</a></li><li><a href="GW2Chunk.html">GW2Chunk</a></li><li><a href="GW2File.html">GW2File</a></li><li><a href="HavokRenderer.html">HavokRenderer</a></li><li><a href="LocalReader.html">LocalReader</a></li><li><a href="PersistantStore.html">PersistantStore</a></li><li><a href="PropertiesRenderer.html">PropertiesRenderer</a></li><li><a href="SingleModelRenderer.html">SingleModelRenderer</a></li><li><a href="StringRenderer.html">StringRenderer</a></li><li><a href="TerrainRenderer.html">TerrainRenderer</a></li><li><a href="ZoneRenderer.html">ZoneRenderer</a></li></ul><h3>Namespaces</h3><ul><li><a href="ArchiveParser.html">ArchiveParser</a></li><li><a href="FileTypes.html">FileTypes</a></li><li><a href="Logger.html">Logger</a></li><li><a href="MaterialUtils.html">MaterialUtils</a></li><li><a href="MathUtils.html">MathUtils</a></li><li><a href="ParserUtils.html">ParserUtils</a></li><li><a href="RenderUtils.html">RenderUtils</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun May 06 2018 14:40:59 GMT+0200 (Paris, Madrid (heure d’été))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
