@@ -71,7 +71,7 @@ export class RDataView {
     return this.dataView.byteLength;
   }
 
-  public getAsciiString(address){
+  public getAsciiString(address: number){
     let currentAddress = address;
     let result = "";
     while(this.isAscii(currentAddress)){

@@ -63,7 +63,7 @@ export class RDataParser {
   // Public
 
   listChunks(): Array<Chunks>{
-    const chunks = [];
+    const chunks : Array<Chunks> = [];
 
     for (let cursor = 0; cursor < this.rdataView.length; cursor += 4) {
       if (this.rdataView.isAscii4(cursor)) {

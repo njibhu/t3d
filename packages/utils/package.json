@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@types/node": "^12.12.17",
-    "r2pipe": "^2.7.2",
+    "r2pipe-promise": "^1.6.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
   }

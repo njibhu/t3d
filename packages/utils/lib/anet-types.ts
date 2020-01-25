@@ -20,8 +20,12 @@ export enum AnetType {
   Fileref = 27, //0x1B
 }
 
+interface BasicTypes {
+  [name: number]: string
+}
+
 // Syntax copied from old parser
-export const basicTypes = {
+export const basicTypes : BasicTypes = {
   [AnetType.Byte]: "'uint8'",
   [AnetType.Byte4]: "['[]', 'uint8', 4]",
   [AnetType.Double]: "'float64'",

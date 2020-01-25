@@ -1,5 +1,5 @@
 #!/usr/bin/env ts-node
-import * as r2pipe from "r2pipe";
+import { R2Pipe } from "r2pipe-promise";
 import { RDataParser } from "../lib/rdata-parsing";
 import { StructTabParser } from "../lib/struct-parsing";
 import { writeFileSync } from "fs";
@@ -14,8 +14,8 @@ async function run(){
   }
   
   console.log("Opening exe file...");
-  const r2 = r2pipe.open(filePath);
-  const segments = r2.cmdj("iSj");
+  const r2 = await R2Pipe.open(filePath);
+  const segments : any[] = JSON.parse(await r2.cmd("iSj"));
   
   const rdata = segments.find(i => i.name === ".rdata");
   
@@ -23,9 +23,9 @@ async function run(){
   if (rdata) {
     const { vaddr, vsize } = rdata;
     console.log("Found rdata!");
-    r2.cmd(`s ${vaddr}`);
-  
-    const arrayBuffer = new Uint8Array(r2.cmdj(`pxj ${vsize}`));
+    await r2.cmd(`s ${vaddr}`);
+
+    const arrayBuffer = new Uint8Array(JSON.parse(await r2.cmd(`pxj ${vsize}`)));
     const dataView = new DataView(arrayBuffer.buffer);
 
     const simpleParser = new RDataParser(dataView, vaddr, vaddr + vsize);

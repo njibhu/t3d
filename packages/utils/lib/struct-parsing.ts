@@ -14,6 +14,11 @@ interface Struct {
   definitions?: any[]
 }
 
+interface Member {
+  member: string,
+  definition?: Struct
+}
+
 export class StructTabParser {
   private parsedStructsId: Set<number>;
   private rdataView : RDataView;
@@ -50,8 +55,8 @@ export class StructTabParser {
   parseMember(address: number){
     const memberName = this.rdataView.getAsciiString(this.rdataView.getAddress(address + 8));
     const typeId = this.rdataView.getUint16(address);
-    const tempOutput = { member: undefined, definition: undefined};
-    let memberDefinition;
+    let tempOutput : Member = {member: ""};
+    let memberDefinition : Struct | undefined;
 
     // Cover basic types
     if(basicTypes[typeId]){
@@ -65,31 +70,31 @@ export class StructTabParser {
       const isGlobalStruct = psAdr > 0 ? this.rdataView.getUint8(this.rdataView.getAddress(psAdr + 8)) === 0 : true;
       memberDefinition = psAdr > 0 ? this.parseStruct(psAdr) : undefined;
 
-      if(typeId === 1){
+      if(typeId === 1 && memberDefinition){
         tempOutput.member = isGlobalStruct ?
         `'${memberName}', ['[]', ${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]` :
         `'${memberName}', ['[]', this.${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]`;
       }
 
-      else if(typeId === 2){
+      else if(typeId === 2 && memberDefinition){
         tempOutput.member = isGlobalStruct ?
           `'${memberName}', Utils.getArrayReader(${memberDefinition.name})` :
           `'${memberName}', Utils.getArrayReader(this.${memberDefinition.name})`;
       }
 
-      else if(typeId === 3){
+      else if(typeId === 3 && memberDefinition){
         tempOutput.member = isGlobalStruct ?
           `'${memberName}', Utils.getRefArrayReader(${memberDefinition.name})` :
           `'${memberName}', Utils.getRefArrayReader(this.${memberDefinition.name})`;
       }
 
-      else if (typeId === 16){ // 0x10
+      else if (typeId === 16 && memberDefinition){ // 0x10
         tempOutput.member = isGlobalStruct ?
           `'${memberName}', Utils.getPointerReader(${memberDefinition.name})` : 
           `'${memberName}', Utils.getPointerReader(this.${memberDefinition.name})`;
       }
 
-      else if([20,29].includes(typeId)){ //0x14 and 0x1D
+      else if([20,29].includes(typeId) && memberDefinition){ //0x14 and 0x1D
         tempOutput.member = isGlobalStruct ?
           `'${memberName}', ${memberDefinition.name}`:
           `'${memberName}', this.${memberDefinition.name}`;
@@ -115,8 +120,6 @@ export class StructTabParser {
 
   parseStruct(address: number, version?: number): Struct{
     let currentAddress = address;
-    const alreadyParsed = this.parsedStructsId.has(address);
-    this.parsedStructsId.add(address);
   
     // Simple types
     if(this.rdataView.getUint8(this.rdataView.getAddress(address + 8)) === 0){
@@ -126,7 +129,7 @@ export class StructTabParser {
     }
     
     const members = [];
-    let definitions = [];
+    let definitions : Struct[] = [];
 
     while(this.rdataView.getUint16(currentAddress) != 0){
       const { member, definition } = this.parseMember(currentAddress);
@@ -163,24 +166,24 @@ export class StructTabParser {
 }
 
 class InvalidTypeId extends TypeError {
-  constructor(typeId, memberName){
+  constructor(typeId: number, memberName: string){
     super(`Invalid typeId: ${typeId} in ${memberName}`);
   }
 }
 
-function flatDefinitions(defs){
-  let flatDefs = []
-  for(const {definitions, name, version, member} of defs){
+function flatDefinitions(defs: Array<Struct>): Array<Struct> {
+  let flatDefs : Array<Struct> = []
+  for(const {definitions, name, version, members} of defs){
     if(Array.isArray(definitions)){
       flatDefs = flatDefs.concat(flatDefinitions(definitions));
     }
-    flatDefs.push({name, version, member})
+    flatDefs.push({name, version, members})
   }
   return flatDefs;
 }
 
-function dedupe(array: Array<any>){
-  return array.reduce((pv, cv) => {
+function dedupe(array: Array<Struct>){
+  return array.reduce((pv: Array<Struct>, cv: Struct) => {
     if(!pv.find(i => i.name === cv.name)){
       pv.push(cv);
     }
