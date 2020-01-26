@@ -25,29 +25,7 @@ export const Uint64: DataType = {
   read: (dv, pos) => {}
 };
 
-export const Int8: DataType = {
-  read: (dv, pos) => dv.getInt8(pos)
-};
-
-export const Int16: DataType = {
-  read: (dv, pos) => dv.getInt16(pos)
-};
-
-export const Int32: DataType = {
-  read: (dv, pos) => dv.getInt32(pos)
-};
-
-export const Int64: DataType = {
-  // TODO
-  read: (dv, pos) => {}
-};
-
 export const CString: DataType = {
-  // TODO
-  read: (dv, pos) => {}
-};
-
-export const QWord: DataType = {
   // TODO
   read: (dv, pos) => {}
 };
@@ -60,10 +38,26 @@ export function Padding(length: number): DataType {
   };
 }
 
-export function List(type: DataType | string, length?: number): DataType {
-  const data = length ? { type, length } : { type };
+export function FixedArray(type: DataType | string, length: number): DataType {
   return {
-    ...data,
+    type,
+    length,
+    // TODO
+    read: (dv, pos) => {}
+  };
+}
+
+export function DynArray(type: DataType | string): DataType {
+  return {
+    type,
+    // TODO
+    read: (dv, pos) => {}
+  };
+}
+
+export function RefArray(type: DataType | string): DataType {
+  return {
+    type,
     // TODO
     read: (dv, pos) => {}
   };
@@ -77,25 +71,22 @@ export function Pointer(type: DataType | string): DataType {
   };
 }
 
-export function Struct(type: string): DataType {
+export function String(): DataType {
   return {
-    type,
     // TODO
     read: (dv, pos) => {}
   };
 }
 
-export function String8(length: number): DataType {
+export function Filename(): DataType {
   return {
-    length,
     // TODO
     read: (dv, pos) => {}
   };
 }
 
-export function String16(length: number): DataType {
+export function Fileref(): DataType {
   return {
-    length,
     // TODO
     read: (dv, pos) => {}
   };
