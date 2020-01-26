@@ -39,7 +39,9 @@ async function run() {
         `import { FixedArray, DynArray, RefArray, Uint8, Float64, Uint32, Filename,
 Float32, Pointer, Uint64, String, CString, Uint16, Fileref} from "./types";
 
-module.exports = ${JSON.stringify(currentChunk, null, 2).replace(/"/g, "")}`
+module.exports = ${JSON.stringify(currentChunk, null, 2)
+          .replace(/"/g, "") // Remove all double quotes
+          .replace(/'/g, '"')}` // Transform all single quotes into double quotes
       );
     }
   }
