@@ -20,13 +20,9 @@ interface Member {
 }
 
 export class StructTabParser {
-  private parsedStructsId: Set<number>;
   private rdataView : RDataView;
 
-  private structName : string;
-
-  constructor(dataView: DataView,  rdataMin: number, rdataMax: number){
-    this.parsedStructsId = new Set();
+  constructor(dataView: DataView, rdataMin: number, rdataMax: number){
     this.rdataView = new RDataView(dataView, rdataMin, rdataMax);
   }
 
@@ -53,8 +49,10 @@ export class StructTabParser {
   }
 
   parseMember(address: number){
-    const memberName = this.rdataView.getAsciiString(this.rdataView.getAddress(address + 8));
     const typeId = this.rdataView.getUint16(address);
+    const memberNameAddress = this.rdataView.getAddress(address + 8);
+    const memberName = this.rdataView.getAsciiString(memberNameAddress);
+    
     let tempOutput : Member = {member: ""};
     let memberDefinition : Struct | undefined;
 
@@ -65,39 +63,39 @@ export class StructTabParser {
 
     // Complex types
     else {
-      const psAdr = this.rdataView.getAddress(address + 16);
-
-      const isGlobalStruct = psAdr > 0 ? this.rdataView.getUint8(this.rdataView.getAddress(psAdr + 8)) === 0 : true;
-      memberDefinition = psAdr > 0 ? this.parseStruct(psAdr) : undefined;
+      const subTypeAddress = this.rdataView.getAddress(address + 16);
+      const hasCustomSubType = subTypeAddress > 0 ? this.rdataView.getUint8(this.rdataView.getAddress(subTypeAddress + 8)) != 0 : true;
+      
+      memberDefinition = subTypeAddress > 0 ? this.parseStruct(subTypeAddress) : undefined;
 
       if(typeId === 1 && memberDefinition){
-        tempOutput.member = isGlobalStruct ?
-        `'${memberName}', ['[]', ${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]` :
-        `'${memberName}', ['[]', this.${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]`;
+        tempOutput.member = hasCustomSubType ?
+        `'${memberName}', ['[]', this.${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]`:
+        `'${memberName}', ['[]', ${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]`;
       }
 
       else if(typeId === 2 && memberDefinition){
-        tempOutput.member = isGlobalStruct ?
-          `'${memberName}', Utils.getArrayReader(${memberDefinition.name})` :
-          `'${memberName}', Utils.getArrayReader(this.${memberDefinition.name})`;
+        tempOutput.member = hasCustomSubType ?
+        `'${memberName}', Utils.getArrayReader(this.${memberDefinition.name})`:
+          `'${memberName}', Utils.getArrayReader(${memberDefinition.name})` ;
       }
 
       else if(typeId === 3 && memberDefinition){
-        tempOutput.member = isGlobalStruct ?
-          `'${memberName}', Utils.getRefArrayReader(${memberDefinition.name})` :
-          `'${memberName}', Utils.getRefArrayReader(this.${memberDefinition.name})`;
+        tempOutput.member = hasCustomSubType ?
+        `'${memberName}', Utils.getRefArrayReader(this.${memberDefinition.name})`:
+          `'${memberName}', Utils.getRefArrayReader(${memberDefinition.name})`;
       }
 
       else if (typeId === 16 && memberDefinition){ // 0x10
-        tempOutput.member = isGlobalStruct ?
-          `'${memberName}', Utils.getPointerReader(${memberDefinition.name})` : 
-          `'${memberName}', Utils.getPointerReader(this.${memberDefinition.name})`;
+        tempOutput.member = hasCustomSubType ?
+        `'${memberName}', Utils.getPointerReader(this.${memberDefinition.name})`:
+          `'${memberName}', Utils.getPointerReader(${memberDefinition.name})` ;
       }
 
       else if([20,29].includes(typeId) && memberDefinition){ //0x14 and 0x1D
-        tempOutput.member = isGlobalStruct ?
-          `'${memberName}', ${memberDefinition.name}`:
-          `'${memberName}', this.${memberDefinition.name}`;
+        tempOutput.member = hasCustomSubType ?
+        `'${memberName}', this.${memberDefinition.name}`:
+          `'${memberName}', ${memberDefinition.name}`;
       }
 
       // Unknown types
@@ -110,7 +108,7 @@ export class StructTabParser {
       }
 
       // Attach the custom type definition to the return object
-      if(!isGlobalStruct){
+      if(!hasCustomSubType){
         tempOutput.definition = memberDefinition;
       }
     }
@@ -155,12 +153,13 @@ export class StructTabParser {
       currentAddress += 32;
     }
 
-    this.structName = this.rdataView.getAsciiString(this.rdataView.getAddress(currentAddress + 8));
+    const structNameAddress = this.rdataView.getAddress(currentAddress + 8);
+    const structName = this.rdataView.getAsciiString(structNameAddress);
 
     if(definitions.length > 0){
-      return { name: this.structName, members, version, definitions};
+      return { name: structName, members, version, definitions};
     } else {
-      return { name: this.structName, members, version };
+      return { name: structName, members, version };
     }
   }
 }

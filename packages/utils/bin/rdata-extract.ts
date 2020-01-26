@@ -6,7 +6,7 @@ import { writeFileSync } from "fs";
 
 async function run(){
   const filePath = process.argv[2];
-  const destinationFile = process.argv[3];
+  const destinationFolder = process.argv[3];
 
   if (!filePath) {
     console.error("Require path to executable file");
@@ -32,13 +32,11 @@ async function run(){
     const structParser = new StructTabParser(dataView, vaddr, vaddr + vsize);
     const chunks = simpleParser.listChunks();
 
-    const parsedChunks = [];
     for(const chunk of chunks){
       console.log(`Parsing ${chunk.name}`);
-      parsedChunks.push(structParser.parseStructTab(chunk.offset, chunk.versions, chunk.name));
+      const currentChunk = structParser.parseStructTab(chunk.offset, chunk.versions, chunk.name);
+      writeFileSync(`${destinationFolder}/${chunk.name}_${chunk.offset}.json`, JSON.stringify(currentChunk, null, 2));
     }
-
-    writeFileSync(destinationFile, JSON.stringify(parsedChunks, null, 2));
   
   }
   
