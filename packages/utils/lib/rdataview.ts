@@ -1,3 +1,9 @@
+/**
+ * This helper class is an evolved version of the DataView to better fit our needs.
+ * It automatically bundles the offsetting of the buffer where the rdata segment should be loaded in memory.
+ * And it contains various parsing functions that are not natively available in the dataview such
+ * as getUint64 or getAddress or getAscii4...
+ */
 export class RDataView {
   private dataView: DataView;
   private rdataMin: number;
@@ -51,6 +57,13 @@ export class RDataView {
     return [0, 1, 2, 3].map(i => String.fromCharCode(this.getUint8(address + i))).join("");
   }
 
+  /**
+   * If the loaded address is outside of the memory range of the datasegment,
+   * the value returned will be -1.
+   * The 0 value is kept valid as some logic relies on it.
+   *
+   * Generic use will check `address > 0` before trying to load the content of the address.
+   */
   public getAddress(address: number): number {
     const parsedAddress = this.getUint64(address);
 

@@ -1,3 +1,6 @@
+/**
+ * This contains all the different types the chunk definitions will describe with their corresponding byte codes
+ */
 export enum AType {
   FixedArray = 1,
   DynArray = 2,
@@ -30,11 +33,13 @@ export enum AType {
   CustomType2 = 29,
 }
 
-interface AnetTypes {
+/**
+ * This object allows us to generate typescript files compatible with the t3d-parser module.
+ * It contains as a field every bytecode, and gives a type ouput as a string.
+ */
+export const anetTypes: {
   [name: number]: (customSubType?: boolean, subTypeName?: string, subTypeAmount?: number) => string;
-}
-
-export const anetTypes: AnetTypes = {
+} = {
   // 0x01
   [AType.FixedArray]: (customSubType, subTypeName, subTypeAmount): string =>
     customSubType ? `FixedArray('${subTypeName}', ${subTypeAmount})` : `FixedArray(${subTypeName}, ${subTypeAmount})`,

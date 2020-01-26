@@ -6,6 +6,10 @@ interface Chunks {
   versions: number;
 }
 
+/**
+ * This parser is used to get general informations about the chunks that we can parse.
+ * It does not try to parse any chunk, only how many and where they are in the rdata segment.
+ */
 export class RDataParser {
   rdataView: RDataView;
 
@@ -55,9 +59,11 @@ export class RDataParser {
     return loopIndex === versions;
   }
 
-  // Public
-
-  listChunks(): Array<Chunks> {
+  /**
+   * Goes through the whole rdata segment and tries to look for anything that fits the data structure
+   * of our chunk definitions.
+   */
+  public listChunks(): Array<Chunks> {
     const chunks: Array<Chunks> = [];
 
     for (let cursor = 0; cursor < this.rdataView.length; cursor += 4) {

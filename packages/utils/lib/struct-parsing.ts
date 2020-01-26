@@ -15,6 +15,10 @@ interface versionStruct {
   definitions?: { [name: string]: { [fieldName: string]: string } };
 }
 
+/**
+ * This parser is the detailed chunk definition parser.
+ * It will iterate through all the structures and generate a parser file for each chunks.
+ */
 export class StructTabParser {
   private rdataView: RDataView;
 
@@ -95,8 +99,8 @@ export class StructTabParser {
       return { name: simpleType };
     }
 
-    const members: any = {};
-    let definitions: any = {};
+    const members: { [name: string]: string } = {};
+    let definitions: { [name: string]: any } = {};
 
     while (this.rdataView.getUint16(currentAddress) != 0) {
       const { name, type, definition } = this.parseMember(currentAddress);

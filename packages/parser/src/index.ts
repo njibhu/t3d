@@ -1,9 +1,9 @@
-import * as Types from './types';
-import {DataType} from './internals';
+import * as Types from "./types";
+import { DataType } from "./internals";
 
 export enum Endianness {
   LITTLE_ENDIAN,
-  BIG_ENDIAN,
+  BIG_ENDIAN
 }
 
 export default class DataReader {
@@ -15,7 +15,7 @@ export default class DataReader {
 
   constructor(
     arrayBuffer: ArrayBuffer,
-    endianness: Endianness = Endianness.LITTLE_ENDIAN,
+    endianness: Endianness = Endianness.LITTLE_ENDIAN
   ) {
     this.arrayBuffer = arrayBuffer;
     this.endianness = endianness;
@@ -27,7 +27,7 @@ export default class DataReader {
    * Move the cursor position
    */
   seek(position: number): void {
-    const npos = Math.max(0, Math.min(this.byteLength, pos));
+    const npos = Math.max(0, Math.min(this.byteLength, position));
     this.position = isNaN(npos) || !isFinite(npos) ? 0 : npos;
   }
 
