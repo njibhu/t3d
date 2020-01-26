@@ -21,10 +21,7 @@ export class RDataParser {
     let currentAddress = address;
     let loopGuard = 50;
 
-    while (
-      this.rdataView.getUint16(currentAddress) != 0 &&
-      loopGuard > 0
-    ) {
+    while (this.rdataView.getUint16(currentAddress) != 0 && loopGuard > 0) {
       if (this.rdataView.getUint16(currentAddress) > 29) {
         return false;
       }
@@ -47,9 +44,7 @@ export class RDataParser {
 
     while (loopIndex < versions) {
       if (this.rdataView.getUint64(currentAddress) != 0) {
-        if (
-          !this.isANStruct(this.rdataView.getAddress(currentAddress))
-        ) {
+        if (!this.isANStruct(this.rdataView.getAddress(currentAddress))) {
           break;
         }
       }
@@ -59,11 +54,11 @@ export class RDataParser {
 
     return loopIndex === versions;
   }
-  
+
   // Public
 
-  listChunks(): Array<Chunks>{
-    const chunks : Array<Chunks> = [];
+  listChunks(): Array<Chunks> {
+    const chunks: Array<Chunks> = [];
 
     for (let cursor = 0; cursor < this.rdataView.length; cursor += 4) {
       if (this.rdataView.isAscii4(cursor)) {
@@ -76,11 +71,11 @@ export class RDataParser {
             const currentChunk = {
               name: ascii.replace(/\u0000/, ""),
               versions: versions,
-              offset: structPtr
-            }
+              offset: structPtr,
+            };
 
             // Chunks can be found multiple times, so we dedupe them
-            if(!chunks.find(c => c.name === currentChunk.name)){
+            if (!chunks.find(c => c.name === currentChunk.name)) {
               chunks.push(currentChunk);
             }
           }

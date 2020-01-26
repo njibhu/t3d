@@ -40,7 +40,7 @@ export class RDataView {
   }
 
   public isAscii4(address: number): boolean {
-    return !([0,1,2,3].map(i => this.isAscii(address + i)).includes(false));
+    return ![0, 1, 2, 3].map(i => this.isAscii(address + i)).includes(false);
   }
 
   public getAscii(address: number): string {
@@ -48,9 +48,7 @@ export class RDataView {
   }
 
   public getAscii4(address: number): string {
-    return [0, 1, 2, 3]
-      .map(i => String.fromCharCode(this.getUint8(address + i)))
-      .join("");
+    return [0, 1, 2, 3].map(i => String.fromCharCode(this.getUint8(address + i))).join("");
   }
 
   public getAddress(address: number): number {
@@ -71,10 +69,10 @@ export class RDataView {
     return this.dataView.byteLength;
   }
 
-  public getAsciiString(address: number){
+  public getAsciiString(address: number) {
     let currentAddress = address;
     let result = "";
-    while(this.isAscii(currentAddress)){
+    while (this.isAscii(currentAddress)) {
       result += this.getAscii(currentAddress);
       currentAddress += 1;
     }

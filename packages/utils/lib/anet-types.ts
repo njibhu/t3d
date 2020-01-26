@@ -21,11 +21,11 @@ export enum AnetType {
 }
 
 interface BasicTypes {
-  [name: number]: string
+  [name: number]: string;
 }
 
 // Syntax copied from old parser
-export const basicTypes : BasicTypes = {
+export const basicTypes: BasicTypes = {
   [AnetType.Byte]: "'uint8'",
   [AnetType.Byte4]: "['[]', 'uint8', 4]",
   [AnetType.Double]: "'float64'",
@@ -43,6 +43,6 @@ export const basicTypes : BasicTypes = {
   [AnetType.Byte3]: "['[]', 'uint8', 3]",
   [AnetType.DWord2]: "['[]', 'uint32', 2]",
   [AnetType.DWord4]: "['[]', 'uint32', 4]",
-  [AnetType.Word3]:  "['[]', 'uint16', 3]",
-  [AnetType.Fileref]: "Utils.getFileNameReader()"
-}
+  [AnetType.Word3]: "['[]', 'uint16', 3]",
+  [AnetType.Fileref]: "Utils.getFileNameReader()",
+};
