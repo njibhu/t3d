@@ -71,7 +71,7 @@ export function Pointer(type: DataType | string): DataType {
   };
 }
 
-export function String(): DataType {
+export function String16(): DataType {
   return {
     // TODO
     read: (dv, pos) => {}

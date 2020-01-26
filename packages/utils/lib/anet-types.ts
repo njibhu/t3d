@@ -83,7 +83,7 @@ export const anetTypes: AnetTypes = {
   // 0x11
   [AType.QWord]: () => "Uint64",
   // 0x12
-  [AType.WCharPtr]: () => "String",
+  [AType.WCharPtr]: () => "String16",
   // 0x13
   [AType.CharPtr]: () => "CString",
   // 0x14
