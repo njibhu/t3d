@@ -1,5 +1,5 @@
 import { RDataView } from "./rdataview";
-import { basicTypes } from "./anet-types";
+import { anetTypes } from "./anet-types";
 
 interface StructTab {
   versions: number;
@@ -45,66 +45,34 @@ export class StructTabParser {
 
   getSimpleTypeName(address: number): string {
     const typeId = this.rdataView.getUint8(address);
-    return basicTypes[typeId];
+    return anetTypes[typeId]();
   }
 
-  parseMember(address: number) {
+  parseMember(address: number): Member {
     const typeId = this.rdataView.getUint16(address);
     const memberNameAddress = this.rdataView.getAddress(address + 8);
     const memberName = this.rdataView.getAsciiString(memberNameAddress);
 
-    let tempOutput: Member = { member: "" };
-    let memberDefinition: Struct | undefined;
+    const subTypeAddress = this.rdataView.getAddress(address + 16);
+    const hasCustomSubType =
+      subTypeAddress > 0 ? this.rdataView.getUint8(this.rdataView.getAddress(subTypeAddress + 8)) != 0 : true;
+    const memberDefinition = subTypeAddress > 0 ? this.parseStruct(subTypeAddress) : undefined;
+    const subTypeAmount = subTypeAddress > 0 ? this.rdataView.getUint32(address + 24) : undefined;
 
-    // Cover basic types
-    if (basicTypes[typeId]) {
-      tempOutput.member = `'${memberName}', ${basicTypes[typeId]}`;
+    const memberType = anetTypes[typeId](
+      hasCustomSubType,
+      memberDefinition ? memberDefinition.name : undefined,
+      subTypeAmount
+    );
+
+    if (hasCustomSubType) {
+      return {
+        member: `${memberName}, ${memberType}`,
+        definition: memberDefinition,
+      };
+    } else {
+      return { member: `${memberName}, ${memberType}` };
     }
-
-    // Complex types
-    else {
-      const subTypeAddress = this.rdataView.getAddress(address + 16);
-      const hasCustomSubType =
-        subTypeAddress > 0 ? this.rdataView.getUint8(this.rdataView.getAddress(subTypeAddress + 8)) != 0 : true;
-
-      memberDefinition = subTypeAddress > 0 ? this.parseStruct(subTypeAddress) : undefined;
-
-      if (typeId === 1 && memberDefinition) {
-        tempOutput.member = hasCustomSubType
-          ? `'${memberName}', ['[]', this.${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]`
-          : `'${memberName}', ['[]', ${memberDefinition.name}, ${this.rdataView.getUint32(address + 24)}]`;
-      } else if (typeId === 2 && memberDefinition) {
-        tempOutput.member = hasCustomSubType
-          ? `'${memberName}', Utils.getArrayReader(this.${memberDefinition.name})`
-          : `'${memberName}', Utils.getArrayReader(${memberDefinition.name})`;
-      } else if (typeId === 3 && memberDefinition) {
-        tempOutput.member = hasCustomSubType
-          ? `'${memberName}', Utils.getRefArrayReader(this.${memberDefinition.name})`
-          : `'${memberName}', Utils.getRefArrayReader(${memberDefinition.name})`;
-      } else if (typeId === 16 && memberDefinition) {
-        tempOutput.member = hasCustomSubType
-          ? `'${memberName}', Utils.getPointerReader(this.${memberDefinition.name})`
-          : `'${memberName}', Utils.getPointerReader(${memberDefinition.name})`;
-      } else if ([20, 29].includes(typeId) && memberDefinition) {
-        tempOutput.member = hasCustomSubType
-          ? `'${memberName}', this.${memberDefinition.name}`
-          : `'${memberName}', ${memberDefinition.name}`;
-      }
-
-      // Unknown types
-      else if ([4, 8, 9, 28].includes(typeId)) {
-        tempOutput.member = `'${memberName}', "Unknown${typeId}"`;
-      } else {
-        throw new InvalidTypeId(typeId, memberName);
-      }
-
-      // Attach the custom type definition to the return object
-      if (!hasCustomSubType) {
-        tempOutput.definition = memberDefinition;
-      }
-    }
-
-    return tempOutput;
   }
 
   parseStruct(address: number, version?: number): Struct {
@@ -123,20 +91,12 @@ export class StructTabParser {
     while (this.rdataView.getUint16(currentAddress) != 0) {
       const { member, definition } = this.parseMember(currentAddress);
 
-      if (Array.isArray(definition)) {
-        definitions = dedupe(definitions.concat(flatDefinitions(definition)));
+      if (definition) {
+        definitions = dedupe(
+          definitions.concat([{ name: definition.name, members: definition.members, version: definition.version }])
+        );
       }
 
-      if (definition && !definitions.find(d => d.name === definition.name)) {
-        // Flat-out sub definitions
-        const subDefs = definition.definitions ? definition.definitions : [];
-        for (const subDefinition of subDefs) {
-          if (!definitions.find(d => d.name === subDefinition.name)) {
-            definitions.push(subDefinition);
-          }
-        }
-        definitions.push(definition);
-      }
       if (member === null) {
         break;
       }
@@ -153,23 +113,6 @@ export class StructTabParser {
       return { name: structName, members, version };
     }
   }
-}
-
-class InvalidTypeId extends TypeError {
-  constructor(typeId: number, memberName: string) {
-    super(`Invalid typeId: ${typeId} in ${memberName}`);
-  }
-}
-
-function flatDefinitions(defs: Array<Struct>): Array<Struct> {
-  let flatDefs: Array<Struct> = [];
-  for (const { definitions, name, version, members } of defs) {
-    if (Array.isArray(definitions)) {
-      flatDefs = flatDefs.concat(flatDefinitions(definitions));
-    }
-    flatDefs.push({ name, version, members });
-  }
-  return flatDefs;
 }
 
 function dedupe(array: Array<Struct>) {
