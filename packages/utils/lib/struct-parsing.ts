@@ -93,7 +93,9 @@ export class StructTabParser {
 
       if (definition) {
         definitions = dedupe(
-          definitions.concat([{ name: definition.name, members: definition.members, version: definition.version }])
+          definitions.concat(definition.definitions ? flatDefinitions(definition.definitions) : [], [
+            { name: definition.name, members: definition.members, version: definition.version },
+          ])
         );
       }
 
@@ -122,4 +124,15 @@ function dedupe(array: Array<Struct>) {
     }
     return pv;
   }, []);
+}
+
+function flatDefinitions(defs: Array<Struct>): Array<Struct> {
+  let flatDefs: Array<Struct> = [];
+  for (const { definitions, name, version, members } of defs) {
+    if (Array.isArray(definitions)) {
+      flatDefs = flatDefs.concat(flatDefinitions(definitions));
+    }
+    flatDefs.push({ name, version, members });
+  }
+  return flatDefs;
 }
