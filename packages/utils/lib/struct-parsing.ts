@@ -1,22 +1,18 @@
 import { RDataView } from "./rdataview";
 import { anetTypes } from "./anet-types";
 
-interface StructTab {
-  versions: number;
-  structArray: Struct[];
-  chunkName: string;
-}
-
 interface Struct {
   name: string;
-  members?: string[];
-  version?: number;
-  definitions?: any[];
+  members?: { [name: string]: any };
+  definitions?: { [name: string]: { [fieldName: string]: string } };
 }
 
-interface Member {
-  member: string;
-  definition?: Struct;
+interface versionStruct {
+  name: string;
+  chunkName: string;
+  root: { [name: string]: string };
+  version: number;
+  definitions?: { [name: string]: { [fieldName: string]: string } };
 }
 
 export class StructTabParser {
@@ -26,21 +22,34 @@ export class StructTabParser {
     this.rdataView = new RDataView(dataView, rdataMin, rdataMax);
   }
 
-  public parseStructTab(address: number, nbVersions: number, chunkName: string): StructTab {
+  public parseStructTab(address: number, nbVersions: number, chunkName: string): Struct[] {
     let currentAddress = address;
     let loopIndex = nbVersions - 1;
     const historyDepth = 100;
-    const structArray = [];
+    const versionDefinitions: versionStruct[] = [];
 
     while (loopIndex >= 0 && loopIndex >= nbVersions - historyDepth) {
       currentAddress = this.rdataView.getAddress(address + 24 * loopIndex);
       if (currentAddress > 0) {
-        structArray.push(this.parseStruct(currentAddress, loopIndex));
+        const rootStruct = this.parseStruct(currentAddress);
+
+        if (!rootStruct.members) {
+          throw new Error("The root struct must have members");
+        }
+
+        versionDefinitions.push({
+          chunkName: `'${chunkName}'`,
+          name: `'${rootStruct.name}'`,
+          version: loopIndex,
+          definitions: rootStruct.definitions,
+          root: rootStruct.members,
+        });
       }
       loopIndex -= 1;
     }
 
-    return { structArray, versions: nbVersions, chunkName };
+    // We reverse the array to get the last version last
+    return versionDefinitions.reverse();
   }
 
   getSimpleTypeName(address: number): string {
@@ -48,7 +57,7 @@ export class StructTabParser {
     return anetTypes[typeId]();
   }
 
-  parseMember(address: number): Member {
+  parseMember(address: number): { name: string; type: string; definition?: Struct } {
     const typeId = this.rdataView.getUint16(address);
     const memberNameAddress = this.rdataView.getAddress(address + 8);
     const memberName = this.rdataView.getAsciiString(memberNameAddress);
@@ -67,15 +76,16 @@ export class StructTabParser {
 
     if (hasCustomSubType) {
       return {
-        member: `${memberName}, ${memberType}`,
+        name: memberName,
+        type: memberType,
         definition: memberDefinition,
       };
     } else {
-      return { member: `${memberName}, ${memberType}` };
+      return { name: memberName, type: memberType };
     }
   }
 
-  parseStruct(address: number, version?: number): Struct {
+  parseStruct(address: number): Struct {
     let currentAddress = address;
 
     // Simple types
@@ -85,54 +95,35 @@ export class StructTabParser {
       return { name: simpleType };
     }
 
-    const members = [];
-    let definitions: Struct[] = [];
+    const members: any = {};
+    let definitions: any = {};
 
     while (this.rdataView.getUint16(currentAddress) != 0) {
-      const { member, definition } = this.parseMember(currentAddress);
+      const { name, type, definition } = this.parseMember(currentAddress);
 
       if (definition) {
-        definitions = dedupe(
-          definitions.concat(definition.definitions ? flatDefinitions(definition.definitions) : [], [
-            { name: definition.name, members: definition.members, version: definition.version },
-          ])
-        );
+        definitions[definition.name] = definition.members;
+        if (definition.definitions) {
+          for (const [key, value] of Object.entries(definition.definitions)) {
+            definitions[key] = value;
+          }
+        }
       }
 
-      if (member === null) {
+      if (name === null) {
         break;
       }
-      members.push(member);
+      members[name] = type;
       currentAddress += 32;
     }
 
     const structNameAddress = this.rdataView.getAddress(currentAddress + 8);
     const structName = this.rdataView.getAsciiString(structNameAddress);
 
-    if (definitions.length > 0) {
-      return { name: structName, members, version, definitions };
+    if (Object.keys(definitions).length > 0) {
+      return { name: structName, members, definitions };
     } else {
-      return { name: structName, members, version };
+      return { name: structName, members };
     }
   }
-}
-
-function dedupe(array: Array<Struct>) {
-  return array.reduce((pv: Array<Struct>, cv: Struct) => {
-    if (!pv.find(i => i.name === cv.name)) {
-      pv.push(cv);
-    }
-    return pv;
-  }, []);
-}
-
-function flatDefinitions(defs: Array<Struct>): Array<Struct> {
-  let flatDefs: Array<Struct> = [];
-  for (const { definitions, name, version, members } of defs) {
-    if (Array.isArray(definitions)) {
-      flatDefs = flatDefs.concat(flatDefinitions(definitions));
-    }
-    flatDefs.push({ name, version, members });
-  }
-  return flatDefs;
 }

@@ -34,7 +34,13 @@ async function run() {
     for (const chunk of chunks) {
       console.log(`Parsing ${chunk.name}`);
       const currentChunk = structParser.parseStructTab(chunk.offset, chunk.versions, chunk.name);
-      writeFileSync(`${destinationFolder}/${chunk.name}_${chunk.offset}.json`, JSON.stringify(currentChunk, null, 2));
+      writeFileSync(
+        `${destinationFolder}/${chunk.name}_${chunk.offset}.ts`,
+        `import { FixedArray, DynArray, RefArray, Uint8, Float64, Uint32, Filename,
+Float32, Pointer, Uint64, String, CString, Uint16, Fileref} from "./types";
+
+module.exports = ${JSON.stringify(currentChunk, null, 2).replace(/"/g, "")}`
+      );
     }
   }
 
