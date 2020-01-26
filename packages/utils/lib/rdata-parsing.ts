@@ -75,7 +75,7 @@ export class RDataParser {
             };
 
             // Chunks can be found multiple times, so we dedupe them
-            if (!chunks.find(c => c.name === currentChunk.name)) {
+            if (!chunks.find(c => c.offset === currentChunk.offset)) {
               chunks.push(currentChunk);
             }
           }
