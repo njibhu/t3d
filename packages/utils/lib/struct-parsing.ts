@@ -15,12 +15,17 @@ interface versionStruct {
   definitions?: { [name: string]: { [fieldName: string]: string } };
 }
 
+interface versionDeclarations {
+  declarations: { [name: string]: { [fieldName: string]: string } };
+}
+
 /**
  * This parser is the detailed chunk definition parser.
  * It will iterate through all the structures and generate a parser file for each chunks.
  */
 export class StructTabParser {
   private rdataView: RDataView;
+  public typesSet: Set<string>;
 
   constructor(dataView: DataView, rdataMin: number, rdataMax: number) {
     this.rdataView = new RDataView(dataView, rdataMin, rdataMax);
@@ -58,7 +63,12 @@ export class StructTabParser {
 
   getSimpleTypeName(address: number): string {
     const typeId = this.rdataView.getUint8(address);
-    return anetTypes[typeId]();
+    const typeName = anetTypes[typeId]();
+
+    // Add public types to be imported into the public typesSet
+    this.typesSet.add(typeName.split("(")[0]);
+
+    return typeName;
   }
 
   parseMember(address: number): { name: string; type: string; definition?: Struct } {
@@ -77,6 +87,24 @@ export class StructTabParser {
       memberDefinition ? memberDefinition.name : undefined,
       subTypeAmount
     );
+
+    // Add public types to be imported into the public typesSet
+    if (!memberType.startsWith("'")) {
+      // Ignore custom types extra params
+      const definitionSplit = memberType.split("(");
+      const mainType = definitionSplit[0];
+      this.typesSet.add(mainType);
+
+      // A native type can also have a native subtype which also needs to be imported
+      if (definitionSplit.length > 1) {
+        if (!definitionSplit[1].startsWith("'")) {
+          const match = /[a-zA-Z0-9]*/.exec(definitionSplit[1]);
+          if (match) {
+            this.typesSet.add(match[0]);
+          }
+        }
+      }
+    }
 
     if (hasCustomSubType) {
       return {
