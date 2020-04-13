@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/njibhu/t3d.git"
   },
+  "scripts": {
+    "gen": "ts-node ./bin/rdata-extract.ts ~/Downloads/Gw2Setup-64.exe ../parser/definitions"
+  },
   "dependencies": {
     "@types/node": "^12.12.17",
     "r2pipe-promise": "^1.6.0",
