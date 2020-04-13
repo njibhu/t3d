@@ -1,4 +1,4 @@
-import { Uint64, Fileref, Float32, Uint32, DynArray } from "./types";
+import { Uint64, Fileref, Float32, Uint32, DynArray } from "../src/types";
 
 module.exports = [
   {

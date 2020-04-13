@@ -1,4 +1,4 @@
-import { String16, Uint32, Uint8, DynArray, FixedArray, Float32, CString } from "./types";
+import { String16, Uint32, Uint8, DynArray, FixedArray, Float32, CString } from "../src/types";
 
 module.exports = [
   {

@@ -1,4 +1,4 @@
-import { CString, Uint32, FixedArray, Float32, Uint8, Pointer, DynArray, Uint64, Uint16, Filename } from "./types";
+import { CString, Uint32, FixedArray, Float32, Uint8, Pointer, DynArray, Uint64, Uint16, Filename } from "../src/types";
 
 module.exports = [
   {

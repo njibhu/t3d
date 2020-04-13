@@ -1,4 +1,4 @@
-import { Uint32, Uint8, DynArray, CString } from "./types";
+import { Uint32, Uint8, DynArray, CString } from "../src/types";
 
 module.exports = [
   {

@@ -1,4 +1,4 @@
-import { String16, Unknown28, DynArray, Pointer, Uint64, Fileref, Uint32 } from "./types";
+import { String16, Unknown28, DynArray, Pointer, Uint64, Fileref, Uint32 } from "../src/types";
 
 module.exports = [
   {

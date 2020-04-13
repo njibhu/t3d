@@ -1,4 +1,4 @@
-import { Uint64, DynArray } from "./types";
+import { Uint64, DynArray } from "../src/types";
 
 module.exports = [
   {

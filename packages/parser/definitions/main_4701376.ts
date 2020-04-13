@@ -1,4 +1,4 @@
-import { String16, Fileref, Float32, DynArray } from "./types";
+import { String16, Fileref, Float32, DynArray } from "../src/types";
 
 module.exports = [
   {
