@@ -41,7 +41,7 @@ async function run() {
       const imports = Array.from(structParser.typesSet).join(", ");
       writeFileSync(
         `${destinationFolder}/${chunk.name}_${chunk.offset}.ts`,
-        `import { ${imports} } from "./types";
+        `import { ${imports} } from "../src/types";
 
 module.exports = ${JSON.stringify(currentChunk, null, 2)
           .replace(/"/g, "") // Remove all double quotes
