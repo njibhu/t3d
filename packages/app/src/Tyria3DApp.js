@@ -2,6 +2,7 @@
 var UI =  require("./UI.js");
 var SceneUtils = require("./SceneUtils.js");
 var FlyControls =  require("./FlyControls.js");
+var T3D = require("t3d-lib");
 
 
 /**

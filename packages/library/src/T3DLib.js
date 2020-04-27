@@ -25,7 +25,7 @@ let _version = "1.1.0";
 let _settings = {
   t3dtoolsWorker: "modules/t3dtools/t3dworker.js",
   concurrentTasks:
-    typeof navigator !== "undefined" ? navigator.hardwareConcurrency : 1
+    typeof navigator !== "undefined" ? navigator.hardwareConcurrency : 1,
 };
 
 let T3D;
@@ -283,7 +283,7 @@ T3D = module.exports = {
     // Create the instance and init the threads
     let lrInstance = new LocalReader({
       workerPath: path,
-      workersNb: _settings.concurrentTasks
+      workersNb: _settings.concurrentTasks,
     });
 
     /// Callback with the lrInstance
@@ -551,7 +551,9 @@ T3D = module.exports = {
 
     // WebGL not supported
     return false;
-  }
+  },
+
+  formats: require("./format/chunks/AllFormats"),
 };
 
 /* PRIVATE METHODS */
