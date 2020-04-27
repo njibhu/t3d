@@ -16,3 +16,15 @@ const match: {
   Filename: () => "string",
   Fileref: () => "string",
 };
+
+export function transform(type: string): string {
+  const mainType = type.split("(")[0];
+  const secondaryType = type.split("(").length > 1 ? type.split("(")[1].replace(")", "") : undefined;
+  const isNative = secondaryType?.startsWith("'") || false;
+
+  if (!match[mainType]) {
+    throw new Error("Invalid definition type");
+  }
+
+  return match[mainType](secondaryType, isNative);
+}
