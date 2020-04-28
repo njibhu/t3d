@@ -1,4 +1,4 @@
-let Utils = T3D.ParserUtils;
+let Utils = require("../../util/ParserUtils.js")
 
 module.exports = [
   /// ==================================================

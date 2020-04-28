@@ -366,4 +366,4 @@ definitionArray = definitionArray.concat(cnfg);
 let mfst = require("./mfst-1.js");
 definitionArray = definitionArray.concat(mfst);
 
-window.T3D.formats = definitionArray;
+module.exports = definitionArray;

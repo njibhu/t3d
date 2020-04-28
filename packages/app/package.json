@@ -14,10 +14,10 @@
     "uglify-es": "^3.3.9",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
-    "yargs": "^11.0.0",
-    "t3d-lib": "file:../library"
+    "yargs": "^11.0.0"
   },
   "dependencies": {
-    "gulp-rename": "^1.2.2"
+    "gulp-rename": "^1.2.2",
+    "t3d-lib": "1.1.0"
   }
 }

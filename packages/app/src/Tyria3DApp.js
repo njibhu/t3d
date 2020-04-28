@@ -3,6 +3,7 @@ var UI =  require("./UI.js");
 var SceneUtils = require("./SceneUtils.js");
 var FlyControls =  require("./FlyControls.js");
 var T3D = require("t3d-lib");
+window.T3D = T3D;
 
 
 /**
@@ -98,7 +99,7 @@ var Tyria3DApp = module.exports = function() {
 							T3D.getMapListAsync(self.localReader, self.applyMapList.bind(self), false);
 					},10);
 				});
-			}, undefined, undefined, "js/T3D/t3dworker.js");
+			}, "js/T3D/t3dworker.js");
 
 			// SAVE MAP CODE WAS HERE
 
@@ -202,21 +203,13 @@ var Tyria3DApp = module.exports = function() {
 			/// Set up renderers
 			var renderers = [
 				{
-					renderClass: T3D.HavokRenderer,
-					settings:{
-						visible: showHavok
-					}
+				renderClass: T3D.EnvironmentRenderer,
+				settings:{}
 				},
 				{
-					renderClass: T3D.EnvironmentRenderer,
-					settings:{}
-				},
-				{
-					renderClass: T3D.TerrainRenderer,
-					settings:{
-						anisotropy : SceneUtils.getRenderer().getMaxAnisotropy()
-					}
-				}				
+				renderClass: T3D.TerrainRenderer,
+				settings:{}
+				}
 			];
 
 		    if( loadZone ){
