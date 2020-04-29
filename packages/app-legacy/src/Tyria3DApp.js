@@ -31,6 +31,8 @@ var Tyria3DApp = module.exports = function() {
 
 	this.animationTime = 350 * 0;
 
+	let renderers;
+
 	/// Run UI stuff when document is rdy
 	$(document).ready(this.onDocumentReady.bind(this));
 
@@ -58,8 +60,8 @@ var Tyria3DApp = module.exports = function() {
 		$("#intro").hide();	
 
 		/// Add stats (toggled by pressing "i")
-		this.stats = new Stats();
-		$("body").append( this.stats.domElement );
+		// this.stats = new Stats();
+		// $("body").append( this.stats.domElement );
 
 		/// Create fly controls, initare after UI DOM has been added.
 		this.controller = new FlyControls();
@@ -201,7 +203,7 @@ var Tyria3DApp = module.exports = function() {
 			SceneUtils.setRenderVisible(false);
 
 			/// Set up renderers
-			var renderers = [
+			renderers = [
 				{
 				renderClass: T3D.EnvironmentRenderer,
 				settings:{}
@@ -215,7 +217,9 @@ var Tyria3DApp = module.exports = function() {
 		    if( loadZone ){
 		    	renderers.push({
 		    		renderClass: T3D.ZoneRenderer,
-		    		settings:{}
+		    		settings:{
+						visible: true
+					}
 		    	});
 		    }
 		    if( loadProp ){
@@ -223,7 +227,9 @@ var Tyria3DApp = module.exports = function() {
 		    		renderClass: T3D.PropertiesRenderer,
 		    		settings:{}
 		    	});
-		    }
+			}
+			
+			console.log(T3D.EnvironmentRenderer, T3D.TerrainRenderer, T3D.ZoneRenderer, T3D.PropertiesRenderer);
 
 			/// Call map renderer in order to get all 3d objects
 			T3D.renderMapContentsAsync(self.localReader, fileName, renderers, self.onMapLoaded.bind(self));
@@ -235,71 +241,80 @@ var Tyria3DApp = module.exports = function() {
 	 * Callback to transfer the parsed data to three-js
 	 * @return {void}
 	 */
-	this.onMapLoaded = function(mapData){
+	this.onMapLoaded = function(context){
+
+		console.log(context);
+
 		/// Clear scene
 		SceneUtils.clear();
 
 		//ZoneRenderer
-		if(mapData.ZoneRenderer != undefined){
-			mapData.ZoneRenderer.meshes.forEach(function(elem){
+		if(context[T3D.ZoneRenderer]){
+			T3D.getContextValue(context, T3D.ZoneRenderer, "meshes").forEach(function(elem){
 				SceneUtils.getScene().add(elem); //Visible
 				SceneUtils.getNonCollisions().push(elem);
 			});	
 		}
 
 		//PropertiesRenderer
-		if(mapData.PropertiesRenderer != undefined){
-			mapData.PropertiesRenderer.meshes.forEach(function(elem){
+		if(context[T3D.PropertiesRenderer]){
+			T3D.getContextValue(context, T3D.PropertiesRenderer, "meshes").forEach(function(elem){
 				SceneUtils.getScene().add(elem); //Visible
 				SceneUtils.getNonCollisions().push(elem);
 			});	
 		}
 
-		mapData.EnvironmentRenderer.skyElements.forEach(function(elem){
-			SceneUtils.getSkyScene().add(elem);
-			SceneUtils.getSkyObjects().push(elem);
-		});		
+		if(T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyElements")){
+			T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyElements").forEach(function(elem){
+				SceneUtils.getSkyScene().add(elem);
+				SceneUtils.getSkyObjects().push(elem);
+			});		
+		}
 		
 		/// Add terrain tiles to a special list
 		/// ( these need their fog updated in a specific way ).
-		mapData.TerrainRenderer.terrainTiles.forEach(function(elem){
+		T3D.getContextValue(context, T3D.TerrainRenderer, "terrainTiles").forEach(function(elem){
 			SceneUtils.getScene().add(elem); //Visible
 			SceneUtils.getTerrainChunks().push(elem); //Terrain
 			SceneUtils.getCollisions().push(elem); //Collision
 		});	
 
-		SceneUtils.getScene().add(mapData.TerrainRenderer.water);
-		SceneUtils.getNonCollisions().push(mapData.TerrainRenderer.water); //Water
+		SceneUtils.getScene().add(T3D.getContextValue(context, T3D.TerrainRenderer, "water"));
+		SceneUtils.getNonCollisions().push(T3D.getContextValue(context, T3D.TerrainRenderer, "water")); //Water
 
 		/// Add all collisions to a special list
-		if(mapData.HavokRenderer != undefined){
-			mapData.HavokRenderer.meshes.forEach(function(elem){
+		if(T3D.getContextValue(context, T3D.HavokRenderer, "meshes")){
+			T3D.getContextValue(context, T3D.HavokRenderer, "meshes").forEach(function(elem){
 				SceneUtils.getScene().add(elem);
 				SceneUtils.getCollisions().push(elem);
 			});
 		}
 
 		/// Add lights
-		mapData.EnvironmentRenderer.lights.forEach(function(elem){
-			SceneUtils.getScene().add(elem);
-			SceneUtils.getLights().push(elem);
-		});
+		if(T3D.getContextValue(context, T3D.EnvironmentRenderer, "lights")){
+			T3D.getContextValue(context, T3D.EnvironmentRenderer, "lights").forEach(function(elem){
+				SceneUtils.getScene().add(elem);
+				SceneUtils.getLights().push(elem);
+			});
+		}
 
 		/// Set haze color 
-		var hazeColor = mapData.EnvironmentRenderer.hazeColor;
-		var color = new THREE.Color(hazeColor[2]/255.0, hazeColor[1]/255.0, hazeColor[0]/255.0);
-		SceneUtils.getRenderer().setClearColor( color, 1.0 );
-		SceneUtils.getScene().fog.color.copy(color);
+		var hazeColor = T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeColor");
+		if(hazeColor){
+			var color = new THREE.Color(hazeColor[2]/255.0, hazeColor[1]/255.0, hazeColor[0]/255.0);
+			SceneUtils.getRenderer().setClearColor( color, 1.0 );
+			SceneUtils.getScene().fog.color.copy(color);
+		}
 
 		/// Store bounds locally in order to display orto cam correctly
-		_mapRect = mapData.TerrainRenderer.bounds;
+		_mapRect = T3D.getContextValue(context, T3D.TerrainRenderer, "bounds");
 
 		/// Enable UI
 		this.controller.setMapReady(true);
 		$("#UI").removeClass("hidden");
 
 		/// Set ambient light slider to 50% if there were no parsed lights in the map data.
-		$("#ambientSlider").slider("value",mapData.EnvironmentRenderer.hasLight ? 0 : 0.5);
+		$("#ambientSlider").slider("value", T3D.getContextValue(context, T3D.EnvironmentRenderer, "hasLight") ? 0 : 0.5);
 
 		/// Set view dist after all objects are in place
 		$("#fogSlider").slider("value",35000);
@@ -314,15 +329,15 @@ var Tyria3DApp = module.exports = function() {
 		
 		/// Set camera position
 		var controls = this.controller.getControls();
-		controls.getObject().position.set(0, mapData.TerrainRenderer.bounds ? mapData.TerrainRenderer.bounds.y2 : 0, 0);
-		controls.getPitchObject().rotation.x = -Math.PI/2;
+		controls.getObject().position.set(0, T3D.getContextValue(context, T3D.TerrainRenderer, "bounds") ? T3D.getContextValue(context, T3D.TerrainRenderer, "bounds").y2 : 0, 0);
+		controls.getObject().rotation.x = -Math.PI/2;
 		
 		//Replace camera from autoload
 		if(this.mapAutoLoad.x != undefined && this.mapAutoLoad.y != undefined && this.mapAutoLoad.z != undefined) {
 			controls.getObject().position.set(this.mapAutoLoad.x, this.mapAutoLoad.y, this.mapAutoLoad.z);
 		}
 		if(this.mapAutoLoad.yaw != undefined && this.mapAutoLoad.pitch != undefined) {
-			controls.getPitchObject().rotation.x = this.mapAutoLoad.pitch;
+			controls.getObject().rotation.x = this.mapAutoLoad.pitch;
 			controls.getObject().rotation.y = this.mapAutoLoad.yaw;
 		}
 
@@ -433,7 +448,7 @@ var Tyria3DApp = module.exports = function() {
 			}
 
 			/// Update stats (FPS etc)
-			this.stats.update();
+			//this.stats.update();
 
 		}
 
@@ -452,7 +467,7 @@ var Tyria3DApp = module.exports = function() {
 			SceneUtils.resize();
 		}
 		if(evt.keyCode == 73){ // I
-			$("#stats").toggle();
+			//$("#stats").toggle();
 		}
 		if(evt.keyCode == 80){ // P
 			SceneUtils.setPerspective();

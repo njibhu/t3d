@@ -27,7 +27,7 @@ FlyControls.prototype.updateURL = function(){
 	/// Write position to UI (fugly but whatevs)
 	var pos = controls.getObject().position;
 	
-	var pitch =  Math.round(controls.getPitchObject().rotation.x*10000)/10000;
+	var pitch =  Math.round(controls.getObject().rotation.x*10000)/10000;
 	var yaw =   Math.round(controls.getObject().rotation.y*10000)/10000;
 	
 	var mapFileName = $("#mapPicker").val();

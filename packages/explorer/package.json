@@ -1,0 +1,8 @@
+{
+  "name": "t3d-explorer",
+  "version": "2.0.0",
+  "description": "",
+  "main": "src/index.html",
+  "author": "Tyria 3D contributors",
+  "license": "GPL-3.0"
+}

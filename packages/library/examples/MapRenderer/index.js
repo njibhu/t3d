@@ -1,6 +1,3 @@
-const T3D = require("../../src/T3DLib");
-window.T3D = T3D;
-
 $("#toggleHelper").click(function(){
     highlightEnabled = !highlightEnabled;
 });

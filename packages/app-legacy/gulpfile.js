@@ -32,7 +32,7 @@ gulp.task("default", function() {
       .pipe(buffer())
       .pipe(sourcemaps.init({ loadMaps: true }))
       // Add transformation tasks to the pipeline here.
-      .pipe(uglify())
+      //.pipe(uglify())
       .on("error", log.error)
       .pipe(sourcemaps.write("./"))
       .pipe(gulp.dest("./dist/build/"))
@@ -49,8 +49,6 @@ gulp.task("three-bundle", function() {
       "./dist/vendor/three/OrbitControls.js",
       "./dist/vendor/three/PointerLockControls.js",
       "./dist/vendor/three/Projector.js",
-      "./dist/vendor/three/Raycaster.js",
-      "./dist/vendor/three/Stats.js",
       "./dist/vendor/three/TrackballControls.js"
     ])
     .pipe(concat({ path: "three-bundle.js" }))

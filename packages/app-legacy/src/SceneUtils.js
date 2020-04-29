@@ -156,7 +156,7 @@ module.exports = {
 	applyCameraRotationTo: function(o){
 		if(camera.parent){
 			var rx = camera.parent.rotation.x;
-			var ry = camera.parent.parent.rotation.y;
+			var ry = camera.parent.rotation.y;
 			o.rotation.set(rx,ry,0,"YXZ");		
 		}
 	},
@@ -258,9 +258,11 @@ module.exports = {
 
 			/// Update terrain material
 			terrainChunks.forEach(function(mesh){
-				mesh.material.uniforms["fogNear"].value = scene.fog.near;
-				mesh.material.uniforms["fogFar"].value = scene.fog.far;
-				mesh.material.needsUpdate = true;
+				if(mesh.material.uniforms.fogNear){
+					mesh.material.uniforms["fogNear"].value = scene.fog.near;
+					mesh.material.uniforms["fogFar"].value = scene.fog.far;
+					mesh.material.needsUpdate = true;
+				}
 			})
 		}
 		this.render();

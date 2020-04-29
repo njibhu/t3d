@@ -2,12 +2,9 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
-THREE.PointerLockControls = function ( camera, sensitivity ) {
+THREE.PointerLockControls = function ( camera ) {
 
 	var scope = this;
-
-	this.sensitivity = sensitivity;
-	this.mouseX = 1;
 
 	camera.rotation.set( 0, 0, 0 );
 
@@ -19,7 +16,6 @@ THREE.PointerLockControls = function ( camera, sensitivity ) {
 	yawObject.add( pitchObject );
 
 	var PI_2 = Math.PI / 2;
-	var twoPI = Math.PI * 2;
 
 	var onMouseMove = function ( event ) {
 
@@ -28,13 +24,16 @@ THREE.PointerLockControls = function ( camera, sensitivity ) {
 		var movementX = event.movementX || event.mozMovementX || event.webkitMovementX || 0;
 		var movementY = event.movementY || event.mozMovementY || event.webkitMovementY || 0;
 
-		
-		yawObject.rotation.y -= movementX * scope.sensitivity;//0.002;
-		
-
-		pitchObject.rotation.x -= movementY * scope.sensitivity* scope.mouseX;// 0.002;
+		yawObject.rotation.y -= movementX * 0.002;
+		pitchObject.rotation.x -= movementY * 0.002;
 
 		pitchObject.rotation.x = Math.max( - PI_2, Math.min( PI_2, pitchObject.rotation.x ) );
+
+	};
+
+	this.dispose = function() {
+
+		document.removeEventListener( 'mousemove', onMouseMove, false );
 
 	};
 
@@ -48,17 +47,11 @@ THREE.PointerLockControls = function ( camera, sensitivity ) {
 
 	};
 
-	this.getPitchObject = function () {
-
-		return pitchObject;
-
-	};
-
 	this.getDirection = function() {
 
 		// assumes the camera itself is not rotated
 
-		var direction = new THREE.Vector3( 0, 0, -1 );
+		var direction = new THREE.Vector3( 0, 0, - 1 );
 		var rotation = new THREE.Euler( 0, 0, 0, "YXZ" );
 
 		return function( v ) {
@@ -69,18 +62,8 @@ THREE.PointerLockControls = function ( camera, sensitivity ) {
 
 			return v;
 
-		}
+		};
 
 	}();
 
 };
-
-THREE.PointerLockControls.prototype.setSensitivity = function(value){
-	this.sensitivity = value;
-};
-
-THREE.PointerLockControls.prototype.invertMouse = function(){
-	this.mouseX *= -1;
-};
-
-//module.exports = THREE.PointerLockControls;
