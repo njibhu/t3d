@@ -1,23 +1,8 @@
 {
-  "name": "tyria3dapp",
-  "version": "1.0.6",
-  "devDependencies": {
-    "browserify": "^16.3.0",
-    "gulp": "^4.0.2",
-    "gulp-batch": "^1.0.5",
-    "gulp-concat": "^2.6.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.0",
-    "gulp-watch": "^5.0.1",
-    "gulplog": "^1.0.0",
-    "uglify-es": "^3.3.9",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "yargs": "^11.0.0"
-  },
-  "dependencies": {
-    "gulp-rename": "^1.2.2",
-    "t3d-lib": "1.1.0"
-  }
+  "name": "t3d-app",
+  "version": "2.0.0",
+  "description": "",
+  "main": "src/index.html",
+  "author": "Tyria 3D contributors",
+  "license": "GPL-3.0"
 }
