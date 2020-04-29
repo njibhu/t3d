@@ -6,28 +6,28 @@ window.T3D = T3D;
 /// This will be updated sooner or later, perhaps with a
 /// written guide, who knows.
 
-var _lr;
-var _context;
-var _scene;
-var _camera;
-var _renderer;
-var _models = [];
+let _lr;
+let _context;
+let _scene;
+let _camera;
+let _renderer;
+let _models = [];
 
 /// Extend Original Logger
-var myLogger = {
+let myLogger = {
     log:function(){
-        var htmlOutput  =  $("#log");
-        var i = 1;
-        var str="";
+        let htmlOutput  =  $("#log");
+        let i = 1;
+        let str="";
         while(i<arguments.length){
             str+=arguments[i];
             i++;    
         }
-        htmlOutput.append($("<p>"+str+"</p>"))
+        htmlOutput.append($("<p>"+str+"</p>"));
         htmlOutput.append($("<p>-------------</p>"));
         
     }
-}
+};
 
 $(document).ready(
     function(){
@@ -39,7 +39,7 @@ $(document).ready(
         $("#filePicker").change(
             function(evt){
 
-                var file = evt.target.files[0];
+                let file = evt.target.files[0];
 
                 _lr = T3D.getLocalReader(
                     file,
@@ -67,21 +67,21 @@ function onReaderCreated(){
 function onButtonClick(){
 
     /// Get selected file id
-    var fileId = $("#fileIdInput").val();
+    let fileId = $("#fileIdInput").val();
 
 
     /// Let's use the SingleModelRenderer. It renders 3D stuff!
-    var renderClass = T3D.SingleModelRenderer;
+    let renderClass = T3D.SingleModelRenderer;
 
     /// All renderers must have access to a LocalReader.
     /// The LocalReader is the object that allows us
     /// to read from the .dat
-    var localReader = _lr;
+    let localReader = _lr;
 
     /// The settings object is different for all renderers.
     /// Accourding to documentation the SingleModelRenderer requires
     /// the id of a file.
-    var settings = {id:fileId};
+    let settings = {id:fileId};
 
     /// This is the value object that renderers use to write output!
     /// If we ran multiple renderers that wanted to read output from
@@ -94,7 +94,7 @@ function onButtonClick(){
     /// The method to run when the renderer is done. Almost all
     /// renderers are asynchronous since there is a lot of file
     /// reading et cetera.
-    var callback = onRendererDone;
+    let callback = onRendererDone;
 
     /// Running a renderer takes 5 mandatory parameters! Phew!
     T3D.runRenderer(
@@ -116,17 +116,17 @@ function onRendererDone(){
 
     /// Now we want to take a look in the output object!
     /// The object we told the renderer to write to was _context
-    var readFromContext = _context;
+    let readFromContext = _context;
 
     /// The generator class we want output for is SingleModelRenderer
-    var readForClass = T3D.SingleModelRenderer;
+    let readForClass = T3D.SingleModelRenderer;
 
     /// The documentation says the generated outputs are:
     /// 
     /// meshes : An array of THREE.Mesh objects visualizing this model file.
     /// 
     /// Lets get that one!
-    var nameOfValue = "meshes";
+    let nameOfValue = "meshes";
 
     /// Let's go!
     _models = T3D.getContextValue(readFromContext, readForClass, nameOfValue); 
@@ -134,7 +134,7 @@ function onRendererDone(){
     /// From here on it's just THREE stuff:
 
     /// Keeping track of the biggest model for later
-    var biggestMdl = null;
+    let biggestMdl = null;
 
     /// Add all models to the scene
     _models.forEach(function(model){
@@ -162,31 +162,31 @@ function onRendererDone(){
 /// Basic THREE stuff, don't mind it
 function setupScene(){
 
-    var canvasWidth = 500;
-    var canvasHeight = 500;
-    var canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
-    var fov = 60;
-    var aspect = 1;
-    var near = 0.1;
-    var far = 50000;
+    let canvasWidth = 500;
+    let canvasHeight = 500;
+    let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
+    let fov = 60;
+    let aspect = 1;
+    let near = 0.1;
+    let far = 50000;
 
     _camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
     _scene = new THREE.Scene();
 
     /// This scene has one ambient light source and three directional lights
-    var ambientLight = new THREE.AmbientLight( 0x555555 );
+    let ambientLight = new THREE.AmbientLight( 0x555555 );
     _scene.add( ambientLight );
 
-    var directionalLight1 = new THREE.DirectionalLight( 0xffffff, .8 );
+    let directionalLight1 = new THREE.DirectionalLight( 0xffffff, .8 );
     directionalLight1.position.set( 0, 0, 1 );
     _scene.add( directionalLight1 );
 
-    var directionalLight2 = new THREE.DirectionalLight( 0xffffff, .8);
+    let directionalLight2 = new THREE.DirectionalLight( 0xffffff, .8);
     directionalLight2.position.set( 1, 0, 0 );
     _scene.add( directionalLight2 );
 
-    var directionalLight3 = new THREE.DirectionalLight( 0xffffff, .8 );
+    let directionalLight3 = new THREE.DirectionalLight( 0xffffff, .8 );
     directionalLight3.position.set( 0, 1, 0 );
     _scene.add( directionalLight3 );
     
@@ -197,7 +197,7 @@ function setupScene(){
     _renderer.setClearColor( canvasClearColor );
 
     /// Add THREE orbit controls, for simple orbiting, panning and zooming
-    var orbit = new THREE.OrbitControls( _camera, _renderer.domElement );
+    let orbit = new THREE.OrbitControls( _camera, _renderer.domElement );
     orbit.enableZoom = true;
 
     /// Note: constant continous rendering from page load

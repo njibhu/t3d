@@ -10,7 +10,10 @@ module.exports = {
     SharedArrayBuffer: "readonly",
     THREE: "readonly",
     DataStream: "readonly",
-    T3D: "writable"
+    T3D: "writable",
+    "$": "readonly",
+    "w2ui": "readonly",
+    "w2popup": "readonly"
   },
   parserOptions: {
     ecmaVersion: 2018
