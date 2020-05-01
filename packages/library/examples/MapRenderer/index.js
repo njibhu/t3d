@@ -43,6 +43,7 @@ const mapRenderer = {
   renderer: null,
   raycaster: null,
   mouse: null,
+  controls: null,
 
   /// Data:
   mapData: Object.assign({}, cleanMapData),
@@ -328,8 +329,8 @@ function onMouseDown() {
 
 /// Basic THREE stuff, don't mind it
 function setupScene() {
-  let canvasWidth = 500;
-  let canvasHeight = 500;
+  let canvasWidth = 800;
+  let canvasHeight = 800;
   let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
   let fov = 60;
   let aspect = 1;
@@ -366,15 +367,50 @@ function setupScene() {
   mapRenderer.renderer.setSize(canvasWidth, canvasHeight);
   mapRenderer.renderer.setClearColor(canvasClearColor);
 
-  /// Add THREE orbit controls, for simple orbiting, panning and zooming
-  let orbit = new THREE.OrbitControls(
-    mapRenderer.camera,
-    mapRenderer.renderer.domElement
-  );
-  orbit.enableZoom = true;
+  setupController();
 
   /// Note: constant continous rendering from page load
   render();
+}
+
+function setupController() {
+  if (!mapRenderer.controls) {
+    let controls = new THREE.PointerLockControls(mapRenderer.camera);
+
+    mapRenderer.controls = controls;
+    mapRenderer.scene.add(controls.getObject());
+
+    let onKeyDown = function(event) {
+      console.log(event);
+      switch (event.keyCode) {
+        case 38: // up
+        case 87: // w
+          mapRenderer.controls.getObject().translateZ(10);
+          break;
+
+        case 37: // left
+        case 65: // a
+          mapRenderer.controls.getObject().translateX(10);
+          break;
+
+        case 40: // down
+        case 83: // s
+          mapRenderer.controls.getObject().translateZ(-10);
+          break;
+
+        case 39: // right
+        case 68: // d
+          mapRenderer.controls.getObject().translateX(-10);
+          break;
+
+        case 32: // space
+          mapRenderer.controls.getObject().translateY(10);
+          break;
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown, false);
+  }
 }
 
 function render() {
