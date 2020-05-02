@@ -31,7 +31,6 @@ gulp.task('T3D', function(){
 			.on('error', log.error)
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('build'))
-		.pipe(gulp.dest('./examples/static'));
 });
 
 gulp.task('formats', function(){
@@ -48,7 +47,6 @@ gulp.task('formats', function(){
 			.on('error', log.error)
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('build'))
-		.pipe(gulp.dest('./examples/static'));
 })
 
 gulp.task('watch', function() {
