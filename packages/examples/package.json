@@ -1,0 +1,18 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "T3D Contributors",
+  "license": "GPL-3.0",
+  "dependencies": {},
+  "devDependencies": {
+    "DataStream.js": "github:kig/DataStream.js",
+    "three": "0.91.0",
+    "w2ui": "1.4.3",
+    "t3d-toolsjs": "github:njibhu/t3d.git/packages/t3d-toolsjs"
+  }
+}
