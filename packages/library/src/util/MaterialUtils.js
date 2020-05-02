@@ -245,7 +245,8 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     /// 1 passes												DON'T CARE
     /// 15 effects			Each effect has a pixel shader 		HOW??
     /// 1 or 2 sampler indices 									USE ALL! (Multi material)
-
+    
+    if(dxChunk.data.techniques.length < 1) return;
     let effects = dxChunk.data.techniques[0].passes[0].effects;
     // var effect = effects[10];
     let effect = effects[0];
