@@ -36,8 +36,11 @@ function buildExample(entryPoint) {
 
 gulp.task("examples", () =>
   Promise.all([
+    copyExampleAssets("index.html"),
     buildExample("MapRenderer/index.js"),
     copyExampleAssets("MapRenderer/index.html"),
+    buildExample("LocalReaderV2/index.js"),
+    copyExampleAssets("LocalReaderV2/index.html"),
     copyt3dtoolsjs()
   ])
 );

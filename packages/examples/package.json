@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prepare": "npx lerna link",
-    "dev": "npx http-server dist"
+    "dev": "npx http-server dist",
+    "build": "npx gulp"
   },
   "author": "T3D Contributors",
   "license": "GPL-3.0",

@@ -1,4 +1,8 @@
-const T3D = require("../../src/T3DLib");
+const $ = require("jquery");
+window.$ = $;
+const DataStream = require("DataStream.js");
+window.DataStream = DataStream;
+const T3D = require("t3d-lib");
 window.T3D = T3D;
 
 //TODO: make a verbose example of how to use the new LocalReader API.
@@ -21,5 +25,5 @@ $("#filePicker").change(function(evt){
                 
             }
         });
-    }, '../static/t3dworker.js'); 
+    }, '../t3dworker.js'); 
 });
