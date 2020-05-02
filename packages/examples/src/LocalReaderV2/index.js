@@ -25,5 +25,5 @@ $("#filePicker").change(function(evt){
                 
             }
         });
-    }, '../t3dworker.js'); 
+    }, '../static/t3dworker.js'); 
 });

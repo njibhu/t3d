@@ -93,7 +93,7 @@ $(document).ready(function() {
     mapRenderer.localReader = T3D.getLocalReader(
       file,
       onReaderCreated,
-      "../t3dworker.js",
+      "../static/t3dworker.js",
       myLogger
     );
   });

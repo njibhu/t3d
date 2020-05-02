@@ -12,10 +12,14 @@ function copyExampleAssets(asset){
     .pipe(gulp.dest('./dist/'));
 }
 
-function copyt3dtoolsjs(){
-  return gulp.src(`./node_modules/t3d-toolsjs/t3dworker.js`)
-  .pipe(rename("t3dworker.js"))
-  .pipe(gulp.dest('./dist/'));
+function copyStaticAssets(){
+  return [
+    gulp.src(`./node_modules/t3d-toolsjs/t3dworker.js`)
+      .pipe(rename("t3dworker.js"))
+      .pipe(gulp.dest('./dist/static')),
+    gulp.src([`./node_modules/w2ui/w2ui-1.4.3.min.js`, `./node_modules/w2ui/w2ui-1.4.3.min.css`])
+      .pipe(gulp.dest('./dist/static'))
+  ]
 }
 
 function buildExample(entryPoint) {
@@ -41,7 +45,11 @@ gulp.task("examples", () =>
     copyExampleAssets("MapRenderer/index.html"),
     buildExample("LocalReaderV2/index.js"),
     copyExampleAssets("LocalReaderV2/index.html"),
-    copyt3dtoolsjs()
+    buildExample("ModelRenderer/index.js"),
+    copyExampleAssets("ModelRenderer/index.html"),
+    buildExample("Tyria2D/index.js"),
+    copyExampleAssets("Tyria2D/index.html"),
+    ...copyStaticAssets()
   ])
 );
 

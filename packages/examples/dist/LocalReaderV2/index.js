@@ -11872,7 +11872,7 @@ $("#filePicker").change(function(evt){
                 
             }
         });
-    }, '../t3dworker.js'); 
+    }, '../static/t3dworker.js'); 
 });
 },{"DataStream.js":1,"jquery":2,"t3d-lib":11}],4:[function(require,module,exports){
 /*

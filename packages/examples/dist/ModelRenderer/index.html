@@ -1,0 +1,81 @@
+<!--
+Copyright (C) 2015 RequestTimeout <https://github.com/RequestTimeout408>
+
+This file is part of the Tyria 3D Library.
+
+Tyria 3D Library is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Tyria 3D Library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
+!-->
+<!doctype html>
+<html >
+    <head>
+        <meta charset="utf-8">
+        <title>T3D API - Examples : Single Model Rendering</title>        
+        <style type="text/css">
+            body{
+                background: rgb(251,241,244); /*titanium white*/
+                font-family:sans-serif;
+            }
+            label, button{
+                display: block;
+                margin:30px 5px;
+            }
+            label span{
+                font-weight: bold;
+                width: 250px;
+                display: inline-block;
+            }
+            input{
+                width: 200px;
+            }
+            #log{
+                font-family: monospace;
+                font-size: 10px;
+                position: absolute;
+                top:0;
+                right: 0;
+                width: 250px;
+                bottom: 0;
+                overflow:auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Single Model Render</h1>
+        <label>
+            <span>Load a Guild Wars 2 dat File</span>
+            <input id="filePicker" type="file" />    
+        </label>
+
+        <label>
+            <span>Select Model File Id</span>
+            <input id="fileIdInput" type="number" value="13848" disabled />
+        </label>
+
+        <button id="loadModelBtn" disabled>Load Model</button>
+        
+        <p>
+            
+            Hold <strong>left mouse button</strong> and drag to <strong>orbit</strong>.<br/>
+            Hold <strong>right mouse button</strong> and drag to <strong>pan</strong>.<br/>
+            <strong>Scroll</strong> to <strong>zoom</strong>.
+
+        </p>
+        <div id="log">
+            
+        </div>
+
+        <script type="text/javascript" src="./index.js"></script>     
+        
+    </body>
+</html>
