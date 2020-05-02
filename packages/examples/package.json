@@ -1,18 +1,27 @@
 {
-  "name": "examples",
+  "name": "t3d-examples",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "npx lerna link"
   },
   "author": "T3D Contributors",
   "license": "GPL-3.0",
   "dependencies": {},
   "devDependencies": {
     "DataStream.js": "github:kig/DataStream.js",
+    "browserify": "^16.5.1",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "jquery": "1.11.1",
+    "lerna": "^3.20.2",
+    "t3d-lib": "file://../library",
+    "t3d-toolsjs": "file://../t3dtools.js",
     "three": "0.91.0",
-    "w2ui": "1.4.3",
-    "t3d-toolsjs": "github:njibhu/t3d.git/packages/t3d-toolsjs"
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "w2ui": "1.4.3"
   }
 }
