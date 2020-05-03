@@ -4,5 +4,26 @@
   "description": "",
   "main": "src/index.html",
   "author": "Tyria 3D contributors",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "scripts": {
+    "prepare": "npx lerna link",
+    "dev": "npx http-server dist",
+    "build": "npx gulp"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "DataStream.js": "github:kig/DataStream.js",
+    "browserify": "^16.5.1",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "http-server": "^0.12.3",
+    "jquery": "1.11.1",
+    "lerna": "^3.20.2",
+    "t3d-lib": "file://../library",
+    "t3d-toolsjs": "file://../t3dtools.js",
+    "three": "0.91.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  }
 }
