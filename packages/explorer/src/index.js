@@ -340,8 +340,8 @@ function onMouseDown() {
 
 /// Basic THREE stuff, don't mind it
 function setupScene() {
-  let canvasWidth = 800;
-  let canvasHeight = 800;
+  let canvasWidth = window.innerWidth;
+  let canvasHeight = window.innerHeight;
   let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
   let fov = 60;
   let aspect = 1;
