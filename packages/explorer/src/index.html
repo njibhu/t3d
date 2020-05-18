@@ -40,11 +40,8 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
       #log {
         font-family: monospace;
         font-size: 10px;
-        position: absolute;
-        top: 0;
-        right: 0;
+        float: right;
         width: 250px;
-        bottom: 0;
         overflow: auto;
       }
       .barFloat {
@@ -67,36 +64,37 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
     </style>
   </head>
   <body>
-    <div id="topBar">
-      <label class="barFloat">
-        <span>Load Gw2.dat:</span>
-        <input id="filePicker" type="file" />
-      </label>
+    <div id="uiContainer">
+      <div id="topBar">
+        <label class="barFloat">
+          <span>Load Gw2.dat:</span>
+          <input id="filePicker" type="file" />
+        </label>
 
-      <label class="barFloat">
-        <span>Map File Id:</span>
-        <input id="fileIdInput" type="number" value="294938" disabled />
-      </label>
+        <label class="barFloat">
+          <span>Map File Id:</span>
+          <input id="fileIdInput" type="number" value="294938" disabled />
+        </label>
 
-      <label class="barFloat">
-        <span>Select Map:</span>
-        <select id="fileMapSelect" disabled></select>
-      </label>
+        <label class="barFloat">
+          <span>Select Map:</span>
+          <select id="fileMapSelect" disabled></select>
+        </label>
 
-      <div class="barFloat">
-        <button id="loadMapBtn" class="btnfloat" disabled>Load map</button>
-        <button id="loadCollBtn" class="btnfloat" disabled>
-          Load collisions
-        </button>
-        <button id="loadPropsBtn" class="btnfloat" disabled>Load props</button>
-        <button id="loadZoneBtn" class="btnfloat" disabled>
-          Load zone props
-        </button>
-        <button id="toggleHelper" class="btnfloat">Toggle select</button>
+        <div class="barFloat">
+          <button id="loadMapBtn" class="btnfloat" disabled>Load map</button>
+          <button id="loadCollBtn" class="btnfloat" disabled>
+            Load collisions
+          </button>
+          <button id="loadPropsBtn" class="btnfloat" disabled>Load props</button>
+          <button id="loadZoneBtn" class="btnfloat" disabled>
+            Load zone props
+          </button>
+          <button id="toggleHelper" class="btnfloat">Toggle select</button>
+        </div>
       </div>
+      <div id="log"></div>
     </div>
-
-    <div id="log"></div>
 
     <script type="text/javascript" src="./index.js"></script>
   </body>

@@ -373,10 +373,19 @@ function setupScene() {
   mapRenderer.renderer = new THREE.WebGLRenderer({
     antialiasing: true,
     logarithmicDepthBuffer: true,
+    sortObjects: false,
+    stencil: false,
+    premultipliedAlpha: false,
   });
   document.body.appendChild(mapRenderer.renderer.domElement);
   mapRenderer.renderer.setSize(canvasWidth, canvasHeight);
   mapRenderer.renderer.setClearColor(canvasClearColor);
+
+  window.addEventListener("resize", () => {
+    mapRenderer.camera.aspect = window.innerWidth / window.innerHeight;
+    mapRenderer.camera.updateProjectionMatrix();
+    mapRenderer.renderer.setSize(window.innerWidth, window.innerHeight);
+  });
 
   setupController();
 
@@ -396,26 +405,26 @@ function setupController() {
       switch (event.keyCode) {
         case 38: // up
         case 87: // w
-          mapRenderer.controls.getObject().translateZ(10);
+          mapRenderer.controls.getObject().translateZ(1000);
           break;
 
         case 37: // left
         case 65: // a
-          mapRenderer.controls.getObject().translateX(10);
+          mapRenderer.controls.getObject().translateX(1000);
           break;
 
         case 40: // down
         case 83: // s
-          mapRenderer.controls.getObject().translateZ(-10);
+          mapRenderer.controls.getObject().translateZ(-1000);
           break;
 
         case 39: // right
         case 68: // d
-          mapRenderer.controls.getObject().translateX(-10);
+          mapRenderer.controls.getObject().translateX(-1000);
           break;
 
         case 32: // space
-          mapRenderer.controls.getObject().translateY(10);
+          mapRenderer.controls.getObject().translateY(1000);
           break;
       }
     };
