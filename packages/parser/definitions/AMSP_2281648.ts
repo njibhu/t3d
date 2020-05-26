@@ -82,12 +82,12 @@ module.exports = [
       },
       FileNameDataV0: {
         audioType: Uint8,
-        fileName: Filename,
+        fileName: Filename(),
         language: Uint64,
         weight: Float32
       },
       ScriptRefDataV0: {
-        fileName: Filename,
+        fileName: Filename(),
         name: Uint64
       },
       TriggerKeyDataV0: {
@@ -119,7 +119,7 @@ module.exports = [
       AudioSettingsDataV1: {
         category: DynArray("CategoryDataV1"),
         distanceScale: Float32,
-        voiceBankFileName: Filename,
+        voiceBankFileName: Filename(),
         volumeGroup: DynArray("VolumeGroupDataV1")
       },
       CategoryDataV1: {
@@ -221,12 +221,12 @@ module.exports = [
       },
       FileNameDataV1: {
         audioType: Uint8,
-        fileName: Filename,
+        fileName: Filename(),
         language: Uint64,
         weight: Float32
       },
       ScriptRefDataV1: {
-        fileName: Filename,
+        fileName: Filename(),
         name: Uint64
       },
       TriggerKeyDataV1: {
@@ -260,7 +260,7 @@ module.exports = [
         volumeGroup: DynArray("VolumeGroupDataV2"),
         category: DynArray("CategoryDataV2"),
         distanceScale: Float32,
-        voiceBankFileName: Filename
+        voiceBankFileName: Filename()
       },
       VolumeGroupDataV2: {
         name: Uint64,
@@ -364,12 +364,12 @@ module.exports = [
       FileNameDataV2: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV2: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV2: {
         name: Uint64,
@@ -403,7 +403,7 @@ module.exports = [
         volumeGroup: DynArray("VolumeGroupDataV3"),
         category: DynArray("CategoryDataV3"),
         distanceScale: Float32,
-        voiceBankFileName: Filename
+        voiceBankFileName: Filename()
       },
       VolumeGroupDataV3: {
         name: Uint64,
@@ -507,12 +507,12 @@ module.exports = [
       FileNameDataV3: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV3: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV3: {
         name: Uint64,
@@ -547,8 +547,8 @@ module.exports = [
         volumeGroup: DynArray("VolumeGroupDataV4"),
         category: DynArray("CategoryDataV4"),
         distanceScale: Float32,
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename()
       },
       VolumeGroupDataV4: {
         name: Uint64,
@@ -652,12 +652,12 @@ module.exports = [
       FileNameDataV4: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV4: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV4: {
         name: Uint64,
@@ -694,8 +694,8 @@ module.exports = [
         distanceScale: Float32,
         category: DynArray("CategoryDataV5"),
         snapshot: DynArray("SnapshotDataV5"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename()
       },
       CategoryDataV5: {
         name: Uint64,
@@ -808,12 +808,12 @@ module.exports = [
       FileNameDataV5: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV5: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV5: {
         name: Uint64,
@@ -851,8 +851,8 @@ module.exports = [
         buss: DynArray("BussDataV6"),
         category: DynArray("CategoryDataV6"),
         snapshot: DynArray("SnapshotDataV6"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename()
       },
       BussDataV6: {
         name: Uint64,
@@ -971,12 +971,12 @@ module.exports = [
       FileNameDataV6: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV6: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV6: {
         name: Uint64,
@@ -1015,8 +1015,8 @@ module.exports = [
         buss: DynArray("BussDataV7"),
         category: DynArray("CategoryDataV7"),
         snapshot: DynArray("SnapshotDataV7"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename()
       },
       BussDataV7: {
         name: Uint64,
@@ -1138,12 +1138,12 @@ module.exports = [
       FileNameDataV7: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV7: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV7: {
         name: Uint64,
@@ -1183,8 +1183,8 @@ module.exports = [
         category: DynArray("CategoryDataV8"),
         reverb: DynArray("ReverbDataV8"),
         snapshot: DynArray("SnapshotDataV8"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename()
       },
       BussDataV8: {
         name: Uint64,
@@ -1326,12 +1326,12 @@ module.exports = [
       FileNameDataV8: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV8: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV8: {
         name: Uint64,
@@ -1371,8 +1371,8 @@ module.exports = [
         category: DynArray("CategoryDataV9"),
         reverb: DynArray("ReverbDataV9"),
         snapshot: DynArray("SnapshotDataV9"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename()
       },
       BussDataV9: {
         name: Uint64,
@@ -1519,12 +1519,12 @@ module.exports = [
       FileNameDataV9: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV9: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV9: {
         name: Uint64,
@@ -1564,8 +1564,8 @@ module.exports = [
         category: DynArray("CategoryDataV10"),
         reverb: DynArray("ReverbDataV10"),
         snapshot: DynArray("SnapshotDataV10"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename()
       },
       BussDataV10: {
         name: Uint64,
@@ -1707,12 +1707,12 @@ module.exports = [
       FileNameDataV10: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV10: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV10: {
         name: Uint64,
@@ -1753,9 +1753,9 @@ module.exports = [
         category: DynArray("CategoryDataV11"),
         reverb: DynArray("ReverbDataV11"),
         snapshot: DynArray("SnapshotDataV11"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV11: {
         name: Uint64,
@@ -1897,12 +1897,12 @@ module.exports = [
       FileNameDataV11: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV11: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV11: {
         name: Uint64,
@@ -1943,9 +1943,9 @@ module.exports = [
         category: DynArray("CategoryDataV12"),
         reverb: DynArray("ReverbDataV12"),
         snapshot: DynArray("SnapshotDataV12"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV12: {
         name: Uint64,
@@ -2087,12 +2087,12 @@ module.exports = [
       FileNameDataV12: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV12: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV12: {
         name: Uint64,
@@ -2134,9 +2134,9 @@ module.exports = [
         category: DynArray("CategoryDataV13"),
         reverb: DynArray("ReverbDataV13"),
         snapshot: DynArray("SnapshotDataV13"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV13: {
         name: Uint64,
@@ -2278,12 +2278,12 @@ module.exports = [
       FileNameDataV13: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV13: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV13: {
         name: Uint64,
@@ -2327,9 +2327,9 @@ module.exports = [
         category: DynArray("CategoryDataV14"),
         reverb: DynArray("ReverbDataV14"),
         snapshot: DynArray("SnapshotDataV14"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV14: {
         name: Uint64,
@@ -2469,12 +2469,12 @@ module.exports = [
       FileNameDataV14: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV14: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV14: {
         name: Uint64,
@@ -2518,9 +2518,9 @@ module.exports = [
         category: DynArray("CategoryDataV15"),
         reverb: DynArray("ReverbDataV15"),
         snapshot: DynArray("SnapshotDataV15"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV15: {
         name: Uint64,
@@ -2661,12 +2661,12 @@ module.exports = [
       FileNameDataV15: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV15: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV15: {
         name: Uint64,
@@ -2710,9 +2710,9 @@ module.exports = [
         category: DynArray("CategoryDataV16"),
         reverb: DynArray("ReverbDataV16"),
         snapshot: DynArray("SnapshotDataV16"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV16: {
         name: Uint64,
@@ -2857,12 +2857,12 @@ module.exports = [
       FileNameDataV16: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV16: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV16: {
         name: Uint64,
@@ -2906,9 +2906,9 @@ module.exports = [
         category: DynArray("CategoryDataV17"),
         reverb: DynArray("ReverbDataV17"),
         snapshot: DynArray("SnapshotDataV17"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV17: {
         name: Uint64,
@@ -3056,12 +3056,12 @@ module.exports = [
       FileNameDataV17: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV17: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV17: {
         name: Uint64,
@@ -3105,9 +3105,9 @@ module.exports = [
         category: DynArray("CategoryDataV18"),
         reverb: DynArray("ReverbDataV18"),
         snapshot: DynArray("SnapshotDataV18"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV18: {
         name: Uint64,
@@ -3255,12 +3255,12 @@ module.exports = [
       FileNameDataV18: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV18: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV18: {
         name: Uint64,
@@ -3304,9 +3304,9 @@ module.exports = [
         category: DynArray("CategoryDataV19"),
         reverb: DynArray("ReverbDataV19"),
         snapshot: DynArray("SnapshotDataV19"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV19: {
         name: Uint64,
@@ -3455,12 +3455,12 @@ module.exports = [
       FileNameDataV19: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV19: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV19: {
         name: Uint64,
@@ -3504,9 +3504,9 @@ module.exports = [
         category: DynArray("CategoryDataV20"),
         reverb: DynArray("ReverbDataV20"),
         snapshot: DynArray("SnapshotDataV20"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV20: {
         name: Uint64,
@@ -3655,12 +3655,12 @@ module.exports = [
       FileNameDataV20: {
         language: Uint64,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ScriptRefDataV20: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV20: {
         name: Uint64,
@@ -3707,9 +3707,9 @@ module.exports = [
         musicPlaylist: DynArray("MusicPlaylistDataV21"),
         reverb: DynArray("ReverbDataV21"),
         snapshot: DynArray("SnapshotDataV21"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV21: {
         name: Uint64,
@@ -3805,7 +3805,7 @@ module.exports = [
         language: Uint64,
         volume: Float32,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ReverbDataV21: {
@@ -3885,7 +3885,7 @@ module.exports = [
       },
       ScriptRefDataV21: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV21: {
         name: Uint64,
@@ -3932,9 +3932,9 @@ module.exports = [
         musicPlaylist: DynArray("MusicPlaylistDataV22"),
         reverb: DynArray("ReverbDataV22"),
         snapshot: DynArray("SnapshotDataV22"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV22: {
         name: Uint64,
@@ -4032,7 +4032,7 @@ module.exports = [
         language: Uint64,
         volume: Float32,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ReverbDataV22: {
@@ -4112,7 +4112,7 @@ module.exports = [
       },
       ScriptRefDataV22: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV22: {
         name: Uint64,
@@ -4159,9 +4159,9 @@ module.exports = [
         musicPlaylist: DynArray("MusicPlaylistDataV23"),
         reverb: DynArray("ReverbDataV23"),
         snapshot: DynArray("SnapshotDataV23"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV23: {
         name: Uint64,
@@ -4259,7 +4259,7 @@ module.exports = [
         language: Uint64,
         volume: Float32,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8
       },
       ReverbDataV23: {
@@ -4339,7 +4339,7 @@ module.exports = [
       },
       ScriptRefDataV23: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV23: {
         name: Uint64,
@@ -4387,9 +4387,9 @@ module.exports = [
         musicPlaylist: DynArray("MusicPlaylistDataV24"),
         reverb: DynArray("ReverbDataV24"),
         snapshot: DynArray("SnapshotDataV24"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV24: {
         name: Uint64,
@@ -4487,7 +4487,7 @@ module.exports = [
         language: Uint64,
         volume: Float32,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8,
         noteBase: Uint8,
         noteMin: Uint8,
@@ -4570,7 +4570,7 @@ module.exports = [
       },
       ScriptRefDataV24: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV24: {
         name: Uint64,
@@ -4619,9 +4619,9 @@ module.exports = [
         musicPlaylist: DynArray("MusicPlaylistDataV25"),
         reverb: DynArray("ReverbDataV25"),
         snapshot: DynArray("SnapshotDataV25"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV25: {
         name: Uint64,
@@ -4727,7 +4727,7 @@ module.exports = [
         language: Uint64,
         volume: Float32,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8,
         noteBase: Uint8,
         noteMin: Uint8,
@@ -4810,7 +4810,7 @@ module.exports = [
       },
       ScriptRefDataV25: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV25: {
         name: Uint64,
@@ -4863,9 +4863,9 @@ module.exports = [
         musicPlaylist: DynArray("MusicPlaylistDataV26"),
         reverb: DynArray("ReverbDataV26"),
         snapshot: DynArray("SnapshotDataV26"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV26: {
         name: Uint64,
@@ -4984,7 +4984,7 @@ module.exports = [
         language: Uint64,
         volume: Float32,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8,
         noteBase: Uint8,
         noteMin: Uint8,
@@ -5067,7 +5067,7 @@ module.exports = [
       },
       ScriptRefDataV26: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       TriggerKeyDataV26: {
         name: Uint64,
@@ -5123,9 +5123,9 @@ module.exports = [
         reverb: DynArray("ReverbDataV27"),
         scriptRef: DynArray("ScriptRefDataV27"),
         snapshot: DynArray("SnapshotDataV27"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV27: {
         name: Uint64,
@@ -5244,7 +5244,7 @@ module.exports = [
         language: Uint64,
         volume: Float32,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8,
         noteBase: Uint8,
         noteMin: Uint8,
@@ -5278,7 +5278,7 @@ module.exports = [
       },
       ScriptRefDataV27: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       SnapshotDataV27: {
         name: Uint64,
@@ -5389,9 +5389,9 @@ module.exports = [
         reverb: DynArray("ReverbDataV28"),
         scriptRef: DynArray("ScriptRefDataV28"),
         snapshot: DynArray("SnapshotDataV28"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename()
       },
       BussDataV28: {
         name: Uint64,
@@ -5510,7 +5510,7 @@ module.exports = [
         language: Uint64,
         volume: Float32,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8,
         noteBase: Uint8,
         noteMin: Uint8,
@@ -5544,7 +5544,7 @@ module.exports = [
       },
       ScriptRefDataV28: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       SnapshotDataV28: {
         name: Uint64,
@@ -5657,9 +5657,9 @@ module.exports = [
         reverb: DynArray("ReverbDataV29"),
         scriptRef: DynArray("ScriptRefDataV29"),
         snapshot: DynArray("SnapshotDataV29"),
-        bankIndexFileName: Filename,
-        bankScriptFileName: Filename,
-        musicScriptFileName: Filename,
+        bankIndexFileName: Filename(),
+        bankScriptFileName: Filename(),
+        musicScriptFileName: Filename(),
         musicExternal: DynArray("MusicExternalDataV29")
       },
       BussDataV29: {
@@ -5779,7 +5779,7 @@ module.exports = [
         language: Uint64,
         volume: Float32,
         weight: Float32,
-        fileName: Filename,
+        fileName: Filename(),
         audioType: Uint8,
         noteBase: Uint8,
         noteMin: Uint8,
@@ -5813,7 +5813,7 @@ module.exports = [
       },
       ScriptRefDataV29: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       SnapshotDataV29: {
         name: Uint64,
@@ -5826,7 +5826,7 @@ module.exports = [
       },
       MusicExternalDataV29: {
         name: Uint64,
-        externalPlaylist: String16
+        externalPlaylist: String16()
       },
       HandlerDataV29: {
         name: Uint64,

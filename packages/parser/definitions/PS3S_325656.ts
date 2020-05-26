@@ -47,8 +47,8 @@ module.exports = [
         renderState: "AmatPs3RenderState",
         pixelShader: Uint32,
         vertexShader: Uint32,
-        psFileFame: Filename,
-        vsFileName: Filename
+        psFileFame: Filename(),
+        vsFileName: Filename()
       },
       AmatPs3RenderState: {
         cullMode: Uint32,

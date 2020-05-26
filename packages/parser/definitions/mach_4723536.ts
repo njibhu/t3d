@@ -1,4 +1,4 @@
-import { String16, Unknown28, DynArray, Pointer, Uint64, Fileref, Uint32 } from "../src/types";
+import { String16, Unknown, DynArray, Pointer, Uint64, Fileref, Uint32 } from "../src/types";
 
 module.exports = [
   {
@@ -10,7 +10,7 @@ module.exports = [
         states: DynArray("PackAnimMachineStateV0")
       },
       PackAnimMachineStateV0: {
-        name: String16,
+        name: String16(),
         actionBlock: Pointer("PackAnimMachineActionBlockV0"),
         actionVariantBlock: Pointer("PackAnimMachineActionVariantBlockV0"),
         transitions: DynArray("PackAnimMachineTransitionV0"),
@@ -20,7 +20,7 @@ module.exports = [
         actions: DynArray("PackAnimMachineActionV0")
       },
       PackAnimMachineActionV0: {
-        actionData: Unknown28
+        actionData: Unknown
       },
       PackAnimMachineActionVariantBlockV0: {
         actionVariants: DynArray("PackAnimMachineActionVariantV0")
@@ -30,8 +30,8 @@ module.exports = [
         actionBlock: Pointer("PackAnimMachineActionBlockV0")
       },
       PackAnimMachineTransitionV0: {
-        name: String16,
-        targetStateName: String16,
+        name: String16(),
+        targetStateName: String16(),
         actionBlock: Pointer("PackAnimMachineActionBlockV0"),
         variants: DynArray("PackAnimMachineTransitionVariantV0")
       },
@@ -46,8 +46,8 @@ module.exports = [
         transitions: DynArray("PackAnimMachineTransitionV0")
       },
       PackAnimModelV0: {
-        modelFileId: Fileref,
-        modelFileRaw: String16,
+        modelFileId: Fileref(),
+        modelFileRaw: String16(),
         machineIndex: Uint32
       }
     },

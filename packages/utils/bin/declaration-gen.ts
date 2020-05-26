@@ -3,37 +3,53 @@
   This program is meant to be run with ts-node. It relies on its ability to require typescript files.
 */
 
-import { transform } from "../lib/declaration-types";
+import { promises as fs } from "fs";
+import * as path from "path";
 
-type FieldsDefinition = { [key: string]: string };
+type FieldsDefinition = { [key: string]: any };
 type FieldsDeclaration = { [key: string]: string };
 
 interface DefinitionModule {
   name: string;
-  definitions: {
+  definitions?: {
     [struct: string]: FieldsDefinition;
   };
   root: FieldsDefinition;
 }
 
 async function run() {
-  const definitionFilePath = "";
-  const module: [DefinitionModule] = require(definitionFilePath);
-  let declarations: any = {};
-  for (const version of module) {
-    declarations = { ...declarations, ...parseVersion(version) };
-  }
+  const definitionPath = process.argv[2];
+  const destinationFolder = process.argv[3];
+  if (!definitionPath || !destinationFolder) throw new Error("Missing arguments");
 
-  console.log(JSON.stringify(declarations), null, 2);
+  const declarationList = await fs.readdir(definitionPath);
+  for (const definitionModule of declarationList) {
+    console.log(definitionModule);
+    const modulePath = path.resolve(definitionPath, definitionModule);
+    if (!modulePath.endsWith(".ts")) throw new Error(`${modulePath} is not a typescript file`);
+
+    const module: DefinitionModule[] = require(modulePath);
+    let declarations: any = {};
+    for (const version of module) {
+      declarations = { ...declarations, ...parseVersion(version) };
+    }
+
+    await fs.writeFile(
+      path.resolve(destinationFolder, definitionModule.replace(".ts", ".d.ts")),
+      toDeclarationFile(declarations)
+    );
+  }
 }
 
 function parseVersion(version: DefinitionModule): { [type: string]: FieldsDeclaration } {
   const declarations: { [type: string]: FieldsDeclaration } = {};
   declarations[version.name] = definitionToDeclaration(version.root);
 
-  const definitionsNames = Object.keys(version.definitions);
-  for (const definitionName of definitionsNames) {
-    declarations[definitionName] = definitionToDeclaration(version.definitions[definitionName]);
+  if (version.definitions) {
+    const definitionsNames = Object.keys(version.definitions);
+    for (const definitionName of definitionsNames) {
+      declarations[definitionName] = definitionToDeclaration(version.definitions[definitionName]);
+    }
   }
 
   return declarations;
@@ -43,7 +59,20 @@ function definitionToDeclaration(definition: FieldsDefinition): FieldsDeclaratio
   const declaration: FieldsDeclaration = {};
   const definitionKeys = Object.keys(definition);
   for (const key of definitionKeys) {
-    declaration[key] = transform(definition[key]);
+    declaration[key] = definition[key].declarationType ? definition[key].declarationType : definition[key];
   }
   return declaration;
 }
+
+function toDeclarationFile(data: any) {
+  let fileContent = "";
+  for (const [type, value] of Object.entries(data)) {
+    fileContent += `
+
+export type ${type} = ${JSON.stringify(value, null, 2).replace(/"/g, "")}`;
+  }
+
+  return fileContent;
+}
+
+run();

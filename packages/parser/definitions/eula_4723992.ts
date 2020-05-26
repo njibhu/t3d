@@ -8,7 +8,7 @@ module.exports = [
     definitions: {
       PackEulaLanguageV0: {
         Language: Uint8,
-        Text: String16
+        Text: String16()
       }
     },
     root: {

@@ -17,7 +17,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       }
     },
     root: {

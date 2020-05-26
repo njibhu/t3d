@@ -28,7 +28,7 @@ module.exports = [
         fileId: Uint32,
         size: Uint32,
         flags: Uint32,
-        name: String16
+        name: String16()
       },
       PackAssetExtraFile: {
         baseId: Uint32,

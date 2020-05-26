@@ -26,8 +26,8 @@ module.exports = [
         renderState: "AmatAppleRenderState",
         pixelShader: Uint32,
         vertexShader: Uint32,
-        psFileFame: Filename,
-        vsFileName: Filename
+        psFileFame: Filename(),
+        vsFileName: Filename()
       },
       AmatAppleRenderState: {
         cullMode: Uint32,

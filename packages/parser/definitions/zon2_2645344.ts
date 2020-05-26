@@ -7,7 +7,7 @@ module.exports = [
     version: 11,
     definitions: {
       PackMapZoneDefV12: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV12"),
         timeStamp: Uint64
@@ -28,7 +28,7 @@ module.exports = [
         subModel: Pointer("PackMapZoneModelV12")
       },
       PackMapZoneModelV12: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32
       },
@@ -67,7 +67,7 @@ module.exports = [
     version: 12,
     definitions: {
       PackMapZoneDefV13: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV13"),
         timeStamp: Uint64
@@ -89,7 +89,7 @@ module.exports = [
         subModel: Pointer("PackMapZoneModelV13")
       },
       PackMapZoneModelV13: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32
       },
@@ -128,7 +128,7 @@ module.exports = [
     version: 13,
     definitions: {
       PackMapZoneDefV14: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV14"),
         timeStamp: Uint64,
@@ -151,7 +151,7 @@ module.exports = [
         subModel: Pointer("PackMapZoneModelV14")
       },
       PackMapZoneModelV14: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32
       },
@@ -200,7 +200,7 @@ module.exports = [
     version: 14,
     definitions: {
       PackMapZoneDefV15: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV15"),
         timeStamp: Uint64,
@@ -223,7 +223,7 @@ module.exports = [
         subModel: Pointer("PackMapZoneModelV15")
       },
       PackMapZoneModelV15: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32,
         hslOffset: FixedArray(Float32, 3)
@@ -273,7 +273,7 @@ module.exports = [
     version: 15,
     definitions: {
       PackMapZoneDefV16: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV16"),
         timeStamp: Uint64,
@@ -296,7 +296,7 @@ module.exports = [
         subModel: Pointer("PackMapZoneModelV16")
       },
       PackMapZoneModelV16: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32,
         hslOffset: FixedArray(Float32, 3)
@@ -352,7 +352,7 @@ module.exports = [
     version: 16,
     definitions: {
       PackMapZoneDefV17: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV17"),
         timeStamp: Uint64,
@@ -375,7 +375,7 @@ module.exports = [
         subModel: Pointer("PackMapZoneModelV17")
       },
       PackMapZoneModelV17: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32,
         hslOffset: FixedArray(Float32, 3)
@@ -431,7 +431,7 @@ module.exports = [
     version: 17,
     definitions: {
       PackMapZoneDefV18: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV18"),
         timeStamp: Uint64,
@@ -451,12 +451,12 @@ module.exports = [
         hslRanges: FixedArray(FixedArray(Float32, 2), 3),
         noise: Uint8,
         layerFlags: Uint32,
-        materialname: Filename,
+        materialname: Filename(),
         modelArray: DynArray("PackMapZoneModelV18"),
         subModel: Pointer("PackMapZoneModelV18")
       },
       PackMapZoneModelV18: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32,
         hslOffset: FixedArray(Float32, 3),
@@ -513,7 +513,7 @@ module.exports = [
     version: 18,
     definitions: {
       PackMapZoneDefV19: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV19"),
         timeStamp: Uint64,
@@ -533,12 +533,12 @@ module.exports = [
         hslRanges: FixedArray(FixedArray(Float32, 2), 4),
         noise: Uint8,
         layerFlags: Uint32,
-        materialname: Filename,
+        materialname: Filename(),
         modelArray: DynArray("PackMapZoneModelV19"),
         subModel: Pointer("PackMapZoneModelV19")
       },
       PackMapZoneModelV19: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32,
         hslOffset: FixedArray(Float32, 3),
@@ -595,7 +595,7 @@ module.exports = [
     version: 19,
     definitions: {
       PackMapZoneDefV20: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV20"),
         timeStamp: Uint64,
@@ -616,12 +616,12 @@ module.exports = [
         instanceScaleJitter: Float32,
         noise: Uint8,
         layerFlags: Uint32,
-        materialname: Filename,
+        materialname: Filename(),
         modelArray: DynArray("PackMapZoneModelV20"),
         subModel: Pointer("PackMapZoneModelV20")
       },
       PackMapZoneModelV20: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32,
         hslOffset: FixedArray(Float32, 3),
@@ -678,7 +678,7 @@ module.exports = [
     version: 20,
     definitions: {
       PackMapZoneDefV21: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV21"),
         timeStamp: Uint64,
@@ -699,12 +699,12 @@ module.exports = [
         instanceScaleJitter: Float32,
         noise: Uint8,
         layerFlags: Uint32,
-        materialname: Filename,
+        materialname: Filename(),
         modelArray: DynArray("PackMapZoneModelV21"),
         subModel: Pointer("PackMapZoneModelV21")
       },
       PackMapZoneModelV21: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32,
         hslOffset: FixedArray(Float32, 3),
@@ -761,12 +761,12 @@ module.exports = [
     version: 21,
     definitions: {
       PackMapZoneDefV22: {
-        defFilename: Filename,
+        defFilename: Filename(),
         token: Uint32,
         layerDefArray: DynArray("PackMapZoneLayerDefV22"),
         timeStamp: Uint64,
         pageTable: Pointer("PackMapZonePageTableV10"),
-        reserved: String16
+        reserved: String16()
       },
       PackMapZoneLayerDefV22: {
         type: Uint8,
@@ -783,13 +783,13 @@ module.exports = [
         instanceScaleJitter: Float32,
         noise: Uint8,
         layerFlags: Uint32,
-        materialname: Filename,
+        materialname: Filename(),
         modelArray: DynArray("PackMapZoneModelV22"),
         subModel: Pointer("PackMapZoneModelV22"),
-        reserved: String16
+        reserved: String16()
       },
       PackMapZoneModelV22: {
-        filename: Filename,
+        filename: Filename(),
         probability: Float32,
         flags: Uint32,
         hslOffset: FixedArray(Float32, 3),
@@ -804,7 +804,7 @@ module.exports = [
         chunkCoord: FixedArray(Uint32, 2),
         seed: Uint8,
         paintFlags: DynArray(Uint32),
-        string: String16
+        string: String16()
       },
       PackMapZoneV22: {
         zoneFlags: Uint32,
@@ -820,7 +820,7 @@ module.exports = [
         offsetData: DynArray(Uint16),
         vertices: DynArray(FixedArray(Float32, 2)),
         broadId: Uint16,
-        reserved: String16
+        reserved: String16()
       },
       PackMapZoneEncodingDataV22: {
         index: Uint16,
@@ -840,7 +840,7 @@ module.exports = [
       zoneArray: DynArray("PackMapZoneV22"),
       broadPhase: "PackBroadphaseType",
       maxBroadId: Uint16,
-      string: String16
+      string: String16()
     }
   }
 ]

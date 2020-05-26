@@ -6,7 +6,7 @@ module.exports = [
     name: "PackMapShadowExtV1",
     version: 1,
     root: {
-      filename: Filename,
+      filename: Filename(),
       shadowDims: FixedArray(Uint32, 2)
     }
   }

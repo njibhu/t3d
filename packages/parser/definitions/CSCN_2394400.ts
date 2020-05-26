@@ -7,9 +7,9 @@ module.exports = [
     version: 0,
     definitions: {
       SequenceDataV0: {
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         name: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV0")
@@ -24,7 +24,7 @@ module.exports = [
       PropertyDataV0: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV0: {
         name: Uint64,
@@ -76,7 +76,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV0")
       },
       TextEntryDataV0: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -91,9 +91,9 @@ module.exports = [
     version: 1,
     definitions: {
       SequenceDataV1: {
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         name: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV1")
@@ -108,7 +108,7 @@ module.exports = [
       PropertyDataV1: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV1: {
         name: Uint64,
@@ -165,7 +165,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV1")
       },
       TextEntryDataV1: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -180,9 +180,9 @@ module.exports = [
     version: 2,
     definitions: {
       SequenceDataV2: {
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         name: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV2")
@@ -197,7 +197,7 @@ module.exports = [
       PropertyDataV2: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV2: {
         name: Uint64,
@@ -254,7 +254,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV2")
       },
       TextEntryDataV2: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -270,9 +270,9 @@ module.exports = [
     version: 3,
     definitions: {
       SequenceDataV3: {
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         name: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV3")
@@ -287,7 +287,7 @@ module.exports = [
       PropertyDataV3: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV3: {
         name: Uint64,
@@ -344,7 +344,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV3")
       },
       TextEntryDataV3: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -360,9 +360,9 @@ module.exports = [
     version: 4,
     definitions: {
       SequenceDataV4: {
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         name: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV4")
@@ -377,7 +377,7 @@ module.exports = [
       PropertyDataV4: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV4: {
         name: Uint64,
@@ -435,7 +435,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV4")
       },
       TextEntryDataV4: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -451,9 +451,9 @@ module.exports = [
     version: 5,
     definitions: {
       SequenceDataV5: {
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         name: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV5")
@@ -468,7 +468,7 @@ module.exports = [
       PropertyDataV5: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV5: {
         name: Uint64,
@@ -526,7 +526,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV5")
       },
       TextEntryDataV5: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -544,9 +544,9 @@ module.exports = [
       SequenceDataV6: {
         name: Uint64,
         length: Float32,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         trackGroup: DynArray("TrackGroupDataV6")
       },
       TrackGroupDataV6: {
@@ -559,7 +559,7 @@ module.exports = [
       PropertyDataV6: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV6: {
         name: Uint64,
@@ -617,7 +617,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV6")
       },
       TextEntryDataV6: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -635,9 +635,9 @@ module.exports = [
       SequenceDataV7: {
         name: Uint64,
         length: Float32,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         trackGroup: DynArray("TrackGroupDataV7")
       },
       TrackGroupDataV7: {
@@ -650,7 +650,7 @@ module.exports = [
       PropertyDataV7: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV7: {
         name: Uint64,
@@ -708,7 +708,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV7")
       },
       TextEntryDataV7: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -726,9 +726,9 @@ module.exports = [
       SequenceDataV8: {
         name: Uint64,
         length: Float32,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         trackGroup: DynArray("TrackGroupDataV8")
       },
       TrackGroupDataV8: {
@@ -741,7 +741,7 @@ module.exports = [
       PropertyDataV8: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV8: {
         name: Uint64,
@@ -792,7 +792,7 @@ module.exports = [
       },
       FileNameRefDataV8: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV8: {
         name: Uint64,
@@ -804,7 +804,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV8")
       },
       TextEntryDataV8: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -822,9 +822,9 @@ module.exports = [
       SequenceDataV9: {
         name: Uint64,
         length: Float32,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         trackGroup: DynArray("TrackGroupDataV9")
       },
       TrackGroupDataV9: {
@@ -837,7 +837,7 @@ module.exports = [
       PropertyDataV9: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV9: {
         name: Uint64,
@@ -889,7 +889,7 @@ module.exports = [
       },
       FileNameRefDataV9: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV9: {
         name: Uint64,
@@ -901,7 +901,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV9")
       },
       TextEntryDataV9: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -919,9 +919,9 @@ module.exports = [
       SequenceDataV10: {
         name: Uint64,
         length: Float32,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         trackGroup: DynArray("TrackGroupDataV10")
       },
       TrackGroupDataV10: {
@@ -934,7 +934,7 @@ module.exports = [
       PropertyDataV10: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV10: {
         name: Uint64,
@@ -986,7 +986,7 @@ module.exports = [
       },
       FileNameRefDataV10: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV10: {
         name: Uint64,
@@ -998,7 +998,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV10")
       },
       TextEntryDataV10: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1016,9 +1016,9 @@ module.exports = [
       SequenceDataV11: {
         name: Uint64,
         length: Float32,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         trackGroup: DynArray("TrackGroupDataV11")
       },
       TrackGroupDataV11: {
@@ -1031,7 +1031,7 @@ module.exports = [
       PropertyDataV11: {
         type: Uint8,
         value: Uint64,
-        pathVal: Filename
+        pathVal: Filename()
       },
       TrackDataV11: {
         name: Uint64,
@@ -1083,7 +1083,7 @@ module.exports = [
       },
       FileNameRefDataV11: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV11: {
         name: Uint64,
@@ -1095,7 +1095,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV11")
       },
       TextEntryDataV11: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1112,9 +1112,9 @@ module.exports = [
     definitions: {
       SequenceDataV12: {
         name: Uint64,
-        environmentMap: Fileref,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Fileref(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV12")
       },
@@ -1127,7 +1127,7 @@ module.exports = [
       },
       PropertyDataV12: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV12: {
@@ -1180,7 +1180,7 @@ module.exports = [
       },
       FileNameRefDataV12: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV12: {
         name: Uint64,
@@ -1192,7 +1192,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV12")
       },
       TextEntryDataV12: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1209,9 +1209,9 @@ module.exports = [
     definitions: {
       SequenceDataV13: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV13")
       },
@@ -1224,7 +1224,7 @@ module.exports = [
       },
       PropertyDataV13: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV13: {
@@ -1277,7 +1277,7 @@ module.exports = [
       },
       FileNameRefDataV13: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV13: {
         name: Uint64,
@@ -1289,7 +1289,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV13")
       },
       TextEntryDataV13: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1306,9 +1306,9 @@ module.exports = [
     definitions: {
       SequenceDataV14: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV14")
       },
@@ -1321,7 +1321,7 @@ module.exports = [
       },
       PropertyDataV14: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV14: {
@@ -1374,7 +1374,7 @@ module.exports = [
       },
       FileNameRefDataV14: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV14: {
         name: Uint64,
@@ -1387,7 +1387,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV14")
       },
       TextEntryDataV14: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1404,9 +1404,9 @@ module.exports = [
     definitions: {
       SequenceDataV15: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         updateScript: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV15")
@@ -1420,7 +1420,7 @@ module.exports = [
       },
       PropertyDataV15: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV15: {
@@ -1473,7 +1473,7 @@ module.exports = [
       },
       FileNameRefDataV15: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV15: {
         name: Uint64,
@@ -1486,7 +1486,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV15")
       },
       TextEntryDataV15: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1503,9 +1503,9 @@ module.exports = [
     definitions: {
       SequenceDataV16: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         updateScript: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV16")
@@ -1519,7 +1519,7 @@ module.exports = [
       },
       PropertyDataV16: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV16: {
@@ -1572,7 +1572,7 @@ module.exports = [
       },
       FileNameRefDataV16: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV16: {
         name: Uint64,
@@ -1585,7 +1585,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV16")
       },
       TextEntryDataV16: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1602,9 +1602,9 @@ module.exports = [
     definitions: {
       SequenceDataV17: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         updateScript: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV17")
@@ -1618,7 +1618,7 @@ module.exports = [
       },
       PropertyDataV17: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV17: {
@@ -1671,7 +1671,7 @@ module.exports = [
       },
       FileNameRefDataV17: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV17: {
         name: Uint64,
@@ -1684,7 +1684,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV17")
       },
       TextEntryDataV17: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1701,9 +1701,9 @@ module.exports = [
     definitions: {
       SequenceDataV18: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         updateScript: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV18")
@@ -1717,7 +1717,7 @@ module.exports = [
       },
       PropertyDataV18: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV18: {
@@ -1770,7 +1770,7 @@ module.exports = [
       },
       FileNameRefDataV18: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV18: {
         name: Uint64,
@@ -1783,7 +1783,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV18")
       },
       TextEntryDataV18: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1800,9 +1800,9 @@ module.exports = [
     definitions: {
       SequenceDataV19: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         updateScript: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV19")
@@ -1816,7 +1816,7 @@ module.exports = [
       },
       PropertyDataV19: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV19: {
@@ -1869,7 +1869,7 @@ module.exports = [
       },
       FileNameRefDataV19: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV19: {
         name: Uint64,
@@ -1882,7 +1882,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV19")
       },
       TextEntryDataV19: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1899,9 +1899,9 @@ module.exports = [
     definitions: {
       SequenceDataV20: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         updateScript: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV20")
@@ -1915,7 +1915,7 @@ module.exports = [
       },
       PropertyDataV20: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV20: {
@@ -1968,7 +1968,7 @@ module.exports = [
       },
       FileNameRefDataV20: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV20: {
         name: Uint64,
@@ -1981,7 +1981,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV20")
       },
       TextEntryDataV20: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -1998,9 +1998,9 @@ module.exports = [
     definitions: {
       SequenceDataV21: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         updateScript: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV21")
@@ -2014,7 +2014,7 @@ module.exports = [
       },
       PropertyDataV21: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV21: {
@@ -2067,7 +2067,7 @@ module.exports = [
       },
       FileNameRefDataV21: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV21: {
         name: Uint64,
@@ -2080,7 +2080,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV21")
       },
       TextEntryDataV21: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -2098,9 +2098,9 @@ module.exports = [
     definitions: {
       SequenceDataV22: {
         name: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         updateScript: Uint64,
         length: Float32,
         trackGroup: DynArray("TrackGroupDataV22")
@@ -2114,7 +2114,7 @@ module.exports = [
       },
       PropertyDataV22: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV22: {
@@ -2167,7 +2167,7 @@ module.exports = [
       },
       FileNameRefDataV22: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV22: {
         name: Uint64,
@@ -2180,7 +2180,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV22")
       },
       TextEntryDataV22: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -2199,9 +2199,9 @@ module.exports = [
       SequenceDataV23: {
         name: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV23")
@@ -2215,7 +2215,7 @@ module.exports = [
       },
       PropertyDataV23: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV23: {
@@ -2268,7 +2268,7 @@ module.exports = [
       },
       FileNameRefDataV23: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV23: {
         name: Uint64,
@@ -2281,7 +2281,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV23")
       },
       TextEntryDataV23: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -2301,9 +2301,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV24")
@@ -2317,7 +2317,7 @@ module.exports = [
       },
       PropertyDataV24: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV24: {
@@ -2370,7 +2370,7 @@ module.exports = [
       },
       FileNameRefDataV24: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV24: {
         name: Uint64,
@@ -2383,7 +2383,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV24")
       },
       TextEntryDataV24: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -2403,9 +2403,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV25")
@@ -2419,7 +2419,7 @@ module.exports = [
       },
       PropertyDataV25: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV25: {
@@ -2472,7 +2472,7 @@ module.exports = [
       },
       FileNameRefDataV25: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV25: {
         name: Uint64,
@@ -2485,7 +2485,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV25")
       },
       TextEntryDataV25: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -2505,9 +2505,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV26")
@@ -2521,7 +2521,7 @@ module.exports = [
       },
       PropertyDataV26: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV26: {
@@ -2574,7 +2574,7 @@ module.exports = [
       },
       FileNameRefDataV26: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV26: {
         name: Uint64,
@@ -2587,7 +2587,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV26")
       },
       TextEntryDataV26: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -2607,9 +2607,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV27")
@@ -2623,7 +2623,7 @@ module.exports = [
       },
       PropertyDataV27: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV27: {
@@ -2676,7 +2676,7 @@ module.exports = [
       },
       FileNameRefDataV27: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV27: {
         name: Uint64,
@@ -2689,7 +2689,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV27")
       },
       TextEntryDataV27: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -2709,9 +2709,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV28")
@@ -2725,7 +2725,7 @@ module.exports = [
       },
       PropertyDataV28: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV28: {
@@ -2778,7 +2778,7 @@ module.exports = [
       },
       FileNameRefDataV28: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV28: {
         name: Uint64,
@@ -2791,7 +2791,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV28")
       },
       TextEntryDataV28: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -2811,9 +2811,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV29")
@@ -2827,7 +2827,7 @@ module.exports = [
       },
       PropertyDataV29: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV29: {
@@ -2880,7 +2880,7 @@ module.exports = [
       },
       FileNameRefDataV29: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV29: {
         name: Uint64,
@@ -2894,7 +2894,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV29")
       },
       TextEntryDataV29: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -2914,9 +2914,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV30")
@@ -2930,7 +2930,7 @@ module.exports = [
       },
       PropertyDataV30: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV30: {
@@ -2983,7 +2983,7 @@ module.exports = [
       },
       FileNameRefDataV30: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV30: {
         name: Uint64,
@@ -2996,7 +2996,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV30")
       },
       TextEntryDataV30: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -3016,9 +3016,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV31")
@@ -3032,7 +3032,7 @@ module.exports = [
       },
       PropertyDataV31: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV31: {
@@ -3085,7 +3085,7 @@ module.exports = [
       },
       FileNameRefDataV31: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV31: {
         name: Uint64,
@@ -3098,7 +3098,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV31")
       },
       TextEntryDataV31: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -3118,9 +3118,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV32")
@@ -3134,7 +3134,7 @@ module.exports = [
       },
       PropertyDataV32: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV32: {
@@ -3187,7 +3187,7 @@ module.exports = [
       },
       FileNameRefDataV32: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV32: {
         name: Uint64,
@@ -3200,7 +3200,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV32")
       },
       TextEntryDataV32: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -3220,9 +3220,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV33")
@@ -3236,7 +3236,7 @@ module.exports = [
       },
       PropertyDataV33: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV33: {
@@ -3289,7 +3289,7 @@ module.exports = [
       },
       FileNameRefDataV33: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV33: {
         name: Uint64,
@@ -3302,7 +3302,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV33")
       },
       TextEntryDataV33: {
-        text: String16,
+        text: String16(),
         language: Uint8
       }
     },
@@ -3322,9 +3322,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV34")
@@ -3338,7 +3338,7 @@ module.exports = [
       },
       PropertyDataV34: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV34: {
@@ -3391,7 +3391,7 @@ module.exports = [
       },
       FileNameRefDataV34: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV34: {
         name: Uint64,
@@ -3404,7 +3404,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV34")
       },
       TextEntryDataV34: {
-        text: String16,
+        text: String16(),
         language: Uint8
       },
       SpeciesResourceDataV34: {
@@ -3429,9 +3429,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV35")
@@ -3445,7 +3445,7 @@ module.exports = [
       },
       PropertyDataV35: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV35: {
@@ -3498,7 +3498,7 @@ module.exports = [
       },
       FileNameRefDataV35: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV35: {
         name: Uint64,
@@ -3511,7 +3511,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV35")
       },
       TextEntryDataV35: {
-        text: String16,
+        text: String16(),
         language: Uint8
       },
       SpeciesResourceDataV35: {
@@ -3537,9 +3537,9 @@ module.exports = [
         name: Uint64,
         playScript: Uint64,
         updateScript: Uint64,
-        environmentMap: Filename,
-        map: String16,
-        clientMap: String16,
+        environmentMap: Filename(),
+        map: String16(),
+        clientMap: String16(),
         length: Float32,
         flags: Uint32,
         trackGroup: DynArray("TrackGroupDataV36")
@@ -3553,7 +3553,7 @@ module.exports = [
       },
       PropertyDataV36: {
         value: Uint64,
-        pathVal: Filename,
+        pathVal: Filename(),
         type: Uint8
       },
       TrackDataV36: {
@@ -3606,7 +3606,7 @@ module.exports = [
       },
       FileNameRefDataV36: {
         name: Uint64,
-        fileName: Filename
+        fileName: Filename()
       },
       ScriptDataV36: {
         name: Uint64,
@@ -3619,7 +3619,7 @@ module.exports = [
         textEntry: DynArray("TextEntryDataV36")
       },
       TextEntryDataV36: {
-        text: String16,
+        text: String16(),
         language: Uint8
       },
       SpeciesResourceDataV36: {

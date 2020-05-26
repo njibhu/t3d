@@ -24,7 +24,7 @@ module.exports = [
         radius: Float32
       },
       ContentMapModelV0: {
-        filename: Filename,
+        filename: Filename(),
         flags: Uint32,
         type: Uint32
       }
@@ -56,7 +56,7 @@ module.exports = [
         radius: Float32
       },
       ContentMapModelV1: {
-        filename: Filename,
+        filename: Filename(),
         flags: Uint32,
         type: Uint32,
         permutation: Uint64
@@ -89,7 +89,7 @@ module.exports = [
         radius: Float32
       },
       ContentMapModel: {
-        filename: Filename,
+        filename: Filename(),
         flags: Uint32,
         type: Uint32,
         permutation: Uint64

@@ -56,7 +56,7 @@ module.exports = [
       },
       ModelToolBlitTextureV2: {
         blitId: Uint64,
-        filename: Filename
+        filename: Filename()
       }
     },
     root: {
@@ -83,7 +83,7 @@ module.exports = [
       },
       ModelToolBlitTextureV3: {
         blitId: Uint64,
-        filename: Filename
+        filename: Filename()
       }
     },
     root: {
@@ -111,7 +111,7 @@ module.exports = [
       },
       ModelToolBlitTextureV4: {
         blitId: Uint64,
-        filename: Filename
+        filename: Filename()
       },
       ModelToolStreakV4: {
         streakNames: DynArray(CString),
@@ -143,7 +143,7 @@ module.exports = [
       },
       ModelToolBlitTextureV5: {
         blitId: Uint64,
-        filename: Filename
+        filename: Filename()
       },
       ModelToolStreakV5: {
         streakNames: DynArray(CString),
@@ -171,7 +171,7 @@ module.exports = [
       },
       ModelToolBlitTextureV6: {
         blitId: Uint64,
-        filename: Filename
+        filename: Filename()
       },
       ModelToolStreakV6: {
         streakNames: DynArray(CString),
@@ -198,7 +198,7 @@ module.exports = [
       },
       ModelToolBlitTextureV7: {
         blitId: Uint64,
-        filename: Filename
+        filename: Filename()
       },
       ModelToolStreakV7: {
         streakNames: DynArray(CString),
@@ -231,7 +231,7 @@ module.exports = [
       },
       ModelToolBlitTextureV8: {
         blitId: Uint64,
-        filename: Filename
+        filename: Filename()
       },
       ModelToolStreakV8: {
         streakNames: DynArray(CString),
@@ -265,7 +265,7 @@ module.exports = [
       },
       ModelToolBlitTextureV9: {
         blitId: Uint64,
-        filename: Filename
+        filename: Filename()
       },
       ModelToolStreakV9: {
         streakNames: DynArray(CString),
@@ -282,7 +282,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       }
     },
     root: {
@@ -308,7 +308,7 @@ module.exports = [
       },
       ModelToolBlitTextureV10: {
         blitId: Uint64,
-        filename: Filename
+        filename: Filename()
       },
       ModelToolStreakV10: {
         streakNames: DynArray(CString),
@@ -342,7 +342,7 @@ module.exports = [
       },
       ModelToolBlitTextureV11: {
         blitId: Uint64,
-        filename: Fileref
+        filename: Fileref()
       },
       ModelToolStreakV11: {
         streakNames: DynArray(CString),
@@ -376,7 +376,7 @@ module.exports = [
       },
       ModelToolBlitTextureV12: {
         blitId: Uint64,
-        filename: Fileref
+        filename: Fileref()
       },
       ModelToolStreakV12: {
         streakNames: DynArray(CString),
@@ -389,7 +389,7 @@ module.exports = [
       },
       ModelToolAnimationV12: {
         name: Uint64,
-        filename: String16,
+        filename: String16(),
         data: "PackGrannyAnimationTypeV0"
       },
       PackGrannyAnimationTypeV0: {
@@ -419,7 +419,7 @@ module.exports = [
       },
       ModelToolBlitTextureV13: {
         blitId: Uint64,
-        filename: Fileref
+        filename: Fileref()
       },
       ModelToolStreakV13: {
         streakNames: DynArray(CString),
@@ -432,7 +432,7 @@ module.exports = [
       },
       ModelToolAnimationV13: {
         name: Uint64,
-        filename: String16,
+        filename: String16(),
         data: "PackGrannyAnimationTypeV0"
       },
       PackGrannyAnimationTypeV0: {
@@ -462,7 +462,7 @@ module.exports = [
       },
       ModelToolBlitTextureV14: {
         blitId: Uint64,
-        filename: Fileref
+        filename: Fileref()
       },
       ModelToolStreakV14: {
         streakNames: DynArray(CString),
@@ -475,7 +475,7 @@ module.exports = [
       },
       ModelToolAnimationV14: {
         name: Uint64,
-        filename: String16,
+        filename: String16(),
         data: "PackGrannyAnimationTypeV0"
       },
       PackGrannyAnimationTypeV0: {
@@ -483,8 +483,8 @@ module.exports = [
       },
       ModelSequenceCompressionInfoV14: {
         animToken: Uint64,
-        cmpGroup: String16,
-        cmpType: String16
+        cmpGroup: String16(),
+        cmpType: String16()
       }
     },
     root: {
@@ -511,7 +511,7 @@ module.exports = [
       },
       ModelToolBlitTextureV15: {
         blitId: Uint64,
-        filename: Fileref
+        filename: Fileref()
       },
       ModelToolStreakV15: {
         streakNames: DynArray(CString),
@@ -524,7 +524,7 @@ module.exports = [
       },
       ModelToolAnimationV15: {
         name: Uint64,
-        filename: String16,
+        filename: String16(),
         data: "PackGrannyAnimationTypeV0"
       },
       PackGrannyAnimationTypeV0: {
@@ -532,8 +532,8 @@ module.exports = [
       },
       ModelSequenceCompressionInfoV15: {
         animToken: Uint64,
-        cmpGroup: String16,
-        cmpType: String16
+        cmpGroup: String16(),
+        cmpType: String16()
       }
     },
     root: {
@@ -561,7 +561,7 @@ module.exports = [
       },
       ModelToolBlitTextureV16: {
         blitId: Uint64,
-        filename: Fileref
+        filename: Fileref()
       },
       ModelToolStreakV16: {
         streakNames: DynArray(CString),
@@ -574,7 +574,7 @@ module.exports = [
       },
       ModelToolAnimationV16: {
         name: Uint64,
-        filename: String16,
+        filename: String16(),
         data: "PackGrannyAnimationTypeV1"
       },
       PackGrannyAnimationTypeV1: {
@@ -583,8 +583,8 @@ module.exports = [
       },
       ModelSequenceCompressionInfoV16: {
         animToken: Uint64,
-        cmpGroup: String16,
-        cmpType: String16
+        cmpGroup: String16(),
+        cmpType: String16()
       }
     },
     root: {

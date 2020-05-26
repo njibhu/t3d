@@ -11,7 +11,7 @@ module.exports = [
         timings: DynArray("PackEmoteTimingV0")
       },
       PackEmoteTimingV0: {
-        modelFileId: Fileref,
+        modelFileId: Fileref(),
         blendInTime: Float32,
         blendOutTime: Float32,
         duration: Uint32
@@ -31,7 +31,7 @@ module.exports = [
         timings: DynArray("PackEmoteTimingV1")
       },
       PackEmoteTimingV1: {
-        modelFileId: Fileref,
+        modelFileId: Fileref(),
         blendInTime: Float32,
         blendOutTime: Float32,
         duration: Uint32,
@@ -52,7 +52,7 @@ module.exports = [
         Timing: DynArray("PackEmoteTimingV2")
       },
       PackEmoteTimingV2: {
-        ModelFile: Fileref,
+        ModelFile: Fileref(),
         BlendIn: Float32,
         BlendOut: Float32,
         IntroDuration: Uint32,

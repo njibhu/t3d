@@ -12,7 +12,7 @@ module.exports = [
         itemArray: DynArray("PackMapResourceMapNodeItemV0")
       },
       PackMapResourceMapNodeItemV0: {
-        filename: Filename,
+        filename: Filename(),
         type: Uint32
       }
     },
@@ -31,7 +31,7 @@ module.exports = [
         itemArray: DynArray("PackMapResourceMapNodeItemV1")
       },
       PackMapResourceMapNodeItemV1: {
-        filename: Filename,
+        filename: Filename(),
         type: Uint32,
         permutation: Uint64
       }

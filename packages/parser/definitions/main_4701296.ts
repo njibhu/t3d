@@ -9,7 +9,7 @@ module.exports = [
       CollideNavMeshChunkRef: {
         boundsMin: FixedArray(Float32, 3),
         boundsMax: FixedArray(Float32, 3),
-        chunkFilename: Filename
+        chunkFilename: Filename()
       }
     },
     root: {

@@ -7,14 +7,14 @@ module.exports = [
     version: 0,
     definitions: {
       MapVariant: {
-        file: String16,
-        name: String16,
+        file: String16(),
+        name: String16(),
         token: Uint64,
         flags: Uint32
       }
     },
     root: {
-      baseFile: Filename,
+      baseFile: Filename(),
       variants: DynArray("MapVariant"),
       flags: Uint32
     }

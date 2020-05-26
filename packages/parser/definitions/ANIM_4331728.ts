@@ -24,7 +24,7 @@ module.exports = [
         motion: "SceneMotionV0"
       },
       SceneAnimationImportV0: {
-        filename: Filename,
+        filename: Filename(),
         animNames: DynArray(Uint64)
       }
     },
@@ -61,7 +61,7 @@ module.exports = [
         time: Float32
       },
       SceneAnimationImportV1: {
-        filename: Filename,
+        filename: Filename(),
         animNames: DynArray(Uint64)
       }
     },
@@ -107,7 +107,7 @@ module.exports = [
         rotation: FixedArray(Float32, 4)
       },
       SceneAnimationImportV2: {
-        filename: Filename,
+        filename: Filename(),
         animNames: DynArray("SceneImportSequenceV2"),
         flags: Uint32
       },

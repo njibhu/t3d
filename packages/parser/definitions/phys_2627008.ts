@@ -176,7 +176,7 @@ module.exports = [
         triangles: DynArray(Uint32)
       },
       PackMapPhysicsGeometryV4: {
-        filePath: Fileref,
+        filePath: Fileref(),
         quantizedExtents: Uint8,
         objRefArray: DynArray("PackMapPhysicsObjectRefV4")
       },
@@ -283,7 +283,7 @@ module.exports = [
         triangles: DynArray(Uint32)
       },
       PackMapPhysicsGeometryV5: {
-        filePath: String16,
+        filePath: String16(),
         quantizedExtents: Uint8,
         objRefArray: DynArray("PackMapPhysicsObjectRefV5")
       },
@@ -393,7 +393,7 @@ module.exports = [
         tokens: DynArray(Uint64)
       },
       PackMapPhysicsGeometryV6: {
-        filePath: String16,
+        filePath: String16(),
         quantizedExtents: Uint8,
         objRefArray: DynArray("PackMapPhysicsObjectRefV6")
       },
@@ -512,7 +512,7 @@ module.exports = [
         tokens: DynArray(Uint64)
       },
       PackMapPhysicsGeometryV7: {
-        filePath: String16,
+        filePath: String16(),
         quantizedExtents: Uint8,
         objRefArray: DynArray("PackMapPhysicsObjectRefV7")
       },
@@ -628,7 +628,7 @@ module.exports = [
         tokens: DynArray(Uint64)
       },
       PackMapPhysicsGeometryV8: {
-        filePath: String16,
+        filePath: String16(),
         quantizedExtents: Uint8,
         objRefArray: DynArray("PackMapPhysicsObjectRefV8")
       },
@@ -685,7 +685,7 @@ module.exports = [
         moppCodeData: DynArray(Uint8)
       },
       PackMapPhysicsGeometryV9: {
-        filePath: String16,
+        filePath: String16(),
         quantizedExtents: Uint8,
         objRefArray: DynArray("PackMapPhysicsObjectRefV9")
       },
@@ -742,7 +742,7 @@ module.exports = [
         moppCodeData: DynArray(Uint8)
       },
       PackMapPhysicsGeometryV10: {
-        filePath: String16,
+        filePath: String16(),
         quantizedExtents: Uint8,
         objRefArray: DynArray("PackMapPhysicsObjectRefV10"),
         surface: DynArray(Uint16)

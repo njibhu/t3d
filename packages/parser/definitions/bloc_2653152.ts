@@ -7,7 +7,7 @@ module.exports = [
     version: 0,
     definitions: {
       PackMapBlockRecord: {
-        filename: Filename
+        filename: Filename()
       }
     },
     root: {

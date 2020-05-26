@@ -31,8 +31,8 @@ module.exports = [
         renderState: "AmatXbxRenderState",
         pixelShader: Uint32,
         vertexShader: Uint32,
-        psFileFame: Filename,
-        vsFileName: Filename
+        psFileFame: Filename(),
+        vsFileName: Filename()
       },
       AmatXbxRenderState: {
         cullMode: Uint32,

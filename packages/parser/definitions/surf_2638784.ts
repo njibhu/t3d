@@ -33,8 +33,8 @@ module.exports = [
         flags: Uint32
       },
       MapSurfaceAttributeTool: {
-        name: String16,
-        category: String16,
+        name: String16(),
+        category: String16(),
         color: FixedArray(Uint8, 4)
       }
     },
@@ -54,8 +54,8 @@ module.exports = [
         flags: Uint32
       },
       MapSurfaceAttributeTool: {
-        name: String16,
-        category: String16,
+        name: String16(),
+        category: String16(),
         color: FixedArray(Uint8, 4)
       },
       MapSurfaceTerrainOverride: {

@@ -7,7 +7,7 @@ module.exports = [
     version: 3,
     definitions: {
       PackMapPropObjV3: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -17,7 +17,7 @@ module.exports = [
         flags: Uint32
       },
       PackMapPropObjAnimSeqV3: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -44,7 +44,7 @@ module.exports = [
     version: 4,
     definitions: {
       PackMapPropObjV4: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -55,7 +55,7 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV4: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -83,7 +83,7 @@ module.exports = [
     version: 5,
     definitions: {
       PackMapPropObjV5: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -94,7 +94,7 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV5: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -126,7 +126,7 @@ module.exports = [
     version: 6,
     definitions: {
       PackMapPropObjV6: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -137,7 +137,7 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV6: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -169,7 +169,7 @@ module.exports = [
     version: 7,
     definitions: {
       PackMapPropObjV7: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -181,7 +181,7 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV7: {
-        filename: Filename,
+        filename: Filename(),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -214,8 +214,8 @@ module.exports = [
     version: 8,
     definitions: {
       PackMapPropObjV8: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -227,8 +227,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV8: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -261,8 +261,8 @@ module.exports = [
     version: 9,
     definitions: {
       PackMapPropObjV9: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -274,8 +274,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV9: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -308,8 +308,8 @@ module.exports = [
     version: 10,
     definitions: {
       PackMapPropObjV10: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -321,8 +321,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV10: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -355,8 +355,8 @@ module.exports = [
     version: 11,
     definitions: {
       PackMapPropObjV11: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -369,8 +369,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV11: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -409,8 +409,8 @@ module.exports = [
     version: 12,
     definitions: {
       PackMapPropObjV12: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -423,8 +423,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV12: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -443,8 +443,8 @@ module.exports = [
         glomType: Uint8
       },
       PackMapPropObjMetaV12: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -489,8 +489,8 @@ module.exports = [
     version: 13,
     definitions: {
       PackMapPropObjV13: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -503,8 +503,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV13: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -524,8 +524,8 @@ module.exports = [
         children: DynArray(Uint64)
       },
       PackMapPropObjMetaV13: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -571,8 +571,8 @@ module.exports = [
     version: 14,
     definitions: {
       PackMapPropObjV14: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -586,8 +586,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV14: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -608,8 +608,8 @@ module.exports = [
         children: DynArray(Uint64)
       },
       PackMapPropObjMetaV14: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         position: FixedArray(Float32, 3),
         rotation: FixedArray(Float32, 3),
@@ -656,8 +656,8 @@ module.exports = [
     version: 15,
     definitions: {
       PackMapPropObjV15: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         bounds: FixedArray(Float32, 4),
         position: FixedArray(Float32, 3),
@@ -672,8 +672,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV15: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         bounds: FixedArray(Float32, 4),
         position: FixedArray(Float32, 3),
@@ -689,8 +689,8 @@ module.exports = [
         animSequence: Uint64
       },
       PackMapPropObjInstanceV15: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         bounds: FixedArray(Float32, 4),
         position: FixedArray(Float32, 3),
@@ -718,8 +718,8 @@ module.exports = [
         children: DynArray(Uint64)
       },
       PackMapPropObjMetaV15: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         bounds: FixedArray(Float32, 4),
         position: FixedArray(Float32, 3),
@@ -768,8 +768,8 @@ module.exports = [
     version: 16,
     definitions: {
       PackMapPropObjV16: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -785,8 +785,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV16: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -803,8 +803,8 @@ module.exports = [
         animSequence: Uint64
       },
       PackMapPropObjInstanceV16: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -833,8 +833,8 @@ module.exports = [
         children: DynArray(Uint64)
       },
       PackMapPropObjMetaV16: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -884,8 +884,8 @@ module.exports = [
     version: 17,
     definitions: {
       PackMapPropObjV17: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -901,8 +901,8 @@ module.exports = [
         byte: Uint8
       },
       PackMapPropObjAnimSeqV17: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -919,8 +919,8 @@ module.exports = [
         animSequence: Uint64
       },
       PackMapPropObjInstanceV17: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -949,8 +949,8 @@ module.exports = [
         children: DynArray(Uint64)
       },
       PackMapPropObjMetaV17: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -1000,8 +1000,8 @@ module.exports = [
     version: 18,
     definitions: {
       PackMapPropObjV18: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -1018,8 +1018,8 @@ module.exports = [
         sortLayer: Uint8
       },
       PackMapPropObjAnimSeqV18: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -1037,8 +1037,8 @@ module.exports = [
         animSequence: Uint64
       },
       PackMapPropObjInstanceV18: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -1068,8 +1068,8 @@ module.exports = [
         children: DynArray(Uint64)
       },
       PackMapPropObjMetaV18: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         guid: Uint64,
         permutation: Uint64,
         bounds: FixedArray(Float32, 4),
@@ -1120,8 +1120,8 @@ module.exports = [
     version: 19,
     definitions: {
       PackMapPropObjV19: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constTokens: DynArray(Uint32),
         constValues: DynArray(FixedArray(Float32, 4)),
         guid: Uint64,
@@ -1140,8 +1140,8 @@ module.exports = [
         sortLayer: Uint8
       },
       PackMapPropObjAnimSeqV19: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constTokens: DynArray(Uint32),
         constValues: DynArray(FixedArray(Float32, 4)),
         guid: Uint64,
@@ -1161,8 +1161,8 @@ module.exports = [
         animSequence: Uint64
       },
       PackMapPropObjInstanceV19: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constTokens: DynArray(Uint32),
         constValues: DynArray(FixedArray(Float32, 4)),
         guid: Uint64,
@@ -1194,8 +1194,8 @@ module.exports = [
         children: DynArray(Uint64)
       },
       PackMapPropObjMetaV19: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constTokens: DynArray(Uint32),
         constValues: DynArray(FixedArray(Float32, 4)),
         guid: Uint64,
@@ -1248,8 +1248,8 @@ module.exports = [
     version: 20,
     definitions: {
       PackMapPropObjV20: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constants: DynArray("PackMapPropConstantV17"),
         guid: Uint64,
         permutation: Uint64,
@@ -1272,8 +1272,8 @@ module.exports = [
         submodel: Uint32
       },
       PackMapPropObjAnimSeqV20: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constants: DynArray("PackMapPropConstantV17"),
         guid: Uint64,
         permutation: Uint64,
@@ -1292,8 +1292,8 @@ module.exports = [
         animSequence: Uint64
       },
       PackMapPropObjInstanceV20: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constants: DynArray("PackMapPropConstantV17"),
         guid: Uint64,
         permutation: Uint64,
@@ -1324,8 +1324,8 @@ module.exports = [
         children: DynArray(Uint64)
       },
       PackMapPropObjMetaV20: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constants: DynArray("PackMapPropConstantV17"),
         guid: Uint64,
         permutation: Uint64,
@@ -1377,8 +1377,8 @@ module.exports = [
     version: 21,
     definitions: {
       PackMapPropObjV21: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constants: DynArray("PackMapPropConstantV18"),
         guid: Uint64,
         permutation: Uint64,
@@ -1402,8 +1402,8 @@ module.exports = [
         submodel: Uint32
       },
       PackMapPropObjAnimSeqV21: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constants: DynArray("PackMapPropConstantV18"),
         guid: Uint64,
         permutation: Uint64,
@@ -1423,8 +1423,8 @@ module.exports = [
         animSequence: Uint64
       },
       PackMapPropObjInstanceV21: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constants: DynArray("PackMapPropConstantV18"),
         guid: Uint64,
         permutation: Uint64,
@@ -1456,8 +1456,8 @@ module.exports = [
         children: DynArray(Uint64)
       },
       PackMapPropObjMetaV21: {
-        filename: Filename,
-        blitTextures: DynArray(Filename),
+        filename: Filename(),
+        blitTextures: DynArray(Filename()),
         constants: DynArray("PackMapPropConstantV18"),
         guid: Uint64,
         permutation: Uint64,
@@ -1500,7 +1500,7 @@ module.exports = [
       propToolArray: DynArray("PackMapPropObjToolV21"),
       propMetaArray: DynArray("PackMapPropObjMetaV21"),
       propVolumeArray: DynArray("PackMapPropObjVolumeV21"),
-      reserved: String16,
+      reserved: String16(),
       broadPhase: "PackBroadphaseType",
       nextBroadId: Uint32
     }

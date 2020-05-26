@@ -151,7 +151,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       }
     },
     root: {
@@ -201,7 +201,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -212,7 +212,7 @@ module.exports = [
         images: DynArray("PackMapVolumeImage")
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: Uint32,
         format: Uint32,
         image: DynArray(Uint8)
@@ -266,7 +266,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -274,11 +274,11 @@ module.exports = [
         maxExt: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         images: DynArray("PackMapVolumeImage")
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: Uint32,
         format: Uint32,
         image: DynArray(Uint8)
@@ -332,7 +332,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -340,12 +340,12 @@ module.exports = [
         maxExt: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoint: FixedArray(Float32, 3),
         images: DynArray("PackMapVolumeImage")
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: Uint32,
         format: Uint32,
         image: DynArray(Uint8)
@@ -399,7 +399,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -408,13 +408,13 @@ module.exports = [
         rotation: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoint: FixedArray(Float32, 3),
         flags: Uint32,
         images: DynArray("PackMapVolumeImage")
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: Uint32,
         format: Uint32,
         image: DynArray(Uint8)
@@ -468,7 +468,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -477,13 +477,13 @@ module.exports = [
         rotation: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoint: FixedArray(Float32, 3),
         flags: Uint32,
         images: DynArray("PackMapVolumeImage")
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: FixedArray(Uint32, 2),
         format: Uint32,
         image: DynArray(Uint8)
@@ -539,7 +539,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -548,14 +548,14 @@ module.exports = [
         rotation: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoint: FixedArray(Float32, 3),
         flags: Uint32,
         images: DynArray("PackMapVolumeImage"),
         broadId: Uint16
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: FixedArray(Uint32, 2),
         format: Uint32,
         image: DynArray(Uint8)
@@ -616,7 +616,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -625,14 +625,14 @@ module.exports = [
         rotation: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoint: FixedArray(Float32, 3),
         flags: Uint32,
         images: DynArray("PackMapVolumeImage"),
         broadId: Uint16
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: FixedArray(Uint32, 2),
         format: Uint32,
         image: DynArray(Uint8)
@@ -693,7 +693,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -702,14 +702,14 @@ module.exports = [
         rotation: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoints: DynArray(FixedArray(Float32, 3)),
         flags: Uint32,
         images: DynArray("PackMapVolumeImage"),
         broadId: Uint16
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: FixedArray(Uint32, 2),
         format: Uint32,
         image: DynArray(Uint8)
@@ -779,7 +779,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -788,14 +788,14 @@ module.exports = [
         rotation: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoints: DynArray(FixedArray(Float32, 3)),
         flags: Uint32,
         images: DynArray("PackMapVolumeImage"),
         broadId: Uint16
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: FixedArray(Uint32, 2),
         format: Uint32,
         image: DynArray(Uint8)
@@ -869,7 +869,7 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename
+        textureName: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -878,14 +878,14 @@ module.exports = [
         rotation: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoints: DynArray(FixedArray(Float32, 3)),
         flags: Uint32,
         images: DynArray("PackMapVolumeImage"),
         broadId: Uint16
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: FixedArray(Uint32, 2),
         format: Uint32,
         image: DynArray(Uint8)
@@ -959,11 +959,11 @@ module.exports = [
         direction: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename,
+        textureName: Filename(),
         shadowData: Pointer("PackMapSpotShadow")
       },
       PackMapSpotShadow: {
-        shadowFilename: Filename
+        shadowFilename: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -972,14 +972,14 @@ module.exports = [
         rotation: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoints: DynArray(FixedArray(Float32, 3)),
         flags: Uint32,
         images: DynArray("PackMapVolumeImage"),
         broadId: Uint16
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: FixedArray(Uint32, 2),
         format: Uint32,
         image: DynArray(Uint8)
@@ -1054,11 +1054,11 @@ module.exports = [
         upDirection: FixedArray(Float32, 3),
         innerAngle: Float32,
         outerAngle: Float32,
-        textureName: Filename,
+        textureName: Filename(),
         shadowData: Pointer("PackMapSpotShadow")
       },
       PackMapSpotShadow: {
-        shadowFilename: Filename
+        shadowFilename: Filename()
       },
       PackMapVolumeLight: {
         guid: Uint64,
@@ -1067,14 +1067,14 @@ module.exports = [
         rotation: FixedArray(Float32, 3),
         intensities: FixedArray(Float32, 2),
         pack: FixedArray(Float32, 4),
-        name: String16,
+        name: String16(),
         floodPoints: DynArray(FixedArray(Float32, 3)),
         flags: Uint32,
         images: DynArray("PackMapVolumeImage"),
         broadId: Uint16
       },
       PackMapVolumeImage: {
-        filename: Filename,
+        filename: Filename(),
         dims: FixedArray(Uint32, 2),
         format: Uint32,
         image: DynArray(Uint8)

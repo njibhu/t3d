@@ -97,7 +97,7 @@ export class StructTabParser {
 
       // A native type can also have a native subtype which also needs to be imported
       if (definitionSplit.length > 1) {
-        if (!definitionSplit[1].startsWith("'")) {
+        if (!definitionSplit[1].startsWith("'") && definitionSplit[1] !== ")") {
           const match = /[a-zA-Z0-9]*/.exec(definitionSplit[1]);
           if (match) {
             this.typesSet.add(match[0]);

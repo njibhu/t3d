@@ -9,7 +9,7 @@ module.exports = [
       PackMapNavMeshChunkExternalV0: {
         boundsMin: FixedArray(Float32, 3),
         boundsMax: FixedArray(Float32, 3),
-        filename: Filename
+        filename: Filename()
       }
     },
     root: {
@@ -27,7 +27,7 @@ module.exports = [
       PackMapNavMeshChunkExternalV1: {
         boundsMin: FixedArray(Float32, 3),
         boundsMax: FixedArray(Float32, 3),
-        filename: Filename
+        filename: Filename()
       }
     },
     root: {
@@ -45,7 +45,7 @@ module.exports = [
       PackMapNavMeshChunkExternalV2: {
         boundsMin: FixedArray(Float32, 3),
         boundsMax: FixedArray(Float32, 3),
-        filename: Filename
+        filename: Filename()
       },
       PackMapNavMeshMoverV2: {
         mapPropId: Uint64,

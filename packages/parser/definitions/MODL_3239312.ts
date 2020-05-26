@@ -7,14 +7,14 @@ module.exports = [
     version: 0,
     definitions: {
       ModelMaterialDataV0: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV0"),
         constants: DynArray("ModelConstantDataV0")
       },
       ModelTextureDataV0: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64
@@ -88,14 +88,14 @@ module.exports = [
     version: 1,
     definitions: {
       ModelMaterialDataV1: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV1"),
         constants: DynArray("ModelConstantDataV1")
       },
       ModelTextureDataV1: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64
@@ -189,14 +189,14 @@ module.exports = [
     version: 2,
     definitions: {
       ModelMaterialDataV2: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV2"),
         constants: DynArray("ModelConstantDataV2")
       },
       ModelTextureDataV2: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64
@@ -347,14 +347,14 @@ module.exports = [
     version: 3,
     definitions: {
       ModelMaterialDataV3: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV3"),
         constants: DynArray("ModelConstantDataV3")
       },
       ModelTextureDataV3: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64
@@ -516,14 +516,14 @@ module.exports = [
     version: 4,
     definitions: {
       ModelMaterialDataV4: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV4"),
         constants: DynArray("ModelConstantDataV4")
       },
       ModelTextureDataV4: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64
@@ -692,14 +692,14 @@ module.exports = [
     version: 5,
     definitions: {
       ModelMaterialDataV5: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV5"),
         constants: DynArray("ModelConstantDataV5")
       },
       ModelTextureDataV5: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64
@@ -870,14 +870,14 @@ module.exports = [
     version: 6,
     definitions: {
       ModelMaterialDataV6: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV6"),
         constants: DynArray("ModelConstantDataV6")
       },
       ModelTextureDataV6: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64
@@ -909,7 +909,7 @@ module.exports = [
         keys: DynArray(Float32)
       },
       ModelAnimationImportDataV6: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       },
       ModelModelDataV6: {
@@ -1056,14 +1056,14 @@ module.exports = [
     version: 7,
     definitions: {
       ModelMaterialDataV7: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV7"),
         constants: DynArray("ModelConstantDataV7")
       },
       ModelTextureDataV7: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64
@@ -1095,7 +1095,7 @@ module.exports = [
         keys: DynArray(Float32)
       },
       ModelAnimationImportDataV7: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       },
       ModelModelDataV7: {
@@ -1243,14 +1243,14 @@ module.exports = [
     version: 8,
     definitions: {
       ModelMaterialDataV8: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV8"),
         constants: DynArray("ModelConstantDataV8")
       },
       ModelTextureDataV8: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -1381,7 +1381,7 @@ module.exports = [
     version: 9,
     definitions: {
       ModelMaterialDataV9: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -1389,7 +1389,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV9")
       },
       ModelTextureDataV9: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -1520,7 +1520,7 @@ module.exports = [
     version: 10,
     definitions: {
       ModelMaterialDataV10: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -1528,7 +1528,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV10")
       },
       ModelTextureDataV10: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -1680,7 +1680,7 @@ module.exports = [
     version: 11,
     definitions: {
       ModelMaterialDataV11: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -1688,7 +1688,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV11")
       },
       ModelTextureDataV11: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -1852,7 +1852,7 @@ module.exports = [
     version: 12,
     definitions: {
       ModelMaterialDataV12: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -1860,7 +1860,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV12")
       },
       ModelTextureDataV12: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -2025,7 +2025,7 @@ module.exports = [
     version: 13,
     definitions: {
       ModelMaterialDataV13: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -2033,7 +2033,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV13")
       },
       ModelTextureDataV13: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -2198,7 +2198,7 @@ module.exports = [
     version: 14,
     definitions: {
       ModelMaterialDataV14: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -2206,7 +2206,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV14")
       },
       ModelTextureDataV14: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -2373,7 +2373,7 @@ module.exports = [
     version: 15,
     definitions: {
       ModelMaterialDataV15: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -2381,7 +2381,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV15")
       },
       ModelTextureDataV15: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -2561,7 +2561,7 @@ module.exports = [
     version: 16,
     definitions: {
       ModelMaterialDataV16: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -2569,7 +2569,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV16")
       },
       ModelTextureDataV16: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -2750,7 +2750,7 @@ module.exports = [
     version: 17,
     definitions: {
       ModelMaterialDataV17: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -2758,7 +2758,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV17")
       },
       ModelTextureDataV17: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -2938,7 +2938,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -2947,7 +2947,7 @@ module.exports = [
     version: 18,
     definitions: {
       ModelMaterialDataV18: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -2955,7 +2955,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV18")
       },
       ModelTextureDataV18: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -3148,7 +3148,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -3157,7 +3157,7 @@ module.exports = [
     version: 19,
     definitions: {
       ModelMaterialDataV19: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -3165,7 +3165,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV19")
       },
       ModelTextureDataV19: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -3394,7 +3394,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -3403,7 +3403,7 @@ module.exports = [
     version: 20,
     definitions: {
       ModelMaterialDataV20: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -3411,7 +3411,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV20")
       },
       ModelTextureDataV20: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -3640,7 +3640,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -3649,7 +3649,7 @@ module.exports = [
     version: 21,
     definitions: {
       ModelMaterialDataV21: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -3657,7 +3657,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV21")
       },
       ModelTextureDataV21: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -3893,7 +3893,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -3902,7 +3902,7 @@ module.exports = [
     version: 22,
     definitions: {
       ModelMaterialDataV22: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -3910,7 +3910,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV22")
       },
       ModelTextureDataV22: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -4146,7 +4146,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -4155,7 +4155,7 @@ module.exports = [
     version: 23,
     definitions: {
       ModelMaterialDataV23: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -4163,7 +4163,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV23")
       },
       ModelTextureDataV23: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -4399,7 +4399,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -4408,7 +4408,7 @@ module.exports = [
     version: 24,
     definitions: {
       ModelMaterialDataV24: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -4416,7 +4416,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV24")
       },
       ModelTextureDataV24: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -4653,7 +4653,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -4662,7 +4662,7 @@ module.exports = [
     version: 25,
     definitions: {
       ModelMaterialDataV25: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -4670,7 +4670,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV25")
       },
       ModelTextureDataV25: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -4908,7 +4908,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -4917,7 +4917,7 @@ module.exports = [
     version: 26,
     definitions: {
       ModelMaterialDataV26: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -4925,7 +4925,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV26")
       },
       ModelTextureDataV26: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -5002,7 +5002,7 @@ module.exports = [
         type: Uint32,
         mergeIndex: Uint32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV26: {
         clouds: DynArray("ModelParticleCloudV26"),
@@ -5162,7 +5162,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -5171,7 +5171,7 @@ module.exports = [
     version: 27,
     definitions: {
       ModelMaterialDataV27: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -5179,7 +5179,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV27")
       },
       ModelTextureDataV27: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -5257,7 +5257,7 @@ module.exports = [
         type: Uint32,
         mergeIndex: Uint32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV27: {
         clouds: DynArray("ModelParticleCloudV27"),
@@ -5417,7 +5417,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -5426,7 +5426,7 @@ module.exports = [
     version: 28,
     definitions: {
       ModelMaterialDataV28: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -5434,7 +5434,7 @@ module.exports = [
         constants: DynArray("ModelConstantDataV28")
       },
       ModelTextureDataV28: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -5516,7 +5516,7 @@ module.exports = [
         type: Uint32,
         mergeIndex: Uint32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV28: {
         clouds: DynArray("ModelParticleCloudV28"),
@@ -5676,7 +5676,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -5685,7 +5685,7 @@ module.exports = [
     version: 29,
     definitions: {
       ModelMaterialDataV29: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -5695,7 +5695,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV29")
       },
       ModelTextureDataV29: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -5786,7 +5786,7 @@ module.exports = [
         type: Uint32,
         mergeIndex: Uint32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV29: {
         clouds: DynArray("ModelParticleCloudV29"),
@@ -5951,7 +5951,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -5960,7 +5960,7 @@ module.exports = [
     version: 30,
     definitions: {
       ModelMaterialDataV30: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -5970,7 +5970,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV30")
       },
       ModelTextureDataV30: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -6062,7 +6062,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV30: {
         clouds: DynArray("ModelParticleCloudV30"),
@@ -6227,7 +6227,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -6236,7 +6236,7 @@ module.exports = [
     version: 31,
     definitions: {
       ModelMaterialDataV31: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -6246,7 +6246,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV31")
       },
       ModelTextureDataV31: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -6338,7 +6338,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV31: {
         clouds: DynArray("ModelParticleCloudV31"),
@@ -6504,7 +6504,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename
+      soundScript: Filename()
     }
   },
   {
@@ -6513,7 +6513,7 @@ module.exports = [
     version: 32,
     definitions: {
       ModelMaterialDataV32: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -6523,7 +6523,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV32")
       },
       ModelTextureDataV32: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -6615,7 +6615,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV32: {
         clouds: DynArray("ModelParticleCloudV32"),
@@ -6823,7 +6823,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV32")
     }
   },
@@ -6833,7 +6833,7 @@ module.exports = [
     version: 33,
     definitions: {
       ModelMaterialDataV33: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -6843,7 +6843,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV33")
       },
       ModelTextureDataV33: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -6935,7 +6935,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV33: {
         clouds: DynArray("ModelParticleCloudV33"),
@@ -7166,7 +7166,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV33"),
       boneConstraints: DynArray("ModelBoneConstraintV33")
     }
@@ -7177,7 +7177,7 @@ module.exports = [
     version: 34,
     definitions: {
       ModelMaterialDataV34: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -7187,7 +7187,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV34")
       },
       ModelTextureDataV34: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -7279,7 +7279,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV34: {
         clouds: DynArray("ModelParticleCloudV34"),
@@ -7506,7 +7506,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV34"),
       boneConstraints: DynArray("ModelBoneConstraintV34")
     }
@@ -7517,7 +7517,7 @@ module.exports = [
     version: 35,
     definitions: {
       ModelMaterialDataV35: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -7527,7 +7527,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV35")
       },
       ModelTextureDataV35: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -7619,7 +7619,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV35: {
         clouds: DynArray("ModelParticleCloudV35"),
@@ -7849,7 +7849,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV35"),
       boneConstraints: DynArray("ModelBoneConstraintV35")
     }
@@ -7860,7 +7860,7 @@ module.exports = [
     version: 36,
     definitions: {
       ModelMaterialDataV36: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -7870,7 +7870,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV36")
       },
       ModelTextureDataV36: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -7962,7 +7962,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV36: {
         clouds: DynArray("ModelParticleCloudV36"),
@@ -8199,7 +8199,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV36"),
       boneConstraints: DynArray("ModelBoneConstraintV36")
     }
@@ -8210,7 +8210,7 @@ module.exports = [
     version: 37,
     definitions: {
       ModelMaterialDataV37: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -8220,7 +8220,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV37")
       },
       ModelTextureDataV37: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -8311,7 +8311,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV37: {
         clouds: DynArray("ModelParticleCloudV37"),
@@ -8548,7 +8548,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV37"),
       boneConstraints: DynArray("ModelBoneConstraintV37")
     }
@@ -8559,7 +8559,7 @@ module.exports = [
     version: 38,
     definitions: {
       ModelMaterialDataV38: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -8569,7 +8569,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV38")
       },
       ModelTextureDataV38: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -8660,7 +8660,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV38: {
         clouds: DynArray("ModelParticleCloudV38"),
@@ -8897,7 +8897,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV38"),
       boneConstraints: DynArray("ModelBoneConstraintV38")
     }
@@ -8908,7 +8908,7 @@ module.exports = [
     version: 39,
     definitions: {
       ModelMaterialDataV39: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -8918,7 +8918,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV39")
       },
       ModelTextureDataV39: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -9009,7 +9009,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV39: {
         clouds: DynArray("ModelParticleCloudV39"),
@@ -9247,7 +9247,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV39"),
       boneConstraints: DynArray("ModelBoneConstraintV39")
     }
@@ -9258,7 +9258,7 @@ module.exports = [
     version: 40,
     definitions: {
       ModelMaterialDataV40: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -9268,7 +9268,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV40")
       },
       ModelTextureDataV40: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -9359,7 +9359,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV40: {
         clouds: DynArray("ModelParticleCloudV40"),
@@ -9600,7 +9600,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV40"),
       boneConstraints: DynArray("ModelBoneConstraintV40")
     }
@@ -9611,7 +9611,7 @@ module.exports = [
     version: 41,
     definitions: {
       ModelMaterialDataV41: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -9621,7 +9621,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV41")
       },
       ModelTextureDataV41: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -9712,7 +9712,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV41: {
         clouds: DynArray("ModelParticleCloudV41"),
@@ -9961,7 +9961,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV41"),
       boneConstraints: DynArray("ModelBoneConstraintV41"),
       softBodyData: DynArray("ModelSoftBodyDataV41")
@@ -9973,7 +9973,7 @@ module.exports = [
     version: 42,
     definitions: {
       ModelMaterialDataV42: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -9983,7 +9983,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV42")
       },
       ModelTextureDataV42: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -10074,7 +10074,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV42: {
         clouds: DynArray("ModelParticleCloudV42"),
@@ -10324,7 +10324,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV42"),
       boneConstraints: DynArray("ModelBoneConstraintV42"),
       softBodyData: DynArray("ModelSoftBodyDataV42")
@@ -10336,7 +10336,7 @@ module.exports = [
     version: 43,
     definitions: {
       ModelMaterialDataV43: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -10346,7 +10346,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV43")
       },
       ModelTextureDataV43: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -10439,7 +10439,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV43: {
         clouds: DynArray("ModelParticleCloudV43"),
@@ -10689,7 +10689,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV43"),
       boneConstraints: DynArray("ModelBoneConstraintV43"),
       softBodyData: DynArray("ModelSoftBodyDataV43")
@@ -10701,7 +10701,7 @@ module.exports = [
     version: 44,
     definitions: {
       ModelMaterialDataV44: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -10711,7 +10711,7 @@ module.exports = [
         uvTransLinks: DynArray("ModelUVTransLinkV44")
       },
       ModelTextureDataV44: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -10804,7 +10804,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV44: {
         clouds: DynArray("ModelParticleCloudV44"),
@@ -11054,7 +11054,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV44"),
       boneConstraints: DynArray("ModelBoneConstraintV44"),
       softBodyData: DynArray("ModelSoftBodyDataV44")
@@ -11066,7 +11066,7 @@ module.exports = [
     version: 45,
     definitions: {
       ModelMaterialDataV45: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -11077,7 +11077,7 @@ module.exports = [
         texTransforms: DynArray("ModelMaterialTexTransformV45")
       },
       ModelTextureDataV45: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -11179,7 +11179,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV45: {
         clouds: DynArray("ModelParticleCloudV45"),
@@ -11429,7 +11429,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV45"),
       boneConstraints: DynArray("ModelBoneConstraintV45"),
       softBodyData: DynArray("ModelSoftBodyDataV45")
@@ -11441,7 +11441,7 @@ module.exports = [
     version: 46,
     definitions: {
       ModelMaterialDataV46: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -11452,7 +11452,7 @@ module.exports = [
         texTransforms: DynArray("ModelMaterialTexTransformV46")
       },
       ModelTextureDataV46: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -11554,7 +11554,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV46: {
         clouds: DynArray("ModelParticleCloudV46"),
@@ -11804,7 +11804,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV46"),
       boneConstraints: DynArray("ModelBoneConstraintV46"),
       softBodyData: DynArray("ModelSoftBodyDataV46")
@@ -11816,7 +11816,7 @@ module.exports = [
     version: 47,
     definitions: {
       ModelMaterialDataV47: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -11827,7 +11827,7 @@ module.exports = [
         texTransforms: DynArray("ModelMaterialTexTransformV47")
       },
       ModelTextureDataV47: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -11931,7 +11931,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV47: {
         clouds: DynArray("ModelParticleCloudV47"),
@@ -12181,7 +12181,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV47"),
       boneConstraints: DynArray("ModelBoneConstraintV47"),
       softBodyData: DynArray("ModelSoftBodyDataV47")
@@ -12193,7 +12193,7 @@ module.exports = [
     version: 48,
     definitions: {
       ModelMaterialDataV48: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -12204,7 +12204,7 @@ module.exports = [
         texTransforms: DynArray("ModelMaterialTexTransformV48")
       },
       ModelTextureDataV48: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -12314,7 +12314,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV48: {
         clouds: DynArray("ModelParticleCloudV48"),
@@ -12564,7 +12564,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV48"),
       boneConstraints: DynArray("ModelBoneConstraintV48"),
       softBodyData: DynArray("ModelSoftBodyDataV48")
@@ -12576,7 +12576,7 @@ module.exports = [
     version: 49,
     definitions: {
       ModelMaterialDataV49: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -12587,7 +12587,7 @@ module.exports = [
         texTransforms: DynArray("ModelMaterialTexTransformV49")
       },
       ModelTextureDataV49: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -12697,7 +12697,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV49: {
         clouds: DynArray("ModelParticleCloudV49"),
@@ -12951,7 +12951,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV49"),
       boneConstraints: DynArray("ModelBoneConstraintV49"),
       softBodyData: DynArray("ModelSoftBodyDataV49"),
@@ -12964,7 +12964,7 @@ module.exports = [
     version: 50,
     definitions: {
       ModelMaterialDataV50: {
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -12975,7 +12975,7 @@ module.exports = [
         texTransforms: DynArray("ModelMaterialTexTransformV50")
       },
       ModelTextureDataV50: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -13085,7 +13085,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV50: {
         clouds: DynArray("ModelParticleCloudV50"),
@@ -13340,7 +13340,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV50"),
       boneConstraints: DynArray("ModelBoneConstraintV50"),
       softBodyData: DynArray("ModelSoftBodyDataV50"),
@@ -13358,7 +13358,7 @@ module.exports = [
       },
       ModelMaterialDataV51: {
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -13369,7 +13369,7 @@ module.exports = [
         texTransforms: DynArray("ModelMaterialTexTransformV51")
       },
       ModelTextureDataV51: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -13481,7 +13481,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV51: {
         clouds: DynArray("ModelParticleCloudV51"),
@@ -13740,7 +13740,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV51"),
       boneConstraints: DynArray("ModelBoneConstraintV51"),
       softBodyData: DynArray("ModelSoftBodyDataV51"),
@@ -13758,7 +13758,7 @@ module.exports = [
       },
       ModelMaterialDataV52: {
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -13769,7 +13769,7 @@ module.exports = [
         texTransforms: DynArray("ModelMaterialTexTransformV52")
       },
       ModelTextureDataV52: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -13881,7 +13881,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV52: {
         clouds: DynArray("ModelParticleCloudV52"),
@@ -14148,7 +14148,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV52"),
       boneConstraints: DynArray("ModelBoneConstraintV52"),
       softBodyData: DynArray("ModelSoftBodyDataV52"),
@@ -14166,7 +14166,7 @@ module.exports = [
       },
       ModelMaterialDataV53: {
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         texCoordCount: Uint8,
@@ -14177,7 +14177,7 @@ module.exports = [
         texTransforms: DynArray("ModelMaterialTexTransformV53")
       },
       ModelTextureDataV53: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -14289,7 +14289,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV53: {
         clouds: DynArray("ModelParticleCloudV53"),
@@ -14558,7 +14558,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV53"),
       boneConstraints: DynArray("ModelBoneConstraintV53"),
       softBodyData: DynArray("ModelSoftBodyDataV53"),
@@ -14577,7 +14577,7 @@ module.exports = [
       ModelMaterialDataV54: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV54"),
@@ -14588,7 +14588,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV54: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -14705,7 +14705,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV54: {
         clouds: DynArray("ModelParticleCloudV54"),
@@ -14976,7 +14976,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV54"),
       boneConstraints: DynArray("ModelBoneConstraintV54"),
       softBodyData: DynArray("ModelSoftBodyDataV54"),
@@ -14995,7 +14995,7 @@ module.exports = [
       ModelMaterialDataV55: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV55"),
@@ -15006,7 +15006,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV55: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -15123,7 +15123,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV55: {
         clouds: DynArray("ModelParticleCloudV55"),
@@ -15395,7 +15395,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV55"),
       boneConstraints: DynArray("ModelBoneConstraintV55"),
       softBodyData: DynArray("ModelSoftBodyDataV55"),
@@ -15414,7 +15414,7 @@ module.exports = [
       ModelMaterialDataV56: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV56"),
@@ -15425,7 +15425,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV56: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -15542,7 +15542,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV56: {
         clouds: DynArray("ModelParticleCloudV56"),
@@ -15814,12 +15814,12 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV56"),
       boneConstraints: DynArray("ModelBoneConstraintV56"),
       softBodyData: DynArray("ModelSoftBodyDataV56"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV56"),
-      modelReference: Filename
+      modelReference: Filename()
     }
   },
   {
@@ -15834,7 +15834,7 @@ module.exports = [
       ModelMaterialDataV57: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV57"),
@@ -15845,7 +15845,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV57: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -15962,7 +15962,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV57: {
         clouds: DynArray("ModelParticleCloudV57"),
@@ -16239,13 +16239,13 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV57"),
       boneConstraints: DynArray("ModelBoneConstraintV57"),
       softBodyData: DynArray("ModelSoftBodyDataV57"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV57"),
       fixedOffsetData: DynArray("ModelFixedOffsetDataV57"),
-      modelReference: Filename
+      modelReference: Filename()
     }
   },
   {
@@ -16260,7 +16260,7 @@ module.exports = [
       ModelMaterialDataV58: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV58"),
@@ -16271,7 +16271,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV58: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -16388,7 +16388,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV58: {
         clouds: DynArray("ModelParticleCloudV58"),
@@ -16671,13 +16671,13 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV58"),
       boneConstraints: DynArray("ModelBoneConstraintV58"),
       softBodyData: DynArray("ModelSoftBodyDataV58"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV58"),
       fixedOffsetData: DynArray("ModelFixedOffsetDataV58"),
-      modelReference: Filename
+      modelReference: Filename()
     }
   },
   {
@@ -16692,7 +16692,7 @@ module.exports = [
       ModelMaterialDataV59: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV59"),
@@ -16703,7 +16703,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV59: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -16820,7 +16820,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV59: {
         clouds: DynArray("ModelParticleCloudV59"),
@@ -17104,13 +17104,13 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV59"),
       boneConstraints: DynArray("ModelBoneConstraintV59"),
       softBodyData: DynArray("ModelSoftBodyDataV59"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV59"),
       fixedOffsetData: DynArray("ModelFixedOffsetDataV59"),
-      modelReference: Filename
+      modelReference: Filename()
     }
   },
   {
@@ -17125,7 +17125,7 @@ module.exports = [
       ModelMaterialDataV60: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV60"),
@@ -17136,7 +17136,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV60: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -17253,7 +17253,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV60: {
         clouds: DynArray("ModelParticleCloudV60"),
@@ -17544,13 +17544,13 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV60"),
       boneConstraints: DynArray("ModelBoneConstraintV60"),
       softBodyData: DynArray("ModelSoftBodyDataV60"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV60"),
       fixedOffsetData: DynArray("ModelFixedOffsetDataV60"),
-      modelReference: Filename
+      modelReference: Filename()
     }
   },
   {
@@ -17565,7 +17565,7 @@ module.exports = [
       ModelMaterialDataV61: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV61"),
@@ -17576,7 +17576,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV61: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -17693,7 +17693,7 @@ module.exports = [
         mergeIndex: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCloudDataV61: {
         clouds: DynArray("ModelParticleCloudV61"),
@@ -17996,13 +17996,13 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV61"),
       boneConstraints: DynArray("ModelBoneConstraintV61"),
       softBodyData: DynArray("ModelSoftBodyDataV61"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV61"),
       fixedOffsetData: DynArray("ModelFixedOffsetDataV61"),
-      modelReference: Filename
+      modelReference: Filename()
     }
   },
   {
@@ -18017,7 +18017,7 @@ module.exports = [
       ModelMaterialDataV62: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV62"),
@@ -18028,7 +18028,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV62: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -18361,7 +18361,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV62"),
       softBodyData: DynArray("ModelSoftBodyDataV62"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV62"),
@@ -18380,7 +18380,7 @@ module.exports = [
       ModelMaterialDataV63: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV63"),
@@ -18391,7 +18391,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV63: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -18724,7 +18724,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV63"),
       softBodyData: DynArray("ModelSoftBodyDataV63"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV63"),
@@ -18743,7 +18743,7 @@ module.exports = [
       ModelMaterialDataV64: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV64"),
@@ -18754,7 +18754,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV64: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -19092,7 +19092,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV64"),
       softBodyData: DynArray("ModelSoftBodyDataV64"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV64"),
@@ -19111,7 +19111,7 @@ module.exports = [
       ModelMaterialDataV65: {
         token: Uint64,
         materialId: Uint32,
-        filename: Filename,
+        filename: Filename(),
         materialFlags: Uint32,
         sortOrder: Uint32,
         textures: DynArray("ModelTextureDataV65"),
@@ -19122,7 +19122,7 @@ module.exports = [
         texCoordCount: Uint8
       },
       ModelTextureDataV65: {
-        filename: Filename,
+        filename: Filename(),
         textureFlags: Uint32,
         token: Uint64,
         blitId: Uint64,
@@ -19425,7 +19425,7 @@ module.exports = [
       actionOffsetNames: DynArray(Uint64),
       actionOffsets: DynArray(FixedArray(Float32, 3)),
       lodOverride: FixedArray(Float32, 2),
-      soundScript: Filename,
+      soundScript: Filename(),
       lightningData: Pointer("ModelLightningDataV65"),
       softBodyData: DynArray("ModelSoftBodyDataV65"),
       boneOffsetData: DynArray("ModelBoneOffsetDataV65"),

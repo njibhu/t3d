@@ -7,19 +7,19 @@ module.exports = [
     version: 0,
     definitions: {
       PackCompositeBlitRectSetV0: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint32),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV0: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         ears: DynArray(Uint64),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV0"),
         hairStyles: DynArray(Uint64),
-        skeletonFile: Filename,
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV0"),
         type: Uint32,
         variantRefRace: Uint64,
@@ -28,24 +28,24 @@ module.exports = [
       PackCompositeFileDataV0: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskClothSkin: Filename,
-        maskLeather: Filename,
-        maskMetal: Filename,
-        maskGlow: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskClothSkin: Filename(),
+        maskLeather: Filename(),
+        maskMetal: Filename(),
+        maskGlow: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV0: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename()
       },
       PackCompositeVariantV0: {
         components: DynArray("PackCompositeVariantComponentV0"),
@@ -79,22 +79,22 @@ module.exports = [
     version: 1,
     definitions: {
       PackCompositeBlitRectSetV1: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint32),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV1: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         ears: DynArray(Uint64),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV1"),
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV1"),
-        skinColorPalette: String16,
+        skinColorPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV1")
@@ -102,26 +102,26 @@ module.exports = [
       PackCompositeFileDataV1: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV1: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename()
       },
       PackCompositeVariantV1: {
         components: DynArray("PackCompositeVariantComponentV1"),
@@ -155,22 +155,22 @@ module.exports = [
     version: 2,
     definitions: {
       PackCompositeBlitRectSetV2: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint32),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV2: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         ears: DynArray(Uint64),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV2"),
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV2"),
-        skinColorPalette: String16,
+        skinColorPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV2")
@@ -178,25 +178,25 @@ module.exports = [
       PackCompositeFileDataV2: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV2: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename()
       },
       PackCompositeVariantV2: {
         components: DynArray("PackCompositeVariantComponentV2"),
@@ -230,23 +230,23 @@ module.exports = [
     version: 3,
     definitions: {
       PackCompositeBlitRectSetV3: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint32),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV3: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         beard: DynArray(Uint64),
         ears: DynArray(Uint64),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV3"),
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV3"),
-        skinColorPalette: String16,
+        skinColorPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV3")
@@ -254,25 +254,25 @@ module.exports = [
       PackCompositeFileDataV3: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV3: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename()
       },
       PackCompositeVariantV3: {
         components: DynArray("PackCompositeVariantComponentV3"),
@@ -306,23 +306,23 @@ module.exports = [
     version: 4,
     definitions: {
       PackCompositeBlitRectSetV4: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV4: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         beard: DynArray(Uint64),
         ears: DynArray(Uint64),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV4"),
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV4"),
-        skinColorPalette: String16,
+        skinColorPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV4")
@@ -330,26 +330,26 @@ module.exports = [
       PackCompositeFileDataV4: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV4: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename()
       },
       PackCompositeVariantV4: {
         components: DynArray("PackCompositeVariantComponentV4"),
@@ -384,23 +384,23 @@ module.exports = [
     version: 5,
     definitions: {
       PackCompositeBlitRectSetV5: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV5: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         beard: DynArray(Uint64),
         ears: DynArray(Uint64),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV5"),
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV5"),
-        skinColorPalette: String16,
+        skinColorPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV5")
@@ -408,26 +408,26 @@ module.exports = [
       PackCompositeFileDataV5: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV5: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename()
       },
       PackCompositeVariantV5: {
         token: Uint64,
@@ -465,23 +465,23 @@ module.exports = [
     version: 6,
     definitions: {
       PackCompositeBlitRectSetV6: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV6: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         beard: DynArray(Uint64),
         ears: DynArray(Uint64),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV6"),
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV6"),
-        skinColorPalette: String16,
+        skinColorPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV6")
@@ -489,27 +489,27 @@ module.exports = [
       PackCompositeFileDataV6: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV6: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV6: {
         token: Uint64,
@@ -547,24 +547,24 @@ module.exports = [
     version: 7,
     definitions: {
       PackCompositeBlitRectSetV7: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV7: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         beard: DynArray(Uint64),
         ears: DynArray(Uint64),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV7"),
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV7"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV7")
@@ -572,27 +572,27 @@ module.exports = [
       PackCompositeFileDataV7: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV7: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV7: {
         token: Uint64,
@@ -630,13 +630,13 @@ module.exports = [
     version: 8,
     definitions: {
       PackCompositeBlitRectSetV8: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV8: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
@@ -644,11 +644,11 @@ module.exports = [
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV8"),
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV8"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV8")
@@ -656,27 +656,27 @@ module.exports = [
       PackCompositeFileDataV8: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV8: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV8: {
         token: Uint64,
@@ -714,13 +714,13 @@ module.exports = [
     version: 9,
     definitions: {
       PackCompositeBlitRectSetV9: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV9: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
@@ -728,11 +728,11 @@ module.exports = [
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV9"),
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV9"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV9")
@@ -740,27 +740,27 @@ module.exports = [
       PackCompositeFileDataV9: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV9: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV9: {
         token: Uint64,
@@ -799,13 +799,13 @@ module.exports = [
     version: 10,
     definitions: {
       PackCompositeBlitRectSetV10: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
       },
       PackCompositeRaceDataV10: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
@@ -814,11 +814,11 @@ module.exports = [
         fileData: DynArray("PackCompositeFileDataV10"),
         flags: Uint32,
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV10"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV10")
@@ -826,27 +826,27 @@ module.exports = [
       PackCompositeFileDataV10: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV10: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV10: {
         token: Uint64,
@@ -885,7 +885,7 @@ module.exports = [
     version: 11,
     definitions: {
       PackCompositeBlitRectSetV11: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
@@ -907,7 +907,7 @@ module.exports = [
         translate: FixedArray(Float32, 3)
       },
       PackCompositeRaceDataV11: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
@@ -916,11 +916,11 @@ module.exports = [
         fileData: DynArray("PackCompositeFileDataV11"),
         flags: Uint32,
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV11"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV11")
@@ -928,27 +928,27 @@ module.exports = [
       PackCompositeFileDataV11: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV11: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV11: {
         token: Uint64,
@@ -989,7 +989,7 @@ module.exports = [
     version: 12,
     definitions: {
       PackCompositeBlitRectSetV12: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1017,7 +1017,7 @@ module.exports = [
         name: Uint64
       },
       PackCompositeRaceDataV12: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
@@ -1029,43 +1029,43 @@ module.exports = [
         fileData: DynArray("PackCompositeFileDataV12"),
         flags: Uint32,
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV12"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         skinStyleCount: Uint8,
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV12")
       },
       PackCompositeBoneScaleFileV12: {
-        fileName: String16
+        fileName: String16()
       },
       PackCompositeFileDataV12: {
         name: Uint64,
         type: Uint32,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint32
       },
       PackCompositeSkinPatternV12: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV12: {
         token: Uint64,
@@ -1106,7 +1106,7 @@ module.exports = [
     version: 13,
     definitions: {
       PackCompositeBlitRectSetV13: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1134,7 +1134,7 @@ module.exports = [
         name: Uint64
       },
       PackCompositeRaceDataV13: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
@@ -1146,44 +1146,44 @@ module.exports = [
         fileData: DynArray("PackCompositeFileDataV13"),
         flags: Uint32,
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV13"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         skinStyleCount: Uint8,
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV13")
       },
       PackCompositeBoneScaleFileV13: {
-        fileName: String16
+        fileName: String16()
       },
       PackCompositeFileDataV13: {
         name: Uint64,
         type: Uint8,
         flags: Uint8,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint8
       },
       PackCompositeSkinPatternV13: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV13: {
         token: Uint64,
@@ -1224,7 +1224,7 @@ module.exports = [
     version: 14,
     definitions: {
       PackCompositeBlitRectSetV14: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1252,57 +1252,57 @@ module.exports = [
         value: Float32
       },
       PackCompositeRaceDataV14: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
         bodyBoneScales: DynArray("PackCompositeBoneScaleV14"),
         bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV14"),
         ears: DynArray(Uint64),
-        eyeColorPalette: String16,
+        eyeColorPalette: String16(),
         faceBoneScales: DynArray("PackCompositeBoneScaleV14"),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV14"),
         flags: Uint32,
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV14"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         skinStyleCount: Uint8,
         type: Uint32,
         variantRefRace: Uint64,
         variants: DynArray("PackCompositeVariantV14")
       },
       PackCompositeBoneScaleFileV14: {
-        fileName: String16
+        fileName: String16()
       },
       PackCompositeFileDataV14: {
         name: Uint64,
         type: Uint8,
         flags: Uint8,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint8
       },
       PackCompositeSkinPatternV14: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV14: {
         token: Uint64,
@@ -1344,7 +1344,7 @@ module.exports = [
     version: 15,
     definitions: {
       PackCompositeBlitRectSetV15: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1372,24 +1372,24 @@ module.exports = [
         value: Float32
       },
       PackCompositeRaceDataV15: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
         bodyBoneScales: DynArray("PackCompositeBoneScaleV15"),
         bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV15"),
         ears: DynArray(Uint64),
-        eyeColorPalette: String16,
+        eyeColorPalette: String16(),
         faceBoneScales: DynArray("PackCompositeBoneScaleV15"),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV15"),
         flags: Uint32,
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Filename,
+        hairColorPalette: String16(),
+        skeletonFile: Filename(),
         skinPatterns: DynArray("PackCompositeSkinPatternV15"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         skinStyleCount: Uint8,
         type: Uint32,
         variantRefRace: Uint64,
@@ -1397,33 +1397,33 @@ module.exports = [
         animOverrides: DynArray("PackCompositeAnimOverrideV15")
       },
       PackCompositeBoneScaleFileV15: {
-        fileName: String16
+        fileName: String16()
       },
       PackCompositeFileDataV15: {
         name: Uint64,
         type: Uint8,
         flags: Uint8,
-        meshBase: Filename,
-        meshOverlap: Filename,
-        maskDye1: Filename,
-        maskDye2: Filename,
-        maskDye3: Filename,
-        maskDye4: Filename,
-        maskCut: Filename,
-        textureBase: Filename,
-        textureNormal: Filename,
+        meshBase: Filename(),
+        meshOverlap: Filename(),
+        maskDye1: Filename(),
+        maskDye2: Filename(),
+        maskDye3: Filename(),
+        maskDye4: Filename(),
+        maskCut: Filename(),
+        textureBase: Filename(),
+        textureNormal: Filename(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint8
       },
       PackCompositeSkinPatternV15: {
-        chest: Filename,
-        face: Filename,
-        feet: Filename,
-        hands: Filename,
-        legs: Filename,
-        ears: Filename
+        chest: Filename(),
+        face: Filename(),
+        feet: Filename(),
+        hands: Filename(),
+        legs: Filename(),
+        ears: Filename()
       },
       PackCompositeVariantV15: {
         token: Uint64,
@@ -1452,7 +1452,7 @@ module.exports = [
       },
       PackCompositeAnimOverrideV15: {
         animRole: Uint64,
-        filepath: Filename
+        filepath: Filename()
       }
     },
     root: {
@@ -1469,7 +1469,7 @@ module.exports = [
     version: 16,
     definitions: {
       PackCompositeBlitRectSetV16: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1497,24 +1497,24 @@ module.exports = [
         value: Float32
       },
       PackCompositeRaceDataV16: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
         bodyBoneScales: DynArray("PackCompositeBoneScaleV16"),
         bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV16"),
         ears: DynArray(Uint64),
-        eyeColorPalette: String16,
+        eyeColorPalette: String16(),
         faceBoneScales: DynArray("PackCompositeBoneScaleV16"),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV16"),
         flags: Uint32,
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Fileref,
+        hairColorPalette: String16(),
+        skeletonFile: Fileref(),
         skinPatterns: DynArray("PackCompositeSkinPatternV16"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         skinStyleCount: Uint8,
         type: Uint32,
         variantRefRace: Uint64,
@@ -1522,33 +1522,33 @@ module.exports = [
         animOverrides: DynArray("PackCompositeAnimOverrideV16")
       },
       PackCompositeBoneScaleFileV16: {
-        fileName: String16
+        fileName: String16()
       },
       PackCompositeFileDataV16: {
         name: Uint64,
         type: Uint8,
         flags: Uint8,
-        meshBase: Fileref,
-        meshOverlap: Fileref,
-        maskDye1: Fileref,
-        maskDye2: Fileref,
-        maskDye3: Fileref,
-        maskDye4: Fileref,
-        maskCut: Fileref,
-        textureBase: Fileref,
-        textureNormal: Fileref,
+        meshBase: Fileref(),
+        meshOverlap: Fileref(),
+        maskDye1: Fileref(),
+        maskDye2: Fileref(),
+        maskDye3: Fileref(),
+        maskDye4: Fileref(),
+        maskCut: Fileref(),
+        textureBase: Fileref(),
+        textureNormal: Fileref(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint8
       },
       PackCompositeSkinPatternV16: {
-        chest: Fileref,
-        face: Fileref,
-        feet: Fileref,
-        hands: Fileref,
-        legs: Fileref,
-        ears: Fileref
+        chest: Fileref(),
+        face: Fileref(),
+        feet: Fileref(),
+        hands: Fileref(),
+        legs: Fileref(),
+        ears: Fileref()
       },
       PackCompositeVariantV16: {
         token: Uint64,
@@ -1577,7 +1577,7 @@ module.exports = [
       },
       PackCompositeAnimOverrideV16: {
         animRole: Uint64,
-        filepath: Fileref
+        filepath: Fileref()
       }
     },
     root: {
@@ -1594,7 +1594,7 @@ module.exports = [
     version: 17,
     definitions: {
       PackCompositeBlitRectSetV17: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1622,24 +1622,24 @@ module.exports = [
         value: Float32
       },
       PackCompositeRaceDataV17: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
         bodyBoneScales: DynArray("PackCompositeBoneScaleV17"),
         bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV17"),
         ears: DynArray(Uint64),
-        eyeColorPalette: String16,
+        eyeColorPalette: String16(),
         faceBoneScales: DynArray("PackCompositeBoneScaleV17"),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV17"),
         flags: Uint32,
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Fileref,
+        hairColorPalette: String16(),
+        skeletonFile: Fileref(),
         skinPatterns: DynArray("PackCompositeSkinPatternV17"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         skinStyles: DynArray("PackCompositeSkinStyleV17"),
         type: Uint32,
         variantRefRace: Uint64,
@@ -1647,33 +1647,33 @@ module.exports = [
         animOverrides: DynArray("PackCompositeAnimOverrideV17")
       },
       PackCompositeBoneScaleFileV17: {
-        fileName: String16
+        fileName: String16()
       },
       PackCompositeFileDataV17: {
         name: Uint64,
         type: Uint8,
         flags: Uint8,
-        meshBase: Fileref,
-        meshOverlap: Fileref,
-        maskDye1: Fileref,
-        maskDye2: Fileref,
-        maskDye3: Fileref,
-        maskDye4: Fileref,
-        maskCut: Fileref,
-        textureBase: Fileref,
-        textureNormal: Fileref,
+        meshBase: Fileref(),
+        meshOverlap: Fileref(),
+        maskDye1: Fileref(),
+        maskDye2: Fileref(),
+        maskDye3: Fileref(),
+        maskDye4: Fileref(),
+        maskCut: Fileref(),
+        textureBase: Fileref(),
+        textureNormal: Fileref(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint8
       },
       PackCompositeSkinPatternV17: {
-        chest: Fileref,
-        face: Fileref,
-        feet: Fileref,
-        hands: Fileref,
-        legs: Fileref,
-        ears: Fileref
+        chest: Fileref(),
+        face: Fileref(),
+        feet: Fileref(),
+        hands: Fileref(),
+        legs: Fileref(),
+        ears: Fileref()
       },
       PackCompositeSkinStyleV17: {
         chest: Uint64,
@@ -1708,7 +1708,7 @@ module.exports = [
       },
       PackCompositeAnimOverrideV17: {
         animRole: Uint64,
-        filepath: Fileref
+        filepath: Fileref()
       }
     },
     root: {
@@ -1725,7 +1725,7 @@ module.exports = [
     version: 18,
     definitions: {
       PackCompositeBlitRectSetV18: {
-        name: String16,
+        name: String16(),
         size: FixedArray(Uint32, 2),
         rectIndex: DynArray(Uint8),
         rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1753,24 +1753,24 @@ module.exports = [
         value: Float32
       },
       PackCompositeRaceDataV18: {
-        name: String16,
+        name: String16(),
         nameToken: Uint64,
         baseHeadToken: Uint64,
         beard: DynArray(Uint64),
         bodyBoneScales: DynArray("PackCompositeBoneScaleV18"),
         bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV18"),
         ears: DynArray(Uint64),
-        eyeColorPalette: String16,
+        eyeColorPalette: String16(),
         faceBoneScales: DynArray("PackCompositeBoneScaleV18"),
         faces: DynArray(Uint64),
         fileData: DynArray("PackCompositeFileDataV18"),
         flags: Uint32,
         hairStyles: DynArray(Uint64),
-        hairColorPalette: String16,
-        skeletonFile: Fileref,
+        hairColorPalette: String16(),
+        skeletonFile: Fileref(),
         skinPatterns: DynArray("PackCompositeSkinPatternV18"),
-        skinColorPalette: String16,
-        skinPatternPalette: String16,
+        skinColorPalette: String16(),
+        skinPatternPalette: String16(),
         skinStyles: DynArray("PackCompositeSkinStyleV18"),
         type: Uint32,
         variantRefRace: Uint64,
@@ -1778,34 +1778,34 @@ module.exports = [
         animOverrides: DynArray("PackCompositeAnimOverrideV18")
       },
       PackCompositeBoneScaleFileV18: {
-        fileName: String16
+        fileName: String16()
       },
       PackCompositeFileDataV18: {
         name: Uint64,
         type: Uint8,
         flags: Uint8,
         animRoleOverride: Uint64,
-        meshBase: Fileref,
-        meshOverlap: Fileref,
-        maskDye1: Fileref,
-        maskDye2: Fileref,
-        maskDye3: Fileref,
-        maskDye4: Fileref,
-        maskCut: Fileref,
-        textureBase: Fileref,
-        textureNormal: Fileref,
+        meshBase: Fileref(),
+        meshOverlap: Fileref(),
+        maskDye1: Fileref(),
+        maskDye2: Fileref(),
+        maskDye3: Fileref(),
+        maskDye4: Fileref(),
+        maskCut: Fileref(),
+        textureBase: Fileref(),
+        textureNormal: Fileref(),
         dyeFlags: Uint32,
         hideFlags: Uint32,
         skinFlags: Uint32,
         blitRectIndex: Uint8
       },
       PackCompositeSkinPatternV18: {
-        chest: Fileref,
-        face: Fileref,
-        feet: Fileref,
-        hands: Fileref,
-        legs: Fileref,
-        ears: Fileref
+        chest: Fileref(),
+        face: Fileref(),
+        feet: Fileref(),
+        hands: Fileref(),
+        legs: Fileref(),
+        ears: Fileref()
       },
       PackCompositeSkinStyleV18: {
         chest: Uint64,
@@ -1840,7 +1840,7 @@ module.exports = [
       },
       PackCompositeAnimOverrideV18: {
         animRole: Uint64,
-        filepath: Fileref
+        filepath: Fileref()
       }
     },
     root: {

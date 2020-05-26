@@ -7,7 +7,7 @@ module.exports = [
     version: 0,
     definitions: {
       TextPackLanguage: {
-        filenames: DynArray(Filename)
+        filenames: DynArray(Filename())
       }
     },
     root: {

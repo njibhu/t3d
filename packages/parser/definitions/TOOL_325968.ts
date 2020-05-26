@@ -8,22 +8,22 @@ module.exports = [
     definitions: {
       AmatToolConstantV0: {
         token: Uint32,
-        displayName: String16,
+        displayName: String16(),
         defaultValue: FixedArray(Float32, 4),
         flags: Uint32,
         minValue: FixedArray(Float32, 4),
         maxValue: FixedArray(Float32, 4)
       },
       AmatToolTextureV0: {
-        texName: String16,
-        texDefaultFile: String16,
+        texName: String16(),
+        texDefaultFile: String16(),
         flags: Uint32,
         texGen: DynArray(Uint32),
         texTransform: DynArray(Uint32)
       }
     },
     root: {
-      description: String16,
+      description: String16(),
       flags: Uint32,
       text: CString,
       texCoordCount: Uint8,
@@ -39,22 +39,22 @@ module.exports = [
     definitions: {
       AmatToolConstantV1: {
         token: Uint32,
-        displayName: String16,
+        displayName: String16(),
         defaultValue: FixedArray(Float32, 4),
         flags: Uint32,
         minValue: FixedArray(Float32, 4),
         maxValue: FixedArray(Float32, 4)
       },
       AmatToolTextureV1: {
-        texName: String16,
-        texDefaultFile: String16,
+        texName: String16(),
+        texDefaultFile: String16(),
         flags: Uint32,
         texGen: DynArray(Uint32),
         texTransform: DynArray(Uint32)
       }
     },
     root: {
-      description: String16,
+      description: String16(),
       flags: Uint32,
       text: CString,
       texCoordCount: Uint8,
@@ -70,22 +70,22 @@ module.exports = [
     definitions: {
       AmatToolConstant: {
         token: Uint32,
-        displayName: String16,
+        displayName: String16(),
         defaultValue: FixedArray(Float32, 4),
         flags: Uint32,
         minValue: FixedArray(Float32, 4),
         maxValue: FixedArray(Float32, 4)
       },
       AmatToolTexture: {
-        texName: String16,
-        texDefaultFile: String16,
+        texName: String16(),
+        texDefaultFile: String16(),
         flags: Uint32,
         texGen: DynArray(Uint32),
         texTransform: DynArray(Uint32)
       }
     },
     root: {
-      description: String16,
+      description: String16(),
       flags: Uint32,
       text: CString,
       texCoordCount: Uint8,
@@ -101,21 +101,21 @@ module.exports = [
     definitions: {
       AmatToolConstant: {
         token: Uint32,
-        displayName: String16,
+        displayName: String16(),
         defaultValue: FixedArray(Float32, 4),
         flags: Uint32,
         minValue: FixedArray(Float32, 4),
         maxValue: FixedArray(Float32, 4)
       },
       AmatToolTexture: {
-        texName: String16,
-        texDefaultFile: String16,
+        texName: String16(),
+        texDefaultFile: String16(),
         flags: Uint32,
         texGen: DynArray(Uint32)
       }
     },
     root: {
-      description: String16,
+      description: String16(),
       flags: Uint32,
       texCoordCount: Uint8,
       texTransformCount: Uint8,

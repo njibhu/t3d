@@ -14,7 +14,7 @@ module.exports = [
         trackReferences: Uint8
       },
       PackContentNamespace: {
-        name: String16,
+        name: String16(),
         domain: Uint32,
         parentIndex: Uint32
       },
@@ -47,14 +47,14 @@ module.exports = [
       flags: Uint32,
       typeInfos: DynArray("PackContentTypeInfo"),
       namespaces: DynArray("PackContentNamespace"),
-      fileRefs: DynArray(Fileref),
+      fileRefs: DynArray(Fileref()),
       indexEntries: DynArray("PackContentIndexEntry"),
       localOffsets: DynArray("PackContentLocalOffsetFixup"),
       externalOffsets: DynArray("PackContentExternalOffsetFixup"),
       fileIndices: DynArray("PackContentFileIndexFixup"),
       stringIndices: DynArray("PackContentStringIndexFixup"),
       trackedReferences: DynArray("PackContentTrackedReference"),
-      strings: DynArray(String16),
+      strings: DynArray(String16()),
       content: DynArray(Uint8)
     }
   }

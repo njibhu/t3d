@@ -10,7 +10,7 @@ module.exports = [
         bankFileName: DynArray("BankFileNameDataV0")
       },
       BankFileNameDataV0: {
-        fileName: Filename
+        fileName: Filename()
       }
     },
     root: {

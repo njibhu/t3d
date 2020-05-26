@@ -7,7 +7,7 @@ module.exports = [
     version: 0,
     definitions: {
       PackMapToolFsFileV0: {
-        filename: Fileref,
+        filename: Fileref(),
         time: Uint64,
         dataPtr: DynArray(Uint8)
       }

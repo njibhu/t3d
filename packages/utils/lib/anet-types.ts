@@ -52,7 +52,7 @@ export const anetTypes: {
   // 0x04
   [AType.Unknown4]: () => {
     console.log("Found Unknown4, this chunk might break the parser");
-    return "Unknown4";
+    return "Unknown";
   },
   // 0x05
   [AType.Byte]: () => "Uint8",
@@ -63,17 +63,17 @@ export const anetTypes: {
   // 0x8
   [AType.Unknown8]: () => {
     console.log("Found Unknown8, this chunk might break the parser");
-    return "Unknown8";
+    return "Unknown";
   },
   // 0x9
   [AType.Unknown9]: () => {
     console.log("Found Unknown9, this chunk might break the parser");
-    return "Unknown9";
+    return "Unknown";
   },
   // 0x0A
   [AType.DWord]: () => "Uint32",
   // 0x0B
-  [AType.Filename]: () => "Filename",
+  [AType.Filename]: () => "Filename()",
   // 0x0C
   [AType.Float]: () => "Float32",
   // 0x0D
@@ -88,7 +88,7 @@ export const anetTypes: {
   // 0x11
   [AType.QWord]: () => "Uint64",
   // 0x12
-  [AType.WCharPtr]: () => "String16",
+  [AType.WCharPtr]: () => "String16()",
   // 0x13
   [AType.CharPtr]: () => "CString",
   // 0x14
@@ -106,11 +106,11 @@ export const anetTypes: {
   // 0x1A
   [AType.Word3]: () => "FixedArray(Uint16, 3)",
   // 0x1B
-  [AType.Fileref]: () => "Fileref",
+  [AType.Fileref]: () => "Fileref()",
   // 0x1C
   [AType.Unknown28]: () => {
     console.log("Found Unknown28, this chunk might break the parser");
-    return "Unknown28";
+    return "Unknown";
   },
   // 0x1D
   [AType.CustomType2]: (customSubType, subTypeName): string => (customSubType ? `'${subTypeName}'` : `${subTypeName}`),

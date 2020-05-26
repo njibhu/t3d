@@ -20,7 +20,7 @@ module.exports = [
       PagedImagePageDataV0: {
         layer: Uint32,
         coord: FixedArray(Uint32, 2),
-        filename: Filename,
+        filename: Filename(),
         flags: Uint32
       },
       PagedImageEmbeddedPagesDataV0: {
@@ -57,7 +57,7 @@ module.exports = [
       PagedImagePageDataV1: {
         layer: Uint32,
         coord: FixedArray(Uint32, 2),
-        filename: Filename,
+        filename: Filename(),
         flags: Uint32,
         solidColor: FixedArray(Uint8, 4)
       },
@@ -96,7 +96,7 @@ module.exports = [
       PagedImagePageDataV2: {
         layer: Uint32,
         coord: FixedArray(Uint32, 2),
-        filename: Filename,
+        filename: Filename(),
         flags: Uint32,
         solidColor: FixedArray(Uint8, 4)
       },
@@ -136,7 +136,7 @@ module.exports = [
       PagedImagePageDataV3: {
         layer: Uint32,
         coord: FixedArray(Uint32, 2),
-        filename: Filename,
+        filename: Filename(),
         flags: Uint32,
         solidColor: FixedArray(Uint8, 4)
       },

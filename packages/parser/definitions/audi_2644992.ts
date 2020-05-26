@@ -6,8 +6,8 @@ module.exports = [
     name: "MapAudio",
     version: 0,
     root: {
-      globalAmbientScriptFilename: Filename,
-      globalMusicScriptFilename: Filename
+      globalAmbientScriptFilename: Filename(),
+      globalMusicScriptFilename: Filename()
     }
   },
   {
@@ -18,9 +18,9 @@ module.exports = [
       PackMapAudioRegion: {
         regionType: Uint32,
         overrideMode: Uint32,
-        filenameSource: Filename,
-        filenameAmbient: Filename,
-        filenameMusic: Filename,
+        filenameSource: Filename(),
+        filenameAmbient: Filename(),
+        filenameMusic: Filename(),
         points: DynArray(FixedArray(Float32, 3)),
         position: FixedArray(Float32, 3),
         orientation: FixedArray(Float32, 3),
@@ -30,8 +30,8 @@ module.exports = [
       }
     },
     root: {
-      globalAmbientScriptFilename: Filename,
-      globalMusicScriptFilename: Filename,
+      globalAmbientScriptFilename: Filename(),
+      globalMusicScriptFilename: Filename(),
       audioRegions: DynArray("PackMapAudioRegion")
     }
   },
@@ -43,9 +43,9 @@ module.exports = [
       PackMapAudioRegion: {
         regionType: Uint32,
         overrideMode: Uint32,
-        filenameSource: Filename,
-        filenameAmbient: Filename,
-        filenameMusic: Filename,
+        filenameSource: Filename(),
+        filenameAmbient: Filename(),
+        filenameMusic: Filename(),
         points: DynArray(FixedArray(Float32, 3)),
         position: FixedArray(Float32, 3),
         orientation: FixedArray(Float32, 3),
@@ -55,10 +55,10 @@ module.exports = [
       }
     },
     root: {
-      globalAmbientScriptFilename: Filename,
-      globalMusicScriptFilename: Filename,
-      globalAmbientUnderwaterScriptFilename: Filename,
-      globalMusicUnderwaterScriptFilename: Filename,
+      globalAmbientScriptFilename: Filename(),
+      globalMusicScriptFilename: Filename(),
+      globalAmbientUnderwaterScriptFilename: Filename(),
+      globalMusicUnderwaterScriptFilename: Filename(),
       audioRegions: DynArray("PackMapAudioRegion")
     }
   },
@@ -70,12 +70,12 @@ module.exports = [
       PackMapAudioRegion: {
         regionType: Uint32,
         overrideMode: Uint32,
-        filenameSourceDay: Filename,
-        filenameAmbientDay: Filename,
-        filenameMusicDay: Filename,
-        filenameSourceNight: Filename,
-        filenameAmbientNight: Filename,
-        filenameMusicNight: Filename,
+        filenameSourceDay: Filename(),
+        filenameAmbientDay: Filename(),
+        filenameMusicDay: Filename(),
+        filenameSourceNight: Filename(),
+        filenameAmbientNight: Filename(),
+        filenameMusicNight: Filename(),
         points: DynArray(FixedArray(Float32, 3)),
         position: FixedArray(Float32, 3),
         orientation: FixedArray(Float32, 3),
@@ -85,14 +85,14 @@ module.exports = [
       }
     },
     root: {
-      filenameAmbientDaySurface: Filename,
-      filenameMusicDaySurface: Filename,
-      filenameAmbientDayUnderwater: Filename,
-      filenameMusicDayUnderwater: Filename,
-      filenameAmbientNightSurface: Filename,
-      filenameMusicNightSurface: Filename,
-      filenameAmbientNightUnderwater: Filename,
-      filenameMusicNightUnderwater: Filename,
+      filenameAmbientDaySurface: Filename(),
+      filenameMusicDaySurface: Filename(),
+      filenameAmbientDayUnderwater: Filename(),
+      filenameMusicDayUnderwater: Filename(),
+      filenameAmbientNightSurface: Filename(),
+      filenameMusicNightSurface: Filename(),
+      filenameAmbientNightUnderwater: Filename(),
+      filenameMusicNightUnderwater: Filename(),
       audioRegions: DynArray("PackMapAudioRegion")
     }
   },
@@ -104,12 +104,12 @@ module.exports = [
       PackMapAudioRegion: {
         regionType: Uint32,
         overrideMode: Uint32,
-        filenameSourceDay: Filename,
-        filenameAmbientDay: Filename,
-        filenameMusicDay: Filename,
-        filenameSourceNight: Filename,
-        filenameAmbientNight: Filename,
-        filenameMusicNight: Filename,
+        filenameSourceDay: Filename(),
+        filenameAmbientDay: Filename(),
+        filenameMusicDay: Filename(),
+        filenameSourceNight: Filename(),
+        filenameAmbientNight: Filename(),
+        filenameMusicNight: Filename(),
         points: DynArray(FixedArray(Float32, 3)),
         position: FixedArray(Float32, 3),
         orientation: FixedArray(Float32, 3),
@@ -120,14 +120,14 @@ module.exports = [
       }
     },
     root: {
-      filenameAmbientDaySurface: Filename,
-      filenameMusicDaySurface: Filename,
-      filenameAmbientDayUnderwater: Filename,
-      filenameMusicDayUnderwater: Filename,
-      filenameAmbientNightSurface: Filename,
-      filenameMusicNightSurface: Filename,
-      filenameAmbientNightUnderwater: Filename,
-      filenameMusicNightUnderwater: Filename,
+      filenameAmbientDaySurface: Filename(),
+      filenameMusicDaySurface: Filename(),
+      filenameAmbientDayUnderwater: Filename(),
+      filenameMusicDayUnderwater: Filename(),
+      filenameAmbientNightSurface: Filename(),
+      filenameMusicNightSurface: Filename(),
+      filenameAmbientNightUnderwater: Filename(),
+      filenameMusicNightUnderwater: Filename(),
       audioRegions: DynArray("PackMapAudioRegion")
     }
   },
@@ -139,10 +139,10 @@ module.exports = [
       PackMapAudioRegion: {
         regionType: Uint32,
         overrideMode: Uint32,
-        filenameSourceDay: Filename,
-        filenameAmbientDay: Filename,
-        filenameSourceNight: Filename,
-        filenameAmbientNight: Filename,
+        filenameSourceDay: Filename(),
+        filenameAmbientDay: Filename(),
+        filenameSourceNight: Filename(),
+        filenameAmbientNight: Filename(),
         points: DynArray(FixedArray(Float32, 3)),
         position: FixedArray(Float32, 3),
         orientation: FixedArray(Float32, 3),
@@ -154,10 +154,10 @@ module.exports = [
       }
     },
     root: {
-      filenameAmbientDaySurface: Filename,
-      filenameAmbientDayUnderwater: Filename,
-      filenameAmbientNightSurface: Filename,
-      filenameAmbientNightUnderwater: Filename,
+      filenameAmbientDaySurface: Filename(),
+      filenameAmbientDayUnderwater: Filename(),
+      filenameAmbientNightSurface: Filename(),
+      filenameAmbientNightUnderwater: Filename(),
       audioRegions: DynArray("PackMapAudioRegion")
     }
   },
@@ -169,11 +169,11 @@ module.exports = [
       PackMapAudioRegion: {
         regionType: Uint32,
         overrideMode: Uint32,
-        filenameSourceDay: Filename,
-        filenameAmbientDay: Filename,
-        filenameSourceNight: Filename,
-        filenameAmbientNight: Filename,
-        filenameInterior: Filename,
+        filenameSourceDay: Filename(),
+        filenameAmbientDay: Filename(),
+        filenameSourceNight: Filename(),
+        filenameAmbientNight: Filename(),
+        filenameInterior: Filename(),
         exteriorVolume: Float32,
         priority: Uint32,
         points: DynArray(FixedArray(Float32, 3)),
@@ -187,10 +187,10 @@ module.exports = [
       }
     },
     root: {
-      filenameAmbientDaySurface: Filename,
-      filenameAmbientDayUnderwater: Filename,
-      filenameAmbientNightSurface: Filename,
-      filenameAmbientNightUnderwater: Filename,
+      filenameAmbientDaySurface: Filename(),
+      filenameAmbientDayUnderwater: Filename(),
+      filenameAmbientNightSurface: Filename(),
+      filenameAmbientNightUnderwater: Filename(),
       audioRegions: DynArray("PackMapAudioRegion")
     }
   },
@@ -202,11 +202,11 @@ module.exports = [
       PackMapAudioRegion: {
         regionType: Uint32,
         overrideMode: Uint32,
-        filenameSourceDay: Filename,
-        filenameAmbientDay: Filename,
-        filenameSourceNight: Filename,
-        filenameAmbientNight: Filename,
-        filenameInterior: Filename,
+        filenameSourceDay: Filename(),
+        filenameAmbientDay: Filename(),
+        filenameSourceNight: Filename(),
+        filenameAmbientNight: Filename(),
+        filenameInterior: Filename(),
         exteriorVolume: Float32,
         priority: Uint32,
         points: DynArray(FixedArray(Float32, 3)),
@@ -219,14 +219,14 @@ module.exports = [
         flags: Uint32
       },
       PackMapAudioRegionTool: {
-        annotation: String16
+        annotation: String16()
       }
     },
     root: {
-      filenameAmbientDaySurface: Filename,
-      filenameAmbientDayUnderwater: Filename,
-      filenameAmbientNightSurface: Filename,
-      filenameAmbientNightUnderwater: Filename,
+      filenameAmbientDaySurface: Filename(),
+      filenameAmbientDayUnderwater: Filename(),
+      filenameAmbientNightSurface: Filename(),
+      filenameAmbientNightUnderwater: Filename(),
       audioRegions: DynArray("PackMapAudioRegion"),
       audioRegionTools: DynArray("PackMapAudioRegionTool")
     }
@@ -239,11 +239,11 @@ module.exports = [
       PackMapAudioRegion: {
         regionType: Uint32,
         overrideMode: Uint32,
-        filenameSourceDay: Filename,
-        filenameAmbientDay: Filename,
-        filenameSourceNight: Filename,
-        filenameAmbientNight: Filename,
-        filenameInterior: Filename,
+        filenameSourceDay: Filename(),
+        filenameAmbientDay: Filename(),
+        filenameSourceNight: Filename(),
+        filenameAmbientNight: Filename(),
+        filenameInterior: Filename(),
         exteriorVolume: Float32,
         priority: Uint32,
         points: DynArray(FixedArray(Float32, 3)),
@@ -256,18 +256,18 @@ module.exports = [
         flags: Uint32
       },
       PackMapAudioRegionTool: {
-        annotation: String16
+        annotation: String16()
       },
       PackMapAudioDep: {
-        dependency: Filename,
+        dependency: Filename(),
         flags: Uint32
       }
     },
     root: {
-      filenameAmbientDaySurface: Filename,
-      filenameAmbientDayUnderwater: Filename,
-      filenameAmbientNightSurface: Filename,
-      filenameAmbientNightUnderwater: Filename,
+      filenameAmbientDaySurface: Filename(),
+      filenameAmbientDayUnderwater: Filename(),
+      filenameAmbientNightSurface: Filename(),
+      filenameAmbientNightUnderwater: Filename(),
       audioRegions: DynArray("PackMapAudioRegion"),
       audioRegionTools: DynArray("PackMapAudioRegionTool"),
       audioDepArray: DynArray("PackMapAudioDep")

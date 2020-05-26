@@ -53,10 +53,10 @@ module.exports = [
     definitions: {
       PackMapCubeMapSampleV2: {
         position: FixedArray(Float32, 3),
-        filenameDayDefault: Filename,
-        filenameNightDefault: Filename,
-        filenameDayScript: Filename,
-        filenameNightScript: Filename
+        filenameDayDefault: Filename(),
+        filenameNightDefault: Filename(),
+        filenameDayScript: Filename(),
+        filenameNightScript: Filename()
       },
       PackMapCubeMapParamsV2: {
         modulateColor: Uint32,
@@ -77,10 +77,10 @@ module.exports = [
     definitions: {
       PackMapCubeMapSampleV3: {
         position: FixedArray(Float32, 3),
-        filenameDayDefault: Filename,
-        filenameNightDefault: Filename,
-        filenameDayScript: Filename,
-        filenameNightScript: Filename,
+        filenameDayDefault: Filename(),
+        filenameNightDefault: Filename(),
+        filenameDayScript: Filename(),
+        filenameNightScript: Filename(),
         envID: Uint64
       },
       PackMapCubeMapParamsV3: {
@@ -88,7 +88,7 @@ module.exports = [
         brightness: Float32,
         contrast: Float32,
         blurPasses: Uint32,
-        envVolume: String16
+        envVolume: String16()
       }
     },
     root: {

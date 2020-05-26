@@ -22,8 +22,8 @@ module.exports = [
         materials: DynArray("MapRiverMaterial")
       },
       MapRiverMaterial: {
-        materialFile: Filename,
-        textureFiles: DynArray(Filename),
+        materialFile: Filename(),
+        textureFiles: DynArray(Filename()),
         constantTokens: DynArray(Uint32),
         constantValues: DynArray(FixedArray(Float32, 4)),
         textureMaps: DynArray("MapRiverTextureMap")
@@ -52,7 +52,7 @@ module.exports = [
     definitions: {
       MapRiver: {
         guid: Uint64,
-        name: String16,
+        name: String16(),
         xTiling: Float32,
         points: DynArray(FixedArray(Float32, 3)),
         reaches: DynArray("MapRiverReach")
@@ -67,8 +67,8 @@ module.exports = [
         materials: DynArray("MapRiverMaterial")
       },
       MapRiverMaterial: {
-        materialFile: Filename,
-        textureFiles: DynArray(Filename),
+        materialFile: Filename(),
+        textureFiles: DynArray(Filename()),
         constantTokens: DynArray(Uint32),
         constantValues: DynArray(FixedArray(Float32, 4)),
         textureMaps: DynArray("MapRiverTextureMap")
@@ -98,7 +98,7 @@ module.exports = [
     definitions: {
       MapRiver: {
         guid: Uint64,
-        name: String16,
+        name: String16(),
         xTiling: Float32,
         points: DynArray(FixedArray(Float32, 3)),
         reaches: DynArray("MapRiverReach")
@@ -114,8 +114,8 @@ module.exports = [
         materials: DynArray("MapRiverMaterial")
       },
       MapRiverMaterial: {
-        materialFile: Filename,
-        textureFiles: DynArray(Filename),
+        materialFile: Filename(),
+        textureFiles: DynArray(Filename()),
         constantTokens: DynArray(Uint32),
         constantValues: DynArray(FixedArray(Float32, 4)),
         textureMaps: DynArray("MapRiverTextureMap")
@@ -145,7 +145,7 @@ module.exports = [
     definitions: {
       MapRiver: {
         guid: Uint64,
-        name: String16,
+        name: String16(),
         xTiling: Float32,
         points: DynArray(FixedArray(Float32, 3)),
         reaches: DynArray("MapRiverReach"),
@@ -163,8 +163,8 @@ module.exports = [
         materials: DynArray("MapRiverMaterial")
       },
       MapRiverMaterial: {
-        materialFile: Filename,
-        textureFiles: DynArray(Filename),
+        materialFile: Filename(),
+        textureFiles: DynArray(Filename()),
         constantTokens: DynArray(Uint32),
         constantValues: DynArray(FixedArray(Float32, 4)),
         textureMaps: DynArray("MapRiverTextureMap")
@@ -194,7 +194,7 @@ module.exports = [
     definitions: {
       MapRiver: {
         guid: Uint64,
-        name: String16,
+        name: String16(),
         xTiling: Float32,
         points: DynArray(FixedArray(Float32, 3)),
         reaches: DynArray("MapRiverReach"),
@@ -210,11 +210,11 @@ module.exports = [
         fvf: Uint32,
         flags: Uint32,
         materials: DynArray("MapRiverMaterial"),
-        reserved: String16
+        reserved: String16()
       },
       MapRiverMaterial: {
-        materialFile: Filename,
-        textureFiles: DynArray(Filename),
+        materialFile: Filename(),
+        textureFiles: DynArray(Filename()),
         constantTokens: DynArray(Uint32),
         constantValues: DynArray(FixedArray(Float32, 4)),
         textureMaps: DynArray("MapRiverTextureMap"),
@@ -246,7 +246,7 @@ module.exports = [
     definitions: {
       MapRiver: {
         guid: Uint64,
-        name: String16,
+        name: String16(),
         properties: DynArray("PackMapRiverProperty"),
         points: DynArray(FixedArray(Float32, 3)),
         reaches: DynArray("MapRiverReach")
@@ -254,7 +254,7 @@ module.exports = [
       PackMapRiverProperty: {
         type: Uint32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       MapRiverReach: {
         properties: DynArray("PackMapRiverProperty")

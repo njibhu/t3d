@@ -13,8 +13,8 @@ module.exports = [
         edgeSize: FixedArray(Float32, 2),
         flags: Uint32,
         points: DynArray(FixedArray(Float32, 2)),
-        materialFilename: Filename,
-        textureFilenames: DynArray(Filename),
+        materialFilename: Filename(),
+        textureFilenames: DynArray(Filename()),
         restTime: Float32,
         fadeRanges: FixedArray(FixedArray(Float32, 2), 4)
       }
@@ -35,8 +35,8 @@ module.exports = [
         edgeSize: FixedArray(Float32, 2),
         flags: Uint32,
         points: DynArray(FixedArray(Float32, 2)),
-        materialFilename: Filename,
-        textureFilenames: DynArray(Filename),
+        materialFilename: Filename(),
+        textureFilenames: DynArray(Filename()),
         restTime: Float32,
         fadeRanges: FixedArray(FixedArray(Float32, 2), 4),
         simplifyDistMin: Float32,

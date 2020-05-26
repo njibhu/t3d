@@ -88,7 +88,7 @@ module.exports = [
     },
     root: {
       skeletonData: Pointer("ModelSkeletonDataV62"),
-      fileReference: Filename
+      fileReference: Filename()
     }
   },
   {
@@ -180,7 +180,7 @@ module.exports = [
     },
     root: {
       skeletonData: Pointer("ModelSkeletonDataV63"),
-      fileReference: Filename,
+      fileReference: Filename(),
       overrides: Pointer("ModelSkeletonOverridesV1")
     }
   }

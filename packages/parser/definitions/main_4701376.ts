@@ -7,8 +7,8 @@ module.exports = [
     version: 0,
     definitions: {
       CollideModelManifestFile: {
-        modelFile: Fileref,
-        collisionFile: Fileref,
+        modelFile: Fileref(),
+        collisionFile: Fileref(),
         scales: DynArray(Float32)
       }
     },
@@ -22,9 +22,9 @@ module.exports = [
     version: 1,
     definitions: {
       CollideModelManifestFile: {
-        modelFileStr: String16,
-        modelFile: Fileref,
-        collisionFile: Fileref,
+        modelFileStr: String16(),
+        modelFile: Fileref(),
+        collisionFile: Fileref(),
         scales: DynArray(Float32)
       }
     },

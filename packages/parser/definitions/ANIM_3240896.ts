@@ -32,7 +32,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV8: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -76,7 +76,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV9: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -121,7 +121,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV10: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -171,7 +171,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV11: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -222,7 +222,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV12: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -273,7 +273,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV13: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -335,7 +335,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV14: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -399,7 +399,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV15: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -465,7 +465,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV16: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -533,7 +533,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV17: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -599,7 +599,7 @@ module.exports = [
         id: Uint64,
         type: Uint32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCompoundAnimationDataV10: {
         token: Uint64,
@@ -608,7 +608,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV18: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -676,7 +676,7 @@ module.exports = [
         id: Uint64,
         type: Uint32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelCompoundAnimationDataV11: {
         token: Uint64,
@@ -685,7 +685,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV19: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -754,7 +754,7 @@ module.exports = [
         id: Uint64,
         type: Uint32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV12: {
         linkToken: Uint64,
@@ -769,7 +769,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV20: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -839,7 +839,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV13: {
         linkToken: Uint64,
@@ -854,7 +854,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV21: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -924,7 +924,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV14: {
         linkToken: Uint64,
@@ -939,7 +939,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV22: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -1010,7 +1010,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV15: {
         linkToken: Uint64,
@@ -1029,7 +1029,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV23: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -1104,7 +1104,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV16: {
         linkToken: Uint64,
@@ -1131,7 +1131,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV24: {
-        filename: Filename,
+        filename: Filename(),
         sequenceTokens: DynArray(Uint64)
       }
     },
@@ -1206,7 +1206,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV17: {
         linkToken: Uint64,
@@ -1233,7 +1233,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV25: {
-        filename: Filename,
+        filename: Filename(),
         sequences: DynArray("ModelAnimationImportSequenceV17")
       },
       ModelAnimationImportSequenceV17: {
@@ -1312,7 +1312,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV18: {
         linkToken: Uint64,
@@ -1339,7 +1339,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV26: {
-        filename: Filename,
+        filename: Filename(),
         sequences: DynArray("ModelAnimationImportSequenceV18")
       },
       ModelAnimationImportSequenceV18: {
@@ -1418,7 +1418,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV19: {
         linkToken: Uint64,
@@ -1445,7 +1445,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV27: {
-        filename: Filename,
+        filename: Filename(),
         sequences: DynArray("ModelAnimationImportSequenceV19")
       },
       ModelAnimationImportSequenceV19: {
@@ -1458,7 +1458,7 @@ module.exports = [
       compoundAnimations: DynArray("ModelCompoundAnimationDataV19"),
       fallbacks: DynArray(Uint64),
       imports: DynArray("ModelAnimationImportDataV27"),
-      modelReference: Filename
+      modelReference: Filename()
     }
   },
   {
@@ -1526,7 +1526,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV20: {
         linkToken: Uint64,
@@ -1557,7 +1557,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV28: {
-        filename: Filename,
+        filename: Filename(),
         sequences: DynArray("ModelAnimationImportSequenceV20")
       },
       ModelAnimationImportSequenceV20: {
@@ -1570,7 +1570,7 @@ module.exports = [
       compoundAnimations: DynArray("ModelCompoundAnimationDataV20"),
       fallbacks: DynArray(Uint64),
       imports: DynArray("ModelAnimationImportDataV28"),
-      modelReference: Filename
+      modelReference: Filename()
     }
   },
   {
@@ -1639,7 +1639,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV21: {
         linkToken: Uint64,
@@ -1674,7 +1674,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV29: {
-        filename: Filename,
+        filename: Filename(),
         sequences: DynArray("ModelAnimationImportSequenceV21")
       },
       ModelAnimationImportSequenceV21: {
@@ -1687,7 +1687,7 @@ module.exports = [
       compoundAnimations: DynArray("ModelCompoundAnimationDataV21"),
       fallbacks: DynArray(Uint64),
       imports: DynArray("ModelAnimationImportDataV29"),
-      modelReference: Filename
+      modelReference: Filename()
     }
   },
   {
@@ -1756,7 +1756,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV22: {
         linkToken: Uint64,
@@ -1791,7 +1791,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV30: {
-        filename: Filename,
+        filename: Filename(),
         sequences: DynArray("ModelAnimationImportSequenceV22")
       },
       ModelAnimationImportSequenceV22: {
@@ -1872,7 +1872,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV23: {
         linkToken: Uint64,
@@ -1907,7 +1907,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV31: {
-        filename: Filename,
+        filename: Filename(),
         sequences: DynArray("ModelAnimationImportSequenceV23")
       },
       ModelAnimationImportSequenceV23: {
@@ -1963,7 +1963,7 @@ module.exports = [
       },
       ModelAnimationLodV24: {
         data: "PackGrannyAnimationTypeV0",
-        fileFull: Filename
+        fileFull: Filename()
       },
       ModelVisTrackDataV32: {
         boneToken: Uint64,
@@ -1999,7 +1999,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV24: {
         linkToken: Uint64,
@@ -2034,7 +2034,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV32: {
-        filename: Filename,
+        filename: Filename(),
         sequences: DynArray("ModelAnimationImportSequenceV24")
       },
       ModelAnimationImportSequenceV24: {
@@ -2089,7 +2089,7 @@ module.exports = [
       },
       ModelAnimationLodV25: {
         data: "PackGrannyAnimationTypeV1",
-        fileFull: Filename
+        fileFull: Filename()
       },
       ModelVisTrackDataV33: {
         boneToken: Uint64,
@@ -2125,7 +2125,7 @@ module.exports = [
         type: Uint32,
         time: Float32,
         val: Uint64,
-        strVal: Filename
+        strVal: Filename()
       },
       ModelTokenMapAnimV25: {
         linkToken: Uint64,
@@ -2160,7 +2160,7 @@ module.exports = [
         end: Uint64
       },
       ModelAnimationImportDataV33: {
-        filename: Filename,
+        filename: Filename(),
         sequences: DynArray("ModelAnimationImportSequenceV25")
       },
       ModelAnimationImportSequenceV25: {

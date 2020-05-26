@@ -20,7 +20,7 @@ module.exports = [
     version: 1,
     definitions: {
       ModelGr2DataV1: {
-        filename: String16,
+        filename: String16(),
         flags: Uint32,
         data: DynArray(Uint8)
       }
@@ -35,7 +35,7 @@ module.exports = [
     version: 2,
     definitions: {
       ModelGr2DataV2: {
-        filename: String16,
+        filename: String16(),
         flags: Uint32,
         data: DynArray(Uint8)
       }
@@ -50,7 +50,7 @@ module.exports = [
     version: 3,
     definitions: {
       ModelGr2DataV3: {
-        filename: String16,
+        filename: String16(),
         flags: Uint32,
         data: DynArray(Uint8)
       }
@@ -65,7 +65,7 @@ module.exports = [
     version: 4,
     definitions: {
       ModelGr2DataV4: {
-        filename: String16,
+        filename: String16(),
         flags: Uint32,
         data: DynArray(Uint8)
       }

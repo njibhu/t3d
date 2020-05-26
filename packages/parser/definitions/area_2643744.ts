@@ -86,7 +86,7 @@ module.exports = [
         rotation: FixedArray(Float32, 3)
       },
       PackMapAreaToolV2: {
-        annotation: String16
+        annotation: String16()
       }
     },
     root: {
@@ -124,7 +124,7 @@ module.exports = [
         rotation: FixedArray(Float32, 3)
       },
       PackMapAreaToolV3: {
-        annotation: String16,
+        annotation: String16(),
         renderOffset: Float32
       }
     },
@@ -163,7 +163,7 @@ module.exports = [
         rotation: FixedArray(Float32, 3)
       },
       PackMapAreaToolV4: {
-        annotation: String16,
+        annotation: String16(),
         renderOffset: Float32
       }
     },
