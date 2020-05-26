@@ -18,8 +18,8 @@ function copyStaticAssets() {
       .pipe(gulp.dest("./dist/static")),
     gulp
       .src([
-        `./node_modules/w2ui/w2ui-1.4.3.min.js`,
-        `./node_modules/w2ui/w2ui-1.4.3.min.css`,
+        `../../node_modules/w2ui/w2ui-1.4.3.min.js`,
+        `../../node_modules/w2ui/w2ui-1.4.3.min.css`,
       ])
       .pipe(gulp.dest("./dist/static")),
   ];

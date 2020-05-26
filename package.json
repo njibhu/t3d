@@ -2,6 +2,10 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^3.18.4"
+    "lerna": "^3.18.4",
+    "DataStream.js": "github:kig/DataStream.js",
+    "jquery": "1.11.1",
+    "three": "0.91.0",
+    "w2ui": "1.4.3"
   }
 }

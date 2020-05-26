@@ -29,7 +29,7 @@ function buildExample(entryPoint) {
 function copyStaticAssets() {
   return [
     gulp
-      .src(`./node_modules/t3d-toolsjs/t3dworker.js`)
+      .src(`../t3dtools.js/t3dworker.js`)
       .pipe(rename("t3dworker.js"))
       .pipe(gulp.dest("./dist/static")),
   ];
