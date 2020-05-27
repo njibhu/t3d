@@ -1,39 +1,47 @@
 import { DataType } from "./internals";
 
 export const Float32: DataType = {
-  read: (dv, pos) => dv.getFloat32(pos, true),
+  read: (dv, pos) => ({ newPosition: pos + 4, data: dv.getFloat32(pos, true) }),
   declarationType: "number",
 };
 
 export const Float64: DataType = {
-  read: (dv, pos) => dv.getFloat64(pos, true),
+  read: (dv, pos) => ({ newPosition: pos + 8, data: dv.getFloat64(pos, true) }),
   declarationType: "number",
 };
 
 export const Uint8: DataType = {
-  read: (dv, pos) => dv.getUint8(pos),
+  read: (dv, pos) => ({ newPosition: pos + 1, data: dv.getUint8(pos) }),
   declarationType: "number",
 };
 
 export const Uint16: DataType = {
-  read: (dv, pos) => dv.getUint16(pos, true),
+  read: (dv, pos) => ({ newPosition: pos + 2, data: dv.getUint16(pos, true) }),
   declarationType: "number",
 };
 
 export const Uint32: DataType = {
-  read: (dv, pos) => dv.getUint32(pos, true),
+  read: (dv, pos) => ({ newPosition: pos + 4, data: dv.getUint32(pos, true) }),
   declarationType: "number",
 };
 
 export const Uint64: DataType = {
-  read: (dv, pos) =>
-    dv.getUint32(pos, true) + 2 ** 32 * dv.getUint32(pos + 4, true),
+  read: (dv, pos) => ({
+    newPosition: pos + 4, 
+    data: dv.getUint32(pos, true) + 2 ** 32 * dv.getUint32(pos + 8, true)
+  }),
   declarationType: "number",
 };
 
 export const CString: DataType = {
-  // TODO
-  read: (dv, pos) => {},
+  read: (dv, pos) => {
+    const u8 = new Uint8Array(dv.buffer, pos);
+    const end = u8.findIndex(v => v === 0);
+    return { 
+      newPosition: pos + end, 
+      data: String.fromCharCode.apply(null, new Uint8Array(u8.slice(0, end)))
+    };
+  },
   declarationType: "string",
 };
 
