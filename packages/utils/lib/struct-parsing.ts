@@ -15,10 +15,6 @@ interface versionStruct {
   definitions?: { [name: string]: { [fieldName: string]: string } };
 }
 
-interface versionDeclarations {
-  declarations: { [name: string]: { [fieldName: string]: string } };
-}
-
 /**
  * This parser is the detailed chunk definition parser.
  * It will iterate through all the structures and generate a parser file for each chunks.
@@ -31,7 +27,7 @@ export class StructTabParser {
     this.rdataView = new RDataView(dataView, rdataMin, rdataMax);
   }
 
-  public parseStructTab(address: number, nbVersions: number, chunkName: string): Struct[] {
+  public parseStructTab(address: number, nbVersions: number, chunkName: string): versionStruct[] {
     let currentAddress = address;
     let loopIndex = nbVersions - 1;
     const historyDepth = 100;
