@@ -1,123 +1,128 @@
-import { DataType } from "./internals";
+export enum BaseType {
+  Float32,
+  Float64,
+  Uint8,
+  Uint16,
+  Uint32,
+  Uint64,
+  CString,
+  FixedArray,
+  DynArray,
+  RefArray,
+  Pointer,
+  String16,
+  Filename,
+  Fileref,
+  Unknown,
+}
+
+export interface DataType {
+  baseType: BaseType;
+  subType?: DataType | string;
+  length?: number;
+  declarationType: string;
+}
 
 export const Float32: DataType = {
-  read: (dv, pos) => ({ newPosition: pos + 4, data: dv.getFloat32(pos, true) }),
+  baseType: BaseType.Float32,
   declarationType: "number",
 };
 
 export const Float64: DataType = {
-  read: (dv, pos) => ({ newPosition: pos + 8, data: dv.getFloat64(pos, true) }),
+  baseType: BaseType.Float64,
   declarationType: "number",
 };
 
 export const Uint8: DataType = {
-  read: (dv, pos) => ({ newPosition: pos + 1, data: dv.getUint8(pos) }),
+  baseType: BaseType.Uint8,
   declarationType: "number",
 };
 
 export const Uint16: DataType = {
-  read: (dv, pos) => ({ newPosition: pos + 2, data: dv.getUint16(pos, true) }),
+  baseType: BaseType.Uint16,
   declarationType: "number",
 };
 
 export const Uint32: DataType = {
-  read: (dv, pos) => ({ newPosition: pos + 4, data: dv.getUint32(pos, true) }),
+  baseType: BaseType.Uint32,
   declarationType: "number",
 };
 
 export const Uint64: DataType = {
-  read: (dv, pos) => ({
-    newPosition: pos + 4, 
-    data: dv.getUint32(pos, true) + 2 ** 32 * dv.getUint32(pos + 8, true)
-  }),
+  baseType: BaseType.Uint64,
   declarationType: "number",
 };
 
 export const CString: DataType = {
-  read: (dv, pos) => {
-    const u8 = new Uint8Array(dv.buffer, pos);
-    const end = u8.findIndex(v => v === 0);
-    return { 
-      newPosition: pos + end, 
-      data: String.fromCharCode.apply(null, new Uint8Array(u8.slice(0, end)))
-    };
-  },
+  baseType: BaseType.CString,
   declarationType: "string",
 };
 
-export function FixedArray(type: DataType | string, length: number): DataType {
+export function FixedArray(subType: DataType | string, length: number): DataType {
   return {
-    type,
+    baseType: BaseType.FixedArray,
+    subType,
     length,
-    // TODO
-    read: (dv, pos) => {},
     declarationType: `Array<${
-      typeof type === "string" ? type : type.declarationType
+      typeof subType === "string" ? subType : subType.declarationType
     }>`,
   };
 }
 
-export function DynArray(type: DataType | string): DataType {
+export function DynArray(subType: DataType | string): DataType {
   return {
-    type,
-    // TODO
-    read: (dv, pos) => {},
+    baseType: BaseType.DynArray,
+    subType,
     declarationType: `Array<${
-      typeof type === "string" ? type : type.declarationType
+      typeof subType === "string" ? subType : subType.declarationType
     }>`,
   };
 }
 
-export function RefArray(type: DataType | string): DataType {
+export function RefArray(subType: DataType | string): DataType {
   return {
-    type,
-    // TODO
-    read: (dv, pos) => {},
+    baseType: BaseType.RefArray,
+    subType,
     declarationType: `Array<${
-      typeof type === "string" ? type : type.declarationType
+      typeof subType === "string" ? subType : subType.declarationType
     }>`,
   };
 }
 
-export function Pointer(type: DataType | string): DataType {
+export function Pointer(subType: DataType | string): DataType {
   return {
-    type,
-    // TODO
-    read: (dv, pos) => {},
+    baseType: BaseType.Pointer,
+    subType,
     declarationType: `${
-      typeof type === "string" ? type : type.declarationType
+      typeof subType === "string" ? subType : subType.declarationType
     }`,
   };
 }
 
 export function String16(): DataType {
   return {
-    // TODO
-    read: (dv, pos) => {},
+    baseType: BaseType.String16,
     declarationType: "string",
   };
 }
 
 export function Filename(): DataType {
   return {
-    // TODO
-    read: (dv, pos) => {},
+    baseType: BaseType.Filename,
     declarationType: "string",
   };
 }
 
 export function Fileref(): DataType {
   return {
-    // TODO
-    read: (dv, pos) => {},
+    baseType: BaseType.Fileref,
     declarationType: "string",
   };
 }
 
 export function Unknown(): DataType {
   return {
-    // TODO
-    read: (dv, pos) => {},
+    baseType: BaseType.Unknown,
     declarationType: "unknown",
   };
 }
