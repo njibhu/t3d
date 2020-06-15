@@ -20,6 +20,6 @@
     "lerna": "^3.20.2",
     "t3d-lib": "file://../library",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
+    "vinyl-source-stream": "^2.0.0"
   }
 }

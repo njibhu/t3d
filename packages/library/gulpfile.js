@@ -23,31 +23,15 @@ gulp.task('T3D', function(){
 	});
 
 	return b.bundle()
-		.pipe(source(`T3D-${version}.js`))
+		.pipe(source(`T3D.js`))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({loadMaps: true}))
 			// Add transformation tasks to the pipeline here.
 			.pipe(uglify())
 			.on('error', log.error)
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('build'))
+		.pipe(gulp.dest('build'));
 });
-
-gulp.task('formats', function(){
-	let b = browserify({
-		entries: './src/format/chunks/AllFormats.js',
-		debug: true,
-	});
-
-	return b.bundle()
-		.pipe(source(`T3D-${version}.Formats.js`))
-		.pipe(buffer())
-		.pipe(sourcemaps.init({loadMaps: true}))
-			.pipe(uglify())
-			.on('error', log.error)
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('build'))
-})
 
 gulp.task('watch', function() {
 	gulp.watch(['src/**/*.js'], gulp.series('T3D'));

@@ -1,13 +1,3 @@
-const $ = require("jquery");
-window.$ = $;
-const DataStream = require("DataStream.js");
-window.DataStream = DataStream;
-const T3D = require("t3d-lib");
-window.T3D = T3D;
-const THREE = require("three");
-window.THREE = THREE;
-require("three/examples/js/controls/PointerLockControls");
-
 $("#toggleHelper").click(function () {
   highlightEnabled = !highlightEnabled;
 });
