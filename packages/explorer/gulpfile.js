@@ -32,18 +32,17 @@ function copyStaticAssets() {
       .src(`../t3dtools.js/t3dworker.js`)
       .pipe(rename("t3dworker.js"))
       .pipe(gulp.dest("./dist/static")),
-    gulp.src(`../../node_modules/three/build/three.js`)
+    gulp
+      .src([
+        `../../node_modules/three/build/three.js`,
+        `../../node_modules/three/examples/js/controls/FlyControls.js`,
+        `../../node_modules/three/examples/js/controls/PointerLockControls.js`,
+        `../../node_modules/jquery/dist/jquery.js`,
+        `../../node_modules/DataStream.js/DataStream.js`,
+        `../library/build/T3D.js`,
+        `../library/build/T3D.js.map`,
+      ])
       .pipe(gulp.dest("./dist/static")),
-    gulp.src(`../../node_modules/three/examples/js/controls/FlyControls.js`)
-      .pipe(gulp.dest("./dist/static")),
-    gulp.src(`../../node_modules/three/examples/js/controls/PointerLockControls.js`)
-      .pipe(gulp.dest("./dist/static")),
-    gulp.src(`../../node_modules/jquery/dist/jquery.js`)
-      .pipe(gulp.dest("./dist/static")),
-    gulp.src(`../../node_modules/DataStream.js/DataStream.js`)
-      .pipe(gulp.dest("./dist/static")),
-    gulp.src(`../library/build/T3D.js`).pipe(gulp.dest("./dist/static")),
-    gulp.src(`../library/build/T3D.js.map`).pipe(gulp.dest("./dist/static"))
   ];
 }
 

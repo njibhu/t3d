@@ -10,6 +10,10 @@ function copyExampleAssets(asset) {
   gulp.src(`./src/${asset}`).pipe(rename(asset)).pipe(gulp.dest("./dist/"));
 }
 
+function _cStatic(path){
+  return gulp.src(path).pipe(gulp.dest("./dist/static"));
+}
+
 function copyStaticAssets() {
   return [
     gulp
@@ -20,6 +24,15 @@ function copyStaticAssets() {
       .src([
         `../../node_modules/w2ui/w2ui-1.4.3.min.js`,
         `../../node_modules/w2ui/w2ui-1.4.3.min.css`,
+        `../../node_modules/three/build/three.js`,
+        `../../node_modules/three/examples/js/controls/FlyControls.js`,
+        `../../node_modules/three/examples/js/controls/PointerLockControls.js`,
+        `../../node_modules/three/examples/js/controls/OrbitControls.js`,
+        `../../node_modules/three/examples/js/exporters/OBJExporter.js`,
+        `../../node_modules/jquery/dist/jquery.js`,
+        `../../node_modules/DataStream.js/DataStream.js`,
+        `../library/build/T3D.js`,
+        `../library/build/T3D.js.map`,
       ])
       .pipe(gulp.dest("./dist/static")),
   ];

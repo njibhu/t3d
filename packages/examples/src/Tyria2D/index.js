@@ -1,16 +1,3 @@
-const $ = require("jquery");
-window.$ = $;
-window.jQuery = $;
-const DataStream = require("DataStream.js");
-window.DataStream = DataStream;
-const T3D = require("t3d-lib");
-window.T3D = T3D;
-const THREE = require("three");
-window.THREE = THREE;
-require("three/examples/js/controls/OrbitControls");
-require("three/examples/js/exporters/OBJExporter");
-
-
 window.onload = () => {
     /// T3D
     let _lr;

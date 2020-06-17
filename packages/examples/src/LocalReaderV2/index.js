@@ -1,10 +1,3 @@
-const $ = require("jquery");
-window.$ = $;
-const DataStream = require("DataStream.js");
-window.DataStream = DataStream;
-const T3D = require("t3d-lib");
-window.T3D = T3D;
-
 //TODO: make a verbose example of how to use the new LocalReader API.
 
 let lr;

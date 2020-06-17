@@ -1,13 +1,3 @@
-const $ = require("jquery");
-window.$ = $;
-const DataStream = require("DataStream.js");
-window.DataStream = DataStream;
-const T3D = require("t3d-lib");
-window.T3D = T3D;
-const THREE = require("three");
-window.THREE = THREE;
-require("three/examples/js/controls/OrbitControls");
-
 /// This is an example application for the T3D library
 /// Skip down to onButtonClick to get to the juicy part
 /// This will be updated sooner or later, perhaps with a
