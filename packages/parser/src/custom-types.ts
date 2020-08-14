@@ -6,10 +6,7 @@ interface CustomParser {
 
 const typeRegistry: Map<string, CustomParser> = new Map();
 
-export function CustomType(
-  name: string,
-  definition: { [key: string]: DataType }
-): CustomParser {
+export function CustomType(name: string, definition: { [key: string]: DataType }): CustomParser {
   function read(dv: DataView, pos: number) {
     return { newPosition: pos, data: {} };
   }

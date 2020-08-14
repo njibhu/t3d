@@ -63,9 +63,7 @@ export function FixedArray(subType: DataType | string, length: number): DataType
     baseType: BaseType.FixedArray,
     subType,
     length,
-    declarationType: `Array<${
-      typeof subType === "string" ? subType : subType.declarationType
-    }>`,
+    declarationType: `Array<${typeof subType === "string" ? subType : subType.declarationType}>`,
   };
 }
 
@@ -73,9 +71,7 @@ export function DynArray(subType: DataType | string): DataType {
   return {
     baseType: BaseType.DynArray,
     subType,
-    declarationType: `Array<${
-      typeof subType === "string" ? subType : subType.declarationType
-    }>`,
+    declarationType: `Array<${typeof subType === "string" ? subType : subType.declarationType}>`,
   };
 }
 
@@ -83,9 +79,7 @@ export function RefArray(subType: DataType | string): DataType {
   return {
     baseType: BaseType.RefArray,
     subType,
-    declarationType: `Array<${
-      typeof subType === "string" ? subType : subType.declarationType
-    }>`,
+    declarationType: `Array<${typeof subType === "string" ? subType : subType.declarationType}>`,
   };
 }
 
@@ -93,9 +87,7 @@ export function Pointer(subType: DataType | string): DataType {
   return {
     baseType: BaseType.Pointer,
     subType,
-    declarationType: `${
-      typeof subType === "string" ? subType : subType.declarationType
-    }`,
+    declarationType: `${typeof subType === "string" ? subType : subType.declarationType}`,
   };
 }
 

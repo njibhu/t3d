@@ -3,7 +3,7 @@ import { DataType } from "./internals";
 
 export enum Endianness {
   LITTLE_ENDIAN,
-  BIG_ENDIAN
+  BIG_ENDIAN,
 }
 
 export default class DataReader {
@@ -13,10 +13,7 @@ export default class DataReader {
   readonly endianness: Endianness;
   private position = 0;
 
-  constructor(
-    arrayBuffer: ArrayBuffer,
-    endianness: Endianness = Endianness.LITTLE_ENDIAN
-  ) {
+  constructor(arrayBuffer: ArrayBuffer, endianness: Endianness = Endianness.LITTLE_ENDIAN) {
     this.arrayBuffer = arrayBuffer;
     this.endianness = endianness;
     this.byteLength = this.arrayBuffer.byteLength;

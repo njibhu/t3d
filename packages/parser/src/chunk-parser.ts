@@ -5,11 +5,11 @@ interface Definition {
   name: string;
   version: number;
   definitions: {
-    [definition: string]: { [key: string]: BaseType }
+    [definition: string]: { [key: string]: BaseType };
   };
   root: {
-    [key: string]: BaseType 
-  }
+    [key: string]: BaseType;
+  };
 }
 
 interface ParseFunctionReturn {
@@ -24,14 +24,14 @@ class ChunkParser implements Definition {
   public readonly definitions;
   public readonly root;
 
-  constructor(definition: Definition){
+  constructor(definition: Definition) {
     Object.assign(this, definition);
   }
 
   public parse(dv: DataView, pos: number): ParseFunctionReturn {
     let position = pos;
     const parsedObject = {};
-    for (const key in this.root){
+    for (const key in this.root) {
       let parsedResult: ParseFunctionReturn = this[this.root[key]](dv, position);
       parsedObject[key] = parsedResult.data;
       position = parsedResult.newPosition;
@@ -39,24 +39,24 @@ class ChunkParser implements Definition {
 
     return {
       newPosition: position,
-      data: parsedObject
-    }
+      data: parsedObject,
+    };
   }
 
-  Float32(dv: DataView, pos: number): ParseFunctionReturn{
-    return  { newPosition: pos + 4, data: dv.getFloat32(pos, true) }
+  Float32(dv: DataView, pos: number): ParseFunctionReturn {
+    return { newPosition: pos + 4, data: dv.getFloat32(pos, true) };
   }
-  
-  Float64(dv: DataView, pos: number): ParseFunctionReturn{
+
+  Float64(dv: DataView, pos: number): ParseFunctionReturn {
     return { newPosition: pos + 8, data: dv.getFloat64(pos, true) };
   }
 
-  Uint8(dv: DataView, pos: number): ParseFunctionReturn{
-    return { newPosition: pos + 1, data: dv.getUint8(pos) }
+  Uint8(dv: DataView, pos: number): ParseFunctionReturn {
+    return { newPosition: pos + 1, data: dv.getUint8(pos) };
   }
 
   Uint16(dv: DataView, pos: number): ParseFunctionReturn {
-    return { newPosition: pos + 2, data: dv.getUint16(pos, true) }
+    return { newPosition: pos + 2, data: dv.getUint16(pos, true) };
   }
 
   Uint32(dv: DataView, pos: number): ParseFunctionReturn {
@@ -65,75 +65,75 @@ class ChunkParser implements Definition {
 
   Uint64(dv: DataView, pos: number): ParseFunctionReturn {
     return {
-      newPosition: pos + 4, 
-      data: dv.getUint32(pos, true) + 2 ** 32 * dv.getUint32(pos + 8, true)
-    }  
+      newPosition: pos + 4,
+      data: dv.getUint32(pos, true) + 2 ** 32 * dv.getUint32(pos + 8, true),
+    };
   }
 
   CString(dv: DataView, pos: number): ParseFunctionReturn {
     const u8 = new Uint8Array(dv.buffer, pos);
-    const end = u8.findIndex(v => v === 0);
+    const end = u8.findIndex((v) => v === 0);
 
     return {
-      newPosition: pos + end, 
-      data: String.fromCharCode.apply(null, new Uint8Array(u8.slice(0, end)))
-    }
+      newPosition: pos + end,
+      data: String.fromCharCode.apply(null, new Uint8Array(u8.slice(0, end))),
+    };
   }
 
-  FixedArray(dv: DataView, pos: number, type: DataType | string, length: number): ParseFunctionReturn{
+  FixedArray(dv: DataView, pos: number, type: DataType | string, length: number): ParseFunctionReturn {
     return {
       // TODO
       newPosition: -1,
-      data: {}
-    }
+      data: {},
+    };
   }
 
   DynArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     return {
       // TODO
       newPosition: -1,
-      data: {}
-    }
+      data: {},
+    };
   }
 
   RefArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     return {
       // TODO
       newPosition: -1,
-      data: {}
-    }
+      data: {},
+    };
   }
 
   Pointer(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     return {
       // TODO
       newPosition: -1,
-      data: {}
-    }
+      data: {},
+    };
   }
 
   String16(dv: DataView, pos: number): ParseFunctionReturn {
     return {
       // TODO
       newPosition: -1,
-      data: {}
-    }
+      data: {},
+    };
   }
 
   Filename(dv: DataView, pos: number): ParseFunctionReturn {
     return {
       // TODO
       newPosition: -1,
-      data: {}
-    }
+      data: {},
+    };
   }
 
   Fileref(dv: DataView, pos: number): ParseFunctionReturn {
     return {
       // TODO
       newPosition: -1,
-      data: {}
-    }
+      data: {},
+    };
   }
 
   Unknown(dv: DataView, pos: number): ParseFunctionReturn {
@@ -144,7 +144,7 @@ class ChunkParser implements Definition {
     const parsedObject = {};
     let position = pos;
     const definition = this.definitions[typeDefinitionName];
-    for (const key in definition){
+    for (const key in definition) {
       let parsedResult: ParseFunctionReturn = definition[key](dv, position);
       parsedObject[key] = parsedResult.data;
       position = parsedResult.newPosition;
@@ -152,7 +152,7 @@ class ChunkParser implements Definition {
 
     return {
       newPosition: position,
-      data: parsedObject
-    }
+      data: parsedObject,
+    };
   }
 }

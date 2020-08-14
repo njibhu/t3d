@@ -29,5 +29,8 @@
   },
   "dependencies": {
     "t3d-lib": "file:../library"
+  },
+  "prettier": {
+    "printWidth": 120
   }
 }
