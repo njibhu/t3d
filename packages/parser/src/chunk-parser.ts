@@ -121,14 +121,27 @@ class ChunkParser implements Definition {
   }
 
   private RefArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
+    let data = [];
+    let arrayLength = dv.getUint32(pos);
+    let arrayPtr = dv.getUint32(pos + 4) + pos;
+    if (arrayLength === 0) {
+      return {
+        data,
+        newPosition: pos + 8;
+      }
+    }
+
+    
+
     return {
       // TODO
       newPosition: -1,
-      data: {},
+      data,
     };
   }
 
   private Pointer(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
+
     return {
       // TODO
       newPosition: -1,
