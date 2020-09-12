@@ -127,11 +127,9 @@ class ChunkParser implements Definition {
     if (arrayLength === 0) {
       return {
         data,
-        newPosition: pos + 8;
-      }
+        newPosition: pos + 8,
+      };
     }
-
-    
 
     return {
       // TODO
@@ -141,7 +139,6 @@ class ChunkParser implements Definition {
   }
 
   private Pointer(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
-
     return {
       // TODO
       newPosition: -1,
