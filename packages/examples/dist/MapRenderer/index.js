@@ -1,5 +1,5 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-$("#toggleHelper").click(function() {
+$("#toggleHelper").click(function () {
   highlightEnabled = !highlightEnabled;
 });
 
@@ -58,7 +58,7 @@ let highlightEnabled = false;
 /// Extend Original Logger
 let myLogger = {
   lastMessageType: null,
-  log: function() {
+  log: function () {
     let htmlOutput = $("#log");
     let str = Array.prototype.slice.call(arguments, 1).join(" ");
     if (arguments[1] === myLogger.lastMessageType) {
@@ -72,12 +72,12 @@ let myLogger = {
   },
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
   /// Build TREE scene
   setupScene();
 
   /// Handle file pick
-  $("#filePicker").change(function(evt) {
+  $("#filePicker").change(function (evt) {
     let file = evt.target.files[0];
 
     mapRenderer.localReader = T3D.getLocalReader(
@@ -152,7 +152,7 @@ function onLoadMapClick() {
   ];
 
   /// Setup the logger (hacky way because very verbose)
-  T3D.Logger.logFunctions[T3D.Logger.TYPE_PROGRESS] = function() {
+  T3D.Logger.logFunctions[T3D.Logger.TYPE_PROGRESS] = function () {
     myLogger.log(arguments[0], arguments[0], arguments[1]);
     console.log(arguments[0], arguments[1]);
   };
@@ -167,7 +167,7 @@ function onLoadMapClick() {
   );
 
   /// And store the mapfile for future use
-  loadMapFile(mapRenderer.mapData.id, function(data) {
+  loadMapFile(mapRenderer.mapData.id, function (data) {
     mapRenderer.mapData.mapFile = data;
   });
 }
@@ -208,7 +208,7 @@ function onRendererDone(context) {
 /// because we're loading the colision/props/zone models manually, it is.
 function loadMapFile(fileId, callback) {
   if (parseInt(fileId)) {
-    mapRenderer.localReader.loadFile(fileId, function(arrayBuffer) {
+    mapRenderer.localReader.loadFile(fileId, function (arrayBuffer) {
       let ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
       let mapFile = new T3D.GW2File(ds, 0);
       callback(mapFile);
@@ -223,7 +223,7 @@ function loadMeshes(rendererClass, outRendererData, callback) {
     mapRenderer.localReader,
     { visible: true, mapFile: mapRenderer.mapData.mapFile },
     mapRenderer.context,
-    function() {
+    function () {
       outRendererData.data = T3D.getContextValue(
         mapRenderer.context,
         rendererClass,
@@ -261,7 +261,7 @@ function toggleMeshes(meshType, buttonId) {
 /// Action when the load zone props button is clicked
 function loadZoneModels() {
   if (!mapRenderer.mapData.zone.loaded) {
-    loadMeshes(T3D.ZoneRenderer, mapRenderer.mapData.zone, function() {
+    loadMeshes(T3D.ZoneRenderer, mapRenderer.mapData.zone, function () {
       toggleMeshes("zone", "#loadZoneBtn");
     });
   } else {
@@ -272,7 +272,7 @@ function loadZoneModels() {
 /// Action when the load props button is clicked
 function loadPropModels() {
   if (!mapRenderer.mapData.props.loaded) {
-    loadMeshes(T3D.PropertiesRenderer, mapRenderer.mapData.props, function() {
+    loadMeshes(T3D.PropertiesRenderer, mapRenderer.mapData.props, function () {
       toggleMeshes("props", "#loadPropsBtn");
     });
   } else {
@@ -283,7 +283,7 @@ function loadPropModels() {
 /// Action when the load collisions button is clicked
 function loadCollModels() {
   if (!mapRenderer.mapData.collision.loaded) {
-    loadMeshes(T3D.HavokRenderer, mapRenderer.mapData.collision, function() {
+    loadMeshes(T3D.HavokRenderer, mapRenderer.mapData.collision, function () {
       toggleMeshes("collision", "#loadCollBtn");
     });
   } else {
@@ -376,7 +376,10 @@ function setupScene() {
 
 function setupController() {
   if (!mapRenderer.controls) {
-    let controls = new THREE.OrbitControls( mapRenderer.camera, mapRenderer.renderer.domElement );
+    let controls = new THREE.OrbitControls(
+      mapRenderer.camera,
+      mapRenderer.renderer.domElement
+    );
     controls.enableZoom = true;
     mapRenderer.controls = controls;
   }
