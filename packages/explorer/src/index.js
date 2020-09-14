@@ -41,7 +41,7 @@ const mapRenderer = {
   scene: null,
   camera: null,
   renderer: null,
-  raycaster: null,
+  clock: null,
   mouse: null,
   controls: null,
   controlsEnabled: false,
@@ -174,9 +174,6 @@ function onLoadMapClick() {
 
 /// Runs when the ModelRenderer is finshed
 function onRendererDone(context) {
-  document.addEventListener("mousemove", onMouseMove, false);
-  document.addEventListener("mousedown", onMouseDown, false);
-
   cleanScene();
 
   /// Populate our context with the context returned
@@ -202,6 +199,7 @@ function onRendererDone(context) {
   mapRenderer.camera.position.x = 0;
   mapRenderer.camera.position.y = bounds ? bounds.y2 : 0;
   mapRenderer.camera.position.z = 0;
+  mapRenderer.camera.rotation.x = (-90 * Math.PI) / 180;
 }
 
 /// It's usually not needed to keep the mapFile independently but
@@ -306,43 +304,21 @@ function cleanScene() {
   }
 }
 
-function onMouseMove(event) {
-  let canvasBounds = mapRenderer.renderer.domElement.getBoundingClientRect();
-  mapRenderer.mouse.x =
-    ((event.clientX - canvasBounds.left) /
-      (canvasBounds.right - canvasBounds.left)) *
-      2 -
-    1;
-  mapRenderer.mouse.y =
-    -(
-      (event.clientY - canvasBounds.top) /
-      (canvasBounds.bottom - canvasBounds.top)
-    ) *
-      2 +
-    1;
-}
-
-function onMouseDown() {
-  if (highlightObject) {
-    console.log(highlightObject);
-  }
-}
-
 /// Basic THREE stuff, don't mind it
 function setupScene() {
   let canvasWidth = window.innerWidth;
   let canvasHeight = window.innerHeight;
   let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
   let fov = 60;
-  let aspect = 1;
+  let aspect = canvasWidth / canvasHeight;
 
   mapRenderer.camera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 100000);
 
   mapRenderer.scene = new THREE.Scene();
 
-  mapRenderer.raycaster = new THREE.Raycaster();
   mapRenderer.mouse = new THREE.Vector2();
 
+  mapRenderer.clock = new THREE.Clock();
   /// This scene has one ambient light source and three directional lights
   let ambientLight = new THREE.AmbientLight(0x555555);
   mapRenderer.scene.add(ambientLight);
@@ -372,9 +348,13 @@ function setupScene() {
   mapRenderer.renderer.setClearColor(canvasClearColor);
 
   window.addEventListener("resize", () => {
-    mapRenderer.camera.aspect = window.innerWidth / window.innerHeight;
+    SCREEN_HEIGHT = window.innerHeight;
+    SCREEN_WIDTH = window.innerWidth;
+
+    mapRenderer.camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
     mapRenderer.camera.updateProjectionMatrix();
-    mapRenderer.renderer.setSize(window.innerWidth, window.innerHeight);
+
+    mapRenderer.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
   });
 
   setupController();
@@ -385,105 +365,25 @@ function setupScene() {
 
 function setupController() {
   if (!mapRenderer.controls) {
-    let controls = new THREE.PointerLockControls(mapRenderer.camera);
+    let controls = new THREE.FlyControls(
+      mapRenderer.camera,
+      mapRenderer.renderer.domElement
+    );
 
+    controls.movementSpeed = 1000;
+    controls.domElement = mapRenderer.renderer.domElement;
+    controls.rollSpeed = Math.PI / 24;
+    controls.autoForward = false;
+    controls.dragToLook = true;
     mapRenderer.controls = controls;
-    controls.enabled = true;
-    mapRenderer.scene.add(controls.getObject());
-
-    let onKeyDown = function (event) {
-      switch (event.keyCode) {
-        case 38: // up
-        case 87: // w
-          mapRenderer.controls.getObject().translateZ(1000);
-          break;
-
-        case 37: // left
-        case 65: // a
-          mapRenderer.controls.getObject().translateX(1000);
-          break;
-
-        case 40: // down
-        case 83: // s
-          mapRenderer.controls.getObject().translateZ(-1000);
-          break;
-
-        case 39: // right
-        case 68: // d
-          mapRenderer.controls.getObject().translateX(-1000);
-          break;
-
-        case 32: // space
-          mapRenderer.controls.getObject().translateY(1000);
-          break;
-      }
-    };
-
-    var havePointerLock = "pointerLockElement" in document;
-
-    if (havePointerLock) {
-      var element = mapRenderer.renderer.domElement;
-
-      var pointerlockchange = function (event) {
-        if (document.pointerLockElement === element) {
-          mapRenderer.controlsEnabled = true;
-          mapRenderer.controls.enabled = true;
-        } else {
-          controls.enabled = false;
-        }
-      };
-
-      var pointerlockerror = function (event) {
-        console.log(event);
-      };
-
-      // Hook pointer lock state change events
-      document.addEventListener("pointerlockchange", pointerlockchange, false);
-      document.addEventListener("pointerlockerror", pointerlockerror, false);
-
-      mapRenderer.renderer.domElement.addEventListener(
-        "click",
-        function (event) {
-          // Ask the browser to lock the pointer
-          element.requestPointerLock = element.requestPointerLock;
-          element.requestPointerLock();
-        },
-        false
-      );
-    } else {
-      console.log("Could not use lock API");
-    }
-
-    document.addEventListener("keydown", onKeyDown, false);
   }
 }
 
 function render() {
   window.requestAnimationFrame(render);
 
-  //Use the raycaster
-  if (highlightEnabled) {
-    mapRenderer.raycaster.setFromCamera(mapRenderer.mouse, mapRenderer.camera);
-    let intersects = mapRenderer.raycaster.intersectObjects(
-      mapRenderer.scene.children
-    );
-    if (intersects.length > 0) {
-      if (highlightObject !== intersects[0].object) {
-        if (highlightHelper) {
-          mapRenderer.scene.remove(highlightHelper);
-        }
-        highlightObject = intersects[0].object;
-        highlightHelper = new THREE.BoxHelper(highlightObject);
-        mapRenderer.scene.add(highlightHelper);
-      }
-    } else {
-      highlightObject = null;
-      if (highlightHelper) {
-        mapRenderer.scene.remove(highlightHelper);
-      }
-      highlightHelper = null;
-    }
-  }
+  let delta = mapRenderer.clock.getDelta();
+  mapRenderer.controls.update(delta);
 
   mapRenderer.renderer.render(mapRenderer.scene, mapRenderer.camera);
 }
