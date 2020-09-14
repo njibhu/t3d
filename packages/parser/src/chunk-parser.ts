@@ -131,9 +131,21 @@ class ChunkParser implements Definition {
       };
     }
 
+    const pointer = dv.getUint32(pos + 4) + pos + 4;
+    for (let index = 0; index < arrayLength; index++) {
+      const offset = dv.getInt32(arrayPtr + 4 * index);
+      if (offset !== 0) {
+        let newPosition = pointer + index * 4 + offset;
+        if (typeof type === "string") {
+          data.push(this.parseType(dv, newPosition, type).data);
+        } else {
+          data.push(this[type.baseType](dv, newPosition, type, type.length).data);
+        }
+      }
+    }
+
     return {
-      // TODO
-      newPosition: -1,
+      newPosition: pos + 8,
       data,
     };
   }
