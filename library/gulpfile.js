@@ -36,8 +36,8 @@ gulp.task("T3D", function() {
 gulp.task("copy", function() {
   return gulp
     .src([`./build/T3D.js`, `./build/T3D.js.map`])
-	.pipe(gulp.dest("../examples/dist/static"))
-	.pipe(gulp.dest("../explorer/dist/static"));
+  .pipe(gulp.dest("../examples/dist/static"))
+  .pipe(gulp.dest("../explorer/dist/static"));
 });
 
 gulp.task("watch", function() {
