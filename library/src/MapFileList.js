@@ -182,11 +182,36 @@ module.exports = {
         { fileName: "1956140.data", name: "(E2) Frostgorge Sound" },
         { fileName: "1956245.data", name: "(E2) Void" },
         { fileName: "1956299.data", name: "(E2) Hided Inquest Lab" },
-        { fileName: "1957526.data", name: "(E2) Sandswept Isles" }
+        { fileName: "1957526.data", name: "(E2) Sandswept Isles" },
+        { fileName: "2004704.data", name: "(E3) Domain of Kourna" },
+        { fileName: "2005467.data", name: "(E3) Crystal Oasis" },
+        { fileName: "2044320.data", name: "(E4) Jahai Bluffs" },
+        { fileName: "2044502.data", name: "(E4) The Mists" },
+        { fileName: "2124612.data", name: "Mists Rift" },
+        { fileName: "2092435.data", name: "(E5) Thunderhead Peaks" },
+        { fileName: "2092812.data", name: "(E5) The Auditorium (0)" },
+        { fileName: "2093450.data", name: "(E5) The Auditorium (1)" },
+        { fileName: "2093791.data", name: "(E5) Glint's Trials" },
+        { fileName: "2146125.data", name: "(E6) Dragonfall" },
+        { fileName: "2146312.data", name: "(E6) The Auditorium" },
+        { fileName: "2146346.data", name: "(E6) Dragonflight" },
+        { fileName: "2146376.data", name: "(E6) Sayida's Airship" },
+        { fileName: "2146510.data", name: "(E6) Descent" }
       ]
     },
     {
-      name: "12. Seasonal Activities",
+      name: "12. The Icebrood Saga",
+      maps: [
+        { fileName: "2203371.data", name: "Grothmar Valley" },
+        { fileName: "2204239.data", name: "Grothmar Valley (Blood Keep instances)" },
+        { fileName: "2251232.data", name: "Bjora Marches" },
+        { fileName: "2249817.data", name: "Voice in the Deep (story)" },
+        { fileName: "2251447.data", name: "Eye of the North" },
+        { fileName: "2273128.data", name: "Darkrime Delves" }
+      ]
+    },
+    {
+      name: "13. Seasonal Activities",
       maps: [
         { fileName: "506592.data", name: "Ascent to Madness" },
         { fileName: "506670.data", name: "Mad King's Labyrinth (Past)" },
@@ -199,18 +224,20 @@ module.exports = {
         { fileName: "635960.data", name: "SAB World 2" },
         { fileName: "606255.data", name: "Zephyr Sanctum" },
         { fileName: "529896.data", name: "Tixx's Infinirarium" },
-        { fileName: "529945.data", name: "Winter Wonderland" }
+        { fileName: "529945.data", name: "Winter Wonderland" },
+        { fileName: "2076921.data", name: "Secret Lair of the Snowmen" },
+        { fileName: "2164993.data", name: "Dragon Bash Arena" }
       ]
     },
     {
-      name: "13. Activites",
+      name: "14. Activites",
       maps: [
         { fileName: "605983.data", name: "Sanctum Sprint" },
         { fileName: "606030.data", name: "Basket Brawl" }
       ]
     },
     {
-      name: "14. Dungeons",
+      name: "15. Dungeons",
       maps: [
         { fileName: "126840.data", name: "Ascalonian Catacombs (0)" },
         { fileName: "189364.data", name: "Ascalonian Catacombs (1)" },
@@ -228,7 +255,7 @@ module.exports = {
       ]
     },
     {
-      name: "15. Fractals",
+      name: "16. Fractals",
       maps: [
         { fileName: "519839.data", name: "Fractals of the Mists" },
         { fileName: "697450.data", name: "Thaumanova Reactor" },
@@ -242,22 +269,37 @@ module.exports = {
         { fileName: "1733857.data", name: "Shattered Observatory Fractal" },
         { fileName: "1733961.data", name: "Mistlock Sanctuary" },
         { fileName: "1905739.data", name: "Molten Boss Fractal" },
-        { fileName: "1905889.data", name: "Twilight Oasis Fractal" }
+        { fileName: "1905889.data", name: "Twilight Oasis Fractal" },
+        { fileName: "2005713.data", name: "Deepstone Fractal" },
+        { fileName: "2094098.data", name: "Siren's Reef Fractal" },
+        { fileName: "2187042.data", name: "Aquatic Ruins Fractal" }
       ]
     },
     {
-      name: "16. Raid",
+      name: "17. Raid",
       maps: [
         { fileName: "1151420.data", name: "(W1) Spirit Vale" },
         { fileName: "1383309.data", name: "(W2) Salvation Pass" },
         { fileName: "1427048.data", name: "Special Forces Training Area" },
         { fileName: "1454070.data", name: "(W3) Stronghold of the Faithful" },
         { fileName: "1645215.data", name: "(W4) Bastion of the Penitent" },
-        { fileName: "1906329.data", name: "(W5) Hall of Chains" }
+        { fileName: "1906329.data", name: "(W5) Hall of Chains" },
+        { fileName: "2045250.data", name: "(W6) Mythwright Gambit" },
+        { fileName: "2157962.data", name: "(W7) The Key of Ahdashim" }
       ]
     },
     {
-      name: "17. Structured PvP",
+      name: "18. Strike Missions",
+      maps: [
+        { fileName: "2224355.data", name: "Raven's Sanctum - Voice and Claw of the Fallen" },
+        { fileName: "2224381.data", name: "Raven's Sanctum - Fraenir of Jormag" },
+        { fileName: "2224406.data", name: "Raven's Sanctum - Boneskinner" },
+        { fileName: "2251486.data", name: "Voice in the Frozen Deep" },
+        { fileName: "2272807.data", name: "Forging Steel" }
+      ]
+    },
+    {
+      name: "19. Structured PvP",
       maps: [
         { fileName: "871093.data", name: "Original Stronghold" },
         { fileName: "870987.data", name: "Battle of Champion's Dusk (0)" },
@@ -265,6 +307,7 @@ module.exports = {
         { fileName: "132570.data", name: "Heart of the Mists (0)" },
         { fileName: "197249.data", name: "Heart of the Mists (1)" },
         { fileName: "1734729.data", name: "Heart of the Mists (2)" },
+        { fileName: "2129692.data", name: "Heart of the Mists (4)" },
         { fileName: "1712986.data", name: "Hall of the Mists" },
         { fileName: "132710.data", name: "The Battle of Khylo (0)" },
         { fileName: "197402.data", name: "The Battle of Khylo (1)" },
@@ -285,22 +328,29 @@ module.exports = {
         { fileName: "595582.data", name: "Dragon Ball Arena" },
         { fileName: "617120.data", name: "Aspect Arena" },
         { fileName: "1644624.data", name: "Revenge of the Capricorn" },
-        { fileName: "1704155.data", name: "Eternal Coliseum" }
+        { fileName: "1704155.data", name: "Eternal Coliseum" },
+        { fileName: "2128880.data", name: "Eternal Coliseum (1)" },
+        { fileName: "2128938.data", name: "Djinn's Dominion" },
+        { fileName: "2175965.data", name: "Djinn's Dominion (1)" },
+        { fileName: "2187125.data", name: "Auric Span" },
       ]
     },
     {
-      name: "18. World vs World",
+      name: "20. World vs World",
       maps: [
         { fileName: "131235.data", name: "Eternal Battlegrounds (0)" },
         { fileName: "195806.data", name: "Eternal Battlegrounds (1)" },
         { fileName: "1885693.data", name: "Eternal Battlegrounds (2)" },
         { fileName: "1918037.data", name: "Eternal Battlegrounds (3)" },
+        { fileName: "2263889.data", name: "Eternal Battlegrounds (4)" },
         { fileName: "131574.data", name: "Alpine Borderlands (0)" },
         { fileName: "641501.data", name: "Alpine Borderlands (1)" },
         { fileName: "1799855.data", name: "Alpine Borderlands (2)" },
         { fileName: "1647236.data", name: "Desert Borderlands (0)" },
         { fileName: "1799442.data", name: "Desert Borderlands (1)" },
-        { fileName: "736241.data", name: "Edge of the Mists" }
+        { fileName: "2112733.data", name: "Desert Borderlands (3)" },
+        { fileName: "736241.data", name: "Edge of the Mists" },
+        { fileName: "2113077.data", name: "Armistice Bastion" }
       ]
     },
     {
@@ -312,11 +362,13 @@ module.exports = {
       ]
     },
     {
-      name: "20. Concept and not released",
+      name: "21. Concept and not released",
       maps: [
         { fileName: "122695.data", name: "Empty Plane" },
         { fileName: "184799.data", name: "Empty Plane v1" },
         { fileName: "197562.data", name: "Empty Plane v2" },
+        { fileName: "2224624.data", name: "Empty Plane v3" },
+        { fileName: "2257438.data", name: "Empty Plane v4" },
         { fileName: "875614.data", name: "Unknown Mists Platforms" },
         { fileName: "132853.data", name: "Empty Box" },
         { fileName: "1255516.data", name: "Guild Coliseum" },
@@ -325,7 +377,8 @@ module.exports = {
         { fileName: "1513607.data", name: "Concept sPVP Map 3" },
         { fileName: "1513620.data", name: "Concept sPVP Map 4" },
         { fileName: "1513675.data", name: "Concept sPVP Map 5" },
-        { fileName: "1712945.data", name: "Concept sPVP Map 6" }
+        { fileName: "1712945.data", name: "Concept sPVP Map 6" },
+        { fileName: "2224545.data", name: "Norrhart Domains prototype" }
       ]
     }
   ]
