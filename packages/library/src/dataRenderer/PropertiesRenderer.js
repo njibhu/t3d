@@ -189,7 +189,7 @@ PropertiesRenderer.prototype.renderAsync = function(callback) {
       lod.matrixAutoUpdate = false;
 
       /// Show highest level always
-      // lod.update(lod);
+      lod.update(lod);
 
       // Add LOD containing mesh instances to scene
       self.getOutput().meshes.push(lod);
