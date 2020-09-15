@@ -60,7 +60,7 @@ let fvfFormat = {
  * @memberof RenderUtils
  * @param  {Object} rect     An object with x1,x2,y1 and y2 properties.
  * @param  {Number} yPos     Vertical position of the rectangle.
- * @param  {THREE.Material} material 	Mesh material to apply.
+ * @param  {THREE.Material} material   Mesh material to apply.
  * @param  {Number} dy       Mesh height.
  * @return {THREE.Mesh}      The generated mesh.
  */
@@ -461,52 +461,52 @@ function loadMeshFromModelFile(
           /// Material flags
           let knownflags = [
             /*
-							1-5
-							Has Tex?	IDK			Light?		Alpha?
+              1-5
+              Has Tex?  IDK      Light?    Alpha?
 
-							5-8
-							0			0	 		IDK		 	Water?
+              5-8
+              0      0       IDK       Water?
 
-							9-12
-							Has Tex?	0			Alpha?		Alpha?
+              9-12
+              Has Tex?  0      Alpha?    Alpha?
 
-							13
-							IDK KEV
-			    		*/
+              13
+              IDK KEV
+              */
 
-            0, // 0 0000 0000 0000		Ground / Wall splashes
-            8, // 0 0000 0000 1000		Broken Khylo roof DDS
-            9, // 0 0000 0000 1001		Tree leaves
+            0, // 0 0000 0000 0000    Ground / Wall splashes
+            8, // 0 0000 0000 1000    Broken Khylo roof DDS
+            9, // 0 0000 0000 1001    Tree leaves
 
-            520, // 0 0010 0000 1000		Some LOD modules, fires, smoke, inside of tents (some DSS textures)
+            520, // 0 0010 0000 1000    Some LOD modules, fires, smoke, inside of tents (some DSS textures)
 
-            2056, // 0 1000 0000 1000		Solid objects, also broken animations
+            2056, // 0 1000 0000 1000    Solid objects, also broken animations
 
             /// Solids here are unhappy, or are they? could be animations etc
-            2057, // 0 1000 0000 1001		Windmill sails, bushes, trees, but also a statue and a few pieces of wall
+            2057, // 0 1000 0000 1001    Windmill sails, bushes, trees, but also a statue and a few pieces of wall
 
-            2060, // 0 1000 0000 1100		A few solid objects, like wooden barricades, one(!) painting
-            2061, // 0 1000 0000 1101		A few bushes, two paintings
+            2060, // 0 1000 0000 1100    A few solid objects, like wooden barricades, one(!) painting
+            2061, // 0 1000 0000 1101    A few bushes, two paintings
 
-            2312, // 0 1001 0000 1000		Opaque Clock tower main walls AND IVY
-            2316, // 0 1001 0000 1100		Bushes, inner flower walkway a ramp and a box
+            2312, // 0 1001 0000 1000    Opaque Clock tower main walls AND IVY
+            2316, // 0 1001 0000 1100    Bushes, inner flower walkway a ramp and a box
 
             // Number 10
-            2568, // 0 1010 0000 1000		Lots of solids; walls, tents also some tent details WITH alpa
+            2568, // 0 1010 0000 1000    Lots of solids; walls, tents also some tent details WITH alpa
 
             // Number 11
-            2569, // 0 1010 0000 1001		Solids like walls and roofs and appernt non solids like ropes
+            2569, // 0 1010 0000 1001    Solids like walls and roofs and appernt non solids like ropes
 
-            2572, // 0 1010 0000 1100		Solid wooden beems, lamp posts
-            2573, // 0 1010 0000 1101		Lamp holders, bushes, fences, apparent non solids
-            2584, // 0 1010 0001 1000		Fountain Well water
+            2572, // 0 1010 0000 1100    Solid wooden beems, lamp posts
+            2573, // 0 1010 0000 1101    Lamp holders, bushes, fences, apparent non solids
+            2584, // 0 1010 0001 1000    Fountain Well water
 
-            2824, // 0 1011 0000 1000		Windows, sign arrows, cloth roofs (non solids) BUT straw roofs
-            2828, // 0 1011 0000 1100		A few fence post (non solids)
-            2840, // 0 1011 0001 1000		Fountain running water + pipe water
+            2824, // 0 1011 0000 1000    Windows, sign arrows, cloth roofs (non solids) BUT straw roofs
+            2828, // 0 1011 0000 1100    A few fence post (non solids)
+            2840, // 0 1011 0001 1000    Fountain running water + pipe water
 
-            4617, // 1 0010 0000 1001		Found nothing
-            6664 // 1 1010 0000 1000		Two groups of solid boxes
+            4617, // 1 0010 0000 1001    Found nothing
+            6664 // 1 1010 0000 1000    Two groups of solid boxes
           ];
 
           // let alphaMask0 = 0x0001 // + 0x0100 + 0x0200;

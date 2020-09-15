@@ -25,7 +25,7 @@ let _version = "1.1.0";
 let _settings = {
   t3dtoolsWorker: "modules/t3dtools/t3dworker.js",
   concurrentTasks:
-    typeof navigator !== "undefined" ? navigator.hardwareConcurrency : 1,
+    typeof navigator !== "undefined" ? navigator.hardwareConcurrency : 1
 };
 
 let T3D;
@@ -179,23 +179,23 @@ T3D = module.exports = {
    * The format of this list objects is
    *
    *
-   * 	{
-   *  	maps : [
-   *	  		{
-   *     			name:"World Area Name",
-   *	       		maps:[
-   *	         		{ fileName :"[numeric fileId].data", name:"Map Name One" },
-   *	           		{ fileName :"[numeric fileId].data", name:"Map Name Two" },
-   *	             	{ fileName :"[numeric fileId].data", name:"Map Name Three" }
-   *	              ]
+   *   {
+   *    maps : [
+   *        {
+   *           name:"World Area Name",
+   *             maps:[
+   *               { fileName :"[numeric fileId].data", name:"Map Name One" },
+   *                 { fileName :"[numeric fileId].data", name:"Map Name Two" },
+   *                 { fileName :"[numeric fileId].data", name:"Map Name Three" }
+   *                ]
    *           },
-   *	         {
-   *			    name:"Another World Area Name",
-   *		 	   	maps:[
-   *		 		   	{ fileName :"[numeric fileId].data", name:"Map Name 408" }
-   *			    ]
-   *		     }
-   * 		]
+   *           {
+   *          name:"Another World Area Name",
+   *            maps:[
+   *              { fileName :"[numeric fileId].data", name:"Map Name 408" }
+   *          ]
+   *         }
+   *     ]
    *   }
    *
    * @readonly
@@ -266,16 +266,16 @@ T3D = module.exports = {
    * Creates a new instance of LocalReader with an pNaCl inflater connected to it.
    *
    * @async
-   * @param  {File}   	file		Core JS File instance, must refer to a GW2 .dat file
-   * @param  {Function}	callback	Callback function, fired when the file index is fully
-   *                             		constructed. Takes no arguments.
+   * @param  {File}     file    Core JS File instance, must refer to a GW2 .dat file
+   * @param  {Function}  callback  Callback function, fired when the file index is fully
+   *                                 constructed. Takes no arguments.
    *
-   * @param  {String} 	t3dtoolsWorker URL to the inflater file. If omitted
-   *                               	_settings.t3dtoolsWorker will be used instead.
+   * @param  {String}   t3dtoolsWorker URL to the inflater file. If omitted
+   *                                 _settings.t3dtoolsWorker will be used instead.
    *
-   * @return {LocalReader}			The contructed LocalReader, note that this object
-   *                             		will not be fully initialized until the callback
-   *                             		is fired.
+   * @return {LocalReader}      The contructed LocalReader, note that this object
+   *                                 will not be fully initialized until the callback
+   *                                 is fired.
    */
   getLocalReader: function(file, callback, t3dtoolsWorker) {
     let path = t3dtoolsWorker || _settings.t3dtoolsWorker;
@@ -283,7 +283,7 @@ T3D = module.exports = {
     // Create the instance and init the threads
     let lrInstance = new LocalReader({
       workerPath: path,
-      workersNb: _settings.concurrentTasks,
+      workersNb: _settings.concurrentTasks
     });
 
     /// Callback with the lrInstance
@@ -306,21 +306,21 @@ T3D = module.exports = {
    * about the required file Id's you should not use this method.
    *
    * @async
-   * @param  {LocalReader}	localReader A fully initialized LocalReader instance
-   * @param  {Function}		callback    Fires when the index has been loaded
-   *                                 		from the localstorage or after it has
-   *                                 		been built and stored in localstorage.
-   *                                 		Takes the generated object list of
-   *                                 		files as an argument. This list groups
-   *                                 		arrays of MFT indices per file type,
-   *                                 		for exmample:
+   * @param  {LocalReader}  localReader A fully initialized LocalReader instance
+   * @param  {Function}    callback    Fires when the index has been loaded
+   *                                     from the localstorage or after it has
+   *                                     been built and stored in localstorage.
+   *                                     Takes the generated object list of
+   *                                     files as an argument. This list groups
+   *                                     arrays of MFT indices per file type,
+   *                                     for exmample:
    *
    *
-   * 	{
-   *	  	"Unknown"	: [444, 555, 333],
-   *	  	"MODL"		: [444, 555, 333],
-   * 	  	"String"	: [666, 777, 888]
-   * 	}
+   *   {
+   *      "Unknown"  : [444, 555, 333],
+   *      "MODL"    : [444, 555, 333],
+   *       "String"  : [666, 777, 888]
+   *   }
    *
    * For more details see
    * {{#crossLink "LocalReader/listFiles:method"}}{{/crossLink}}
@@ -341,45 +341,45 @@ T3D = module.exports = {
   },
 
   /**
-	 * Utility method for acceccing a list containing information about all map files
-	 * in the .dat connected to the provided LocalReader instance. This method first
-	 * tries to read a local indexing list from the client's localstorage and
-	 * fallbacks to generating the list by scanning the MFT indices of the .dat
-	 * and peeking each file in order to find out what filetype it has.
-	 *
-	 * If the searchAll flag is not set to true, this process will only scan files
-	 * from the {{#crossLink "T3D/MapFileList:property"}}{{/crossLink}}
-	 *
-	 * @async
-	 * @param {LocalReader}	localReader	A fully initialized LocalReader instance
-	 * @param {Function}	callback	Fires when the index has been loaded
-	 *                                 	from the localstorage or after it has
-	 *                                 	been built and stored in localstorage.
-	 *                                 	Takes the generated object list of
-	 *                                 	files as an argument. This list groups
-	 *                                 	arrays of MFT indices per file type,
-	 *                                 	for exmample:
-	 *
-	 * 		{
-	 * 			maps:[
-	 * 				{
-	 * 					name: 'Heart of Maguuma',
-	 * 					maps: [
-	 * 						{fileName:1151420, name:'HoT BWE3 Raid'},
-	 * 						{fileName:969663, name:'Verdant Brink}
-	 * 					]
-	 * 				},
-	 * 				{
-	 * 					name: 'Unknown maps',
-	 * 					maps: [
-	 * 						{fileName:12345678, name:'Unknown map 12345678'}
-	 * 					]
-	 * 				}
-	 * 			]
+   * Utility method for acceccing a list containing information about all map files
+   * in the .dat connected to the provided LocalReader instance. This method first
+   * tries to read a local indexing list from the client's localstorage and
+   * fallbacks to generating the list by scanning the MFT indices of the .dat
+   * and peeking each file in order to find out what filetype it has.
+   *
+   * If the searchAll flag is not set to true, this process will only scan files
+   * from the {{#crossLink "T3D/MapFileList:property"}}{{/crossLink}}
+   *
+   * @async
+   * @param {LocalReader}  localReader  A fully initialized LocalReader instance
+   * @param {Function}  callback  Fires when the index has been loaded
+   *                                   from the localstorage or after it has
+   *                                   been built and stored in localstorage.
+   *                                   Takes the generated object list of
+   *                                   files as an argument. This list groups
+   *                                   arrays of MFT indices per file type,
+   *                                   for exmample:
+   *
+   *     {
+   *       maps:[
+   *         {
+   *           name: 'Heart of Maguuma',
+   *           maps: [
+   *             {fileName:1151420, name:'HoT BWE3 Raid'},
+   *             {fileName:969663, name:'Verdant Brink}
+   *           ]
+   *         },
+   *         {
+   *           name: 'Unknown maps',
+   *           maps: [
+   *             {fileName:12345678, name:'Unknown map 12345678'}
+   *           ]
+   *         }
+   *       ]
 
-	*	    };
-	* @param {boolean} searchAll if true forces re-indexing of entire dat.
-	*/
+  *      };
+  * @param {boolean} searchAll if true forces re-indexing of entire dat.
+  */
   getMapListAsync: function(localReader, callback, searchAll) {
     /// If seachAll flag is true, force a deep search
     if (searchAll) {
@@ -406,15 +406,15 @@ T3D = module.exports = {
    * the provided renderers to it.
    *
    * @async
-   * @param  {LocalReader}	localReader A fully initialized LocalReader instance
-   * @param  {Number}   		fileName	The File Id of a mapc file.
-   * @param  {Array}   		renderers	An array of renderer classes. Each
-   *                               		class should extend
-   *                               		{{#crossLink "DataRenderer"}}{{/crossLink}}
-   * @param  {Function}		callback    Callback function, takes the shared
-   *                                 		renderer context as an argument.
-   * @param  {Class}			logger      A logger class of the same type as
-   *                               		{{#crossLink "Logger"}}{{/crossLink}}
+   * @param  {LocalReader}  localReader A fully initialized LocalReader instance
+   * @param  {Number}       fileName  The File Id of a mapc file.
+   * @param  {Array}       renderers  An array of renderer classes. Each
+   *                                   class should extend
+   *                                   {{#crossLink "DataRenderer"}}{{/crossLink}}
+   * @param  {Function}    callback    Callback function, takes the shared
+   *                                     renderer context as an argument.
+   * @param  {Class}      logger      A logger class of the same type as
+   *                                   {{#crossLink "Logger"}}{{/crossLink}}
    */
   renderMapContentsAsync: function(
     localReader,
@@ -478,15 +478,15 @@ T3D = module.exports = {
    *
    * @async
    *
-   * @param  {Class}		renderClass	A class extending
-   *                                	{{#crossLink "DataRenderer"}}{{/crossLink}}
+   * @param  {Class}    renderClass  A class extending
+   *                                  {{#crossLink "DataRenderer"}}{{/crossLink}}
    * @param  {LocalReader}localReader A fully initialized LocalReader instance
-   * @param  {Object}		settings    Settings passed to the renderer. Often
-   *                               	specifies thinks like what file ID should
-   *                               	be loaded.
-   * @param  {Object}		context     The shared renderer context value object.
-   * @param  {Function} 	cb          Callback method passed to the renderAsync
-   *                                 	method of the renderer.
+   * @param  {Object}    settings    Settings passed to the renderer. Often
+   *                                 specifies thinks like what file ID should
+   *                                 be loaded.
+   * @param  {Object}    context     The shared renderer context value object.
+   * @param  {Function}   cb          Callback method passed to the renderAsync
+   *                                   method of the renderer.
    */
   runRenderer: function(renderClass, localReader, settings, context, cb) {
     let r = new renderClass(localReader, settings, context);
@@ -495,17 +495,17 @@ T3D = module.exports = {
   },
 
   /**
-   * @param  {Object} context      	A shared renderer context value object.
-   * @param  {Class} 	clazz        	A class extending
-   *                                	{{#crossLink "DataRenderer"}}{{/crossLink}}.
-   *                                	Specifies for renderer class you want to read
-   *                                	output.
-   * @param  {String} propName     	The name of the property written by the
-   *                                	renderer that should retrtieved.
-   * @param  {any} 	defaultValue 	This value is passed back if no data could
-   *                              	be found.
-   * @return {any}    				The specified value from the conext if any,
-   *                          		otherwise defaultValue.
+   * @param  {Object} context        A shared renderer context value object.
+   * @param  {Class}   clazz          A class extending
+   *                                  {{#crossLink "DataRenderer"}}{{/crossLink}}.
+   *                                  Specifies for renderer class you want to read
+   *                                  output.
+   * @param  {String} propName       The name of the property written by the
+   *                                  renderer that should retrtieved.
+   * @param  {any}   defaultValue   This value is passed back if no data could
+   *                                be found.
+   * @return {any}            The specified value from the conext if any,
+   *                              otherwise defaultValue.
    */
   getContextValue: function(context, clazz, propName, defaultValue) {
     let output = context[clazz.name];
@@ -553,7 +553,7 @@ T3D = module.exports = {
     return false;
   },
 
-  formats: require("./format/chunks/AllFormats"),
+  formats: require("./format/chunks/AllFormats")
 };
 
 /* PRIVATE METHODS */

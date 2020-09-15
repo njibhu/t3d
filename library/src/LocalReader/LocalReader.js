@@ -419,24 +419,24 @@ class LocalReader {
      *
      * First argument is the a list of mft indices grouped by file type. For exmample:
      *
-     * 		{
-     * 			maps:[
-     * 				{
-     * 					name: 'Heart of Maguuma',
-     * 					maps: [
-     * 						{fileName:1151420, name:'HoT BWE3 Raid'},
-     * 						{fileName:969663, name:'Verdant Brink}
-     * 					]
-     * 				},
-     * 				{
-     * 					name: 'Unknown maps',
-     * 					maps: [
-     * 						{fileName:12345678, name:'Unknown map 12345678'}
-     * 					]
-     * 				}
-     * 			]
+     *     {
+     *       maps:[
+     *         {
+     *           name: 'Heart of Maguuma',
+     *           maps: [
+     *             {fileName:1151420, name:'HoT BWE3 Raid'},
+     *             {fileName:969663, name:'Verdant Brink}
+     *           ]
+     *         },
+     *         {
+     *           name: 'Unknown maps',
+     *           maps: [
+     *             {fileName:12345678, name:'Unknown map 12345678'}
+     *           ]
+     *         }
+     *       ]
 
-    *	    };
+    *      };
     */
   readMapListAsync(searchAll, callback) {
     let self = this;

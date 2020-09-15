@@ -19,7 +19,7 @@ module.exports = {
     ecmaVersion: 2018
   },
   rules: {
-    "no-tabs": 0,
+    "no-tabs": "error",
     camelcase: 0,
     "no-var": "error",
     eqeqeq: "error",

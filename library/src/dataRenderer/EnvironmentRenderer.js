@@ -264,7 +264,7 @@ function EnvironmentRenderer(localReader, settings, context, logger) {
       // PY NY
       // PZ NZ
 
-      /// PX - WEST 	NX - EAST
+      /// PX - WEST   NX - EAST
       if (face === 0 || face === 1) {
         vecs.forEach(function(vec2) {
           vec2.x = 1 - vec2.x;
@@ -273,7 +273,7 @@ function EnvironmentRenderer(localReader, settings, context, logger) {
         });
       }
 
-      /// NZ - SOUTH 	PZ - NORTH
+      /// NZ - SOUTH   PZ - NORTH
       else if (face === 5 || face === 4) {
         vecs.forEach(function(vec2) {
           vec2.y /= -2.0;

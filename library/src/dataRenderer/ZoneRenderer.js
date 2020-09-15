@@ -72,10 +72,10 @@ function ZoneRenderer(localReader, settings, context, logger) {
     let groupKeys = Object.keys(modelGroups);
     function stepModels(i) {
       /* var pct = Math.round(100.0*i / groupKeys.length);
-			if(lastPct!=pct){
-				console.log("Rendering ZONE models "+pct);
-				lastPct = pct;
-			} */
+      if(lastPct!=pct){
+        console.log("Rendering ZONE models "+pct);
+        lastPct = pct;
+      } */
 
       if (i >= groupKeys.length) {
         /// Empty mesh cache
@@ -155,9 +155,9 @@ function ZoneRenderer(localReader, settings, context, logger) {
                     material: mesh.material,
                     // material:new THREE.MeshBasicMaterial( {color: 0xffcccc, wireframe:true} ),
                     /* material : new THREE.PointCloudMaterial ({
-									      color: 0xFF0000,
-									      size: 20
-									    }), */
+                        color: 0xFF0000,
+                        size: 20
+                      }), */
                     position: { x: model.x, y: model.y, z: model.z }
                   };
                 } else {
@@ -289,7 +289,7 @@ function ZoneRenderer(localReader, settings, context, logger) {
 
     /// Zone width and depth in local corrdinates
     /* var zdx = zone.vertRect.x1-zone.vertRect.x2;
-		var zdy = zone.vertRect.y1-zone.vertRect.y2; */
+    var zdy = zone.vertRect.y1-zone.vertRect.y2; */
 
     /// These zones seems to overflow :/
     if (zone.encodeData.length === 0) {
@@ -495,74 +495,74 @@ var cdx = dx/(d.numChunksD_1*2);
 var cdy =dy/(d.numChunksD_2*2);
 
 for(var i=0; i<zoneDefs.length; i++){
-	var zoneDef = zoneDefs[i];
+  var zoneDef = zoneDefs[i];
 
-	//TODO: opt!
-	zoneDef.layerDefs.forEach(function(layer){
+  //TODO: opt!
+  zoneDef.layerDefs.forEach(function(layer){
 
-		layer.modelArray.forEach(function(model){
+    layer.modelArray.forEach(function(model){
 
-		});
+    });
 
-	});
+  });
 
-	var chunkMat = new THREE.MeshBasicMaterial(
-		{
-			color: 0x00ff00,
-			wireframe:true,
-		 	opacity: 1.0,
-		}
-	);
+  var chunkMat = new THREE.MeshBasicMaterial(
+    {
+      color: 0x00ff00,
+      wireframe:true,
+       opacity: 1.0,
+    }
+  );
 
-	//TODO: opt!
+  //TODO: opt!
 
-	if(
-		zoneDef.token == 597  ||
-		zoneDef.token == 1369  ||
-		zoneDef.token == 903
-	){
+  if(
+    zoneDef.token == 597  ||
+    zoneDef.token == 1369  ||
+    zoneDef.token == 903
+  ){
 
-		zoneDef.pageTable.pageArray.forEach(function(page){
-			var flags = page.flags;
-			var coord = page.chunkCoord;
+    zoneDef.pageTable.pageArray.forEach(function(page){
+      var flags = page.flags;
+      var coord = page.chunkCoord;
 
-			//Hightlight this coord
-			var rect = {};
+      //Hightlight this coord
+      var rect = {};
 
-			//var globalOffsetX = pd.rect.x2 - cdx;
-			var globalOffsetX = pd.rect.x1 + cdx/2;
-			var chunkOffsetX = coord[0] * cdx;
+      //var globalOffsetX = pd.rect.x2 - cdx;
+      var globalOffsetX = pd.rect.x1 + cdx/2;
+      var chunkOffsetX = coord[0] * cdx;
 
-			rect.x1  = globalOffsetX + chunkOffsetX;
+      rect.x1  = globalOffsetX + chunkOffsetX;
 
-			///Adjust for odd / even number of chunks
-			if(d.numChunksD_2 % 2 == 0){
+      ///Adjust for odd / even number of chunks
+      if(d.numChunksD_2 % 2 == 0){
 
-				var globalOffsetY = -pd.rect.y1;
-				var chunkOffsetY = -coord[1] * cdy;
+        var globalOffsetY = -pd.rect.y1;
+        var chunkOffsetY = -coord[1] * cdy;
 
-				rect.y1  =  chunkOffsetY + globalOffsetY;
-			}
-			else{
+        rect.y1  =  chunkOffsetY + globalOffsetY;
+      }
+      else{
 
-				var globalOffsetY =  -pd.rect.y1;
-				var chunkOffsetY = -coord[1] * cdy;
+        var globalOffsetY =  -pd.rect.y1;
+        var chunkOffsetY = -coord[1] * cdy;
 
-				rect.y1 = globalOffsetY +  chunkOffsetY;
-			}
+        rect.y1 = globalOffsetY +  chunkOffsetY;
+      }
 
-			rect.x2 = rect.x1+cdx;
-			rect.y2 = rect.y1+cdy;
+      rect.x2 = rect.x1+cdx;
+      rect.y2 = rect.y1+cdy;
 
-			RenderUtils.renderRect(rect, 4000,chunkMat, 4000);
+      RenderUtils.renderRect(rect, 4000,chunkMat, 4000);
 
-			//for(var j=0; j<flags.length; j++){
-			//	if(flags[j]>0){
-			//		console.log("Found flag",flags[j],"@ zoneDef",zoneDef.token,"coord",coord,"index",j);
-			//	}
-			//}
-		});
+      //for(var j=0; j<flags.length; j++){
+      //  if(flags[j]>0){
+      //    console.log("Found flag",flags[j],"@ zoneDef",zoneDef.token,"coord",coord,"index",j);
+      //  }
+      //}
+    });
 
-	}
+  }
 
 } */

@@ -203,7 +203,10 @@ module.exports = {
       name: "12. The Icebrood Saga",
       maps: [
         { fileName: "2203371.data", name: "Grothmar Valley" },
-        { fileName: "2204239.data", name: "Grothmar Valley (Blood Keep instances)" },
+        {
+          fileName: "2204239.data",
+          name: "Grothmar Valley (Blood Keep instances)"
+        },
         { fileName: "2251232.data", name: "Bjora Marches" },
         { fileName: "2249817.data", name: "Voice in the Deep (story)" },
         { fileName: "2251447.data", name: "Eye of the North" },
@@ -291,8 +294,14 @@ module.exports = {
     {
       name: "18. Strike Missions",
       maps: [
-        { fileName: "2224355.data", name: "Raven's Sanctum - Voice and Claw of the Fallen" },
-        { fileName: "2224381.data", name: "Raven's Sanctum - Fraenir of Jormag" },
+        {
+          fileName: "2224355.data",
+          name: "Raven's Sanctum - Voice and Claw of the Fallen"
+        },
+        {
+          fileName: "2224381.data",
+          name: "Raven's Sanctum - Fraenir of Jormag"
+        },
         { fileName: "2224406.data", name: "Raven's Sanctum - Boneskinner" },
         { fileName: "2251486.data", name: "Voice in the Frozen Deep" },
         { fileName: "2272807.data", name: "Forging Steel" }
@@ -332,7 +341,7 @@ module.exports = {
         { fileName: "2128880.data", name: "Eternal Coliseum (1)" },
         { fileName: "2128938.data", name: "Djinn's Dominion" },
         { fileName: "2175965.data", name: "Djinn's Dominion (1)" },
-        { fileName: "2187125.data", name: "Auric Span" },
+        { fileName: "2187125.data", name: "Auric Span" }
       ]
     },
     {

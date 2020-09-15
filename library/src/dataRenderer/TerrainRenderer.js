@@ -46,12 +46,11 @@ function TerrainRenderer(localReader, mapFile, settings, context, logger) {
 
   this.drawWater = function(rect) {
     /// Add Water
-    let material =
-      new THREE.MeshBasicMaterial({
-        color: 0x5bb1e8,
-        wireframe: false,
-        opacity: 0.35
-      });
+    let material = new THREE.MeshBasicMaterial({
+      color: 0x5bb1e8,
+      wireframe: false,
+      opacity: 0.35
+    });
 
     material.transparent = true;
     return RenderUtils.renderRect(rect, 0, material);
@@ -100,12 +99,12 @@ function TerrainRenderer(localReader, mapFile, settings, context, logger) {
 
     // Total map dx and dy
     /*
-		old parameter data definition:
-		"x1", "float32",
-		"y1", "float32",
-		"x2", "float32",
-		"y2", "float32"
-		*/
+    old parameter data definition:
+    "x1", "float32",
+    "y1", "float32",
+    "x2", "float32",
+    "y2", "float32"
+    */
     // var dx = parameterData.rect.x2 - parameterData.rect.x1;
     // var dy = parameterData.rect.y2 - parameterData.rect.y1;
     let dx = parameterData.rect[2] - parameterData.rect[0];

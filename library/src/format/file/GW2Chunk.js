@@ -136,7 +136,7 @@ class GW2Chunk {
   /**
    * @param  {String} fileType The main type of the pack file containing this chunk.
    * Used for resolving chunk naming conflicts between pack file types.
-   * @return {Array}	DataStream formatted array describing the data
+   * @return {Array}  DataStream formatted array describing the data
    * sctructures of this chunk
    */
   getDefinition(fileType) {
