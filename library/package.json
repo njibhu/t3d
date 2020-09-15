@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "format": "prettier --write 'src/**/*.js'",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "build": "gulp"
   },
   "dependencies": {
     "DataStream.js": "github:kig/DataStream.js"
