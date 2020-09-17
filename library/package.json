@@ -1,11 +1,11 @@
 {
   "name": "t3d-lib",
   "version": "2.0.0",
-  "private": true,
   "scripts": {
     "format": "prettier --write 'src/**/*.js'",
     "lint": "eslint src",
-    "build": "gulp"
+    "build": "gulp",
+    "version": "npm run build; git add build"
   },
   "dependencies": {
     "DataStream.js": "github:kig/DataStream.js"

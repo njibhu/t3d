@@ -21,7 +21,7 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 let LocalReader = require("./LocalReader/LocalReader");
 
 /* PRIVATE VARS */
-let _version = "2.0.0";
+let _version = require("../package.json").version;
 let _settings = {
   t3dtoolsWorker: "modules/t3dtools/t3dworker.js",
   concurrentTasks:
