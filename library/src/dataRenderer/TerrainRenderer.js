@@ -40,11 +40,13 @@ const TerrainShader = require("../util/TerrainShader.js");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-function TerrainRenderer(localReader, mapFile, settings, context, logger) {
-  DataRenderer.call(this, localReader, mapFile, settings, context, logger);
-  this.mapFile = this.settings.mapFile;
+class TerrainRenderer extends DataRenderer {
+  constructor(localReader, mapFile, settings, context, logger) {
+    super(localReader, mapFile, settings, context, logger);
+    this.mapFile = this.settings.mapFile;
+  }
 
-  this.drawWater = function(rect) {
+  drawWater(rect) {
     /// Add Water
     let material = new THREE.MeshBasicMaterial({
       color: 0x5bb1e8,
@@ -54,18 +56,18 @@ function TerrainRenderer(localReader, mapFile, settings, context, logger) {
 
     material.transparent = true;
     return RenderUtils.renderRect(rect, 0, material);
-  };
+  }
 
-  this.parseNumChunks = function(terrainData) {
+  parseNumChunks(terrainData) {
     terrainData.numChunksD_1 = Math.sqrt(
       (terrainData.dims[0] * terrainData.chunkArray.length) /
         terrainData.dims[1]
     );
     terrainData.numChunksD_2 =
       terrainData.chunkArray.length / terrainData.numChunksD_1;
-  };
+  }
 
-  this.loadPagedImageCallback = function(callback, infaltedBuffer) {
+  loadPagedImageCallback(callback, infaltedBuffer) {
     let self = this;
 
     // Prep output array
@@ -244,7 +246,10 @@ function TerrainRenderer(localReader, mapFile, settings, context, logger) {
         value: new THREE.Vector2(pageOffetX, pageOffetY)
       };
 
-      uniforms.texturePicker = { type: "t", value: chunkTextures[pageTexName] };
+      uniforms.texturePicker = {
+        type: "t",
+        value: chunkTextures[pageTexName]
+      };
       uniforms.texturePicker2 = {
         type: "t",
         value: chunkTextures[pageTexName2]
@@ -383,67 +388,63 @@ function TerrainRenderer(localReader, mapFile, settings, context, logger) {
     };
 
     stepChunk(0, 0);
-  };
+  }
+
+  /**
+   * Output fileds generated:
+   *
+   * - *terrainTiles* An array of THREE.Mesh objects visualizing terrain of the map.
+   *
+   * - *water* A THREE.Mesh object visualizing the bounds of the map.
+   *
+   * - *bounds* An object wiht x1, x2, y1, and y2 properties specifying the bounds of the map.
+   *
+   * @async
+   * @param  {Function} callback Fires when renderer is finished, does not take arguments.
+   */
+  renderAsync(callback) {
+    /// Load all paged Images, requires inflation of other pack files!
+    let pagedImageId = this.mapFile.getChunk("trn").data.materials.pagedImage;
+    this.localReader.loadFile(
+      pagedImageId,
+      this.loadPagedImageCallback.bind(this, callback)
+    );
+  }
+
+  /**
+   * TODO: write description. Used for export feature
+   *
+   * @param  {Function} callback [description]
+   * @return {*}            [description]
+   */
+  getFileIdsAsync(/* callback */) {
+    let terrainChunk = this.mapFile.getChunk("trn");
+    let pimgTableDataChunk = this.mapFile.getChunk("pimg");
+    let fileIds = [];
+
+    /// ------------ SPLASH TEXTURES ------------
+    let pimgData = pimgTableDataChunk && pimgTableDataChunk.data;
+    let strippedPages = pimgData.strippedPages;
+
+    /// Only use layer 0
+    strippedPages.forEach(function(page) {
+      /// Only load layer 0 and 1
+      if (page.layer <= 1 && page.filename > 0) {
+        fileIds.push(page.filename);
+      }
+    });
+    /// ------------ END SPLASH TEXTURES ------------
+
+    /// ------------ TILED IMAGES ------------
+    let terrainData = terrainChunk.data;
+    let allTextures = terrainData.materials.texFileArray;
+    allTextures.forEach(function(texture) {
+      if (texture.filename > 0) fileIds.push(texture.filename);
+    });
+    /// ------------ END TILED IMAGES ------------
+
+    return fileIds;
+  }
 }
-
-/// DataRenderer inheritance:
-TerrainRenderer.prototype = Object.create(DataRenderer.prototype);
-TerrainRenderer.prototype.constructor = TerrainRenderer;
-
-/**
- * Output fileds generated:
- *
- * - *terrainTiles* An array of THREE.Mesh objects visualizing terrain of the map.
- *
- * - *water* A THREE.Mesh object visualizing the bounds of the map.
- *
- * - *bounds* An object wiht x1, x2, y1, and y2 properties specifying the bounds of the map.
- *
- * @async
- * @param  {Function} callback Fires when renderer is finished, does not take arguments.
- */
-TerrainRenderer.prototype.renderAsync = function(callback) {
-  /// Load all paged Images, requires inflation of other pack files!
-  let pagedImageId = this.mapFile.getChunk("trn").data.materials.pagedImage;
-  this.localReader.loadFile(
-    pagedImageId,
-    this.loadPagedImageCallback.bind(this, callback)
-  );
-};
-
-/**
- * TODO: write description. Used for export feature
- *
- * @param  {Function} callback [description]
- * @return {*}            [description]
- */
-TerrainRenderer.prototype.getFileIdsAsync = function(/* callback */) {
-  let terrainChunk = this.mapFile.getChunk("trn");
-  let pimgTableDataChunk = this.mapFile.getChunk("pimg");
-  let fileIds = [];
-
-  /// ------------ SPLASH TEXTURES ------------
-  let pimgData = pimgTableDataChunk && pimgTableDataChunk.data;
-  let strippedPages = pimgData.strippedPages;
-
-  /// Only use layer 0
-  strippedPages.forEach(function(page) {
-    /// Only load layer 0 and 1
-    if (page.layer <= 1 && page.filename > 0) {
-      fileIds.push(page.filename);
-    }
-  });
-  /// ------------ END SPLASH TEXTURES ------------
-
-  /// ------------ TILED IMAGES ------------
-  let terrainData = terrainChunk.data;
-  let allTextures = terrainData.materials.texFileArray;
-  allTextures.forEach(function(texture) {
-    if (texture.filename > 0) fileIds.push(texture.filename);
-  });
-  /// ------------ END TILED IMAGES ------------
-
-  return fileIds;
-};
 
 module.exports = TerrainRenderer;
