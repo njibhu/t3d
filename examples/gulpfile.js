@@ -10,7 +10,7 @@ function copyExampleAssets(asset) {
   gulp.src(`./src/${asset}`).pipe(rename(asset)).pipe(gulp.dest("./dist/"));
 }
 
-function _cStatic(path){
+function _cStatic(path) {
   return gulp.src(path).pipe(gulp.dest("./dist/static"));
 }
 
@@ -79,6 +79,13 @@ function ModelRenderer() {
   ];
 }
 
+function MapScan() {
+  return [
+    buildExample("MapScan/index.js"),
+    copyExampleAssets("MapScan/index.html"),
+  ];
+}
+
 function Tyria2D() {
   return [
     buildExample("Tyria2D/index.js"),
@@ -93,6 +100,7 @@ gulp.task("default", () =>
     ...LocalReaderV2(),
     ...ModelRenderer(),
     ...Tyria2D(),
+    ...MapScan(),
   ])
 );
 

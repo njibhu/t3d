@@ -210,7 +210,13 @@ module.exports = {
         { fileName: "2251232.data", name: "Bjora Marches" },
         { fileName: "2249817.data", name: "Voice in the Deep (story)" },
         { fileName: "2251447.data", name: "Eye of the North" },
-        { fileName: "2273128.data", name: "Darkrime Delves" }
+        { fileName: "2273128.data", name: "Darkrime Delves" },
+        { fileName: "2298865.data", name: "(E3) Drizzlewood Coast" },
+        {
+          fileName: "2299088.data",
+          name: "Drizzlewood Coast (Turnabout instance)"
+        },
+        { fileName: "2318029.data", name: "(E4) Drizzlewood Coast" }
       ]
     },
     {
@@ -275,7 +281,8 @@ module.exports = {
         { fileName: "1905889.data", name: "Twilight Oasis Fractal" },
         { fileName: "2005713.data", name: "Deepstone Fractal" },
         { fileName: "2094098.data", name: "Siren's Reef Fractal" },
-        { fileName: "2187042.data", name: "Aquatic Ruins Fractal" }
+        { fileName: "2187042.data", name: "Aquatic Ruins Fractal" },
+        { fileName: "2333932.data", name: "Sunqua Peak" }
       ]
     },
     {
