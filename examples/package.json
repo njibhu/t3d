@@ -19,6 +19,7 @@
     "http-server": "^0.12.3",
     "lerna": "^3.20.2",
     "t3d-lib": "file://../library",
+    "t3d-toolsjs": "file://../t3dtools.js",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   }
