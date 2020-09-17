@@ -32,87 +32,85 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-function StringRenderer(localReader, settings, context, logger) {
-  DataRenderer.call(this, localReader, settings, context, logger);
-}
+class StringRenderer extends DataRenderer {
+  constructor(localReader, settings, context, logger) {
+    super(localReader, settings, context, logger);
+  }
 
-/// DataRenderer inheritance:
-StringRenderer.prototype = Object.create(DataRenderer.prototype);
-StringRenderer.prototype.constructor = StringRenderer;
+  /**
+   * Output fileds generated:
+   *
+   * - *strings* An array of objects. Each object has a "recid"-property specifing on what index within the file
+   * a given string was found, and a "value"-property specigying the string value.
+   *
+   * - *language* An integer specifing the language of the loaded file.
+   *
+   * @async
+   * @param  {Function} callback Fires when renderer is finished, does not take arguments.
+   */
+  renderAsync(callback) {
+    let self = this;
 
-/**
- * Output fileds generated:
- *
- * - *strings* An array of objects. Each object has a "recid"-property specifing on what index within the file
- * a given string was found, and a "value"-property specigying the string value.
- *
- * - *language* An integer specifing the language of the loaded file.
- *
- * @async
- * @param  {Function} callback Fires when renderer is finished, does not take arguments.
- */
-StringRenderer.prototype.renderAsync = function(callback) {
-  let self = this;
+    /// Get file id
+    // eslint-disable-next-line no-unused-vars
+    let fileId = this.settings.id;
+    // eslint-disable-next-line no-unused-vars
+    let showUnmaterialed = true;
 
-  /// Get file id
-  // eslint-disable-next-line no-unused-vars
-  let fileId = this.settings.id;
-  // eslint-disable-next-line no-unused-vars
-  let showUnmaterialed = true;
+    /// Load the string file
 
-  /// Load the string file
+    /// Set up output array
+    this.getOutput().strings = [];
 
-  /// Set up output array
-  this.getOutput().strings = [];
+    this.localReader.loadFile(this.settings.id, function(inflatedData) {
+      let ds = new DataStream(inflatedData);
+      let end = ds.byteLength - 2;
 
-  this.localReader.loadFile(this.settings.id, function(inflatedData) {
-    let ds = new DataStream(inflatedData);
-    let end = ds.byteLength - 2;
+      /// skip past fcc
+      ds.seek(4);
 
-    /// skip past fcc
-    ds.seek(4);
+      let entryHeaderDef = [
+        "size",
+        "uint16",
+        "decryptionOffset",
+        "uint16",
+        "bitsPerSymbol",
+        "uint16"
+      ];
 
-    let entryHeaderDef = [
-      "size",
-      "uint16",
-      "decryptionOffset",
-      "uint16",
-      "bitsPerSymbol",
-      "uint16"
-    ];
+      let entryIndex = 0;
 
-    let entryIndex = 0;
+      while (end - ds.position > 6) {
+        let entry = ds.readStruct(entryHeaderDef);
+        entry.size -= 6;
 
-    while (end - ds.position > 6) {
-      let entry = ds.readStruct(entryHeaderDef);
-      entry.size -= 6;
+        if (entry.size > 0) {
+          let isEncrypted =
+            entry.decryptionOffset !== 0 || entry.bitsPerSymbol !== 0x10;
 
-      if (entry.size > 0) {
-        let isEncrypted =
-          entry.decryptionOffset !== 0 || entry.bitsPerSymbol !== 0x10;
+          /// UTF-16
+          if (!isEncrypted) {
+            let value = ds.readUCS2String(entry.size / 2);
+            self.getOutput().strings.push({
+              value: value,
+              recid: entryIndex
+            });
+          }
 
-        /// UTF-16
-        if (!isEncrypted) {
-          let value = ds.readUCS2String(entry.size / 2);
-          self.getOutput().strings.push({
-            value: value,
-            recid: entryIndex
-          });
+          /// Other... ignored
+          else {
+            //continue
+          }
         }
 
-        /// Other... ignored
-        else {
-          //continue
-        }
+        entryIndex++;
       }
 
-      entryIndex++;
-    }
-
-    ds.seek(ds.byteLength - 2);
-    self.getOutput().language = ds.readUint16();
-    callback();
-  });
-};
+      ds.seek(ds.byteLength - 2);
+      self.getOutput().language = ds.readUint16();
+      callback();
+    });
+  }
+}
 
 module.exports = StringRenderer;
