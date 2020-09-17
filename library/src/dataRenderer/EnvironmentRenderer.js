@@ -33,21 +33,23 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-function EnvironmentRenderer(localReader, settings, context, logger) {
-  DataRenderer.call(this, localReader, settings, context, logger);
+class EnvironmentRenderer extends DataRenderer {
+  constructor(localReader, settings, context, logger) {
+    super(localReader, settings, context, logger);
 
-  this.mapFile = this.settings.mapFile;
+    this.mapFile = this.settings.mapFile;
+  }
 
-  this.getMat = function(tex) {
+  getMat(tex) {
     return new THREE.MeshBasicMaterial({
       map: tex,
       side: THREE.BackSide,
       fog: false,
       depthWrite: false
     });
-  };
+  }
 
-  this.loadTextureWithFallback = function(
+  loadTextureWithFallback(
     targetMatIndices,
     materialArray,
     filename,
@@ -74,7 +76,7 @@ function EnvironmentRenderer(localReader, settings, context, logger) {
 
     let mat = self.getMat(
       RenderUtils.loadLocalTexture(
-        localReader,
+        this.localReader,
         filename,
         null,
         hazeColorAsInt,
@@ -83,9 +85,9 @@ function EnvironmentRenderer(localReader, settings, context, logger) {
     );
 
     writeMat(mat);
-  };
+  }
 
-  this.getHazeColor = function(environmentChunkData) {
+  getHazeColor(environmentChunkData) {
     let hazes = environmentChunkData && environmentChunkData.dataGlobal.haze;
 
     if (!hazes || hazes.length <= 0) {
@@ -93,9 +95,9 @@ function EnvironmentRenderer(localReader, settings, context, logger) {
     } else {
       return hazes[0].farColor;
     }
-  };
+  }
 
-  this.parseLights = function(environmentChunkData) {
+  parseLights(environmentChunkData) {
     let self = this;
 
     /// Set up output array
@@ -193,13 +195,9 @@ function EnvironmentRenderer(localReader, settings, context, logger) {
 
     /// Parsing done, set hasLight flag and return
     this.getOutput().hasLight = hasLight || ambientTotal > 0;
-  };
+  }
 
-  this.parseSkybox = function(
-    environmentChunkData,
-    parameterChunkData,
-    hazeColorAsInt
-  ) {
+  parseSkybox(environmentChunkData, parameterChunkData, hazeColorAsInt) {
     /// set up output array
     this.getOutput().skyElements = [];
 
@@ -297,42 +295,38 @@ function EnvironmentRenderer(localReader, settings, context, logger) {
 
     /// Write to output
     this.getOutput().skyElements.push(skyBox);
-  };
+  }
+
+  /**
+   * Output fileds generated:
+   *
+   * - *hazeColor* Array of RGBA values describing the global haze color of the map.
+   * - *lights* An array of THREE.DirectionalLight and  THREE.AmbientLight objects.
+   * - *hasLight* Boolean is false if no directional lights were added to "lights".
+   * - *skyElements* A textured THREE.Mesh skybox.
+   *
+   * @async
+   * @param  {Function} callback Fires when renderer is finished, does not take arguments.
+   */
+  renderAsync(callback) {
+    let environmentChunkData = this.mapFile.getChunk("env").data;
+    let parameterChunkData = this.mapFile.getChunk("parm").data;
+
+    /// Set renderer clear color from environment haze
+    let hazeColor = this.getHazeColor(environmentChunkData);
+    let hazeColorAsInt =
+      hazeColor[2] * 256 * 256 + hazeColor[1] * 256 + hazeColor[0];
+    this.getOutput().hazeColor = hazeColor;
+
+    /// Add directional lights to output. Also write hasLight flag
+    this.parseLights(environmentChunkData);
+
+    /// Generate skybox
+    this.parseSkybox(environmentChunkData, parameterChunkData, hazeColorAsInt);
+
+    /// All parsing is synchronous, just fire callback
+    callback();
+  }
 }
-
-/// DataRenderer inheritance:
-EnvironmentRenderer.prototype = Object.create(DataRenderer.prototype);
-EnvironmentRenderer.prototype.constructor = EnvironmentRenderer;
-
-/**
- * Output fileds generated:
- *
- * - *hazeColor* Array of RGBA values describing the global haze color of the map.
- * - *lights* An array of THREE.DirectionalLight and  THREE.AmbientLight objects.
- * - *hasLight* Boolean is false if no directional lights were added to "lights".
- * - *skyElements* A textured THREE.Mesh skybox.
- *
- * @async
- * @param  {Function} callback Fires when renderer is finished, does not take arguments.
- */
-EnvironmentRenderer.prototype.renderAsync = function(callback) {
-  let environmentChunkData = this.mapFile.getChunk("env").data;
-  let parameterChunkData = this.mapFile.getChunk("parm").data;
-
-  /// Set renderer clear color from environment haze
-  let hazeColor = this.getHazeColor(environmentChunkData);
-  let hazeColorAsInt =
-    hazeColor[2] * 256 * 256 + hazeColor[1] * 256 + hazeColor[0];
-  this.getOutput().hazeColor = hazeColor;
-
-  /// Add directional lights to output. Also write hasLight flag
-  this.parseLights(environmentChunkData);
-
-  /// Generate skybox
-  this.parseSkybox(environmentChunkData, parameterChunkData, hazeColorAsInt);
-
-  /// All parsing is synchronous, just fire callback
-  callback();
-};
 
 module.exports = EnvironmentRenderer;
