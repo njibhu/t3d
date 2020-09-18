@@ -1,0 +1,46 @@
+name: Publish github pages
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Install deps, build and publish
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.3
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: |
+          npm install
+          npm run lernaInstall
+      - name: Generate
+        run: |
+          pushd library
+          npm run build
+          npx gulp copy
+          popd
+          pushd examples
+          npm run build
+          cp -r dist ../pages
+          mv ../pages/dist ../pages/examples
+          popd
+          pushd explorer
+          npm run build
+          cp -r dist ../pages
+          mv ../pages/dist ../pages/explorer
+          popd
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

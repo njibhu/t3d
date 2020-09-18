@@ -13,3 +13,7 @@ yarn.lock
 
 # ignore editor config
 .vscode
+
+# ignore pages except index.html
+pages/*
+!pages/index.html
