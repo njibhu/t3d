@@ -8,5 +8,9 @@
     "lerna": "^3.18.4",
     "three": "0.91.0",
     "w2ui": "1.4.3"
+  },
+  "scripts": {
+    "preversion": "git pull",
+    "releaseMinor": "lerna version minor"
   }
 }
