@@ -33,10 +33,11 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-function ZoneRenderer(localReader, settings, context, logger) {
-  DataRenderer.call(this, localReader, settings, context, logger);
-  this.mapFile = this.settings.mapFile;
-
+class ZoneRenderer extends DataRenderer {
+  constructor(localReader, settings, context, logger) {
+    super(localReader, settings, context, logger, "ZoneRenderer");
+    this.mapFile = this.settings.mapFile;
+  }
   /**
    * TODO
    *
@@ -46,7 +47,7 @@ function ZoneRenderer(localReader, settings, context, logger) {
    * @param  {*} renderZoneCallback [description]
    * @return {*}                    [description]
    */
-  this.renderZone = function(zone, zoneDefs, mapRect, renderZoneCallback) {
+  renderZone(zone, zoneDefs, mapRect, renderZoneCallback) {
     let self = this;
 
     /// Get Zone Definition
@@ -261,7 +262,7 @@ function ZoneRenderer(localReader, settings, context, logger) {
 
     /// Begin stepping trough the models, rendering them.
     stepModels(0);
-  };
+  }
 
   /**
    * TODO
@@ -271,7 +272,7 @@ function ZoneRenderer(localReader, settings, context, logger) {
    * @param  {*} mapRect [description]
    * @return {*}         [description]
    */
-  this.getModelGroups = function(zone, zoneDef, mapRect) {
+  getModelGroups(zone, zoneDef, mapRect) {
     /// Calculate rect in global coordinates
     // let zPos = zone.zPos;
 
@@ -393,8 +394,62 @@ function ZoneRenderer(localReader, settings, context, logger) {
     } /// End for each flag
 
     return modelGroups;
-  };
+  }
+
+  /**
+   * Renders all zone meshes in a GW2 map described by the map's "zon2" chunk.
+   * Output fileds generated:
+   *
+   * - *meshes* An array of THREE.Mesh objects visualizing all zone models refered by this map.
+   *
+   * @async
+   * @param  {Function} callback Fires when renderer is finished, does not take arguments.
+   */
+  renderAsync(callback) {
+    let self = this;
+
+    /// Set up output array
+    self.getOutput().meshes = [];
+
+    let zoneChunkData = this.mapFile.getChunk("zon2").data;
+    let parameterChunkData = this.mapFile.getChunk("parm").data;
+    // let terrainChunkData = this.mapFile.getChunk("trn").data;
+    let mapRect = parameterChunkData.rect;
+
+    /// Zone data
+    let zones = zoneChunkData.zoneArray;
+    let zoneDefs = zoneChunkData.zoneDefArray;
+
+    /// Render each zone
+    let lastPct = -1;
+
+    /// Main render loop, render each zone
+    function stepZone(i) {
+      let pct = Math.round((100.0 * i) / zones.length);
+      if (lastPct !== pct) {
+        self.logger.log(
+          T3D.Logger.TYPE_PROGRESS,
+          "Loading 3D Models (Zone)",
+          pct
+        );
+        lastPct = pct;
+      }
+
+      if (i >= zones.length) {
+        callback();
+        return;
+      }
+
+      /// Main zone render function call
+      self.renderZone(zones[i], zoneDefs, mapRect, stepZone.bind(self, i + 1));
+    }
+
+    stepZone(0);
+  }
 }
+
+ZoneRenderer.rendererName = "ZoneRenderer";
+module.exports = ZoneRenderer;
 
 /// NOT USED??
 // eslint-disable-next-line no-unused-vars
@@ -418,63 +473,6 @@ function addZoneMeshesToScene(meshes, isCached, position, scale, rotation) {
     this.getOutput().meshes.push(mesh);
   });
 }
-
-/// DataRenderer inheritance:
-ZoneRenderer.prototype = Object.create(DataRenderer.prototype);
-ZoneRenderer.prototype.constructor = ZoneRenderer;
-
-/**
- * Renders all zone meshes in a GW2 map described by the map's "zon2" chunk.
- * Output fileds generated:
- *
- * - *meshes* An array of THREE.Mesh objects visualizing all zone models refered by this map.
- *
- * @async
- * @param  {Function} callback Fires when renderer is finished, does not take arguments.
- */
-ZoneRenderer.prototype.renderAsync = function(callback) {
-  let self = this;
-
-  /// Set up output array
-  self.getOutput().meshes = [];
-
-  let zoneChunkData = this.mapFile.getChunk("zon2").data;
-  let parameterChunkData = this.mapFile.getChunk("parm").data;
-  // let terrainChunkData = this.mapFile.getChunk("trn").data;
-  let mapRect = parameterChunkData.rect;
-
-  /// Zone data
-  let zones = zoneChunkData.zoneArray;
-  let zoneDefs = zoneChunkData.zoneDefArray;
-
-  /// Render each zone
-  let lastPct = -1;
-
-  /// Main render loop, render each zone
-  function stepZone(i) {
-    let pct = Math.round((100.0 * i) / zones.length);
-    if (lastPct !== pct) {
-      self.logger.log(
-        T3D.Logger.TYPE_PROGRESS,
-        "Loading 3D Models (Zone)",
-        pct
-      );
-      lastPct = pct;
-    }
-
-    if (i >= zones.length) {
-      callback();
-      return;
-    }
-
-    /// Main zone render function call
-    self.renderZone(zones[i], zoneDefs, mapRect, stepZone.bind(self, i + 1));
-  }
-
-  stepZone(0);
-};
-
-module.exports = ZoneRenderer;
 
 /// / Not used: zone defintion per chunk data "images" 32*32 points
 /*

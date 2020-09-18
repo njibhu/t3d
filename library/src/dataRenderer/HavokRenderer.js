@@ -33,14 +33,16 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-function HavokRenderer(localReader, settings, context, logger) {
-  DataRenderer.call(this, localReader, settings, context, logger);
+class HavokRenderer extends DataRenderer {
+  constructor(localReader, settings, context, logger) {
+    super(localReader, settings, context, logger, "HavokRenderer");
 
-  this.mapFile = this.settings.mapFile;
+    this.mapFile = this.settings.mapFile;
 
-  this.lastP = -1;
-  this.seed = 1;
-  this.meshes = [];
+    this.lastP = -1;
+    this.seed = 1;
+    this.meshes = [];
+  }
 
   /**
    * TODO
@@ -48,7 +50,7 @@ function HavokRenderer(localReader, settings, context, logger) {
    * @param  {Function} callback         [description]
    * @async
    */
-  this.renderModels = function(models, title, callback) {
+  renderModels(models, title, callback) {
     let mat;
     if (this.settings && this.settings.visible) {
       mat = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
@@ -57,7 +59,7 @@ function HavokRenderer(localReader, settings, context, logger) {
     }
 
     this.parseAllModels(models, mat, title, 200, 0, callback);
-  };
+  }
 
   /**
    * TODO
@@ -66,7 +68,7 @@ function HavokRenderer(localReader, settings, context, logger) {
    * @param  {*} collisions [description]
    * @return {*}            [description]
    */
-  this.getCollisionsForAnimation = function(animation, collisions) {
+  getCollisionsForAnimation(animation, collisions) {
     let ret = [];
 
     for (let i = 0; i < animation.collisionIndices.length; i++) {
@@ -77,7 +79,7 @@ function HavokRenderer(localReader, settings, context, logger) {
     }
 
     return ret;
-  };
+  }
 
   /**
    * TODO
@@ -90,14 +92,7 @@ function HavokRenderer(localReader, settings, context, logger) {
    * @return {*} callback          [description]
    * @async
    */
-  this.parseAllModels = function(
-    models,
-    mat,
-    title,
-    chunkSize,
-    offset,
-    callback
-  ) {
+  parseAllModels(models, mat, title, chunkSize, offset, callback) {
     let i = offset;
 
     for (; i < offset + chunkSize && i < models.length; i++) {
@@ -145,7 +140,7 @@ function HavokRenderer(localReader, settings, context, logger) {
     } else {
       callback();
     }
-  };
+  }
 
   /**
    * TODO
@@ -155,17 +150,13 @@ function HavokRenderer(localReader, settings, context, logger) {
    * @param  {*} animations    [description]
    * @return {*}               [description]
    */
-  this.animationFromGeomIndex = function(
-    propGeomIndex,
-    geometries,
-    animations
-  ) {
+  animationFromGeomIndex(propGeomIndex, geometries, animations) {
     // geometries is just list of all geometries.animations[end] for now
     let l = geometries[propGeomIndex].animations.length;
 
     return animations[geometries[propGeomIndex].animations[l - 1]];
     // return animations[ geometries[propGeomIndex].animations[0] ];
-  };
+  }
 
   /**
    * TODO
@@ -175,7 +166,7 @@ function HavokRenderer(localReader, settings, context, logger) {
    * @param  {*} mat       [description]
    * @return {*}           [description]
    */
-  this.renderMesh = function(collision, model, mat) {
+  renderMesh(collision, model, mat) {
     let pos = model.translate;
     let rot = model.rotate;
     let scale = 32 * model.scale;
@@ -200,17 +191,17 @@ function HavokRenderer(localReader, settings, context, logger) {
 
     /// Add mesh to scene and collisions
     this.getOutput().meshes.push(mesh);
-  };
+  }
 
   /**
    * TODO
    *
    * @return {*} [description]
    */
-  this.seedRandom = function() {
+  seedRandom() {
     let x = Math.sin(this.seed++) * 10000;
     return x - Math.floor(x);
-  };
+  }
 
   /**
    * TODO
@@ -219,7 +210,7 @@ function HavokRenderer(localReader, settings, context, logger) {
    * @param  {*} mat       [description]
    * @return {*}           [description]
    */
-  this.parseHavokMesh = function(collision, mat) {
+  parseHavokMesh(collision, mat) {
     let index = collision.index;
 
     if (!this.meshes[index]) {
@@ -262,63 +253,60 @@ function HavokRenderer(localReader, settings, context, logger) {
     } else {
       return this.meshes[index].clone();
     }
-  };
+  }
+
+  /**
+   * Output fileds generated:
+   *
+   * - *boundingBox* Array of values describing the bounding box of all collision.
+   * - *meshes* An array of THREE.Mesh objects visualizing all collision in the map.
+   *
+   * @async
+   * @param  {Function} callback Fires when renderer is finished, does not take arguments.
+   */
+  renderAsync(callback) {
+    let self = this;
+
+    // TODO:The design of this method pretty much requires one instance
+    // of the class per parallel async render. Should probably fix this
+    // at some point...
+
+    /// Get required chunks
+    this.havokChunkData = this.mapFile.getChunk("havk").data;
+
+    /// Set static bounds to the bounds of the havk models
+    this.getOutput().boundingBox = this.havokChunkData.boundsMax;
+
+    /// Clear old meshes
+    this.meshes = [];
+
+    /// Set up output array
+    this.getOutput().meshes = [];
+
+    /// Grab model raw data from the chunk.
+    /// Add missing scale value to obs models.
+    let propModels = this.havokChunkData.propModels;
+    let zoneModels = this.havokChunkData.zoneModels;
+    let obsModels = this.havokChunkData.obsModels;
+    obsModels.forEach(function(mdl) {
+      mdl.scale = 1;
+    });
+
+    /// Store geoms and animations from the file in hte instance so we don't
+    /// have to pass them arround too much. (fix this later)
+    this.geometries = this.havokChunkData.geometries;
+    this.animations = this.havokChunkData.animations;
+
+    /// Render "prop", "zone" and "obs" models in that order.
+    let renderZoneModelsCB = function() {
+      self.renderModels(obsModels, "obs", callback);
+    };
+    let renderPropModelsCB = function() {
+      self.renderModels(zoneModels, "zone", renderZoneModelsCB);
+    };
+    self.renderModels(propModels, "prop", renderPropModelsCB);
+  }
 }
 
-/// DataRenderer inheritance:
-HavokRenderer.prototype = Object.create(DataRenderer.prototype);
-HavokRenderer.prototype.constructor = HavokRenderer;
-
-/**
- * Output fileds generated:
- *
- * - *boundingBox* Array of values describing the bounding box of all collision.
- * - *meshes* An array of THREE.Mesh objects visualizing all collision in the map.
- *
- * @async
- * @param  {Function} callback Fires when renderer is finished, does not take arguments.
- */
-HavokRenderer.prototype.renderAsync = function(callback) {
-  let self = this;
-
-  // TODO:The design of this method pretty much requires one instance
-  // of the class per parallel async render. Should probably fix this
-  // at some point...
-
-  /// Get required chunks
-  this.havokChunkData = this.mapFile.getChunk("havk").data;
-
-  /// Set static bounds to the bounds of the havk models
-  this.getOutput().boundingBox = this.havokChunkData.boundsMax;
-
-  /// Clear old meshes
-  this.meshes = [];
-
-  /// Set up output array
-  this.getOutput().meshes = [];
-
-  /// Grab model raw data from the chunk.
-  /// Add missing scale value to obs models.
-  let propModels = this.havokChunkData.propModels;
-  let zoneModels = this.havokChunkData.zoneModels;
-  let obsModels = this.havokChunkData.obsModels;
-  obsModels.forEach(function(mdl) {
-    mdl.scale = 1;
-  });
-
-  /// Store geoms and animations from the file in hte instance so we don't
-  /// have to pass them arround too much. (fix this later)
-  this.geometries = this.havokChunkData.geometries;
-  this.animations = this.havokChunkData.animations;
-
-  /// Render "prop", "zone" and "obs" models in that order.
-  let renderZoneModelsCB = function() {
-    self.renderModels(obsModels, "obs", callback);
-  };
-  let renderPropModelsCB = function() {
-    self.renderModels(zoneModels, "zone", renderZoneModelsCB);
-  };
-  self.renderModels(propModels, "prop", renderPropModelsCB);
-};
-
+HavokRenderer.rendererName = "HavokRenderer";
 module.exports = HavokRenderer;
