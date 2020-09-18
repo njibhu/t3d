@@ -34,8 +34,8 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 class HavokRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
-    super(localReader, settings, context, logger);
+  constructor(_name, localReader, settings, context, logger) {
+    super("HavokRenderer", localReader, settings, context, logger);
 
     this.mapFile = this.settings.mapFile;
 
@@ -308,4 +308,5 @@ class HavokRenderer extends DataRenderer {
   }
 }
 
+HavokRenderer.rendererName = "HavokRenderer";
 module.exports = HavokRenderer;

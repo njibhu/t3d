@@ -489,14 +489,19 @@ T3D = module.exports = {
    *                                   method of the renderer.
    */
   runRenderer: function(renderClass, localReader, settings, context, cb) {
-    let r = new renderClass(localReader, settings, context);
+    let r = new renderClass(
+      renderClass.rendererName,
+      localReader,
+      settings,
+      context
+    );
 
     r.renderAsync(cb);
   },
 
   /**
    * @param  {Object} context        A shared renderer context value object.
-   * @param  {Class}   clazz          A class extending
+   * @param  {Class}   clazz         A class extending
    *                                  {{#crossLink "DataRenderer"}}{{/crossLink}}.
    *                                  Specifies for renderer class you want to read
    *                                  output.
@@ -508,7 +513,7 @@ T3D = module.exports = {
    *                              otherwise defaultValue.
    */
   getContextValue: function(context, clazz, propName, defaultValue) {
-    let output = context[clazz.name];
+    let output = context[clazz.rendererName];
     if (output) {
       return output[propName] ? output[propName] : defaultValue;
     }

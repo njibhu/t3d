@@ -41,8 +41,8 @@ const TerrainShader = require("../util/TerrainShader.js");
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 class TerrainRenderer extends DataRenderer {
-  constructor(localReader, mapFile, settings, context, logger) {
-    super(localReader, mapFile, settings, context, logger);
+  constructor(_name, localReader, mapFile, settings, context, logger) {
+    super("TerrainRenderer", localReader, mapFile, settings, context, logger);
     this.mapFile = this.settings.mapFile;
   }
 
@@ -447,4 +447,5 @@ class TerrainRenderer extends DataRenderer {
   }
 }
 
+TerrainRenderer.rendererName = "TerrainRenderer";
 module.exports = TerrainRenderer;

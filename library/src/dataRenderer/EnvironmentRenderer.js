@@ -34,8 +34,8 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 class EnvironmentRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
-    super(localReader, settings, context, logger);
+  constructor(_name, localReader, settings, context, logger) {
+    super("EnvironmentRenderer", localReader, settings, context, logger);
 
     this.mapFile = this.settings.mapFile;
   }
@@ -328,5 +328,7 @@ class EnvironmentRenderer extends DataRenderer {
     callback();
   }
 }
+
+EnvironmentRenderer.rendererName = "EnvironmentRenderer";
 
 module.exports = EnvironmentRenderer;

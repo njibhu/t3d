@@ -34,8 +34,8 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 class ZoneRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
-    super(localReader, settings, context, logger);
+  constructor(_name, localReader, settings, context, logger) {
+    super("ZoneRenderer", localReader, settings, context, logger);
     this.mapFile = this.settings.mapFile;
   }
   /**
@@ -448,6 +448,7 @@ class ZoneRenderer extends DataRenderer {
   }
 }
 
+ZoneRenderer.rendererName = "ZoneRenderer";
 module.exports = ZoneRenderer;
 
 /// NOT USED??

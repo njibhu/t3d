@@ -55,7 +55,8 @@ const GW2File = require("../format/file/GW2File");
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 class DataRenderer {
-  constructor(localReader, settings, context, logger) {
+  constructor(rendererName, localReader, settings, context, logger) {
+    this.rendererName = rendererName;
     /// Just storing parameters
     this.localReader = localReader;
     this.settings = settings;
@@ -63,7 +64,7 @@ class DataRenderer {
       settings = {};
     }
     this.context = context;
-    this.context[this.constructor.name] = {};
+    this.context[rendererName] = {};
 
     if (logger) this.logger = logger;
     else this.logger = T3D.Logger;
@@ -77,7 +78,9 @@ class DataRenderer {
    * @return {Object}            The output value object for this class within the context.
    */
   getOutput(otherClass) {
-    return this.context[otherClass ? otherClass.name : this.constructor.name];
+    return this.context[
+      otherClass ? otherClass.rendererName : this.rendererName
+    ];
   }
 
   /**
@@ -179,5 +182,7 @@ class DataRenderer {
     });
   }
 }
+
+DataRenderer.rendererName = "DataRenderer";
 
 module.exports = DataRenderer;

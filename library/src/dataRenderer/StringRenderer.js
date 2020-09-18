@@ -33,8 +33,8 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 class StringRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
-    super(localReader, settings, context, logger);
+  constructor(_name, localReader, settings, context, logger) {
+    super("StringRenderer", localReader, settings, context, logger);
   }
 
   /**
@@ -113,4 +113,5 @@ class StringRenderer extends DataRenderer {
   }
 }
 
+StringRenderer.rendererName = "StringRenderer";
 module.exports = StringRenderer;

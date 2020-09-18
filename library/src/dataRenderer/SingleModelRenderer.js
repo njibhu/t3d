@@ -34,8 +34,8 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 class SingleModelRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
-    super(localReader, settings, context, logger);
+  constructor(_name, localReader, settings, context, logger) {
+    super("SingleModelRenderer", localReader, settings, context, logger);
   }
 
   /**
@@ -83,4 +83,5 @@ class SingleModelRenderer extends DataRenderer {
   }
 }
 
+SingleModelRenderer.rendererName = "SingleModelRenderer";
 module.exports = SingleModelRenderer;
