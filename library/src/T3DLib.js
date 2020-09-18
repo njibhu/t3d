@@ -490,10 +490,11 @@ T3D = module.exports = {
    */
   runRenderer: function(renderClass, localReader, settings, context, cb) {
     let r = new renderClass(
-      renderClass.rendererName,
       localReader,
       settings,
-      context
+      context,
+      undefined,
+      renderClass.rendererName
     );
 
     r.renderAsync(cb);

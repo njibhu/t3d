@@ -55,7 +55,13 @@ const GW2File = require("../format/file/GW2File");
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 class DataRenderer {
-  constructor(rendererName, localReader, settings, context, logger) {
+  constructor(
+    localReader,
+    settings,
+    context,
+    logger,
+    rendererName = "DataRenderer"
+  ) {
     this.rendererName = rendererName;
     /// Just storing parameters
     this.localReader = localReader;
@@ -184,5 +190,4 @@ class DataRenderer {
 }
 
 DataRenderer.rendererName = "DataRenderer";
-
 module.exports = DataRenderer;
