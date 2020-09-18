@@ -2,6 +2,11 @@
 
 This is the new home of the Tyria3D project.
 
+### Come and try it here:
+
+- [Explorer](https://njibhu.github.io/t3d/explorer/index.html)
+- [T3D Examples](https://njibhu.github.io/t3d/examples/index.html)
+
 ## What is T3D ? Whasn't there a Tyria3DLibrary ?
 
 T3D is a new mono-repository to combine work on the few small projects using the library.
