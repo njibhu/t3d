@@ -50,3 +50,22 @@ export type PackEmoteTimingV2 = {
   LoopDuration: number,
   OutroDuration: number
 }
+
+export type PackEmoteAnimationsV3 = {
+  Animation: Array<PackEmoteAnimationV3>
+}
+
+export type PackEmoteAnimationV3 = {
+  Token: number,
+  Timing: Array<PackEmoteTimingV3>
+}
+
+export type PackEmoteTimingV3 = {
+  ModelFile: string,
+  BlendIn: number,
+  BlendOut: number,
+  IntroDuration: number,
+  LoopDuration: number,
+  OutroDuration: number,
+  StartOffset: number
+}

@@ -1,4 +1,4 @@
-import { Filename, Uint32, Uint8, FixedArray, Float32, DynArray, Pointer, String16, Uint64, Uint16 } from "../src/types";
+import { Filename, Uint32, Uint8, FixedArray, Float32, Uint64, DynArray, Pointer, String16, Uint16 } from "../src/types";
 
 export const V11 = {
   chunkName: "zon2",
@@ -853,5 +853,95 @@ export const V21 = {
   }
 };
 
-export const latest = V21;
-export const definitionArray = [V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21];
+export const V22 = {
+  chunkName: "zon2",
+  name: "PackMapZonesV23",
+  version: 22,
+  definitions: {
+    PackMapZoneDefV23: {
+      defFilename: Filename(),
+      token: Uint32,
+      layerDefArray: DynArray("PackMapZoneLayerDefV23"),
+      timeStamp: Uint64,
+      pageTable: Pointer("PackMapZonePageTableV11"),
+      reserved: String16()
+    },
+    PackMapZoneLayerDefV23: {
+      type: Uint8,
+      height: Uint8,
+      width: Uint8,
+      radiusGround: Uint8,
+      sortGroup: Uint8,
+      tiling: Uint8,
+      scaleRange: FixedArray(Float32, 2),
+      probability: Float32,
+      fadeRange: FixedArray(Float32, 2),
+      rotRange: FixedArray(FixedArray(Float32, 2), 3),
+      hslRanges: FixedArray(FixedArray(Float32, 2), 4),
+      instanceScaleJitter: Float32,
+      noise: Uint8,
+      layerFlags: Uint32,
+      materialname: Filename(),
+      modelArray: DynArray("PackMapZoneModelV23"),
+      subModel: Pointer("PackMapZoneModelV23"),
+      reserved: String16()
+    },
+    PackMapZoneModelV23: {
+      filename: Filename(),
+      probability: Float32,
+      flags: Uint32,
+      hslOffset: FixedArray(Float32, 3),
+      zOffsets: FixedArray(Uint8, 2),
+      permutation: Uint64
+    },
+    PackMapZonePageTableV11: {
+      pageArray: DynArray("PackMapZonePageV11"),
+      flags: Uint32
+    },
+    PackMapZonePageV11: {
+      flags: DynArray(Uint8),
+      chunkCoord: FixedArray(Uint32, 2),
+      seed: Uint8,
+      paintFlags: DynArray(Uint32),
+      string: String16()
+    },
+    PackMapZoneV23: {
+      zoneFlags: Uint32,
+      vertRect: FixedArray(Uint32, 4),
+      waterHeight: Float32,
+      seed: Uint8,
+      defToken: Uint32,
+      range: FixedArray(Float32, 2),
+      zPos: Float32,
+      flags: DynArray(Uint8),
+      encodeData: DynArray("PackMapZoneEncodingDataV23"),
+      collideData: DynArray("PackMapZoneCollideDataV23"),
+      offsetData: DynArray(Uint16),
+      vertices: DynArray(FixedArray(Float32, 2)),
+      broadId: Uint16,
+      reserved: String16()
+    },
+    PackMapZoneEncodingDataV23: {
+      index: Uint16,
+      offset: Uint8
+    },
+    PackMapZoneCollideDataV23: {
+      normalX: Float32,
+      normalY: Float32,
+      zPos: Float32
+    },
+    PackBroadphaseType: {
+      broadphaseData: DynArray(Uint8)
+    }
+  },
+  root: {
+    zoneDefArray: DynArray("PackMapZoneDefV23"),
+    zoneArray: DynArray("PackMapZoneV23"),
+    broadPhase: "PackBroadphaseType",
+    maxBroadId: Uint16,
+    string: String16()
+  }
+};
+
+export const latest = V22;
+export const definitionArray = [V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22];

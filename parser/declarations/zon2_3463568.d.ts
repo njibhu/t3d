@@ -842,3 +842,91 @@ export type PackMapZoneCollideDataV22 = {
   normalY: number,
   zPos: number
 }
+
+export type PackMapZonesV23 = {
+  zoneDefArray: Array<PackMapZoneDefV23>,
+  zoneArray: Array<PackMapZoneV23>,
+  broadPhase: PackBroadphaseType,
+  maxBroadId: number,
+  string: string
+}
+
+export type PackMapZoneDefV23 = {
+  defFilename: string,
+  token: number,
+  layerDefArray: Array<PackMapZoneLayerDefV23>,
+  timeStamp: number,
+  pageTable: PackMapZonePageTableV11,
+  reserved: string
+}
+
+export type PackMapZoneLayerDefV23 = {
+  type: number,
+  height: number,
+  width: number,
+  radiusGround: number,
+  sortGroup: number,
+  tiling: number,
+  scaleRange: Array<number>,
+  probability: number,
+  fadeRange: Array<number>,
+  rotRange: Array<Array<number>>,
+  hslRanges: Array<Array<number>>,
+  instanceScaleJitter: number,
+  noise: number,
+  layerFlags: number,
+  materialname: string,
+  modelArray: Array<PackMapZoneModelV23>,
+  subModel: PackMapZoneModelV23,
+  reserved: string
+}
+
+export type PackMapZoneModelV23 = {
+  filename: string,
+  probability: number,
+  flags: number,
+  hslOffset: Array<number>,
+  zOffsets: Array<number>,
+  permutation: number
+}
+
+export type PackMapZonePageTableV11 = {
+  pageArray: Array<PackMapZonePageV11>,
+  flags: number
+}
+
+export type PackMapZonePageV11 = {
+  flags: Array<number>,
+  chunkCoord: Array<number>,
+  seed: number,
+  paintFlags: Array<number>,
+  string: string
+}
+
+export type PackMapZoneV23 = {
+  zoneFlags: number,
+  vertRect: Array<number>,
+  waterHeight: number,
+  seed: number,
+  defToken: number,
+  range: Array<number>,
+  zPos: number,
+  flags: Array<number>,
+  encodeData: Array<PackMapZoneEncodingDataV23>,
+  collideData: Array<PackMapZoneCollideDataV23>,
+  offsetData: Array<number>,
+  vertices: Array<Array<number>>,
+  broadId: number,
+  reserved: string
+}
+
+export type PackMapZoneEncodingDataV23 = {
+  index: number,
+  offset: number
+}
+
+export type PackMapZoneCollideDataV23 = {
+  normalX: number,
+  normalY: number,
+  zPos: number
+}

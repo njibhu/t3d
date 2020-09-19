@@ -1869,5 +1869,139 @@ export const V18 = {
   }
 };
 
-export const latest = V18;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18];
+export const V19 = {
+  chunkName: "comp",
+  name: "PackCompositeV19",
+  version: 19,
+  definitions: {
+    PackCompositeBlitRectSetV19: {
+      name: String16(),
+      size: FixedArray(Uint32, 2),
+      rectIndex: DynArray(Uint8),
+      rectArray: DynArray(FixedArray(Uint32, 4))
+    },
+    PackCompositeBoneScaleV19: {
+      BodyRegion: DynArray("PackCompositeBoneScaleRegionV19"),
+      MorphWeight: DynArray("PackCompositeMorphWeightV19")
+    },
+    PackCompositeBoneScaleRegionV19: {
+      name: Uint64,
+      value: Float32,
+      Bone: DynArray("PackCompositeBoneScaleParamV19")
+    },
+    PackCompositeBoneScaleParamV19: {
+      name: Uint64,
+      flags: Uint8,
+      max: Float32,
+      min: Float32,
+      rotate: FixedArray(Float32, 3),
+      scale: FixedArray(Float32, 3),
+      translate: FixedArray(Float32, 3)
+    },
+    PackCompositeMorphWeightV19: {
+      name: Uint64,
+      value: Float32
+    },
+    PackCompositeRaceDataV19: {
+      name: String16(),
+      nameToken: Uint64,
+      baseHeadToken: Uint64,
+      beard: DynArray(Uint64),
+      bodyBoneScales: DynArray("PackCompositeBoneScaleV19"),
+      bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV19"),
+      ears: DynArray(Uint64),
+      eyeColorPalette: String16(),
+      faceBoneScales: DynArray("PackCompositeBoneScaleV19"),
+      faces: DynArray(Uint64),
+      fileData: DynArray("PackCompositeFileDataV19"),
+      flags: Uint32,
+      hairStyles: DynArray(Uint64),
+      hairColorPalette: String16(),
+      skeletonFile: Fileref(),
+      skinPatterns: DynArray("PackCompositeSkinPatternV19"),
+      skinColorPalette: String16(),
+      skinPatternPalette: String16(),
+      skinStyles: DynArray("PackCompositeSkinStyleV19"),
+      type: Uint32,
+      variantRefRace: Uint64,
+      variants: DynArray("PackCompositeVariantV19"),
+      animOverrides: DynArray("PackCompositeAnimOverrideV19")
+    },
+    PackCompositeBoneScaleFileV19: {
+      fileName: String16()
+    },
+    PackCompositeFileDataV19: {
+      name: Uint64,
+      type: Uint8,
+      flags: Uint8,
+      animRoleOverride: Uint64,
+      meshBase: Fileref(),
+      meshOverlap: Fileref(),
+      maskDye1: Fileref(),
+      maskDye2: Fileref(),
+      maskDye3: Fileref(),
+      maskDye4: Fileref(),
+      maskCut: Fileref(),
+      textureBase: Fileref(),
+      textureNormal: Fileref(),
+      dyeFlags: Uint32,
+      hideFlags: Uint32,
+      skinFlags: Uint32,
+      blitRectIndex: Uint8
+    },
+    PackCompositeSkinPatternV19: {
+      chest: Fileref(),
+      face: Fileref(),
+      feet: Fileref(),
+      hands: Fileref(),
+      legs: Fileref(),
+      ears: Fileref()
+    },
+    PackCompositeSkinStyleV19: {
+      chest: Uint64,
+      feet: Uint64,
+      hands: Uint64,
+      legs: Uint64
+    },
+    PackCompositeVariantV19: {
+      token: Uint64,
+      boneScaleIndex: Uint32,
+      components: DynArray("PackCompositeVariantComponentV19"),
+      eyeColor: "PackCompositeColorV19",
+      hairColor: "PackCompositeColorV19",
+      hairColor2: "PackCompositeColorV19",
+      patternColor: "PackCompositeColorV19",
+      skinColor: "PackCompositeColorV19",
+      skinIndex: Uint32,
+      skinStyle: Uint32
+    },
+    PackCompositeVariantComponentV19: {
+      nameToken: Uint64,
+      color0: "PackCompositeColorV19",
+      color1: "PackCompositeColorV19",
+      color2: "PackCompositeColorV19",
+      color3: "PackCompositeColorV19"
+    },
+    PackCompositeColorV19: {
+      brightness: Uint8,
+      contrast: Uint8,
+      hue: Uint8,
+      saturation: Uint8,
+      lightness: Uint8
+    },
+    PackCompositeAnimOverrideV19: {
+      animRole: Uint64,
+      filepath: Fileref()
+    }
+  },
+  root: {
+    armorColorIds: DynArray(Uint32),
+    blitRects: DynArray("PackCompositeBlitRectSetV19"),
+    boneScales: DynArray("PackCompositeBoneScaleV19"),
+    raceSexData: DynArray("PackCompositeRaceDataV19"),
+    configVersion: Uint16
+  }
+};
+
+export const latest = V19;
+export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19];

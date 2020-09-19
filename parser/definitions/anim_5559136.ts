@@ -66,5 +66,29 @@ export const V2 = {
   }
 };
 
-export const latest = V2;
-export const definitionArray = [V0, V1, V2];
+export const V3 = {
+  chunkName: "anim",
+  name: "PackEmoteAnimationsV3",
+  version: 3,
+  definitions: {
+    PackEmoteAnimationV3: {
+      Token: Uint64,
+      Timing: DynArray("PackEmoteTimingV3")
+    },
+    PackEmoteTimingV3: {
+      ModelFile: Fileref(),
+      BlendIn: Float32,
+      BlendOut: Float32,
+      IntroDuration: Uint32,
+      LoopDuration: Uint32,
+      OutroDuration: Uint32,
+      StartOffset: Uint32
+    }
+  },
+  root: {
+    Animation: DynArray("PackEmoteAnimationV3")
+  }
+};
+
+export const latest = V3;
+export const definitionArray = [V0, V1, V2, V3];
