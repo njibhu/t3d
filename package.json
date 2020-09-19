@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "DataStream.js": "github:kig/DataStream.js",
-    "jquery": "^1.11.1",
+    "jquery": "^3.5.0",
     "three": "^0.91.0",
     "w2ui": "^1.4.3"
   },
