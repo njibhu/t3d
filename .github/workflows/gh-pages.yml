@@ -37,6 +37,10 @@ jobs:
           cp -r dist ../pages
           mv ../pages/dist ../pages/explorer
           popd
+      - name: Copy t3dtools.js worker in a root static folder
+        run: |
+          mkdir pages/static
+          cp t3dtools.js/t3dworker.js pages/static
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
