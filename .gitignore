@@ -17,3 +17,6 @@ yarn.lock
 # ignore pages except index.html
 pages/*
 !pages/index.html
+
+# temp folder
+temp
