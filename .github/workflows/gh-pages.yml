@@ -16,12 +16,10 @@ jobs:
         uses: actions/setup-node@v1.4.3
         with:
           node-version: 12
-      - name: Install dependencies
+      - name: Generate
         run: |
           npm install
           npm run lernaInstall
-      - name: Generate
-        run: |
           pushd library
           npm run build
           npx gulp copy
