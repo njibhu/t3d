@@ -128,7 +128,7 @@ class TerrainRenderer extends DataRenderer {
       let strippedPages = pimgData.strippedPages;
 
       /// Only use layer 0
-      strippedPages.forEach(function(page) {
+      strippedPages.forEach(function (page) {
         /// Only load layer 0 and 1
         if (page.layer <= 1) {
           let filename = page.filename;
@@ -160,7 +160,7 @@ class TerrainRenderer extends DataRenderer {
     /// Render Each chunk
     /// We'll make this async in order for the screen to be able to update
 
-    let renderChunk = function(cx, cy) {
+    let renderChunk = function (cx, cy) {
       let chunkIndex = cy * xChunks + cx;
 
       let pageX = Math.floor(cx / 4);
@@ -344,7 +344,7 @@ class TerrainRenderer extends DataRenderer {
       self.getOutput().terrainTiles.push(chunk);
     }; /// End render chunk function
 
-    let stepChunk = function(cx, cy) {
+    let stepChunk = function (cx, cy) {
       if (cx >= xChunks) {
         cx = 0;
         cy++;
@@ -407,7 +407,7 @@ class TerrainRenderer extends DataRenderer {
     let strippedPages = pimgData.strippedPages;
 
     /// Only use layer 0
-    strippedPages.forEach(function(page) {
+    strippedPages.forEach(function (page) {
       /// Only load layer 0 and 1
       if (page.layer <= 1 && page.filename > 0) {
         fileIds.push(page.filename);
@@ -418,7 +418,7 @@ class TerrainRenderer extends DataRenderer {
     /// ------------ TILED IMAGES ------------
     let terrainData = terrainChunk.data;
     let allTextures = terrainData.materials.texFileArray;
-    allTextures.forEach(function(texture) {
+    allTextures.forEach(function (texture) {
       if (texture.filename > 0) fileIds.push(texture.filename);
     });
     /// ------------ END TILED IMAGES ------------

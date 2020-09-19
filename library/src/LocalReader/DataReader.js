@@ -95,7 +95,7 @@ class DataReader {
       throw new Error("WorkerLoad and WorkerPool don't have the same length");
     }
 
-    worker.onmessage = function(message_event) {
+    worker.onmessage = function (message_event) {
       let mftId;
       // Remove load
       self._workerLoad[selfWorkerId] -= 1;

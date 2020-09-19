@@ -9,7 +9,7 @@ module.exports = [
     name: "UPDA",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.AmatAppleUPDBentry = [
           "originalSize",
           "uint32",

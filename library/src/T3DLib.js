@@ -276,7 +276,7 @@ T3D = module.exports = {
    *                                 will not be fully initialized until the callback
    *                                 is fired.
    */
-  getLocalReader: function(file, callback, t3dtoolsWorker) {
+  getLocalReader: function (file, callback, t3dtoolsWorker) {
     let path = t3dtoolsWorker || _settings.t3dtoolsWorker;
 
     // Create the instance and init the threads
@@ -324,7 +324,7 @@ T3D = module.exports = {
    * For more details see
    * {{#crossLink "LocalReader/listFiles:method"}}{{/crossLink}}
    */
-  getFileListAsync: function(localReader, callback) {
+  getFileListAsync: function (localReader, callback) {
     /// Check local storage for an existing file list
     let fileList = localReader.loadFileList();
 
@@ -379,7 +379,7 @@ T3D = module.exports = {
   *      };
   * @param {boolean} searchAll if true forces re-indexing of entire dat.
   */
-  getMapListAsync: function(localReader, callback, searchAll) {
+  getMapListAsync: function (localReader, callback, searchAll) {
     /// If seachAll flag is true, force a deep search
     if (searchAll) {
       localReader.readMapListAsync(true, callback);
@@ -415,7 +415,7 @@ T3D = module.exports = {
    * @param  {Class}      logger      A logger class of the same type as
    *                                   {{#crossLink "Logger"}}{{/crossLink}}
    */
-  renderMapContentsAsync: function(localReader, fileName, renderers, callback, logger) {
+  renderMapContentsAsync: function (localReader, fileName, renderers, callback, logger) {
     /// VO for storing result from renderers
     let context = {};
 
@@ -424,7 +424,7 @@ T3D = module.exports = {
     /// Make sure we got an actuall ID number
     if (parseInt(fileName)) {
       /// File name is baseId, load using local reader.
-      localReader.loadFile(fileName, function(arrayBuffer) {
+      localReader.loadFile(fileName, function (arrayBuffer) {
         /// Set up datastream
         let ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
 
@@ -432,7 +432,7 @@ T3D = module.exports = {
         let mapFile = new T3D.GW2File(ds, 0);
 
         /// Populate VO by running the renderers
-        runAllRenderers = function(i) {
+        runAllRenderers = function (i) {
           /// Run each renderer
           if (i < renderers.length) {
             T3D.runRenderer(
@@ -477,7 +477,7 @@ T3D = module.exports = {
    * @param  {Function}   cb          Callback method passed to the renderAsync
    *                                   method of the renderer.
    */
-  runRenderer: function(renderClass, localReader, settings, context, cb) {
+  runRenderer: function (renderClass, localReader, settings, context, cb) {
     let r = new renderClass(localReader, settings, context, undefined, renderClass.rendererName);
 
     r.renderAsync(cb);
@@ -496,7 +496,7 @@ T3D = module.exports = {
    * @return {any}            The specified value from the conext if any,
    *                              otherwise defaultValue.
    */
-  getContextValue: function(context, clazz, propName, defaultValue) {
+  getContextValue: function (context, clazz, propName, defaultValue) {
     let output = context[clazz.rendererName];
     if (output) {
       return output[propName] ? output[propName] : defaultValue;
@@ -511,7 +511,7 @@ T3D = module.exports = {
    * @param  {boolean} return_context flag making this method return the canvas object instead of true
    * @return {boolean} true if the client is WebGL enabled, false otherwise
    */
-  hasWebGL: function(return_context) {
+  hasWebGL: function (return_context) {
     if (window.WebGLRenderingContext) {
       let canvas = document.createElement("canvas");
       let names = ["webgl", "experimental-webgl", "moz-webgl", "webkit-3d"];
@@ -592,8 +592,8 @@ function checkRequirements() {
 // eslint-disable-next-line no-unused-vars
 function findDuplicateChunkDefs() {
   let dups = {};
-  T3D.formats.forEach(function(f1) {
-    T3D.formats.forEach(function(f2) {
+  T3D.formats.forEach(function (f1) {
+    T3D.formats.forEach(function (f2) {
       if (f2.name === f1.name && f2 !== f1) {
         if (dups[f1.name]) {
           dups[f1.name]++;

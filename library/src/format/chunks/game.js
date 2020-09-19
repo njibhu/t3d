@@ -9,7 +9,7 @@ module.exports = [
     name: "GAME",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.__root = this.ModelFileGame = ["gameData", Utils.getArrayReader("uint8")];
       },
     },
@@ -23,7 +23,7 @@ module.exports = [
     name: "GAME",
     versions: {
       // => Version: 6
-      6: function() {
+      6: function () {
         this.ScenePathNodeV6 = [
           "position",
           ["[]", "float32", 3],
@@ -76,7 +76,7 @@ module.exports = [
       },
 
       // => Version: 5
-      5: function() {
+      5: function () {
         this.ScenePathNodeV5 = [
           "position",
           ["[]", "float32", 3],
@@ -127,7 +127,7 @@ module.exports = [
       },
 
       // => Version: 4
-      4: function() {
+      4: function () {
         this.ScenePathNodeV4 = [
           "position",
           ["[]", "float32", 3],
@@ -193,7 +193,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.ScenePathNodeV3 = [
           "position",
           ["[]", "float32", 3],
@@ -257,7 +257,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.ScenePathNodeV2 = [
           "position",
           ["[]", "float32", 3],
@@ -319,7 +319,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.ScenePathNodeV1 = [
           "position",
           ["[]", "float32", 3],
@@ -366,7 +366,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ScenePathNodeV0 = [
           "position",
           ["[]", "float32", 3],

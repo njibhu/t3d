@@ -67,9 +67,9 @@ class SingleModelRenderer extends DataRenderer {
       meshCache,
       textureCache,
       showUnmaterialed,
-      function(meshes, isCached, boundingSphere) {
+      function (meshes, isCached, boundingSphere) {
         if (meshes) {
-          meshes.forEach(function(mesh) {
+          meshes.forEach(function (mesh) {
             mesh.boundingSphere = boundingSphere;
             self.getOutput().meshes.push(mesh);
           });

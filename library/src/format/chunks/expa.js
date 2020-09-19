@@ -9,7 +9,7 @@ module.exports = [
     name: "EXPA",
     versions: {
       // => Version: 3
-      3: function() {
+      3: function () {
         this.ModelFileSnapPointV3 = [
           "bone",
           Utils.getQWordReader(),
@@ -43,7 +43,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.ModelFileSnapPointV2 = ["bone", Utils.getQWordReader(), "shape", Utils.getQWordReader()];
 
         this.ModelExpansionEmitterV2 = [
@@ -70,7 +70,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.ModelFileSnapPointV1 = ["bone", Utils.getQWordReader()];
 
         this.ModelExpansionEmitterV1 = [
@@ -97,7 +97,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ModelFileSnapPointV0 = ["bone", Utils.getQWordReader()];
 
         this.ModelExpansionEmitterV0 = ["curl", "float32", "vortexSize", "float32"];

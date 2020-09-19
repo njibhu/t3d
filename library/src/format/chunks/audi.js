@@ -9,7 +9,7 @@ module.exports = [
     name: "audi",
     versions: {
       // => Version: 8
-      8: function() {
+      8: function () {
         this.PackMapAudioRegion = [
           "regionType",
           "uint32",
@@ -70,7 +70,7 @@ module.exports = [
       },
 
       // => Version: 7
-      7: function() {
+      7: function () {
         this.PackMapAudioRegion = [
           "regionType",
           "uint32",
@@ -127,7 +127,7 @@ module.exports = [
       },
 
       // => Version: 6
-      6: function() {
+      6: function () {
         this.PackMapAudioRegion = [
           "regionType",
           "uint32",
@@ -180,7 +180,7 @@ module.exports = [
       },
 
       // => Version: 5
-      5: function() {
+      5: function () {
         this.PackMapAudioRegion = [
           "regionType",
           "uint32",
@@ -227,7 +227,7 @@ module.exports = [
       },
 
       // => Version: 4, ReferencedFunction: 0xEBB190
-      4: function() {
+      4: function () {
         this.PackMapAudioRegion = [
           "regionType",
           "uint32",
@@ -284,7 +284,7 @@ module.exports = [
       },
 
       // => Version: 3, ReferencedFunction: 0xEBB080
-      3: function() {
+      3: function () {
         this.PackMapAudioRegion = [
           "regionType",
           "uint32",
@@ -339,7 +339,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackMapAudioRegion = [
           "regionType",
           "uint32",
@@ -380,7 +380,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackMapAudioRegion = [
           "regionType",
           "uint32",
@@ -417,7 +417,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.__root = this.MapAudio = [
           "globalAmbientScriptFilename",
           Utils.getFileNameReader(),

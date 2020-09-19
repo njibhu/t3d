@@ -9,7 +9,7 @@ module.exports = [
     name: "Main",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackContentTypeInfo = [
           "guidOffset",
           "uint32",
@@ -91,7 +91,7 @@ module.exports = [
     name: "Main",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapMetadataMap = ["mapId", "uint16", "mapType", "uint8"];
 
         this.__root = this.PackMapMetadata = ["maps", Utils.getArrayReader(this.PackMapMetadataMap)];

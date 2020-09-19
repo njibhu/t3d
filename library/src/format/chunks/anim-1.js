@@ -9,7 +9,7 @@ module.exports = [
     name: "anim",
     versions: {
       // => Version: 3
-      3: function() {
+      3: function () {
         this.PackEmoteTimingV3 = [
           "ModelFile",
           Utils.getFileNameReader(),
@@ -38,7 +38,7 @@ module.exports = [
       },
 
       // => Version: 2, ReferencedFunction: 0x1103330
-      2: function() {
+      2: function () {
         this.PackEmoteTimingV2 = [
           "ModelFile",
           Utils.getFileNameReader(),
@@ -65,7 +65,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackEmoteTimingV1 = [
           "modelFileId",
           Utils.getFileNameReader(),
@@ -90,7 +90,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackEmoteTimingV0 = [
           "modelFileId",
           Utils.getFileNameReader(),

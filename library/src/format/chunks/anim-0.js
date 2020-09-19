@@ -9,7 +9,7 @@ module.exports = [
     name: "ANIM",
     versions: {
       // => Version: 25, ReferencedFunction: 0xF27630
-      25: function() {
+      25: function () {
         this.PackGrannyAnimationTypeV1 = [
           "animation",
           Utils.getArrayReader("uint8"),
@@ -214,7 +214,7 @@ module.exports = [
       },
 
       // => Version: 24, ReferencedFunction: 0xF27440
-      24: function() {
+      24: function () {
         this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelAnimationLodV24 = ["data", this.PackGrannyAnimationTypeV0, "fileFull", Utils.getFileNameReader()];
@@ -414,7 +414,7 @@ module.exports = [
       },
 
       // => Version: 23, ReferencedFunction: 0xF272A0
-      23: function() {
+      23: function () {
         this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelVisTrackDataV31 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
@@ -603,7 +603,7 @@ module.exports = [
       },
 
       // => Version: 22
-      22: function() {
+      22: function () {
         this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelVisTrackDataV30 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
@@ -792,7 +792,7 @@ module.exports = [
       },
 
       // => Version: 21
-      21: function() {
+      21: function () {
         this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelVisTrackDataV29 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
@@ -983,7 +983,7 @@ module.exports = [
       },
 
       // => Version: 20
-      20: function() {
+      20: function () {
         this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelVisTrackDataV28 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
@@ -1165,7 +1165,7 @@ module.exports = [
       },
 
       // => Version: 19
-      19: function() {
+      19: function () {
         this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelVisTrackDataV27 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
@@ -1338,7 +1338,7 @@ module.exports = [
       },
 
       // => Version: 18, ReferencedFunction: 0xF271F0
-      18: function() {
+      18: function () {
         this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelVisTrackDataV26 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
@@ -1509,7 +1509,7 @@ module.exports = [
       },
 
       // => Version: 17, ReferencedFunction: 0xF26BD0
-      17: function() {
+      17: function () {
         this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelVisTrackDataV25 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
@@ -1680,7 +1680,7 @@ module.exports = [
       },
 
       // => Version: 16
-      16: function() {
+      16: function () {
         this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelVisTrackDataV24 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
@@ -1849,7 +1849,7 @@ module.exports = [
       },
 
       // => Version: 15
-      15: function() {
+      15: function () {
         this.ModelVisTrackDataV23 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV15 = [
@@ -2000,7 +2000,7 @@ module.exports = [
       },
 
       // => Version: 14, ReferencedFunction: 0xF26950
-      14: function() {
+      14: function () {
         this.ModelVisTrackDataV22 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV14 = [
@@ -2142,7 +2142,7 @@ module.exports = [
       },
 
       // => Version: 13
-      13: function() {
+      13: function () {
         this.ModelVisTrackDataV21 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV13 = [
@@ -2284,7 +2284,7 @@ module.exports = [
       },
 
       // => Version: 12, ReferencedFunction: 0xF268A0
-      12: function() {
+      12: function () {
         this.ModelVisTrackDataV20 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV12 = [
@@ -2424,7 +2424,7 @@ module.exports = [
       },
 
       // => Version: 11
-      11: function() {
+      11: function () {
         this.ModelVisTrackDataV19 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV11 = [
@@ -2551,7 +2551,7 @@ module.exports = [
       },
 
       // => Version: 10
-      10: function() {
+      10: function () {
         this.ModelVisTrackDataV18 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV10 = [
@@ -2674,7 +2674,7 @@ module.exports = [
       },
 
       // => Version: 9
-      9: function() {
+      9: function () {
         this.ModelVisTrackDataV17 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV9 = [
@@ -2784,7 +2784,7 @@ module.exports = [
       },
 
       // => Version: 8
-      8: function() {
+      8: function () {
         this.ModelVisTrackDataV16 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV8 = ["type", "uint8", "trackGroupIndex", "uint32", "vectorTrackIndex", "uint32"];
@@ -2883,7 +2883,7 @@ module.exports = [
       },
 
       // => Version: 7
-      7: function() {
+      7: function () {
         this.ModelVisTrackDataV15 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV7 = ["type", "uint8", "trackGroupIndex", "uint32", "vectorTrackIndex", "uint32"];
@@ -2978,7 +2978,7 @@ module.exports = [
       },
 
       // => Version: 6
-      6: function() {
+      6: function () {
         this.ModelVisTrackDataV14 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV6 = ["type", "uint8", "vectorTrackIndex", "uint32"];
@@ -3064,7 +3064,7 @@ module.exports = [
       },
 
       // => Version: 5
-      5: function() {
+      5: function () {
         this.ModelVisTrackDataV13 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV5 = ["type", "uint8", "vectorTrackIndex", "uint32"];
@@ -3137,7 +3137,7 @@ module.exports = [
       },
 
       // => Version: 4
-      4: function() {
+      4: function () {
         this.ModelVisTrackDataV12 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV4 = ["type", "uint8", "vectorTrackIndex", "uint32"];
@@ -3210,7 +3210,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.ModelVisTrackDataV11 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV3 = ["type", "uint8", "vectorTrackIndex", "uint32"];
@@ -3281,7 +3281,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.ModelVisTrackDataV10 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelUVTransformV2 = ["type", "uint8", "vectorTrackIndex", "uint32"];
@@ -3343,7 +3343,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.ModelVisTrackDataV9 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelUVTransformV1 = ["type", "uint8", "vectorTrackIndex", "uint32"];
@@ -3403,7 +3403,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ModelVisTrackDataV8 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelUVTransformV0 = ["type", "uint8", "vectorTrackIndex", "uint32"];
@@ -3468,7 +3468,7 @@ module.exports = [
     name: "ANIM",
     versions: {
       // => Version: 2
-      2: function() {
+      2: function () {
         this.SceneKeyframeV2 = ["time", "float32", "position", ["[]", "float32", 3], "rotation", ["[]", "float32", 4]];
 
         this.SceneMotionV2 = ["keys", Utils.getArrayReader(this.SceneKeyframeV2)];
@@ -3521,7 +3521,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.SceneKeyframeV1 = ["time", "float32", "position", ["[]", "float32", 3], "rotation", ["[]", "float32", 4]];
 
         this.SceneMotionV1 = ["keys", Utils.getArrayReader(this.SceneKeyframeV1)];
@@ -3557,7 +3557,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.SceneKeyframeV0 = ["time", "float32", "position", ["[]", "float32", 3], "rotation", ["[]", "float32", 4]];
 
         this.SceneMotionV0 = ["keys", Utils.getArrayReader(this.SceneKeyframeV0)];

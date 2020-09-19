@@ -32,7 +32,7 @@ let FileTypes = {};
  * @param {DataStream} ds
  * @return {number}
  */
-FileTypes.getFileType = function(ds) {
+FileTypes.getFileType = function (ds) {
   let first4 = ds.readCString(4);
 
   // Parse textures

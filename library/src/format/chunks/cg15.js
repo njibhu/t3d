@@ -9,7 +9,7 @@ module.exports = [
     name: "cg15",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapCoarseNavGraphNodeV0 = [
           "materialId",
           "uint32",

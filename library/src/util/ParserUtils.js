@@ -39,8 +39,8 @@ module.exports = {
    *                           Allows any length if left unspecified.
    * @return {Function}        The generated parsing function.
    */
-  getArrayReader: function(structDef, maxCount) {
-    return function(ds, struct) {
+  getArrayReader: function (structDef, maxCount) {
+    return function (ds, struct) {
       let ret = [];
       try {
         let arr_len = ds.readUint32();
@@ -73,8 +73,8 @@ module.exports = {
    *                           for the items in the array.
    * @return {Function}        The generated parsing function.
    */
-  getRefArrayReader: function(structDef) {
-    return function(ds) {
+  getRefArrayReader: function (structDef) {
+    return function (ds) {
       let ret_arr = [];
 
       /// Read array of offsets
@@ -128,9 +128,9 @@ module.exports = {
    *
    * @return {Function}        The generated parsing function.
    */
-  getQWordReader: function() {
+  getQWordReader: function () {
     // let base32Max = 4294967296;
-    return function(ds /*, struct */) {
+    return function (ds /*, struct */) {
       return ds.readUint32() + "-" + ds.readUint32();
 
       // let p0 = ds.readUint32();
@@ -144,8 +144,8 @@ module.exports = {
    *
    * @return {Function}        The generated parsing function.
    */
-  getStringReader: function() {
-    return function(ds /*, struct*/) {
+  getStringReader: function () {
+    return function (ds /*, struct*/) {
       let ptr = ds.position + ds.readUint32();
       let pos = ds.position;
 
@@ -166,8 +166,8 @@ module.exports = {
    *
    * @return {Function}        The generated parsing function.
    */
-  getString16Reader: function(stringOffset) {
-    return function(ds /*, struct*/) {
+  getString16Reader: function (stringOffset) {
+    return function (ds /*, struct*/) {
       let ptr = ds.position + ds.readUint32() + (stringOffset || 0);
       let pos = ds.position;
 
@@ -195,8 +195,8 @@ module.exports = {
    *                           for the item pointed to.
    * @return {Function}        The generated parsing function.
    */
-  getPointerReader: function(structDef) {
-    return function(ds /*, struct*/) {
+  getPointerReader: function (structDef) {
+    return function (ds /*, struct*/) {
       let offset = ds.readUint32();
 
       if (offset === 0) {
@@ -223,8 +223,8 @@ module.exports = {
    *
    * @return {Function}        The generated parsing function.
    */
-  getFileNameReader: function() {
-    return function(ds /*, struct*/) {
+  getFileNameReader: function () {
+    return function (ds /*, struct*/) {
       let pos;
       try {
         let ptr = ds.position + ds.readUint32();

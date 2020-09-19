@@ -127,7 +127,7 @@ function buildPS(textures, numUv, alphaTest, lightMap) {
   }
 
   let uniforms = "";
-  textures.forEach(function(t, idx) {
+  textures.forEach(function (t, idx) {
     uniforms += "uniform sampler2D texture" + (idx + 1) + ";\n";
   });
   /* uniforms += "uniform sampler2D texture1;\n";
@@ -165,7 +165,7 @@ function getUVMat(textures, numUV, alphaTest) {
   let lightMap = false;
   let uniforms = {};
 
-  textures.forEach(function(t, idx) {
+  textures.forEach(function (t, idx) {
     uniforms["texture" + idx] = { type: "t", value: t };
   });
 
@@ -268,7 +268,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
       /// Find the texture reffered by this sampler
       samplerTex = null;
 
-      material.textures.forEach(function(tex /*, index*/) {
+      material.textures.forEach(function (tex /*, index*/) {
         /// Seems like only 1st part of token is used...
         if (!samplerTex && tex.token.split("-")[0] === textureToken.split("-")[0]) {
           // console.log("TEX match",tex.token, textureToken)
@@ -299,7 +299,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     }
 
     // console.log("num samplers ",samplerTextures.length);
-    samplerTextures.forEach(function(texture, idx) {
+    samplerTextures.forEach(function (texture, idx) {
       if (!texture) return;
 
       /// Set texture "URL"
@@ -324,7 +324,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     } else {
       let ft = false;
       let nt = false;
-      material.textures.forEach(function(t) {
+      material.textures.forEach(function (t) {
         // Flag for diffuse map
         if (!ft && t.token.split("-")[0] === "1733499172") ft = t;
 
@@ -527,7 +527,7 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
   }
 
   /// Load file using LocalReader.
-  localReader.loadTextureFile(fileId, function(inflatedData, dxtType, imageWidth, imageHeigth) {
+  localReader.loadTextureFile(fileId, function (inflatedData, dxtType, imageWidth, imageHeigth) {
     /// Require infalted data to be returned.
     if (!inflatedData) {
       if (onerror) onerror();

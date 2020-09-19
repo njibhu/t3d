@@ -9,7 +9,7 @@ module.exports = [
     name: "laye",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapLayerProp = ["guid", Utils.getQWordReader(), "layerIds", Utils.getArrayReader("uint32")];
 
         this.PackMapLayer = ["layerId", "uint32", "metaData", Utils.getArrayReader(["[]", "uint32", 4])];

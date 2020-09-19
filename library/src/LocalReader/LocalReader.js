@@ -158,7 +158,7 @@ class LocalReader {
       let data;
       await this._dataReader
         .inflate(ds, len, mftId, isImage, extractLength || 0)
-        .then(result => {
+        .then((result) => {
           data = result;
         })
         .catch(() => {
@@ -198,7 +198,7 @@ class LocalReader {
     }
 
     // Create a list of all the baseIds we need to inspect
-    let iterateList = Object.keys(self._indexTable).map(i => Number(i));
+    let iterateList = Object.keys(self._indexTable).map((i) => Number(i));
     for (let index in persistantList) {
       if (!(index in self._indexTable)) iterateList.push(index);
     }
@@ -222,7 +222,7 @@ class LocalReader {
       let result = this._needsScan(baseId, persistantList);
       if (result.scan === true) {
         let taskId = (await Promise.race(taskArray)).task;
-        taskArray[taskId] = this._readFileType(baseId).then(scanResult => {
+        taskArray[taskId] = this._readFileType(baseId).then((scanResult) => {
           // Put the result into our persistant storage
           persistantList[baseId] = {
             baseId: baseId,
@@ -251,7 +251,7 @@ class LocalReader {
           persistantNeedsUpdate = false;
           self._persistantStore
             .putListing(persistantId, persistantList, self._file.name, false)
-            .then(res => (persistantId = res));
+            .then((res) => (persistantId = res));
         }
       }
     }
@@ -287,14 +287,14 @@ class LocalReader {
       // Filter the maps out of all our files
       let reversedIndex = this.getReverseIndex();
       let maps = this._persistantData
-        .filter(file => file.fileType === "PF_mapc")
-        .filter(id => id.baseId === reversedIndex[self.getFileIndex(id.baseId)][0]);
+        .filter((file) => file.fileType === "PF_mapc")
+        .filter((id) => id.baseId === reversedIndex[self.getFileIndex(id.baseId)][0]);
 
       for (let map of maps) {
         let found = false;
         // Try to see if we already have some informations on this map
         for (let category of MapFileList.maps) {
-          let fileMap = category.maps.find(item => Number(item.fileName.split(".data")[0]) === map.baseId);
+          let fileMap = category.maps.find((item) => Number(item.fileName.split(".data")[0]) === map.baseId);
           if (fileMap) {
             mapArray.push({
               name: fileMap.name,
@@ -348,7 +348,7 @@ class LocalReader {
    * @returns {Array<FileItem>}
    */
   getFileList() {
-    let typeList = this._persistantData ? this._persistantData.map(i => i.fileType) : [];
+    let typeList = this._persistantData ? this._persistantData.map((i) => i.fileType) : [];
     let reverseBaseIdList = this.getReverseIndex();
 
     let fileList = this._fileMetaTable.map((meta, mftId) => {
@@ -423,7 +423,7 @@ class LocalReader {
     function restoreOuput(array) {
       let returnArray = [];
       for (let elt of array) {
-        let category = returnArray.findIndex(i => i.name === elt.category);
+        let category = returnArray.findIndex((i) => i.name === elt.category);
         if (category === -1) {
           category = returnArray.push({ name: elt.category, maps: [] }) - 1;
         }
@@ -464,7 +464,7 @@ class LocalReader {
     T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.readFileListAsync is deprecated !");
 
     // Because the API changed we reform the data as wanted previously
-    this.readFileList().then(result => {
+    this.readFileList().then((result) => {
       let returnObj = {};
       for (let fileEntry of result) {
         if (returnObj[fileEntry.fileType] === undefined) {
@@ -497,7 +497,7 @@ class LocalReader {
     T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.loadFile is deprecated !");
     let mftId = this.getFileIndex(baseId);
     if (mftId <= 0) return callback(null);
-    this.readFile(mftId, isImage, raw).then(result => {
+    this.readFile(mftId, isImage, raw).then((result) => {
       if (result.buffer === undefined) return callback(null);
       callback(result.buffer, result.dxtType, result.imageWidth, result.imageHeight);
     });

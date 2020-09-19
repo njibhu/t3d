@@ -9,7 +9,7 @@ module.exports = [
     name: "txtp",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.TextPackPassword = ["textId", "uint32", "password", Utils.getQWordReader()];
 
         this.__root = this.TextPackPasswords = [

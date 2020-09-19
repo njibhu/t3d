@@ -9,7 +9,7 @@ module.exports = [
     name: "ARMF",
     versions: {
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackAssetManifestFile = [
           "baseId",
           "uint32",
@@ -36,7 +36,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackAssetExtraFile = ["baseId", "uint32", "fileId", "uint32", "size", "uint32", "fileType", "uint32"];
 
         this.__root = this.PackAssetRootManifestV0 = [

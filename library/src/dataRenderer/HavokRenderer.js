@@ -262,7 +262,7 @@ class HavokRenderer extends DataRenderer {
     let propModels = this.havokChunkData.propModels;
     let zoneModels = this.havokChunkData.zoneModels;
     let obsModels = this.havokChunkData.obsModels;
-    obsModels.forEach(function(mdl) {
+    obsModels.forEach(function (mdl) {
       mdl.scale = 1;
     });
 
@@ -272,10 +272,10 @@ class HavokRenderer extends DataRenderer {
     this.animations = this.havokChunkData.animations;
 
     /// Render "prop", "zone" and "obs" models in that order.
-    let renderZoneModelsCB = function() {
+    let renderZoneModelsCB = function () {
       self.renderModels(obsModels, "obs", callback);
     };
-    let renderPropModelsCB = function() {
+    let renderPropModelsCB = function () {
       self.renderModels(zoneModels, "zone", renderZoneModelsCB);
     };
     self.renderModels(propModels, "prop", renderPropModelsCB);

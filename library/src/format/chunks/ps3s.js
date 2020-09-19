@@ -9,7 +9,7 @@ module.exports = [
     name: "PS3S",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.AmatPs3ShaderConstant = [
           "token",
           "uint32",

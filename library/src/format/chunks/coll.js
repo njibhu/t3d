@@ -9,7 +9,7 @@ module.exports = [
     name: "COLL",
     versions: {
       // => Version: 4
-      4: function() {
+      4: function () {
         this.ModelCollisionKeyFrameV10 = [
           "time",
           "float32",
@@ -89,7 +89,7 @@ module.exports = [
       },
 
       // => Version: 3, ReferencedFunction: 0xF277D0
-      3: function() {
+      3: function () {
         this.ModelCollisionKeyFrameV9 = [
           "time",
           "float32",
@@ -165,7 +165,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.ModelCollisionMeshV8 = [
           "animationSequences",
           Utils.getArrayReader(Utils.getQWordReader()),
@@ -220,7 +220,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.ModelCollisionMeshV1 = [
           "animationSequences",
           Utils.getArrayReader(Utils.getQWordReader()),
@@ -262,7 +262,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ModelCollisionMeshV0 = [
           "animationSequence",
           Utils.getQWordReader(),

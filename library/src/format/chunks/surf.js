@@ -9,7 +9,7 @@ module.exports = [
     name: "surf",
     versions: {
       // => Version: 2
-      2: function() {
+      2: function () {
         this.MapSurfaceAttribute = ["Id", Utils.getQWordReader(), "Sound", Utils.getQWordReader(), "flags", "uint32"];
 
         this.MapSurfaceAttributeTool = [
@@ -50,7 +50,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.MapSurfaceAttribute = ["Id", Utils.getQWordReader(), "Sound", Utils.getQWordReader(), "flags", "uint32"];
 
         this.MapSurfaceAttributeTool = [
@@ -71,7 +71,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.MapSurfaceMeta = ["index", "uint16", "descriptor", "uint8", "data", "uint8"];
 
         this.MapSurfaceChunk = [

@@ -9,7 +9,7 @@ module.exports = [
     name: "CSCN",
     versions: {
       // => Version: 36, ReferencedFunction: 0xE37660
-      36: function() {
+      36: function () {
         this.PropertyDataV36 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV36 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -157,7 +157,7 @@ module.exports = [
       },
 
       // => Version: 35
-      35: function() {
+      35: function () {
         this.PropertyDataV35 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV35 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -305,7 +305,7 @@ module.exports = [
       },
 
       // => Version: 34, ReferencedFunction: 0xE375C0
-      34: function() {
+      34: function () {
         this.PropertyDataV34 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV34 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -451,7 +451,7 @@ module.exports = [
       },
 
       // => Version: 33, ReferencedFunction: 0xE37520
-      33: function() {
+      33: function () {
         this.PropertyDataV33 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV33 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -588,7 +588,7 @@ module.exports = [
       },
 
       // => Version: 32, ReferencedFunction: 0xE37480
-      32: function() {
+      32: function () {
         this.PropertyDataV32 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV32 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -725,7 +725,7 @@ module.exports = [
       },
 
       // => Version: 31, ReferencedFunction: 0xE373E0
-      31: function() {
+      31: function () {
         this.PropertyDataV31 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV31 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -862,7 +862,7 @@ module.exports = [
       },
 
       // => Version: 30, ReferencedFunction: 0xE37390
-      30: function() {
+      30: function () {
         this.PropertyDataV30 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV30 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -999,7 +999,7 @@ module.exports = [
       },
 
       // => Version: 29
-      29: function() {
+      29: function () {
         this.PropertyDataV29 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV29 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -1138,7 +1138,7 @@ module.exports = [
       },
 
       // => Version: 28, ReferencedFunction: 0xE372F0
-      28: function() {
+      28: function () {
         this.PropertyDataV28 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV28 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -1275,7 +1275,7 @@ module.exports = [
       },
 
       // => Version: 27, ReferencedFunction: 0xE37250
-      27: function() {
+      27: function () {
         this.PropertyDataV27 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV27 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -1412,7 +1412,7 @@ module.exports = [
       },
 
       // => Version: 26, ReferencedFunction: 0xE371B0
-      26: function() {
+      26: function () {
         this.PropertyDataV26 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV26 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -1549,7 +1549,7 @@ module.exports = [
       },
 
       // => Version: 25, ReferencedFunction: 0xE37110
-      25: function() {
+      25: function () {
         this.PropertyDataV25 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV25 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -1686,7 +1686,7 @@ module.exports = [
       },
 
       // => Version: 24, ReferencedFunction: 0xE37070
-      24: function() {
+      24: function () {
         this.PropertyDataV24 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV24 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -1823,7 +1823,7 @@ module.exports = [
       },
 
       // => Version: 23
-      23: function() {
+      23: function () {
         this.PropertyDataV23 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV23 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -1958,7 +1958,7 @@ module.exports = [
       },
 
       // => Version: 22, ReferencedFunction: 0xE36FD0
-      22: function() {
+      22: function () {
         this.PropertyDataV22 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV22 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -2091,7 +2091,7 @@ module.exports = [
       },
 
       // => Version: 21
-      21: function() {
+      21: function () {
         this.PropertyDataV21 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV21 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -2224,7 +2224,7 @@ module.exports = [
       },
 
       // => Version: 20, ReferencedFunction: 0xE36F30
-      20: function() {
+      20: function () {
         this.PropertyDataV20 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV20 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -2355,7 +2355,7 @@ module.exports = [
       },
 
       // => Version: 19, ReferencedFunction: 0xE36E90
-      19: function() {
+      19: function () {
         this.PropertyDataV19 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV19 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -2486,7 +2486,7 @@ module.exports = [
       },
 
       // => Version: 18, ReferencedFunction: 0xE36E90
-      18: function() {
+      18: function () {
         this.PropertyDataV18 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV18 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -2617,7 +2617,7 @@ module.exports = [
       },
 
       // => Version: 17, ReferencedFunction: 0xE36DF0
-      17: function() {
+      17: function () {
         this.PropertyDataV17 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV17 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -2748,7 +2748,7 @@ module.exports = [
       },
 
       // => Version: 16, ReferencedFunction: 0xE36D50
-      16: function() {
+      16: function () {
         this.PropertyDataV16 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV16 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -2879,7 +2879,7 @@ module.exports = [
       },
 
       // => Version: 15
-      15: function() {
+      15: function () {
         this.PropertyDataV15 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV15 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -3010,7 +3010,7 @@ module.exports = [
       },
 
       // => Version: 14
-      14: function() {
+      14: function () {
         this.PropertyDataV14 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV14 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -3139,7 +3139,7 @@ module.exports = [
       },
 
       // => Version: 13, ReferencedFunction: 0xE36CD0
-      13: function() {
+      13: function () {
         this.PropertyDataV13 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV13 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -3266,7 +3266,7 @@ module.exports = [
       },
 
       // => Version: 12, ReferencedFunction: 0xE36BE0
-      12: function() {
+      12: function () {
         this.PropertyDataV12 = ["value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader(), "type", "uint8"];
 
         this.CurveKeyDataV12 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -3393,7 +3393,7 @@ module.exports = [
       },
 
       // => Version: 11, ReferencedFunction: 0xE36B40
-      11: function() {
+      11: function () {
         this.PropertyDataV11 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV11 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -3520,7 +3520,7 @@ module.exports = [
       },
 
       // => Version: 10, ReferencedFunction: 0xE36AE0
-      10: function() {
+      10: function () {
         this.PropertyDataV10 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV10 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -3647,7 +3647,7 @@ module.exports = [
       },
 
       // => Version: 9, ReferencedFunction: 0xE36A30
-      9: function() {
+      9: function () {
         this.PropertyDataV9 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV9 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -3774,7 +3774,7 @@ module.exports = [
       },
 
       // => Version: 8
-      8: function() {
+      8: function () {
         this.PropertyDataV8 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV8 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -3899,7 +3899,7 @@ module.exports = [
       },
 
       // => Version: 7, ReferencedFunction: 0xE36950
-      7: function() {
+      7: function () {
         this.PropertyDataV7 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV7 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -4020,7 +4020,7 @@ module.exports = [
       },
 
       // => Version: 6, ReferencedFunction: 0xE36880
-      6: function() {
+      6: function () {
         this.PropertyDataV6 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV6 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -4141,7 +4141,7 @@ module.exports = [
       },
 
       // => Version: 5, ReferencedFunction: 0xE367E0
-      5: function() {
+      5: function () {
         this.PropertyDataV5 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV5 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -4262,7 +4262,7 @@ module.exports = [
       },
 
       // => Version: 4, ReferencedFunction: 0xE36740
-      4: function() {
+      4: function () {
         this.PropertyDataV4 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV4 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -4383,7 +4383,7 @@ module.exports = [
       },
 
       // => Version: 3, ReferencedFunction: 0xE366A0
-      3: function() {
+      3: function () {
         this.PropertyDataV3 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV3 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -4502,7 +4502,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PropertyDataV2 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV2 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -4621,7 +4621,7 @@ module.exports = [
       },
 
       // => Version: 1, ReferencedFunction: 0xE36590
-      1: function() {
+      1: function () {
         this.PropertyDataV1 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV1 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];
@@ -4738,7 +4738,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PropertyDataV0 = ["type", "uint8", "value", Utils.getQWordReader(), "pathVal", Utils.getFileNameReader()];
 
         this.CurveKeyDataV0 = ["time", "float32", "value", "float32", "inTangent", "float32", "outTangent", "float32"];

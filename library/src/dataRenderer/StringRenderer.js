@@ -62,7 +62,7 @@ class StringRenderer extends DataRenderer {
     /// Set up output array
     this.getOutput().strings = [];
 
-    this.localReader.loadFile(this.settings.id, function(inflatedData) {
+    this.localReader.loadFile(this.settings.id, function (inflatedData) {
       let ds = new DataStream(inflatedData);
       let end = ds.byteLength - 2;
 

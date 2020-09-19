@@ -9,7 +9,7 @@ module.exports = [
     name: "trn",
     versions: {
       // => Version: 14
-      14: function() {
+      14: function () {
         this.PackMapTerrainChunkV14 = [
           "chunkFlags",
           "uint32",
@@ -103,7 +103,7 @@ module.exports = [
       },
 
       // => Version: 13, ReferencedFunction: 0xEBAF80
-      13: function() {
+      13: function () {
         this.PackMapTerrainChunkV13 = ["chunkFlags", "uint32", "tileTableArray", Utils.getArrayReader("uint8")];
 
         this.PackMapTerrainConstV13 = ["tokenName", "uint32", "value", ["[]", "float32", 4]];
@@ -192,7 +192,7 @@ module.exports = [
       },
 
       // => Version: 12, ReferencedFunction: 0xEBAE60
-      12: function() {
+      12: function () {
         this.PackMapTerrainChunkV12 = ["chunkFlags", "uint32", "tileTableArray", Utils.getArrayReader("uint8")];
 
         this.PackMapTerrainConstV12 = ["tokenName", "uint32", "value", ["[]", "float32", 4]];
@@ -275,7 +275,7 @@ module.exports = [
       },
 
       // => Version: 11, ReferencedFunction: 0xEBADD0
-      11: function() {
+      11: function () {
         this.PackMapTerrainChunkV11 = ["chunkFlags", "uint32", "tileTableArray", Utils.getArrayReader("uint8")];
 
         this.PackMapTerrainConstV11 = ["tokenName", "uint32", "value", ["[]", "float32", 4]];
@@ -358,7 +358,7 @@ module.exports = [
       },
 
       // => Version: 10
-      10: function() {
+      10: function () {
         this.PackMapTerrainChunkV10 = ["chunkFlags", "uint32", "tileTableArray", Utils.getArrayReader("uint8")];
 
         this.PackMapTerrainConstV10 = ["tokenName", "uint32", "value", ["[]", "float32", 4]];

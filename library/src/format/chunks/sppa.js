@@ -9,7 +9,7 @@ module.exports = [
     name: "SPPA",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.AmatAppleShaderConstant = ["token", "uint32", "regIndex", "uint32", "regCount", "uint32"];
 
         this.__root = this.AmatAppleShader = [

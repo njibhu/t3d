@@ -9,7 +9,7 @@ module.exports = [
     name: "seqn",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackAnimSequenceChargeStageV0 = ["duration", "uint16", "endingChargeLevel", "uint8"];
 
         this.PackAnimSequenceStepActionV0 = ["duration", "uint32"];

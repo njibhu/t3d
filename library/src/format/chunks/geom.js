@@ -9,7 +9,7 @@ module.exports = [
     name: "GEOM",
     versions: {
       // => Version: 1, ReferencedFunction: 0xF28010
-      1: function() {
+      1: function () {
         this.ModelMeshMorphVertV66 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV66 = [
@@ -78,7 +78,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ModelMeshMorphVertV65 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV65 = [

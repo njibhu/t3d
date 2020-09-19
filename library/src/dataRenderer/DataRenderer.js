@@ -101,7 +101,7 @@ class DataRenderer {
   renderAsync(callback) {
     let self = this;
 
-    this.localReader.loadFile(this.settings.id, function(inflatedData) {
+    this.localReader.loadFile(this.settings.id, function (inflatedData) {
       /// Set fileId so callers can identify this VO
       self.getOutput().fileId = self.settings.id;
 
@@ -145,7 +145,7 @@ class DataRenderer {
       ) {
         /// TODO: MOVE TO GW2 texture file!!
         /// Load file using LocalReader.
-        self.localReader.loadTextureFile(self.settings.id, function(inflatedData, dxtType, imageWidth, imageHeigth) {
+        self.localReader.loadTextureFile(self.settings.id, function (inflatedData, dxtType, imageWidth, imageHeigth) {
           /// Create image using returned data.
           let image = {
             data: new Uint8Array(inflatedData),

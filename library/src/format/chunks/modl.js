@@ -9,7 +9,7 @@ module.exports = [
     name: "MODL",
     versions: {
       // => Version: 65, ReferencedFunction: 0xF2C4D0
-      65: function() {
+      65: function () {
         this.ModelTextureDataV65 = [
           "filename",
           Utils.getFileNameReader(),
@@ -570,7 +570,7 @@ module.exports = [
       },
 
       // => Version: 64
-      64: function() {
+      64: function () {
         this.ModelTextureDataV64 = [
           "filename",
           Utils.getFileNameReader(),
@@ -1184,7 +1184,7 @@ module.exports = [
       },
 
       // => Version: 63, ReferencedFunction: 0xF2C410
-      63: function() {
+      63: function () {
         this.ModelTextureDataV63 = [
           "filename",
           Utils.getFileNameReader(),
@@ -1786,7 +1786,7 @@ module.exports = [
       },
 
       // => Version: 62, ReferencedFunction: 0xF2C2F0
-      62: function() {
+      62: function () {
         this.ModelTextureDataV62 = [
           "filename",
           Utils.getFileNameReader(),
@@ -2388,7 +2388,7 @@ module.exports = [
       },
 
       // => Version: 61, ReferencedFunction: 0xF2C290
-      61: function() {
+      61: function () {
         this.ModelTextureDataV61 = [
           "filename",
           Utils.getFileNameReader(),
@@ -3152,7 +3152,7 @@ module.exports = [
       },
 
       // => Version: 60, ReferencedFunction: 0xF2BE90
-      60: function() {
+      60: function () {
         this.ModelTextureDataV60 = [
           "filename",
           Utils.getFileNameReader(),
@@ -3897,7 +3897,7 @@ module.exports = [
       },
 
       // => Version: 59, ReferencedFunction: 0xF2BE40
-      59: function() {
+      59: function () {
         this.ModelTextureDataV59 = [
           "filename",
           Utils.getFileNameReader(),
@@ -4629,7 +4629,7 @@ module.exports = [
       },
 
       // => Version: 58, ReferencedFunction: 0xF2BD50
-      58: function() {
+      58: function () {
         this.ModelTextureDataV58 = [
           "filename",
           Utils.getFileNameReader(),
@@ -5359,7 +5359,7 @@ module.exports = [
       },
 
       // => Version: 57
-      57: function() {
+      57: function () {
         this.ModelTextureDataV57 = [
           "filename",
           Utils.getFileNameReader(),
@@ -6077,7 +6077,7 @@ module.exports = [
       },
 
       // => Version: 56
-      56: function() {
+      56: function () {
         this.ModelTextureDataV56 = [
           "filename",
           Utils.getFileNameReader(),
@@ -6784,7 +6784,7 @@ module.exports = [
       },
 
       // => Version: 55, ReferencedFunction: 0xF2BC60
-      55: function() {
+      55: function () {
         this.ModelTextureDataV55 = [
           "filename",
           Utils.getFileNameReader(),
@@ -7489,7 +7489,7 @@ module.exports = [
       },
 
       // => Version: 54
-      54: function() {
+      54: function () {
         this.ModelTextureDataV54 = [
           "filename",
           Utils.getFileNameReader(),
@@ -8192,7 +8192,7 @@ module.exports = [
       },
 
       // => Version: 53, ReferencedFunction: 0xF2B980
-      53: function() {
+      53: function () {
         this.ModelTextureDataV53 = [
           "filename",
           Utils.getFileNameReader(),
@@ -8885,7 +8885,7 @@ module.exports = [
       },
 
       // => Version: 52, ReferencedFunction: 0xF2B830
-      52: function() {
+      52: function () {
         this.ModelTextureDataV52 = [
           "filename",
           Utils.getFileNameReader(),
@@ -9576,7 +9576,7 @@ module.exports = [
       },
 
       // => Version: 51, ReferencedFunction: 0xF2B5B0
-      51: function() {
+      51: function () {
         this.ModelTextureDataV51 = [
           "filename",
           Utils.getFileNameReader(),
@@ -10250,7 +10250,7 @@ module.exports = [
       },
 
       // => Version: 50, ReferencedFunction: 0xF2B570
-      50: function() {
+      50: function () {
         this.ModelTextureDataV50 = [
           "filename",
           Utils.getFileNameReader(),
@@ -10898,7 +10898,7 @@ module.exports = [
       },
 
       // => Version: 49
-      49: function() {
+      49: function () {
         this.ModelTextureDataV49 = [
           "filename",
           Utils.getFileNameReader(),
@@ -11544,7 +11544,7 @@ module.exports = [
       },
 
       // => Version: 48, ReferencedFunction: 0xF2ADE0
-      48: function() {
+      48: function () {
         this.ModelTextureDataV48 = [
           "filename",
           Utils.getFileNameReader(),
@@ -12186,7 +12186,7 @@ module.exports = [
       },
 
       // => Version: 47, ReferencedFunction: 0xF2AB60
-      47: function() {
+      47: function () {
         this.ModelTextureDataV47 = [
           "filename",
           Utils.getFileNameReader(),
@@ -12817,7 +12817,7 @@ module.exports = [
       },
 
       // => Version: 46, ReferencedFunction: 0xF2AAD0
-      46: function() {
+      46: function () {
         this.ModelTextureDataV46 = [
           "filename",
           Utils.getFileNameReader(),
@@ -13450,7 +13450,7 @@ module.exports = [
       },
 
       // => Version: 45
-      45: function() {
+      45: function () {
         this.ModelTextureDataV45 = [
           "filename",
           Utils.getFileNameReader(),
@@ -14083,7 +14083,7 @@ module.exports = [
       },
 
       // => Version: 44, ReferencedFunction: 0xF2A910
-      44: function() {
+      44: function () {
         this.ModelTextureDataV44 = [
           "filename",
           Utils.getFileNameReader(),
@@ -14697,7 +14697,7 @@ module.exports = [
       },
 
       // => Version: 43
-      43: function() {
+      43: function () {
         this.ModelTextureDataV43 = [
           "filename",
           Utils.getFileNameReader(),
@@ -15311,7 +15311,7 @@ module.exports = [
       },
 
       // => Version: 42
-      42: function() {
+      42: function () {
         this.ModelTextureDataV42 = [
           "filename",
           Utils.getFileNameReader(),
@@ -15917,7 +15917,7 @@ module.exports = [
       },
 
       // => Version: 41
-      41: function() {
+      41: function () {
         this.ModelTextureDataV41 = [
           "filename",
           Utils.getFileNameReader(),
@@ -16521,7 +16521,7 @@ module.exports = [
       },
 
       // => Version: 40, ReferencedFunction: 0xF2A8C0
-      40: function() {
+      40: function () {
         this.ModelTextureDataV40 = [
           "filename",
           Utils.getFileNameReader(),
@@ -17108,7 +17108,7 @@ module.exports = [
       },
 
       // => Version: 39, ReferencedFunction: 0xF2A810
-      39: function() {
+      39: function () {
         this.ModelTextureDataV39 = [
           "filename",
           Utils.getFileNameReader(),
@@ -17689,7 +17689,7 @@ module.exports = [
       },
 
       // => Version: 38, ReferencedFunction: 0xF2A6A0
-      38: function() {
+      38: function () {
         this.ModelTextureDataV38 = [
           "filename",
           Utils.getFileNameReader(),
@@ -18268,7 +18268,7 @@ module.exports = [
       },
 
       // => Version: 37
-      37: function() {
+      37: function () {
         this.ModelTextureDataV37 = [
           "filename",
           Utils.getFileNameReader(),
@@ -18847,7 +18847,7 @@ module.exports = [
       },
 
       // => Version: 36, ReferencedFunction: 0xF2A560
-      36: function() {
+      36: function () {
         this.ModelTextureDataV36 = [
           "filename",
           Utils.getFileNameReader(),
@@ -19428,7 +19428,7 @@ module.exports = [
       },
 
       // => Version: 35, ReferencedFunction: 0xF2A400
-      35: function() {
+      35: function () {
         this.ModelTextureDataV35 = [
           "filename",
           Utils.getFileNameReader(),
@@ -19996,7 +19996,7 @@ module.exports = [
       },
 
       // => Version: 34, ReferencedFunction: 0xF2A2E0
-      34: function() {
+      34: function () {
         this.ModelTextureDataV34 = [
           "filename",
           Utils.getFileNameReader(),
@@ -20558,7 +20558,7 @@ module.exports = [
       },
 
       // => Version: 33
-      33: function() {
+      33: function () {
         this.ModelTextureDataV33 = [
           "filename",
           Utils.getFileNameReader(),
@@ -21128,7 +21128,7 @@ module.exports = [
       },
 
       // => Version: 32
-      32: function() {
+      32: function () {
         this.ModelTextureDataV32 = [
           "filename",
           Utils.getFileNameReader(),
@@ -21651,7 +21651,7 @@ module.exports = [
       },
 
       // => Version: 31
-      31: function() {
+      31: function () {
         this.ModelTextureDataV31 = [
           "filename",
           Utils.getFileNameReader(),
@@ -22092,7 +22092,7 @@ module.exports = [
       },
 
       // => Version: 30
-      30: function() {
+      30: function () {
         this.ModelTextureDataV30 = [
           "filename",
           Utils.getFileNameReader(),
@@ -22531,7 +22531,7 @@ module.exports = [
       },
 
       // => Version: 29, ReferencedFunction: 0xF2A230
-      29: function() {
+      29: function () {
         this.ModelTextureDataV29 = [
           "filename",
           Utils.getFileNameReader(),
@@ -22968,7 +22968,7 @@ module.exports = [
       },
 
       // => Version: 28
-      28: function() {
+      28: function () {
         this.ModelTextureDataV28 = [
           "filename",
           Utils.getFileNameReader(),
@@ -23393,7 +23393,7 @@ module.exports = [
       },
 
       // => Version: 27
-      27: function() {
+      27: function () {
         this.ModelTextureDataV27 = [
           "filename",
           Utils.getFileNameReader(),
@@ -23810,7 +23810,7 @@ module.exports = [
       },
 
       // => Version: 26, ReferencedFunction: 0xF29DB0
-      26: function() {
+      26: function () {
         this.ModelTextureDataV26 = [
           "filename",
           Utils.getFileNameReader(),
@@ -24225,7 +24225,7 @@ module.exports = [
       },
 
       // => Version: 25, ReferencedFunction: 0xF29C20
-      25: function() {
+      25: function () {
         this.ModelTextureDataV25 = [
           "filename",
           Utils.getFileNameReader(),
@@ -24636,7 +24636,7 @@ module.exports = [
       },
 
       // => Version: 24, ReferencedFunction: 0xF29BC0
-      24: function() {
+      24: function () {
         this.ModelTextureDataV24 = [
           "filename",
           Utils.getFileNameReader(),
@@ -25045,7 +25045,7 @@ module.exports = [
       },
 
       // => Version: 23, ReferencedFunction: 0xF29B50
-      23: function() {
+      23: function () {
         this.ModelTextureDataV23 = [
           "filename",
           Utils.getFileNameReader(),
@@ -25452,7 +25452,7 @@ module.exports = [
       },
 
       // => Version: 22
-      22: function() {
+      22: function () {
         this.ModelTextureDataV22 = [
           "filename",
           Utils.getFileNameReader(),
@@ -25859,7 +25859,7 @@ module.exports = [
       },
 
       // => Version: 21, ReferencedFunction: 0xF29A90
-      21: function() {
+      21: function () {
         this.ModelTextureDataV21 = [
           "filename",
           Utils.getFileNameReader(),
@@ -26266,7 +26266,7 @@ module.exports = [
       },
 
       // => Version: 20, ReferencedFunction: 0xF298E0
-      20: function() {
+      20: function () {
         this.ModelTextureDataV20 = [
           "filename",
           Utils.getFileNameReader(),
@@ -26659,7 +26659,7 @@ module.exports = [
       },
 
       // => Version: 19
-      19: function() {
+      19: function () {
         this.ModelTextureDataV19 = [
           "filename",
           Utils.getFileNameReader(),
@@ -27052,7 +27052,7 @@ module.exports = [
       },
 
       // => Version: 18
-      18: function() {
+      18: function () {
         this.ModelTextureDataV18 = [
           "filename",
           Utils.getFileNameReader(),
@@ -27398,7 +27398,7 @@ module.exports = [
       },
 
       // => Version: 17
-      17: function() {
+      17: function () {
         this.ModelTextureDataV17 = [
           "filename",
           Utils.getFileNameReader(),
@@ -27728,7 +27728,7 @@ module.exports = [
       },
 
       // => Version: 16
-      16: function() {
+      16: function () {
         this.ModelTextureDataV16 = [
           "filename",
           Utils.getFileNameReader(),
@@ -28043,7 +28043,7 @@ module.exports = [
       },
 
       // => Version: 15
-      15: function() {
+      15: function () {
         this.ModelTextureDataV15 = [
           "filename",
           Utils.getFileNameReader(),
@@ -28356,7 +28356,7 @@ module.exports = [
       },
 
       // => Version: 14
-      14: function() {
+      14: function () {
         this.ModelTextureDataV14 = [
           "filename",
           Utils.getFileNameReader(),
@@ -28652,7 +28652,7 @@ module.exports = [
       },
 
       // => Version: 13
-      13: function() {
+      13: function () {
         this.ModelTextureDataV13 = [
           "filename",
           Utils.getFileNameReader(),
@@ -28944,7 +28944,7 @@ module.exports = [
       },
 
       // => Version: 12
-      12: function() {
+      12: function () {
         this.ModelTextureDataV12 = [
           "filename",
           Utils.getFileNameReader(),
@@ -29236,7 +29236,7 @@ module.exports = [
       },
 
       // => Version: 11, ReferencedFunction: 0xF296A0
-      11: function() {
+      11: function () {
         this.ModelTextureDataV11 = [
           "filename",
           Utils.getFileNameReader(),
@@ -29526,7 +29526,7 @@ module.exports = [
       },
 
       // => Version: 10
-      10: function() {
+      10: function () {
         this.ModelTextureDataV10 = [
           "filename",
           Utils.getFileNameReader(),
@@ -29798,7 +29798,7 @@ module.exports = [
       },
 
       // => Version: 9
-      9: function() {
+      9: function () {
         this.ModelTextureDataV9 = [
           "filename",
           Utils.getFileNameReader(),
@@ -30031,7 +30031,7 @@ module.exports = [
       },
 
       // => Version: 8, ReferencedFunction: 0xF2C790
-      8: function() {
+      8: function () {
         this.ModelTextureDataV8 = [
           "filename",
           Utils.getFileNameReader(),
@@ -30262,7 +30262,7 @@ module.exports = [
       },
 
       // => Version: 7
-      7: function() {
+      7: function () {
         this.ModelTextureDataV7 = [
           "filename",
           Utils.getFileNameReader(),
@@ -30558,7 +30558,7 @@ module.exports = [
       },
 
       // => Version: 6, ReferencedFunction: 0xF2BED0
-      6: function() {
+      6: function () {
         this.ModelTextureDataV6 = [
           "filename",
           Utils.getFileNameReader(),
@@ -30852,7 +30852,7 @@ module.exports = [
       },
 
       // => Version: 5
-      5: function() {
+      5: function () {
         this.ModelTextureDataV5 = [
           "filename",
           Utils.getFileNameReader(),
@@ -31131,7 +31131,7 @@ module.exports = [
       },
 
       // => Version: 4
-      4: function() {
+      4: function () {
         this.ModelTextureDataV4 = [
           "filename",
           Utils.getFileNameReader(),
@@ -31406,7 +31406,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.ModelTextureDataV3 = [
           "filename",
           Utils.getFileNameReader(),
@@ -31665,7 +31665,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.ModelTextureDataV2 = [
           "filename",
           Utils.getFileNameReader(),
@@ -31916,7 +31916,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.ModelTextureDataV1 = [
           "filename",
           Utils.getFileNameReader(),
@@ -32058,7 +32058,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ModelTextureDataV0 = [
           "filename",
           Utils.getFileNameReader(),

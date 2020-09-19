@@ -9,7 +9,7 @@ module.exports = [
     name: "DX9S",
     versions: {
       // => Version: 11, ReferencedFunction: 0x5AE350
-      11: function() {
+      11: function () {
         this.AmatDx9SamplerV11 = [
           "textureIndex",
           "uint32",
@@ -75,7 +75,7 @@ module.exports = [
       },
 
       // => Version: 10
-      10: function() {
+      10: function () {
         this.AmatDx9SamplerV10 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV10 = [
@@ -134,7 +134,7 @@ module.exports = [
       },
 
       // => Version: 9, ReferencedFunction: 0x5AE990
-      9: function() {
+      9: function () {
         this.AmatDx9SamplerV9 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV9 = [
@@ -191,7 +191,7 @@ module.exports = [
       },
 
       // => Version: 8, ReferencedFunction: 0x5AE760
-      8: function() {
+      8: function () {
         this.AmatDx9SamplerV8 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV8 = [
@@ -246,7 +246,7 @@ module.exports = [
       },
 
       // => Version: 7, ReferencedFunction: 0x5AE6E0
-      7: function() {
+      7: function () {
         this.AmatDx9SamplerV7 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV7 = [
@@ -301,7 +301,7 @@ module.exports = [
       },
 
       // => Version: 6, ReferencedFunction: 0x5AE690
-      6: function() {
+      6: function () {
         this.AmatDx9SamplerV6 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV6 = [
@@ -356,7 +356,7 @@ module.exports = [
       },
 
       // => Version: 5, ReferencedFunction: 0x5AE5A0
-      5: function() {
+      5: function () {
         this.AmatDx9SamplerV5 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV5 = [
@@ -413,7 +413,7 @@ module.exports = [
       },
 
       // => Version: 4
-      4: function() {
+      4: function () {
         this.AmatDx9SamplerV4 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV4 = [
@@ -470,7 +470,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.AmatDx9SamplerV3 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV3 = [
@@ -527,7 +527,7 @@ module.exports = [
       },
 
       // => Version: 2, ReferencedFunction: 0x5AE370
-      2: function() {
+      2: function () {
         this.AmatDx9SamplerV2 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV2 = [
@@ -584,7 +584,7 @@ module.exports = [
       },
 
       // => Version: 1, ReferencedFunction: 0x5AE1C0
-      1: function() {
+      1: function () {
         this.AmatDx9SamplerV1 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV1 = [
@@ -641,7 +641,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.AmatDx9SamplerV0 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV0 = [

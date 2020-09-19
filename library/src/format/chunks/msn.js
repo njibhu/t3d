@@ -9,7 +9,7 @@ module.exports = [
     name: "msn",
     versions: {
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackMapInterestPoint = [
           "position",
           ["[]", "float32", 3],
@@ -23,7 +23,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackMapInterestPoint = ["position", ["[]", "float32", 3], "forward", ["[]", "float32", 3]];
 
         this.__root = this.MapMission = ["interestPoint", Utils.getArrayReader(this.PackMapInterestPoint)];

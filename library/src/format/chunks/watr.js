@@ -9,7 +9,7 @@ module.exports = [
     name: "watr",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.__root = this.PackMapWaterV0 = [
           "waterFoamData",
           Utils.getArrayReader("uint8"),

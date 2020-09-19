@@ -9,7 +9,7 @@ module.exports = [
     name: "ICON",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.__root = this.ModelFileIcon = ["jpgData", Utils.getArrayReader("uint8")];
       },
     },

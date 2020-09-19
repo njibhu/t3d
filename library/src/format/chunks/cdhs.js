@@ -9,7 +9,7 @@ module.exports = [
     name: "CDHS",
     versions: {
       // => Version: 1, ReferencedFunction: 0x5B0AE0
-      1: function() {
+      1: function () {
         this.PackVsGenParams = [
           "pointWindCount",
           "uint8",
@@ -42,7 +42,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackVertexShaderKeyV0 = [
           "params",
           "uint32",

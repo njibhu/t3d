@@ -9,7 +9,7 @@ module.exports = [
     name: "UPDB",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.AmatXbxUPDBentry = [
           "originalSize",
           "uint32",

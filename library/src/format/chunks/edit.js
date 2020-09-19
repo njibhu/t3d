@@ -9,7 +9,7 @@ module.exports = [
     name: "edit",
     versions: {
       // => Version: 16, ReferencedFunction: 0x452AB0
-      16: function() {
+      16: function () {
         this.MapEditLayerItem = [
           "guid",
           Utils.getQWordReader(),
@@ -159,7 +159,7 @@ module.exports = [
       },
 
       // => Version: 15, ReferencedFunction: 0x452AB0
-      15: function() {
+      15: function () {
         this.MapEditLayerItem = [
           "guid",
           Utils.getQWordReader(),
@@ -298,7 +298,7 @@ module.exports = [
       },
 
       // => Version: 14, ReferencedFunction: 0x452AB0
-      14: function() {
+      14: function () {
         this.MapEditLayerItem = [
           "guid",
           Utils.getQWordReader(),
@@ -416,7 +416,7 @@ module.exports = [
       },
 
       // => Version: 13, ReferencedFunction: 0x452AB0
-      13: function() {
+      13: function () {
         this.MapEditLayerItem = [
           "guid",
           Utils.getQWordReader(),
@@ -503,7 +503,7 @@ module.exports = [
       },
 
       // => Version: 12, ReferencedFunction: 0x452AB0
-      12: function() {
+      12: function () {
         this.MapEditLayerItem = ["guid", Utils.getQWordReader(), "moduleId", "uint32", "layerFlags", "uint32"];
 
         this.MapEditLayers = [
@@ -581,7 +581,7 @@ module.exports = [
       },
 
       // => Version: 11
-      11: function() {
+      11: function () {
         this.MapEditLayerItem = ["guid", Utils.getQWordReader(), "moduleId", "uint32", "layerFlags", "uint32"];
 
         this.MapEditLayers = [
@@ -659,7 +659,7 @@ module.exports = [
       },
 
       // => Version: 10
-      10: function() {
+      10: function () {
         this.MapEditLayers = [
           "layerPropCount",
           ["[]", "uint32", 31],
@@ -718,7 +718,7 @@ module.exports = [
       },
 
       // => Version: 9
-      9: function() {
+      9: function () {
         this.MapEditLayers = [
           "layerPropCount",
           ["[]", "uint32", 31],
@@ -775,7 +775,7 @@ module.exports = [
       },
 
       // => Version: 8
-      8: function() {
+      8: function () {
         this.MapEditLayers = [
           "layerPropCount",
           ["[]", "uint32", 31],
@@ -828,7 +828,7 @@ module.exports = [
       },
 
       // => Version: 7
-      7: function() {
+      7: function () {
         this.MapEditLayers = ["layerPropCount", ["[]", "uint32", 31], "layerStates", ["[]", "uint8", 31]];
 
         this.PackMapEditAnnotation = [
@@ -874,7 +874,7 @@ module.exports = [
       },
 
       // => Version: 6
-      6: function() {
+      6: function () {
         this.MapEditRegion = ["regions", Utils.getArrayReader(Utils.getString16Reader())];
 
         this.MapEditRegion = [
@@ -935,7 +935,7 @@ module.exports = [
       },
 
       // => Version: 5, ReferencedFunction: 0x452AB0
-      5: function() {
+      5: function () {
         this.MapEditRegion = ["regions", Utils.getArrayReader(Utils.getString16Reader())];
 
         this.MapEditRegion = [
@@ -992,7 +992,7 @@ module.exports = [
       },
 
       // => Version: 4, ReferencedFunction: 0x452AB0
-      4: function() {
+      4: function () {
         this.MapEditRegion = ["regions", Utils.getArrayReader(Utils.getString16Reader())];
 
         this.MapEditRegion = [
@@ -1045,7 +1045,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.MapEditRegion = ["regions", Utils.getArrayReader(Utils.getString16Reader())];
 
         this.MapEditRegion = [

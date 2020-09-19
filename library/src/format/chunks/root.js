@@ -9,7 +9,7 @@ module.exports = [
     name: "ROOT",
     versions: {
       // => Version: 1, ReferencedFunction: 0xF290C0
-      1: function() {
+      1: function () {
         this.ModelRootMotionV1 = [
           "sequence",
           Utils.getQWordReader(),
@@ -25,7 +25,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ModelRootMotionV0 = [
           "sequence",
           Utils.getQWordReader(),

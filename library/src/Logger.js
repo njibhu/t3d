@@ -78,7 +78,7 @@ Logger.logFunctions = new Array(5);
 
  *
  */
-Logger.log = function() {
+Logger.log = function () {
   /// Require at least 1 argument
   if (arguments.length === 0) {
     return;
@@ -100,7 +100,7 @@ Logger.log = function() {
   logFunc.apply(this, argArr);
 };
 
-Logger.argsToArr = function(args) {
+Logger.argsToArr = function (args) {
   let argArr = new Array(args.length);
   for (let i = 0; i < argArr.length; ++i) {
     argArr[i] = args[i];
@@ -108,25 +108,25 @@ Logger.argsToArr = function(args) {
   return argArr;
 };
 
-Logger.logFunctions[Logger.TYPE_ERROR] = function() {
+Logger.logFunctions[Logger.TYPE_ERROR] = function () {
   console.error.apply(console, arguments);
 };
 
-Logger.logFunctions[Logger.TYPE_WARNING] = function() {
+Logger.logFunctions[Logger.TYPE_WARNING] = function () {
   console.warn.apply(console, arguments);
 };
 
-Logger.logFunctions[Logger.TYPE_MESSAGE] = function() {
+Logger.logFunctions[Logger.TYPE_MESSAGE] = function () {
   console.log.apply(console, arguments);
 };
 
-Logger.logFunctions[Logger.TYPE_PROGRESS] = function() {
+Logger.logFunctions[Logger.TYPE_PROGRESS] = function () {
   let argArr = Logger.argsToArr(arguments);
   argArr.unshift("Progress: ");
   console.log.apply(console, argArr);
 };
 
-Logger.logFunctions[Logger.TYPE_DEBUG] = function() {
+Logger.logFunctions[Logger.TYPE_DEBUG] = function () {
   let argArr = Logger.argsToArr(arguments);
   console.debug.apply(console, argArr);
 };

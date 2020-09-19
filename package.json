@@ -9,7 +9,8 @@
     "lint": "lerna run --parallel lint",
     "format": "lerna run --parallel format",
     "preversion": "git pull",
-    "releaseMinor": "lerna version minor"
+    "releaseMinor": "lerna version minor",
+    "postinstall": "lerna exec npm install"
   },
   "dependencies": {
     "DataStream.js": "github:kig/DataStream.js",

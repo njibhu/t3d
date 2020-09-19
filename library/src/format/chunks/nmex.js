@@ -9,7 +9,7 @@ module.exports = [
     name: "nmex",
     versions: {
       // => Version: 3
-      3: function() {
+      3: function () {
         this.PackMapNavMeshChunkExternalV3 = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -47,7 +47,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackMapNavMeshChunkExternalV2 = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -83,7 +83,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackMapNavMeshChunkExternalV1 = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -106,7 +106,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapNavMeshChunkExternalV0 = [
           "boundsMin",
           ["[]", "float32", 3],

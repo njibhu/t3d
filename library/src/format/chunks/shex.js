@@ -9,7 +9,7 @@ module.exports = [
     name: "shex",
     versions: {
       // => Version: 1
-      1: function() {
+      1: function () {
         this.__root = this.PackMapShadowExtV1 = [
           "filename",
           Utils.getFileNameReader(),

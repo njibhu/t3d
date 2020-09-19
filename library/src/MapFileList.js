@@ -240,7 +240,10 @@ module.exports = {
     },
     {
       name: "14. Activites",
-      maps: [{ fileName: "605983.data", name: "Sanctum Sprint" }, { fileName: "606030.data", name: "Basket Brawl" }],
+      maps: [
+        { fileName: "605983.data", name: "Sanctum Sprint" },
+        { fileName: "606030.data", name: "Basket Brawl" },
+      ],
     },
     {
       name: "15. Dungeons",

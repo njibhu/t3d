@@ -9,7 +9,7 @@ module.exports = [
     name: "octm",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.__root = this.MapOcclusionTome = [
           "enableTomeQueries",
           "uint32",

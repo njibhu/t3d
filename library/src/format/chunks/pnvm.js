@@ -9,7 +9,7 @@ module.exports = [
     name: "pnvm",
     versions: {
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackMapPhysicsNavMeshChunkV2 = [
           "navMeshData",
           Utils.getArrayReader("uint8"),
@@ -34,7 +34,7 @@ module.exports = [
       },
 
       // => Version: 1, ReferencedFunction: 0xEBB290
-      1: function() {
+      1: function () {
         this.PackMapPhysicsNavMeshChunkV1 = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -61,7 +61,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapPhysicsNavMeshChunkV0 = [
           "boundsMin",
           ["[]", "float32", 3],

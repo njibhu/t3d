@@ -9,7 +9,7 @@ module.exports = [
     name: "mach",
     versions: {
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackAnimMachineActionV1 = [
           "actionData",
           "uint32", // Replaced unknown type: 0x1C
@@ -93,7 +93,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackAnimMachineActionV0 = [
           "actionData",
           "uint32", // Replaced unknown type: 0x1C

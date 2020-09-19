@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "npx lerna link",
     "dev": "npx http-server dist",
     "build": "npx gulp",
     "lint": "eslint src",
@@ -20,8 +19,6 @@
     "gulp-sourcemaps": "^2.6.5",
     "http-server": "^0.12.3",
     "prettier": "^2.1.2",
-    "t3d-lib": "file://../library",
-    "t3d-toolsjs": "file://../t3dtools.js",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   }

@@ -9,7 +9,7 @@ module.exports = [
     name: "tlfs",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapToolFsFileV0 = [
           "filename",
           Utils.getFileNameReader(),

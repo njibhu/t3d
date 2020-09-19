@@ -20,7 +20,7 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 module.exports = {
   /// TODO: port fog from in-engine
 
-  getFragmentShader: function() {
+  getFragmentShader: function () {
     return [
       "uniform vec2 uvScale;",
       "uniform vec2 offset;",
@@ -88,7 +88,7 @@ module.exports = {
       "}",
     ].join("\n");
   },
-  getVertexShader: function() {
+  getVertexShader: function () {
     return [
       "varying vec2 vUv;",
       "varying vec3 vecNormal;",
