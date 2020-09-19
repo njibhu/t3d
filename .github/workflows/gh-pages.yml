@@ -18,17 +18,14 @@ jobs:
           node-version: 12
       - name: Install root packages
         run: npm install
-      - name: Generate library and copy artifacts
+      - name: Generate library
         run: |
           pushd library
-          npm install
           npm run build
-          npx gulp copy
           popd
       - name: Generate examples and copy to pages
         run: |
           pushd examples
-          npm install
           npm run build
           cp -r dist ../pages
           mv ../pages/dist ../pages/examples
@@ -36,7 +33,6 @@ jobs:
       - name: Generate explorer and copy to pages
         run: |
           pushd explorer
-          npm install
           npm run build
           cp -r dist ../pages
           mv ../pages/dist ../pages/explorer
