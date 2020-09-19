@@ -9,7 +9,7 @@ module.exports = [
     name: "shad",
     versions: {
       // => Version: 1, ReferencedFunction: 0xEBB230
-      1: function() {
+      1: function () {
         this.PackMapShadowTileV1 = ["compressionMode", "uint32", "bytes", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapShadowV1 = [
@@ -37,7 +37,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapShadowTileV0 = ["compressionMode", "uint32", "bytes", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapShadowV0 = [

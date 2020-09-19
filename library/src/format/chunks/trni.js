@@ -9,7 +9,7 @@ module.exports = [
     name: "trni",
     versions: {
       // => Version: 3, ReferencedFunction: 0xEBAFE0
-      3: function() {
+      3: function () {
         this.PagedImageLayerDataV3 = [
           "rawDims",
           ["[]", "uint32", 2],
@@ -72,7 +72,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PagedImageLayerDataV2 = [
           "dims",
           ["[]", "uint32", 2],
@@ -130,7 +130,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PagedImageLayerDataV1 = [
           "dims",
           ["[]", "uint32", 2],
@@ -186,7 +186,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PagedImageLayerDataV0 = [
           "dims",
           ["[]", "uint32", 2],

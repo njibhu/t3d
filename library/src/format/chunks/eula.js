@@ -9,7 +9,7 @@ module.exports = [
     name: "eula",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackEulaLanguageV0 = ["Language", "uint8", "Text", Utils.getString16Reader()];
 
         this.__root = this.PackEulaV0 = ["Language", Utils.getArrayReader(this.PackEulaLanguageV0), "Version", "uint8"];

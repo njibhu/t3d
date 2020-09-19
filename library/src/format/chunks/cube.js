@@ -9,7 +9,7 @@ module.exports = [
     name: "cube",
     versions: {
       // => Version: 3
-      3: function() {
+      3: function () {
         this.PackMapCubeMapSampleV3 = [
           "position",
           ["[]", "float32", 3],
@@ -47,7 +47,7 @@ module.exports = [
       },
 
       // => Version: 2, ReferencedFunction: 0x452AB0
-      2: function() {
+      2: function () {
         this.PackMapCubeMapSampleV2 = [
           "position",
           ["[]", "float32", 3],
@@ -81,7 +81,7 @@ module.exports = [
       },
 
       // => Version: 1, ReferencedFunction: 0xEB92D0
-      1: function() {
+      1: function () {
         this.PackMapCubeMapSampleV1 = [
           "position",
           ["[]", "float32", 3],
@@ -113,7 +113,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapCubeMapSampleV0 = [
           "position",
           ["[]", "float32", 3],

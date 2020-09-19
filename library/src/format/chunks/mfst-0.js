@@ -9,7 +9,7 @@ module.exports = [
     name: "MFST",
     versions: {
       // => Version: 6
-      6: function() {
+      6: function () {
         this.PackAssetManifestRecord = ["baseId", "uint32", "fileId", "uint32", "size", "uint32", "flags", "uint32"];
 
         this.PackAssetManifestStream = ["parentBaseId", "uint32", "streamBaseId", "uint32"];
@@ -35,7 +35,7 @@ module.exports = [
       },
 
       // => Version: 5
-      5: function() {
+      5: function () {
         this.PackAssetManifestRecordV5 = ["baseId", "uint32", "fileId", "uint32", "size", "uint32", "flags", "uint32"];
 
         this.PackAssetManifestStreamV5 = ["parentBaseId", "uint32", "streamBaseId", "uint32"];
@@ -59,7 +59,7 @@ module.exports = [
       },
 
       // => Version: 4
-      4: function() {
+      4: function () {
         this.PackAssetManifestRecordV4 = ["baseId", "uint32", "fileId", "uint32", "size", "uint32", "flags", "uint32"];
 
         this.PackAssetManifestStreamV4 = ["parentBaseId", "uint32", "streamBaseId", "uint32"];
@@ -87,7 +87,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.PackAssetManifestRecordV3 = ["baseId", "uint32", "fileId", "uint32", "size", "uint32"];
 
         this.PackAssetManifestStreamV3 = ["parentBaseId", "uint32", "streamBaseId", "uint32"];
@@ -107,7 +107,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackAssetManifestRecordV2 = ["baseId", "uint32", "fileId", "uint32", "size", "uint32"];
 
         this.PackAssetManifestStreamV2 = ["parentBaseId", "uint32", "streamBaseId", "uint32"];
@@ -125,7 +125,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackAssetManifestRecordV1 = ["baseId", "uint32", "fileId", "uint32", "size", "uint32"];
 
         this.PackAssetManifestStreamV1 = ["parentBaseId", "uint32", "streamBaseId", "uint32"];
@@ -141,7 +141,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackAssetManifestRecordV0 = ["baseId", "uint32", "fileId", "uint32", "size", "uint32"];
 
         this.__root = this.PackAssetManifestV0 = [

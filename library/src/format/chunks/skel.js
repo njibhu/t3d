@@ -9,7 +9,7 @@ module.exports = [
     name: "SKEL",
     versions: {
       // => Version: 1, ReferencedFunction: 0xF29110
-      1: function() {
+      1: function () {
         this.ModelTransformData = [
           "Flags",
           "uint32",
@@ -160,7 +160,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ModelTransformData = [
           "Flags",
           "uint32",
@@ -316,7 +316,7 @@ module.exports = [
     name: "SKEL",
     versions: {
       // => Version: 3
-      3: function() {
+      3: function () {
         this.SceneBoneV3 = [
           "vertexA",
           ["[]", "float32", 3],
@@ -379,7 +379,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.SceneBoneV2 = [
           "vertexA",
           ["[]", "float32", 3],
@@ -440,7 +440,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.SceneBoneV1 = [
           "vertexA",
           ["[]", "float32", 3],
@@ -514,7 +514,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.SceneBoneV0 = [
           "vertexA",
           ["[]", "float32", 3],

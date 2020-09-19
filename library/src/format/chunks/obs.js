@@ -9,7 +9,7 @@ module.exports = [
     name: "obs",
     versions: {
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackMapEditCollision = [
           "token",
           "uint32",
@@ -29,7 +29,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackMapEditCollision = [
           "token",
           "uint32",
@@ -47,7 +47,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapEditCollision = [
           "token",
           "uint32",

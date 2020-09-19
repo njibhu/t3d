@@ -9,7 +9,7 @@ module.exports = [
     name: "BKCK",
     versions: {
       // => Version: 2
-      2: function() {
+      2: function () {
         this.AsndFileDataV2 = [
           "voiceId",
           "uint32",
@@ -67,7 +67,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.AsndFileDataV1 = [
           "voiceId",
           "uint32",
@@ -96,7 +96,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.AsndFileDataV0 = [
           "voiceId",
           "uint32",

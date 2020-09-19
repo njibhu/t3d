@@ -9,7 +9,7 @@ module.exports = [
     name: "bloc",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapBlockRecord = ["filename", Utils.getFileNameReader()];
 
         this.__root = this.PackMapBlock = [

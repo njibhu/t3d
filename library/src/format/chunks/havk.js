@@ -9,7 +9,7 @@ module.exports = [
     name: "havk",
     versions: {
       // => Version: 14, ReferencedFunction: 0xEBA840
-      14: function() {
+      14: function () {
         this.PackMoppType = ["moppData", Utils.getArrayReader("uint8")];
 
         this.PackMapCollideCollisionV14 = [
@@ -105,7 +105,7 @@ module.exports = [
       },
 
       // => Version: 13, ReferencedFunction: 0xEBA4F0
-      13: function() {
+      13: function () {
         this.PackMapCollideCollisionV13 = [
           "indices",
           Utils.getArrayReader("uint16"),
@@ -181,7 +181,7 @@ module.exports = [
       },
 
       // => Version: 12
-      12: function() {
+      12: function () {
         this.PackMapCollideMeshV12 = [
           "indices",
           Utils.getArrayReader("uint16"),
@@ -268,7 +268,7 @@ module.exports = [
       },
 
       // => Version: 11
-      11: function() {
+      11: function () {
         this.PackMapCollideMeshV11 = [
           "indices",
           Utils.getArrayReader("uint16"),
@@ -353,7 +353,7 @@ module.exports = [
       },
 
       // => Version: 10
-      10: function() {
+      10: function () {
         this.PackMapCollideMeshV10 = [
           "indices",
           Utils.getArrayReader("uint16"),
@@ -433,7 +433,7 @@ module.exports = [
       },
 
       // => Version: 9
-      9: function() {
+      9: function () {
         this.PackMapCollideMeshV9 = [
           "indices",
           Utils.getArrayReader("uint16"),
@@ -511,7 +511,7 @@ module.exports = [
       },
 
       // => Version: 8, ReferencedFunction: 0xEBA8B0
-      8: function() {
+      8: function () {
         this.PackMapCollideMeshV8 = [
           "indices",
           Utils.getArrayReader("uint16"),
@@ -585,7 +585,7 @@ module.exports = [
       },
 
       // => Version: 7
-      7: function() {
+      7: function () {
         this.PackMapCollideMoppCodeV7 = ["cookedData", Utils.getArrayReader("uint8")];
 
         this.PackMapCollideMeshSizeV7 = ["scale", "float32", "moppCodeIndex", "uint32"];
@@ -663,7 +663,7 @@ module.exports = [
       },
 
       // => Version: 6
-      6: function() {
+      6: function () {
         this.PackMapCollideMoppCodeV6 = ["cookedData", Utils.getArrayReader("uint8")];
 
         this.PackMapCollideMeshSizeV6 = ["scale", "float32", "moppCodeIndex", "uint32"];

@@ -9,7 +9,7 @@ module.exports = [
     name: "reso",
     versions: {
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackMapResourceMapNodeItemV1 = [
           "filename",
           Utils.getFileNameReader(),
@@ -32,7 +32,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapResourceMapNodeItemV0 = ["filename", Utils.getFileNameReader(), "type", "uint32"];
 
         this.PackMapResourceMapNodeV0 = [

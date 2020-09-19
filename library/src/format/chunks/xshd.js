@@ -9,7 +9,7 @@ module.exports = [
     name: "XSHD",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.AmatXbxShaderConstant = ["token", "uint32", "regIndex", "uint32", "regCount", "uint32"];
 
         this.AmatXbxSamplerConstant = ["regIndex", "uint32", "stateIndex", "uint32", "texIndex", "uint32"];

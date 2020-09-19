@@ -9,7 +9,7 @@ module.exports = [
     name: "PHYS",
     versions: {
       // => Version: 8
-      8: function() {
+      8: function () {
         this.SceneBoxShapeV8 = [
           "dimensions",
           ["[]", "float32", 3],
@@ -53,7 +53,7 @@ module.exports = [
       },
 
       // => Version: 7
-      7: function() {
+      7: function () {
         this.SceneBoxShapeV7 = [
           "dimensions",
           ["[]", "float32", 3],
@@ -91,7 +91,7 @@ module.exports = [
       },
 
       // => Version: 6
-      6: function() {
+      6: function () {
         this.SceneShapeSurfaceV6 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.SceneBoxShapeV6 = [
@@ -158,7 +158,7 @@ module.exports = [
       },
 
       // => Version: 5
-      5: function() {
+      5: function () {
         this.SceneShapeSurfaceV5 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.SceneBoxShapeV5 = [
@@ -212,7 +212,7 @@ module.exports = [
       },
 
       // => Version: 4
-      4: function() {
+      4: function () {
         this.SceneShapeV4 = ["surfaces", Utils.getArrayReader("uint8")];
 
         this.SceneShapeSurfaceV4 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
@@ -240,7 +240,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.SceneShapeV3 = ["surfaces", Utils.getArrayReader("uint8")];
 
         this.SceneShapeSurfaceV3 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
@@ -272,7 +272,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.SceneShapeV2 = ["shapeOffset", "uint32"];
 
         this.SceneCollisionShapeV2 = ["shapeIndex", "uint32"];
@@ -300,7 +300,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.SceneShapeV1 = ["shapeOffset", "uint32"];
 
         this.SceneCollisionShapeV1 = ["shapeIndex", "uint32"];
@@ -324,7 +324,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.SceneShapeV0 = ["shapeOffset", "uint32"];
 
         this.SceneCollisionShapeV0 = ["shapeIndex", "uint32"];

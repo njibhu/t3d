@@ -9,7 +9,7 @@ module.exports = [
     name: "phys",
     versions: {
       // => Version: 10
-      10: function() {
+      10: function () {
         this.PackMapPhysicsMeshV10 = [
           "indexArray",
           Utils.getArrayReader("uint16"),
@@ -95,7 +95,7 @@ module.exports = [
       },
 
       // => Version: 9, ReferencedFunction: 0xEBA150
-      9: function() {
+      9: function () {
         this.PackMapPhysicsMeshV9 = [
           "indexArray",
           Utils.getArrayReader("uint16"),
@@ -179,7 +179,7 @@ module.exports = [
       },
 
       // => Version: 8
-      8: function() {
+      8: function () {
         this.PackMapPhysicsMeshV8 = [
           "indexArray",
           Utils.getArrayReader("uint16"),
@@ -350,7 +350,7 @@ module.exports = [
       },
 
       // => Version: 7
-      7: function() {
+      7: function () {
         this.PackMapPhysicsMeshV7 = [
           "indexArray",
           Utils.getArrayReader("uint16"),
@@ -519,7 +519,7 @@ module.exports = [
       },
 
       // => Version: 6, ReferencedFunction: 0xEBA130
-      6: function() {
+      6: function () {
         this.PackMapPhysicsMeshV6 = [
           "indexArray",
           Utils.getArrayReader("uint16"),
@@ -679,7 +679,7 @@ module.exports = [
       },
 
       // => Version: 5, ReferencedFunction: 0xEBA130
-      5: function() {
+      5: function () {
         this.PackMapPhysicsMeshV5 = [
           "indexArray",
           Utils.getArrayReader("uint16"),
@@ -837,7 +837,7 @@ module.exports = [
       },
 
       // => Version: 4, ReferencedFunction: 0xEBA130
-      4: function() {
+      4: function () {
         this.PackMapPhysicsMeshV4 = [
           "indexArray",
           Utils.getArrayReader("uint16"),
@@ -995,7 +995,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.PackMapPhysicsMeshV3 = [
           "indexArray",
           Utils.getArrayReader("uint16"),
@@ -1052,7 +1052,7 @@ module.exports = [
       },
 
       // => Version: 2, ReferencedFunction: 0xEBA110
-      2: function() {
+      2: function () {
         this.PackMapPhysicsShapeDataV2 = ["scale", "float32", "gameDataPtr", Utils.getArrayReader("uint8")];
 
         this.PackMapPhysicsGeometryV2 = ["shapeDataIndexArray", Utils.getArrayReader("uint32")];
@@ -1098,7 +1098,7 @@ module.exports = [
       },
 
       // => Version: 1, ReferencedFunction: 0xEBA0F0
-      1: function() {
+      1: function () {
         this.PackMapPhysicsShapeDataV1 = ["scale", "float32", "gameDataPtr", Utils.getArrayReader("uint8")];
 
         this.PackMapPhysicsGeometryV1 = ["shapeDataIndexArray", Utils.getArrayReader("uint32")];

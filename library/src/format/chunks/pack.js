@@ -9,7 +9,7 @@ module.exports = [
     name: "pack",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.MapVariant = [
           "file",
           Utils.getString16Reader(),

@@ -9,7 +9,7 @@ module.exports = [
     name: "dcal",
     versions: {
       // => Version: 9, ReferencedFunction: 0xEBA2D0
-      9: function() {
+      9: function () {
         this.PackMapDecalVertexV8 = [
           "position",
           ["[]", "float32", 3],
@@ -76,7 +76,7 @@ module.exports = [
       },
 
       // => Version: 8
-      8: function() {
+      8: function () {
         this.PackMapDecalVertexV7 = ["position", ["[]", "float32", 3]];
 
         this.PackMapDecalV8 = [
@@ -134,7 +134,7 @@ module.exports = [
       },
 
       // => Version: 7, ReferencedFunction: 0xEBA270
-      7: function() {
+      7: function () {
         this.PackMapDecalVertexV6 = ["position", ["[]", "float32", 3]];
 
         this.PackMapDecalV7 = [
@@ -190,7 +190,7 @@ module.exports = [
       },
 
       // => Version: 6
-      6: function() {
+      6: function () {
         this.PackMapDecalVertexV5 = ["position", ["[]", "float32", 3]];
 
         this.PackMapDecalV6 = [
@@ -244,7 +244,7 @@ module.exports = [
       },
 
       // => Version: 5
-      5: function() {
+      5: function () {
         this.PackMapDecalVertexV4 = ["position", ["[]", "float32", 3]];
 
         this.PackMapDecalV5 = [
@@ -296,7 +296,7 @@ module.exports = [
       },
 
       // => Version: 4
-      4: function() {
+      4: function () {
         this.PackMapDecalV4 = [
           "position",
           ["[]", "float32", 3],
@@ -340,7 +340,7 @@ module.exports = [
       },
 
       // => Version: 3, ReferencedFunction: 0xEBA1F0
-      3: function() {
+      3: function () {
         this.PackMapDecalV3 = [
           "position",
           ["[]", "float32", 3],
@@ -380,7 +380,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackMapDecalV2 = [
           "position",
           ["[]", "float32", 3],
@@ -414,7 +414,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackMapDecalV1 = [
           "position",
           ["[]", "float32", 3],

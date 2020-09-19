@@ -9,7 +9,7 @@ module.exports = [
     name: "GR2S",
     versions: {
       // => Version: 4, ReferencedFunction: 0xF28C30
-      4: function() {
+      4: function () {
         this.ModelGr2DataV4 = [
           "filename",
           Utils.getString16Reader(),
@@ -23,7 +23,7 @@ module.exports = [
       },
 
       // => Version: 3, ReferencedFunction: 0xF28880
-      3: function() {
+      3: function () {
         this.ModelGr2DataV3 = [
           "filename",
           Utils.getString16Reader(),
@@ -37,7 +37,7 @@ module.exports = [
       },
 
       // => Version: 2, ReferencedFunction: 0xF282D0
-      2: function() {
+      2: function () {
         this.ModelGr2DataV2 = [
           "filename",
           Utils.getString16Reader(),
@@ -51,7 +51,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.ModelGr2DataV1 = [
           "filename",
           Utils.getString16Reader(),
@@ -65,7 +65,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ModelGr2DataV0 = ["data", Utils.getArrayReader("uint8")];
 
         this.__root = this.ModelFileGr2sV0 = ["gr2Data", Utils.getArrayReader(this.ModelGr2DataV0)];

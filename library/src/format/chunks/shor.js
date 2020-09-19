@@ -9,7 +9,7 @@ module.exports = [
     name: "shor",
     versions: {
       // => Version: 3, ReferencedFunction: 0xEBB250
-      3: function() {
+      3: function () {
         this.MapShoreChain = [
           "offset",
           "float32",
@@ -43,7 +43,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.MapShoreChain = [
           "offset",
           "float32",

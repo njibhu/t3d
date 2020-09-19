@@ -9,7 +9,7 @@ module.exports = [
     name: "lght",
     versions: {
       // => Version: 17
-      17: function() {
+      17: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -170,7 +170,7 @@ module.exports = [
       },
 
       // => Version: 16
-      16: function() {
+      16: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -329,7 +329,7 @@ module.exports = [
       },
 
       // => Version: 15, ReferencedFunction: 0xEB9730
-      15: function() {
+      15: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -484,7 +484,7 @@ module.exports = [
       },
 
       // => Version: 14
-      14: function() {
+      14: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -634,7 +634,7 @@ module.exports = [
       },
 
       // => Version: 13, ReferencedFunction: 0xEB95D0
-      13: function() {
+      13: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -765,7 +765,7 @@ module.exports = [
       },
 
       // => Version: 12, ReferencedFunction: 0xEB9310
-      12: function() {
+      12: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -896,7 +896,7 @@ module.exports = [
       },
 
       // => Version: 11, ReferencedFunction: 0xEB9310
-      11: function() {
+      11: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -1027,7 +1027,7 @@ module.exports = [
       },
 
       // => Version: 10, ReferencedFunction: 0xEB9F20
-      10: function() {
+      10: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -1146,7 +1146,7 @@ module.exports = [
       },
 
       // => Version: 9, ReferencedFunction: 0xEB9E60
-      9: function() {
+      9: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -1265,7 +1265,7 @@ module.exports = [
       },
 
       // => Version: 8, ReferencedFunction: 0xEB9DE0
-      8: function() {
+      8: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -1380,7 +1380,7 @@ module.exports = [
       },
 
       // => Version: 7
-      7: function() {
+      7: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -1493,7 +1493,7 @@ module.exports = [
       },
 
       // => Version: 6
-      6: function() {
+      6: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -1604,7 +1604,7 @@ module.exports = [
       },
 
       // => Version: 5, ReferencedFunction: 0xEB9C50
-      5: function() {
+      5: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -1687,7 +1687,7 @@ module.exports = [
       },
 
       // => Version: 4, ReferencedFunction: 0xEB9A50
-      4: function() {
+      4: function () {
         this.PackMapLight = [
           "position",
           ["[]", "float32", 3],
@@ -1733,7 +1733,7 @@ module.exports = [
       },
 
       // => Version: 3, ReferencedFunction: 0xEB9910
-      3: function() {
+      3: function () {
         this.PackMapLight = [
           "type",
           "uint32",
@@ -1779,7 +1779,7 @@ module.exports = [
       },
 
       // => Version: 2, ReferencedFunction: 0xEB97F0
-      2: function() {
+      2: function () {
         this.PackMapLight = [
           "type",
           "uint32",
@@ -1807,7 +1807,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackMapLight = [
           "type",
           "uint32",

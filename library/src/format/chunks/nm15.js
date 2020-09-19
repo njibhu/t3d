@@ -9,7 +9,7 @@ module.exports = [
     name: "nm15",
     versions: {
       // => Version: 3, ReferencedFunction: 0x452AB0
-      3: function() {
+      3: function () {
         this.PackMapNavMeshChunkV3 = [
           "chunkIndex",
           "uint32",
@@ -53,7 +53,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackMapNavMeshChunkV2 = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -93,7 +93,7 @@ module.exports = [
       },
 
       // => Version: 1, ReferencedFunction: 0xEB7230
-      1: function() {
+      1: function () {
         this.PackMapNavMeshChunkV1 = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -120,7 +120,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapNavMeshChunkV0 = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -156,7 +156,7 @@ module.exports = [
     name: "nm15",
     versions: {
       // => Version: 3
-      3: function() {
+      3: function () {
         this.__root = this.PackMapNavMeshChunkV3 = [
           "chunkIndex",
           "uint32",
@@ -174,7 +174,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.__root = this.PackMapNavMeshChunkV2 = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -190,7 +190,7 @@ module.exports = [
       },
 
       // => Version: 1, ReferencedFunction: 0xEB71D0
-      1: function() {
+      1: function () {
         this.__root = this.PackMapNavMeshChunkV1 = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -206,7 +206,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.__root = this.PackMapNavMeshChunkV0 = [
           "boundsMin",
           ["[]", "float32", 3],

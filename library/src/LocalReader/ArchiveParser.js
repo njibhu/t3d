@@ -193,7 +193,7 @@ function getFilePart(file, offset, length) {
 
     reader.onerror = reject;
 
-    reader.onload = function(fileEvent) {
+    reader.onload = function (fileEvent) {
       let buffer = fileEvent.target.result;
       let ds = new DataStream(buffer);
       ds.endianness = DataStream.LITTLE_ENDIAN;

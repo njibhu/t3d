@@ -9,7 +9,7 @@ module.exports = [
     name: "cnfg",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackAnimAimIKBoneV0 = [
           "boneToken",
           Utils.getQWordReader(),

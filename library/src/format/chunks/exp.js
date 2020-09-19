@@ -9,7 +9,7 @@ module.exports = [
     name: "exp",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.MapExpansionProperty = [
           "type",
           "uint32",

@@ -66,10 +66,7 @@ class PropertiesRenderer extends DataRenderer {
     let metaProps = propertiesChunkData.propMetaArray;
 
     /// Concat all prop types
-    props = props
-      .concat(animProps)
-      .concat(instanceProps)
-      .concat(metaProps);
+    props = props.concat(animProps).concat(instanceProps).concat(metaProps);
 
     /// Create mesh cache
     self.meshCache = {};
@@ -79,7 +76,7 @@ class PropertiesRenderer extends DataRenderer {
     // TODO: load unique meshes and textures in parallell (asynch), then render!
     let lastPct = -1;
 
-    let renderIndex = function(idx) {
+    let renderIndex = function (idx) {
       if (idx >= props.length) {
         /// Empty mesh cache
         self.meshCache = {};
@@ -103,7 +100,7 @@ class PropertiesRenderer extends DataRenderer {
       let prop = props[idx];
 
       /// Adds a single mesh to a group.
-      let addMeshToLOD = function(mesh, groups, lod, prop, needsClone) {
+      let addMeshToLOD = function (mesh, groups, lod, prop, needsClone) {
         /// Read lod distance before overwriting mesh variable
         let lodDist = prop.lod2 !== 0 ? prop.lod2 : mesh.lodOverride[1];
 
@@ -141,7 +138,7 @@ class PropertiesRenderer extends DataRenderer {
       };
 
       /// Adds array of meshes to the scene, also adds transform clones
-      let addMeshesToScene = function(meshArray, needsClone, boundingSphere) {
+      let addMeshesToScene = function (meshArray, needsClone, boundingSphere) {
         /// Add original
 
         /// Make LOD object and an array of groups for each LOD level
@@ -150,7 +147,7 @@ class PropertiesRenderer extends DataRenderer {
 
         /// Each mesh is added to a group corresponding to its LOD distane
         let maxDist = 0;
-        meshArray.forEach(function(mesh) {
+        meshArray.forEach(function (mesh) {
           maxDist = Math.max(maxDist, addMeshToLOD(mesh, groups, lod, prop, needsClone));
         });
 
@@ -179,14 +176,14 @@ class PropertiesRenderer extends DataRenderer {
 
         // Add one copy per transform, needs to be within it's own LOD
         if (prop.transforms) {
-          prop.transforms.forEach(function(transform) {
+          prop.transforms.forEach(function (transform) {
             /// Make LOD object and an array of groups for each LOD level
             let groups = {};
             let lod = new THREE.LOD();
 
             /// Each mesh is added to a group corresponding to its LOD distane
             let maxDist = 0;
-            meshArray.forEach(function(mesh) {
+            meshArray.forEach(function (mesh) {
               maxDist = Math.max(maxDist, addMeshToLOD(mesh, groups, lod, prop, true));
             });
 
@@ -225,7 +222,7 @@ class PropertiesRenderer extends DataRenderer {
         self.meshCache,
         self.textureCache,
         showUnmaterialed,
-        function(meshes, isCached, boundingSphere) {
+        function (meshes, isCached, boundingSphere) {
           if (meshes) {
             addMeshesToScene(meshes, isCached, boundingSphere);
           }
@@ -255,12 +252,9 @@ class PropertiesRenderer extends DataRenderer {
     let instanceProps = propertiesChunkData.propInstanceArray;
     let metaProps = propertiesChunkData.propMetaArray;
 
-    props = props
-      .concat(animProps)
-      .concat(instanceProps)
-      .concat(metaProps);
+    props = props.concat(animProps).concat(instanceProps).concat(metaProps);
 
-    let getIdsForProp = function(idx) {
+    let getIdsForProp = function (idx) {
       if (idx >= props.length) {
         callback(fileIds);
         return;
@@ -276,7 +270,7 @@ class PropertiesRenderer extends DataRenderer {
         {
           /* broken, needs localReader */
         },
-        function(propFileIds) {
+        function (propFileIds) {
           fileIds = fileIds.concat(propFileIds);
           getIdsForProp(idx + 1);
         }

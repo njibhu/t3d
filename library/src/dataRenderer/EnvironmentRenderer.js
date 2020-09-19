@@ -53,7 +53,7 @@ class EnvironmentRenderer extends DataRenderer {
     let self = this;
 
     function writeMat(mat) {
-      targetMatIndices.forEach(function(i) {
+      targetMatIndices.forEach(function (i) {
         materialArray[i] = mat;
       });
     }
@@ -106,14 +106,14 @@ class EnvironmentRenderer extends DataRenderer {
     // var light = lights[0];
     //
     let hasLight = false;
-    lights.forEach(function(light /*, idx*/) {
+    lights.forEach(function (light /*, idx*/) {
       if (hasLight) return;
 
       /// Directional lights
       /* eslint-disable-next-line no-unused-vars */
       let sumDirLightIntensity = 0;
 
-      light.lights.forEach(function(dirLightData /*, idx*/) {
+      light.lights.forEach(function (dirLightData /*, idx*/) {
         hasLight = true;
 
         let color = new THREE.Color(
@@ -135,9 +135,13 @@ class EnvironmentRenderer extends DataRenderer {
 
       /// Add some random directional lighting if there was no, in order to se SOME depth on models
       if (!light.lights || light.lights.length === 0) {
-        let directions = [[0, 1, 0, 0.3], [1, 2, 1, 0.3], [-1, -2, -1, 0.3]];
+        let directions = [
+          [0, 1, 0, 0.3],
+          [1, 2, 1, 0.3],
+          [-1, -2, -1, 0.3],
+        ];
 
-        directions.forEach(function(lightDir) {
+        directions.forEach(function (lightDir) {
           let color = new THREE.Color(1, 1, 1);
           let intensity = lightDir[3];
           let directionalLight = new THREE.DirectionalLight(color.getHex(), intensity);
@@ -210,7 +214,7 @@ class EnvironmentRenderer extends DataRenderer {
     let skyGeometry = new THREE.BoxGeometry(boxSize, boxSize / 2, boxSize); // Width Height Depth
 
     /// Ugly way of fixing UV maps for the skybox (I think)
-    skyGeometry.faceVertexUvs[0].forEach(function(vecs, idx) {
+    skyGeometry.faceVertexUvs[0].forEach(function (vecs, idx) {
       let face = Math.floor(idx / 2);
 
       // PX NX
@@ -219,7 +223,7 @@ class EnvironmentRenderer extends DataRenderer {
 
       /// PX - WEST   NX - EAST
       if (face === 0 || face === 1) {
-        vecs.forEach(function(vec2) {
+        vecs.forEach(function (vec2) {
           vec2.x = 1 - vec2.x;
           vec2.y /= 2.0;
           vec2.y += 0.5;
@@ -228,12 +232,12 @@ class EnvironmentRenderer extends DataRenderer {
 
       /// NZ - SOUTH   PZ - NORTH
       else if (face === 5 || face === 4) {
-        vecs.forEach(function(vec2) {
+        vecs.forEach(function (vec2) {
           vec2.y /= -2.0;
           vec2.y += 0.5;
         });
       } else {
-        vecs.forEach(function(vec2) {
+        vecs.forEach(function (vec2) {
           vec2.x = 1 - vec2.x;
         });
       }

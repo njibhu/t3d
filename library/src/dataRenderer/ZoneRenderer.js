@@ -52,7 +52,7 @@ class ZoneRenderer extends DataRenderer {
 
     /// Get Zone Definition
     let zoneDef = null;
-    zoneDefs.forEach(function(zd) {
+    zoneDefs.forEach(function (zd) {
       if (!zoneDef && zd.token === zone.defToken) zoneDef = zd;
     });
 
@@ -105,7 +105,7 @@ class ZoneRenderer extends DataRenderer {
         self.textureCache,
         showUnmaterialed,
 
-        function(meshes /*, isCached*/) {
+        function (meshes /*, isCached*/) {
           /// If there were meshes, add them to the scene with correct scaling rotation etc.
           if (meshes /* && meshes.length == 3 */) {
             /// Add one copy per model instance
@@ -113,12 +113,12 @@ class ZoneRenderer extends DataRenderer {
             /// TODO: fine tune position?
             /// TODO: POTIMIZE!
 
-            group.forEach(function(model, instanceIdx) {
+            group.forEach(function (model, instanceIdx) {
               //let isCached = true;
               //let scale = 1.0;
 
               /// For each Mesh in the model
-              meshes.forEach(function(mesh, meshIdx) {
+              meshes.forEach(function (mesh, meshIdx) {
                 if (mesh.materialFlags === 525 /* || mesh.materialFlags == 520 || mesh.materialFlags == 521 */) {
                   // console.log("Skipping lod");
                   return;
@@ -195,7 +195,7 @@ class ZoneRenderer extends DataRenderer {
           } /// End if meshes
 
           /// Add each cluster of merged meshes to scene
-          meshGroups.forEach(function(meshGroup) {
+          meshGroups.forEach(function (meshGroup) {
             let mergedGeom = new THREE.BufferGeometry();
 
             mergedGeom.addAttribute("position", new THREE.BufferAttribute(meshGroup.verts, 3));
@@ -297,7 +297,7 @@ class ZoneRenderer extends DataRenderer {
           let raycaster = new THREE.Raycaster(new THREE.Vector3(modelX, startZ, modelY), new THREE.Vector3(0, -1, 0));
 
           /// TODO: OPT?
-          terrainTiles.forEach(function(chunk) {
+          terrainTiles.forEach(function (chunk) {
             if (modelZ === null) {
               let intersections = raycaster.intersectObject(chunk);
               if (intersections.length > 0) {
@@ -408,7 +408,7 @@ function addZoneMeshesToScene(meshes, isCached, position, scale, rotation) {
   /// Called for each mesh in the zone
   /// TODO: Opt opt opt...
 
-  meshes.forEach(function(mesh) {
+  meshes.forEach(function (mesh) {
     /// Create new mesh if we got back a cached original.
     if (isCached) mesh = new THREE.Mesh(mesh.geometry, mesh.material);
 

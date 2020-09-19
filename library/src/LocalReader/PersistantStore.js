@@ -56,7 +56,7 @@ class PersistantStore {
       };
 
       /// fired when the database needs to be upgraded (or the first time)
-      request.onupgradeneeded = event => {
+      request.onupgradeneeded = (event) => {
         /** @type {IDBDatabase} */
         let db = event.target.result;
         let currentVersion = event.oldVersion;
@@ -73,7 +73,7 @@ class PersistantStore {
         }
       };
 
-      request.onsuccess = event => {
+      request.onsuccess = (event) => {
         self._dbConnection = event.target.result;
         self.isReady = true;
         resolve(self._dbConnection);
@@ -99,7 +99,7 @@ class PersistantStore {
   putListing(id, listing, fileName, isComplete) {
     let self = this;
     return new Promise((resolve, reject) => {
-      self._getConnection().then(db => {
+      self._getConnection().then((db) => {
         let store = db.transaction(["listings"], "readwrite").objectStore("listings");
 
         let request = id
@@ -127,14 +127,11 @@ class PersistantStore {
    */
   getLastListing(fileName) {
     let self = this;
-    return new Promise(resolve => {
-      self._getConnection().then(db => {
-        let listingsStore = db
-          .transaction(["listings"], "readonly")
-          .objectStore("listings")
-          .index("filename");
+    return new Promise((resolve) => {
+      self._getConnection().then((db) => {
+        let listingsStore = db.transaction(["listings"], "readonly").objectStore("listings").index("filename");
 
-        listingsStore.openCursor(IDBKeyRange.only(fileName), "prev").onsuccess = event => {
+        listingsStore.openCursor(IDBKeyRange.only(fileName), "prev").onsuccess = (event) => {
           let cursor = event.target.result;
           if (!cursor) resolve({ array: [], key: undefined, complete: true });
           else {

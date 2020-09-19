@@ -9,7 +9,7 @@ module.exports = [
     name: "fall",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackAnimFallbackV0 = [
           "sourceAnim",
           Utils.getQWordReader(),

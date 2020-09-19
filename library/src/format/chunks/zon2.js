@@ -9,7 +9,7 @@ module.exports = [
     name: "zon2",
     versions: {
       // => Version: 21
-      21: function() {
+      21: function () {
         this.PackMapZoneModelV22 = [
           "filename",
           Utils.getFileNameReader(),
@@ -144,7 +144,7 @@ module.exports = [
       },
 
       // => Version: 20, ReferencedFunction: 0xEB7610
-      20: function() {
+      20: function () {
         this.PackMapZoneModelV21 = [
           "filename",
           Utils.getFileNameReader(),
@@ -269,7 +269,7 @@ module.exports = [
       },
 
       // => Version: 19, ReferencedFunction: 0x452AB0
-      19: function() {
+      19: function () {
         this.PackMapZoneModelV20 = [
           "filename",
           Utils.getFileNameReader(),
@@ -394,7 +394,7 @@ module.exports = [
       },
 
       // => Version: 18, ReferencedFunction: 0xEB7580
-      18: function() {
+      18: function () {
         this.PackMapZoneModelV19 = [
           "filename",
           Utils.getFileNameReader(),
@@ -517,7 +517,7 @@ module.exports = [
       },
 
       // => Version: 17, ReferencedFunction: 0xEB74C0
-      17: function() {
+      17: function () {
         this.PackMapZoneModelV18 = [
           "filename",
           Utils.getFileNameReader(),
@@ -640,7 +640,7 @@ module.exports = [
       },
 
       // => Version: 16, ReferencedFunction: 0xEB72D0
-      16: function() {
+      16: function () {
         this.PackMapZoneModelV17 = [
           "filename",
           Utils.getFileNameReader(),
@@ -757,7 +757,7 @@ module.exports = [
       },
 
       // => Version: 15, ReferencedFunction: 0xEB72D0
-      15: function() {
+      15: function () {
         this.PackMapZoneModelV16 = [
           "filename",
           Utils.getFileNameReader(),
@@ -874,7 +874,7 @@ module.exports = [
       },
 
       // => Version: 14
-      14: function() {
+      14: function () {
         this.PackMapZoneModelV15 = [
           "filename",
           Utils.getFileNameReader(),
@@ -983,7 +983,7 @@ module.exports = [
       },
 
       // => Version: 13
-      13: function() {
+      13: function () {
         this.PackMapZoneModelV14 = ["filename", Utils.getFileNameReader(), "probability", "float32", "flags", "uint32"];
 
         this.PackMapZoneLayerDefV14 = [
@@ -1083,7 +1083,7 @@ module.exports = [
       },
 
       // => Version: 12
-      12: function() {
+      12: function () {
         this.PackMapZoneModelV13 = ["filename", Utils.getFileNameReader(), "probability", "float32", "flags", "uint32"];
 
         this.PackMapZoneLayerDefV13 = [
@@ -1168,7 +1168,7 @@ module.exports = [
       },
 
       // => Version: 11
-      11: function() {
+      11: function () {
         this.PackMapZoneModelV12 = ["filename", Utils.getFileNameReader(), "probability", "float32", "flags", "uint32"];
 
         this.PackMapZoneLayerDefV12 = [

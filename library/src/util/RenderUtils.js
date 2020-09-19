@@ -130,7 +130,7 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
   let meshes = [];
   let mats = modelDataChunk.data.permutations[0].materials;
 
-  rawMeshes.forEach(function(rawMesh) {
+  rawMeshes.forEach(function (rawMesh) {
     let rawGeom = rawMesh.geometry;
     let fvf = rawGeom.verts.mesh.fvf; // rawGeom.fvf;
 
@@ -364,7 +364,7 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
   let finalMeshes = [];
 
   /// Load file
-  localReader.loadFile(filename, function(inflatedData) {
+  localReader.loadFile(filename, function (inflatedData) {
     try {
       if (!inflatedData) {
         throw "Could not find MFT entry for " + filename;
@@ -403,7 +403,7 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
           return;
         }
 
-        localReader.loadFile(mat.filename, function(inflatedData) {
+        localReader.loadFile(mat.filename, function (inflatedData) {
           if (inflatedData) {
             let ds = new DataStream(inflatedData);
             let materialFile = new GW2File(ds, 0);
@@ -414,12 +414,12 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
         });
       }
 
-      loadMaterialIndex(0, function() {
+      loadMaterialIndex(0, function () {
         /// Create meshes
         let meshes = renderGeomChunk(localReader, geometryDataChunk, modelDataChunk, sharedTextures, showUnmaterialed);
 
         // Build mesh group
-        meshes.forEach(function(mesh) {
+        meshes.forEach(function (mesh) {
           /// Material flags
           let knownflags = [
             /*
@@ -550,7 +550,7 @@ function getMeshesForFilename(filename, color, localReader, sharedMeshes, shared
   /// If this file has never been loaded, load it using loadMeshFromModelFile
   /// the resulting mesh array will be cached within this model's scope.
   else {
-    loadMeshFromModelFile(filename, color, localReader, sharedTextures, showUnmaterialed, function(
+    loadMeshFromModelFile(filename, color, localReader, sharedTextures, showUnmaterialed, function (
       meshes,
       boundingSphere
     ) {
@@ -581,7 +581,7 @@ function getFilesUsedByModel(filename, localReader, callback) {
   let fileIds = [filename];
 
   /// Load model file
-  localReader.loadFile(filename, function(inflatedData) {
+  localReader.loadFile(filename, function (inflatedData) {
     try {
       if (!inflatedData) {
         throw "Could not find MFT entry for " + filename;
@@ -597,13 +597,13 @@ function getFilesUsedByModel(filename, localReader, callback) {
       let mats = modelDataChunk.data.permutations[0].materials;
 
       /// Add each material file AND referenced TEXTURES
-      mats.forEach(function(mat) {
+      mats.forEach(function (mat) {
         /// Add material file id
         let matFileName = mat.filename;
         fileIds.push(matFileName);
 
         /// Add each texture file id
-        mat.textures.forEach(function(tex) {
+        mat.textures.forEach(function (tex) {
           fileIds.push(tex.filename);
         });
       });

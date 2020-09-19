@@ -9,7 +9,7 @@ module.exports = [
     name: "txtm",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.TextPackLanguage = ["filenames", Utils.getArrayReader(Utils.getFileNameReader())];
 
         this.__root = this.TextPackManifest = [

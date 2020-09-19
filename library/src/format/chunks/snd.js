@@ -9,7 +9,7 @@ module.exports = [
     name: "snd",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.__root = this.MapLegacy = [
           "data",
           Utils.getArrayReader("uint8"),

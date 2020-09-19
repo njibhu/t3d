@@ -9,7 +9,7 @@ module.exports = [
     name: "comp",
     versions: {
       // => Version: 19
-      19: function() {
+      19: function () {
         this.PackCompositeBlitRectSetV19 = [
           "name",
           Utils.getString16Reader(),
@@ -236,7 +236,7 @@ module.exports = [
       },
 
       // => Version: 18
-      18: function() {
+      18: function () {
         this.PackCompositeBlitRectSetV18 = [
           "name",
           Utils.getString16Reader(),
@@ -461,7 +461,7 @@ module.exports = [
       },
 
       // => Version: 17, ReferencedFunction: 0x1103270
-      17: function() {
+      17: function () {
         this.PackCompositeBlitRectSetV17 = [
           "name",
           Utils.getString16Reader(),
@@ -684,7 +684,7 @@ module.exports = [
       },
 
       // => Version: 16, ReferencedFunction: 0x1102ED0
-      16: function() {
+      16: function () {
         this.PackCompositeBlitRectSetV16 = [
           "name",
           Utils.getString16Reader(),
@@ -896,7 +896,7 @@ module.exports = [
       },
 
       // => Version: 15
-      15: function() {
+      15: function () {
         this.PackCompositeBlitRectSetV15 = [
           "name",
           Utils.getString16Reader(),
@@ -1108,7 +1108,7 @@ module.exports = [
       },
 
       // => Version: 14
-      14: function() {
+      14: function () {
         this.PackCompositeBlitRectSetV14 = [
           "name",
           Utils.getString16Reader(),
@@ -1316,7 +1316,7 @@ module.exports = [
       },
 
       // => Version: 13
-      13: function() {
+      13: function () {
         this.PackCompositeBlitRectSetV13 = [
           "name",
           Utils.getString16Reader(),
@@ -1520,7 +1520,7 @@ module.exports = [
       },
 
       // => Version: 12
-      12: function() {
+      12: function () {
         this.PackCompositeBlitRectSetV12 = [
           "name",
           Utils.getString16Reader(),
@@ -1722,7 +1722,7 @@ module.exports = [
       },
 
       // => Version: 11, ReferencedFunction: 0x1102E90
-      11: function() {
+      11: function () {
         this.PackCompositeBlitRectSetV11 = [
           "name",
           Utils.getString16Reader(),
@@ -1905,7 +1905,7 @@ module.exports = [
       },
 
       // => Version: 10
-      10: function() {
+      10: function () {
         this.PackCompositeBlitRectSetV10 = [
           "name",
           Utils.getString16Reader(),
@@ -2058,7 +2058,7 @@ module.exports = [
       },
 
       // => Version: 9
-      9: function() {
+      9: function () {
         this.PackCompositeBlitRectSetV9 = [
           "name",
           Utils.getString16Reader(),
@@ -2209,7 +2209,7 @@ module.exports = [
       },
 
       // => Version: 8
-      8: function() {
+      8: function () {
         this.PackCompositeBlitRectSetV8 = [
           "name",
           Utils.getString16Reader(),
@@ -2358,7 +2358,7 @@ module.exports = [
       },
 
       // => Version: 7
-      7: function() {
+      7: function () {
         this.PackCompositeBlitRectSetV7 = [
           "name",
           Utils.getString16Reader(),
@@ -2505,7 +2505,7 @@ module.exports = [
       },
 
       // => Version: 6
-      6: function() {
+      6: function () {
         this.PackCompositeBlitRectSetV6 = [
           "name",
           Utils.getString16Reader(),
@@ -2650,7 +2650,7 @@ module.exports = [
       },
 
       // => Version: 5
-      5: function() {
+      5: function () {
         this.PackCompositeBlitRectSetV5 = [
           "name",
           Utils.getString16Reader(),
@@ -2793,7 +2793,7 @@ module.exports = [
       },
 
       // => Version: 4
-      4: function() {
+      4: function () {
         this.PackCompositeBlitRectSetV4 = [
           "name",
           Utils.getString16Reader(),
@@ -2930,7 +2930,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.PackCompositeBlitRectSetV3 = [
           "name",
           Utils.getString16Reader(),
@@ -3063,7 +3063,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackCompositeBlitRectSetV2 = [
           "name",
           Utils.getString16Reader(),
@@ -3194,7 +3194,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.PackCompositeBlitRectSetV1 = [
           "name",
           Utils.getString16Reader(),
@@ -3327,7 +3327,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackCompositeBlitRectSetV0 = [
           "name",
           Utils.getString16Reader(),

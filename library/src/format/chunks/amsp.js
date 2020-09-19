@@ -9,7 +9,7 @@ module.exports = [
     name: "AMSP",
     versions: {
       // => Version: 29
-      29: function() {
+      29: function () {
         this.DspDataV29 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV29 = [
@@ -486,7 +486,7 @@ module.exports = [
       },
 
       // => Version: 28
-      28: function() {
+      28: function () {
         this.DspDataV28 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV28 = [
@@ -959,7 +959,7 @@ module.exports = [
       },
 
       // => Version: 27
-      27: function() {
+      27: function () {
         this.DspDataV27 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV27 = [
@@ -1428,7 +1428,7 @@ module.exports = [
       },
 
       // => Version: 26
-      26: function() {
+      26: function () {
         this.DspDataV26 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV26 = [
@@ -1880,7 +1880,7 @@ module.exports = [
       },
 
       // => Version: 25
-      25: function() {
+      25: function () {
         this.DspDataV25 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV25 = [
@@ -2298,7 +2298,7 @@ module.exports = [
       },
 
       // => Version: 24
-      24: function() {
+      24: function () {
         this.DspDataV24 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV24 = [
@@ -2699,7 +2699,7 @@ module.exports = [
       },
 
       // => Version: 23
-      23: function() {
+      23: function () {
         this.DspDataV23 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV23 = [
@@ -3094,7 +3094,7 @@ module.exports = [
       },
 
       // => Version: 22
-      22: function() {
+      22: function () {
         this.DspDataV22 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV22 = [
@@ -3487,7 +3487,7 @@ module.exports = [
       },
 
       // => Version: 21
-      21: function() {
+      21: function () {
         this.DspDataV21 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV21 = [
@@ -3876,7 +3876,7 @@ module.exports = [
       },
 
       // => Version: 20
-      20: function() {
+      20: function () {
         this.DspDataV20 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV20 = [
@@ -4219,7 +4219,7 @@ module.exports = [
       },
 
       // => Version: 19, ReferencedFunction: 0xE21080
-      19: function() {
+      19: function () {
         this.DspDataV19 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV19 = [
@@ -4560,7 +4560,7 @@ module.exports = [
       },
 
       // => Version: 18, ReferencedFunction: 0xE20F40
-      18: function() {
+      18: function () {
         this.DspDataV18 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV18 = [
@@ -4899,7 +4899,7 @@ module.exports = [
       },
 
       // => Version: 17
-      17: function() {
+      17: function () {
         this.DspDataV17 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV17 = [
@@ -5238,7 +5238,7 @@ module.exports = [
       },
 
       // => Version: 16
-      16: function() {
+      16: function () {
         this.DspDataV16 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV16 = [
@@ -5571,7 +5571,7 @@ module.exports = [
       },
 
       // => Version: 15
-      15: function() {
+      15: function () {
         this.DspDataV15 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV15 = [
@@ -5896,7 +5896,7 @@ module.exports = [
       },
 
       // => Version: 14
-      14: function() {
+      14: function () {
         this.DspDataV14 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV14 = [
@@ -6219,7 +6219,7 @@ module.exports = [
       },
 
       // => Version: 13
-      13: function() {
+      13: function () {
         this.DspDataV13 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV13 = [
@@ -6544,7 +6544,7 @@ module.exports = [
       },
 
       // => Version: 12, ReferencedFunction: 0xE20F20
-      12: function() {
+      12: function () {
         this.DspDataV12 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV12 = [
@@ -6867,7 +6867,7 @@ module.exports = [
       },
 
       // => Version: 11
-      11: function() {
+      11: function () {
         this.DspDataV11 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV11 = [
@@ -7188,7 +7188,7 @@ module.exports = [
       },
 
       // => Version: 10
-      10: function() {
+      10: function () {
         this.DspDataV10 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV10 = [
@@ -7507,7 +7507,7 @@ module.exports = [
       },
 
       // => Version: 9
-      9: function() {
+      9: function () {
         this.DspDataV9 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV9 = [
@@ -7834,7 +7834,7 @@ module.exports = [
       },
 
       // => Version: 8
-      8: function() {
+      8: function () {
         this.DspDataV8 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV8 = [
@@ -8151,7 +8151,7 @@ module.exports = [
       },
 
       // => Version: 7, ReferencedFunction: 0xE20EB0
-      7: function() {
+      7: function () {
         this.DspDataV7 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV7 = [
@@ -8427,7 +8427,7 @@ module.exports = [
       },
 
       // => Version: 6
-      6: function() {
+      6: function () {
         this.DspDataV6 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV6 = [
@@ -8696,7 +8696,7 @@ module.exports = [
       },
 
       // => Version: 5
-      5: function() {
+      5: function () {
         this.EnvelopePointDataV5 = ["offset", "float32", "value", "float32"];
 
         this.EnvelopeDataV5 = [
@@ -8952,7 +8952,7 @@ module.exports = [
       },
 
       // => Version: 4
-      4: function() {
+      4: function () {
         this.VolumeGroupDataV4 = [
           "name",
           Utils.getQWordReader(),
@@ -9189,7 +9189,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.VolumeGroupDataV3 = [
           "name",
           Utils.getQWordReader(),
@@ -9424,7 +9424,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.VolumeGroupDataV2 = [
           "name",
           Utils.getQWordReader(),
@@ -9657,7 +9657,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.EnvelopePointDataV1 = ["offset", "float32", "value", "float32"];
 
         this.EnvelopeDataV1 = [
@@ -9884,7 +9884,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.HandlerDataV0 = [
           "byteCode",
           Utils.getArrayReader("uint8"),

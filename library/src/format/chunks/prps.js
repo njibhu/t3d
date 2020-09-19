@@ -9,7 +9,7 @@ module.exports = [
     name: "PRPS",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ModelFixedOffsetData = [
           "name",
           Utils.getQWordReader(),

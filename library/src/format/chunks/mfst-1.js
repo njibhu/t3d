@@ -9,7 +9,7 @@ module.exports = [
     name: "mfst",
     versions: {
       // => Version: 2, ReferencedFunction: 0x1408880
-      2: function() {
+      2: function () {
         this.ContentMapRedirector = [
           "mapGUID",
           ["[]", "uint8", 16],
@@ -56,7 +56,7 @@ module.exports = [
       },
 
       // => Version: 1
-      1: function() {
+      1: function () {
         this.ContentMapRedirectorV1 = [
           "mapId",
           "uint32",
@@ -103,7 +103,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.ContentMapRedirectorV0 = [
           "mapId",
           "uint32",

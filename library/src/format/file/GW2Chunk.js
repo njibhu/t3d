@@ -58,7 +58,7 @@ function genDuplicateSettings() {
 
   function getRootName(definition) {
     let a = new definition();
-    return Object.keys(a).filter(v => {
+    return Object.keys(a).filter((v) => {
       return a[v] === a.__root && v !== "__root";
     })[0];
   }
@@ -66,7 +66,7 @@ function genDuplicateSettings() {
   DUPLICATE_SETTINGS = {};
   for (let setting of PACKTOCHUNK) {
     let regex = new RegExp(`^${setting.root}(V[0-9]*)?$`);
-    let chunkDef = T3D.formats.filter(v => {
+    let chunkDef = T3D.formats.filter((v) => {
       return v.name === setting.chunk;
     });
 

@@ -9,7 +9,7 @@ module.exports = [
     name: "ASND",
     versions: {
       // => Version: 2
-      2: function() {
+      2: function () {
         this.ReservedWaveformDataV2 = [
           "reserved1",
           "uint32",
@@ -66,7 +66,7 @@ module.exports = [
       },
 
       // => Version: 1, ReferencedFunction: 0xE21150
-      1: function() {
+      1: function () {
         this.__root = this.WaveformDataV1 = [
           "length",
           "float32",
@@ -106,7 +106,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.__root = this.WaveformDataV0 = [
           "data",
           Utils.getArrayReader("uint8"),

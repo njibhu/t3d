@@ -9,7 +9,7 @@ module.exports = [
     name: "main",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.CollideNavMeshChunkRef = [
           "boundsMin",
           ["[]", "float32", 3],
@@ -41,7 +41,7 @@ module.exports = [
     name: "main",
     versions: {
       // => Version: 0
-      0: function() {
+      0: function () {
         this.__root = this.CollideNavMeshChunk = [
           "navMeshData",
           Utils.getArrayReader("uint8"),
@@ -62,7 +62,7 @@ module.exports = [
     name: "main",
     versions: {
       // => Version: 1
-      1: function() {
+      1: function () {
         this.CollideModelManifestFile = [
           "modelFileStr",
           Utils.getString16Reader(),
@@ -78,7 +78,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.CollideModelManifestFile = [
           "modelFile",
           Utils.getFileNameReader(),

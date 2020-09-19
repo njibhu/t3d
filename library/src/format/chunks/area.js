@@ -9,7 +9,7 @@ module.exports = [
     name: "area",
     versions: {
       // => Version: 4, ReferencedFunction: 0xEBB040
-      4: function() {
+      4: function () {
         this.PackMapAreaPolygonV4 = ["points", Utils.getArrayReader(["[]", "float32", 3]), "height", "float32"];
 
         this.PackMapAreaPortalV4 = [
@@ -60,7 +60,7 @@ module.exports = [
       },
 
       // => Version: 3
-      3: function() {
+      3: function () {
         this.PackMapAreaPolygonV3 = ["points", Utils.getArrayReader(["[]", "float32", 3]), "height", "float32"];
 
         this.PackMapAreaPortalV3 = [
@@ -111,7 +111,7 @@ module.exports = [
       },
 
       // => Version: 2
-      2: function() {
+      2: function () {
         this.PackMapAreaPolygonV2 = ["points", Utils.getArrayReader(["[]", "float32", 3]), "height", "float32"];
 
         this.PackMapAreaPortalV2 = [
@@ -162,7 +162,7 @@ module.exports = [
       },
 
       // => Version: 1, ReferencedFunction: 0xE2EE00
-      1: function() {
+      1: function () {
         this.PackMapAreaPolygonV1 = ["points", Utils.getArrayReader(["[]", "float32", 3]), "height", "float32"];
 
         this.PackMapAreaPortalV1 = [
@@ -204,7 +204,7 @@ module.exports = [
       },
 
       // => Version: 0
-      0: function() {
+      0: function () {
         this.PackMapAreaV0 = [
           "min",
           ["[]", "float32", 3],
