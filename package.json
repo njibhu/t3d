@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "devDependencies": {
+    "husky": "^4.3.0",
     "lerna": "^3.18.4"
   },
   "scripts": {
@@ -16,5 +17,10 @@
     "jquery": "^1.11.1",
     "three": "^0.91.0",
     "w2ui": "^1.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run format; npm run lint"
+    }
   }
 }
