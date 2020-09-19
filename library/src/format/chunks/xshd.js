@@ -10,23 +10,9 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.AmatXbxShaderConstant = [
-          "token",
-          "uint32",
-          "regIndex",
-          "uint32",
-          "regCount",
-          "uint32"
-        ];
+        this.AmatXbxShaderConstant = ["token", "uint32", "regIndex", "uint32", "regCount", "uint32"];
 
-        this.AmatXbxSamplerConstant = [
-          "regIndex",
-          "uint32",
-          "stateIndex",
-          "uint32",
-          "texIndex",
-          "uint32"
-        ];
+        this.AmatXbxSamplerConstant = ["regIndex", "uint32", "stateIndex", "uint32", "texIndex", "uint32"];
 
         this.__root = this.AmatXbxShader = [
           "isPixelShader",
@@ -38,9 +24,9 @@ module.exports = [
           "constants",
           Utils.getArrayReader(this.AmatXbxShaderConstant),
           "samplers",
-          Utils.getArrayReader(this.AmatXbxSamplerConstant)
+          Utils.getArrayReader(this.AmatXbxSamplerConstant),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

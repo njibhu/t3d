@@ -45,17 +45,11 @@ class EnvironmentRenderer extends DataRenderer {
       map: tex,
       side: THREE.BackSide,
       fog: false,
-      depthWrite: false
+      depthWrite: false,
     });
   }
 
-  loadTextureWithFallback(
-    targetMatIndices,
-    materialArray,
-    filename,
-    fallbackFilename,
-    hazeColorAsInt
-  ) {
+  loadTextureWithFallback(targetMatIndices, materialArray, filename, fallbackFilename, hazeColorAsInt) {
     let self = this;
 
     function writeMat(mat) {
@@ -75,13 +69,7 @@ class EnvironmentRenderer extends DataRenderer {
     }
 
     let mat = self.getMat(
-      RenderUtils.loadLocalTexture(
-        this.localReader,
-        filename,
-        null,
-        hazeColorAsInt,
-        errorCallback
-      )
+      RenderUtils.loadLocalTexture(this.localReader, filename, null, hazeColorAsInt, errorCallback)
     );
 
     writeMat(mat);
@@ -109,8 +97,8 @@ class EnvironmentRenderer extends DataRenderer {
           {
             lights: [],
             backlightIntensity: 1.0,
-            backlightColor: [255, 255, 255]
-          }
+            backlightColor: [255, 255, 255],
+          },
         ];
 
     let ambientLight;
@@ -122,7 +110,7 @@ class EnvironmentRenderer extends DataRenderer {
       if (hasLight) return;
 
       /// Directional lights
-      // eslint-disable-next-line no-unused-vars
+      /* eslint-disable-next-line no-unused-vars */
       let sumDirLightIntensity = 0;
 
       light.lights.forEach(function(dirLightData /*, idx*/) {
@@ -134,17 +122,10 @@ class EnvironmentRenderer extends DataRenderer {
           dirLightData.color[0] / 255.0
         );
 
-        let directionalLight = new THREE.DirectionalLight(
-          color.getHex(),
-          dirLightData.intensity
-        );
+        let directionalLight = new THREE.DirectionalLight(color.getHex(), dirLightData.intensity);
 
         directionalLight.position
-          .set(
-            -dirLightData.direction[0],
-            dirLightData.direction[2],
-            dirLightData.direction[1]
-          )
+          .set(-dirLightData.direction[0], dirLightData.direction[2], dirLightData.direction[1])
           .normalize();
 
         sumDirLightIntensity += dirLightData.intensity;
@@ -159,14 +140,9 @@ class EnvironmentRenderer extends DataRenderer {
         directions.forEach(function(lightDir) {
           let color = new THREE.Color(1, 1, 1);
           let intensity = lightDir[3];
-          let directionalLight = new THREE.DirectionalLight(
-            color.getHex(),
-            intensity
-          );
+          let directionalLight = new THREE.DirectionalLight(color.getHex(), intensity);
 
-          directionalLight.position
-            .set(lightDir[0], lightDir[1], lightDir[2])
-            .normalize();
+          directionalLight.position.set(lightDir[0], lightDir[1], lightDir[2]).normalize();
 
           sumDirLightIntensity += intensity;
 
@@ -188,8 +164,7 @@ class EnvironmentRenderer extends DataRenderer {
 
     let ambientTotal = 0;
     if (ambientLight) {
-      ambientTotal =
-        ambientLight.color.r + ambientLight.color.g + ambientLight.color.b;
+      ambientTotal = ambientLight.color.r + ambientLight.color.g + ambientLight.color.b;
       this.getOutput().lights.push(ambientLight);
     }
 
@@ -204,16 +179,14 @@ class EnvironmentRenderer extends DataRenderer {
     /// Grab sky texture.
     /// index 0 and 1 day
     /// index 2 and 3 evening
-    let skyModeTex =
-      this.environmentChunkData &&
-      this.environmentChunkData.dataGlobal.skyModeTex[0];
+    let skyModeTex = this.environmentChunkData && this.environmentChunkData.dataGlobal.skyModeTex[0];
 
     /// Fallback skyboxfrom dat.
     if (!skyModeTex) {
       skyModeTex = {
         texPathNE: 1930687,
         texPathSW: 193069,
-        texPathT: 193071
+        texPathT: 193071,
       };
     }
 
@@ -227,27 +200,9 @@ class EnvironmentRenderer extends DataRenderer {
     let materialArray = [];
 
     /// Load skybox textures, fallback to hosted png files.
-    this.loadTextureWithFallback(
-      [1, 4],
-      materialArray,
-      skyModeTex.texPathNE + 1,
-      "img/193068.png",
-      hazeColorAsInt
-    );
-    this.loadTextureWithFallback(
-      [0, 5],
-      materialArray,
-      skyModeTex.texPathSW + 1,
-      "img/193070.png",
-      hazeColorAsInt
-    );
-    this.loadTextureWithFallback(
-      [2],
-      materialArray,
-      skyModeTex.texPathT + 1,
-      "img/193072.png",
-      hazeColorAsInt
-    );
+    this.loadTextureWithFallback([1, 4], materialArray, skyModeTex.texPathNE + 1, "img/193068.png", hazeColorAsInt);
+    this.loadTextureWithFallback([0, 5], materialArray, skyModeTex.texPathSW + 1, "img/193070.png", hazeColorAsInt);
+    this.loadTextureWithFallback([2], materialArray, skyModeTex.texPathT + 1, "img/193072.png", hazeColorAsInt);
     materialArray[3] = new THREE.MeshBasicMaterial({ visible: false });
 
     /// Create skybox geometry
@@ -314,8 +269,7 @@ class EnvironmentRenderer extends DataRenderer {
 
     /// Set renderer clear color from environment haze
     let hazeColor = this.getHazeColor(environmentChunkData);
-    let hazeColorAsInt =
-      hazeColor[2] * 256 * 256 + hazeColor[1] * 256 + hazeColor[0];
+    let hazeColorAsInt = hazeColor[2] * 256 * 256 + hazeColor[1] * 256 + hazeColor[0];
     this.getOutput().hazeColor = hazeColor;
 
     /// Add directional lights to output. Also write hasLight flag

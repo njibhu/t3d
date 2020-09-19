@@ -18,7 +18,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneData = [
@@ -35,7 +35,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelGrannySkeletonV1 = [
@@ -48,7 +48,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelMeshBindingData = ["Mesh", Utils.getPointerReader("uint8")];
@@ -65,7 +65,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelBoneConstraintLinkV63 = [
@@ -76,7 +76,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV63 = [
@@ -123,25 +123,14 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
-        this.PackGrannyMirrorSpecType = [
-          "mirrorSpec",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyMirrorSpecType = ["mirrorSpec", Utils.getArrayReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV63 = [
-          "data",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV63 = ["data", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV63 = [
           "grannyModel",
@@ -155,13 +144,10 @@ module.exports = [
           "emitterBones",
           Utils.getArrayReader("uint32"),
           "trackMasks",
-          Utils.getArrayReader(this.ModelTrackMaskV63)
+          Utils.getArrayReader(this.ModelTrackMaskV63),
         ];
 
-        this.ModelSkeletonOverridesV1 = [
-          "boneConstraints",
-          Utils.getArrayReader(this.ModelBoneConstraintV63)
-        ];
+        this.ModelSkeletonOverridesV1 = ["boneConstraints", Utils.getArrayReader(this.ModelBoneConstraintV63)];
 
         this.__root = this.ModelFileSkeletonV1 = [
           "skeletonData",
@@ -169,7 +155,7 @@ module.exports = [
           "fileReference",
           Utils.getFileNameReader(),
           "overrides",
-          Utils.getPointerReader(this.ModelSkeletonOverridesV1)
+          Utils.getPointerReader(this.ModelSkeletonOverridesV1),
         ];
       },
 
@@ -183,7 +169,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneData = [
@@ -200,7 +186,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelGrannySkeletonV0 = [
@@ -213,7 +199,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelMeshBindingData = ["Mesh", Utils.getPointerReader("uint8")];
@@ -230,7 +216,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelBoneConstraintLinkV62 = [
@@ -241,7 +227,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV62 = [
@@ -288,27 +274,14 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelBoneSymmetryV62 = [
-          "boneLeft",
-          Utils.getQWordReader(),
-          "boneRight",
-          Utils.getQWordReader()
-        ];
+        this.ModelBoneSymmetryV62 = ["boneLeft", Utils.getQWordReader(), "boneRight", Utils.getQWordReader()];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV62 = [
-          "data",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV62 = ["data", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV62 = [
           "grannyModel",
@@ -322,17 +295,17 @@ module.exports = [
           "emitterBones",
           Utils.getArrayReader("uint32"),
           "trackMasks",
-          Utils.getArrayReader(this.ModelTrackMaskV62)
+          Utils.getArrayReader(this.ModelTrackMaskV62),
         ];
 
         this.__root = this.ModelFileSkeletonV0 = [
           "skeletonData",
           Utils.getPointerReader(this.ModelSkeletonDataV62),
           "fileReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
-      }
-    }
+      },
+    },
   },
 
   /// ==================================================
@@ -354,7 +327,7 @@ module.exports = [
           "mass",
           "float32",
           "name",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.SceneJointV3 = [
@@ -375,7 +348,7 @@ module.exports = [
           "twistMin",
           "float32",
           "twistMax",
-          "float32"
+          "float32",
         ];
 
         this.SceneHingeJointV3 = [
@@ -390,7 +363,7 @@ module.exports = [
           "limitMin",
           "float32",
           "limitMax",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.SceneFileSkeletonV3 = [
@@ -401,7 +374,7 @@ module.exports = [
           "hingeJoints",
           Utils.getArrayReader(this.SceneHingeJointV3),
           "ragdollToModel",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
       },
 
@@ -415,7 +388,7 @@ module.exports = [
           "radius",
           "float32",
           "mass",
-          "float32"
+          "float32",
         ];
 
         this.SceneJointV2 = [
@@ -436,7 +409,7 @@ module.exports = [
           "twistMin",
           "float32",
           "twistMax",
-          "float32"
+          "float32",
         ];
 
         this.SceneHingeJointV2 = [
@@ -451,7 +424,7 @@ module.exports = [
           "limitMin",
           "float32",
           "limitMax",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.SceneFileSkeletonV2 = [
@@ -462,7 +435,7 @@ module.exports = [
           "hingeJoints",
           Utils.getArrayReader(this.SceneHingeJointV2),
           "ragdollToModel",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
       },
 
@@ -476,7 +449,7 @@ module.exports = [
           "radius",
           "float32",
           "mass",
-          "float32"
+          "float32",
         ];
 
         this.SceneJointV1 = [
@@ -497,7 +470,7 @@ module.exports = [
           "twistMin",
           "float32",
           "twistMax",
-          "float32"
+          "float32",
         ];
 
         this.SceneHingeJointV1 = [
@@ -512,7 +485,7 @@ module.exports = [
           "limitMin",
           "float32",
           "limitMax",
-          "float32"
+          "float32",
         ];
 
         this.SceneUnmappedBoneV1 = [
@@ -521,7 +494,7 @@ module.exports = [
           "sceneBoneIndex",
           "uint32",
           "localPose",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
         this.__root = this.SceneFileSkeletonV1 = [
@@ -536,7 +509,7 @@ module.exports = [
           "ragdollToModel",
           Utils.getArrayReader("uint32"),
           "modelToRagdoll",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
       },
 
@@ -550,7 +523,7 @@ module.exports = [
           "radius",
           "float32",
           "mass",
-          "float32"
+          "float32",
         ];
 
         this.SceneJointV0 = [
@@ -571,7 +544,7 @@ module.exports = [
           "twistMin",
           "float32",
           "twistMax",
-          "float32"
+          "float32",
         ];
 
         this.SceneUnmappedBoneV0 = [
@@ -580,7 +553,7 @@ module.exports = [
           "sceneBoneIndex",
           "uint32",
           "localPose",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
         this.__root = this.SceneFileSkeletonV0 = [
@@ -593,9 +566,9 @@ module.exports = [
           "ragdollToModel",
           Utils.getArrayReader("uint32"),
           "modelToRagdoll",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

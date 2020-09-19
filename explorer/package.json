@@ -9,18 +9,21 @@
     "prepare": "npx lerna link",
     "dev": "npx http-server dist",
     "build": "npx gulp",
-    "lint": "",
+    "lint": "eslint src",
     "format": "prettier --write 'src/**/*.js'"
   },
   "devDependencies": {
     "browserify": "^16.5.1",
+    "eslint": "^7.9.0",
     "gulp": "^4.0.2",
     "gulp-rename": "^2.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "http-server": "^0.12.3",
+    "prettier": "^2.1.2",
     "t3d-lib": "file://../library",
     "t3d-toolsjs": "file://../t3dtools.js",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
-  }
+  },
+  "dependencies": {}
 }

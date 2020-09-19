@@ -20,7 +20,7 @@ module.exports = [
           "strippedFormat",
           "uint32",
           "diskFormat",
-          "uint32"
+          "uint32",
         ];
 
         this.PagedImagePageDataV3 = [
@@ -33,7 +33,7 @@ module.exports = [
           "flags",
           "uint32",
           "solidColor",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.__root = this.PagedImageTableDataV3 = [
@@ -44,7 +44,7 @@ module.exports = [
           "strippedPages",
           Utils.getArrayReader(this.PagedImagePageDataV3),
           "flags",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -60,7 +60,7 @@ module.exports = [
           "rawFormat",
           "uint32",
           "strippedFormat",
-          "uint32"
+          "uint32",
         ];
 
         this.PagedImagePageDataV2 = [
@@ -73,7 +73,7 @@ module.exports = [
           "flags",
           "uint32",
           "solidColor",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.__root = this.PagedImageTableDataV2 = [
@@ -82,7 +82,7 @@ module.exports = [
           "pages",
           Utils.getArrayReader(this.PagedImagePageDataV2),
           "flags",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -98,7 +98,7 @@ module.exports = [
           "rawFormat",
           "uint32",
           "strippedFormat",
-          "uint32"
+          "uint32",
         ];
 
         this.PagedImagePageDataV1 = [
@@ -111,14 +111,14 @@ module.exports = [
           "flags",
           "uint32",
           "solidColor",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.__root = this.PagedImageTableDataV1 = [
           "layers",
           Utils.getArrayReader(this.PagedImageLayerDataV1),
           "pages",
-          Utils.getArrayReader(this.PagedImagePageDataV1)
+          Utils.getArrayReader(this.PagedImagePageDataV1),
         ];
       },
 
@@ -132,14 +132,14 @@ module.exports = [
           "rawData",
           Utils.getArrayReader("uint8"),
           "compressedData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PagedImageEmbeddedPagesDataV0 = [
           "pages",
-          Utils.getArrayReader(this.PagedImageEmbeddedPageDataV0)
+          Utils.getArrayReader(this.PagedImageEmbeddedPageDataV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

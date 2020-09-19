@@ -24,8 +24,7 @@ let LocalReader = require("./LocalReader/LocalReader");
 let _version = require("../package.json").version;
 let _settings = {
   t3dtoolsWorker: "modules/t3dtools/t3dworker.js",
-  concurrentTasks:
-    typeof navigator !== "undefined" ? navigator.hardwareConcurrency : 1
+  concurrentTasks: typeof navigator !== "undefined" ? navigator.hardwareConcurrency : 1,
 };
 
 let T3D;
@@ -283,7 +282,7 @@ T3D = module.exports = {
     // Create the instance and init the threads
     let lrInstance = new LocalReader({
       workerPath: path,
-      workersNb: _settings.concurrentTasks
+      workersNb: _settings.concurrentTasks,
     });
 
     /// Callback with the lrInstance
@@ -416,13 +415,7 @@ T3D = module.exports = {
    * @param  {Class}      logger      A logger class of the same type as
    *                                   {{#crossLink "Logger"}}{{/crossLink}}
    */
-  renderMapContentsAsync: function(
-    localReader,
-    fileName,
-    renderers,
-    callback,
-    logger
-  ) {
+  renderMapContentsAsync: function(localReader, fileName, renderers, callback, logger) {
     /// VO for storing result from renderers
     let context = {};
 
@@ -465,11 +458,7 @@ T3D = module.exports = {
     /// Primitive error message...
     else {
       let outputLogger = logger || T3D.Logger;
-      outputLogger.log(
-        T3D.Logger.TYPE_ERROR,
-        "Map id must be an integer!, was:",
-        fileName
-      );
+      outputLogger.log(T3D.Logger.TYPE_ERROR, "Map id must be an integer!, was:", fileName);
     }
   },
 
@@ -489,13 +478,7 @@ T3D = module.exports = {
    *                                   method of the renderer.
    */
   runRenderer: function(renderClass, localReader, settings, context, cb) {
-    let r = new renderClass(
-      localReader,
-      settings,
-      context,
-      undefined,
-      renderClass.rendererName
-    );
+    let r = new renderClass(localReader, settings, context, undefined, renderClass.rendererName);
 
     r.renderAsync(cb);
   },
@@ -559,7 +542,7 @@ T3D = module.exports = {
     return false;
   },
 
-  formats: require("./format/chunks/AllFormats")
+  formats: require("./format/chunks/AllFormats"),
 };
 
 /* PRIVATE METHODS */
@@ -575,34 +558,22 @@ function checkRequirements() {
   let numErrors = 0;
 
   if (!global.window || !window.indexedDB) {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_ERROR,
-      "T3D persistant storing and loading requires indexedDB support."
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_ERROR, "T3D persistant storing and loading requires indexedDB support.");
     numErrors++;
   }
 
   if (typeof DataStream === "undefined") {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_ERROR,
-      "T3D core functionality requires DataStream library."
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_ERROR, "T3D core functionality requires DataStream library.");
     numErrors++;
   }
 
   if (typeof THREE === "undefined") {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_WARNING,
-      "T3D mesh generation requires three.js library."
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "T3D mesh generation requires three.js library.");
     numErrors++;
   }
 
   if (numErrors < 1) {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_MESSAGE,
-      "Tyria 3D API v" + T3D.version + " initialized."
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_MESSAGE, "Tyria 3D API v" + T3D.version + " initialized.");
   }
 
   return numErrors;

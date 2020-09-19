@@ -16,15 +16,10 @@ module.exports = [
           "surfaceIndexArray",
           Utils.getArrayReader("uint16"),
           "surfaceTokenArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
-        this.PackMapTerrainConstV14 = [
-          "tokenName",
-          "uint32",
-          "value",
-          ["[]", "float32", 4]
-        ];
+        this.PackMapTerrainConstV14 = ["tokenName", "uint32", "value", ["[]", "float32", 4]];
 
         this.PackMapTerrainTexV14 = [
           "tokenName",
@@ -36,7 +31,7 @@ module.exports = [
           "flags",
           ["[]", "uint32", 2],
           "layer",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapTerrainMaterialV14 = [
@@ -47,7 +42,7 @@ module.exports = [
           "constIndexArray",
           Utils.getArrayReader("uint32"),
           "texIndexArray",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.PackMapTerrainChunkUVDataV14 = [
@@ -60,7 +55,7 @@ module.exports = [
           "scaleSpeed",
           ["[]", "float32", 2],
           "rotation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapTerrrainChunkMaterialV14 = [
@@ -73,7 +68,7 @@ module.exports = [
           "faderMaterial",
           this.PackMapTerrainMaterialV14,
           "uvData",
-          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV14)
+          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV14),
         ];
 
         this.PackMapTerrainMaterialsV14 = [
@@ -88,7 +83,7 @@ module.exports = [
           "midFade",
           ["[]", "float32", 2],
           "farFade",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.__root = this.PackMapTerrainV14 = [
@@ -103,25 +98,15 @@ module.exports = [
           "chunkArray",
           Utils.getArrayReader(this.PackMapTerrainChunkV14),
           "materials",
-          Utils.getPointerReader(this.PackMapTerrainMaterialsV14)
+          Utils.getPointerReader(this.PackMapTerrainMaterialsV14),
         ];
       },
 
       // => Version: 13, ReferencedFunction: 0xEBAF80
       13: function() {
-        this.PackMapTerrainChunkV13 = [
-          "chunkFlags",
-          "uint32",
-          "tileTableArray",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackMapTerrainChunkV13 = ["chunkFlags", "uint32", "tileTableArray", Utils.getArrayReader("uint8")];
 
-        this.PackMapTerrainConstV13 = [
-          "tokenName",
-          "uint32",
-          "value",
-          ["[]", "float32", 4]
-        ];
+        this.PackMapTerrainConstV13 = ["tokenName", "uint32", "value", ["[]", "float32", 4]];
 
         this.PackMapTerrainTexV13 = [
           "tokenName",
@@ -133,7 +118,7 @@ module.exports = [
           "flags",
           ["[]", "uint32", 2],
           "layer",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapTerrainMaterialV13 = [
@@ -144,7 +129,7 @@ module.exports = [
           "constIndexArray",
           Utils.getArrayReader("uint32"),
           "texIndexArray",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.PackMapTerrainChunkUVDataV13 = [
@@ -157,7 +142,7 @@ module.exports = [
           "scaleSpeed",
           ["[]", "float32", 2],
           "rotation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapTerrrainChunkMaterialV13 = [
@@ -170,7 +155,7 @@ module.exports = [
           "faderMaterial",
           this.PackMapTerrainMaterialV13,
           "uvData",
-          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV13)
+          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV13),
         ];
 
         this.PackMapTerrainMaterialsV13 = [
@@ -185,7 +170,7 @@ module.exports = [
           "midFade",
           ["[]", "float32", 2],
           "farFade",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.__root = this.PackMapTerrainV13 = [
@@ -202,25 +187,15 @@ module.exports = [
           "materials",
           Utils.getPointerReader(this.PackMapTerrainMaterialsV13),
           "typeArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
       },
 
       // => Version: 12, ReferencedFunction: 0xEBAE60
       12: function() {
-        this.PackMapTerrainChunkV12 = [
-          "chunkFlags",
-          "uint32",
-          "tileTableArray",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackMapTerrainChunkV12 = ["chunkFlags", "uint32", "tileTableArray", Utils.getArrayReader("uint8")];
 
-        this.PackMapTerrainConstV12 = [
-          "tokenName",
-          "uint32",
-          "value",
-          ["[]", "float32", 4]
-        ];
+        this.PackMapTerrainConstV12 = ["tokenName", "uint32", "value", ["[]", "float32", 4]];
 
         this.PackMapTerrainTexV12 = [
           "tokenName",
@@ -232,7 +207,7 @@ module.exports = [
           "flags",
           ["[]", "uint32", 2],
           "layer",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapTerrainMaterialV12 = [
@@ -243,7 +218,7 @@ module.exports = [
           "constIndexArray",
           Utils.getArrayReader("uint32"),
           "texIndexArray",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.PackMapTerrainChunkUVDataV12 = [
@@ -256,7 +231,7 @@ module.exports = [
           "scaleSpeed",
           ["[]", "float32", 2],
           "rotation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapTerrrainChunkMaterialV12 = [
@@ -267,7 +242,7 @@ module.exports = [
           "loResMaterial",
           this.PackMapTerrainMaterialV12,
           "uvData",
-          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV12)
+          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV12),
         ];
 
         this.PackMapTerrainMaterialsV12 = [
@@ -278,7 +253,7 @@ module.exports = [
           "texFileArray",
           Utils.getArrayReader(this.PackMapTerrainTexV12),
           "materials",
-          Utils.getArrayReader(this.PackMapTerrrainChunkMaterialV12)
+          Utils.getArrayReader(this.PackMapTerrrainChunkMaterialV12),
         ];
 
         this.__root = this.PackMapTerrainV12 = [
@@ -295,25 +270,15 @@ module.exports = [
           "materials",
           Utils.getPointerReader(this.PackMapTerrainMaterialsV12),
           "typeArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
       },
 
       // => Version: 11, ReferencedFunction: 0xEBADD0
       11: function() {
-        this.PackMapTerrainChunkV11 = [
-          "chunkFlags",
-          "uint32",
-          "tileTableArray",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackMapTerrainChunkV11 = ["chunkFlags", "uint32", "tileTableArray", Utils.getArrayReader("uint8")];
 
-        this.PackMapTerrainConstV11 = [
-          "tokenName",
-          "uint32",
-          "value",
-          ["[]", "float32", 4]
-        ];
+        this.PackMapTerrainConstV11 = ["tokenName", "uint32", "value", ["[]", "float32", 4]];
 
         this.PackMapTerrainTexV11 = [
           "tokenName",
@@ -325,7 +290,7 @@ module.exports = [
           "flags",
           ["[]", "uint32", 2],
           "layer",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapTerrainMaterialV11 = [
@@ -336,7 +301,7 @@ module.exports = [
           "constIndexArray",
           Utils.getArrayReader("uint32"),
           "texIndexArray",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.PackMapTerrainChunkUVDataV11 = [
@@ -349,7 +314,7 @@ module.exports = [
           "scaleSpeed",
           ["[]", "float32", 2],
           "rotation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapTerrrainChunkMaterialV11 = [
@@ -360,7 +325,7 @@ module.exports = [
           "loResMaterial",
           this.PackMapTerrainMaterialV11,
           "uvData",
-          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV11)
+          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV11),
         ];
 
         this.PackMapTerrainMaterialsV11 = [
@@ -371,7 +336,7 @@ module.exports = [
           "texFileArray",
           Utils.getArrayReader(this.PackMapTerrainTexV11),
           "materials",
-          Utils.getArrayReader(this.PackMapTerrrainChunkMaterialV11)
+          Utils.getArrayReader(this.PackMapTerrrainChunkMaterialV11),
         ];
 
         this.__root = this.PackMapTerrainV11 = [
@@ -388,25 +353,15 @@ module.exports = [
           "materials",
           Utils.getPointerReader(this.PackMapTerrainMaterialsV11),
           "typeArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
       },
 
       // => Version: 10
       10: function() {
-        this.PackMapTerrainChunkV10 = [
-          "chunkFlags",
-          "uint32",
-          "tileTableArray",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackMapTerrainChunkV10 = ["chunkFlags", "uint32", "tileTableArray", Utils.getArrayReader("uint8")];
 
-        this.PackMapTerrainConstV10 = [
-          "tokenName",
-          "uint32",
-          "value",
-          ["[]", "float32", 4]
-        ];
+        this.PackMapTerrainConstV10 = ["tokenName", "uint32", "value", ["[]", "float32", 4]];
 
         this.PackMapTerrainTexV10 = [
           "tokenName",
@@ -418,7 +373,7 @@ module.exports = [
           "flags",
           ["[]", "uint32", 2],
           "layer",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapTerrainMaterialV10 = [
@@ -429,7 +384,7 @@ module.exports = [
           "constIndexArray",
           Utils.getArrayReader("uint32"),
           "texIndexArray",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.PackMapTerrainChunkUVDataV10 = [
@@ -442,7 +397,7 @@ module.exports = [
           "scaleSpeed",
           ["[]", "float32", 2],
           "rotation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapTerrrainChunkMaterialV10 = [
@@ -453,7 +408,7 @@ module.exports = [
           "loResMaterial",
           this.PackMapTerrainMaterialV10,
           "uvData",
-          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV10)
+          Utils.getPointerReader(this.PackMapTerrainChunkUVDataV10),
         ];
 
         this.PackMapTerrainMaterialsV10 = [
@@ -464,7 +419,7 @@ module.exports = [
           "texFileArray",
           Utils.getArrayReader(this.PackMapTerrainTexV10),
           "materials",
-          Utils.getArrayReader(this.PackMapTerrrainChunkMaterialV10)
+          Utils.getArrayReader(this.PackMapTerrrainChunkMaterialV10),
         ];
 
         this.__root = this.PackMapTerrainV10 = [
@@ -481,9 +436,9 @@ module.exports = [
           "materials",
           Utils.getPointerReader(this.PackMapTerrainMaterialsV10),
           "typeArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

@@ -18,7 +18,7 @@ module.exports = [
           "token",
           Utils.getQWordReader(),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.MapPackage = [
@@ -27,9 +27,9 @@ module.exports = [
           "variants",
           Utils.getArrayReader(this.MapVariant),
           "flags",
-          "uint32"
+          "uint32",
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

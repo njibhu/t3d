@@ -33,20 +33,14 @@ const MathUtils = require("../util/MathUtils");
  */
 async function readArchive(file) {
   let archiveHeader = parseANDatHeader((await getFilePart(file, 0, 40)).ds);
-  let mftData = parseMFTTable(
-    (await getFilePart(file, archiveHeader.mftOffset, archiveHeader.mftSize)).ds
-  );
-  let { ds, len } = await getFilePart(
-    file,
-    mftData.mftIndexOffset,
-    mftData.mftIndexSize
-  );
+  let mftData = parseMFTTable((await getFilePart(file, archiveHeader.mftOffset, archiveHeader.mftSize)).ds);
+  let { ds, len } = await getFilePart(file, mftData.mftIndexOffset, mftData.mftIndexSize);
   let indexTable = parseMFTIndex(ds, len);
 
   return {
     archiveHeader: archiveHeader,
     metaTable: mftData.table,
-    indexTable: indexTable
+    indexTable: indexTable,
   };
 }
 
@@ -88,11 +82,7 @@ function parseANDatHeader(ds) {
 
   // Check MAGIC
   if (header.magic !== "AN\u001A") {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_ERROR,
-      "ANDat header is not valid",
-      header.magic
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_ERROR, "ANDat header is not valid", header.magic);
     return undefined;
   }
 
@@ -124,11 +114,7 @@ function parseMFTTable(ds) {
 
   // check MAGIC
   if (header.magic !== "Mft\u001A") {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_ERROR,
-      "MFTTable header is not valid",
-      header.magic
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_ERROR, "MFTTable header is not valid", header.magic);
     return undefined;
   }
 
@@ -155,7 +141,7 @@ function parseMFTTable(ds) {
     table: fullTable,
     // Register the MFTIndex table position and size
     mftIndexOffset: fullTable[2].offset,
-    mftIndexSize: fullTable[2].size
+    mftIndexSize: fullTable[2].size,
   };
 }
 
@@ -225,5 +211,5 @@ module.exports = {
   parseANDatHeader: parseANDatHeader,
   parseMFTTable: parseMFTTable,
   parseMFTIndex: parseMFTIndex,
-  getFilePart: getFilePart
+  getFilePart: getFilePart,
 };

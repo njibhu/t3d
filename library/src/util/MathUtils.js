@@ -111,5 +111,5 @@ module.exports = {
   f16: f16,
   popcount: popcount,
   arr32To64: arr32To64,
-  sort_unique: sort_unique
+  sort_unique: sort_unique,
 };

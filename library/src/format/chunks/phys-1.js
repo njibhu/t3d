@@ -16,24 +16,12 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
-        this.SceneSphereShapeV8 = [
-          "center",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.SceneSphereShapeV8 = ["center", ["[]", "float32", 3], "radius", "float32"];
 
-        this.SceneCapsuleShapeV8 = [
-          "p0",
-          ["[]", "float32", 3],
-          "p1",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.SceneCapsuleShapeV8 = ["p0", ["[]", "float32", 3], "p1", ["[]", "float32", 3], "radius", "float32"];
 
         this.SceneMeshShapeV8 = [
           "indices",
@@ -45,13 +33,10 @@ module.exports = [
           "moppBytes",
           Utils.getArrayReader("uint8"),
           "surfaces",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.SceneSurfaceV8 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.SceneSurfaceV8 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.__root = this.SceneFilePhysicsV8 = [
           "boxes",
@@ -63,7 +48,7 @@ module.exports = [
           "meshes",
           Utils.getArrayReader(this.SceneMeshShapeV8),
           "surfaces",
-          Utils.getArrayReader(this.SceneSurfaceV8)
+          Utils.getArrayReader(this.SceneSurfaceV8),
         ];
       },
 
@@ -75,24 +60,12 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
-        this.SceneSphereShapeV7 = [
-          "center",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.SceneSphereShapeV7 = ["center", ["[]", "float32", 3], "radius", "float32"];
 
-        this.SceneCapsuleShapeV7 = [
-          "p0",
-          ["[]", "float32", 3],
-          "p1",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.SceneCapsuleShapeV7 = ["p0", ["[]", "float32", 3], "p1", ["[]", "float32", 3], "radius", "float32"];
 
         this.SceneMeshShapeV7 = [
           "indices",
@@ -102,7 +75,7 @@ module.exports = [
           "moppInfo",
           ["[]", "float32", 4],
           "moppBytes",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.SceneFilePhysicsV7 = [
@@ -113,16 +86,13 @@ module.exports = [
           "capsules",
           Utils.getArrayReader(this.SceneCapsuleShapeV7),
           "meshes",
-          Utils.getArrayReader(this.SceneMeshShapeV7)
+          Utils.getArrayReader(this.SceneMeshShapeV7),
         ];
       },
 
       // => Version: 6
       6: function() {
-        this.SceneShapeSurfaceV6 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.SceneShapeSurfaceV6 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.SceneBoxShapeV6 = [
           "surface",
@@ -132,17 +102,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
-        this.SceneSphereShapeV6 = [
-          "surface",
-          "uint8",
-          "center",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.SceneSphereShapeV6 = ["surface", "uint8", "center", ["[]", "float32", 3], "radius", "float32"];
 
         this.SceneCapsuleShapeV6 = [
           "surface",
@@ -152,7 +115,7 @@ module.exports = [
           "p1",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.SceneMeshShapeV6 = [
@@ -165,7 +128,7 @@ module.exports = [
           "moppInfo",
           ["[]", "float32", 4],
           "moppBytes",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.SceneCollisionShapeV6 = ["shapeIndex", "uint32"];
@@ -190,16 +153,13 @@ module.exports = [
           "triggerShapes",
           Utils.getArrayReader(this.SceneTriggerShapeV6),
           "namedShapes",
-          Utils.getArrayReader(this.SceneNamedShapeV6)
+          Utils.getArrayReader(this.SceneNamedShapeV6),
         ];
       },
 
       // => Version: 5
       5: function() {
-        this.SceneShapeSurfaceV5 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.SceneShapeSurfaceV5 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.SceneBoxShapeV5 = [
           "surface",
@@ -209,17 +169,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
-        this.SceneSphereShapeV5 = [
-          "surface",
-          "uint8",
-          "center",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.SceneSphereShapeV5 = ["surface", "uint8", "center", ["[]", "float32", 3], "radius", "float32"];
 
         this.SceneMeshShapeV5 = [
           "surfaces",
@@ -231,7 +184,7 @@ module.exports = [
           "moppInfo",
           ["[]", "float32", 4],
           "moppBytes",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.SceneCollisionShapeV5 = ["shapeIndex", "uint32"];
@@ -254,7 +207,7 @@ module.exports = [
           "triggerShapes",
           Utils.getArrayReader(this.SceneTriggerShapeV5),
           "namedShapes",
-          Utils.getArrayReader(this.SceneNamedShapeV5)
+          Utils.getArrayReader(this.SceneNamedShapeV5),
         ];
       },
 
@@ -262,10 +215,7 @@ module.exports = [
       4: function() {
         this.SceneShapeV4 = ["surfaces", Utils.getArrayReader("uint8")];
 
-        this.SceneShapeSurfaceV4 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.SceneShapeSurfaceV4 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.SceneCollisionShapeV4 = ["shapeIndex", "uint32"];
 
@@ -285,7 +235,7 @@ module.exports = [
           "triggerShapes",
           Utils.getArrayReader(this.SceneTriggerShapeV4),
           "namedShapes",
-          Utils.getArrayReader(this.SceneNamedShapeV4)
+          Utils.getArrayReader(this.SceneNamedShapeV4),
         ];
       },
 
@@ -293,10 +243,7 @@ module.exports = [
       3: function() {
         this.SceneShapeV3 = ["surfaces", Utils.getArrayReader("uint8")];
 
-        this.SceneShapeSurfaceV3 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.SceneShapeSurfaceV3 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.SceneCollisionShapeV3 = ["shapeIndex", "uint32"];
 
@@ -304,10 +251,7 @@ module.exports = [
 
         this.SceneNamedShapeV3 = ["shapeIndex", "uint32"];
 
-        this.ScenePathPhysicsV3 = [
-          "pathData",
-          Utils.getArrayReader(["[]", "float32", 4])
-        ];
+        this.ScenePathPhysicsV3 = ["pathData", Utils.getArrayReader(["[]", "float32", 4])];
 
         this.__root = this.SceneFilePhysicsV3 = [
           "shapeData",
@@ -323,7 +267,7 @@ module.exports = [
           "namedShapes",
           Utils.getArrayReader(this.SceneNamedShapeV3),
           "paths",
-          Utils.getArrayReader(this.ScenePathPhysicsV3)
+          Utils.getArrayReader(this.ScenePathPhysicsV3),
         ];
       },
 
@@ -337,10 +281,7 @@ module.exports = [
 
         this.SceneNamedShapeV2 = ["shapeIndex", "uint32"];
 
-        this.ScenePathPhysicsV2 = [
-          "pathData",
-          Utils.getArrayReader(["[]", "float32", 4])
-        ];
+        this.ScenePathPhysicsV2 = ["pathData", Utils.getArrayReader(["[]", "float32", 4])];
 
         this.__root = this.SceneFilePhysicsV2 = [
           "shapeData",
@@ -354,7 +295,7 @@ module.exports = [
           "namedShapes",
           Utils.getArrayReader(this.SceneNamedShapeV2),
           "paths",
-          Utils.getArrayReader(this.ScenePathPhysicsV2)
+          Utils.getArrayReader(this.ScenePathPhysicsV2),
         ];
       },
 
@@ -366,10 +307,7 @@ module.exports = [
 
         this.SceneNamedShapeV1 = ["shapeIndex", "uint32"];
 
-        this.ScenePathPhysicsV1 = [
-          "pathData",
-          Utils.getArrayReader(["[]", "float32", 4])
-        ];
+        this.ScenePathPhysicsV1 = ["pathData", Utils.getArrayReader(["[]", "float32", 4])];
 
         this.__root = this.SceneFilePhysicsV1 = [
           "shapeData",
@@ -381,7 +319,7 @@ module.exports = [
           "namedShapes",
           Utils.getArrayReader(this.SceneNamedShapeV1),
           "paths",
-          Utils.getArrayReader(this.ScenePathPhysicsV1)
+          Utils.getArrayReader(this.ScenePathPhysicsV1),
         ];
       },
 
@@ -401,9 +339,9 @@ module.exports = [
           "collisionShapes",
           Utils.getArrayReader(this.SceneCollisionShapeV0),
           "namedShapes",
-          Utils.getArrayReader(this.SceneNamedShapeV0)
+          Utils.getArrayReader(this.SceneNamedShapeV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

@@ -22,7 +22,7 @@ module.exports = [
           "minValue",
           ["[]", "float32", 4],
           "maxValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.AmatToolTexture = [
@@ -33,7 +33,7 @@ module.exports = [
           "flags",
           "uint32",
           "texGen",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.__root = this.AmatToolParams = [
@@ -52,7 +52,7 @@ module.exports = [
           "constants",
           Utils.getArrayReader(this.AmatToolConstant),
           "textures",
-          Utils.getArrayReader(this.AmatToolTexture)
+          Utils.getArrayReader(this.AmatToolTexture),
         ];
       },
 
@@ -70,7 +70,7 @@ module.exports = [
           "minValue",
           ["[]", "float32", 4],
           "maxValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.AmatToolTexture = [
@@ -83,7 +83,7 @@ module.exports = [
           "texGen",
           Utils.getArrayReader("uint32"),
           "texTransform",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.__root = this.AmatToolParams = [
@@ -100,7 +100,7 @@ module.exports = [
           "constants",
           Utils.getArrayReader(this.AmatToolConstant),
           "textures",
-          Utils.getArrayReader(this.AmatToolTexture)
+          Utils.getArrayReader(this.AmatToolTexture),
         ];
       },
 
@@ -118,7 +118,7 @@ module.exports = [
           "minValue",
           ["[]", "float32", 4],
           "maxValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.AmatToolTextureV1 = [
@@ -131,7 +131,7 @@ module.exports = [
           "texGen",
           Utils.getArrayReader("uint32"),
           "texTransform",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.__root = this.AmatToolParamsV1 = [
@@ -148,7 +148,7 @@ module.exports = [
           "constants",
           Utils.getArrayReader(this.AmatToolConstantV1),
           "textures",
-          Utils.getArrayReader(this.AmatToolTextureV1)
+          Utils.getArrayReader(this.AmatToolTextureV1),
         ];
       },
 
@@ -166,7 +166,7 @@ module.exports = [
           "minValue",
           ["[]", "float32", 4],
           "maxValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.AmatToolTextureV0 = [
@@ -179,7 +179,7 @@ module.exports = [
           "texGen",
           Utils.getArrayReader("uint32"),
           "texTransform",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.__root = this.AmatToolParamsV0 = [
@@ -196,10 +196,10 @@ module.exports = [
           "constants",
           Utils.getArrayReader(this.AmatToolConstantV0),
           "textures",
-          Utils.getArrayReader(this.AmatToolTextureV0)
+          Utils.getArrayReader(this.AmatToolTextureV0),
         ];
-      }
-    }
+      },
+    },
   },
 
   /// ==================================================
@@ -215,21 +215,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV16 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV16 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV16 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV16 = [
@@ -238,14 +233,14 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.PackGrannyAnimationTypeV1 = [
           "animation",
           Utils.getArrayReader("uint8"),
           "pointers",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelToolAnimationV16 = [
@@ -254,7 +249,7 @@ module.exports = [
           "filename",
           Utils.getString16Reader(),
           "data",
-          this.PackGrannyAnimationTypeV1
+          this.PackGrannyAnimationTypeV1,
         ];
 
         this.ModelSequenceCompressionInfoV16 = [
@@ -263,7 +258,7 @@ module.exports = [
           "cmpGroup",
           Utils.getString16Reader(),
           "cmpType",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.__root = this.ModelFileToolV16 = [
@@ -288,7 +283,7 @@ module.exports = [
           "compressionInfos",
           Utils.getArrayReader(this.ModelSequenceCompressionInfoV16),
           "region",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
       },
 
@@ -298,21 +293,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV15 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV15 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV15 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV15 = [
@@ -321,13 +311,10 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelToolAnimationV15 = [
           "name",
@@ -335,7 +322,7 @@ module.exports = [
           "filename",
           Utils.getString16Reader(),
           "data",
-          this.PackGrannyAnimationTypeV0
+          this.PackGrannyAnimationTypeV0,
         ];
 
         this.ModelSequenceCompressionInfoV15 = [
@@ -344,7 +331,7 @@ module.exports = [
           "cmpGroup",
           Utils.getString16Reader(),
           "cmpType",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.__root = this.ModelFileToolV15 = [
@@ -369,7 +356,7 @@ module.exports = [
           "compressionInfos",
           Utils.getArrayReader(this.ModelSequenceCompressionInfoV15),
           "region",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
       },
 
@@ -379,21 +366,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV14 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV14 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV14 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV14 = [
@@ -402,13 +384,10 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelToolAnimationV14 = [
           "name",
@@ -416,7 +395,7 @@ module.exports = [
           "filename",
           Utils.getString16Reader(),
           "data",
-          this.PackGrannyAnimationTypeV0
+          this.PackGrannyAnimationTypeV0,
         ];
 
         this.ModelSequenceCompressionInfoV14 = [
@@ -425,7 +404,7 @@ module.exports = [
           "cmpGroup",
           Utils.getString16Reader(),
           "cmpType",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.__root = this.ModelFileToolV14 = [
@@ -448,7 +427,7 @@ module.exports = [
           "highLodAnimations",
           Utils.getArrayReader(this.ModelToolAnimationV14),
           "compressionInfos",
-          Utils.getArrayReader(this.ModelSequenceCompressionInfoV14)
+          Utils.getArrayReader(this.ModelSequenceCompressionInfoV14),
         ];
       },
 
@@ -458,21 +437,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV13 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV13 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV13 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV13 = [
@@ -481,13 +455,10 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelToolAnimationV13 = [
           "name",
@@ -495,7 +466,7 @@ module.exports = [
           "filename",
           Utils.getString16Reader(),
           "data",
-          this.PackGrannyAnimationTypeV0
+          this.PackGrannyAnimationTypeV0,
         ];
 
         this.__root = this.ModelFileToolV13 = [
@@ -516,7 +487,7 @@ module.exports = [
           "permutationTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "highLodAnimations",
-          Utils.getArrayReader(this.ModelToolAnimationV13)
+          Utils.getArrayReader(this.ModelToolAnimationV13),
         ];
       },
 
@@ -526,21 +497,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV12 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV12 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV12 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV12 = [
@@ -549,13 +515,10 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
         this.ModelToolAnimationV12 = [
           "name",
@@ -563,7 +526,7 @@ module.exports = [
           "filename",
           Utils.getString16Reader(),
           "data",
-          this.PackGrannyAnimationTypeV0
+          this.PackGrannyAnimationTypeV0,
         ];
 
         this.__root = this.ModelFileToolV12 = [
@@ -584,7 +547,7 @@ module.exports = [
           "permutationTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "highLodAnimations",
-          Utils.getArrayReader(this.ModelToolAnimationV12)
+          Utils.getArrayReader(this.ModelToolAnimationV12),
         ];
       },
 
@@ -594,21 +557,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV11 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV11 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV11 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV11 = [
@@ -617,7 +575,7 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.__root = this.ModelFileToolV11 = [
@@ -636,7 +594,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelToolLightningV11),
           "permutationTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
       },
 
@@ -646,21 +604,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV10 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV10 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV10 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV10 = [
@@ -669,7 +622,7 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.__root = this.ModelFileToolV10 = [
@@ -688,7 +641,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelToolLightningV10),
           "permutationTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
       },
 
@@ -698,21 +651,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV9 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV9 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV9 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV9 = [
@@ -721,7 +669,7 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolPropertyDataV9 = [
@@ -736,7 +684,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.ModelFileToolV9 = [
@@ -757,7 +705,7 @@ module.exports = [
           "permutationTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "properties",
-          Utils.getArrayReader(this.ModelToolPropertyDataV9)
+          Utils.getArrayReader(this.ModelToolPropertyDataV9),
         ];
       },
 
@@ -767,21 +715,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV8 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV8 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV8 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV8 = [
@@ -790,7 +733,7 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.__root = this.ModelFileToolV8 = [
@@ -809,7 +752,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelToolLightningV8),
           "permutationTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
       },
 
@@ -819,21 +762,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV7 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV7 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV7 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolLightningV7 = [
@@ -842,7 +780,7 @@ module.exports = [
           "boltNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "nodeNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.__root = this.ModelFileToolV7 = [
@@ -859,7 +797,7 @@ module.exports = [
           "streakData",
           Utils.getPointerReader(this.ModelToolStreakV7),
           "lightningData",
-          Utils.getPointerReader(this.ModelToolLightningV7)
+          Utils.getPointerReader(this.ModelToolLightningV7),
         ];
       },
 
@@ -869,21 +807,16 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
-        this.ModelToolBlitTextureV6 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV6 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV6 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.__root = this.ModelFileToolV6 = [
@@ -898,7 +831,7 @@ module.exports = [
           "blitTextures",
           Utils.getArrayReader(this.ModelToolBlitTextureV6),
           "streakData",
-          Utils.getPointerReader(this.ModelToolStreakV6)
+          Utils.getPointerReader(this.ModelToolStreakV6),
         ];
       },
 
@@ -908,7 +841,7 @@ module.exports = [
           "cloudNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "emitterNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolMotionV5 = [
@@ -917,21 +850,16 @@ module.exports = [
           "keys",
           Utils.getArrayReader("float32"),
           "values",
-          Utils.getArrayReader(["[]", "float32", 3])
+          Utils.getArrayReader(["[]", "float32", 3]),
         ];
 
-        this.ModelToolBlitTextureV5 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV5 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV5 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.__root = this.ModelFileToolV5 = [
@@ -948,7 +876,7 @@ module.exports = [
           "blitTextures",
           Utils.getArrayReader(this.ModelToolBlitTextureV5),
           "streakData",
-          Utils.getPointerReader(this.ModelToolStreakV5)
+          Utils.getPointerReader(this.ModelToolStreakV5),
         ];
       },
 
@@ -960,7 +888,7 @@ module.exports = [
           "emitterNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "obstacleNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolMotionV4 = [
@@ -969,21 +897,16 @@ module.exports = [
           "keys",
           Utils.getArrayReader("float32"),
           "values",
-          Utils.getArrayReader(["[]", "float32", 3])
+          Utils.getArrayReader(["[]", "float32", 3]),
         ];
 
-        this.ModelToolBlitTextureV4 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV4 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.ModelToolStreakV4 = [
           "streakNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "anchorNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.__root = this.ModelFileToolV4 = [
@@ -998,7 +921,7 @@ module.exports = [
           "blitTextures",
           Utils.getArrayReader(this.ModelToolBlitTextureV4),
           "streakData",
-          Utils.getPointerReader(this.ModelToolStreakV4)
+          Utils.getPointerReader(this.ModelToolStreakV4),
         ];
       },
 
@@ -1010,7 +933,7 @@ module.exports = [
           "emitterNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "obstacleNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolMotionV3 = [
@@ -1019,15 +942,10 @@ module.exports = [
           "keys",
           Utils.getArrayReader("float32"),
           "values",
-          Utils.getArrayReader(["[]", "float32", 3])
+          Utils.getArrayReader(["[]", "float32", 3]),
         ];
 
-        this.ModelToolBlitTextureV3 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV3 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.__root = this.ModelFileToolV3 = [
           "modelType",
@@ -1039,7 +957,7 @@ module.exports = [
           "motions",
           Utils.getArrayReader(this.ModelToolMotionV3),
           "blitTextures",
-          Utils.getArrayReader(this.ModelToolBlitTextureV3)
+          Utils.getArrayReader(this.ModelToolBlitTextureV3),
         ];
       },
 
@@ -1051,7 +969,7 @@ module.exports = [
           "emitterNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "obstacleNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolMotionV2 = [
@@ -1060,15 +978,10 @@ module.exports = [
           "keys",
           Utils.getArrayReader("float32"),
           "values",
-          Utils.getArrayReader(["[]", "float32", 3])
+          Utils.getArrayReader(["[]", "float32", 3]),
         ];
 
-        this.ModelToolBlitTextureV2 = [
-          "blitId",
-          Utils.getQWordReader(),
-          "filename",
-          Utils.getFileNameReader()
-        ];
+        this.ModelToolBlitTextureV2 = ["blitId", Utils.getQWordReader(), "filename", Utils.getFileNameReader()];
 
         this.__root = this.ModelFileToolV2 = [
           "materialNames",
@@ -1078,7 +991,7 @@ module.exports = [
           "motions",
           Utils.getArrayReader(this.ModelToolMotionV2),
           "blitTextures",
-          Utils.getArrayReader(this.ModelToolBlitTextureV2)
+          Utils.getArrayReader(this.ModelToolBlitTextureV2),
         ];
       },
 
@@ -1090,7 +1003,7 @@ module.exports = [
           "emitterNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "obstacleNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.ModelToolMotionV1 = [
@@ -1099,7 +1012,7 @@ module.exports = [
           "keys",
           Utils.getArrayReader("float32"),
           "values",
-          Utils.getArrayReader(["[]", "float32", 3])
+          Utils.getArrayReader(["[]", "float32", 3]),
         ];
 
         this.__root = this.ModelFileToolV1 = [
@@ -1108,7 +1021,7 @@ module.exports = [
           "cloudData",
           Utils.getPointerReader(this.ModelToolCloudV1),
           "motions",
-          Utils.getArrayReader(this.ModelToolMotionV1)
+          Utils.getArrayReader(this.ModelToolMotionV1),
         ];
       },
 
@@ -1120,16 +1033,16 @@ module.exports = [
           "emitterNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "obstacleNames",
-          Utils.getArrayReader(Utils.getStringReader())
+          Utils.getArrayReader(Utils.getStringReader()),
         ];
 
         this.__root = this.ModelFileToolV0 = [
           "materialNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "cloudData",
-          Utils.getPointerReader(this.ModelToolCloudV0)
+          Utils.getPointerReader(this.ModelToolCloudV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

@@ -20,17 +20,10 @@ module.exports = [
           "nameOffset",
           "uint32",
           "trackReferences",
-          "uint8"
+          "uint8",
         ];
 
-        this.PackContentNamespace = [
-          "name",
-          Utils.getString16Reader(),
-          "domain",
-          "uint32",
-          "parentIndex",
-          "uint32"
-        ];
+        this.PackContentNamespace = ["name", Utils.getString16Reader(), "domain", "uint32", "parentIndex", "uint32"];
 
         this.PackContentIndexEntry = [
           "type",
@@ -40,17 +33,12 @@ module.exports = [
           "namespaceIndex",
           "uint32",
           "rootIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackContentLocalOffsetFixup = ["relocOffset", "uint32"];
 
-        this.PackContentExternalOffsetFixup = [
-          "relocOffset",
-          "uint32",
-          "targetFileIndex",
-          "uint32"
-        ];
+        this.PackContentExternalOffsetFixup = ["relocOffset", "uint32", "targetFileIndex", "uint32"];
 
         this.PackContentFileIndexFixup = ["relocOffset", "uint32"];
 
@@ -62,7 +50,7 @@ module.exports = [
           "targetFileIndex",
           "uint32",
           "targetOffset",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.PackContent = [
@@ -89,10 +77,10 @@ module.exports = [
           "strings",
           Utils.getArrayReader(Utils.getString16Reader()),
           "content",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
-      }
-    }
+      },
+    },
   },
 
   /// ==================================================
@@ -106,11 +94,8 @@ module.exports = [
       0: function() {
         this.PackMapMetadataMap = ["mapId", "uint16", "mapType", "uint8"];
 
-        this.__root = this.PackMapMetadata = [
-          "maps",
-          Utils.getArrayReader(this.PackMapMetadataMap)
-        ];
-      }
-    }
-  }
+        this.__root = this.PackMapMetadata = ["maps", Utils.getArrayReader(this.PackMapMetadataMap)];
+      },
+    },
+  },
 ];

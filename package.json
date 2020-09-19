@@ -2,14 +2,11 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "eslint": "^7.2.0",
-    "http-server": "^0.12.3",
-    "lerna": "^3.18.4",
-    "prettier": "^2.1.2"
+    "lerna": "^3.18.4"
   },
   "scripts": {
-    "lint": "lerna exec --parallel npm run lint",
-    "format": "lerna exec --parallel npm run format",
+    "lint": "lerna run --parallel lint",
+    "format": "lerna run --parallel format",
     "preversion": "git pull",
     "releaseMinor": "lerna version minor",
     "lernaInstall": "lerna exec --parallel npm install"

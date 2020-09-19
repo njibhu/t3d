@@ -10,14 +10,7 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.AmatAppleShaderConstant = [
-          "token",
-          "uint32",
-          "regIndex",
-          "uint32",
-          "regCount",
-          "uint32"
-        ];
+        this.AmatAppleShaderConstant = ["token", "uint32", "regIndex", "uint32", "regCount", "uint32"];
 
         this.__root = this.AmatAppleShader = [
           "isPixelShader",
@@ -29,9 +22,9 @@ module.exports = [
           "constants",
           Utils.getArrayReader(this.AmatAppleShaderConstant),
           "samplers",
-          Utils.getArrayReader(this.AmatAppleShaderConstant)
+          Utils.getArrayReader(this.AmatAppleShaderConstant),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

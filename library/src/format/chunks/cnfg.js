@@ -18,7 +18,7 @@ module.exports = [
           "weight",
           "float32",
           "smoothingWeight",
-          "float32"
+          "float32",
         ];
 
         this.PackAnimAimIKConfigV0 = [
@@ -43,15 +43,10 @@ module.exports = [
           "targets",
           Utils.getArrayReader(Utils.getQWordReader()),
           "flags",
-          "uint8"
+          "uint8",
         ];
 
-        this.PackAnimIKRaycastTargetV0 = [
-          "flags",
-          "uint32",
-          "direction",
-          ["[]", "float32", 3]
-        ];
+        this.PackAnimIKRaycastTargetV0 = ["flags", "uint32", "direction", ["[]", "float32", 3]];
 
         this.PackAnimIKChainV0 = [
           "name",
@@ -69,23 +64,23 @@ module.exports = [
           "targetMode",
           "uint8",
           "chainType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackAnimIKChainGroupV0 = [
           "name",
           Utils.getQWordReader(),
           "chains",
-          Utils.getArrayReader(this.PackAnimIKChainV0)
+          Utils.getArrayReader(this.PackAnimIKChainV0),
         ];
 
         this.__root = this.PackAnimConfigV0 = [
           "aimIKConfigs",
           Utils.getArrayReader(this.PackAnimAimIKConfigV0),
           "chainGroups",
-          Utils.getArrayReader(this.PackAnimIKChainGroupV0)
+          Utils.getArrayReader(this.PackAnimIKChainGroupV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

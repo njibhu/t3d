@@ -10,12 +10,7 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.PackAnimSequenceChargeStageV0 = [
-          "duration",
-          "uint16",
-          "endingChargeLevel",
-          "uint8"
-        ];
+        this.PackAnimSequenceChargeStageV0 = ["duration", "uint16", "endingChargeLevel", "uint8"];
 
         this.PackAnimSequenceStepActionV0 = ["duration", "uint32"];
 
@@ -27,7 +22,7 @@ module.exports = [
           "facingRotation",
           ["[]", "float32", 4],
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackAnimSequenceStepV0 = [
@@ -40,17 +35,10 @@ module.exports = [
           "action",
           Utils.getPointerReader(this.PackAnimSequenceStepActionV0),
           "move",
-          Utils.getPointerReader(this.PackAnimSequenceStepMoveV0)
+          Utils.getPointerReader(this.PackAnimSequenceStepMoveV0),
         ];
 
-        this.PackAnimSequenceTriggerV0 = [
-          "trigger",
-          "uint8",
-          "time",
-          "uint32",
-          "flags",
-          "uint32"
-        ];
+        this.PackAnimSequenceTriggerV0 = ["trigger", "uint8", "time", "uint32", "flags", "uint32"];
 
         this.PackAnimSequenceDataV0 = [
           "token",
@@ -66,21 +54,18 @@ module.exports = [
           "steps",
           Utils.getArrayReader(this.PackAnimSequenceStepV0),
           "triggers",
-          Utils.getArrayReader(this.PackAnimSequenceTriggerV0)
+          Utils.getArrayReader(this.PackAnimSequenceTriggerV0),
         ];
 
         this.PackAnimSequenceV0 = [
           "sequence",
           Utils.getQWordReader(),
           "animationData",
-          Utils.getArrayReader(this.PackAnimSequenceDataV0)
+          Utils.getArrayReader(this.PackAnimSequenceDataV0),
         ];
 
-        this.__root = this.PackAnimSequencesV0 = [
-          "sequences",
-          Utils.getArrayReader(this.PackAnimSequenceV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.PackAnimSequencesV0 = ["sequences", Utils.getArrayReader(this.PackAnimSequenceV0)];
+      },
+    },
+  },
 ];

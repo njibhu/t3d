@@ -52,10 +52,7 @@ module.exports = {
         let pos = ds.position;
 
         if (maxCount && arr_len > maxCount) {
-          throw "Array length " +
-            arr_len +
-            " exceeded allowed maximum " +
-            maxCount;
+          throw "Array length " + arr_len + " exceeded allowed maximum " + maxCount;
         }
 
         ds.seek(arr_ptr);
@@ -63,10 +60,7 @@ module.exports = {
         ds.seek(pos);
       } catch (e) {
         console.warn("getArrayReader Failed loading array", e);
-        console.warn(
-          "getArrayReader Failed loading array, structDef",
-          structDef
-        );
+        console.warn("getArrayReader Failed loading array, structDef", structDef);
       }
       return ret;
     };
@@ -118,11 +112,7 @@ module.exports = {
           } catch (e) {
             // debugger;
             ret_arr.push(null);
-            console.warn(
-              "getRefArrayReader could not find refered data at offset",
-              offsets[i],
-              e
-            );
+            console.warn("getRefArrayReader could not find refered data at offset", offsets[i], e);
           }
         }
       } /// End for each offset
@@ -249,15 +239,12 @@ module.exports = {
           "m_highPart",
           "uint16", // uint16 m_highPart;
           "m_terminator",
-          "uint16" // uint16 m_terminator;
+          "uint16", // uint16 m_terminator;
         ]);
 
         /// Getting the file name...
         /// Both need to be >= than 256 (terminator is 0)
-        let ret =
-          0xff00 * (fileRef.m_highPart - 0x100) +
-          (fileRef.m_lowPart - 0x100) +
-          1;
+        let ret = 0xff00 * (fileRef.m_highPart - 0x100) + (fileRef.m_lowPart - 0x100) + 1;
         // var ret = (fileRef.m_highPart - 0x100) * 0xff00 + (fileRef.m_lowPart - 0xff);
 
         if (ret < 0) {
@@ -277,5 +264,5 @@ module.exports = {
         return -1;
       }
     };
-  }
+  },
 };

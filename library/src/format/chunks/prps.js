@@ -16,7 +16,7 @@ module.exports = [
           "parentBone",
           Utils.getQWordReader(),
           "translation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelPropertyData = [
@@ -31,16 +31,16 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.ModelFileProperties = [
           "fixedOffsetData",
           Utils.getArrayReader(this.ModelFixedOffsetData),
           "properties",
-          Utils.getArrayReader(this.ModelPropertyData)
+          Utils.getArrayReader(this.ModelPropertyData),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

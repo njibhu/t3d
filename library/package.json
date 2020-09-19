@@ -12,10 +12,12 @@
   },
   "devDependencies": {
     "browserify": "^16.5.1",
+    "eslint": "^7.9.0",
     "gulp": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulplog": "^1.0.0",
+    "prettier": "^2.1.2",
     "uglify-es": "^3.3.9",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"

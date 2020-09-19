@@ -16,14 +16,11 @@ module.exports = [
           "compressedData",
           Utils.getArrayReader("uint8"),
           "originalName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
-        this.__root = this.AmatXbxUPDBinfo = [
-          "uPDBarray",
-          Utils.getArrayReader(this.AmatXbxUPDBentry)
-        ];
-      }
-    }
-  }
+        this.__root = this.AmatXbxUPDBinfo = ["uPDBarray", Utils.getArrayReader(this.AmatXbxUPDBentry)];
+      },
+    },
+  },
 ];

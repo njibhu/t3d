@@ -16,13 +16,10 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
-        this.MapRiverReach = [
-          "properties",
-          Utils.getArrayReader(this.PackMapRiverProperty)
-        ];
+        this.MapRiverReach = ["properties", Utils.getArrayReader(this.PackMapRiverProperty)];
 
         this.MapRiver = [
           "guid",
@@ -34,13 +31,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "reaches",
-          Utils.getArrayReader(this.MapRiverReach)
+          Utils.getArrayReader(this.MapRiverReach),
         ];
 
-        this.__root = this.PackMapRivers = [
-          "rivers",
-          Utils.getArrayReader(this.MapRiver)
-        ];
+        this.__root = this.PackMapRivers = ["rivers", Utils.getArrayReader(this.MapRiver)];
       },
 
       // => Version: 4
@@ -57,7 +51,7 @@ module.exports = [
           "flags",
           "uint32",
           "uvIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.MapRiverMaterial = [
@@ -72,7 +66,7 @@ module.exports = [
           "textureMaps",
           Utils.getArrayReader(this.MapRiverTextureMap),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.MapRiverReach = [
@@ -95,7 +89,7 @@ module.exports = [
           "materials",
           Utils.getArrayReader(this.MapRiverMaterial),
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.MapRiver = [
@@ -110,13 +104,10 @@ module.exports = [
           "reaches",
           Utils.getArrayReader(this.MapRiverReach),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapRivers = [
           "flags",
@@ -126,7 +117,7 @@ module.exports = [
           "rivers",
           Utils.getArrayReader(this.MapRiver),
           "broadPhase",
-          this.PackBroadphaseType
+          this.PackBroadphaseType,
         ];
       },
 
@@ -142,7 +133,7 @@ module.exports = [
           "tiling",
           "float32",
           "uvIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.MapRiverMaterial = [
@@ -155,7 +146,7 @@ module.exports = [
           "constantValues",
           Utils.getArrayReader(["[]", "float32", 4]),
           "textureMaps",
-          Utils.getArrayReader(this.MapRiverTextureMap)
+          Utils.getArrayReader(this.MapRiverTextureMap),
         ];
 
         this.MapRiverReach = [
@@ -176,7 +167,7 @@ module.exports = [
           "flags",
           "uint32",
           "materials",
-          Utils.getArrayReader(this.MapRiverMaterial)
+          Utils.getArrayReader(this.MapRiverMaterial),
         ];
 
         this.MapRiver = [
@@ -191,13 +182,10 @@ module.exports = [
           "reaches",
           Utils.getArrayReader(this.MapRiverReach),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapRivers = [
           "flags",
@@ -207,7 +195,7 @@ module.exports = [
           "rivers",
           Utils.getArrayReader(this.MapRiver),
           "broadPhase",
-          this.PackBroadphaseType
+          this.PackBroadphaseType,
         ];
       },
 
@@ -223,7 +211,7 @@ module.exports = [
           "tiling",
           "float32",
           "uvIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.MapRiverMaterial = [
@@ -236,7 +224,7 @@ module.exports = [
           "constantValues",
           Utils.getArrayReader(["[]", "float32", 4]),
           "textureMaps",
-          Utils.getArrayReader(this.MapRiverTextureMap)
+          Utils.getArrayReader(this.MapRiverTextureMap),
         ];
 
         this.MapRiverReach = [
@@ -255,7 +243,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materials",
-          Utils.getArrayReader(this.MapRiverMaterial)
+          Utils.getArrayReader(this.MapRiverMaterial),
         ];
 
         this.MapRiver = [
@@ -268,13 +256,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "reaches",
-          Utils.getArrayReader(this.MapRiverReach)
+          Utils.getArrayReader(this.MapRiverReach),
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapRivers = [
           "flags",
@@ -284,7 +269,7 @@ module.exports = [
           "rivers",
           Utils.getArrayReader(this.MapRiver),
           "broadPhase",
-          this.PackBroadphaseType
+          this.PackBroadphaseType,
         ];
       },
 
@@ -300,7 +285,7 @@ module.exports = [
           "tiling",
           "float32",
           "uvIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.MapRiverMaterial = [
@@ -313,7 +298,7 @@ module.exports = [
           "constantValues",
           Utils.getArrayReader(["[]", "float32", 4]),
           "textureMaps",
-          Utils.getArrayReader(this.MapRiverTextureMap)
+          Utils.getArrayReader(this.MapRiverTextureMap),
         ];
 
         this.MapRiverReach = [
@@ -330,7 +315,7 @@ module.exports = [
           "broadId",
           "uint32",
           "materials",
-          Utils.getArrayReader(this.MapRiverMaterial)
+          Utils.getArrayReader(this.MapRiverMaterial),
         ];
 
         this.MapRiver = [
@@ -343,13 +328,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "reaches",
-          Utils.getArrayReader(this.MapRiverReach)
+          Utils.getArrayReader(this.MapRiverReach),
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapRivers = [
           "flags",
@@ -359,22 +341,13 @@ module.exports = [
           "rivers",
           Utils.getArrayReader(this.MapRiver),
           "broadPhase",
-          this.PackBroadphaseType
+          this.PackBroadphaseType,
         ];
       },
 
       // => Version: 0
       0: function() {
-        this.MapRiverTextureMap = [
-          "scale",
-          "float32",
-          "speed",
-          "float32",
-          "tiling",
-          "float32",
-          "uvIndex",
-          "uint8"
-        ];
+        this.MapRiverTextureMap = ["scale", "float32", "speed", "float32", "tiling", "float32", "uvIndex", "uint8"];
 
         this.MapRiverMaterial = [
           "materialFile",
@@ -386,7 +359,7 @@ module.exports = [
           "constantValues",
           Utils.getArrayReader(["[]", "float32", 4]),
           "textureMaps",
-          Utils.getArrayReader(this.MapRiverTextureMap)
+          Utils.getArrayReader(this.MapRiverTextureMap),
         ];
 
         this.MapRiverReach = [
@@ -403,7 +376,7 @@ module.exports = [
           "broadId",
           "uint32",
           "materials",
-          Utils.getArrayReader(this.MapRiverMaterial)
+          Utils.getArrayReader(this.MapRiverMaterial),
         ];
 
         this.MapRiver = [
@@ -414,13 +387,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "reaches",
-          Utils.getArrayReader(this.MapRiverReach)
+          Utils.getArrayReader(this.MapRiverReach),
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapRivers = [
           "flags",
@@ -430,9 +400,9 @@ module.exports = [
           "rivers",
           Utils.getArrayReader(this.MapRiver),
           "broadPhase",
-          this.PackBroadphaseType
+          this.PackBroadphaseType,
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

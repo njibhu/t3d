@@ -20,17 +20,10 @@ module.exports = [
           "regValue",
           ["[]", "float32", 4],
           "data",
-          "uint32"
+          "uint32",
         ];
 
-        this.AmatPs3SamplerConstant = [
-          "regIndex",
-          "uint32",
-          "stateIndex",
-          "uint32",
-          "texIndex",
-          "uint32"
-        ];
+        this.AmatPs3SamplerConstant = ["regIndex", "uint32", "stateIndex", "uint32", "texIndex", "uint32"];
 
         this.AmatPs3FragmentShaderConfig = [
           "offset",
@@ -52,7 +45,7 @@ module.exports = [
           "samplers",
           Utils.getArrayReader(this.AmatPs3SamplerConstant),
           "code",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.AmatPs3VertexShaderConfig = [
@@ -69,7 +62,7 @@ module.exports = [
           "samplers",
           Utils.getArrayReader(this.AmatPs3SamplerConstant),
           "code",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.AmatPs3RenderState = [
@@ -92,7 +85,7 @@ module.exports = [
           "depthFunc",
           "uint32",
           "depthBias",
-          "float32"
+          "float32",
         ];
 
         this.AmatPs3Pass = [
@@ -105,15 +98,10 @@ module.exports = [
           "psFileFame",
           Utils.getFileNameReader(),
           "vsFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
-        this.AmatPs3Effect = [
-          "token",
-          Utils.getQWordReader(),
-          "passes",
-          Utils.getArrayReader(this.AmatPs3Pass)
-        ];
+        this.AmatPs3Effect = ["token", Utils.getQWordReader(), "passes", Utils.getArrayReader(this.AmatPs3Pass)];
 
         this.AmatPs3Sampler = [
           "wraps",
@@ -127,7 +115,7 @@ module.exports = [
           "filterMag",
           "uint32",
           "filterBias",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.AmatPs3Material = [
@@ -140,9 +128,9 @@ module.exports = [
           "effects",
           Utils.getArrayReader(this.AmatPs3Effect),
           "samplers",
-          Utils.getArrayReader(this.AmatPs3Sampler)
+          Utils.getArrayReader(this.AmatPs3Sampler),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

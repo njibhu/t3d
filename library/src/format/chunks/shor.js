@@ -36,13 +36,10 @@ module.exports = [
           "simplifyDistMax",
           "float32",
           "simplifyDot",
-          "float32"
+          "float32",
         ];
 
-        this.__root = this.MapShore = [
-          "chains",
-          Utils.getArrayReader(this.MapShoreChain)
-        ];
+        this.__root = this.MapShore = ["chains", Utils.getArrayReader(this.MapShoreChain)];
       },
 
       // => Version: 2
@@ -67,14 +64,11 @@ module.exports = [
           "restTime",
           "float32",
           "fadeRanges",
-          ["[]", ["[]", "float32", 2], 4]
+          ["[]", ["[]", "float32", 2], 4],
         ];
 
-        this.__root = this.MapShore = [
-          "chains",
-          Utils.getArrayReader(this.MapShoreChain)
-        ];
-      }
-    }
-  }
+        this.__root = this.MapShore = ["chains", Utils.getArrayReader(this.MapShoreChain)];
+      },
+    },
+  },
 ];

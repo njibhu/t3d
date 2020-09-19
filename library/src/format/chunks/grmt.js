@@ -26,7 +26,7 @@ module.exports = [
           "flags",
           "uint32",
           "texTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
       },
 
@@ -54,7 +54,7 @@ module.exports = [
           "textureMasks",
           ["[]", "uint32", 4],
           "texTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
       },
 
@@ -80,7 +80,7 @@ module.exports = [
           "texType",
           "uint32",
           "textureMasks",
-          ["[]", "uint32", 4]
+          ["[]", "uint32", 4],
         ];
       },
 
@@ -104,7 +104,7 @@ module.exports = [
           "texType",
           "uint32",
           "textureMasks",
-          ["[]", "uint32", 4]
+          ["[]", "uint32", 4],
         ];
       },
 
@@ -126,7 +126,7 @@ module.exports = [
           "texType",
           "uint32",
           "textureMasks",
-          ["[]", "uint32", 4]
+          ["[]", "uint32", 4],
         ];
       },
 
@@ -146,7 +146,7 @@ module.exports = [
           "texType",
           "uint32",
           "textureMasks",
-          ["[]", "uint32", 4]
+          ["[]", "uint32", 4],
         ];
       },
 
@@ -164,9 +164,9 @@ module.exports = [
           "flags",
           "uint32",
           "textureMasks",
-          ["[]", "uint32", 4]
+          ["[]", "uint32", 4],
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

@@ -14,9 +14,9 @@ module.exports = [
           "data",
           Utils.getArrayReader("uint8"),
           "files",
-          Utils.getArrayReader(Utils.getFileNameReader())
+          Utils.getArrayReader(Utils.getFileNameReader()),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

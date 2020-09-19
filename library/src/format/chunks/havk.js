@@ -20,13 +20,10 @@ module.exports = [
           "surfaces",
           Utils.getArrayReader("uint16"),
           "moppCodeData",
-          this.PackMoppType
+          this.PackMoppType,
         ];
 
-        this.PackMapCollideBlockerV14 = [
-          "vertices",
-          Utils.getArrayReader(["[]", "float32", 3])
-        ];
+        this.PackMapCollideBlockerV14 = ["vertices", Utils.getArrayReader(["[]", "float32", 3])];
 
         this.PackMapCollideNavMeshV14 = [
           "navMesh",
@@ -34,7 +31,7 @@ module.exports = [
           "graph",
           Utils.getArrayReader("uint8"),
           "mediator",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapCollideAnimationV14 = [
@@ -43,7 +40,7 @@ module.exports = [
           "collisionIndices",
           Utils.getArrayReader("uint32"),
           "blockerIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.PackMapCollideGeometryV14 = [
@@ -52,15 +49,10 @@ module.exports = [
           "animations",
           Utils.getArrayReader("uint32"),
           "navMeshIndex",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapCollideModelObsV14 = [
-          "translate",
-          ["[]", "float32", 3],
-          "geometryIndex",
-          "uint32"
-        ];
+        this.PackMapCollideModelObsV14 = ["translate", ["[]", "float32", 3], "geometryIndex", "uint32"];
 
         this.PackMapCollideModelPropV14 = [
           "token",
@@ -74,7 +66,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideModelZoneV14 = [
@@ -85,7 +77,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.PackMapCollideV14 = [
@@ -108,7 +100,7 @@ module.exports = [
           "propModels",
           Utils.getArrayReader(this.PackMapCollideModelPropV14),
           "zoneModels",
-          Utils.getArrayReader(this.PackMapCollideModelZoneV14)
+          Utils.getArrayReader(this.PackMapCollideModelZoneV14),
         ];
       },
 
@@ -122,13 +114,10 @@ module.exports = [
           "surfaces",
           Utils.getArrayReader("uint16"),
           "moppCodeData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.PackMapCollideBlockerV13 = [
-          "vertices",
-          Utils.getArrayReader(["[]", "float32", 3])
-        ];
+        this.PackMapCollideBlockerV13 = ["vertices", Utils.getArrayReader(["[]", "float32", 3])];
 
         this.PackMapCollideAnimationV13 = [
           "sequence",
@@ -136,22 +125,12 @@ module.exports = [
           "collisionIndices",
           Utils.getArrayReader("uint32"),
           "blockerIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackMapCollideGeometryV13 = [
-          "quantizedExtents",
-          "uint8",
-          "animations",
-          Utils.getArrayReader("uint32")
-        ];
+        this.PackMapCollideGeometryV13 = ["quantizedExtents", "uint8", "animations", Utils.getArrayReader("uint32")];
 
-        this.PackMapCollideModelObsV13 = [
-          "translate",
-          ["[]", "float32", 3],
-          "geometryIndex",
-          "uint32"
-        ];
+        this.PackMapCollideModelObsV13 = ["translate", ["[]", "float32", 3], "geometryIndex", "uint32"];
 
         this.PackMapCollideModelPropV13 = [
           "token",
@@ -165,7 +144,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideModelZoneV13 = [
@@ -176,7 +155,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.PackMapCollideV13 = [
@@ -197,7 +176,7 @@ module.exports = [
           "propModels",
           Utils.getArrayReader(this.PackMapCollideModelPropV13),
           "zoneModels",
-          Utils.getArrayReader(this.PackMapCollideModelZoneV13)
+          Utils.getArrayReader(this.PackMapCollideModelZoneV13),
         ];
       },
 
@@ -213,29 +192,19 @@ module.exports = [
           "moppCodeScale",
           "float32",
           "moppCodeData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.PackMapCollideMeshRefV12 = [
-          "sequence",
-          Utils.getQWordReader(),
-          "meshIndex",
-          "uint32"
-        ];
+        this.PackMapCollideMeshRefV12 = ["sequence", Utils.getQWordReader(), "meshIndex", "uint32"];
 
         this.PackMapCollideGeometryV12 = [
           "quantizedExtents",
           "uint8",
           "meshRefs",
-          Utils.getArrayReader(this.PackMapCollideMeshRefV12)
+          Utils.getArrayReader(this.PackMapCollideMeshRefV12),
         ];
 
-        this.PackMapCollideModelObsV12 = [
-          "translate",
-          ["[]", "float32", 3],
-          "geometryIndex",
-          "uint32"
-        ];
+        this.PackMapCollideModelObsV12 = ["translate", ["[]", "float32", 3], "geometryIndex", "uint32"];
 
         this.PackMapCollideModelPropV12 = [
           "token",
@@ -249,7 +218,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideModelZoneV12 = [
@@ -260,7 +229,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideAiChunkV12 = [
@@ -273,7 +242,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapCollideV12 = [
@@ -294,7 +263,7 @@ module.exports = [
           "aiChunkDims",
           ["[]", "uint32", 2],
           "aiChunks",
-          Utils.getArrayReader(this.PackMapCollideAiChunkV12)
+          Utils.getArrayReader(this.PackMapCollideAiChunkV12),
         ];
       },
 
@@ -308,29 +277,19 @@ module.exports = [
           "moppCodeScale",
           "float32",
           "moppCodeData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.PackMapCollideMeshRefV11 = [
-          "sequence",
-          Utils.getQWordReader(),
-          "meshIndex",
-          "uint32"
-        ];
+        this.PackMapCollideMeshRefV11 = ["sequence", Utils.getQWordReader(), "meshIndex", "uint32"];
 
         this.PackMapCollideGeometryV11 = [
           "quantizedExtents",
           "uint8",
           "meshRefs",
-          Utils.getArrayReader(this.PackMapCollideMeshRefV11)
+          Utils.getArrayReader(this.PackMapCollideMeshRefV11),
         ];
 
-        this.PackMapCollideModelObsV11 = [
-          "translate",
-          ["[]", "float32", 3],
-          "geometryIndex",
-          "uint32"
-        ];
+        this.PackMapCollideModelObsV11 = ["translate", ["[]", "float32", 3], "geometryIndex", "uint32"];
 
         this.PackMapCollideModelPropV11 = [
           "token",
@@ -344,7 +303,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideModelZoneV11 = [
@@ -355,7 +314,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideAiChunkV11 = [
@@ -368,7 +327,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapCollideV11 = [
@@ -389,7 +348,7 @@ module.exports = [
           "aiChunkDims",
           ["[]", "uint32", 2],
           "aiChunks",
-          Utils.getArrayReader(this.PackMapCollideAiChunkV11)
+          Utils.getArrayReader(this.PackMapCollideAiChunkV11),
         ];
       },
 
@@ -403,20 +362,12 @@ module.exports = [
           "moppCodeScale",
           "float32",
           "moppCodeData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.PackMapCollideMeshRefV10 = [
-          "sequence",
-          Utils.getQWordReader(),
-          "meshIndex",
-          "uint32"
-        ];
+        this.PackMapCollideMeshRefV10 = ["sequence", Utils.getQWordReader(), "meshIndex", "uint32"];
 
-        this.PackMapCollideGeometryV10 = [
-          "meshRefs",
-          Utils.getArrayReader(this.PackMapCollideMeshRefV10)
-        ];
+        this.PackMapCollideGeometryV10 = ["meshRefs", Utils.getArrayReader(this.PackMapCollideMeshRefV10)];
 
         this.PackMapCollideModelObsV10 = ["geometryIndex", "uint32"];
 
@@ -432,7 +383,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideModelZoneV10 = [
@@ -443,7 +394,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideAiChunkV10 = [
@@ -452,7 +403,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapCollideV10 = [
@@ -477,7 +428,7 @@ module.exports = [
           "aiChunkDims",
           ["[]", "uint32", 2],
           "aiChunks",
-          Utils.getArrayReader(this.PackMapCollideAiChunkV10)
+          Utils.getArrayReader(this.PackMapCollideAiChunkV10),
         ];
       },
 
@@ -491,20 +442,12 @@ module.exports = [
           "moppCodeScale",
           "float32",
           "moppCodeData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.PackMapCollideMeshRefV9 = [
-          "sequence",
-          Utils.getQWordReader(),
-          "meshIndex",
-          "uint32"
-        ];
+        this.PackMapCollideMeshRefV9 = ["sequence", Utils.getQWordReader(), "meshIndex", "uint32"];
 
-        this.PackMapCollideGeometryV9 = [
-          "meshRefs",
-          Utils.getArrayReader(this.PackMapCollideMeshRefV9)
-        ];
+        this.PackMapCollideGeometryV9 = ["meshRefs", Utils.getArrayReader(this.PackMapCollideMeshRefV9)];
 
         this.PackMapCollideModelObsV9 = ["geometryIndex", "uint32"];
 
@@ -520,7 +463,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideModelZoneV9 = [
@@ -531,14 +474,14 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideAiChunkV9 = [
           "navMeshData",
           Utils.getArrayReader("uint8"),
           "coarseGraphData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapCollideV9 = [
@@ -563,7 +506,7 @@ module.exports = [
           "aiChunkDims",
           ["[]", "uint32", 2],
           "aiChunks",
-          Utils.getArrayReader(this.PackMapCollideAiChunkV9)
+          Utils.getArrayReader(this.PackMapCollideAiChunkV9),
         ];
       },
 
@@ -577,20 +520,12 @@ module.exports = [
           "moppCodeScale",
           "float32",
           "moppCodeData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.PackMapCollideMeshRefV8 = [
-          "sequence",
-          Utils.getQWordReader(),
-          "meshIndex",
-          "uint32"
-        ];
+        this.PackMapCollideMeshRefV8 = ["sequence", Utils.getQWordReader(), "meshIndex", "uint32"];
 
-        this.PackMapCollideGeometryV8 = [
-          "meshRefs",
-          Utils.getArrayReader(this.PackMapCollideMeshRefV8)
-        ];
+        this.PackMapCollideGeometryV8 = ["meshRefs", Utils.getArrayReader(this.PackMapCollideMeshRefV8)];
 
         this.PackMapCollideModelPropV8 = [
           "token",
@@ -604,7 +539,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideModelZoneV8 = [
@@ -615,14 +550,14 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideAiChunkV8 = [
           "navMeshData",
           Utils.getArrayReader("uint8"),
           "coarseGraphData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapCollideV8 = [
@@ -645,23 +580,15 @@ module.exports = [
           "aiChunkDims",
           ["[]", "uint32", 2],
           "aiChunks",
-          Utils.getArrayReader(this.PackMapCollideAiChunkV8)
+          Utils.getArrayReader(this.PackMapCollideAiChunkV8),
         ];
       },
 
       // => Version: 7
       7: function() {
-        this.PackMapCollideMoppCodeV7 = [
-          "cookedData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackMapCollideMoppCodeV7 = ["cookedData", Utils.getArrayReader("uint8")];
 
-        this.PackMapCollideMeshSizeV7 = [
-          "scale",
-          "float32",
-          "moppCodeIndex",
-          "uint32"
-        ];
+        this.PackMapCollideMeshSizeV7 = ["scale", "float32", "moppCodeIndex", "uint32"];
 
         this.PackMapCollideMeshV7 = [
           "indices",
@@ -669,20 +596,12 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 3]),
           "sizes",
-          Utils.getArrayReader(this.PackMapCollideMeshSizeV7)
+          Utils.getArrayReader(this.PackMapCollideMeshSizeV7),
         ];
 
-        this.PackMapCollideMeshRefV7 = [
-          "sequence",
-          Utils.getQWordReader(),
-          "meshIndex",
-          "uint32"
-        ];
+        this.PackMapCollideMeshRefV7 = ["sequence", Utils.getQWordReader(), "meshIndex", "uint32"];
 
-        this.PackMapCollideGeometryV7 = [
-          "meshRefs",
-          Utils.getArrayReader(this.PackMapCollideMeshRefV7)
-        ];
+        this.PackMapCollideGeometryV7 = ["meshRefs", Utils.getArrayReader(this.PackMapCollideMeshRefV7)];
 
         this.PackMapCollideModelPropV7 = [
           "token",
@@ -696,7 +615,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideModelZoneV7 = [
@@ -707,14 +626,14 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideAiChunkV7 = [
           "navMeshData",
           Utils.getArrayReader("uint8"),
           "coarseGraphData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapCollideV7 = [
@@ -739,23 +658,15 @@ module.exports = [
           "aiChunkDims",
           ["[]", "uint32", 2],
           "aiChunks",
-          Utils.getArrayReader(this.PackMapCollideAiChunkV7)
+          Utils.getArrayReader(this.PackMapCollideAiChunkV7),
         ];
       },
 
       // => Version: 6
       6: function() {
-        this.PackMapCollideMoppCodeV6 = [
-          "cookedData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackMapCollideMoppCodeV6 = ["cookedData", Utils.getArrayReader("uint8")];
 
-        this.PackMapCollideMeshSizeV6 = [
-          "scale",
-          "float32",
-          "moppCodeIndex",
-          "uint32"
-        ];
+        this.PackMapCollideMeshSizeV6 = ["scale", "float32", "moppCodeIndex", "uint32"];
 
         this.PackMapCollideMeshV6 = [
           "indices",
@@ -763,20 +674,12 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 3]),
           "sizes",
-          Utils.getArrayReader(this.PackMapCollideMeshSizeV6)
+          Utils.getArrayReader(this.PackMapCollideMeshSizeV6),
         ];
 
-        this.PackMapCollideMeshRefV6 = [
-          "sequence",
-          Utils.getQWordReader(),
-          "meshIndex",
-          "uint32"
-        ];
+        this.PackMapCollideMeshRefV6 = ["sequence", Utils.getQWordReader(), "meshIndex", "uint32"];
 
-        this.PackMapCollideGeometryV6 = [
-          "meshRefs",
-          Utils.getArrayReader(this.PackMapCollideMeshRefV6)
-        ];
+        this.PackMapCollideGeometryV6 = ["meshRefs", Utils.getArrayReader(this.PackMapCollideMeshRefV6)];
 
         this.PackMapCollideModelPropV6 = [
           "token",
@@ -790,7 +693,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCollideModelZoneV6 = [
@@ -801,7 +704,7 @@ module.exports = [
           "rotate",
           ["[]", "float32", 3],
           "geometryIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.PackMapCollideV6 = [
@@ -818,9 +721,9 @@ module.exports = [
           "propModels",
           Utils.getArrayReader(this.PackMapCollideModelPropV6),
           "zoneModels",
-          Utils.getArrayReader(this.PackMapCollideModelZoneV6)
+          Utils.getArrayReader(this.PackMapCollideModelZoneV6),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

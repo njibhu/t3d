@@ -18,7 +18,7 @@ module.exports = [
           "tangent",
           ["[]", "float32", 3],
           "bitangent",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapDecalV9 = [
@@ -69,13 +69,10 @@ module.exports = [
           "surfaceId",
           Utils.getQWordReader(),
           "id",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.__root = this.PackMapDecalsV9 = [
-          "decals",
-          Utils.getArrayReader(this.PackMapDecalV9)
-        ];
+        this.__root = this.PackMapDecalsV9 = ["decals", Utils.getArrayReader(this.PackMapDecalV9)];
       },
 
       // => Version: 8
@@ -130,13 +127,10 @@ module.exports = [
           "surfaceId",
           Utils.getQWordReader(),
           "id",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.__root = this.PackMapDecalsV8 = [
-          "decals",
-          Utils.getArrayReader(this.PackMapDecalV8)
-        ];
+        this.__root = this.PackMapDecalsV8 = ["decals", Utils.getArrayReader(this.PackMapDecalV8)];
       },
 
       // => Version: 7, ReferencedFunction: 0xEBA270
@@ -189,13 +183,10 @@ module.exports = [
           "projection",
           "uint8",
           "id",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.__root = this.PackMapDecalsV7 = [
-          "decals",
-          Utils.getArrayReader(this.PackMapDecalV7)
-        ];
+        this.__root = this.PackMapDecalsV7 = ["decals", Utils.getArrayReader(this.PackMapDecalV7)];
       },
 
       // => Version: 6
@@ -246,13 +237,10 @@ module.exports = [
           "propIds",
           Utils.getArrayReader(Utils.getQWordReader()),
           "projection",
-          "uint8"
+          "uint8",
         ];
 
-        this.__root = this.PackMapDecalsV6 = [
-          "decals",
-          Utils.getArrayReader(this.PackMapDecalV6)
-        ];
+        this.__root = this.PackMapDecalsV6 = ["decals", Utils.getArrayReader(this.PackMapDecalV6)];
       },
 
       // => Version: 5
@@ -301,13 +289,10 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "propIds",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
-        this.__root = this.PackMapDecalsV5 = [
-          "decals",
-          Utils.getArrayReader(this.PackMapDecalV5)
-        ];
+        this.__root = this.PackMapDecalsV5 = ["decals", Utils.getArrayReader(this.PackMapDecalV5)];
       },
 
       // => Version: 4
@@ -348,13 +333,10 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
-        this.__root = this.PackMapDecalsV4 = [
-          "decals",
-          Utils.getArrayReader(this.PackMapDecalV4)
-        ];
+        this.__root = this.PackMapDecalsV4 = ["decals", Utils.getArrayReader(this.PackMapDecalV4)];
       },
 
       // => Version: 3, ReferencedFunction: 0xEBA1F0
@@ -391,13 +373,10 @@ module.exports = [
           "animRotation",
           "float32",
           "surfaceBias",
-          "float32"
+          "float32",
         ];
 
-        this.__root = this.PackMapDecalsV3 = [
-          "decals",
-          Utils.getArrayReader(this.PackMapDecalV3)
-        ];
+        this.__root = this.PackMapDecalsV3 = ["decals", Utils.getArrayReader(this.PackMapDecalV3)];
       },
 
       // => Version: 2
@@ -428,13 +407,10 @@ module.exports = [
           "animScaleSpeed",
           ["[]", "float32", 2],
           "animRotation",
-          "float32"
+          "float32",
         ];
 
-        this.__root = this.PackMapDecalsV2 = [
-          "decals",
-          Utils.getArrayReader(this.PackMapDecalV2)
-        ];
+        this.__root = this.PackMapDecalsV2 = ["decals", Utils.getArrayReader(this.PackMapDecalV2)];
       },
 
       // => Version: 1
@@ -455,14 +431,11 @@ module.exports = [
           "textureFilenames",
           Utils.getArrayReader(Utils.getFileNameReader()),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
-        this.__root = this.PackMapDecalsV1 = [
-          "decals",
-          Utils.getArrayReader(this.PackMapDecalV1)
-        ];
-      }
-    }
-  }
+        this.__root = this.PackMapDecalsV1 = ["decals", Utils.getArrayReader(this.PackMapDecalV1)];
+      },
+    },
+  },
 ];

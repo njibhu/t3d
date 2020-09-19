@@ -20,19 +20,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackAssetExtraFile = [
-          "baseId",
-          "uint32",
-          "fileId",
-          "uint32",
-          "size",
-          "uint32",
-          "fileType",
-          "uint32"
-        ];
+        this.PackAssetExtraFile = ["baseId", "uint32", "fileId", "uint32", "size", "uint32", "fileType", "uint32"];
 
         this.__root = this.PackAssetRootManifest = [
           "buildId",
@@ -40,30 +31,21 @@ module.exports = [
           "manifests",
           Utils.getArrayReader(this.PackAssetManifestFile),
           "extraFiles",
-          Utils.getArrayReader(this.PackAssetExtraFile)
+          Utils.getArrayReader(this.PackAssetExtraFile),
         ];
       },
 
       // => Version: 0
       0: function() {
-        this.PackAssetExtraFile = [
-          "baseId",
-          "uint32",
-          "fileId",
-          "uint32",
-          "size",
-          "uint32",
-          "fileType",
-          "uint32"
-        ];
+        this.PackAssetExtraFile = ["baseId", "uint32", "fileId", "uint32", "size", "uint32", "fileType", "uint32"];
 
         this.__root = this.PackAssetRootManifestV0 = [
           "buildId",
           "uint32",
           "extraFiles",
-          Utils.getArrayReader(this.PackAssetExtraFile)
+          Utils.getArrayReader(this.PackAssetExtraFile),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

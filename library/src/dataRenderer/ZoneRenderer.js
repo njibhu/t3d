@@ -119,10 +119,7 @@ class ZoneRenderer extends DataRenderer {
 
               /// For each Mesh in the model
               meshes.forEach(function(mesh, meshIdx) {
-                if (
-                  mesh.materialFlags ===
-                  525 /* || mesh.materialFlags == 520 || mesh.materialFlags == 521 */
-                ) {
+                if (mesh.materialFlags === 525 /* || mesh.materialFlags == 520 || mesh.materialFlags == 521 */) {
                   // console.log("Skipping lod");
                   return;
                 }
@@ -134,24 +131,16 @@ class ZoneRenderer extends DataRenderer {
                   let mg = mesh.geometry.clone();
                   meshGroups[meshIdx] = {
                     readVerts: mg.getAttribute("position").array,
-                    verts: new Float32Array(
-                      group.length * mg.getAttribute("position").array.length
-                    ),
+                    verts: new Float32Array(group.length * mg.getAttribute("position").array.length),
 
                     readIndices: mg.getIndex().array,
-                    indices: new Uint32Array(
-                      group.length * mg.getIndex().array.length
-                    ),
+                    indices: new Uint32Array(group.length * mg.getIndex().array.length),
 
                     readUVs: mg.getAttribute("uv").array,
-                    uvs: new Float32Array(
-                      group.length * mg.getAttribute("uv").array.length
-                    ),
+                    uvs: new Float32Array(group.length * mg.getAttribute("uv").array.length),
 
                     readNormals: mg.getAttribute("normal").array,
-                    normals: new Float32Array(
-                      group.length * mg.getAttribute("normal").array.length
-                    ),
+                    normals: new Float32Array(group.length * mg.getAttribute("normal").array.length),
 
                     material: mesh.material,
                     // material:new THREE.MeshBasicMaterial( {color: 0xffcccc, wireframe:true} ),
@@ -159,7 +148,7 @@ class ZoneRenderer extends DataRenderer {
                         color: 0xFF0000,
                         size: 20
                       }), */
-                    position: { x: model.x, y: model.y, z: model.z }
+                    position: { x: model.x, y: model.y, z: model.z },
                   };
                 } else {
                   /// Translate
@@ -173,11 +162,7 @@ class ZoneRenderer extends DataRenderer {
                 let writeVerts = meshGroups[meshIdx].verts;
                 let stride = readVerts.length;
 
-                for (
-                  let i = 0, j = instanceIdx * stride;
-                  i < stride;
-                  i += 3, j += 3
-                ) {
+                for (let i = 0, j = instanceIdx * stride; i < stride; i += 3, j += 3) {
                   writeVerts[j + 0] = readVerts[i + 0] + move.x;
                   writeVerts[j + 1] = readVerts[i + 1] + move.y;
                   writeVerts[j + 2] = readVerts[i + 2] + move.z;
@@ -188,33 +173,21 @@ class ZoneRenderer extends DataRenderer {
                 let strideIndices = readIndices.length;
                 let shift = (stride * instanceIdx) / 3;
 
-                for (
-                  let i = 0, j = instanceIdx * strideIndices;
-                  i < strideIndices;
-                  i++, j++
-                ) {
+                for (let i = 0, j = instanceIdx * strideIndices; i < strideIndices; i++, j++) {
                   writeIndices[j] = readIndices[i] + shift;
                 }
 
                 let readUVs = meshGroups[meshIdx].readUVs;
                 let writeUvs = meshGroups[meshIdx].uvs;
                 let uvStride = readUVs.length;
-                for (
-                  let i = 0, j = instanceIdx * uvStride;
-                  i < uvStride;
-                  i++, j++
-                ) {
+                for (let i = 0, j = instanceIdx * uvStride; i < uvStride; i++, j++) {
                   writeUvs[j] = readUVs[i];
                 }
 
                 let readNormals = meshGroups[meshIdx].readNormals;
                 let writeNormals = meshGroups[meshIdx].normals;
                 let normalStride = readNormals.length;
-                for (
-                  let i = 0, j = instanceIdx * normalStride;
-                  i < normalStride;
-                  i++, j++
-                ) {
+                for (let i = 0, j = instanceIdx * normalStride; i < normalStride; i++, j++) {
                   writeNormals[j] = readNormals[i];
                 }
               });
@@ -225,31 +198,16 @@ class ZoneRenderer extends DataRenderer {
           meshGroups.forEach(function(meshGroup) {
             let mergedGeom = new THREE.BufferGeometry();
 
-            mergedGeom.addAttribute(
-              "position",
-              new THREE.BufferAttribute(meshGroup.verts, 3)
-            );
+            mergedGeom.addAttribute("position", new THREE.BufferAttribute(meshGroup.verts, 3));
             // mergedGeom.addAttribute( 'index', new THREE.BufferAttribute( meshGroup.indices, 1) );
-            mergedGeom.setIndex(
-              new THREE.BufferAttribute(meshGroup.indices, 1)
-            );
-            mergedGeom.addAttribute(
-              "normal",
-              new THREE.BufferAttribute(meshGroup.normals, 3)
-            );
-            mergedGeom.addAttribute(
-              "uv",
-              new THREE.BufferAttribute(meshGroup.uvs, 2)
-            );
+            mergedGeom.setIndex(new THREE.BufferAttribute(meshGroup.indices, 1));
+            mergedGeom.addAttribute("normal", new THREE.BufferAttribute(meshGroup.normals, 3));
+            mergedGeom.addAttribute("uv", new THREE.BufferAttribute(meshGroup.uvs, 2));
 
             mergedGeom.buffersNeedUpdate = true;
 
             let mesh = new THREE.Mesh(mergedGeom, meshGroup.material);
-            mesh.position.set(
-              meshGroup.position.x,
-              meshGroup.position.z,
-              meshGroup.position.y
-            );
+            mesh.position.set(meshGroup.position.x, meshGroup.position.z, meshGroup.position.y);
 
             self.getOutput().meshes.push(mesh);
           }); // End for each meshgroup
@@ -285,7 +243,7 @@ class ZoneRenderer extends DataRenderer {
       x1: zone.vertRect[0] * c + mapX,
       x2: zone.vertRect[2] * c + mapX,
       y1: zone.vertRect[1] * -c - mapY,
-      y2: zone.vertRect[3] * -c - mapY
+      y2: zone.vertRect[3] * -c - mapY,
     };
 
     /// Zone width and depth in local corrdinates
@@ -336,10 +294,7 @@ class ZoneRenderer extends DataRenderer {
 
           let startZ = 100000;
 
-          let raycaster = new THREE.Raycaster(
-            new THREE.Vector3(modelX, startZ, modelY),
-            new THREE.Vector3(0, -1, 0)
-          );
+          let raycaster = new THREE.Raycaster(new THREE.Vector3(modelX, startZ, modelY), new THREE.Vector3(0, -1, 0));
 
           /// TODO: OPT?
           terrainTiles.forEach(function(chunk) {
@@ -387,7 +342,7 @@ class ZoneRenderer extends DataRenderer {
             rotRangeY: rotRangeY,
             rotRangeZ: rotRangeZ,
             scaleRange: scaleRange,
-            fadeRange: fadeRange
+            fadeRange: fadeRange,
           });
         } /// End if layer
       } /// End if flag != 0
@@ -427,11 +382,7 @@ class ZoneRenderer extends DataRenderer {
     function stepZone(i) {
       let pct = Math.round((100.0 * i) / zones.length);
       if (lastPct !== pct) {
-        self.logger.log(
-          T3D.Logger.TYPE_PROGRESS,
-          "Loading 3D Models (Zone)",
-          pct
-        );
+        self.logger.log(T3D.Logger.TYPE_PROGRESS, "Loading 3D Models (Zone)", pct);
         lastPct = pct;
       }
 

@@ -20,17 +20,10 @@ module.exports = [
           "regValue",
           ["[]", "float32", 4],
           "data",
-          "uint32"
+          "uint32",
         ];
 
-        this.AmatPs3SamplerConstant = [
-          "regIndex",
-          "uint32",
-          "stateIndex",
-          "uint32",
-          "texIndex",
-          "uint32"
-        ];
+        this.AmatPs3SamplerConstant = ["regIndex", "uint32", "stateIndex", "uint32", "texIndex", "uint32"];
 
         this.__root = this.AmatPs3FragmentShaderConfig = [
           "offset",
@@ -52,9 +45,9 @@ module.exports = [
           "samplers",
           Utils.getArrayReader(this.AmatPs3SamplerConstant),
           "code",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

@@ -16,7 +16,7 @@ module.exports = [
           "mediatorMoppData",
           Utils.getArrayReader("uint8"),
           "coarseGraphData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapPhysicsNavMeshV2 = [
@@ -29,7 +29,7 @@ module.exports = [
           "erosionRadius",
           "float32",
           "chunkArray",
-          Utils.getArrayReader(this.PackMapPhysicsNavMeshChunkV2)
+          Utils.getArrayReader(this.PackMapPhysicsNavMeshChunkV2),
         ];
       },
 
@@ -45,7 +45,7 @@ module.exports = [
           "mediatorMoppData",
           Utils.getArrayReader("uint8"),
           "coarseGraphData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapPhysicsNavMeshV1 = [
@@ -56,7 +56,7 @@ module.exports = [
           "chunkDims",
           ["[]", "uint32", 2],
           "chunkArray",
-          Utils.getArrayReader(this.PackMapPhysicsNavMeshChunkV1)
+          Utils.getArrayReader(this.PackMapPhysicsNavMeshChunkV1),
         ];
       },
 
@@ -70,7 +70,7 @@ module.exports = [
           "navMeshData",
           Utils.getArrayReader("uint8"),
           "mediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapPhysicsNavMeshV0 = [
@@ -81,9 +81,9 @@ module.exports = [
           "chunkDims",
           ["[]", "uint32", 2],
           "chunkArray",
-          Utils.getArrayReader(this.PackMapPhysicsNavMeshChunkV0)
+          Utils.getArrayReader(this.PackMapPhysicsNavMeshChunkV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

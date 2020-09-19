@@ -16,14 +16,11 @@ module.exports = [
           "time",
           Utils.getQWordReader(),
           "dataPtr",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.__root = this.PackMapToolFsV0 = [
-          "filePtr",
-          Utils.getArrayReader(this.PackMapToolFsFileV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.PackMapToolFsV0 = ["filePtr", Utils.getArrayReader(this.PackMapToolFsFileV0)];
+      },
+    },
+  },
 ];

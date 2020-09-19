@@ -10,12 +10,7 @@ module.exports = [
     versions: {
       // => Version: 4, ReferencedFunction: 0xEBB040
       4: function() {
-        this.PackMapAreaPolygonV4 = [
-          "points",
-          Utils.getArrayReader(["[]", "float32", 3]),
-          "height",
-          "float32"
-        ];
+        this.PackMapAreaPolygonV4 = ["points", Utils.getArrayReader(["[]", "float32", 3]), "height", "float32"];
 
         this.PackMapAreaPortalV4 = [
           "position",
@@ -23,7 +18,7 @@ module.exports = [
           "extents",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapAreaVolumeV4 = [
@@ -36,7 +31,7 @@ module.exports = [
           "pointInterior",
           ["[]", "float32", 3],
           "pointExterior",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapAreaV4 = [
@@ -51,32 +46,22 @@ module.exports = [
           "polygon",
           this.PackMapAreaPolygonV4,
           "volume",
-          this.PackMapAreaVolumeV4
+          this.PackMapAreaVolumeV4,
         ];
 
-        this.PackMapAreaToolV4 = [
-          "annotation",
-          Utils.getString16Reader(),
-          "renderOffset",
-          "float32"
-        ];
+        this.PackMapAreaToolV4 = ["annotation", Utils.getString16Reader(), "renderOffset", "float32"];
 
         this.__root = this.PackMapAreasV4 = [
           "areas",
           Utils.getArrayReader(this.PackMapAreaV4),
           "areaTools",
-          Utils.getArrayReader(this.PackMapAreaToolV4)
+          Utils.getArrayReader(this.PackMapAreaToolV4),
         ];
       },
 
       // => Version: 3
       3: function() {
-        this.PackMapAreaPolygonV3 = [
-          "points",
-          Utils.getArrayReader(["[]", "float32", 3]),
-          "height",
-          "float32"
-        ];
+        this.PackMapAreaPolygonV3 = ["points", Utils.getArrayReader(["[]", "float32", 3]), "height", "float32"];
 
         this.PackMapAreaPortalV3 = [
           "position",
@@ -84,7 +69,7 @@ module.exports = [
           "extents",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapAreaVolumeV3 = [
@@ -97,7 +82,7 @@ module.exports = [
           "pointInterior",
           ["[]", "float32", 3],
           "pointExterior",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapAreaV3 = [
@@ -112,32 +97,22 @@ module.exports = [
           "polygon",
           this.PackMapAreaPolygonV3,
           "volume",
-          this.PackMapAreaVolumeV3
+          this.PackMapAreaVolumeV3,
         ];
 
-        this.PackMapAreaToolV3 = [
-          "annotation",
-          Utils.getString16Reader(),
-          "renderOffset",
-          "float32"
-        ];
+        this.PackMapAreaToolV3 = ["annotation", Utils.getString16Reader(), "renderOffset", "float32"];
 
         this.__root = this.PackMapAreasV3 = [
           "areas",
           Utils.getArrayReader(this.PackMapAreaV3),
           "areaTools",
-          Utils.getArrayReader(this.PackMapAreaToolV3)
+          Utils.getArrayReader(this.PackMapAreaToolV3),
         ];
       },
 
       // => Version: 2
       2: function() {
-        this.PackMapAreaPolygonV2 = [
-          "points",
-          Utils.getArrayReader(["[]", "float32", 3]),
-          "height",
-          "float32"
-        ];
+        this.PackMapAreaPolygonV2 = ["points", Utils.getArrayReader(["[]", "float32", 3]), "height", "float32"];
 
         this.PackMapAreaPortalV2 = [
           "position",
@@ -145,7 +120,7 @@ module.exports = [
           "extents",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapAreaVolumeV2 = [
@@ -158,7 +133,7 @@ module.exports = [
           "pointInterior",
           ["[]", "float32", 3],
           "pointExterior",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapAreaV2 = [
@@ -173,7 +148,7 @@ module.exports = [
           "polygon",
           this.PackMapAreaPolygonV2,
           "volume",
-          this.PackMapAreaVolumeV2
+          this.PackMapAreaVolumeV2,
         ];
 
         this.PackMapAreaToolV2 = ["annotation", Utils.getString16Reader()];
@@ -182,18 +157,13 @@ module.exports = [
           "areas",
           Utils.getArrayReader(this.PackMapAreaV2),
           "areaTools",
-          Utils.getArrayReader(this.PackMapAreaToolV2)
+          Utils.getArrayReader(this.PackMapAreaToolV2),
         ];
       },
 
       // => Version: 1, ReferencedFunction: 0xE2EE00
       1: function() {
-        this.PackMapAreaPolygonV1 = [
-          "points",
-          Utils.getArrayReader(["[]", "float32", 3]),
-          "height",
-          "float32"
-        ];
+        this.PackMapAreaPolygonV1 = ["points", Utils.getArrayReader(["[]", "float32", 3]), "height", "float32"];
 
         this.PackMapAreaPortalV1 = [
           "position",
@@ -201,7 +171,7 @@ module.exports = [
           "extents",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapAreaVolumeV1 = [
@@ -214,7 +184,7 @@ module.exports = [
           "pointInterior",
           ["[]", "float32", 3],
           "pointExterior",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapAreaV1 = [
@@ -227,13 +197,10 @@ module.exports = [
           "polygon",
           this.PackMapAreaPolygonV1,
           "volume",
-          this.PackMapAreaVolumeV1
+          this.PackMapAreaVolumeV1,
         ];
 
-        this.__root = this.PackMapAreasV1 = [
-          "areas",
-          Utils.getArrayReader(this.PackMapAreaV1)
-        ];
+        this.__root = this.PackMapAreasV1 = ["areas", Utils.getArrayReader(this.PackMapAreaV1)];
       },
 
       // => Version: 0
@@ -250,21 +217,18 @@ module.exports = [
           "token",
           "uint32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackMapPortalV0 = [
-          "portalVerts",
-          Utils.getArrayReader(["[]", "float32", 3])
-        ];
+        this.PackMapPortalV0 = ["portalVerts", Utils.getArrayReader(["[]", "float32", 3])];
 
         this.__root = this.PackMapAreasV0 = [
           "areas",
           Utils.getArrayReader(this.PackMapAreaV0),
           "portals",
-          Utils.getArrayReader(this.PackMapPortalV0)
+          Utils.getArrayReader(this.PackMapPortalV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

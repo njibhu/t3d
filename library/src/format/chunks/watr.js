@@ -14,9 +14,9 @@ module.exports = [
           "waterFoamData",
           Utils.getArrayReader("uint8"),
           "waterChunks",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

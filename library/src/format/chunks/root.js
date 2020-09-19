@@ -18,13 +18,10 @@ module.exports = [
           "posValues",
           Utils.getArrayReader(["[]", "float32", 3]),
           "quatValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
-        this.__root = this.ModelFileRootMotionV1 = [
-          "rootMotions",
-          Utils.getArrayReader(this.ModelRootMotionV1)
-        ];
+        this.__root = this.ModelFileRootMotionV1 = ["rootMotions", Utils.getArrayReader(this.ModelRootMotionV1)];
       },
 
       // => Version: 0
@@ -35,14 +32,11 @@ module.exports = [
           "keys",
           Utils.getArrayReader("float32"),
           "values",
-          Utils.getArrayReader(["[]", "float32", 3])
+          Utils.getArrayReader(["[]", "float32", 3]),
         ];
 
-        this.__root = this.ModelFileRootMotionV0 = [
-          "rootMotions",
-          Utils.getArrayReader(this.ModelRootMotionV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.ModelFileRootMotionV0 = ["rootMotions", Utils.getArrayReader(this.ModelRootMotionV0)];
+      },
+    },
+  },
 ];

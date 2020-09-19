@@ -16,7 +16,7 @@ module.exports = [
           "type",
           "uint32",
           "permutation",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapResourceMapNodeV1 = [
@@ -25,23 +25,15 @@ module.exports = [
           "flags",
           "uint32",
           "itemArray",
-          Utils.getArrayReader(this.PackMapResourceMapNodeItemV1)
+          Utils.getArrayReader(this.PackMapResourceMapNodeItemV1),
         ];
 
-        this.__root = this.PackMapResourceMapV1 = [
-          "nodeArray",
-          Utils.getArrayReader(this.PackMapResourceMapNodeV1)
-        ];
+        this.__root = this.PackMapResourceMapV1 = ["nodeArray", Utils.getArrayReader(this.PackMapResourceMapNodeV1)];
       },
 
       // => Version: 0
       0: function() {
-        this.PackMapResourceMapNodeItemV0 = [
-          "filename",
-          Utils.getFileNameReader(),
-          "type",
-          "uint32"
-        ];
+        this.PackMapResourceMapNodeItemV0 = ["filename", Utils.getFileNameReader(), "type", "uint32"];
 
         this.PackMapResourceMapNodeV0 = [
           "position",
@@ -49,14 +41,11 @@ module.exports = [
           "flags",
           "uint32",
           "itemArray",
-          Utils.getArrayReader(this.PackMapResourceMapNodeItemV0)
+          Utils.getArrayReader(this.PackMapResourceMapNodeItemV0),
         ];
 
-        this.__root = this.PackMapResourceMapV0 = [
-          "nodeArray",
-          Utils.getArrayReader(this.PackMapResourceMapNodeV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.PackMapResourceMapV0 = ["nodeArray", Utils.getArrayReader(this.PackMapResourceMapNodeV0)];
+      },
+    },
+  },
 ];

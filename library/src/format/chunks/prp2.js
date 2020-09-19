@@ -10,14 +10,7 @@ module.exports = [
     versions: {
       // => Version: 21
       21: function() {
-        this.PackMapPropConstantV18 = [
-          "token",
-          "uint32",
-          "constant",
-          ["[]", "float32", 4],
-          "submodel",
-          "uint32"
-        ];
+        this.PackMapPropConstantV18 = ["token", "uint32", "constant", ["[]", "float32", 4], "submodel", "uint32"];
 
         this.PackMapPropObjV21 = [
           "filename",
@@ -55,7 +48,7 @@ module.exports = [
           "byte",
           "uint8",
           "sortLayer",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV21 = [
@@ -96,7 +89,7 @@ module.exports = [
           "sortLayer",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropTransformV21 = [
@@ -105,7 +98,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPropObjInstanceV21 = [
@@ -148,7 +141,7 @@ module.exports = [
           "transforms",
           Utils.getArrayReader(this.PackMapPropTransformV21),
           "origGuidArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjToolV21 = [
@@ -159,7 +152,7 @@ module.exports = [
           "glomType",
           "uint8",
           "children",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjMetaV21 = [
@@ -206,7 +199,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV21 = [
@@ -225,13 +218,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV21 = [
           "propArray",
@@ -251,20 +241,13 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
       // => Version: 20
       20: function() {
-        this.PackMapPropConstantV17 = [
-          "token",
-          "uint32",
-          "constant",
-          ["[]", "float32", 4],
-          "submodel",
-          "uint32"
-        ];
+        this.PackMapPropConstantV17 = ["token", "uint32", "constant", ["[]", "float32", 4], "submodel", "uint32"];
 
         this.PackMapPropObjV20 = [
           "filename",
@@ -300,7 +283,7 @@ module.exports = [
           "byte",
           "uint8",
           "sortLayer",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV20 = [
@@ -339,7 +322,7 @@ module.exports = [
           "sortLayer",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropTransformV20 = [
@@ -348,7 +331,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPropObjInstanceV20 = [
@@ -389,7 +372,7 @@ module.exports = [
           "transforms",
           Utils.getArrayReader(this.PackMapPropTransformV20),
           "origGuidArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjToolV20 = [
@@ -400,7 +383,7 @@ module.exports = [
           "glomType",
           "uint8",
           "children",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjMetaV20 = [
@@ -445,7 +428,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV20 = [
@@ -464,13 +447,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV20 = [
           "propArray",
@@ -488,7 +468,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -530,7 +510,7 @@ module.exports = [
           "byte",
           "uint8",
           "sortLayer",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV19 = [
@@ -571,7 +551,7 @@ module.exports = [
           "sortLayer",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropTransformV19 = [
@@ -580,7 +560,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPropObjInstanceV19 = [
@@ -623,7 +603,7 @@ module.exports = [
           "transforms",
           Utils.getArrayReader(this.PackMapPropTransformV19),
           "origGuidArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjToolV19 = [
@@ -634,7 +614,7 @@ module.exports = [
           "glomType",
           "uint8",
           "children",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjMetaV19 = [
@@ -681,7 +661,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV19 = [
@@ -700,13 +680,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV19 = [
           "propArray",
@@ -724,7 +701,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -762,7 +739,7 @@ module.exports = [
           "byte",
           "uint8",
           "sortLayer",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV18 = [
@@ -799,7 +776,7 @@ module.exports = [
           "sortLayer",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropTransformV18 = [
@@ -808,7 +785,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPropObjInstanceV18 = [
@@ -847,7 +824,7 @@ module.exports = [
           "transforms",
           Utils.getArrayReader(this.PackMapPropTransformV18),
           "origGuidArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjToolV18 = [
@@ -858,7 +835,7 @@ module.exports = [
           "glomType",
           "uint8",
           "children",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjMetaV18 = [
@@ -901,7 +878,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV18 = [
@@ -920,13 +897,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV18 = [
           "propArray",
@@ -944,7 +918,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -980,7 +954,7 @@ module.exports = [
           "bucketId",
           "uint16",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV17 = [
@@ -1015,7 +989,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropTransformV17 = [
@@ -1024,7 +998,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPropObjInstanceV17 = [
@@ -1061,7 +1035,7 @@ module.exports = [
           "transforms",
           Utils.getArrayReader(this.PackMapPropTransformV17),
           "origGuidArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjToolV17 = [
@@ -1072,7 +1046,7 @@ module.exports = [
           "glomType",
           "uint8",
           "children",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjMetaV17 = [
@@ -1113,7 +1087,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV17 = [
@@ -1132,13 +1106,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV17 = [
           "propArray",
@@ -1156,7 +1127,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -1192,7 +1163,7 @@ module.exports = [
           "bucketId",
           "uint16",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV16 = [
@@ -1227,7 +1198,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropTransformV16 = [
@@ -1236,7 +1207,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPropObjInstanceV16 = [
@@ -1273,7 +1244,7 @@ module.exports = [
           "transforms",
           Utils.getArrayReader(this.PackMapPropTransformV16),
           "origGuidArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjToolV16 = [
@@ -1284,7 +1255,7 @@ module.exports = [
           "glomType",
           "uint8",
           "children",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjMetaV16 = [
@@ -1325,7 +1296,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV16 = [
@@ -1344,13 +1315,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV16 = [
           "propArray",
@@ -1368,7 +1336,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -1402,7 +1370,7 @@ module.exports = [
           "bucketId",
           "uint16",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV15 = [
@@ -1435,7 +1403,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropTransformV15 = [
@@ -1444,7 +1412,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPropObjInstanceV15 = [
@@ -1479,7 +1447,7 @@ module.exports = [
           "transforms",
           Utils.getArrayReader(this.PackMapPropTransformV15),
           "origGuidArray",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjToolV15 = [
@@ -1490,7 +1458,7 @@ module.exports = [
           "glomType",
           "uint8",
           "children",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjMetaV15 = [
@@ -1529,7 +1497,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV15 = [
@@ -1548,13 +1516,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV15 = [
           "propArray",
@@ -1572,7 +1537,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -1604,7 +1569,7 @@ module.exports = [
           "bucketId",
           "uint16",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV14 = [
@@ -1635,7 +1600,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropObjToolV14 = [
@@ -1646,7 +1611,7 @@ module.exports = [
           "glomType",
           "uint8",
           "children",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjMetaV14 = [
@@ -1683,7 +1648,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV14 = [
@@ -1702,13 +1667,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV14 = [
           "propArray",
@@ -1724,7 +1686,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -1754,7 +1716,7 @@ module.exports = [
           "broadId",
           "uint16",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV13 = [
@@ -1783,7 +1745,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropObjToolV13 = [
@@ -1794,7 +1756,7 @@ module.exports = [
           "glomType",
           "uint8",
           "children",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapPropObjMetaV13 = [
@@ -1829,7 +1791,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV13 = [
@@ -1848,13 +1810,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV13 = [
           "propArray",
@@ -1870,7 +1829,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -1900,7 +1859,7 @@ module.exports = [
           "broadId",
           "uint16",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV12 = [
@@ -1929,17 +1888,10 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.PackMapPropObjToolV12 = [
-          "guid",
-          Utils.getQWordReader(),
-          "layerMask",
-          "uint32",
-          "glomType",
-          "uint8"
-        ];
+        this.PackMapPropObjToolV12 = ["guid", Utils.getQWordReader(), "layerMask", "uint32", "glomType", "uint8"];
 
         this.PackMapPropObjMetaV12 = [
           "filename",
@@ -1973,7 +1925,7 @@ module.exports = [
           "parent",
           Utils.getQWordReader(),
           "glomOrigin",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapPropObjVolumeV12 = [
@@ -1990,13 +1942,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV12 = [
           "propArray",
@@ -2012,7 +1961,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -2042,7 +1991,7 @@ module.exports = [
           "broadId",
           "uint16",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV11 = [
@@ -2071,7 +2020,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropObjToolV11 = [
@@ -2086,13 +2035,10 @@ module.exports = [
           "glomTargetId",
           Utils.getQWordReader(),
           "glomType",
-          "uint8"
+          "uint8",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapPropV11 = [
           "propArray",
@@ -2104,7 +2050,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "nextBroadId",
-          "uint32"
+          "uint32",
         ];
       },
 
@@ -2132,7 +2078,7 @@ module.exports = [
           "flags",
           "uint32",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV10 = [
@@ -2159,7 +2105,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropObjToolV10 = [
@@ -2174,7 +2120,7 @@ module.exports = [
           "glomTargetId",
           Utils.getQWordReader(),
           "glomType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.PackMapPropV10 = [
@@ -2183,7 +2129,7 @@ module.exports = [
           "propAnimArray",
           Utils.getArrayReader(this.PackMapPropObjAnimSeqV10),
           "propToolArray",
-          Utils.getArrayReader(this.PackMapPropObjToolV10)
+          Utils.getArrayReader(this.PackMapPropObjToolV10),
         ];
       },
 
@@ -2211,7 +2157,7 @@ module.exports = [
           "flags",
           "uint32",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV9 = [
@@ -2238,7 +2184,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropObjToolV9 = [
@@ -2253,7 +2199,7 @@ module.exports = [
           "glomTargetId",
           Utils.getQWordReader(),
           "glomType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.PackMapPropV9 = [
@@ -2262,7 +2208,7 @@ module.exports = [
           "propAnimArray",
           Utils.getArrayReader(this.PackMapPropObjAnimSeqV9),
           "propToolArray",
-          Utils.getArrayReader(this.PackMapPropObjToolV9)
+          Utils.getArrayReader(this.PackMapPropObjToolV9),
         ];
       },
 
@@ -2290,7 +2236,7 @@ module.exports = [
           "flags",
           "uint32",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV8 = [
@@ -2317,7 +2263,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropObjToolV8 = [
@@ -2332,7 +2278,7 @@ module.exports = [
           "glomTargetId",
           Utils.getQWordReader(),
           "glomType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.PackMapPropV8 = [
@@ -2341,7 +2287,7 @@ module.exports = [
           "propAnimArray",
           Utils.getArrayReader(this.PackMapPropObjAnimSeqV8),
           "propToolArray",
-          Utils.getArrayReader(this.PackMapPropObjToolV8)
+          Utils.getArrayReader(this.PackMapPropObjToolV8),
         ];
       },
 
@@ -2367,7 +2313,7 @@ module.exports = [
           "flags",
           "uint32",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV7 = [
@@ -2392,7 +2338,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropObjToolV7 = [
@@ -2407,7 +2353,7 @@ module.exports = [
           "glomTargetId",
           Utils.getQWordReader(),
           "glomType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.PackMapPropV7 = [
@@ -2416,7 +2362,7 @@ module.exports = [
           "propAnimArray",
           Utils.getArrayReader(this.PackMapPropObjAnimSeqV7),
           "propToolArray",
-          Utils.getArrayReader(this.PackMapPropObjToolV7)
+          Utils.getArrayReader(this.PackMapPropObjToolV7),
         ];
       },
 
@@ -2440,7 +2386,7 @@ module.exports = [
           "flags",
           "uint32",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV6 = [
@@ -2463,7 +2409,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropObjToolV6 = [
@@ -2478,7 +2424,7 @@ module.exports = [
           "glomTargetId",
           Utils.getQWordReader(),
           "glomType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.PackMapPropV6 = [
@@ -2487,7 +2433,7 @@ module.exports = [
           "propAnimArray",
           Utils.getArrayReader(this.PackMapPropObjAnimSeqV6),
           "propToolArray",
-          Utils.getArrayReader(this.PackMapPropObjToolV6)
+          Utils.getArrayReader(this.PackMapPropObjToolV6),
         ];
       },
 
@@ -2511,7 +2457,7 @@ module.exports = [
           "flags",
           "uint32",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV5 = [
@@ -2534,7 +2480,7 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapPropObjToolV5 = [
@@ -2549,7 +2495,7 @@ module.exports = [
           "glomTargetId",
           Utils.getQWordReader(),
           "glomType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.PackMapPropV5 = [
@@ -2558,7 +2504,7 @@ module.exports = [
           "propAnimArray",
           Utils.getArrayReader(this.PackMapPropObjAnimSeqV5),
           "propToolArray",
-          Utils.getArrayReader(this.PackMapPropObjToolV5)
+          Utils.getArrayReader(this.PackMapPropObjToolV5),
         ];
       },
 
@@ -2582,7 +2528,7 @@ module.exports = [
           "flags",
           "uint32",
           "byte",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapPropObjAnimSeqV4 = [
@@ -2605,15 +2551,10 @@ module.exports = [
           "byte",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.PackMapPropObjToolV4 = [
-          "guid",
-          Utils.getQWordReader(),
-          "layerMask",
-          "uint32"
-        ];
+        this.PackMapPropObjToolV4 = ["guid", Utils.getQWordReader(), "layerMask", "uint32"];
 
         this.__root = this.PackMapPropV4 = [
           "propArray",
@@ -2621,7 +2562,7 @@ module.exports = [
           "propAnimArray",
           Utils.getArrayReader(this.PackMapPropObjAnimSeqV4),
           "propToolArray",
-          Utils.getArrayReader(this.PackMapPropObjToolV4)
+          Utils.getArrayReader(this.PackMapPropObjToolV4),
         ];
       },
 
@@ -2643,7 +2584,7 @@ module.exports = [
           "lod2",
           "uint16",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapPropObjAnimSeqV3 = [
@@ -2664,15 +2605,10 @@ module.exports = [
           "flags",
           "uint32",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.PackMapPropObjToolV3 = [
-          "guid",
-          Utils.getQWordReader(),
-          "layerMask",
-          "uint32"
-        ];
+        this.PackMapPropObjToolV3 = ["guid", Utils.getQWordReader(), "layerMask", "uint32"];
 
         this.__root = this.PackMapPropV3 = [
           "propArray",
@@ -2680,9 +2616,9 @@ module.exports = [
           "propAnimArray",
           Utils.getArrayReader(this.PackMapPropObjAnimSeqV3),
           "propToolArray",
-          Utils.getArrayReader(this.PackMapPropObjToolV3)
+          Utils.getArrayReader(this.PackMapPropObjToolV3),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

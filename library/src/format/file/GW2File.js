@@ -29,7 +29,7 @@ const HEAD_STRUCT = [
   "pkFileVersion",
   "uint16",
   "type",
-  "cstring:4"
+  "cstring:4",
 ];
 
 /**

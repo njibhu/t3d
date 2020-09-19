@@ -14,9 +14,7 @@
   },
   "scripts": {
     "gen": "ts-node ./bin/rdata-extract.ts ~/Downloads/Gw2Setup-64.exe ../parser/definitions",
-    "declarations": "ts-node ./bin/declaration-gen.ts ../parser/definitions ../parser/declarations",
-    "lint": "",
-    "format": ""
+    "declarations": "ts-node ./bin/declaration-gen.ts ../parser/definitions ../parser/declarations"
   },
   "dependencies": {
     "@types/node": "^12.12.17",

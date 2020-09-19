@@ -16,7 +16,7 @@ module.exports = [
           "moduleId",
           "uint32",
           "layerFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.MapEditLayers = [
@@ -27,7 +27,7 @@ module.exports = [
           "layerIds",
           Utils.getArrayReader("uint32"),
           "items",
-          Utils.getArrayReader(this.MapEditLayerItem)
+          Utils.getArrayReader(this.MapEditLayerItem),
         ];
 
         this.PackMapEditAnnotation = [
@@ -38,20 +38,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -61,15 +53,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.PackMapEditSurfacePoly = [
           "name",
@@ -79,15 +66,10 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 2]),
           "range",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditSurfaceRoadNode = [
-          "position",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.PackMapEditSurfaceRoadNode = ["position", ["[]", "float32", 3], "radius", "float32"];
 
         this.PackMapEditSurfaceRoad = [
           "name",
@@ -95,7 +77,7 @@ module.exports = [
           "surfaceType",
           "uint32",
           "nodes",
-          Utils.getArrayReader(this.PackMapEditSurfaceRoadNode)
+          Utils.getArrayReader(this.PackMapEditSurfaceRoadNode),
         ];
 
         this.PackMapEditNavmeshGenPropMode = [
@@ -104,7 +86,7 @@ module.exports = [
           "mode",
           "uint8",
           "animSequence",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEditNavMeshData = [
@@ -115,7 +97,7 @@ module.exports = [
           "surfaceRoads",
           Utils.getArrayReader(this.PackMapEditSurfaceRoad),
           "propModesForGeneration",
-          Utils.getArrayReader(this.PackMapEditNavmeshGenPropMode)
+          Utils.getArrayReader(this.PackMapEditNavmeshGenPropMode),
         ];
 
         this.MapEditSnapPoint = [
@@ -130,7 +112,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.MapEditMeasureSpan = [
@@ -149,7 +131,7 @@ module.exports = [
           "position1",
           ["[]", "float32", 3],
           "limits",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.__root = this.MapEditData = [
@@ -172,7 +154,7 @@ module.exports = [
           "homeSave",
           "uint8",
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
       },
 
@@ -184,7 +166,7 @@ module.exports = [
           "moduleId",
           "uint32",
           "layerFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.MapEditLayers = [
@@ -195,7 +177,7 @@ module.exports = [
           "layerIds",
           Utils.getArrayReader("uint32"),
           "items",
-          Utils.getArrayReader(this.MapEditLayerItem)
+          Utils.getArrayReader(this.MapEditLayerItem),
         ];
 
         this.PackMapEditAnnotation = [
@@ -206,20 +188,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -229,15 +203,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.PackMapEditSurfacePoly = [
           "name",
@@ -247,15 +216,10 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 2]),
           "range",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditSurfaceRoadNode = [
-          "position",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.PackMapEditSurfaceRoadNode = ["position", ["[]", "float32", 3], "radius", "float32"];
 
         this.PackMapEditSurfaceRoad = [
           "name",
@@ -263,7 +227,7 @@ module.exports = [
           "surfaceType",
           "uint32",
           "nodes",
-          Utils.getArrayReader(this.PackMapEditSurfaceRoadNode)
+          Utils.getArrayReader(this.PackMapEditSurfaceRoadNode),
         ];
 
         this.PackMapEditNavMeshData = [
@@ -272,7 +236,7 @@ module.exports = [
           "surfacePolys",
           Utils.getArrayReader(this.PackMapEditSurfacePoly),
           "surfaceRoads",
-          Utils.getArrayReader(this.PackMapEditSurfaceRoad)
+          Utils.getArrayReader(this.PackMapEditSurfaceRoad),
         ];
 
         this.MapEditSnapPoint = [
@@ -287,7 +251,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.MapEditMeasureSpan = [
@@ -306,7 +270,7 @@ module.exports = [
           "position1",
           ["[]", "float32", 3],
           "limits",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.__root = this.MapEditData = [
@@ -329,7 +293,7 @@ module.exports = [
           "homeSave",
           "uint8",
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
       },
 
@@ -341,7 +305,7 @@ module.exports = [
           "moduleId",
           "uint32",
           "layerFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.MapEditLayers = [
@@ -352,7 +316,7 @@ module.exports = [
           "layerIds",
           Utils.getArrayReader("uint32"),
           "items",
-          Utils.getArrayReader(this.MapEditLayerItem)
+          Utils.getArrayReader(this.MapEditLayerItem),
         ];
 
         this.PackMapEditAnnotation = [
@@ -363,20 +327,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -386,15 +342,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.PackMapEditSurfacePoly = [
           "name",
@@ -404,15 +355,10 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 2]),
           "range",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditSurfaceRoadNode = [
-          "position",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.PackMapEditSurfaceRoadNode = ["position", ["[]", "float32", 3], "radius", "float32"];
 
         this.PackMapEditSurfaceRoad = [
           "name",
@@ -420,7 +366,7 @@ module.exports = [
           "surfaceType",
           "uint32",
           "nodes",
-          Utils.getArrayReader(this.PackMapEditSurfaceRoadNode)
+          Utils.getArrayReader(this.PackMapEditSurfaceRoadNode),
         ];
 
         this.PackMapEditNavMeshData = [
@@ -429,7 +375,7 @@ module.exports = [
           "surfacePolys",
           Utils.getArrayReader(this.PackMapEditSurfacePoly),
           "surfaceRoads",
-          Utils.getArrayReader(this.PackMapEditSurfaceRoad)
+          Utils.getArrayReader(this.PackMapEditSurfaceRoad),
         ];
 
         this.MapEditSnapPoint = [
@@ -444,7 +390,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.MapEditData = [
@@ -465,7 +411,7 @@ module.exports = [
           "homeSave",
           "uint8",
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
       },
 
@@ -477,7 +423,7 @@ module.exports = [
           "moduleId",
           "uint32",
           "layerFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.MapEditLayers = [
@@ -488,7 +434,7 @@ module.exports = [
           "layerIds",
           Utils.getArrayReader("uint32"),
           "items",
-          Utils.getArrayReader(this.MapEditLayerItem)
+          Utils.getArrayReader(this.MapEditLayerItem),
         ];
 
         this.PackMapEditAnnotation = [
@@ -499,20 +445,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -522,15 +460,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.MapEditSnapPoint = [
           "guid",
@@ -544,7 +477,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.MapEditData = [
@@ -565,20 +498,13 @@ module.exports = [
           "homeSave",
           "uint8",
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
       },
 
       // => Version: 12, ReferencedFunction: 0x452AB0
       12: function() {
-        this.MapEditLayerItem = [
-          "guid",
-          Utils.getQWordReader(),
-          "moduleId",
-          "uint32",
-          "layerFlags",
-          "uint32"
-        ];
+        this.MapEditLayerItem = ["guid", Utils.getQWordReader(), "moduleId", "uint32", "layerFlags", "uint32"];
 
         this.MapEditLayers = [
           "layerStates",
@@ -586,7 +512,7 @@ module.exports = [
           "layerNames",
           ["[]", Utils.getString16Reader(), 31],
           "items",
-          Utils.getArrayReader(this.MapEditLayerItem)
+          Utils.getArrayReader(this.MapEditLayerItem),
         ];
 
         this.PackMapEditAnnotation = [
@@ -597,20 +523,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -620,15 +538,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.MapEditSnapPoint = [
           "guid",
@@ -642,7 +555,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.MapEditData = [
@@ -663,20 +576,13 @@ module.exports = [
           "homeSave",
           "uint8",
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
       },
 
       // => Version: 11
       11: function() {
-        this.MapEditLayerItem = [
-          "guid",
-          Utils.getQWordReader(),
-          "moduleId",
-          "uint32",
-          "layerFlags",
-          "uint32"
-        ];
+        this.MapEditLayerItem = ["guid", Utils.getQWordReader(), "moduleId", "uint32", "layerFlags", "uint32"];
 
         this.MapEditLayers = [
           "layerStates",
@@ -684,7 +590,7 @@ module.exports = [
           "layerNames",
           ["[]", Utils.getString16Reader(), 31],
           "items",
-          Utils.getArrayReader(this.MapEditLayerItem)
+          Utils.getArrayReader(this.MapEditLayerItem),
         ];
 
         this.PackMapEditAnnotation = [
@@ -695,20 +601,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -718,15 +616,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.MapEditSnapPoint = [
           "guid",
@@ -740,7 +633,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 3],
           "scale",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.MapEditData = [
@@ -761,7 +654,7 @@ module.exports = [
           "homeSave",
           "uint8",
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
       },
 
@@ -773,7 +666,7 @@ module.exports = [
           "layerStates",
           ["[]", "uint8", 31],
           "layerNames",
-          ["[]", Utils.getString16Reader(), 31]
+          ["[]", Utils.getString16Reader(), 31],
         ];
 
         this.PackMapEditAnnotation = [
@@ -784,20 +677,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -807,15 +692,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.__root = this.MapEditData = [
           "layers",
@@ -833,7 +713,7 @@ module.exports = [
           "homeSave",
           "uint8",
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
       },
 
@@ -845,7 +725,7 @@ module.exports = [
           "layerStates",
           ["[]", "uint8", 31],
           "layerNames",
-          ["[]", Utils.getString16Reader(), 31]
+          ["[]", Utils.getString16Reader(), 31],
         ];
 
         this.PackMapEditAnnotation = [
@@ -856,20 +736,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -879,15 +751,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.__root = this.MapEditData = [
           "layers",
@@ -903,7 +770,7 @@ module.exports = [
           "mapHome",
           Utils.getString16Reader(),
           "homeSave",
-          "uint8"
+          "uint8",
         ];
       },
 
@@ -915,7 +782,7 @@ module.exports = [
           "layerStates",
           ["[]", "uint8", 31],
           "layerNames",
-          ["[]", Utils.getString16Reader(), 31]
+          ["[]", Utils.getString16Reader(), 31],
         ];
 
         this.PackMapEditAnnotation = [
@@ -926,20 +793,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -949,15 +808,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.__root = this.MapEditData = [
           "layers",
@@ -969,18 +823,13 @@ module.exports = [
           "camLocations",
           Utils.getArrayReader(this.MapEditCamLocations),
           "floodPoints",
-          Utils.getArrayReader(this.PackMapEditDirtyChunks)
+          Utils.getArrayReader(this.PackMapEditDirtyChunks),
         ];
       },
 
       // => Version: 7
       7: function() {
-        this.MapEditLayers = [
-          "layerPropCount",
-          ["[]", "uint32", 31],
-          "layerStates",
-          ["[]", "uint8", 31]
-        ];
+        this.MapEditLayers = ["layerPropCount", ["[]", "uint32", 31], "layerStates", ["[]", "uint8", 31]];
 
         this.PackMapEditAnnotation = [
           "name",
@@ -990,20 +839,12 @@ module.exports = [
           "anchors",
           Utils.getArrayReader(["[]", "float32", 2]),
           "zRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -1013,15 +854,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.__root = this.MapEditData = [
           "layers",
@@ -1033,16 +869,13 @@ module.exports = [
           "camLocations",
           Utils.getArrayReader(this.MapEditCamLocations),
           "floodPoints",
-          Utils.getArrayReader(this.PackMapEditDirtyChunks)
+          Utils.getArrayReader(this.PackMapEditDirtyChunks),
         ];
       },
 
       // => Version: 6
       6: function() {
-        this.MapEditRegion = [
-          "regions",
-          Utils.getArrayReader(Utils.getString16Reader())
-        ];
+        this.MapEditRegion = ["regions", Utils.getArrayReader(Utils.getString16Reader())];
 
         this.MapEditRegion = [
           "ambientColor",
@@ -1052,15 +885,10 @@ module.exports = [
           "ambientIntenisty",
           "float32",
           "directionalIntenisty",
-          "float32"
+          "float32",
         ];
 
-        this.MapEditLayers = [
-          "layerPropCount",
-          ["[]", "uint32", 31],
-          "layerStates",
-          ["[]", "uint8", 31]
-        ];
+        this.MapEditLayers = ["layerPropCount", ["[]", "uint32", 31], "layerStates", ["[]", "uint8", 31]];
 
         this.PackMapEditAnnotation = [
           "name",
@@ -1068,20 +896,12 @@ module.exports = [
           "flags",
           "uint32",
           "anchors",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -1091,15 +911,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEditDirtyChunks = [
-          "flags",
-          "uint32",
-          "position",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapEditDirtyChunks = ["flags", "uint32", "position", ["[]", "float32", 3]];
 
         this.__root = this.MapEditData = [
           "regions",
@@ -1115,16 +930,13 @@ module.exports = [
           "camLocations",
           Utils.getArrayReader(this.MapEditCamLocations),
           "floodPoints",
-          Utils.getArrayReader(this.PackMapEditDirtyChunks)
+          Utils.getArrayReader(this.PackMapEditDirtyChunks),
         ];
       },
 
       // => Version: 5, ReferencedFunction: 0x452AB0
       5: function() {
-        this.MapEditRegion = [
-          "regions",
-          Utils.getArrayReader(Utils.getString16Reader())
-        ];
+        this.MapEditRegion = ["regions", Utils.getArrayReader(Utils.getString16Reader())];
 
         this.MapEditRegion = [
           "ambientColor",
@@ -1134,15 +946,10 @@ module.exports = [
           "ambientIntenisty",
           "float32",
           "directionalIntenisty",
-          "float32"
+          "float32",
         ];
 
-        this.MapEditLayers = [
-          "layerPropCount",
-          ["[]", "uint32", 31],
-          "layerStates",
-          ["[]", "uint8", 31]
-        ];
+        this.MapEditLayers = ["layerPropCount", ["[]", "uint32", 31], "layerStates", ["[]", "uint8", 31]];
 
         this.PackMapEditAnnotation = [
           "name",
@@ -1150,20 +957,12 @@ module.exports = [
           "flags",
           "uint32",
           "anchors",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
-        this.PackMapEditDirtyChunks = [
-          "dirtyFlags",
-          "uint32",
-          "chunkCoord",
-          ["[]", "uint32", 2]
-        ];
+        this.PackMapEditDirtyChunks = ["dirtyFlags", "uint32", "chunkCoord", ["[]", "uint32", 2]];
 
         this.MapEditCamLocations = [
           "attack",
@@ -1173,7 +972,7 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.__root = this.MapEditData = [
@@ -1188,16 +987,13 @@ module.exports = [
           "dirtyChunks",
           Utils.getArrayReader(this.PackMapEditDirtyChunks),
           "camLocations",
-          Utils.getArrayReader(this.MapEditCamLocations)
+          Utils.getArrayReader(this.MapEditCamLocations),
         ];
       },
 
       // => Version: 4, ReferencedFunction: 0x452AB0
       4: function() {
-        this.MapEditRegion = [
-          "regions",
-          Utils.getArrayReader(Utils.getString16Reader())
-        ];
+        this.MapEditRegion = ["regions", Utils.getArrayReader(Utils.getString16Reader())];
 
         this.MapEditRegion = [
           "ambientColor",
@@ -1207,15 +1003,10 @@ module.exports = [
           "ambientIntenisty",
           "float32",
           "directionalIntenisty",
-          "float32"
+          "float32",
         ];
 
-        this.MapEditLayers = [
-          "layerPropCount",
-          ["[]", "uint32", 31],
-          "layerStates",
-          ["[]", "uint8", 31]
-        ];
+        this.MapEditLayers = ["layerPropCount", ["[]", "uint32", 31], "layerStates", ["[]", "uint8", 31]];
 
         this.PackMapEditAnnotation = [
           "name",
@@ -1223,13 +1014,10 @@ module.exports = [
           "flags",
           "uint32",
           "anchors",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
         this.MapEditCamLocations = [
           "attack",
@@ -1239,7 +1027,7 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.__root = this.MapEditData = [
@@ -1252,16 +1040,13 @@ module.exports = [
           "annotations",
           this.PackMapEditAnnotations,
           "camLocations",
-          Utils.getArrayReader(this.MapEditCamLocations)
+          Utils.getArrayReader(this.MapEditCamLocations),
         ];
       },
 
       // => Version: 3
       3: function() {
-        this.MapEditRegion = [
-          "regions",
-          Utils.getArrayReader(Utils.getString16Reader())
-        ];
+        this.MapEditRegion = ["regions", Utils.getArrayReader(Utils.getString16Reader())];
 
         this.MapEditRegion = [
           "ambientColor",
@@ -1271,7 +1056,7 @@ module.exports = [
           "ambientIntenisty",
           "float32",
           "directionalIntenisty",
-          "float32"
+          "float32",
         ];
 
         this.MapEditLayers = ["layerStates", Utils.getArrayReader("uint8")];
@@ -1282,13 +1067,10 @@ module.exports = [
           "flags",
           "uint32",
           "anchors",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
-        this.PackMapEditAnnotations = [
-          "annotations",
-          Utils.getArrayReader(this.PackMapEditAnnotation)
-        ];
+        this.PackMapEditAnnotations = ["annotations", Utils.getArrayReader(this.PackMapEditAnnotation)];
 
         this.MapEditCamLocations = [
           "attack",
@@ -1298,7 +1080,7 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.__root = this.MapEditData = [
@@ -1311,9 +1093,9 @@ module.exports = [
           "annotations",
           this.PackMapEditAnnotations,
           "camLocations",
-          Utils.getArrayReader(this.MapEditCamLocations)
+          Utils.getArrayReader(this.MapEditCamLocations),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

@@ -12,16 +12,10 @@ module.exports = [
       0: function() {
         this.BankFileNameDataV0 = ["fileName", Utils.getFileNameReader()];
 
-        this.BankLanguageDataV0 = [
-          "bankFileName",
-          Utils.getArrayReader(this.BankFileNameDataV0)
-        ];
+        this.BankLanguageDataV0 = ["bankFileName", Utils.getArrayReader(this.BankFileNameDataV0)];
 
-        this.__root = this.BankIndexDataV0 = [
-          "bankLanguage",
-          Utils.getArrayReader(this.BankLanguageDataV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.BankIndexDataV0 = ["bankLanguage", Utils.getArrayReader(this.BankLanguageDataV0)];
+      },
+    },
+  },
 ];

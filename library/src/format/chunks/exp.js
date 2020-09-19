@@ -16,14 +16,11 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
-        this.__root = this.MapExpansionProperties = [
-          "properties",
-          Utils.getArrayReader(this.MapExpansionProperty)
-        ];
-      }
-    }
-  }
+        this.__root = this.MapExpansionProperties = ["properties", Utils.getArrayReader(this.MapExpansionProperty)];
+      },
+    },
+  },
 ];

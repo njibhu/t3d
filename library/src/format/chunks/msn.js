@@ -16,29 +16,18 @@ module.exports = [
           "forward",
           ["[]", "float32", 3],
           "description",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.__root = this.MapMission = [
-          "interestPoint",
-          Utils.getArrayReader(this.PackMapInterestPoint)
-        ];
+        this.__root = this.MapMission = ["interestPoint", Utils.getArrayReader(this.PackMapInterestPoint)];
       },
 
       // => Version: 1
       1: function() {
-        this.PackMapInterestPoint = [
-          "position",
-          ["[]", "float32", 3],
-          "forward",
-          ["[]", "float32", 3]
-        ];
+        this.PackMapInterestPoint = ["position", ["[]", "float32", 3], "forward", ["[]", "float32", 3]];
 
-        this.__root = this.MapMission = [
-          "interestPoint",
-          Utils.getArrayReader(this.PackMapInterestPoint)
-        ];
-      }
-    }
-  }
+        this.__root = this.MapMission = ["interestPoint", Utils.getArrayReader(this.PackMapInterestPoint)];
+      },
+    },
+  },
 ];

@@ -16,7 +16,7 @@ module.exports = [
           "boundsMax",
           ["[]", "float32", 3],
           "chunkFilename",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.CollideNavMesh = [
@@ -27,10 +27,10 @@ module.exports = [
           "chunkDims",
           ["[]", "uint32", 2],
           "chunkRefArray",
-          Utils.getArrayReader(this.CollideNavMeshChunkRef)
+          Utils.getArrayReader(this.CollideNavMeshChunkRef),
         ];
-      }
-    }
+      },
+    },
   },
 
   /// ==================================================
@@ -48,10 +48,10 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
-      }
-    }
+      },
+    },
   },
 
   /// ==================================================
@@ -71,13 +71,10 @@ module.exports = [
           "collisionFile",
           Utils.getFileNameReader(),
           "scales",
-          Utils.getArrayReader("float32")
+          Utils.getArrayReader("float32"),
         ];
 
-        this.__root = this.CollideModelManifest = [
-          "files",
-          Utils.getArrayReader(this.CollideModelManifestFile)
-        ];
+        this.__root = this.CollideModelManifest = ["files", Utils.getArrayReader(this.CollideModelManifestFile)];
       },
 
       // => Version: 0
@@ -88,14 +85,11 @@ module.exports = [
           "collisionFile",
           Utils.getFileNameReader(),
           "scales",
-          Utils.getArrayReader("float32")
+          Utils.getArrayReader("float32"),
         ];
 
-        this.__root = this.CollideModelManifest = [
-          "files",
-          Utils.getArrayReader(this.CollideModelManifestFile)
-        ];
-      }
-    }
-  }
+        this.__root = this.CollideModelManifest = ["files", Utils.getArrayReader(this.CollideModelManifestFile)];
+      },
+    },
+  },
 ];

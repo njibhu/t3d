@@ -22,7 +22,7 @@ module.exports = [
           "filenameNightScript",
           Utils.getFileNameReader(),
           "envID",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapCubeMapParamsV3 = [
@@ -35,14 +35,14 @@ module.exports = [
           "blurPasses",
           "uint32",
           "envVolume",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.__root = this.PackMapCubeMapV3 = [
           "sampleArray",
           Utils.getArrayReader(this.PackMapCubeMapSampleV3),
           "paramsArray",
-          Utils.getArrayReader(this.PackMapCubeMapParamsV3)
+          Utils.getArrayReader(this.PackMapCubeMapParamsV3),
         ];
       },
 
@@ -58,7 +58,7 @@ module.exports = [
           "filenameDayScript",
           Utils.getFileNameReader(),
           "filenameNightScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapCubeMapParamsV2 = [
@@ -69,14 +69,14 @@ module.exports = [
           "contrast",
           "float32",
           "blurPasses",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.PackMapCubeMapV2 = [
           "sampleArray",
           Utils.getArrayReader(this.PackMapCubeMapSampleV2),
           "paramsArray",
-          Utils.getArrayReader(this.PackMapCubeMapParamsV2)
+          Utils.getArrayReader(this.PackMapCubeMapParamsV2),
         ];
       },
 
@@ -90,7 +90,7 @@ module.exports = [
           "dayPtr",
           Utils.getArrayReader("uint8"),
           "nightPtr",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapCubeMapParamsV1 = [
@@ -101,14 +101,14 @@ module.exports = [
           "contrast",
           "float32",
           "blurPasses",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.PackMapCubeMapV1 = [
           "sampleArray",
           Utils.getArrayReader(this.PackMapCubeMapSampleV1),
           "paramsArray",
-          Utils.getArrayReader(this.PackMapCubeMapParamsV1)
+          Utils.getArrayReader(this.PackMapCubeMapParamsV1),
         ];
       },
 
@@ -120,7 +120,7 @@ module.exports = [
           "flags",
           "uint32",
           "dataPtr",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapCubeMapParamsV0 = [
@@ -131,16 +131,16 @@ module.exports = [
           "contrast",
           "float32",
           "blurPasses",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.PackMapCubeMapV0 = [
           "sampleArray",
           Utils.getArrayReader(this.PackMapCubeMapSampleV0),
           "paramsArray",
-          Utils.getArrayReader(this.PackMapCubeMapParamsV0)
+          Utils.getArrayReader(this.PackMapCubeMapParamsV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

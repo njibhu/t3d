@@ -10,18 +10,15 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.TextPackLanguage = [
-          "filenames",
-          Utils.getArrayReader(Utils.getFileNameReader())
-        ];
+        this.TextPackLanguage = ["filenames", Utils.getArrayReader(Utils.getFileNameReader())];
 
         this.__root = this.TextPackManifest = [
           "stringsPerFile",
           "uint32",
           "languages",
-          Utils.getArrayReader(this.TextPackLanguage)
+          Utils.getArrayReader(this.TextPackLanguage),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

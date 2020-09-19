@@ -10,12 +10,9 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.__root = this.ModelFileGame = [
-          "gameData",
-          Utils.getArrayReader("uint8")
-        ];
-      }
-    }
+        this.__root = this.ModelFileGame = ["gameData", Utils.getArrayReader("uint8")];
+      },
+    },
   },
 
   /// ==================================================
@@ -37,7 +34,7 @@ module.exports = [
           "smoothing",
           "float32",
           "singlesided",
-          "uint8"
+          "uint8",
         ];
 
         this.ScenePathV6 = [
@@ -46,15 +43,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(this.ScenePathNodeV6),
           "closed",
-          "uint8"
+          "uint8",
         ];
 
-        this.SceneEdgeV6 = [
-          "indices",
-          ["[]", "uint32", 2],
-          "triangles",
-          Utils.getArrayReader("uint32")
-        ];
+        this.SceneEdgeV6 = ["indices", ["[]", "uint32", 2], "triangles", Utils.getArrayReader("uint32")];
 
         this.SceneGameMeshV6 = [
           "indices",
@@ -68,13 +60,10 @@ module.exports = [
           "moppBytes",
           Utils.getArrayReader("uint8"),
           "surfaces",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.SceneGameSurfaceV6 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.SceneGameSurfaceV6 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.__root = this.SceneFileGameV6 = [
           "paths",
@@ -82,7 +71,7 @@ module.exports = [
           "meshes",
           Utils.getArrayReader(this.SceneGameMeshV6),
           "surfaces",
-          Utils.getArrayReader(this.SceneGameSurfaceV6)
+          Utils.getArrayReader(this.SceneGameSurfaceV6),
         ];
       },
 
@@ -100,7 +89,7 @@ module.exports = [
           "smoothing",
           "float32",
           "singlesided",
-          "uint8"
+          "uint8",
         ];
 
         this.ScenePathV5 = [
@@ -109,15 +98,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(this.ScenePathNodeV5),
           "closed",
-          "uint8"
+          "uint8",
         ];
 
-        this.SceneEdgeV5 = [
-          "indices",
-          ["[]", "uint32", 2],
-          "triangles",
-          Utils.getArrayReader("uint32")
-        ];
+        this.SceneEdgeV5 = ["indices", ["[]", "uint32", 2], "triangles", Utils.getArrayReader("uint32")];
 
         this.SceneGameMeshV5 = [
           "indices",
@@ -131,14 +115,14 @@ module.exports = [
           "moppBytes",
           Utils.getArrayReader("uint8"),
           "surfaceFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.__root = this.SceneFileGameV5 = [
           "paths",
           Utils.getArrayReader(this.ScenePathV5),
           "meshes",
-          Utils.getArrayReader(this.SceneGameMeshV5)
+          Utils.getArrayReader(this.SceneGameMeshV5),
         ];
       },
 
@@ -156,7 +140,7 @@ module.exports = [
           "smoothing",
           "float32",
           "singlesided",
-          "uint8"
+          "uint8",
         ];
 
         this.ScenePathV4 = [
@@ -165,15 +149,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(this.ScenePathNodeV4),
           "closed",
-          "uint8"
+          "uint8",
         ];
 
-        this.SceneEdgeV4 = [
-          "indices",
-          ["[]", "uint32", 2],
-          "triangles",
-          Utils.getArrayReader("uint32")
-        ];
+        this.SceneEdgeV4 = ["indices", ["[]", "uint32", 2], "triangles", Utils.getArrayReader("uint32")];
 
         this.SceneGameMeshV4 = [
           "indices",
@@ -187,7 +166,7 @@ module.exports = [
           "moppBytes",
           Utils.getArrayReader("uint8"),
           "surfaceFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.SceneGrabNodeV4 = [
@@ -200,7 +179,7 @@ module.exports = [
           "flags",
           "uint32",
           "smoothing",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.SceneFileGameV4 = [
@@ -209,7 +188,7 @@ module.exports = [
           "meshes",
           Utils.getArrayReader(this.SceneGameMeshV4),
           "grabPoints",
-          Utils.getArrayReader(this.SceneGrabNodeV4)
+          Utils.getArrayReader(this.SceneGrabNodeV4),
         ];
       },
 
@@ -225,7 +204,7 @@ module.exports = [
           "flags",
           "uint32",
           "smoothing",
-          "float32"
+          "float32",
         ];
 
         this.ScenePathV3 = [
@@ -234,15 +213,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(this.ScenePathNodeV3),
           "closed",
-          "uint8"
+          "uint8",
         ];
 
-        this.SceneEdgeV3 = [
-          "indices",
-          ["[]", "uint32", 2],
-          "triangles",
-          Utils.getArrayReader("uint32")
-        ];
+        this.SceneEdgeV3 = ["indices", ["[]", "uint32", 2], "triangles", Utils.getArrayReader("uint32")];
 
         this.SceneGameMeshV3 = [
           "indices",
@@ -256,7 +230,7 @@ module.exports = [
           "moppBytes",
           Utils.getArrayReader("uint8"),
           "surfaceFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.SceneGrabNodeV3 = [
@@ -269,7 +243,7 @@ module.exports = [
           "flags",
           "uint32",
           "smoothing",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.SceneFileGameV3 = [
@@ -278,7 +252,7 @@ module.exports = [
           "meshes",
           Utils.getArrayReader(this.SceneGameMeshV3),
           "grabPoints",
-          Utils.getArrayReader(this.SceneGrabNodeV3)
+          Utils.getArrayReader(this.SceneGrabNodeV3),
         ];
       },
 
@@ -294,7 +268,7 @@ module.exports = [
           "flags",
           "uint32",
           "smoothing",
-          "float32"
+          "float32",
         ];
 
         this.ScenePathV2 = [
@@ -303,15 +277,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(this.ScenePathNodeV2),
           "closed",
-          "uint8"
+          "uint8",
         ];
 
-        this.SceneEdgeV2 = [
-          "indices",
-          ["[]", "uint32", 2],
-          "triangles",
-          Utils.getArrayReader("uint32")
-        ];
+        this.SceneEdgeV2 = ["indices", ["[]", "uint32", 2], "triangles", Utils.getArrayReader("uint32")];
 
         this.SceneGameMeshV2 = [
           "indices",
@@ -323,7 +292,7 @@ module.exports = [
           "moppInfo",
           ["[]", "float32", 4],
           "moppBytes",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.SceneGrabNodeV2 = [
@@ -336,7 +305,7 @@ module.exports = [
           "flags",
           "uint32",
           "smoothing",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.SceneFileGameV2 = [
@@ -345,7 +314,7 @@ module.exports = [
           "meshes",
           Utils.getArrayReader(this.SceneGameMeshV2),
           "grabPoints",
-          Utils.getArrayReader(this.SceneGrabNodeV2)
+          Utils.getArrayReader(this.SceneGrabNodeV2),
         ];
       },
 
@@ -361,7 +330,7 @@ module.exports = [
           "flags",
           "uint32",
           "smoothing",
-          "float32"
+          "float32",
         ];
 
         this.ScenePathV1 = [
@@ -370,15 +339,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(this.ScenePathNodeV1),
           "closed",
-          "uint8"
+          "uint8",
         ];
 
-        this.SceneEdgeV1 = [
-          "indices",
-          ["[]", "uint32", 2],
-          "triangles",
-          Utils.getArrayReader("uint32")
-        ];
+        this.SceneEdgeV1 = ["indices", ["[]", "uint32", 2], "triangles", Utils.getArrayReader("uint32")];
 
         this.SceneGameMeshV1 = [
           "indices",
@@ -390,14 +354,14 @@ module.exports = [
           "moppInfo",
           ["[]", "float32", 4],
           "moppBytes",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.SceneFileGameV1 = [
           "paths",
           Utils.getArrayReader(this.ScenePathV1),
           "meshes",
-          Utils.getArrayReader(this.SceneGameMeshV1)
+          Utils.getArrayReader(this.SceneGameMeshV1),
         ];
       },
 
@@ -411,7 +375,7 @@ module.exports = [
           "radius",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.ScenePathV0 = [
@@ -420,15 +384,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(this.ScenePathNodeV0),
           "closed",
-          "uint8"
+          "uint8",
         ];
 
-        this.SceneEdgeV0 = [
-          "indices",
-          ["[]", "uint32", 2],
-          "triangles",
-          Utils.getArrayReader("uint32")
-        ];
+        this.SceneEdgeV0 = ["indices", ["[]", "uint32", 2], "triangles", Utils.getArrayReader("uint32")];
 
         this.SceneGameMeshV0 = [
           "indices",
@@ -440,16 +399,16 @@ module.exports = [
           "moppInfo",
           ["[]", "float32", 4],
           "moppBytes",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.SceneFileGameV0 = [
           "paths",
           Utils.getArrayReader(this.ScenePathV0),
           "meshes",
-          Utils.getArrayReader(this.SceneGameMeshV0)
+          Utils.getArrayReader(this.SceneGameMeshV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

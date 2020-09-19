@@ -70,7 +70,7 @@ class DataReader {
       if (this._inflateCallbacks[mftId]) {
         this._inflateCallbacks[mftId].push({
           resolve: resolve,
-          reject: reject
+          reject: reject,
         });
 
         /// No need to make another call, just wait for callback event to fire.
@@ -82,12 +82,7 @@ class DataReader {
       // Add the load to the worker
       let workerId = this._getBestWorkerIndex();
       this._workerLoad[workerId] += 1;
-      this._workerPool[workerId].postMessage([
-        mftId,
-        arrayBuffer,
-        isImage === true,
-        capLength
-      ]);
+      this._workerPool[workerId].postMessage([mftId, arrayBuffer, isImage === true, capLength]);
     });
   }
 
@@ -107,11 +102,7 @@ class DataReader {
 
       // If error
       if (typeof message_event.data === "string") {
-        T3D.Logger.log(
-          T3D.Logger.TYPE_WARNING,
-          "Inflater threw an error",
-          message_event.data
-        );
+        T3D.Logger.log(T3D.Logger.TYPE_WARNING, "Inflater threw an error", message_event.data);
         mftId = message_event.data.split(":")[0];
         for (let callback of self._inflateCallbacks[mftId]) {
           callback.reject();
@@ -127,7 +118,7 @@ class DataReader {
               buffer: data[1],
               dxtType: data[2],
               imageWidth: data[3],
-              imageHeight: data[4]
+              imageHeight: data[4],
             });
           }
           // Remove triggered listeners
@@ -136,11 +127,7 @@ class DataReader {
 
         // Unknown error
         else {
-          T3D.Logger.log(
-            T3D.Logger.TYPE_ERROR,
-            "Inflater threw an error",
-            message_event.data
-          );
+          T3D.Logger.log(T3D.Logger.TYPE_ERROR, "Inflater threw an error", message_event.data);
         }
       }
     };
