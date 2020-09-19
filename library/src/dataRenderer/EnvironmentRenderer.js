@@ -148,6 +148,7 @@ class EnvironmentRenderer extends DataRenderer {
 
           directionalLight.position.set(lightDir[0], lightDir[1], lightDir[2]).normalize();
 
+          // eslint-disable-next-line no-unused-vars
           sumDirLightIntensity += intensity;
 
           self.getOutput().lights.push(directionalLight);
