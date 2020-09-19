@@ -16,20 +16,27 @@ jobs:
         uses: actions/setup-node@v1.4.3
         with:
           node-version: 12
-      - name: Generate
+      - name: Install root packages
+        run: npm install
+      - name: Generate library and copy artifacts
         run: |
-          npm install
-          npm run lernaInstall
           pushd library
+          npm install
           npm run build
           npx gulp copy
           popd
+      - name: Generate examples and copy to pages
+        run: |
           pushd examples
+          npm install
           npm run build
           cp -r dist ../pages
           mv ../pages/dist ../pages/examples
           popd
+      - name: Generate explorer and copy to pages
+        run: |
           pushd explorer
+          npm install
           npm run build
           cp -r dist ../pages
           mv ../pages/dist ../pages/explorer
