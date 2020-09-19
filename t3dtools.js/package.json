@@ -2,9 +2,7 @@
   "name": "t3d-toolsjs",
   "version": "2.0.1",
   "main": "t3dtools.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "T3D Contributors",
   "license": "GPL-3.0"
 }

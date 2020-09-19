@@ -10,23 +10,9 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.AmatXbxShaderConstant = [
-          "token",
-          "uint32",
-          "regIndex",
-          "uint32",
-          "regCount",
-          "uint32"
-        ];
+        this.AmatXbxShaderConstant = ["token", "uint32", "regIndex", "uint32", "regCount", "uint32"];
 
-        this.AmatXbxSamplerConstant = [
-          "regIndex",
-          "uint32",
-          "stateIndex",
-          "uint32",
-          "texIndex",
-          "uint32"
-        ];
+        this.AmatXbxSamplerConstant = ["regIndex", "uint32", "stateIndex", "uint32", "texIndex", "uint32"];
 
         this.AmatXbxShader = [
           "isPixelShader",
@@ -38,7 +24,7 @@ module.exports = [
           "constants",
           Utils.getArrayReader(this.AmatXbxShaderConstant),
           "samplers",
-          Utils.getArrayReader(this.AmatXbxSamplerConstant)
+          Utils.getArrayReader(this.AmatXbxSamplerConstant),
         ];
 
         this.AmatXbxRenderState = [
@@ -57,7 +43,7 @@ module.exports = [
           "depthFunction",
           "uint32",
           "depthBias",
-          "float32"
+          "float32",
         ];
 
         this.AmatXbxPass = [
@@ -70,15 +56,10 @@ module.exports = [
           "psFileFame",
           Utils.getFileNameReader(),
           "vsFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
-        this.AmatXbxEffect = [
-          "token",
-          Utils.getQWordReader(),
-          "passes",
-          Utils.getArrayReader(this.AmatXbxPass)
-        ];
+        this.AmatXbxEffect = ["token", Utils.getQWordReader(), "passes", Utils.getArrayReader(this.AmatXbxPass)];
 
         this.AmatXbxSamplerState = [
           "addressU",
@@ -100,7 +81,7 @@ module.exports = [
           "mipFilter",
           "uint32",
           "mipMapLodBias",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.AmatXbxMaterial = [
@@ -111,9 +92,9 @@ module.exports = [
           "effects",
           Utils.getArrayReader(this.AmatXbxEffect),
           "samplers",
-          Utils.getArrayReader(this.AmatXbxSamplerState)
+          Utils.getArrayReader(this.AmatXbxSamplerState),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

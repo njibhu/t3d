@@ -10,27 +10,17 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.PackMapLayerProp = [
-          "guid",
-          Utils.getQWordReader(),
-          "layerIds",
-          Utils.getArrayReader("uint32")
-        ];
+        this.PackMapLayerProp = ["guid", Utils.getQWordReader(), "layerIds", Utils.getArrayReader("uint32")];
 
-        this.PackMapLayer = [
-          "layerId",
-          "uint32",
-          "metaData",
-          Utils.getArrayReader(["[]", "uint32", 4])
-        ];
+        this.PackMapLayer = ["layerId", "uint32", "metaData", Utils.getArrayReader(["[]", "uint32", 4])];
 
         this.__root = this.PackMapLayers = [
           "props",
           Utils.getArrayReader(this.PackMapLayerProp),
           "layers",
-          Utils.getArrayReader(this.PackMapLayer)
+          Utils.getArrayReader(this.PackMapLayer),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

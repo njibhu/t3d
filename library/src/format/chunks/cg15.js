@@ -20,14 +20,14 @@ module.exports = [
           "centroid",
           ["[]", "float32", 3],
           "faces",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.PackMapCoarseNavGraphConnectionEdgeV0 = [
           "edgeStart",
           ["[]", "float32", 3],
           "edgeEnd",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapCoarseNavGraphConnectionV0 = [
@@ -36,14 +36,14 @@ module.exports = [
           "targetNodeIndex",
           "uint32",
           "edges",
-          Utils.getArrayReader(this.PackMapCoarseNavGraphConnectionEdgeV0)
+          Utils.getArrayReader(this.PackMapCoarseNavGraphConnectionEdgeV0),
         ];
 
         this.PackMapCoarseNavGraphNodeConnectionsV0 = [
           "nodeIndex",
           "uint32",
           "connections",
-          Utils.getArrayReader(this.PackMapCoarseNavGraphConnectionV0)
+          Utils.getArrayReader(this.PackMapCoarseNavGraphConnectionV0),
         ];
 
         this.PackMapCoarseNavGraphSectionV0 = [
@@ -52,14 +52,14 @@ module.exports = [
           "nodes",
           Utils.getArrayReader(this.PackMapCoarseNavGraphNodeV0),
           "nodeConnections",
-          Utils.getArrayReader(this.PackMapCoarseNavGraphNodeConnectionsV0)
+          Utils.getArrayReader(this.PackMapCoarseNavGraphNodeConnectionsV0),
         ];
 
         this.__root = this.PackMapCoarseNavGraphV0 = [
           "sections",
-          Utils.getArrayReader(this.PackMapCoarseNavGraphSectionV0)
+          Utils.getArrayReader(this.PackMapCoarseNavGraphSectionV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

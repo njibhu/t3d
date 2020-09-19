@@ -10,12 +10,7 @@ module.exports = [
     versions: {
       // => Version: 1, ReferencedFunction: 0xEBB230
       1: function() {
-        this.PackMapShadowTileV1 = [
-          "compressionMode",
-          "uint32",
-          "bytes",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackMapShadowTileV1 = ["compressionMode", "uint32", "bytes", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapShadowV1 = [
           "shadowDims",
@@ -37,18 +32,13 @@ module.exports = [
           "shadowDir",
           ["[]", "float32", 3],
           "shadowUp",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
       },
 
       // => Version: 0
       0: function() {
-        this.PackMapShadowTileV0 = [
-          "compressionMode",
-          "uint32",
-          "bytes",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackMapShadowTileV0 = ["compressionMode", "uint32", "bytes", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapShadowV0 = [
           "shadowDims",
@@ -64,9 +54,9 @@ module.exports = [
           "t",
           ["[]", "float32", 2],
           "u",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

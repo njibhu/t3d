@@ -20,7 +20,7 @@ module.exports = [
           "hslOffset",
           ["[]", "float32", 3],
           "zOffsets",
-          ["[]", "uint8", 2]
+          ["[]", "uint8", 2],
         ];
 
         this.PackMapZoneLayerDefV22 = [
@@ -59,7 +59,7 @@ module.exports = [
           "subModel",
           Utils.getPointerReader(this.PackMapZoneModelV22),
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapZonePageV10 = [
@@ -72,15 +72,10 @@ module.exports = [
           "paintFlags",
           Utils.getArrayReader("uint32"),
           "string",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapZonePageTableV10 = [
-          "pageArray",
-          Utils.getArrayReader(this.PackMapZonePageV10),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZonePageTableV10 = ["pageArray", Utils.getArrayReader(this.PackMapZonePageV10), "flags", "uint32"];
 
         this.PackMapZoneDefV22 = [
           "defFilename",
@@ -94,24 +89,12 @@ module.exports = [
           "pageTable",
           Utils.getPointerReader(this.PackMapZonePageTableV10),
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapZoneEncodingDataV22 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV22 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV22 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV22 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV22 = [
           "zoneFlags",
@@ -141,13 +124,10 @@ module.exports = [
           "broadId",
           "uint16",
           "reserved",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapZonesV22 = [
           "zoneDefArray",
@@ -159,7 +139,7 @@ module.exports = [
           "maxBroadId",
           "uint16",
           "string",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
       },
 
@@ -175,7 +155,7 @@ module.exports = [
           "hslOffset",
           ["[]", "float32", 3],
           "zOffsets",
-          ["[]", "uint8", 2]
+          ["[]", "uint8", 2],
         ];
 
         this.PackMapZoneLayerDefV21 = [
@@ -212,7 +192,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV21),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV21)
+          Utils.getPointerReader(this.PackMapZoneModelV21),
         ];
 
         this.PackMapZonePageV9 = [
@@ -223,15 +203,10 @@ module.exports = [
           "seed",
           "uint8",
           "paintFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackMapZonePageTableV9 = [
-          "pageArray",
-          Utils.getArrayReader(this.PackMapZonePageV9),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZonePageTableV9 = ["pageArray", Utils.getArrayReader(this.PackMapZonePageV9), "flags", "uint32"];
 
         this.PackMapZoneDefV21 = [
           "defFilename",
@@ -243,24 +218,12 @@ module.exports = [
           "timeStamp",
           Utils.getQWordReader(),
           "pageTable",
-          Utils.getPointerReader(this.PackMapZonePageTableV9)
+          Utils.getPointerReader(this.PackMapZonePageTableV9),
         ];
 
-        this.PackMapZoneEncodingDataV21 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV21 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV21 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV21 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV21 = [
           "zoneFlags",
@@ -288,13 +251,10 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 2]),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapZonesV21 = [
           "zoneDefArray",
@@ -304,7 +264,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -320,7 +280,7 @@ module.exports = [
           "hslOffset",
           ["[]", "float32", 3],
           "zOffsets",
-          ["[]", "uint8", 2]
+          ["[]", "uint8", 2],
         ];
 
         this.PackMapZoneLayerDefV20 = [
@@ -357,7 +317,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV20),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV20)
+          Utils.getPointerReader(this.PackMapZoneModelV20),
         ];
 
         this.PackMapZonePageV8 = [
@@ -368,15 +328,10 @@ module.exports = [
           "seed",
           "uint8",
           "paintFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackMapZonePageTableV8 = [
-          "pageArray",
-          Utils.getArrayReader(this.PackMapZonePageV8),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZonePageTableV8 = ["pageArray", Utils.getArrayReader(this.PackMapZonePageV8), "flags", "uint32"];
 
         this.PackMapZoneDefV20 = [
           "defFilename",
@@ -388,24 +343,12 @@ module.exports = [
           "timeStamp",
           Utils.getQWordReader(),
           "pageTable",
-          Utils.getPointerReader(this.PackMapZonePageTableV8)
+          Utils.getPointerReader(this.PackMapZonePageTableV8),
         ];
 
-        this.PackMapZoneEncodingDataV20 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV20 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV20 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV20 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV20 = [
           "zoneFlags",
@@ -433,13 +376,10 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 2]),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapZonesV20 = [
           "zoneDefArray",
@@ -449,7 +389,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -465,7 +405,7 @@ module.exports = [
           "hslOffset",
           ["[]", "float32", 3],
           "zOffsets",
-          ["[]", "uint8", 2]
+          ["[]", "uint8", 2],
         ];
 
         this.PackMapZoneLayerDefV19 = [
@@ -500,7 +440,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV19),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV19)
+          Utils.getPointerReader(this.PackMapZoneModelV19),
         ];
 
         this.PackMapZonePageV7 = [
@@ -511,15 +451,10 @@ module.exports = [
           "seed",
           "uint8",
           "paintFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackMapZonePageTableV7 = [
-          "pageArray",
-          Utils.getArrayReader(this.PackMapZonePageV7),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZonePageTableV7 = ["pageArray", Utils.getArrayReader(this.PackMapZonePageV7), "flags", "uint32"];
 
         this.PackMapZoneDefV19 = [
           "defFilename",
@@ -531,24 +466,12 @@ module.exports = [
           "timeStamp",
           Utils.getQWordReader(),
           "pageTable",
-          Utils.getPointerReader(this.PackMapZonePageTableV7)
+          Utils.getPointerReader(this.PackMapZonePageTableV7),
         ];
 
-        this.PackMapZoneEncodingDataV19 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV19 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV19 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV19 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV19 = [
           "zoneFlags",
@@ -576,13 +499,10 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 2]),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapZonesV19 = [
           "zoneDefArray",
@@ -592,7 +512,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -608,7 +528,7 @@ module.exports = [
           "hslOffset",
           ["[]", "float32", 3],
           "zOffsets",
-          ["[]", "uint8", 2]
+          ["[]", "uint8", 2],
         ];
 
         this.PackMapZoneLayerDefV18 = [
@@ -643,7 +563,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV18),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV18)
+          Utils.getPointerReader(this.PackMapZoneModelV18),
         ];
 
         this.PackMapZonePageV6 = [
@@ -654,15 +574,10 @@ module.exports = [
           "seed",
           "uint8",
           "paintFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackMapZonePageTableV6 = [
-          "pageArray",
-          Utils.getArrayReader(this.PackMapZonePageV6),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZonePageTableV6 = ["pageArray", Utils.getArrayReader(this.PackMapZonePageV6), "flags", "uint32"];
 
         this.PackMapZoneDefV18 = [
           "defFilename",
@@ -674,24 +589,12 @@ module.exports = [
           "timeStamp",
           Utils.getQWordReader(),
           "pageTable",
-          Utils.getPointerReader(this.PackMapZonePageTableV6)
+          Utils.getPointerReader(this.PackMapZonePageTableV6),
         ];
 
-        this.PackMapZoneEncodingDataV18 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV18 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV18 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV18 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV18 = [
           "zoneFlags",
@@ -719,13 +622,10 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 2]),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapZonesV18 = [
           "zoneDefArray",
@@ -735,7 +635,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -749,7 +649,7 @@ module.exports = [
           "flags",
           "uint32",
           "hslOffset",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapZoneLayerDefV17 = [
@@ -780,7 +680,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV17),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV17)
+          Utils.getPointerReader(this.PackMapZoneModelV17),
         ];
 
         this.PackMapZonePageV5 = [
@@ -791,15 +691,10 @@ module.exports = [
           "seed",
           "uint8",
           "paintFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackMapZonePageTableV5 = [
-          "pageArray",
-          Utils.getArrayReader(this.PackMapZonePageV5),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZonePageTableV5 = ["pageArray", Utils.getArrayReader(this.PackMapZonePageV5), "flags", "uint32"];
 
         this.PackMapZoneDefV17 = [
           "defFilename",
@@ -811,24 +706,12 @@ module.exports = [
           "timeStamp",
           Utils.getQWordReader(),
           "pageTable",
-          Utils.getPointerReader(this.PackMapZonePageTableV5)
+          Utils.getPointerReader(this.PackMapZonePageTableV5),
         ];
 
-        this.PackMapZoneEncodingDataV17 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV17 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV17 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV17 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV17 = [
           "zoneFlags",
@@ -856,13 +739,10 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 2]),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapZonesV17 = [
           "zoneDefArray",
@@ -872,7 +752,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -886,7 +766,7 @@ module.exports = [
           "flags",
           "uint32",
           "hslOffset",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapZoneLayerDefV16 = [
@@ -917,7 +797,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV16),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV16)
+          Utils.getPointerReader(this.PackMapZoneModelV16),
         ];
 
         this.PackMapZonePageV4 = [
@@ -928,15 +808,10 @@ module.exports = [
           "seed",
           "uint8",
           "paintFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackMapZonePageTableV4 = [
-          "pageArray",
-          Utils.getArrayReader(this.PackMapZonePageV4),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZonePageTableV4 = ["pageArray", Utils.getArrayReader(this.PackMapZonePageV4), "flags", "uint32"];
 
         this.PackMapZoneDefV16 = [
           "defFilename",
@@ -948,24 +823,12 @@ module.exports = [
           "timeStamp",
           Utils.getQWordReader(),
           "pageTable",
-          Utils.getPointerReader(this.PackMapZonePageTableV4)
+          Utils.getPointerReader(this.PackMapZonePageTableV4),
         ];
 
-        this.PackMapZoneEncodingDataV16 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV16 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV16 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV16 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV16 = [
           "zoneFlags",
@@ -993,13 +856,10 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 2]),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapZonesV16 = [
           "zoneDefArray",
@@ -1009,7 +869,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -1023,7 +883,7 @@ module.exports = [
           "flags",
           "uint32",
           "hslOffset",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapZoneLayerDefV15 = [
@@ -1054,7 +914,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV15),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV15)
+          Utils.getPointerReader(this.PackMapZoneModelV15),
         ];
 
         this.PackMapZonePageV3 = [
@@ -1065,15 +925,10 @@ module.exports = [
           "seed",
           "uint8",
           "paintFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackMapZonePageTableV3 = [
-          "pageArray",
-          Utils.getArrayReader(this.PackMapZonePageV3),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZonePageTableV3 = ["pageArray", Utils.getArrayReader(this.PackMapZonePageV3), "flags", "uint32"];
 
         this.PackMapZoneDefV15 = [
           "defFilename",
@@ -1085,24 +940,12 @@ module.exports = [
           "timeStamp",
           Utils.getQWordReader(),
           "pageTable",
-          Utils.getPointerReader(this.PackMapZonePageTableV3)
+          Utils.getPointerReader(this.PackMapZonePageTableV3),
         ];
 
-        this.PackMapZoneEncodingDataV15 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV15 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV15 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV15 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV15 = [
           "zoneFlags",
@@ -1128,27 +971,20 @@ module.exports = [
           "offsetData",
           Utils.getArrayReader("uint16"),
           "vertices",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.__root = this.PackMapZonesV15 = [
           "zoneDefArray",
           Utils.getArrayReader(this.PackMapZoneDefV15),
           "zoneArray",
-          Utils.getArrayReader(this.PackMapZoneV15)
+          Utils.getArrayReader(this.PackMapZoneV15),
         ];
       },
 
       // => Version: 13
       13: function() {
-        this.PackMapZoneModelV14 = [
-          "filename",
-          Utils.getFileNameReader(),
-          "probability",
-          "float32",
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZoneModelV14 = ["filename", Utils.getFileNameReader(), "probability", "float32", "flags", "uint32"];
 
         this.PackMapZoneLayerDefV14 = [
           "type",
@@ -1178,7 +1014,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV14),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV14)
+          Utils.getPointerReader(this.PackMapZoneModelV14),
         ];
 
         this.PackMapZonePageV2 = [
@@ -1189,15 +1025,10 @@ module.exports = [
           "seed",
           "uint8",
           "paintFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackMapZonePageTableV2 = [
-          "pageArray",
-          Utils.getArrayReader(this.PackMapZonePageV2),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZonePageTableV2 = ["pageArray", Utils.getArrayReader(this.PackMapZonePageV2), "flags", "uint32"];
 
         this.PackMapZoneDefV14 = [
           "defFilename",
@@ -1209,24 +1040,12 @@ module.exports = [
           "timeStamp",
           Utils.getQWordReader(),
           "pageTable",
-          Utils.getPointerReader(this.PackMapZonePageTableV2)
+          Utils.getPointerReader(this.PackMapZonePageTableV2),
         ];
 
-        this.PackMapZoneEncodingDataV14 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV14 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV14 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV14 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV14 = [
           "zoneFlags",
@@ -1252,27 +1071,20 @@ module.exports = [
           "offsetData",
           Utils.getArrayReader("uint16"),
           "vertices",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.__root = this.PackMapZonesV14 = [
           "zoneDefArray",
           Utils.getArrayReader(this.PackMapZoneDefV14),
           "zoneArray",
-          Utils.getArrayReader(this.PackMapZoneV14)
+          Utils.getArrayReader(this.PackMapZoneV14),
         ];
       },
 
       // => Version: 12
       12: function() {
-        this.PackMapZoneModelV13 = [
-          "filename",
-          Utils.getFileNameReader(),
-          "probability",
-          "float32",
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZoneModelV13 = ["filename", Utils.getFileNameReader(), "probability", "float32", "flags", "uint32"];
 
         this.PackMapZoneLayerDefV13 = [
           "type",
@@ -1302,7 +1114,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV13),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV13)
+          Utils.getPointerReader(this.PackMapZoneModelV13),
         ];
 
         this.PackMapZoneDefV13 = [
@@ -1313,24 +1125,12 @@ module.exports = [
           "layerDefArray",
           Utils.getArrayReader(this.PackMapZoneLayerDefV13),
           "timeStamp",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.PackMapZoneEncodingDataV13 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV13 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV13 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV13 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV13 = [
           "zoneFlags",
@@ -1356,27 +1156,20 @@ module.exports = [
           "offsetData",
           Utils.getArrayReader("uint16"),
           "vertices",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.__root = this.PackMapZonesV13 = [
           "zoneDefArray",
           Utils.getArrayReader(this.PackMapZoneDefV13),
           "zoneArray",
-          Utils.getArrayReader(this.PackMapZoneV13)
+          Utils.getArrayReader(this.PackMapZoneV13),
         ];
       },
 
       // => Version: 11
       11: function() {
-        this.PackMapZoneModelV12 = [
-          "filename",
-          Utils.getFileNameReader(),
-          "probability",
-          "float32",
-          "flags",
-          "uint32"
-        ];
+        this.PackMapZoneModelV12 = ["filename", Utils.getFileNameReader(), "probability", "float32", "flags", "uint32"];
 
         this.PackMapZoneLayerDefV12 = [
           "height",
@@ -1404,7 +1197,7 @@ module.exports = [
           "modelArray",
           Utils.getArrayReader(this.PackMapZoneModelV12),
           "subModel",
-          Utils.getPointerReader(this.PackMapZoneModelV12)
+          Utils.getPointerReader(this.PackMapZoneModelV12),
         ];
 
         this.PackMapZoneDefV12 = [
@@ -1415,24 +1208,12 @@ module.exports = [
           "layerDefArray",
           Utils.getArrayReader(this.PackMapZoneLayerDefV12),
           "timeStamp",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.PackMapZoneEncodingDataV12 = [
-          "index",
-          "uint16",
-          "offset",
-          "uint8"
-        ];
+        this.PackMapZoneEncodingDataV12 = ["index", "uint16", "offset", "uint8"];
 
-        this.PackMapZoneCollideDataV12 = [
-          "normalX",
-          "float32",
-          "normalY",
-          "float32",
-          "zPos",
-          "float32"
-        ];
+        this.PackMapZoneCollideDataV12 = ["normalX", "float32", "normalY", "float32", "zPos", "float32"];
 
         this.PackMapZoneV12 = [
           "zoneFlags",
@@ -1458,16 +1239,16 @@ module.exports = [
           "offsetData",
           Utils.getArrayReader("uint16"),
           "vertices",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.__root = this.PackMapZonesV12 = [
           "zoneDefArray",
           Utils.getArrayReader(this.PackMapZoneDefV12),
           "zoneArray",
-          Utils.getArrayReader(this.PackMapZoneV12)
+          Utils.getArrayReader(this.PackMapZoneV12),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

@@ -18,9 +18,9 @@ module.exports = [
           "propIDMap",
           Utils.getArrayReader("uint8"),
           "reserved",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

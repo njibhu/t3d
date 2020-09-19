@@ -14,14 +14,11 @@ module.exports = [
           "sourceAnim",
           Utils.getQWordReader(),
           "targetAnims",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
-        this.__root = this.PackAnimFallbacksV0 = [
-          "fallbacks",
-          Utils.getArrayReader(this.PackAnimFallbackV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.PackAnimFallbacksV0 = ["fallbacks", Utils.getArrayReader(this.PackAnimFallbackV0)];
+      },
+    },
+  },
 ];

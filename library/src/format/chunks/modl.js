@@ -22,33 +22,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV65 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV65 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV65 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV65 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV65 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV65 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV65 = [
           "flags",
@@ -74,7 +55,7 @@ module.exports = [
           "rotate",
           "float32",
           "rotate",
-          "float32"
+          "float32",
         ];
 
         this.ModelMaterialDataV65 = [
@@ -99,14 +80,14 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV65),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV65 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV65)
+          Utils.getRefArrayReader(this.ModelMaterialDataV65),
         ];
 
         this.ModelParticleCloudV65 = [
@@ -127,15 +108,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV65 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV65 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV65 = [
           "columns",
@@ -147,17 +123,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V65 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V65 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV65 = [
           "acceleration",
@@ -239,14 +208,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV65 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV65),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV65)
+          Utils.getArrayReader(this.ModelParticleEmitterV65),
         ];
 
         this.ModelObstacleDataV65 = [
@@ -273,7 +242,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V65)
+          Utils.getPointerReader(this.ModelMatrix43V65),
         ];
 
         this.ModelStreakV65 = [
@@ -298,7 +267,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV65 = [
@@ -315,14 +284,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV65 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV65),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV65)
+          Utils.getArrayReader(this.ModelStreakAnchorV65),
         ];
 
         this.ModelEffectLightV65 = [
@@ -335,32 +304,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV65 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV65)
-        ];
+        this.ModelLightDataV65 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV65)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV65 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV65 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV65 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV65)
-        ];
+        this.ModelClothMeshGroupV65 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV65)];
 
         this.ModelClothGroupBindingV65 = [
           "strippedToken",
@@ -370,7 +323,7 @@ module.exports = [
           "OBBMin",
           ["[]", "float32", 3],
           "OBBMax",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelClothSoftLockV65 = ["weight", "uint8", "vertIndex", "uint16"];
@@ -383,7 +336,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV65 = [
@@ -442,7 +395,7 @@ module.exports = [
           "translateWeight",
           "float32",
           "visBone",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelEffectWindV65 = [
@@ -453,13 +406,10 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelWindDataV65 = [
-          "effectWind",
-          Utils.getArrayReader(this.ModelEffectWindV65)
-        ];
+        this.ModelWindDataV65 = ["effectWind", Utils.getArrayReader(this.ModelEffectWindV65)];
 
         this.ModelLightningSystemV65 = [
           "bone",
@@ -471,7 +421,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV65 = [
@@ -528,7 +478,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV65 = [
@@ -545,7 +495,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV65 = [
@@ -554,7 +504,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV65),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV65)
+          Utils.getArrayReader(this.ModelLightningNodeV65),
         ];
 
         this.ModelSoftBodyDataV65 = [
@@ -569,7 +519,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV65 = [
@@ -580,15 +530,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
-        this.ModelBoundingSphereV65 = [
-          "center",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.ModelBoundingSphereV65 = ["center", ["[]", "float32", 3], "radius", "float32"];
 
         this.__root = this.ModelFileDataV65 = [
           "permutations",
@@ -620,7 +565,7 @@ module.exports = [
           "boneOffsetData",
           Utils.getArrayReader(this.ModelBoneOffsetDataV65),
           "boundingSphere",
-          Utils.getPointerReader(this.ModelBoundingSphereV65)
+          Utils.getPointerReader(this.ModelBoundingSphereV65),
         ];
       },
 
@@ -638,33 +583,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV64 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV64 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV64 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV64 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV64 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV64 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV64 = [
           "flags",
@@ -690,7 +616,7 @@ module.exports = [
           "rotate",
           "float32",
           "rotate",
-          "float32"
+          "float32",
         ];
 
         this.ModelMaterialDataV64 = [
@@ -715,24 +641,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV64),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV64 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV64)
+          Utils.getRefArrayReader(this.ModelMaterialDataV64),
         ];
 
         this.ModelMeshLodDataV64 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV64 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV64 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV64 = [
           "positions",
@@ -740,7 +661,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV64),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -751,7 +672,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV64 = [
@@ -778,7 +699,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelParticleCloudV64 = [
@@ -799,15 +720,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV64 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV64 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV64 = [
           "columns",
@@ -819,17 +735,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V64 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V64 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV64 = [
           "acceleration",
@@ -911,14 +820,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV64 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV64),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV64)
+          Utils.getArrayReader(this.ModelParticleEmitterV64),
         ];
 
         this.ModelObstacleDataV64 = [
@@ -945,7 +854,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V64)
+          Utils.getPointerReader(this.ModelMatrix43V64),
         ];
 
         this.ModelStreakV64 = [
@@ -970,7 +879,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV64 = [
@@ -987,14 +896,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV64 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV64),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV64)
+          Utils.getArrayReader(this.ModelStreakAnchorV64),
         ];
 
         this.ModelEffectLightV64 = [
@@ -1007,32 +916,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV64 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV64)
-        ];
+        this.ModelLightDataV64 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV64)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV64 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV64 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV64 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV64)
-        ];
+        this.ModelClothMeshGroupV64 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV64)];
 
         this.ModelClothGroupBindingV64 = [
           "strippedToken",
@@ -1042,7 +935,7 @@ module.exports = [
           "OBBMin",
           ["[]", "float32", 3],
           "OBBMax",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelClothSoftLockV64 = ["weight", "uint8", "vertIndex", "uint16"];
@@ -1055,7 +948,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV64 = [
@@ -1114,7 +1007,7 @@ module.exports = [
           "translateWeight",
           "float32",
           "visBone",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelEffectWindV64 = [
@@ -1125,13 +1018,10 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelWindDataV64 = [
-          "effectWind",
-          Utils.getArrayReader(this.ModelEffectWindV64)
-        ];
+        this.ModelWindDataV64 = ["effectWind", Utils.getArrayReader(this.ModelEffectWindV64)];
 
         this.ModelLightningSystemV64 = [
           "bone",
@@ -1143,7 +1033,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV64 = [
@@ -1200,7 +1090,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV64 = [
@@ -1217,7 +1107,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV64 = [
@@ -1226,7 +1116,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV64),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV64)
+          Utils.getArrayReader(this.ModelLightningNodeV64),
         ];
 
         this.ModelSoftBodyDataV64 = [
@@ -1241,7 +1131,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV64 = [
@@ -1252,15 +1142,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
-        this.ModelBoundingSphereV64 = [
-          "center",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.ModelBoundingSphereV64 = ["center", ["[]", "float32", 3], "radius", "float32"];
 
         this.__root = this.ModelFileDataV64 = [
           "permutations",
@@ -1294,7 +1179,7 @@ module.exports = [
           "boneOffsetData",
           Utils.getArrayReader(this.ModelBoneOffsetDataV64),
           "boundingSphere",
-          Utils.getPointerReader(this.ModelBoundingSphereV64)
+          Utils.getPointerReader(this.ModelBoundingSphereV64),
         ];
       },
 
@@ -1312,33 +1197,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV63 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV63 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV63 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV63 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV63 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV63 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV63 = [
           "flags",
@@ -1354,7 +1220,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV63 = [
@@ -1379,24 +1245,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV63),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV63 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV63)
+          Utils.getRefArrayReader(this.ModelMaterialDataV63),
         ];
 
         this.ModelMeshLodDataV63 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV63 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV63 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV63 = [
           "positions",
@@ -1404,7 +1265,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV63),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -1415,7 +1276,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV63 = [
@@ -1442,7 +1303,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelParticleCloudV63 = [
@@ -1463,15 +1324,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV63 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV63 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV63 = [
           "columns",
@@ -1483,17 +1339,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V63 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V63 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV63 = [
           "acceleration",
@@ -1575,14 +1424,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV63 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV63),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV63)
+          Utils.getArrayReader(this.ModelParticleEmitterV63),
         ];
 
         this.ModelObstacleDataV63 = [
@@ -1609,7 +1458,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V63)
+          Utils.getPointerReader(this.ModelMatrix43V63),
         ];
 
         this.ModelStreakV63 = [
@@ -1634,7 +1483,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV63 = [
@@ -1651,14 +1500,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV63 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV63),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV63)
+          Utils.getArrayReader(this.ModelStreakAnchorV63),
         ];
 
         this.ModelEffectLightV63 = [
@@ -1671,32 +1520,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV63 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV63)
-        ];
+        this.ModelLightDataV63 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV63)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV63 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV63 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV63 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV63)
-        ];
+        this.ModelClothMeshGroupV63 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV63)];
 
         this.ModelClothGroupBindingV63 = [
           "strippedToken",
@@ -1706,7 +1539,7 @@ module.exports = [
           "OBBMin",
           ["[]", "float32", 3],
           "OBBMax",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelClothSoftLockV63 = ["weight", "uint8", "vertIndex", "uint16"];
@@ -1719,7 +1552,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV63 = [
@@ -1776,7 +1609,7 @@ module.exports = [
           "rigidness",
           "uint8",
           "translateWeight",
-          "float32"
+          "float32",
         ];
 
         this.ModelEffectWindV63 = [
@@ -1787,13 +1620,10 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelWindDataV63 = [
-          "effectWind",
-          Utils.getArrayReader(this.ModelEffectWindV63)
-        ];
+        this.ModelWindDataV63 = ["effectWind", Utils.getArrayReader(this.ModelEffectWindV63)];
 
         this.ModelLightningSystemV63 = [
           "bone",
@@ -1805,7 +1635,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV63 = [
@@ -1862,7 +1692,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV63 = [
@@ -1879,7 +1709,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV63 = [
@@ -1888,7 +1718,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV63),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV63)
+          Utils.getArrayReader(this.ModelLightningNodeV63),
         ];
 
         this.ModelSoftBodyDataV63 = [
@@ -1903,7 +1733,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV63 = [
@@ -1914,15 +1744,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
-        this.ModelBoundingSphereV63 = [
-          "center",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.ModelBoundingSphereV63 = ["center", ["[]", "float32", 3], "radius", "float32"];
 
         this.__root = this.ModelFileDataV63 = [
           "permutations",
@@ -1956,7 +1781,7 @@ module.exports = [
           "boneOffsetData",
           Utils.getArrayReader(this.ModelBoneOffsetDataV63),
           "boundingSphere",
-          Utils.getPointerReader(this.ModelBoundingSphereV63)
+          Utils.getPointerReader(this.ModelBoundingSphereV63),
         ];
       },
 
@@ -1974,33 +1799,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV62 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV62 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV62 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV62 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV62 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV62 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV62 = [
           "random",
@@ -2016,7 +1822,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV62 = [
@@ -2041,24 +1847,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV62),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV62 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV62)
+          Utils.getRefArrayReader(this.ModelMaterialDataV62),
         ];
 
         this.ModelMeshLodDataV62 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV62 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV62 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV62 = [
           "positions",
@@ -2066,7 +1867,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV62),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -2077,7 +1878,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV62 = [
@@ -2104,7 +1905,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelParticleCloudV62 = [
@@ -2125,15 +1926,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV62 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV62 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV62 = [
           "columns",
@@ -2145,17 +1941,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V62 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V62 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV62 = [
           "acceleration",
@@ -2237,14 +2026,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV62 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV62),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV62)
+          Utils.getArrayReader(this.ModelParticleEmitterV62),
         ];
 
         this.ModelObstacleDataV62 = [
@@ -2271,7 +2060,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V62)
+          Utils.getPointerReader(this.ModelMatrix43V62),
         ];
 
         this.ModelStreakV62 = [
@@ -2296,7 +2085,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV62 = [
@@ -2313,14 +2102,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV62 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV62),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV62)
+          Utils.getArrayReader(this.ModelStreakAnchorV62),
         ];
 
         this.ModelEffectLightV62 = [
@@ -2333,32 +2122,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV62 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV62)
-        ];
+        this.ModelLightDataV62 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV62)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV62 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV62 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV62 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV62)
-        ];
+        this.ModelClothMeshGroupV62 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV62)];
 
         this.ModelClothGroupBindingV62 = [
           "strippedToken",
@@ -2368,7 +2141,7 @@ module.exports = [
           "OBBMin",
           ["[]", "float32", 3],
           "OBBMax",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelClothSoftLockV62 = ["weight", "uint8", "vertIndex", "uint16"];
@@ -2381,7 +2154,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV62 = [
@@ -2438,7 +2211,7 @@ module.exports = [
           "rigidness",
           "uint8",
           "translateWeight",
-          "float32"
+          "float32",
         ];
 
         this.ModelEffectWindV62 = [
@@ -2449,13 +2222,10 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelWindDataV62 = [
-          "effectWind",
-          Utils.getArrayReader(this.ModelEffectWindV62)
-        ];
+        this.ModelWindDataV62 = ["effectWind", Utils.getArrayReader(this.ModelEffectWindV62)];
 
         this.ModelLightningSystemV62 = [
           "bone",
@@ -2467,7 +2237,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV62 = [
@@ -2524,7 +2294,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV62 = [
@@ -2541,7 +2311,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV62 = [
@@ -2550,7 +2320,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV62),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV62)
+          Utils.getArrayReader(this.ModelLightningNodeV62),
         ];
 
         this.ModelSoftBodyDataV62 = [
@@ -2565,7 +2335,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV62 = [
@@ -2576,15 +2346,10 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
-        this.ModelBoundingSphereV62 = [
-          "center",
-          ["[]", "float32", 3],
-          "radius",
-          "float32"
-        ];
+        this.ModelBoundingSphereV62 = ["center", ["[]", "float32", 3], "radius", "float32"];
 
         this.__root = this.ModelFileDataV62 = [
           "permutations",
@@ -2618,7 +2383,7 @@ module.exports = [
           "boneOffsetData",
           Utils.getArrayReader(this.ModelBoneOffsetDataV62),
           "boundingSphere",
-          Utils.getPointerReader(this.ModelBoundingSphereV62)
+          Utils.getPointerReader(this.ModelBoundingSphereV62),
         ];
       },
 
@@ -2636,33 +2401,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV61 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV61 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV61 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV61 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV61 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV61 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV61 = [
           "random",
@@ -2678,7 +2424,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV61 = [
@@ -2703,24 +2449,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV61),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV61 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV61)
+          Utils.getRefArrayReader(this.ModelMaterialDataV61),
         ];
 
         this.ModelMeshLodDataV61 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV61 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV61 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV61 = [
           "positions",
@@ -2728,7 +2469,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV61),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -2739,7 +2480,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV61 = [
@@ -2766,7 +2507,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV61 = [
@@ -2777,7 +2518,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV61 = [
@@ -2794,15 +2535,10 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelBoneSymmetryV61 = [
-          "boneLeft",
-          Utils.getQWordReader(),
-          "boneRight",
-          Utils.getQWordReader()
-        ];
+        this.ModelBoneSymmetryV61 = ["boneLeft", Utils.getQWordReader(), "boneRight", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV61 = [
           "Name",
@@ -2816,25 +2552,14 @@ module.exports = [
           "ExtendedData.Object",
           Utils.getPointerReader("uint8"),
           "boneSymmetries",
-          Utils.getArrayReader(this.ModelBoneSymmetryV61)
+          Utils.getArrayReader(this.ModelBoneSymmetryV61),
         ];
 
-        this.ModelMeshBindingDataV61 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV61 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV61 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV61 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV61 = [
           "Name",
@@ -2858,7 +2583,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV61 = [
@@ -2873,7 +2598,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV61 = [
@@ -2894,15 +2619,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV61 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV61 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV61 = [
           "columns",
@@ -2914,17 +2634,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V61 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V61 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV61 = [
           "acceleration",
@@ -3006,14 +2719,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV61 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV61),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV61)
+          Utils.getArrayReader(this.ModelParticleEmitterV61),
         ];
 
         this.ModelObstacleDataV61 = [
@@ -3040,7 +2753,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V61)
+          Utils.getPointerReader(this.ModelMatrix43V61),
         ];
 
         this.ModelStreakV61 = [
@@ -3065,7 +2778,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV61 = [
@@ -3082,14 +2795,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV61 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV61),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV61)
+          Utils.getArrayReader(this.ModelStreakAnchorV61),
         ];
 
         this.ModelEffectLightV61 = [
@@ -3102,32 +2815,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV61 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV61)
-        ];
+        this.ModelLightDataV61 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV61)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV61 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV61 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV61 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV61)
-        ];
+        this.ModelClothMeshGroupV61 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV61)];
 
         this.ModelClothGroupBindingV61 = [
           "strippedToken",
@@ -3137,7 +2834,7 @@ module.exports = [
           "OBBMin",
           ["[]", "float32", 3],
           "OBBMax",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelClothSoftLockV61 = ["weight", "uint8", "vertIndex", "uint16"];
@@ -3150,7 +2847,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV61 = [
@@ -3205,7 +2902,7 @@ module.exports = [
           "flags",
           "uint8",
           "rigidness",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelEffectWindV61 = [
@@ -3216,13 +2913,10 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelWindDataV61 = [
-          "effectWind",
-          Utils.getArrayReader(this.ModelEffectWindV61)
-        ];
+        this.ModelWindDataV61 = ["effectWind", Utils.getArrayReader(this.ModelEffectWindV61)];
 
         this.ModelLightningSystemV61 = [
           "bone",
@@ -3234,7 +2928,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV61 = [
@@ -3291,7 +2985,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV61 = [
@@ -3308,7 +3002,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV61 = [
@@ -3317,7 +3011,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV61),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV61)
+          Utils.getArrayReader(this.ModelLightningNodeV61),
         ];
 
         this.ModelBoneConstraintLinkV61 = [
@@ -3328,7 +3022,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV61 = [
@@ -3375,7 +3069,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV61 = [
@@ -3390,7 +3084,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV61 = [
@@ -3401,7 +3095,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
         this.ModelFixedOffsetDataV61 = [
@@ -3410,7 +3104,7 @@ module.exports = [
           "parentBone",
           Utils.getQWordReader(),
           "translation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.__root = this.ModelFileDataV61 = [
@@ -3453,7 +3147,7 @@ module.exports = [
           "fixedOffsetData",
           Utils.getArrayReader(this.ModelFixedOffsetDataV61),
           "modelReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -3471,33 +3165,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV60 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV60 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV60 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV60 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV60 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV60 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV60 = [
           "random",
@@ -3513,7 +3188,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV60 = [
@@ -3538,24 +3213,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV60),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV60 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV60)
+          Utils.getRefArrayReader(this.ModelMaterialDataV60),
         ];
 
         this.ModelMeshLodDataV60 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV60 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV60 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV60 = [
           "positions",
@@ -3563,7 +3233,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV60),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -3574,7 +3244,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV60 = [
@@ -3601,7 +3271,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV60 = [
@@ -3612,7 +3282,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV60 = [
@@ -3629,15 +3299,10 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelBoneSymmetryV60 = [
-          "boneLeft",
-          Utils.getQWordReader(),
-          "boneRight",
-          Utils.getQWordReader()
-        ];
+        this.ModelBoneSymmetryV60 = ["boneLeft", Utils.getQWordReader(), "boneRight", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV60 = [
           "Name",
@@ -3651,25 +3316,14 @@ module.exports = [
           "ExtendedData.Object",
           Utils.getPointerReader("uint8"),
           "boneSymmetries",
-          Utils.getArrayReader(this.ModelBoneSymmetryV60)
+          Utils.getArrayReader(this.ModelBoneSymmetryV60),
         ];
 
-        this.ModelMeshBindingDataV60 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV60 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV60 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV60 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV60 = [
           "Name",
@@ -3693,7 +3347,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV60 = [
@@ -3708,7 +3362,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV60 = [
@@ -3729,15 +3383,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV60 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV60 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV60 = [
           "columns",
@@ -3749,17 +3398,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V60 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V60 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV60 = [
           "acceleration",
@@ -3839,14 +3481,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV60 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV60),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV60)
+          Utils.getArrayReader(this.ModelParticleEmitterV60),
         ];
 
         this.ModelObstacleDataV60 = [
@@ -3871,7 +3513,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V60)
+          Utils.getPointerReader(this.ModelMatrix43V60),
         ];
 
         this.ModelStreakV60 = [
@@ -3896,7 +3538,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV60 = [
@@ -3913,14 +3555,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV60 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV60),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV60)
+          Utils.getArrayReader(this.ModelStreakAnchorV60),
         ];
 
         this.ModelEffectLightV60 = [
@@ -3933,32 +3575,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV60 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV60)
-        ];
+        this.ModelLightDataV60 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV60)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV60 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV60 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV60 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV60)
-        ];
+        this.ModelClothMeshGroupV60 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV60)];
 
         this.ModelClothGroupBindingV60 = [
           "strippedToken",
@@ -3968,7 +3594,7 @@ module.exports = [
           "OBBMin",
           ["[]", "float32", 3],
           "OBBMax",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelClothSoftLockV60 = ["weight", "uint8", "vertIndex", "uint16"];
@@ -3981,7 +3607,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV60 = [
@@ -4036,7 +3662,7 @@ module.exports = [
           "flags",
           "uint8",
           "rigidness",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelLightningSystemV60 = [
@@ -4049,7 +3675,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV60 = [
@@ -4106,7 +3732,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV60 = [
@@ -4123,7 +3749,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV60 = [
@@ -4132,7 +3758,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV60),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV60)
+          Utils.getArrayReader(this.ModelLightningNodeV60),
         ];
 
         this.ModelBoneConstraintLinkV60 = [
@@ -4143,7 +3769,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV60 = [
@@ -4190,7 +3816,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV60 = [
@@ -4205,7 +3831,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV60 = [
@@ -4216,7 +3842,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
         this.ModelFixedOffsetDataV60 = [
@@ -4225,7 +3851,7 @@ module.exports = [
           "parentBone",
           Utils.getQWordReader(),
           "translation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.__root = this.ModelFileDataV60 = [
@@ -4266,7 +3892,7 @@ module.exports = [
           "fixedOffsetData",
           Utils.getArrayReader(this.ModelFixedOffsetDataV60),
           "modelReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -4284,33 +3910,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV59 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV59 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV59 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV59 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV59 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV59 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV59 = [
           "random",
@@ -4326,7 +3933,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV59 = [
@@ -4351,24 +3958,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV59),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV59 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV59)
+          Utils.getRefArrayReader(this.ModelMaterialDataV59),
         ];
 
         this.ModelMeshLodDataV59 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV59 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV59 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV59 = [
           "positions",
@@ -4376,7 +3978,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV59),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -4387,7 +3989,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV59 = [
@@ -4414,7 +4016,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV59 = [
@@ -4425,7 +4027,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV59 = [
@@ -4442,15 +4044,10 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelBoneSymmetryV59 = [
-          "boneLeft",
-          Utils.getQWordReader(),
-          "boneRight",
-          Utils.getQWordReader()
-        ];
+        this.ModelBoneSymmetryV59 = ["boneLeft", Utils.getQWordReader(), "boneRight", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV59 = [
           "Name",
@@ -4464,25 +4061,14 @@ module.exports = [
           "ExtendedData.Object",
           Utils.getPointerReader("uint8"),
           "boneSymmetries",
-          Utils.getArrayReader(this.ModelBoneSymmetryV59)
+          Utils.getArrayReader(this.ModelBoneSymmetryV59),
         ];
 
-        this.ModelMeshBindingDataV59 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV59 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV59 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV59 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV59 = [
           "Name",
@@ -4506,7 +4092,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV59 = [
@@ -4521,7 +4107,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV59 = [
@@ -4542,15 +4128,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV59 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV59 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV59 = [
           "columns",
@@ -4562,17 +4143,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V59 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V59 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV59 = [
           "acceleration",
@@ -4652,14 +4226,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV59 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV59),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV59)
+          Utils.getArrayReader(this.ModelParticleEmitterV59),
         ];
 
         this.ModelObstacleDataV59 = [
@@ -4684,7 +4258,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V59)
+          Utils.getPointerReader(this.ModelMatrix43V59),
         ];
 
         this.ModelStreakV59 = [
@@ -4709,7 +4283,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV59 = [
@@ -4726,14 +4300,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV59 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV59),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV59)
+          Utils.getArrayReader(this.ModelStreakAnchorV59),
         ];
 
         this.ModelEffectLightV59 = [
@@ -4746,32 +4320,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV59 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV59)
-        ];
+        this.ModelLightDataV59 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV59)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV59 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV59 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV59 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV59)
-        ];
+        this.ModelClothMeshGroupV59 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV59)];
 
         this.ModelClothSoftLockV59 = ["weight", "uint8", "vertIndex", "uint16"];
 
@@ -4783,7 +4341,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV59 = [
@@ -4836,7 +4394,7 @@ module.exports = [
           "flags",
           "uint8",
           "rigidness",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelLightningSystemV59 = [
@@ -4849,7 +4407,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV59 = [
@@ -4906,7 +4464,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV59 = [
@@ -4923,7 +4481,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV59 = [
@@ -4932,7 +4490,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV59),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV59)
+          Utils.getArrayReader(this.ModelLightningNodeV59),
         ];
 
         this.ModelBoneConstraintLinkV59 = [
@@ -4943,7 +4501,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV59 = [
@@ -4990,7 +4548,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV59 = [
@@ -5005,7 +4563,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV59 = [
@@ -5016,7 +4574,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
         this.ModelFixedOffsetDataV59 = [
@@ -5025,7 +4583,7 @@ module.exports = [
           "parentBone",
           Utils.getQWordReader(),
           "translation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.__root = this.ModelFileDataV59 = [
@@ -5066,7 +4624,7 @@ module.exports = [
           "fixedOffsetData",
           Utils.getArrayReader(this.ModelFixedOffsetDataV59),
           "modelReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -5084,33 +4642,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV58 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV58 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV58 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV58 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV58 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV58 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV58 = [
           "random",
@@ -5126,7 +4665,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV58 = [
@@ -5151,24 +4690,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV58),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV58 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV58)
+          Utils.getRefArrayReader(this.ModelMaterialDataV58),
         ];
 
         this.ModelMeshLodDataV58 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV58 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV58 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV58 = [
           "positions",
@@ -5176,7 +4710,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV58),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -5187,7 +4721,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV58 = [
@@ -5214,7 +4748,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV58 = [
@@ -5225,7 +4759,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV58 = [
@@ -5242,15 +4776,10 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelBoneSymmetryV58 = [
-          "boneLeft",
-          Utils.getQWordReader(),
-          "boneRight",
-          Utils.getQWordReader()
-        ];
+        this.ModelBoneSymmetryV58 = ["boneLeft", Utils.getQWordReader(), "boneRight", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV58 = [
           "Name",
@@ -5264,25 +4793,14 @@ module.exports = [
           "ExtendedData.Object",
           Utils.getPointerReader("uint8"),
           "boneSymmetries",
-          Utils.getArrayReader(this.ModelBoneSymmetryV58)
+          Utils.getArrayReader(this.ModelBoneSymmetryV58),
         ];
 
-        this.ModelMeshBindingDataV58 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV58 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV58 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV58 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV58 = [
           "Name",
@@ -5306,7 +4824,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV58 = [
@@ -5321,7 +4839,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV58 = [
@@ -5342,15 +4860,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV58 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV58 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV58 = [
           "columns",
@@ -5362,17 +4875,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V58 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V58 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV58 = [
           "acceleration",
@@ -5452,14 +4958,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV58 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV58),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV58)
+          Utils.getArrayReader(this.ModelParticleEmitterV58),
         ];
 
         this.ModelObstacleDataV58 = [
@@ -5484,7 +4990,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V58)
+          Utils.getPointerReader(this.ModelMatrix43V58),
         ];
 
         this.ModelStreakV58 = [
@@ -5509,7 +5015,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV58 = [
@@ -5526,14 +5032,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV58 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV58),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV58)
+          Utils.getArrayReader(this.ModelStreakAnchorV58),
         ];
 
         this.ModelEffectLightV58 = [
@@ -5546,32 +5052,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV58 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV58)
-        ];
+        this.ModelLightDataV58 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV58)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV58 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV58 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV58 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV58)
-        ];
+        this.ModelClothMeshGroupV58 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV58)];
 
         this.ModelClothSoftLockV58 = ["weight", "uint8", "vertIndex", "uint16"];
 
@@ -5583,7 +5073,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV58 = [
@@ -5636,7 +5126,7 @@ module.exports = [
           "flags",
           "uint8",
           "rigidness",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelLightningSystemV58 = [
@@ -5649,7 +5139,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV58 = [
@@ -5704,7 +5194,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV58 = [
@@ -5721,7 +5211,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV58 = [
@@ -5730,7 +5220,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV58),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV58)
+          Utils.getArrayReader(this.ModelLightningNodeV58),
         ];
 
         this.ModelBoneConstraintLinkV58 = [
@@ -5741,7 +5231,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV58 = [
@@ -5788,7 +5278,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV58 = [
@@ -5803,7 +5293,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV58 = [
@@ -5814,7 +5304,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
         this.ModelFixedOffsetDataV58 = [
@@ -5823,7 +5313,7 @@ module.exports = [
           "parentBone",
           Utils.getQWordReader(),
           "translation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.__root = this.ModelFileDataV58 = [
@@ -5864,7 +5354,7 @@ module.exports = [
           "fixedOffsetData",
           Utils.getArrayReader(this.ModelFixedOffsetDataV58),
           "modelReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -5882,33 +5372,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV57 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV57 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV57 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV57 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV57 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV57 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV57 = [
           "random",
@@ -5924,7 +5395,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV57 = [
@@ -5949,24 +5420,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV57),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV57 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV57)
+          Utils.getRefArrayReader(this.ModelMaterialDataV57),
         ];
 
         this.ModelMeshLodDataV57 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV57 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV57 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV57 = [
           "positions",
@@ -5974,7 +5440,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV57),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -5985,7 +5451,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV57 = [
@@ -6012,7 +5478,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV57 = [
@@ -6023,7 +5489,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV57 = [
@@ -6040,15 +5506,10 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelBoneSymmetryV57 = [
-          "boneLeft",
-          Utils.getQWordReader(),
-          "boneRight",
-          Utils.getQWordReader()
-        ];
+        this.ModelBoneSymmetryV57 = ["boneLeft", Utils.getQWordReader(), "boneRight", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV57 = [
           "Name",
@@ -6062,25 +5523,14 @@ module.exports = [
           "ExtendedData.Object",
           Utils.getPointerReader("uint8"),
           "boneSymmetries",
-          Utils.getArrayReader(this.ModelBoneSymmetryV57)
+          Utils.getArrayReader(this.ModelBoneSymmetryV57),
         ];
 
-        this.ModelMeshBindingDataV57 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV57 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV57 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV57 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV57 = [
           "Name",
@@ -6104,7 +5554,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV57 = [
@@ -6119,7 +5569,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV57 = [
@@ -6140,15 +5590,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV57 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV57 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV57 = [
           "columns",
@@ -6160,17 +5605,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V57 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V57 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV57 = [
           "acceleration",
@@ -6250,14 +5688,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV57 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV57),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV57)
+          Utils.getArrayReader(this.ModelParticleEmitterV57),
         ];
 
         this.ModelObstacleDataV57 = [
@@ -6282,7 +5720,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V57)
+          Utils.getPointerReader(this.ModelMatrix43V57),
         ];
 
         this.ModelStreakV57 = [
@@ -6307,7 +5745,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV57 = [
@@ -6324,14 +5762,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV57 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV57),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV57)
+          Utils.getArrayReader(this.ModelStreakAnchorV57),
         ];
 
         this.ModelEffectLightV57 = [
@@ -6344,32 +5782,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV57 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV57)
-        ];
+        this.ModelLightDataV57 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV57)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV57 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV57 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV57 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV57)
-        ];
+        this.ModelClothMeshGroupV57 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV57)];
 
         this.ModelClothSoftLockV57 = ["weight", "uint8", "vertIndex", "uint16"];
 
@@ -6381,7 +5803,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV57 = [
@@ -6428,7 +5850,7 @@ module.exports = [
           "flags",
           "uint8",
           "rigidness",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelLightningSystemV57 = [
@@ -6441,7 +5863,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV57 = [
@@ -6490,7 +5912,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV57 = [
@@ -6507,7 +5929,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV57 = [
@@ -6516,7 +5938,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV57),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV57)
+          Utils.getArrayReader(this.ModelLightningNodeV57),
         ];
 
         this.ModelBoneConstraintLinkV57 = [
@@ -6527,7 +5949,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV57 = [
@@ -6574,7 +5996,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV57 = [
@@ -6589,7 +6011,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV57 = [
@@ -6600,7 +6022,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
         this.ModelFixedOffsetDataV57 = [
@@ -6609,7 +6031,7 @@ module.exports = [
           "parentBone",
           Utils.getQWordReader(),
           "translation",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.__root = this.ModelFileDataV57 = [
@@ -6650,7 +6072,7 @@ module.exports = [
           "fixedOffsetData",
           Utils.getArrayReader(this.ModelFixedOffsetDataV57),
           "modelReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -6668,33 +6090,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV56 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV56 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV56 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV56 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV56 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV56 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV56 = [
           "random",
@@ -6710,7 +6113,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV56 = [
@@ -6735,24 +6138,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV56),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV56 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV56)
+          Utils.getRefArrayReader(this.ModelMaterialDataV56),
         ];
 
         this.ModelMeshLodDataV56 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV56 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV56 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV56 = [
           "positions",
@@ -6760,7 +6158,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV56),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -6771,7 +6169,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV56 = [
@@ -6798,7 +6196,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV56 = [
@@ -6809,7 +6207,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV56 = [
@@ -6826,15 +6224,10 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelBoneSymmetryV56 = [
-          "boneLeft",
-          Utils.getQWordReader(),
-          "boneRight",
-          Utils.getQWordReader()
-        ];
+        this.ModelBoneSymmetryV56 = ["boneLeft", Utils.getQWordReader(), "boneRight", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV56 = [
           "Name",
@@ -6848,25 +6241,14 @@ module.exports = [
           "ExtendedData.Object",
           Utils.getPointerReader("uint8"),
           "boneSymmetries",
-          Utils.getArrayReader(this.ModelBoneSymmetryV56)
+          Utils.getArrayReader(this.ModelBoneSymmetryV56),
         ];
 
-        this.ModelMeshBindingDataV56 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV56 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV56 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV56 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV56 = [
           "Name",
@@ -6890,7 +6272,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV56 = [
@@ -6905,7 +6287,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV56 = [
@@ -6926,15 +6308,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV56 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV56 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV56 = [
           "columns",
@@ -6946,17 +6323,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V56 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V56 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV56 = [
           "acceleration",
@@ -7036,14 +6406,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV56 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV56),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV56)
+          Utils.getArrayReader(this.ModelParticleEmitterV56),
         ];
 
         this.ModelObstacleDataV56 = [
@@ -7068,7 +6438,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V56)
+          Utils.getPointerReader(this.ModelMatrix43V56),
         ];
 
         this.ModelStreakV56 = [
@@ -7093,7 +6463,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV56 = [
@@ -7110,14 +6480,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV56 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV56),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV56)
+          Utils.getArrayReader(this.ModelStreakAnchorV56),
         ];
 
         this.ModelEffectLightV56 = [
@@ -7130,32 +6500,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV56 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV56)
-        ];
+        this.ModelLightDataV56 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV56)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV56 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV56 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV56 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV56)
-        ];
+        this.ModelClothMeshGroupV56 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV56)];
 
         this.ModelClothSoftLockV56 = ["weight", "uint8", "vertIndex", "uint16"];
 
@@ -7167,7 +6521,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV56 = [
@@ -7214,7 +6568,7 @@ module.exports = [
           "flags",
           "uint8",
           "rigidness",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelLightningSystemV56 = [
@@ -7227,7 +6581,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV56 = [
@@ -7276,7 +6630,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV56 = [
@@ -7293,7 +6647,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV56 = [
@@ -7302,7 +6656,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV56),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV56)
+          Utils.getArrayReader(this.ModelLightningNodeV56),
         ];
 
         this.ModelBoneConstraintLinkV56 = [
@@ -7313,7 +6667,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV56 = [
@@ -7360,7 +6714,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV56 = [
@@ -7375,7 +6729,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV56 = [
@@ -7386,7 +6740,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
         this.__root = this.ModelFileDataV56 = [
@@ -7425,7 +6779,7 @@ module.exports = [
           "boneOffsetData",
           Utils.getArrayReader(this.ModelBoneOffsetDataV56),
           "modelReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -7443,33 +6797,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV55 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV55 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV55 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV55 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV55 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV55 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV55 = [
           "random",
@@ -7485,7 +6820,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV55 = [
@@ -7510,24 +6845,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV55),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV55 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV55)
+          Utils.getRefArrayReader(this.ModelMaterialDataV55),
         ];
 
         this.ModelMeshLodDataV55 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV55 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV55 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV55 = [
           "positions",
@@ -7535,7 +6865,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV55),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -7546,7 +6876,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV55 = [
@@ -7573,7 +6903,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV55 = [
@@ -7584,7 +6914,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV55 = [
@@ -7601,15 +6931,10 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelBoneSymmetryV55 = [
-          "boneLeft",
-          Utils.getQWordReader(),
-          "boneRight",
-          Utils.getQWordReader()
-        ];
+        this.ModelBoneSymmetryV55 = ["boneLeft", Utils.getQWordReader(), "boneRight", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV55 = [
           "Name",
@@ -7623,25 +6948,14 @@ module.exports = [
           "ExtendedData.Object",
           Utils.getPointerReader("uint8"),
           "boneSymmetries",
-          Utils.getArrayReader(this.ModelBoneSymmetryV55)
+          Utils.getArrayReader(this.ModelBoneSymmetryV55),
         ];
 
-        this.ModelMeshBindingDataV55 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV55 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV55 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV55 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV55 = [
           "Name",
@@ -7665,7 +6979,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV55 = [
@@ -7680,7 +6994,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV55 = [
@@ -7701,15 +7015,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV55 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV55 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV55 = [
           "columns",
@@ -7721,17 +7030,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V55 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V55 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV55 = [
           "acceleration",
@@ -7811,14 +7113,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV55 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV55),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV55)
+          Utils.getArrayReader(this.ModelParticleEmitterV55),
         ];
 
         this.ModelObstacleDataV55 = [
@@ -7843,7 +7145,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V55)
+          Utils.getPointerReader(this.ModelMatrix43V55),
         ];
 
         this.ModelStreakV55 = [
@@ -7868,7 +7170,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV55 = [
@@ -7885,14 +7187,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV55 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV55),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV55)
+          Utils.getArrayReader(this.ModelStreakAnchorV55),
         ];
 
         this.ModelEffectLightV55 = [
@@ -7905,32 +7207,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV55 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV55)
-        ];
+        this.ModelLightDataV55 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV55)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV55 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV55 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV55 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV55)
-        ];
+        this.ModelClothMeshGroupV55 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV55)];
 
         this.ModelClothSoftLockV55 = ["weight", "uint8", "vertIndex", "uint16"];
 
@@ -7942,7 +7228,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV55 = [
@@ -7989,7 +7275,7 @@ module.exports = [
           "flags",
           "uint8",
           "rigidness",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelLightningSystemV55 = [
@@ -8002,7 +7288,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV55 = [
@@ -8051,7 +7337,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV55 = [
@@ -8068,7 +7354,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV55 = [
@@ -8077,7 +7363,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV55),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV55)
+          Utils.getArrayReader(this.ModelLightningNodeV55),
         ];
 
         this.ModelBoneConstraintLinkV55 = [
@@ -8088,7 +7374,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV55 = [
@@ -8135,7 +7421,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV55 = [
@@ -8150,7 +7436,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV55 = [
@@ -8161,7 +7447,7 @@ module.exports = [
           "rotation",
           ["[]", "float32", 4],
           "boneInverseOffset",
-          ["[]", ["[]", "float32", 4], 3]
+          ["[]", ["[]", "float32", 4], 3],
         ];
 
         this.__root = this.ModelFileDataV55 = [
@@ -8198,7 +7484,7 @@ module.exports = [
           "softBodyData",
           Utils.getArrayReader(this.ModelSoftBodyDataV55),
           "boneOffsetData",
-          Utils.getArrayReader(this.ModelBoneOffsetDataV55)
+          Utils.getArrayReader(this.ModelBoneOffsetDataV55),
         ];
       },
 
@@ -8216,33 +7502,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV54 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV54 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV54 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV54 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV54 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV54 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV54 = [
           "random",
@@ -8258,7 +7525,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV54 = [
@@ -8283,24 +7550,19 @@ module.exports = [
           "texTransforms",
           Utils.getArrayReader(this.ModelMaterialTexTransformV54),
           "texCoordCount",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelPermutationDataV54 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV54)
+          Utils.getRefArrayReader(this.ModelMaterialDataV54),
         ];
 
         this.ModelMeshLodDataV54 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV54 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV54 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV54 = [
           "positions",
@@ -8308,7 +7570,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV54),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -8319,7 +7581,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV54 = [
@@ -8346,7 +7608,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV54 = [
@@ -8357,7 +7619,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV54 = [
@@ -8374,15 +7636,10 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelBoneSymmetryV54 = [
-          "boneLeft",
-          Utils.getQWordReader(),
-          "boneRight",
-          Utils.getQWordReader()
-        ];
+        this.ModelBoneSymmetryV54 = ["boneLeft", Utils.getQWordReader(), "boneRight", Utils.getQWordReader()];
 
         this.ModelSkeletonDataV54 = [
           "Name",
@@ -8396,25 +7653,14 @@ module.exports = [
           "ExtendedData.Object",
           Utils.getPointerReader("uint8"),
           "boneSymmetries",
-          Utils.getArrayReader(this.ModelBoneSymmetryV54)
+          Utils.getArrayReader(this.ModelBoneSymmetryV54),
         ];
 
-        this.ModelMeshBindingDataV54 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV54 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV54 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV54 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV54 = [
           "Name",
@@ -8438,7 +7684,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV54 = [
@@ -8453,7 +7699,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV54 = [
@@ -8474,15 +7720,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV54 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV54 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV54 = [
           "columns",
@@ -8494,17 +7735,10 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelMatrix43V54 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V54 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelParticleEmitterV54 = [
           "acceleration",
@@ -8584,14 +7818,14 @@ module.exports = [
           "alignmentType",
           "uint8",
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV54 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV54),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV54)
+          Utils.getArrayReader(this.ModelParticleEmitterV54),
         ];
 
         this.ModelObstacleDataV54 = [
@@ -8616,7 +7850,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V54)
+          Utils.getPointerReader(this.ModelMatrix43V54),
         ];
 
         this.ModelStreakV54 = [
@@ -8641,7 +7875,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV54 = [
@@ -8658,14 +7892,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV54 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV54),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV54)
+          Utils.getArrayReader(this.ModelStreakAnchorV54),
         ];
 
         this.ModelEffectLightV54 = [
@@ -8678,32 +7912,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV54 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV54)
-        ];
+        this.ModelLightDataV54 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV54)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV54 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV54 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV54 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV54)
-        ];
+        this.ModelClothMeshGroupV54 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV54)];
 
         this.ModelClothSoftLockV54 = ["weight", "uint8", "vertIndex", "uint16"];
 
@@ -8715,7 +7933,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV54 = [
@@ -8762,7 +7980,7 @@ module.exports = [
           "flags",
           "uint8",
           "rigidness",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelLightningSystemV54 = [
@@ -8775,7 +7993,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV54 = [
@@ -8824,7 +8042,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV54 = [
@@ -8841,7 +8059,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV54 = [
@@ -8850,7 +8068,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV54),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV54)
+          Utils.getArrayReader(this.ModelLightningNodeV54),
         ];
 
         this.ModelBoneConstraintLinkV54 = [
@@ -8861,7 +8079,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV54 = [
@@ -8908,7 +8126,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV54 = [
@@ -8923,7 +8141,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV54 = [
@@ -8932,7 +8150,7 @@ module.exports = [
           "translation",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.__root = this.ModelFileDataV54 = [
@@ -8969,7 +8187,7 @@ module.exports = [
           "softBodyData",
           Utils.getArrayReader(this.ModelSoftBodyDataV54),
           "boneOffsetData",
-          Utils.getArrayReader(this.ModelBoneOffsetDataV54)
+          Utils.getArrayReader(this.ModelBoneOffsetDataV54),
         ];
       },
 
@@ -8987,33 +8205,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV53 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV53 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV53 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV53 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV53 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV53 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV53 = [
           "random",
@@ -9029,7 +8228,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV53 = [
@@ -9052,24 +8251,19 @@ module.exports = [
           "uvTransLinks",
           Utils.getArrayReader(this.ModelUVTransLinkV53),
           "texTransforms",
-          Utils.getArrayReader(this.ModelMaterialTexTransformV53)
+          Utils.getArrayReader(this.ModelMaterialTexTransformV53),
         ];
 
         this.ModelPermutationDataV53 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV53)
+          Utils.getRefArrayReader(this.ModelMaterialDataV53),
         ];
 
         this.ModelMeshLodDataV53 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV53 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV53 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV53 = [
           "positions",
@@ -9077,7 +8271,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV53),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -9088,7 +8282,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV53 = [
@@ -9115,7 +8309,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV53 = [
@@ -9126,7 +8320,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV53 = [
@@ -9143,7 +8337,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV53 = [
@@ -9156,25 +8350,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV53 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV53 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV53 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV53 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV53 = [
           "Name",
@@ -9198,7 +8381,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV53 = [
@@ -9213,7 +8396,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV53 = [
@@ -9234,15 +8417,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV53 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV53 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV53 = [
           "columns",
@@ -9254,7 +8432,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV53 = [
@@ -9333,24 +8511,17 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV53 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV53),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV53)
+          Utils.getArrayReader(this.ModelParticleEmitterV53),
         ];
 
-        this.ModelMatrix43V53 = [
-          "x",
-          ["[]", "float32", 4],
-          "y",
-          ["[]", "float32", 4],
-          "z",
-          ["[]", "float32", 4]
-        ];
+        this.ModelMatrix43V53 = ["x", ["[]", "float32", 4], "y", ["[]", "float32", 4], "z", ["[]", "float32", 4]];
 
         this.ModelObstacleDataV53 = [
           "bone",
@@ -9374,7 +8545,7 @@ module.exports = [
           "radius",
           "float32",
           "transform",
-          Utils.getPointerReader(this.ModelMatrix43V53)
+          Utils.getPointerReader(this.ModelMatrix43V53),
         ];
 
         this.ModelStreakV53 = [
@@ -9399,7 +8570,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV53 = [
@@ -9416,14 +8587,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV53 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV53),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV53)
+          Utils.getArrayReader(this.ModelStreakAnchorV53),
         ];
 
         this.ModelEffectLightV53 = [
@@ -9436,32 +8607,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV53 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV53)
-        ];
+        this.ModelLightDataV53 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV53)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV53 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV53 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV53 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV53)
-        ];
+        this.ModelClothMeshGroupV53 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV53)];
 
         this.ModelClothSoftLockV53 = ["weight", "uint8", "vertIndex", "uint16"];
 
@@ -9473,7 +8628,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothDataV53 = [
@@ -9518,7 +8673,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelLightningSystemV53 = [
@@ -9531,7 +8686,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV53 = [
@@ -9580,7 +8735,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV53 = [
@@ -9597,7 +8752,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV53 = [
@@ -9606,7 +8761,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV53),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV53)
+          Utils.getArrayReader(this.ModelLightningNodeV53),
         ];
 
         this.ModelBoneConstraintLinkV53 = [
@@ -9617,7 +8772,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV53 = [
@@ -9664,7 +8819,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV53 = [
@@ -9679,7 +8834,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelBoneOffsetDataV53 = [
@@ -9688,7 +8843,7 @@ module.exports = [
           "translation",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.__root = this.ModelFileDataV53 = [
@@ -9725,7 +8880,7 @@ module.exports = [
           "softBodyData",
           Utils.getArrayReader(this.ModelSoftBodyDataV53),
           "boneOffsetData",
-          Utils.getArrayReader(this.ModelBoneOffsetDataV53)
+          Utils.getArrayReader(this.ModelBoneOffsetDataV53),
         ];
       },
 
@@ -9743,33 +8898,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV52 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV52 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV52 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV52 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV52 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV52 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV52 = [
           "random",
@@ -9785,7 +8921,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV52 = [
@@ -9808,24 +8944,19 @@ module.exports = [
           "uvTransLinks",
           Utils.getArrayReader(this.ModelUVTransLinkV52),
           "texTransforms",
-          Utils.getArrayReader(this.ModelMaterialTexTransformV52)
+          Utils.getArrayReader(this.ModelMaterialTexTransformV52),
         ];
 
         this.ModelPermutationDataV52 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV52)
+          Utils.getRefArrayReader(this.ModelMaterialDataV52),
         ];
 
         this.ModelMeshLodDataV52 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV52 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV52 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV52 = [
           "positions",
@@ -9833,7 +8964,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV52),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -9844,7 +8975,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV52 = [
@@ -9871,7 +9002,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV52 = [
@@ -9882,7 +9013,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV52 = [
@@ -9899,7 +9030,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV52 = [
@@ -9912,25 +9043,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV52 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV52 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV52 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV52 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV52 = [
           "Name",
@@ -9954,7 +9074,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV52 = [
@@ -9969,7 +9089,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV52 = [
@@ -9990,15 +9110,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV52 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV52 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV52 = [
           "columns",
@@ -10010,7 +9125,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV52 = [
@@ -10089,14 +9204,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV52 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV52),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV52)
+          Utils.getArrayReader(this.ModelParticleEmitterV52),
         ];
 
         this.ModelObstacleDataV52 = [
@@ -10113,7 +9228,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV52 = [
@@ -10138,7 +9253,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV52 = [
@@ -10155,14 +9270,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV52 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV52),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV52)
+          Utils.getArrayReader(this.ModelStreakAnchorV52),
         ];
 
         this.ModelEffectLightV52 = [
@@ -10175,32 +9290,16 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV52 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV52)
-        ];
+        this.ModelLightDataV52 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV52)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV52 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV52 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV52 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV52)
-        ];
+        this.ModelClothMeshGroupV52 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV52)];
 
         this.ModelClothSoftLockV52 = ["weight", "uint8", "vertIndex", "uint16"];
 
@@ -10212,7 +9311,7 @@ module.exports = [
           "vertIndexA",
           "uint16",
           "vertIndexB",
-          "uint16"
+          "uint16",
         ];
 
         this.ModelClothObstacleV52 = [
@@ -10227,7 +9326,7 @@ module.exports = [
           "radius",
           "float32",
           "width",
-          "float32"
+          "float32",
         ];
 
         this.ModelClothDataV52 = [
@@ -10272,7 +9371,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV52)
+          Utils.getArrayReader(this.ModelClothObstacleV52),
         ];
 
         this.ModelLightningSystemV52 = [
@@ -10285,7 +9384,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV52 = [
@@ -10334,7 +9433,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV52 = [
@@ -10351,7 +9450,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV52 = [
@@ -10360,7 +9459,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV52),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV52)
+          Utils.getArrayReader(this.ModelLightningNodeV52),
         ];
 
         this.ModelBoneConstraintLinkV52 = [
@@ -10371,7 +9470,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV52 = [
@@ -10418,7 +9517,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV52 = [
@@ -10433,15 +9532,10 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
-        this.ModelBoneOffsetDataV52 = [
-          "bone",
-          Utils.getQWordReader(),
-          "offset",
-          ["[]", "float32", 3]
-        ];
+        this.ModelBoneOffsetDataV52 = ["bone", Utils.getQWordReader(), "offset", ["[]", "float32", 3]];
 
         this.__root = this.ModelFileDataV52 = [
           "permutations",
@@ -10477,7 +9571,7 @@ module.exports = [
           "softBodyData",
           Utils.getArrayReader(this.ModelSoftBodyDataV52),
           "boneOffsetData",
-          Utils.getArrayReader(this.ModelBoneOffsetDataV52)
+          Utils.getArrayReader(this.ModelBoneOffsetDataV52),
         ];
       },
 
@@ -10495,33 +9589,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV51 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV51 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV51 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV51 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV51 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV51 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV51 = [
           "random",
@@ -10537,7 +9612,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV51 = [
@@ -10560,24 +9635,19 @@ module.exports = [
           "uvTransLinks",
           Utils.getArrayReader(this.ModelUVTransLinkV51),
           "texTransforms",
-          Utils.getArrayReader(this.ModelMaterialTexTransformV51)
+          Utils.getArrayReader(this.ModelMaterialTexTransformV51),
         ];
 
         this.ModelPermutationDataV51 = [
           "token",
           Utils.getQWordReader(),
           "materials",
-          Utils.getRefArrayReader(this.ModelMaterialDataV51)
+          Utils.getRefArrayReader(this.ModelMaterialDataV51),
         ];
 
         this.ModelMeshLodDataV51 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV51 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV51 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV51 = [
           "positions",
@@ -10585,7 +9655,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV51),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -10596,7 +9666,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV51 = [
@@ -10623,7 +9693,7 @@ module.exports = [
           "materialIndex",
           "uint32",
           "materialName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.ModelTransformDataV51 = [
@@ -10634,7 +9704,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV51 = [
@@ -10651,7 +9721,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV51 = [
@@ -10664,25 +9734,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV51 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV51 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV51 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV51 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV51 = [
           "Name",
@@ -10706,7 +9765,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV51 = [
@@ -10721,7 +9780,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV51 = [
@@ -10742,15 +9801,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV51 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV51 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV51 = [
           "columns",
@@ -10762,7 +9816,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV51 = [
@@ -10841,14 +9895,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV51 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV51),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV51)
+          Utils.getArrayReader(this.ModelParticleEmitterV51),
         ];
 
         this.ModelObstacleDataV51 = [
@@ -10865,7 +9919,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV51 = [
@@ -10890,7 +9944,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV51 = [
@@ -10907,14 +9961,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV51 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV51),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV51)
+          Utils.getArrayReader(this.ModelStreakAnchorV51),
         ];
 
         this.ModelEffectLightV51 = [
@@ -10927,41 +9981,18 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV51 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV51)
-        ];
+        this.ModelLightDataV51 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV51)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV51 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV51 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV51 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV51)
-        ];
+        this.ModelClothMeshGroupV51 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV51)];
 
-        this.ModelClothConstraintV51 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV51 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothObstacleV51 = [
           "bone",
@@ -10975,7 +10006,7 @@ module.exports = [
           "radius",
           "float32",
           "width",
-          "float32"
+          "float32",
         ];
 
         this.ModelClothDataV51 = [
@@ -11014,7 +10045,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV51)
+          Utils.getArrayReader(this.ModelClothObstacleV51),
         ];
 
         this.ModelLightningSystemV51 = [
@@ -11027,7 +10058,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV51 = [
@@ -11076,7 +10107,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV51 = [
@@ -11093,7 +10124,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV51 = [
@@ -11102,7 +10133,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV51),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV51)
+          Utils.getArrayReader(this.ModelLightningNodeV51),
         ];
 
         this.ModelBoneConstraintLinkV51 = [
@@ -11113,7 +10144,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV51 = [
@@ -11160,7 +10191,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV51 = [
@@ -11175,15 +10206,10 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
-        this.ModelBoneOffsetDataV51 = [
-          "bone",
-          Utils.getQWordReader(),
-          "offset",
-          ["[]", "float32", 3]
-        ];
+        this.ModelBoneOffsetDataV51 = ["bone", Utils.getQWordReader(), "offset", ["[]", "float32", 3]];
 
         this.__root = this.ModelFileDataV51 = [
           "permutations",
@@ -11219,7 +10245,7 @@ module.exports = [
           "softBodyData",
           Utils.getArrayReader(this.ModelSoftBodyDataV51),
           "boneOffsetData",
-          Utils.getArrayReader(this.ModelBoneOffsetDataV51)
+          Utils.getArrayReader(this.ModelBoneOffsetDataV51),
         ];
       },
 
@@ -11237,33 +10263,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV50 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV50 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV50 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV50 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV50 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV50 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV50 = [
           "random",
@@ -11279,7 +10286,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV50 = [
@@ -11300,17 +10307,12 @@ module.exports = [
           "uvTransLinks",
           Utils.getArrayReader(this.ModelUVTransLinkV50),
           "texTransforms",
-          Utils.getArrayReader(this.ModelMaterialTexTransformV50)
+          Utils.getArrayReader(this.ModelMaterialTexTransformV50),
         ];
 
         this.ModelMeshLodDataV50 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV50 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV50 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV50 = [
           "positions",
@@ -11318,7 +10320,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV50),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -11329,7 +10331,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV50 = [
@@ -11352,7 +10354,7 @@ module.exports = [
           "maxBound",
           ["[]", "float32", 3],
           "bounds",
-          Utils.getArrayReader(this.GrBoundData)
+          Utils.getArrayReader(this.GrBoundData),
         ];
 
         this.ModelTransformDataV50 = [
@@ -11363,7 +10365,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV50 = [
@@ -11380,7 +10382,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV50 = [
@@ -11393,25 +10395,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV50 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV50 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV50 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV50 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV50 = [
           "Name",
@@ -11435,7 +10426,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV50 = [
@@ -11450,7 +10441,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV50 = [
@@ -11471,15 +10462,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV50 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV50 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV50 = [
           "columns",
@@ -11491,7 +10477,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV50 = [
@@ -11570,14 +10556,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV50 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV50),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV50)
+          Utils.getArrayReader(this.ModelParticleEmitterV50),
         ];
 
         this.ModelObstacleDataV50 = [
@@ -11594,7 +10580,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV50 = [
@@ -11619,7 +10605,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV50 = [
@@ -11636,14 +10622,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV50 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV50),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV50)
+          Utils.getArrayReader(this.ModelStreakAnchorV50),
         ];
 
         this.ModelEffectLightV50 = [
@@ -11656,48 +10642,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV50 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV50)
-        ];
+        this.ModelLightDataV50 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV50)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV50 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV50 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV50 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV50)
-        ];
+        this.ModelClothMeshGroupV50 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV50)];
 
-        this.ModelClothConstraintV50 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV50 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV50 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV50 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV50 = [
           "materialIndex",
@@ -11735,7 +10693,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV50)
+          Utils.getArrayReader(this.ModelClothObstacleV50),
         ];
 
         this.ModelLightningSystemV50 = [
@@ -11748,7 +10706,7 @@ module.exports = [
           "fvf",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV50 = [
@@ -11797,7 +10755,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV50 = [
@@ -11814,7 +10772,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV50 = [
@@ -11823,7 +10781,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV50),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV50)
+          Utils.getArrayReader(this.ModelLightningNodeV50),
         ];
 
         this.ModelBoneConstraintLinkV50 = [
@@ -11834,7 +10792,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV50 = [
@@ -11881,7 +10839,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV50 = [
@@ -11896,15 +10854,10 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
-        this.ModelBoneOffsetDataV50 = [
-          "bone",
-          Utils.getQWordReader(),
-          "offset",
-          ["[]", "float32", 3]
-        ];
+        this.ModelBoneOffsetDataV50 = ["bone", Utils.getQWordReader(), "offset", ["[]", "float32", 3]];
 
         this.__root = this.ModelFileDataV50 = [
           "materials",
@@ -11940,7 +10893,7 @@ module.exports = [
           "softBodyData",
           Utils.getArrayReader(this.ModelSoftBodyDataV50),
           "boneOffsetData",
-          Utils.getArrayReader(this.ModelBoneOffsetDataV50)
+          Utils.getArrayReader(this.ModelBoneOffsetDataV50),
         ];
       },
 
@@ -11958,33 +10911,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV49 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV49 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV49 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV49 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV49 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV49 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV49 = [
           "random",
@@ -12000,7 +10934,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV49 = [
@@ -12021,17 +10955,12 @@ module.exports = [
           "uvTransLinks",
           Utils.getArrayReader(this.ModelUVTransLinkV49),
           "texTransforms",
-          Utils.getArrayReader(this.ModelMaterialTexTransformV49)
+          Utils.getArrayReader(this.ModelMaterialTexTransformV49),
         ];
 
         this.ModelMeshLodDataV49 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV49 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV49 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV49 = [
           "positions",
@@ -12039,7 +10968,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV49),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -12050,7 +10979,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV49 = [
@@ -12073,7 +11002,7 @@ module.exports = [
           "maxBound",
           ["[]", "float32", 3],
           "bounds",
-          Utils.getArrayReader(this.GrBoundData)
+          Utils.getArrayReader(this.GrBoundData),
         ];
 
         this.ModelTransformDataV49 = [
@@ -12084,7 +11013,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV49 = [
@@ -12101,7 +11030,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV49 = [
@@ -12114,25 +11043,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV49 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV49 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV49 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV49 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV49 = [
           "Name",
@@ -12156,7 +11074,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV49 = [
@@ -12171,7 +11089,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV49 = [
@@ -12192,15 +11110,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV49 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV49 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV49 = [
           "columns",
@@ -12212,7 +11125,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV49 = [
@@ -12291,14 +11204,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV49 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV49),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV49)
+          Utils.getArrayReader(this.ModelParticleEmitterV49),
         ];
 
         this.ModelObstacleDataV49 = [
@@ -12315,7 +11228,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV49 = [
@@ -12340,7 +11253,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV49 = [
@@ -12357,14 +11270,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV49 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV49),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV49)
+          Utils.getArrayReader(this.ModelStreakAnchorV49),
         ];
 
         this.ModelEffectLightV49 = [
@@ -12377,48 +11290,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV49 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV49)
-        ];
+        this.ModelLightDataV49 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV49)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV49 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV49 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV49 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV49)
-        ];
+        this.ModelClothMeshGroupV49 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV49)];
 
-        this.ModelClothConstraintV49 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV49 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV49 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV49 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV49 = [
           "materialIndex",
@@ -12456,7 +11341,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV49)
+          Utils.getArrayReader(this.ModelClothObstacleV49),
         ];
 
         this.ModelLightningSystemV49 = [
@@ -12467,7 +11352,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV49 = [
@@ -12516,7 +11401,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV49 = [
@@ -12533,7 +11418,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV49 = [
@@ -12542,7 +11427,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV49),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV49)
+          Utils.getArrayReader(this.ModelLightningNodeV49),
         ];
 
         this.ModelBoneConstraintLinkV49 = [
@@ -12553,7 +11438,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV49 = [
@@ -12600,7 +11485,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV49 = [
@@ -12615,15 +11500,10 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
-        this.ModelBoneOffsetDataV49 = [
-          "bone",
-          Utils.getQWordReader(),
-          "offset",
-          ["[]", "float32", 3]
-        ];
+        this.ModelBoneOffsetDataV49 = ["bone", Utils.getQWordReader(), "offset", ["[]", "float32", 3]];
 
         this.__root = this.ModelFileDataV49 = [
           "materials",
@@ -12659,7 +11539,7 @@ module.exports = [
           "softBodyData",
           Utils.getArrayReader(this.ModelSoftBodyDataV49),
           "boneOffsetData",
-          Utils.getArrayReader(this.ModelBoneOffsetDataV49)
+          Utils.getArrayReader(this.ModelBoneOffsetDataV49),
         ];
       },
 
@@ -12677,33 +11557,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV48 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV48 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV48 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV48 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV48 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV48 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV48 = [
           "random",
@@ -12719,7 +11580,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV48 = [
@@ -12740,17 +11601,12 @@ module.exports = [
           "uvTransLinks",
           Utils.getArrayReader(this.ModelUVTransLinkV48),
           "texTransforms",
-          Utils.getArrayReader(this.ModelMaterialTexTransformV48)
+          Utils.getArrayReader(this.ModelMaterialTexTransformV48),
         ];
 
         this.ModelMeshLodDataV48 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV48 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV48 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV48 = [
           "positions",
@@ -12758,7 +11614,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV48),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -12769,7 +11625,7 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
         this.ModelMeshDataV48 = [
@@ -12792,7 +11648,7 @@ module.exports = [
           "maxBound",
           ["[]", "float32", 3],
           "bounds",
-          Utils.getArrayReader(this.GrBoundData)
+          Utils.getArrayReader(this.GrBoundData),
         ];
 
         this.ModelTransformDataV48 = [
@@ -12803,7 +11659,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV48 = [
@@ -12820,7 +11676,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV48 = [
@@ -12833,25 +11689,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV48 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV48 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV48 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV48 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV48 = [
           "Name",
@@ -12875,7 +11720,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV48 = [
@@ -12890,7 +11735,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV48 = [
@@ -12911,15 +11756,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV48 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV48 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV48 = [
           "columns",
@@ -12931,7 +11771,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV48 = [
@@ -13010,14 +11850,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV48 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV48),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV48)
+          Utils.getArrayReader(this.ModelParticleEmitterV48),
         ];
 
         this.ModelObstacleDataV48 = [
@@ -13034,7 +11874,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV48 = [
@@ -13059,7 +11899,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV48 = [
@@ -13076,14 +11916,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV48 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV48),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV48)
+          Utils.getArrayReader(this.ModelStreakAnchorV48),
         ];
 
         this.ModelEffectLightV48 = [
@@ -13096,48 +11936,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV48 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV48)
-        ];
+        this.ModelLightDataV48 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV48)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV48 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV48 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV48 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV48)
-        ];
+        this.ModelClothMeshGroupV48 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV48)];
 
-        this.ModelClothConstraintV48 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV48 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV48 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV48 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV48 = [
           "materialIndex",
@@ -13175,7 +11987,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV48)
+          Utils.getArrayReader(this.ModelClothObstacleV48),
         ];
 
         this.ModelLightningSystemV48 = [
@@ -13186,7 +11998,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV48 = [
@@ -13235,7 +12047,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV48 = [
@@ -13252,7 +12064,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV48 = [
@@ -13261,7 +12073,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV48),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV48)
+          Utils.getArrayReader(this.ModelLightningNodeV48),
         ];
 
         this.ModelBoneConstraintLinkV48 = [
@@ -13272,7 +12084,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV48 = [
@@ -13319,7 +12131,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV48 = [
@@ -13334,7 +12146,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileDataV48 = [
@@ -13369,7 +12181,7 @@ module.exports = [
           "boneConstraints",
           Utils.getArrayReader(this.ModelBoneConstraintV48),
           "softBodyData",
-          Utils.getArrayReader(this.ModelSoftBodyDataV48)
+          Utils.getArrayReader(this.ModelSoftBodyDataV48),
         ];
       },
 
@@ -13387,33 +12199,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV47 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV47 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV47 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV47 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV47 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV47 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV47 = [
           "random",
@@ -13429,7 +12222,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV47 = [
@@ -13450,17 +12243,12 @@ module.exports = [
           "uvTransLinks",
           Utils.getArrayReader(this.ModelUVTransLinkV47),
           "texTransforms",
-          Utils.getArrayReader(this.ModelMaterialTexTransformV47)
+          Utils.getArrayReader(this.ModelMaterialTexTransformV47),
         ];
 
         this.ModelMeshLodDataV47 = ["indices", Utils.getArrayReader("uint16")];
 
-        this.ModelMeshMorphVertV47 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV47 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV47 = [
           "positions",
@@ -13468,7 +12256,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV47),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -13491,7 +12279,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV47 = [
@@ -13502,7 +12290,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV47 = [
@@ -13519,7 +12307,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV47 = [
@@ -13532,25 +12320,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV47 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV47 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV47 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV47 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV47 = [
           "Name",
@@ -13574,7 +12351,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV47 = [
@@ -13589,7 +12366,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV47 = [
@@ -13610,15 +12387,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV47 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV47 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV47 = [
           "columns",
@@ -13630,7 +12402,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV47 = [
@@ -13709,14 +12481,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV47 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV47),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV47)
+          Utils.getArrayReader(this.ModelParticleEmitterV47),
         ];
 
         this.ModelObstacleDataV47 = [
@@ -13733,7 +12505,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV47 = [
@@ -13758,7 +12530,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV47 = [
@@ -13775,14 +12547,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV47 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV47),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV47)
+          Utils.getArrayReader(this.ModelStreakAnchorV47),
         ];
 
         this.ModelEffectLightV47 = [
@@ -13795,48 +12567,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV47 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV47)
-        ];
+        this.ModelLightDataV47 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV47)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV47 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV47 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV47 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV47)
-        ];
+        this.ModelClothMeshGroupV47 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV47)];
 
-        this.ModelClothConstraintV47 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV47 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV47 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV47 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV47 = [
           "materialIndex",
@@ -13874,7 +12618,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV47)
+          Utils.getArrayReader(this.ModelClothObstacleV47),
         ];
 
         this.ModelLightningSystemV47 = [
@@ -13885,7 +12629,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV47 = [
@@ -13934,7 +12678,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV47 = [
@@ -13951,7 +12695,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV47 = [
@@ -13960,7 +12704,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV47),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV47)
+          Utils.getArrayReader(this.ModelLightningNodeV47),
         ];
 
         this.ModelBoneConstraintLinkV47 = [
@@ -13971,7 +12715,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV47 = [
@@ -14018,7 +12762,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV47 = [
@@ -14033,7 +12777,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileDataV47 = [
@@ -14068,7 +12812,7 @@ module.exports = [
           "boneConstraints",
           Utils.getArrayReader(this.ModelBoneConstraintV47),
           "softBodyData",
-          Utils.getArrayReader(this.ModelSoftBodyDataV47)
+          Utils.getArrayReader(this.ModelSoftBodyDataV47),
         ];
       },
 
@@ -14086,33 +12830,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV46 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV46 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV46 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV46 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV46 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV46 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV46 = [
           "random",
@@ -14128,7 +12853,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV46 = [
@@ -14149,7 +12874,7 @@ module.exports = [
           "uvTransLinks",
           Utils.getArrayReader(this.ModelUVTransLinkV46),
           "texTransforms",
-          Utils.getArrayReader(this.ModelMaterialTexTransformV46)
+          Utils.getArrayReader(this.ModelMaterialTexTransformV46),
         ];
 
         this.ModelMeshLodDataV46 = ["indices", Utils.getArrayReader("uint16")];
@@ -14164,7 +12889,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -14187,7 +12912,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV46 = [
@@ -14198,7 +12923,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV46 = [
@@ -14215,7 +12940,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV46 = [
@@ -14228,25 +12953,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV46 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV46 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV46 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV46 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV46 = [
           "Name",
@@ -14270,7 +12984,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV46 = [
@@ -14285,7 +12999,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV46 = [
@@ -14306,15 +13020,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV46 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV46 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV46 = [
           "columns",
@@ -14326,7 +13035,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV46 = [
@@ -14405,14 +13114,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV46 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV46),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV46)
+          Utils.getArrayReader(this.ModelParticleEmitterV46),
         ];
 
         this.ModelObstacleDataV46 = [
@@ -14429,7 +13138,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV46 = [
@@ -14454,7 +13163,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV46 = [
@@ -14471,14 +13180,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV46 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV46),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV46)
+          Utils.getArrayReader(this.ModelStreakAnchorV46),
         ];
 
         this.ModelEffectLightV46 = [
@@ -14491,48 +13200,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV46 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV46)
-        ];
+        this.ModelLightDataV46 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV46)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV46 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV46 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV46 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV46)
-        ];
+        this.ModelClothMeshGroupV46 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV46)];
 
-        this.ModelClothConstraintV46 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV46 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV46 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV46 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV46 = [
           "materialIndex",
@@ -14570,7 +13251,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV46)
+          Utils.getArrayReader(this.ModelClothObstacleV46),
         ];
 
         this.ModelLightningSystemV46 = [
@@ -14581,7 +13262,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV46 = [
@@ -14630,7 +13311,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV46 = [
@@ -14647,7 +13328,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV46 = [
@@ -14656,7 +13337,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV46),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV46)
+          Utils.getArrayReader(this.ModelLightningNodeV46),
         ];
 
         this.ModelBoneConstraintLinkV46 = [
@@ -14667,7 +13348,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV46 = [
@@ -14714,7 +13395,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV46 = [
@@ -14729,7 +13410,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileDataV46 = [
@@ -14764,7 +13445,7 @@ module.exports = [
           "boneConstraints",
           Utils.getArrayReader(this.ModelBoneConstraintV46),
           "softBodyData",
-          Utils.getArrayReader(this.ModelSoftBodyDataV46)
+          Utils.getArrayReader(this.ModelSoftBodyDataV46),
         ];
       },
 
@@ -14782,33 +13463,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV45 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV45 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV45 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV45 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV45 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV45 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialTexTransformV45 = [
           "random",
@@ -14824,7 +13486,7 @@ module.exports = [
           "fps",
           "float32",
           "scroll",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.ModelMaterialDataV45 = [
@@ -14845,7 +13507,7 @@ module.exports = [
           "uvTransLinks",
           Utils.getArrayReader(this.ModelUVTransLinkV45),
           "texTransforms",
-          Utils.getArrayReader(this.ModelMaterialTexTransformV45)
+          Utils.getArrayReader(this.ModelMaterialTexTransformV45),
         ];
 
         this.ModelMeshLodDataV45 = ["indices", Utils.getArrayReader("uint16")];
@@ -14860,7 +13522,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -14883,7 +13545,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV45 = [
@@ -14894,7 +13556,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV45 = [
@@ -14911,7 +13573,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV45 = [
@@ -14924,25 +13586,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV45 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV45 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV45 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV45 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV45 = [
           "Name",
@@ -14966,7 +13617,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV45 = [
@@ -14981,7 +13632,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV45 = [
@@ -15002,15 +13653,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV45 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV45 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV45 = [
           "columns",
@@ -15022,7 +13668,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV45 = [
@@ -15101,14 +13747,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV45 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV45),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV45)
+          Utils.getArrayReader(this.ModelParticleEmitterV45),
         ];
 
         this.ModelObstacleDataV45 = [
@@ -15125,7 +13771,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV45 = [
@@ -15150,7 +13796,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV45 = [
@@ -15167,14 +13813,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV45 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV45),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV45)
+          Utils.getArrayReader(this.ModelStreakAnchorV45),
         ];
 
         this.ModelEffectLightV45 = [
@@ -15187,48 +13833,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV45 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV45)
-        ];
+        this.ModelLightDataV45 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV45)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV45 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV45 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV45 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV45)
-        ];
+        this.ModelClothMeshGroupV45 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV45)];
 
-        this.ModelClothConstraintV45 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV45 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV45 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV45 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV45 = [
           "materialIndex",
@@ -15266,7 +13884,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV45)
+          Utils.getArrayReader(this.ModelClothObstacleV45),
         ];
 
         this.ModelLightningSystemV45 = [
@@ -15277,7 +13895,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV45 = [
@@ -15326,7 +13944,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV45 = [
@@ -15343,7 +13961,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV45 = [
@@ -15352,7 +13970,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV45),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV45)
+          Utils.getArrayReader(this.ModelLightningNodeV45),
         ];
 
         this.ModelBoneConstraintLinkV45 = [
@@ -15363,7 +13981,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV45 = [
@@ -15410,7 +14028,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV45 = [
@@ -15425,7 +14043,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileDataV45 = [
@@ -15460,7 +14078,7 @@ module.exports = [
           "boneConstraints",
           Utils.getArrayReader(this.ModelBoneConstraintV45),
           "softBodyData",
-          Utils.getArrayReader(this.ModelSoftBodyDataV45)
+          Utils.getArrayReader(this.ModelSoftBodyDataV45),
         ];
       },
 
@@ -15478,33 +14096,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV44 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV44 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV44 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV44 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV44 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV44 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV44 = [
           "filename",
@@ -15522,7 +14121,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV44),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV44)
+          Utils.getArrayReader(this.ModelUVTransLinkV44),
         ];
 
         this.ModelMeshLodDataV44 = ["indices", Utils.getArrayReader("uint16")];
@@ -15537,7 +14136,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -15560,7 +14159,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV44 = [
@@ -15571,7 +14170,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV44 = [
@@ -15588,7 +14187,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV44 = [
@@ -15601,25 +14200,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV44 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV44 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV44 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV44 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV44 = [
           "Name",
@@ -15643,7 +14231,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV44 = [
@@ -15658,7 +14246,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV44 = [
@@ -15679,15 +14267,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV44 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV44 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV44 = [
           "columns",
@@ -15699,7 +14282,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV44 = [
@@ -15778,14 +14361,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV44 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV44),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV44)
+          Utils.getArrayReader(this.ModelParticleEmitterV44),
         ];
 
         this.ModelObstacleDataV44 = [
@@ -15802,7 +14385,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV44 = [
@@ -15827,7 +14410,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV44 = [
@@ -15844,14 +14427,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV44 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV44),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV44)
+          Utils.getArrayReader(this.ModelStreakAnchorV44),
         ];
 
         this.ModelEffectLightV44 = [
@@ -15864,48 +14447,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV44 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV44)
-        ];
+        this.ModelLightDataV44 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV44)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV44 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV44 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV44 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV44)
-        ];
+        this.ModelClothMeshGroupV44 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV44)];
 
-        this.ModelClothConstraintV44 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV44 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV44 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV44 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV44 = [
           "materialIndex",
@@ -15943,7 +14498,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV44)
+          Utils.getArrayReader(this.ModelClothObstacleV44),
         ];
 
         this.ModelLightningSystemV44 = [
@@ -15954,7 +14509,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV44 = [
@@ -16003,7 +14558,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV44 = [
@@ -16020,7 +14575,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV44 = [
@@ -16029,7 +14584,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV44),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV44)
+          Utils.getArrayReader(this.ModelLightningNodeV44),
         ];
 
         this.ModelBoneConstraintLinkV44 = [
@@ -16040,7 +14595,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV44 = [
@@ -16087,7 +14642,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV44 = [
@@ -16102,7 +14657,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileDataV44 = [
@@ -16137,7 +14692,7 @@ module.exports = [
           "boneConstraints",
           Utils.getArrayReader(this.ModelBoneConstraintV44),
           "softBodyData",
-          Utils.getArrayReader(this.ModelSoftBodyDataV44)
+          Utils.getArrayReader(this.ModelSoftBodyDataV44),
         ];
       },
 
@@ -16155,33 +14710,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV43 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV43 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV43 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV43 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV43 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV43 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV43 = [
           "filename",
@@ -16199,7 +14735,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV43),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV43)
+          Utils.getArrayReader(this.ModelUVTransLinkV43),
         ];
 
         this.ModelMeshLodDataV43 = ["indices", Utils.getArrayReader("uint16")];
@@ -16214,7 +14750,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -16237,7 +14773,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV43 = [
@@ -16248,7 +14784,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV43 = [
@@ -16265,7 +14801,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV43 = [
@@ -16278,25 +14814,14 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
-        this.ModelMeshBindingDataV43 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV43 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV43 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV43 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV43 = [
           "Name",
@@ -16320,7 +14845,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV43 = [
@@ -16335,7 +14860,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV43 = [
@@ -16356,15 +14881,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV43 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV43 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV43 = [
           "columns",
@@ -16376,7 +14896,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV43 = [
@@ -16455,14 +14975,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV43 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV43),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV43)
+          Utils.getArrayReader(this.ModelParticleEmitterV43),
         ];
 
         this.ModelObstacleDataV43 = [
@@ -16479,7 +14999,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV43 = [
@@ -16504,7 +15024,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV43 = [
@@ -16521,14 +15041,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV43 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV43),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV43)
+          Utils.getArrayReader(this.ModelStreakAnchorV43),
         ];
 
         this.ModelEffectLightV43 = [
@@ -16541,48 +15061,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV43 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV43)
-        ];
+        this.ModelLightDataV43 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV43)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV43 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV43 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV43 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV43)
-        ];
+        this.ModelClothMeshGroupV43 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV43)];
 
-        this.ModelClothConstraintV43 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV43 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV43 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV43 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV43 = [
           "materialIndex",
@@ -16620,7 +15112,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV43)
+          Utils.getArrayReader(this.ModelClothObstacleV43),
         ];
 
         this.ModelLightningSystemV43 = [
@@ -16631,7 +15123,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV43 = [
@@ -16680,7 +15172,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV43 = [
@@ -16697,7 +15189,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV43 = [
@@ -16706,7 +15198,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV43),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV43)
+          Utils.getArrayReader(this.ModelLightningNodeV43),
         ];
 
         this.ModelBoneConstraintLinkV43 = [
@@ -16717,7 +15209,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV43 = [
@@ -16764,7 +15256,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV43 = [
@@ -16779,7 +15271,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileDataV43 = [
@@ -16814,7 +15306,7 @@ module.exports = [
           "boneConstraints",
           Utils.getArrayReader(this.ModelBoneConstraintV43),
           "softBodyData",
-          Utils.getArrayReader(this.ModelSoftBodyDataV43)
+          Utils.getArrayReader(this.ModelSoftBodyDataV43),
         ];
       },
 
@@ -16832,33 +15324,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV42 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV42 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV42 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV42 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV42 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV42 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV42 = [
           "filename",
@@ -16876,7 +15349,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV42),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV42)
+          Utils.getArrayReader(this.ModelUVTransLinkV42),
         ];
 
         this.ModelMeshLodDataV42 = ["indices", Utils.getArrayReader("uint16")];
@@ -16891,7 +15364,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -16914,7 +15387,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV42 = [
@@ -16925,7 +15398,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV42 = [
@@ -16942,7 +15415,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV42 = [
@@ -16951,25 +15424,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV42),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV42 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV42 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV42 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV42 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV42 = [
           "Name",
@@ -16989,7 +15451,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV42 = [
@@ -17004,7 +15466,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV42 = [
@@ -17025,15 +15487,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV42 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV42 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV42 = [
           "columns",
@@ -17045,7 +15502,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV42 = [
@@ -17124,14 +15581,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV42 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV42),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV42)
+          Utils.getArrayReader(this.ModelParticleEmitterV42),
         ];
 
         this.ModelObstacleDataV42 = [
@@ -17148,7 +15605,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV42 = [
@@ -17173,7 +15630,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV42 = [
@@ -17190,14 +15647,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV42 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV42),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV42)
+          Utils.getArrayReader(this.ModelStreakAnchorV42),
         ];
 
         this.ModelEffectLightV42 = [
@@ -17210,48 +15667,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV42 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV42)
-        ];
+        this.ModelLightDataV42 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV42)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV42 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV42 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV42 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV42)
-        ];
+        this.ModelClothMeshGroupV42 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV42)];
 
-        this.ModelClothConstraintV42 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV42 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV42 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV42 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV42 = [
           "materialIndex",
@@ -17289,7 +15718,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV42)
+          Utils.getArrayReader(this.ModelClothObstacleV42),
         ];
 
         this.ModelLightningSystemV42 = [
@@ -17300,7 +15729,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV42 = [
@@ -17349,7 +15778,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV42 = [
@@ -17366,7 +15795,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV42 = [
@@ -17375,7 +15804,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV42),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV42)
+          Utils.getArrayReader(this.ModelLightningNodeV42),
         ];
 
         this.ModelBoneConstraintLinkV42 = [
@@ -17386,7 +15815,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV42 = [
@@ -17433,7 +15862,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV42 = [
@@ -17448,7 +15877,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileDataV42 = [
@@ -17483,7 +15912,7 @@ module.exports = [
           "boneConstraints",
           Utils.getArrayReader(this.ModelBoneConstraintV42),
           "softBodyData",
-          Utils.getArrayReader(this.ModelSoftBodyDataV42)
+          Utils.getArrayReader(this.ModelSoftBodyDataV42),
         ];
       },
 
@@ -17501,33 +15930,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV41 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV41 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV41 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV41 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV41 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV41 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV41 = [
           "filename",
@@ -17545,7 +15955,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV41),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV41)
+          Utils.getArrayReader(this.ModelUVTransLinkV41),
         ];
 
         this.ModelMeshLodDataV41 = ["indices", Utils.getArrayReader("uint16")];
@@ -17560,7 +15970,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -17583,7 +15993,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV41 = [
@@ -17594,7 +16004,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV41 = [
@@ -17611,7 +16021,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV41 = [
@@ -17620,25 +16030,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV41),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV41 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV41 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV41 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV41 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV41 = [
           "Name",
@@ -17658,7 +16057,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV41 = [
@@ -17673,7 +16072,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV41 = [
@@ -17694,15 +16093,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV41 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV41 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV41 = [
           "columns",
@@ -17714,7 +16108,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV41 = [
@@ -17793,14 +16187,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV41 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV41),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV41)
+          Utils.getArrayReader(this.ModelParticleEmitterV41),
         ];
 
         this.ModelObstacleDataV41 = [
@@ -17817,7 +16211,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV41 = [
@@ -17842,7 +16236,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV41 = [
@@ -17859,14 +16253,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV41 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV41),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV41)
+          Utils.getArrayReader(this.ModelStreakAnchorV41),
         ];
 
         this.ModelEffectLightV41 = [
@@ -17879,48 +16273,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV41 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV41)
-        ];
+        this.ModelLightDataV41 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV41)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV41 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV41 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV41 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV41)
-        ];
+        this.ModelClothMeshGroupV41 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV41)];
 
-        this.ModelClothConstraintV41 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV41 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV41 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV41 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV41 = [
           "materialIndex",
@@ -17958,7 +16324,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV41)
+          Utils.getArrayReader(this.ModelClothObstacleV41),
         ];
 
         this.ModelLightningSystemV41 = [
@@ -17967,7 +16333,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV41 = [
@@ -18016,7 +16382,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV41 = [
@@ -18033,7 +16399,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV41 = [
@@ -18042,7 +16408,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV41),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV41)
+          Utils.getArrayReader(this.ModelLightningNodeV41),
         ];
 
         this.ModelBoneConstraintLinkV41 = [
@@ -18053,7 +16419,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV41 = [
@@ -18100,7 +16466,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelSoftBodyDataV41 = [
@@ -18115,7 +16481,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "bones",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileDataV41 = [
@@ -18150,7 +16516,7 @@ module.exports = [
           "boneConstraints",
           Utils.getArrayReader(this.ModelBoneConstraintV41),
           "softBodyData",
-          Utils.getArrayReader(this.ModelSoftBodyDataV41)
+          Utils.getArrayReader(this.ModelSoftBodyDataV41),
         ];
       },
 
@@ -18168,33 +16534,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV40 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV40 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV40 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV40 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV40 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV40 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV40 = [
           "filename",
@@ -18212,7 +16559,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV40),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV40)
+          Utils.getArrayReader(this.ModelUVTransLinkV40),
         ];
 
         this.ModelMeshLodDataV40 = ["indices", Utils.getArrayReader("uint16")];
@@ -18227,7 +16574,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -18250,7 +16597,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV40 = [
@@ -18261,7 +16608,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV40 = [
@@ -18278,7 +16625,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV40 = [
@@ -18287,25 +16634,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV40),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV40 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV40 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV40 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV40 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV40 = [
           "Name",
@@ -18325,7 +16661,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV40 = [
@@ -18340,7 +16676,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV40 = [
@@ -18361,15 +16697,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV40 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV40 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV40 = [
           "columns",
@@ -18381,7 +16712,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV40 = [
@@ -18460,14 +16791,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV40 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV40),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV40)
+          Utils.getArrayReader(this.ModelParticleEmitterV40),
         ];
 
         this.ModelObstacleDataV40 = [
@@ -18484,7 +16815,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV40 = [
@@ -18509,7 +16840,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV40 = [
@@ -18526,14 +16857,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV40 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV40),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV40)
+          Utils.getArrayReader(this.ModelStreakAnchorV40),
         ];
 
         this.ModelEffectLightV40 = [
@@ -18546,48 +16877,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV40 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV40)
-        ];
+        this.ModelLightDataV40 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV40)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV40 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV40 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV40 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV40)
-        ];
+        this.ModelClothMeshGroupV40 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV40)];
 
-        this.ModelClothConstraintV40 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV40 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV40 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV40 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV40 = [
           "materialIndex",
@@ -18625,7 +16928,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV40)
+          Utils.getArrayReader(this.ModelClothObstacleV40),
         ];
 
         this.ModelLightningSystemV40 = [
@@ -18634,7 +16937,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV40 = [
@@ -18683,7 +16986,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV40 = [
@@ -18700,7 +17003,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV40 = [
@@ -18709,7 +17012,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV40),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV40)
+          Utils.getArrayReader(this.ModelLightningNodeV40),
         ];
 
         this.ModelBoneConstraintLinkV40 = [
@@ -18720,7 +17023,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV40 = [
@@ -18767,7 +17070,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.ModelFileDataV40 = [
@@ -18800,7 +17103,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelLightningDataV40),
           "boneConstraints",
-          Utils.getArrayReader(this.ModelBoneConstraintV40)
+          Utils.getArrayReader(this.ModelBoneConstraintV40),
         ];
       },
 
@@ -18818,33 +17121,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV39 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV39 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV39 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV39 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV39 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV39 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV39 = [
           "filename",
@@ -18862,7 +17146,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV39),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV39)
+          Utils.getArrayReader(this.ModelUVTransLinkV39),
         ];
 
         this.ModelMeshLodDataV39 = ["indices", Utils.getArrayReader("uint16")];
@@ -18877,7 +17161,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -18900,7 +17184,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV39 = [
@@ -18911,7 +17195,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV39 = [
@@ -18928,7 +17212,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV39 = [
@@ -18937,25 +17221,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV39),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV39 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV39 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV39 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV39 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV39 = [
           "Name",
@@ -18975,7 +17248,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV39 = [
@@ -18990,7 +17263,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV39 = [
@@ -19009,15 +17282,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV39 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV39 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV39 = [
           "columns",
@@ -19029,7 +17297,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV39 = [
@@ -19104,14 +17372,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV39 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV39),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV39)
+          Utils.getArrayReader(this.ModelParticleEmitterV39),
         ];
 
         this.ModelObstacleDataV39 = [
@@ -19128,7 +17396,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV39 = [
@@ -19153,7 +17421,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV39 = [
@@ -19170,14 +17438,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV39 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV39),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV39)
+          Utils.getArrayReader(this.ModelStreakAnchorV39),
         ];
 
         this.ModelEffectLightV39 = [
@@ -19190,48 +17458,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV39 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV39)
-        ];
+        this.ModelLightDataV39 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV39)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV39 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV39 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV39 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV39)
-        ];
+        this.ModelClothMeshGroupV39 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV39)];
 
-        this.ModelClothConstraintV39 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV39 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV39 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV39 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV39 = [
           "materialIndex",
@@ -19269,7 +17509,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV39)
+          Utils.getArrayReader(this.ModelClothObstacleV39),
         ];
 
         this.ModelLightningSystemV39 = [
@@ -19278,7 +17518,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV39 = [
@@ -19327,7 +17567,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV39 = [
@@ -19344,7 +17584,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV39 = [
@@ -19353,7 +17593,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV39),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV39)
+          Utils.getArrayReader(this.ModelLightningNodeV39),
         ];
 
         this.ModelBoneConstraintLinkV39 = [
@@ -19364,7 +17604,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV39 = [
@@ -19411,7 +17651,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.ModelFileDataV39 = [
@@ -19444,7 +17684,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelLightningDataV39),
           "boneConstraints",
-          Utils.getArrayReader(this.ModelBoneConstraintV39)
+          Utils.getArrayReader(this.ModelBoneConstraintV39),
         ];
       },
 
@@ -19462,33 +17702,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV38 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV38 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV38 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV38 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV38 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV38 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV38 = [
           "filename",
@@ -19506,7 +17727,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV38),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV38)
+          Utils.getArrayReader(this.ModelUVTransLinkV38),
         ];
 
         this.ModelMeshLodDataV38 = ["indices", Utils.getArrayReader("uint16")];
@@ -19521,7 +17742,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -19544,7 +17765,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV38 = [
@@ -19555,7 +17776,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV38 = [
@@ -19572,7 +17793,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV38 = [
@@ -19581,25 +17802,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV38),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV38 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV38 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV38 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV38 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV38 = [
           "Name",
@@ -19619,7 +17829,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV38 = [
@@ -19634,7 +17844,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV38 = [
@@ -19653,15 +17863,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV38 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV38 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV38 = [
           "columns",
@@ -19673,7 +17878,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV38 = [
@@ -19748,14 +17953,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV38 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV38),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV38)
+          Utils.getArrayReader(this.ModelParticleEmitterV38),
         ];
 
         this.ModelObstacleDataV38 = [
@@ -19772,7 +17977,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV38 = [
@@ -19797,7 +18002,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV38 = [
@@ -19812,14 +18017,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV38 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV38),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV38)
+          Utils.getArrayReader(this.ModelStreakAnchorV38),
         ];
 
         this.ModelEffectLightV38 = [
@@ -19832,48 +18037,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV38 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV38)
-        ];
+        this.ModelLightDataV38 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV38)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV38 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV38 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV38 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV38)
-        ];
+        this.ModelClothMeshGroupV38 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV38)];
 
-        this.ModelClothConstraintV38 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV38 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV38 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV38 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV38 = [
           "materialIndex",
@@ -19911,7 +18088,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV38)
+          Utils.getArrayReader(this.ModelClothObstacleV38),
         ];
 
         this.ModelLightningSystemV38 = [
@@ -19920,7 +18097,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV38 = [
@@ -19969,7 +18146,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV38 = [
@@ -19986,7 +18163,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV38 = [
@@ -19995,7 +18172,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV38),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV38)
+          Utils.getArrayReader(this.ModelLightningNodeV38),
         ];
 
         this.ModelBoneConstraintLinkV38 = [
@@ -20006,7 +18183,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV38 = [
@@ -20053,7 +18230,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.ModelFileDataV38 = [
@@ -20086,7 +18263,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelLightningDataV38),
           "boneConstraints",
-          Utils.getArrayReader(this.ModelBoneConstraintV38)
+          Utils.getArrayReader(this.ModelBoneConstraintV38),
         ];
       },
 
@@ -20104,33 +18281,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV37 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV37 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV37 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV37 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV37 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV37 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV37 = [
           "filename",
@@ -20148,7 +18306,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV37),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV37)
+          Utils.getArrayReader(this.ModelUVTransLinkV37),
         ];
 
         this.ModelMeshLodDataV37 = ["indices", Utils.getArrayReader("uint16")];
@@ -20163,7 +18321,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -20186,7 +18344,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV37 = [
@@ -20197,7 +18355,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV37 = [
@@ -20214,7 +18372,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV37 = [
@@ -20223,25 +18381,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV37),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV37 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV37 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV37 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV37 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV37 = [
           "Name",
@@ -20261,7 +18408,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV37 = [
@@ -20276,7 +18423,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV37 = [
@@ -20295,15 +18442,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV37 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV37 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV37 = [
           "columns",
@@ -20315,7 +18457,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV37 = [
@@ -20390,14 +18532,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV37 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV37),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV37)
+          Utils.getArrayReader(this.ModelParticleEmitterV37),
         ];
 
         this.ModelObstacleDataV37 = [
@@ -20414,7 +18556,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV37 = [
@@ -20439,7 +18581,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV37 = [
@@ -20454,14 +18596,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV37 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV37),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV37)
+          Utils.getArrayReader(this.ModelStreakAnchorV37),
         ];
 
         this.ModelEffectLightV37 = [
@@ -20474,48 +18616,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV37 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV37)
-        ];
+        this.ModelLightDataV37 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV37)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV37 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV37 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV37 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV37)
-        ];
+        this.ModelClothMeshGroupV37 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV37)];
 
-        this.ModelClothConstraintV37 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV37 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV37 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV37 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV37 = [
           "materialIndex",
@@ -20553,7 +18667,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV37)
+          Utils.getArrayReader(this.ModelClothObstacleV37),
         ];
 
         this.ModelLightningSystemV37 = [
@@ -20562,7 +18676,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV37 = [
@@ -20611,7 +18725,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV37 = [
@@ -20628,7 +18742,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV37 = [
@@ -20637,7 +18751,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV37),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV37)
+          Utils.getArrayReader(this.ModelLightningNodeV37),
         ];
 
         this.ModelBoneConstraintLinkV37 = [
@@ -20648,7 +18762,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV37 = [
@@ -20695,7 +18809,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.ModelFileDataV37 = [
@@ -20728,7 +18842,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelLightningDataV37),
           "boneConstraints",
-          Utils.getArrayReader(this.ModelBoneConstraintV37)
+          Utils.getArrayReader(this.ModelBoneConstraintV37),
         ];
       },
 
@@ -20746,33 +18860,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV36 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV36 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV36 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV36 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV36 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV36 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV36 = [
           "filename",
@@ -20790,7 +18885,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV36),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV36)
+          Utils.getArrayReader(this.ModelUVTransLinkV36),
         ];
 
         this.ModelMeshLodDataV36 = ["indices", Utils.getArrayReader("uint16")];
@@ -20805,7 +18900,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -20828,7 +18923,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV36 = [
@@ -20839,7 +18934,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV36 = [
@@ -20856,7 +18951,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV36 = [
@@ -20865,25 +18960,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV36),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV36 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV36 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV36 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV36 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV36 = [
           "Name",
@@ -20905,7 +18989,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV36 = [
@@ -20920,7 +19004,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV36 = [
@@ -20939,15 +19023,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV36 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV36 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV36 = [
           "columns",
@@ -20959,7 +19038,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV36 = [
@@ -21034,14 +19113,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV36 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV36),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV36)
+          Utils.getArrayReader(this.ModelParticleEmitterV36),
         ];
 
         this.ModelObstacleDataV36 = [
@@ -21058,7 +19137,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV36 = [
@@ -21083,7 +19162,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV36 = [
@@ -21098,14 +19177,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV36 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV36),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV36)
+          Utils.getArrayReader(this.ModelStreakAnchorV36),
         ];
 
         this.ModelEffectLightV36 = [
@@ -21118,48 +19197,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV36 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV36)
-        ];
+        this.ModelLightDataV36 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV36)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV36 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV36 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV36 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV36)
-        ];
+        this.ModelClothMeshGroupV36 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV36)];
 
-        this.ModelClothConstraintV36 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV36 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV36 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV36 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV36 = [
           "materialIndex",
@@ -21197,7 +19248,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV36)
+          Utils.getArrayReader(this.ModelClothObstacleV36),
         ];
 
         this.ModelLightningSystemV36 = [
@@ -21206,7 +19257,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV36 = [
@@ -21255,7 +19306,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV36 = [
@@ -21272,7 +19323,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV36 = [
@@ -21281,7 +19332,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV36),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV36)
+          Utils.getArrayReader(this.ModelLightningNodeV36),
         ];
 
         this.ModelBoneConstraintLinkV36 = [
@@ -21292,7 +19343,7 @@ module.exports = [
           "distance",
           ["[]", "float32", 2],
           "token",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelBoneConstraintV36 = [
@@ -21339,7 +19390,7 @@ module.exports = [
           "twistStrength",
           "float32",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.ModelFileDataV36 = [
@@ -21372,7 +19423,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelLightningDataV36),
           "boneConstraints",
-          Utils.getArrayReader(this.ModelBoneConstraintV36)
+          Utils.getArrayReader(this.ModelBoneConstraintV36),
         ];
       },
 
@@ -21390,33 +19441,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV35 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV35 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV35 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV35 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV35 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV35 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV35 = [
           "filename",
@@ -21434,7 +19466,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV35),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV35)
+          Utils.getArrayReader(this.ModelUVTransLinkV35),
         ];
 
         this.ModelMeshLodDataV35 = ["indices", Utils.getArrayReader("uint16")];
@@ -21449,7 +19481,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -21472,7 +19504,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV35 = [
@@ -21483,7 +19515,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV35 = [
@@ -21500,7 +19532,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV35 = [
@@ -21509,25 +19541,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV35),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV35 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV35 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV35 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV35 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV35 = [
           "Name",
@@ -21549,7 +19570,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV35 = [
@@ -21564,7 +19585,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV35 = [
@@ -21583,15 +19604,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV35 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV35 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV35 = [
           "columns",
@@ -21603,7 +19619,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV35 = [
@@ -21678,14 +19694,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV35 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV35),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV35)
+          Utils.getArrayReader(this.ModelParticleEmitterV35),
         ];
 
         this.ModelObstacleDataV35 = [
@@ -21702,7 +19718,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV35 = [
@@ -21727,7 +19743,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV35 = [
@@ -21742,14 +19758,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV35 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV35),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV35)
+          Utils.getArrayReader(this.ModelStreakAnchorV35),
         ];
 
         this.ModelEffectLightV35 = [
@@ -21762,48 +19778,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV35 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV35)
-        ];
+        this.ModelLightDataV35 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV35)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV35 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV35 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV35 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV35)
-        ];
+        this.ModelClothMeshGroupV35 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV35)];
 
-        this.ModelClothConstraintV35 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV35 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV35 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV35 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV35 = [
           "materialIndex",
@@ -21841,7 +19829,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV35)
+          Utils.getArrayReader(this.ModelClothObstacleV35),
         ];
 
         this.ModelLightningSystemV35 = [
@@ -21850,7 +19838,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV35 = [
@@ -21899,7 +19887,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV35 = [
@@ -21916,7 +19904,7 @@ module.exports = [
           "shape",
           "uint8",
           "updatePos",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningDataV35 = [
@@ -21925,7 +19913,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV35),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV35)
+          Utils.getArrayReader(this.ModelLightningNodeV35),
         ];
 
         this.ModelBoneConstraintV35 = [
@@ -21970,7 +19958,7 @@ module.exports = [
           "twistStrength",
           "uint8",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.ModelFileDataV35 = [
@@ -22003,7 +19991,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelLightningDataV35),
           "boneConstraints",
-          Utils.getArrayReader(this.ModelBoneConstraintV35)
+          Utils.getArrayReader(this.ModelBoneConstraintV35),
         ];
       },
 
@@ -22021,33 +20009,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV34 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV34 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV34 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV34 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV34 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV34 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV34 = [
           "filename",
@@ -22065,7 +20034,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV34),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV34)
+          Utils.getArrayReader(this.ModelUVTransLinkV34),
         ];
 
         this.ModelMeshLodDataV34 = ["indices", Utils.getArrayReader("uint16")];
@@ -22080,7 +20049,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -22103,7 +20072,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV34 = [
@@ -22114,7 +20083,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV34 = [
@@ -22131,7 +20100,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV34 = [
@@ -22140,25 +20109,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV34),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV34 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV34 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV34 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV34 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV34 = [
           "Name",
@@ -22180,7 +20138,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV34 = [
@@ -22195,7 +20153,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV34 = [
@@ -22214,15 +20172,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV34 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV34 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV34 = [
           "columns",
@@ -22234,7 +20187,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV34 = [
@@ -22309,14 +20262,14 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV34 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV34),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV34)
+          Utils.getArrayReader(this.ModelParticleEmitterV34),
         ];
 
         this.ModelObstacleDataV34 = [
@@ -22333,7 +20286,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelStreakV34 = [
@@ -22358,7 +20311,7 @@ module.exports = [
           "texScale",
           "float32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV34 = [
@@ -22373,14 +20326,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV34 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV34),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV34)
+          Utils.getArrayReader(this.ModelStreakAnchorV34),
         ];
 
         this.ModelEffectLightV34 = [
@@ -22393,48 +20346,20 @@ module.exports = [
           "intensity",
           "float32",
           "nearDistance",
-          "float32"
+          "float32",
         ];
 
-        this.ModelLightDataV34 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV34)
-        ];
+        this.ModelLightDataV34 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV34)];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothBoneWeightV34 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelClothBoneWeightV34 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothMeshGroupV34 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV34)
-        ];
+        this.ModelClothMeshGroupV34 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV34)];
 
-        this.ModelClothConstraintV34 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV34 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
-        this.ModelClothObstacleV34 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothObstacleV34 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV34 = [
           "materialIndex",
@@ -22472,7 +20397,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV34)
+          Utils.getArrayReader(this.ModelClothObstacleV34),
         ];
 
         this.ModelLightningSystemV34 = [
@@ -22481,7 +20406,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV34 = [
@@ -22526,7 +20451,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV34 = [
@@ -22541,7 +20466,7 @@ module.exports = [
           "radius",
           "float32",
           "shape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelLightningDataV34 = [
@@ -22550,7 +20475,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV34),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV34)
+          Utils.getArrayReader(this.ModelLightningNodeV34),
         ];
 
         this.ModelBoneConstraintV34 = [
@@ -22595,7 +20520,7 @@ module.exports = [
           "twistStrength",
           "uint8",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.ModelFileDataV34 = [
@@ -22628,7 +20553,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelLightningDataV34),
           "boneConstraints",
-          Utils.getArrayReader(this.ModelBoneConstraintV34)
+          Utils.getArrayReader(this.ModelBoneConstraintV34),
         ];
       },
 
@@ -22646,33 +20571,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV33 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV33 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV33 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV33 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV33 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV33 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV33 = [
           "filename",
@@ -22690,7 +20596,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV33),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV33)
+          Utils.getArrayReader(this.ModelUVTransLinkV33),
         ];
 
         this.ModelMeshLodDataV33 = ["indices", Utils.getArrayReader("uint16")];
@@ -22705,7 +20611,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -22728,7 +20634,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV33 = [
@@ -22739,7 +20645,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV33 = [
@@ -22756,7 +20662,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV33 = [
@@ -22765,25 +20671,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV33),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV33 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV33 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV33 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV33 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV33 = [
           "Name",
@@ -22805,7 +20700,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV33 = [
@@ -22820,7 +20715,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV33 = [
@@ -22839,15 +20734,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV33 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV33 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV33 = [
           "columns",
@@ -22859,7 +20749,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV33 = [
@@ -22936,14 +20826,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV33 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV33),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV33)
+          Utils.getArrayReader(this.ModelParticleEmitterV33),
         ];
 
         this.ModelObstacleDataV33 = [
@@ -22962,7 +20852,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV33 = [
@@ -22987,7 +20877,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV33 = [
@@ -23002,14 +20892,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV33 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV33),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV33)
+          Utils.getArrayReader(this.ModelStreakAnchorV33),
         ];
 
         this.ModelEffectLightV33 = [
@@ -23024,48 +20914,20 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV33 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV33)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV33 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV33 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV33)];
 
-        this.ModelClothMeshGroupV33 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV33)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV33 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV33 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothObstacleV33 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothMeshGroupV33 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV33)];
+
+        this.ModelClothConstraintV33 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
+
+        this.ModelClothObstacleV33 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV33 = [
           "materialIndex",
@@ -23103,7 +20965,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV33)
+          Utils.getArrayReader(this.ModelClothObstacleV33),
         ];
 
         this.ModelLightningSystemV33 = [
@@ -23112,7 +20974,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV33 = [
@@ -23157,7 +21019,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV33 = [
@@ -23174,7 +21036,7 @@ module.exports = [
           "shape",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningDataV33 = [
@@ -23183,7 +21045,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV33),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV33)
+          Utils.getArrayReader(this.ModelLightningNodeV33),
         ];
 
         this.ModelBoneConstraintV33 = [
@@ -23228,7 +21090,7 @@ module.exports = [
           "twistStrength",
           "uint8",
           "twistType",
-          "uint8"
+          "uint8",
         ];
 
         this.__root = this.ModelFileDataV33 = [
@@ -23261,7 +21123,7 @@ module.exports = [
           "lightningData",
           Utils.getPointerReader(this.ModelLightningDataV33),
           "boneConstraints",
-          Utils.getArrayReader(this.ModelBoneConstraintV33)
+          Utils.getArrayReader(this.ModelBoneConstraintV33),
         ];
       },
 
@@ -23279,33 +21141,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV32 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV32 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV32 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV32 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV32 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV32 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV32 = [
           "filename",
@@ -23323,7 +21166,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV32),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV32)
+          Utils.getArrayReader(this.ModelUVTransLinkV32),
         ];
 
         this.ModelMeshLodDataV32 = ["indices", Utils.getArrayReader("uint16")];
@@ -23338,7 +21181,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -23361,7 +21204,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV32 = [
@@ -23372,7 +21215,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV32 = [
@@ -23389,7 +21232,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV32 = [
@@ -23398,25 +21241,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV32),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV32 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV32 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV32 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV32 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV32 = [
           "Name",
@@ -23438,7 +21270,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV32 = [
@@ -23453,7 +21285,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV32 = [
@@ -23472,15 +21304,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV32 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV32 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV32 = [
           "columns",
@@ -23492,7 +21319,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV32 = [
@@ -23569,14 +21396,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV32 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV32),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV32)
+          Utils.getArrayReader(this.ModelParticleEmitterV32),
         ];
 
         this.ModelObstacleDataV32 = [
@@ -23595,7 +21422,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV32 = [
@@ -23620,7 +21447,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV32 = [
@@ -23635,14 +21462,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV32 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV32),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV32)
+          Utils.getArrayReader(this.ModelStreakAnchorV32),
         ];
 
         this.ModelEffectLightV32 = [
@@ -23657,48 +21484,20 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV32 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV32)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV32 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV32 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV32)];
 
-        this.ModelClothMeshGroupV32 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV32)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV32 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV32 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothObstacleV32 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothMeshGroupV32 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV32)];
+
+        this.ModelClothConstraintV32 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
+
+        this.ModelClothObstacleV32 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV32 = [
           "materialIndex",
@@ -23736,7 +21535,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV32)
+          Utils.getArrayReader(this.ModelClothObstacleV32),
         ];
 
         this.ModelLightningSystemV32 = [
@@ -23745,7 +21544,7 @@ module.exports = [
           "flags",
           "uint32",
           "materialIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningBoltV32 = [
@@ -23790,7 +21589,7 @@ module.exports = [
           "variancePreset",
           "uint8",
           "noise",
-          "float32"
+          "float32",
         ];
 
         this.ModelLightningNodeV32 = [
@@ -23807,7 +21606,7 @@ module.exports = [
           "shape",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightningDataV32 = [
@@ -23816,7 +21615,7 @@ module.exports = [
           "bolts",
           Utils.getArrayReader(this.ModelLightningBoltV32),
           "nodes",
-          Utils.getArrayReader(this.ModelLightningNodeV32)
+          Utils.getArrayReader(this.ModelLightningNodeV32),
         ];
 
         this.__root = this.ModelFileDataV32 = [
@@ -23847,7 +21646,7 @@ module.exports = [
           "soundScript",
           Utils.getFileNameReader(),
           "lightningData",
-          Utils.getPointerReader(this.ModelLightningDataV32)
+          Utils.getPointerReader(this.ModelLightningDataV32),
         ];
       },
 
@@ -23865,33 +21664,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV31 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV31 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV31 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV31 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV31 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV31 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV31 = [
           "filename",
@@ -23909,7 +21689,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV31),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV31)
+          Utils.getArrayReader(this.ModelUVTransLinkV31),
         ];
 
         this.ModelMeshLodDataV31 = ["indices", Utils.getArrayReader("uint16")];
@@ -23924,7 +21704,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -23947,7 +21727,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV31 = [
@@ -23958,7 +21738,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV31 = [
@@ -23975,7 +21755,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV31 = [
@@ -23984,25 +21764,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV31),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV31 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV31 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV31 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV31 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV31 = [
           "Name",
@@ -24024,7 +21793,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV31 = [
@@ -24039,7 +21808,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV31 = [
@@ -24058,15 +21827,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV31 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV31 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV31 = [
           "columns",
@@ -24078,7 +21842,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV31 = [
@@ -24155,14 +21919,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV31 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV31),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV31)
+          Utils.getArrayReader(this.ModelParticleEmitterV31),
         ];
 
         this.ModelObstacleDataV31 = [
@@ -24181,7 +21945,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV31 = [
@@ -24206,7 +21970,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV31 = [
@@ -24221,14 +21985,14 @@ module.exports = [
           "flags",
           "uint32",
           "texV",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV31 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV31),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV31)
+          Utils.getArrayReader(this.ModelStreakAnchorV31),
         ];
 
         this.ModelEffectLightV31 = [
@@ -24243,48 +22007,20 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV31 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV31)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV31 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV31 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV31)];
 
-        this.ModelClothMeshGroupV31 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV31)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV31 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV31 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothObstacleV31 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothMeshGroupV31 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV31)];
+
+        this.ModelClothConstraintV31 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
+
+        this.ModelClothObstacleV31 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV31 = [
           "materialIndex",
@@ -24322,7 +22058,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV31)
+          Utils.getArrayReader(this.ModelClothObstacleV31),
         ];
 
         this.__root = this.ModelFileDataV31 = [
@@ -24351,7 +22087,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -24369,33 +22105,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV30 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV30 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV30 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV30 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV30 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV30 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV30 = [
           "filename",
@@ -24413,7 +22130,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV30),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV30)
+          Utils.getArrayReader(this.ModelUVTransLinkV30),
         ];
 
         this.ModelMeshLodDataV30 = ["indices", Utils.getArrayReader("uint16")];
@@ -24428,7 +22145,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -24451,7 +22168,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV30 = [
@@ -24462,7 +22179,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV30 = [
@@ -24479,7 +22196,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV30 = [
@@ -24488,25 +22205,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV30),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV30 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV30 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV30 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV30 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV30 = [
           "Name",
@@ -24528,7 +22234,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV30 = [
@@ -24543,7 +22249,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV30 = [
@@ -24562,15 +22268,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV30 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV30 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV30 = [
           "columns",
@@ -24582,7 +22283,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV30 = [
@@ -24659,14 +22360,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV30 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV30),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV30)
+          Utils.getArrayReader(this.ModelParticleEmitterV30),
         ];
 
         this.ModelObstacleDataV30 = [
@@ -24685,7 +22386,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV30 = [
@@ -24712,7 +22413,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV30 = [
@@ -24723,14 +22424,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV30 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV30),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV30)
+          Utils.getArrayReader(this.ModelStreakAnchorV30),
         ];
 
         this.ModelEffectLightV30 = [
@@ -24745,48 +22446,20 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV30 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV30)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV30 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV30 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV30)];
 
-        this.ModelClothMeshGroupV30 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV30)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV30 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV30 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothObstacleV30 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothMeshGroupV30 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV30)];
+
+        this.ModelClothConstraintV30 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
+
+        this.ModelClothObstacleV30 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV30 = [
           "materialIndex",
@@ -24824,7 +22497,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV30)
+          Utils.getArrayReader(this.ModelClothObstacleV30),
         ];
 
         this.__root = this.ModelFileDataV30 = [
@@ -24853,7 +22526,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -24871,33 +22544,14 @@ module.exports = [
           "uvAnimId",
           "uint32",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV29 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV29 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
-        this.ModelMatConstLinkV29 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "constantToken",
-          "uint32"
-        ];
+        this.ModelMatConstLinkV29 = ["linkToken", Utils.getQWordReader(), "constantToken", "uint32"];
 
-        this.ModelUVTransLinkV29 = [
-          "linkToken",
-          Utils.getQWordReader(),
-          "uvAnimId",
-          "uint32",
-          "type",
-          "uint8"
-        ];
+        this.ModelUVTransLinkV29 = ["linkToken", Utils.getQWordReader(), "uvAnimId", "uint32", "type", "uint8"];
 
         this.ModelMaterialDataV29 = [
           "filename",
@@ -24915,7 +22569,7 @@ module.exports = [
           "matConstLinks",
           Utils.getArrayReader(this.ModelMatConstLinkV29),
           "uvTransLinks",
-          Utils.getArrayReader(this.ModelUVTransLinkV29)
+          Utils.getArrayReader(this.ModelUVTransLinkV29),
         ];
 
         this.ModelMeshLodDataV29 = ["indices", Utils.getArrayReader("uint16")];
@@ -24930,7 +22584,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -24953,7 +22607,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV29 = [
@@ -24964,7 +22618,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV29 = [
@@ -24981,7 +22635,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV29 = [
@@ -24990,25 +22644,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV29),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV29 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV29 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV29 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV29 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV29 = [
           "Name",
@@ -25030,7 +22673,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV29 = [
@@ -25043,7 +22686,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV29 = [
@@ -25062,15 +22705,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV29 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV29 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV29 = [
           "columns",
@@ -25082,7 +22720,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV29 = [
@@ -25159,14 +22797,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV29 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV29),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV29)
+          Utils.getArrayReader(this.ModelParticleEmitterV29),
         ];
 
         this.ModelObstacleDataV29 = [
@@ -25185,7 +22823,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV29 = [
@@ -25212,7 +22850,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV29 = [
@@ -25223,14 +22861,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV29 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV29),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV29)
+          Utils.getArrayReader(this.ModelStreakAnchorV29),
         ];
 
         this.ModelEffectLightV29 = [
@@ -25245,48 +22883,20 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV29 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV29)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV29 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV29 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV29)];
 
-        this.ModelClothMeshGroupV29 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV29)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV29 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV29 = ["token", Utils.getQWordReader(), "weight", "uint8"];
 
-        this.ModelClothObstacleV29 = [
-          "bone",
-          Utils.getQWordReader(),
-          "type",
-          "uint8"
-        ];
+        this.ModelClothMeshGroupV29 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV29)];
+
+        this.ModelClothConstraintV29 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
+
+        this.ModelClothObstacleV29 = ["bone", Utils.getQWordReader(), "type", "uint8"];
 
         this.ModelClothDataV29 = [
           "materialIndex",
@@ -25324,7 +22934,7 @@ module.exports = [
           "barycentricIndices",
           Utils.getArrayReader("uint16"),
           "obstacles",
-          Utils.getArrayReader(this.ModelClothObstacleV29)
+          Utils.getArrayReader(this.ModelClothObstacleV29),
         ];
 
         this.__root = this.ModelFileDataV29 = [
@@ -25353,7 +22963,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -25371,17 +22981,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV28 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV28 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV28 = [
           "filename",
@@ -25395,7 +22998,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV28),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV28)
+          Utils.getArrayReader(this.ModelConstantDataV28),
         ];
 
         this.ModelMeshLodDataV28 = ["indices", Utils.getArrayReader("uint16")];
@@ -25410,7 +23013,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -25433,7 +23036,7 @@ module.exports = [
           "minBound",
           ["[]", "float32", 3],
           "maxBound",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.ModelTransformDataV28 = [
@@ -25444,7 +23047,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV28 = [
@@ -25461,7 +23064,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV28 = [
@@ -25470,25 +23073,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV28),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV28 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV28 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV28 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV28 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV28 = [
           "Name",
@@ -25510,7 +23102,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelPropertyDataV28 = [
@@ -25523,7 +23115,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV28 = [
@@ -25542,15 +23134,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV28 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV28 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV28 = [
           "columns",
@@ -25562,7 +23149,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV28 = [
@@ -25639,14 +23226,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV28 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV28),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV28)
+          Utils.getArrayReader(this.ModelParticleEmitterV28),
         ];
 
         this.ModelObstacleDataV28 = [
@@ -25665,7 +23252,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV28 = [
@@ -25692,7 +23279,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV28 = [
@@ -25703,14 +23290,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV28 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV28),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV28)
+          Utils.getArrayReader(this.ModelStreakAnchorV28),
         ];
 
         this.ModelEffectLightV28 = [
@@ -25725,41 +23312,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV28 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV28)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV28 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV28 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV28)];
 
-        this.ModelClothMeshGroupV28 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV28)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV28 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV28 = ["token", Utils.getQWordReader(), "weight", "uint8"];
+
+        this.ModelClothMeshGroupV28 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV28)];
+
+        this.ModelClothConstraintV28 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV28 = [
           "materialIndex",
@@ -25795,7 +23359,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV28 = [
@@ -25824,7 +23388,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -25842,17 +23406,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV27 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV27 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV27 = [
           "filename",
@@ -25866,7 +23423,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV27),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV27)
+          Utils.getArrayReader(this.ModelConstantDataV27),
         ];
 
         this.ModelMeshLodDataV27 = ["indices", Utils.getArrayReader("uint16")];
@@ -25881,7 +23438,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -25900,7 +23457,7 @@ module.exports = [
           "seamVertIndices",
           Utils.getArrayReader("uint32"),
           "meshName",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelTransformDataV27 = [
@@ -25911,7 +23468,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV27 = [
@@ -25928,7 +23485,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV27 = [
@@ -25937,25 +23494,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV27),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV27 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV27 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV27 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV27 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV27 = [
           "Name",
@@ -25973,7 +23519,7 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV27),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ModelPropertyDataV27 = [
@@ -25986,7 +23532,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV27 = [
@@ -26005,15 +23551,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV27 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV27 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV27 = [
           "columns",
@@ -26025,7 +23566,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV27 = [
@@ -26102,14 +23643,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV27 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV27),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV27)
+          Utils.getArrayReader(this.ModelParticleEmitterV27),
         ];
 
         this.ModelObstacleDataV27 = [
@@ -26128,7 +23669,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV27 = [
@@ -26155,7 +23696,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV27 = [
@@ -26166,14 +23707,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV27 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV27),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV27)
+          Utils.getArrayReader(this.ModelStreakAnchorV27),
         ];
 
         this.ModelEffectLightV27 = [
@@ -26188,41 +23729,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV27 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV27)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV27 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV27 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV27)];
 
-        this.ModelClothMeshGroupV27 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV27)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV27 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV27 = ["token", Utils.getQWordReader(), "weight", "uint8"];
+
+        this.ModelClothMeshGroupV27 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV27)];
+
+        this.ModelClothConstraintV27 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV27 = [
           "materialIndex",
@@ -26258,7 +23776,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV27 = [
@@ -26287,7 +23805,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -26305,17 +23823,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV26 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV26 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV26 = [
           "filename",
@@ -26329,7 +23840,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV26),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV26)
+          Utils.getArrayReader(this.ModelConstantDataV26),
         ];
 
         this.ModelMeshLodDataV26 = ["indices", Utils.getArrayReader("uint16")];
@@ -26344,7 +23855,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -26361,7 +23872,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV26 = [
@@ -26372,7 +23883,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV26 = [
@@ -26389,7 +23900,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV26 = [
@@ -26398,25 +23909,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV26),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV26 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV26 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV26 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV26 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV26 = [
           "Name",
@@ -26434,7 +23934,7 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV26),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ModelPropertyDataV26 = [
@@ -26447,7 +23947,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelParticleCloudV26 = [
@@ -26466,15 +23966,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV26 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV26 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV26 = [
           "columns",
@@ -26486,7 +23981,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV26 = [
@@ -26563,14 +24058,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV26 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV26),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV26)
+          Utils.getArrayReader(this.ModelParticleEmitterV26),
         ];
 
         this.ModelObstacleDataV26 = [
@@ -26589,7 +24084,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV26 = [
@@ -26616,7 +24111,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV26 = [
@@ -26627,14 +24122,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV26 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV26),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV26)
+          Utils.getArrayReader(this.ModelStreakAnchorV26),
         ];
 
         this.ModelEffectLightV26 = [
@@ -26649,41 +24144,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV26 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV26)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV26 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV26 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV26)];
 
-        this.ModelClothMeshGroupV26 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV26)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV26 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV26 = ["token", Utils.getQWordReader(), "weight", "uint8"];
+
+        this.ModelClothMeshGroupV26 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV26)];
+
+        this.ModelClothConstraintV26 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV26 = [
           "materialIndex",
@@ -26719,7 +24191,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV26 = [
@@ -26748,7 +24220,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -26766,17 +24238,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV25 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV25 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV25 = [
           "filename",
@@ -26790,7 +24255,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV25),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV25)
+          Utils.getArrayReader(this.ModelConstantDataV25),
         ];
 
         this.ModelMeshLodDataV25 = ["indices", Utils.getArrayReader("uint16")];
@@ -26805,7 +24270,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -26822,7 +24287,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV25 = [
@@ -26833,7 +24298,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV25 = [
@@ -26850,7 +24315,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV25 = [
@@ -26859,25 +24324,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV25),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV25 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV25 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV25 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV25 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV25 = [
           "Name",
@@ -26895,21 +24349,16 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV25),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.ModelFloatPropertyDataV25 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV25 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV25 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV25)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV25),
         ];
 
         this.ModelParticleCloudV25 = [
@@ -26928,15 +24377,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV25 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV25 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV25 = [
           "columns",
@@ -26948,7 +24392,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV25 = [
@@ -27025,14 +24469,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV25 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV25),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV25)
+          Utils.getArrayReader(this.ModelParticleEmitterV25),
         ];
 
         this.ModelObstacleDataV25 = [
@@ -27051,7 +24495,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV25 = [
@@ -27078,7 +24522,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV25 = [
@@ -27089,14 +24533,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV25 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV25),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV25)
+          Utils.getArrayReader(this.ModelStreakAnchorV25),
         ];
 
         this.ModelEffectLightV25 = [
@@ -27111,41 +24555,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV25 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV25)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV25 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV25 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV25)];
 
-        this.ModelClothMeshGroupV25 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV25)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV25 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV25 = ["token", Utils.getQWordReader(), "weight", "uint8"];
+
+        this.ModelClothMeshGroupV25 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV25)];
+
+        this.ModelClothConstraintV25 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV25 = [
           "materialIndex",
@@ -27181,7 +24602,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV25 = [
@@ -27210,7 +24631,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -27228,17 +24649,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV24 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV24 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV24 = [
           "filename",
@@ -27252,7 +24666,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV24),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV24)
+          Utils.getArrayReader(this.ModelConstantDataV24),
         ];
 
         this.ModelMeshLodDataV24 = ["indices", Utils.getArrayReader("uint16")];
@@ -27267,7 +24681,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -27284,7 +24698,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV24 = [
@@ -27295,7 +24709,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV24 = [
@@ -27312,7 +24726,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV24 = [
@@ -27321,25 +24735,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV24),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV24 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV24 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV24 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV24 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV24 = [
           "Name",
@@ -27357,21 +24760,16 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV24),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.ModelFloatPropertyDataV24 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV24 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV24 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV24)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV24),
         ];
 
         this.ModelParticleCloudV24 = [
@@ -27390,15 +24788,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV24 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV24 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV24 = [
           "columns",
@@ -27410,7 +24803,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV24 = [
@@ -27487,14 +24880,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV24 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV24),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV24)
+          Utils.getArrayReader(this.ModelParticleEmitterV24),
         ];
 
         this.ModelObstacleDataV24 = [
@@ -27513,7 +24906,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV24 = [
@@ -27538,7 +24931,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV24 = [
@@ -27549,14 +24942,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV24 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV24),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV24)
+          Utils.getArrayReader(this.ModelStreakAnchorV24),
         ];
 
         this.ModelEffectLightV24 = [
@@ -27571,41 +24964,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV24 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV24)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV24 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV24 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV24)];
 
-        this.ModelClothMeshGroupV24 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV24)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV24 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV24 = ["token", Utils.getQWordReader(), "weight", "uint8"];
+
+        this.ModelClothMeshGroupV24 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV24)];
+
+        this.ModelClothConstraintV24 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV24 = [
           "materialIndex",
@@ -27641,7 +25011,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV24 = [
@@ -27670,7 +25040,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -27688,17 +25058,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV23 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV23 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV23 = [
           "filename",
@@ -27712,7 +25075,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV23),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV23)
+          Utils.getArrayReader(this.ModelConstantDataV23),
         ];
 
         this.ModelMeshLodDataV23 = ["indices", Utils.getArrayReader("uint16")];
@@ -27727,7 +25090,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -27744,7 +25107,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV23 = [
@@ -27755,7 +25118,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV23 = [
@@ -27772,7 +25135,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV23 = [
@@ -27781,25 +25144,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV23),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV23 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV23 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV23 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV23 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV23 = [
           "Name",
@@ -27817,21 +25169,16 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV23),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.ModelFloatPropertyDataV23 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV23 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV23 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV23)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV23),
         ];
 
         this.ModelParticleCloudV23 = [
@@ -27850,15 +25197,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV23 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV23 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV23 = [
           "columns",
@@ -27870,7 +25212,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV23 = [
@@ -27945,14 +25287,14 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV23 = [
           "clouds",
           Utils.getArrayReader(this.ModelParticleCloudV23),
           "emitters",
-          Utils.getArrayReader(this.ModelParticleEmitterV23)
+          Utils.getArrayReader(this.ModelParticleEmitterV23),
         ];
 
         this.ModelObstacleDataV23 = [
@@ -27971,7 +25313,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakV23 = [
@@ -27996,7 +25338,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV23 = [
@@ -28007,14 +25349,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV23 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV23),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV23)
+          Utils.getArrayReader(this.ModelStreakAnchorV23),
         ];
 
         this.ModelEffectLightV23 = [
@@ -28029,41 +25371,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV23 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV23)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV23 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV23 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV23)];
 
-        this.ModelClothMeshGroupV23 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV23)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV23 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV23 = ["token", Utils.getQWordReader(), "weight", "uint8"];
+
+        this.ModelClothMeshGroupV23 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV23)];
+
+        this.ModelClothConstraintV23 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV23 = [
           "materialIndex",
@@ -28099,7 +25418,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV23 = [
@@ -28128,7 +25447,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -28146,17 +25465,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV22 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV22 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV22 = [
           "filename",
@@ -28170,7 +25482,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV22),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV22)
+          Utils.getArrayReader(this.ModelConstantDataV22),
         ];
 
         this.ModelMeshLodDataV22 = ["indices", Utils.getArrayReader("uint16")];
@@ -28185,7 +25497,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -28202,7 +25514,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV22 = [
@@ -28213,7 +25525,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV22 = [
@@ -28230,7 +25542,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV22 = [
@@ -28239,25 +25551,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV22),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV22 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV22 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV22 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV22 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV22 = [
           "Name",
@@ -28275,21 +25576,16 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV22),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.ModelFloatPropertyDataV22 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV22 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV22 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV22)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV22),
         ];
 
         this.ModelParticleCloudV22 = [
@@ -28308,15 +25604,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV22 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV22 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV22 = [
           "columns",
@@ -28328,7 +25619,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV22 = [
@@ -28403,7 +25694,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleObstacleV22 = [
@@ -28422,7 +25713,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV22 = [
@@ -28431,7 +25722,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV22),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV22)
+          Utils.getArrayReader(this.ModelParticleObstacleV22),
         ];
 
         this.ModelStreakV22 = [
@@ -28456,7 +25747,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV22 = [
@@ -28467,14 +25758,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV22 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV22),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV22)
+          Utils.getArrayReader(this.ModelStreakAnchorV22),
         ];
 
         this.ModelEffectLightV22 = [
@@ -28489,41 +25780,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV22 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV22)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV22 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV22 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV22)];
 
-        this.ModelClothMeshGroupV22 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV22)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV22 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV22 = ["token", Utils.getQWordReader(), "weight", "uint8"];
+
+        this.ModelClothMeshGroupV22 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV22)];
+
+        this.ModelClothConstraintV22 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV22 = [
           "materialIndex",
@@ -28559,7 +25827,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV22 = [
@@ -28586,7 +25854,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -28604,17 +25872,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV21 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV21 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV21 = [
           "filename",
@@ -28628,7 +25889,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV21),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV21)
+          Utils.getArrayReader(this.ModelConstantDataV21),
         ];
 
         this.ModelMeshLodDataV21 = ["indices", Utils.getArrayReader("uint16")];
@@ -28643,7 +25904,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -28660,7 +25921,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV21 = [
@@ -28671,7 +25932,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV21 = [
@@ -28688,7 +25949,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV21 = [
@@ -28697,25 +25958,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV21),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV21 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV21 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV21 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV21 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV21 = [
           "Name",
@@ -28733,21 +25983,16 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV21),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.ModelFloatPropertyDataV21 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV21 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV21 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV21)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV21),
         ];
 
         this.ModelParticleCloudV21 = [
@@ -28766,15 +26011,10 @@ module.exports = [
           "obstacleIndices",
           Utils.getArrayReader("uint32"),
           "velocity",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.ModelParticleCurveV21 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV21 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV21 = [
           "columns",
@@ -28786,7 +26026,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV21 = [
@@ -28861,7 +26101,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "windInfluence",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleObstacleV21 = [
@@ -28880,7 +26120,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV21 = [
@@ -28889,7 +26129,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV21),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV21)
+          Utils.getArrayReader(this.ModelParticleObstacleV21),
         ];
 
         this.ModelStreakV21 = [
@@ -28914,7 +26154,7 @@ module.exports = [
           "visBoneIndex",
           "uint32",
           "wind",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakAnchorV21 = [
@@ -28925,14 +26165,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV21 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV21),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV21)
+          Utils.getArrayReader(this.ModelStreakAnchorV21),
         ];
 
         this.ModelEffectLightV21 = [
@@ -28947,41 +26187,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV21 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV21)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV21 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV21 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV21)];
 
-        this.ModelClothMeshGroupV21 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV21)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV21 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV21 = ["token", Utils.getQWordReader(), "weight", "uint8"];
+
+        this.ModelClothMeshGroupV21 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV21)];
+
+        this.ModelClothConstraintV21 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV21 = [
           "materialIndex",
@@ -29017,7 +26234,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV21 = [
@@ -29044,7 +26261,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -29062,17 +26279,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV20 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV20 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV20 = [
           "filename",
@@ -29086,7 +26296,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV20),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV20)
+          Utils.getArrayReader(this.ModelConstantDataV20),
         ];
 
         this.ModelMeshLodDataV20 = ["indices", Utils.getArrayReader("uint16")];
@@ -29101,7 +26311,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -29118,7 +26328,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV20 = [
@@ -29129,7 +26339,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV20 = [
@@ -29146,7 +26356,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV20 = [
@@ -29155,25 +26365,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV20),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV20 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV20 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV20 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV20 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV20 = [
           "Name",
@@ -29189,21 +26388,16 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV20),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.ModelFloatPropertyDataV20 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV20 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV20 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV20)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV20),
         ];
 
         this.ModelParticleCloudV20 = [
@@ -29220,15 +26414,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV20 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV20 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV20 = [
           "columns",
@@ -29242,7 +26431,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV20 = [
@@ -29311,7 +26500,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV20 = [
@@ -29330,7 +26519,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV20 = [
@@ -29339,7 +26528,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV20),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV20)
+          Utils.getArrayReader(this.ModelParticleObstacleV20),
         ];
 
         this.ModelStreakV20 = [
@@ -29358,7 +26547,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV20 = [
@@ -29369,14 +26558,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV20 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV20),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV20)
+          Utils.getArrayReader(this.ModelStreakAnchorV20),
         ];
 
         this.ModelEffectLightV20 = [
@@ -29391,41 +26580,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV20 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV20)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
 
-        this.ModelClothBoneWeightV20 = [
-          "token",
-          Utils.getQWordReader(),
-          "weight",
-          "uint8"
-        ];
+        this.ModelLightDataV20 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV20)];
 
-        this.ModelClothMeshGroupV20 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV20)
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelClothConstraintV20 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothBoneWeightV20 = ["token", Utils.getQWordReader(), "weight", "uint8"];
+
+        this.ModelClothMeshGroupV20 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV20)];
+
+        this.ModelClothConstraintV20 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV20 = [
           "materialIndex",
@@ -29461,7 +26627,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV20 = [
@@ -29488,7 +26654,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -29506,17 +26672,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV19 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV19 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV19 = [
           "filename",
@@ -29530,7 +26689,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV19),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV19)
+          Utils.getArrayReader(this.ModelConstantDataV19),
         ];
 
         this.ModelMeshLodDataV19 = ["indices", Utils.getArrayReader("uint16")];
@@ -29545,7 +26704,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -29562,7 +26721,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV19 = [
@@ -29573,7 +26732,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV19 = [
@@ -29590,7 +26749,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV19 = [
@@ -29599,25 +26758,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV19),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV19 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV19 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV19 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV19 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV19 = [
           "Name",
@@ -29633,21 +26781,16 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV19),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.ModelFloatPropertyDataV19 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV19 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV19 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV19)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV19),
         ];
 
         this.ModelParticleCloudV19 = [
@@ -29664,15 +26807,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV19 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV19 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV19 = [
           "columns",
@@ -29686,7 +26824,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV19 = [
@@ -29755,7 +26893,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV19 = [
@@ -29774,7 +26912,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV19 = [
@@ -29783,7 +26921,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV19),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV19)
+          Utils.getArrayReader(this.ModelParticleObstacleV19),
         ];
 
         this.ModelStreakV19 = [
@@ -29802,7 +26940,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV19 = [
@@ -29813,14 +26951,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV19 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV19),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV19)
+          Utils.getArrayReader(this.ModelStreakAnchorV19),
         ];
 
         this.ModelEffectLightV19 = [
@@ -29835,36 +26973,18 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
-        ];
-
-        this.ModelLightDataV19 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV19)
-        ];
-
-        this.PackVertexType = [
-          "fvf",
           "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
         ];
+
+        this.ModelLightDataV19 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV19)];
+
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
         this.ModelClothBoneWeightV19 = ["index", "uint16", "weight", "uint8"];
 
-        this.ModelClothMeshGroupV19 = [
-          "weights",
-          Utils.getArrayReader(this.ModelClothBoneWeightV19)
-        ];
+        this.ModelClothMeshGroupV19 = ["weights", Utils.getArrayReader(this.ModelClothBoneWeightV19)];
 
-        this.ModelClothConstraintV19 = [
-          "vertIndexA",
-          "uint16",
-          "vertIndexB",
-          "uint16",
-          "distance",
-          "float32"
-        ];
+        this.ModelClothConstraintV19 = ["vertIndexA", "uint16", "vertIndexB", "uint16", "distance", "float32"];
 
         this.ModelClothDataV19 = [
           "materialIndex",
@@ -29900,7 +27020,7 @@ module.exports = [
           "barycentricCoords",
           Utils.getArrayReader(["[]", "float32", 3]),
           "barycentricIndices",
-          Utils.getArrayReader("uint16")
+          Utils.getArrayReader("uint16"),
         ];
 
         this.__root = this.ModelFileDataV19 = [
@@ -29927,7 +27047,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -29945,17 +27065,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV18 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV18 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV18 = [
           "filename",
@@ -29969,7 +27082,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV18),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV18)
+          Utils.getArrayReader(this.ModelConstantDataV18),
         ];
 
         this.ModelMeshLodDataV18 = ["indices", Utils.getArrayReader("uint16")];
@@ -29984,7 +27097,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(["[]", "float32", 3]),
           "meshName",
-          Utils.getStringReader()
+          Utils.getStringReader(),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -30001,7 +27114,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV18 = [
@@ -30012,7 +27125,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV18 = [
@@ -30029,7 +27142,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV18 = [
@@ -30038,25 +27151,14 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV18),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV18 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV18 = ["Mesh", Utils.getPointerReader("uint8")];
 
-        this.PackGrannyTrackMaskType = [
-          "trackMask",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyTrackMaskType = ["trackMask", Utils.getArrayReader("uint8")];
 
-        this.ModelTrackMaskV18 = [
-          "trackMask",
-          this.PackGrannyTrackMaskType,
-          "token",
-          Utils.getQWordReader()
-        ];
+        this.ModelTrackMaskV18 = ["trackMask", this.PackGrannyTrackMaskType, "token", Utils.getQWordReader()];
 
         this.ModelModelDataV18 = [
           "Name",
@@ -30072,21 +27174,16 @@ module.exports = [
           "trackMasks",
           Utils.getArrayReader(this.ModelTrackMaskV18),
           "skeletonHash",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.ModelFloatPropertyDataV18 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV18 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV18 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV18)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV18),
         ];
 
         this.ModelParticleCloudV18 = [
@@ -30103,15 +27200,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV18 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV18 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV18 = [
           "columns",
@@ -30125,7 +27217,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV18 = [
@@ -30194,7 +27286,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV18 = [
@@ -30213,7 +27305,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV18 = [
@@ -30222,7 +27314,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV18),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV18)
+          Utils.getArrayReader(this.ModelParticleObstacleV18),
         ];
 
         this.ModelStreakV18 = [
@@ -30241,7 +27333,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV18 = [
@@ -30252,14 +27344,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV18 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV18),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV18)
+          Utils.getArrayReader(this.ModelStreakAnchorV18),
         ];
 
         this.ModelEffectLightV18 = [
@@ -30274,13 +27366,10 @@ module.exports = [
           "nearDistance",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelLightDataV18 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV18)
-        ];
+        this.ModelLightDataV18 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV18)];
 
         this.__root = this.ModelFileDataV18 = [
           "materials",
@@ -30304,7 +27393,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -30322,17 +27411,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV17 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV17 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV17 = [
           "filename",
@@ -30346,7 +27428,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV17),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV17)
+          Utils.getArrayReader(this.ModelConstantDataV17),
         ];
 
         this.ModelMeshLodDataV17 = ["indices", Utils.getArrayReader("uint16")];
@@ -30359,7 +27441,7 @@ module.exports = [
           "normalIndices",
           Utils.getArrayReader("uint16"),
           "normals",
-          Utils.getArrayReader(["[]", "float32", 3])
+          Utils.getArrayReader(["[]", "float32", 3]),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -30376,7 +27458,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV17 = [
@@ -30387,7 +27469,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV17 = [
@@ -30404,7 +27486,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV17 = [
@@ -30413,13 +27495,10 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV17),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV17 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV17 = ["Mesh", Utils.getPointerReader("uint8")];
 
         this.ModelModelDataV17 = [
           "Name",
@@ -30431,21 +27510,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV17),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV17 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV17 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV17 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV17)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV17),
         ];
 
         this.ModelParticleCloudV17 = [
@@ -30462,15 +27536,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV17 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV17 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV17 = [
           "columns",
@@ -30484,7 +27553,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV17 = [
@@ -30553,7 +27622,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV17 = [
@@ -30572,7 +27641,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV17 = [
@@ -30581,7 +27650,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV17),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV17)
+          Utils.getArrayReader(this.ModelParticleObstacleV17),
         ];
 
         this.ModelStreakV17 = [
@@ -30600,7 +27669,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV17 = [
@@ -30611,14 +27680,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV17 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV17),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV17)
+          Utils.getArrayReader(this.ModelStreakAnchorV17),
         ];
 
         this.ModelEffectLightV17 = [
@@ -30627,13 +27696,10 @@ module.exports = [
           "color",
           ["[]", "uint8", 4],
           "ranges",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.ModelLightDataV17 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV17)
-        ];
+        this.ModelLightDataV17 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV17)];
 
         this.__root = this.ModelFileDataV17 = [
           "materials",
@@ -30657,7 +27723,7 @@ module.exports = [
           "lodOverride",
           ["[]", "float32", 2],
           "soundScript",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
@@ -30675,17 +27741,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV16 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV16 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV16 = [
           "filename",
@@ -30699,7 +27758,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV16),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV16)
+          Utils.getArrayReader(this.ModelConstantDataV16),
         ];
 
         this.ModelMeshLodDataV16 = ["indices", Utils.getArrayReader("uint16")];
@@ -30716,7 +27775,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV16 = [
@@ -30727,7 +27786,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV16 = [
@@ -30744,7 +27803,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV16 = [
@@ -30753,13 +27812,10 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV16),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV16 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV16 = ["Mesh", Utils.getPointerReader("uint8")];
 
         this.ModelModelDataV16 = [
           "Name",
@@ -30771,21 +27827,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV16),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV16 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV16 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV16 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV16)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV16),
         ];
 
         this.ModelParticleCloudV16 = [
@@ -30802,15 +27853,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV16 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV16 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV16 = [
           "columns",
@@ -30824,7 +27870,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV16 = [
@@ -30893,7 +27939,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV16 = [
@@ -30912,7 +27958,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV16 = [
@@ -30921,7 +27967,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV16),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV16)
+          Utils.getArrayReader(this.ModelParticleObstacleV16),
         ];
 
         this.ModelStreakV16 = [
@@ -30940,7 +27986,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV16 = [
@@ -30951,14 +27997,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV16 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV16),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV16)
+          Utils.getArrayReader(this.ModelStreakAnchorV16),
         ];
 
         this.ModelEffectLightV16 = [
@@ -30967,13 +28013,10 @@ module.exports = [
           "color",
           ["[]", "uint8", 4],
           "ranges",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.ModelLightDataV16 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV16)
-        ];
+        this.ModelLightDataV16 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV16)];
 
         this.__root = this.ModelFileDataV16 = [
           "materials",
@@ -30995,7 +28038,7 @@ module.exports = [
           "actionOffsets",
           Utils.getArrayReader(["[]", "float32", 3]),
           "lodOverride",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
       },
 
@@ -31013,17 +28056,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV15 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV15 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV15 = [
           "filename",
@@ -31037,7 +28073,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV15),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV15)
+          Utils.getArrayReader(this.ModelConstantDataV15),
         ];
 
         this.ModelMeshLodDataV15 = ["indices", Utils.getArrayReader("uint16")];
@@ -31054,7 +28090,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV15 = [
@@ -31065,7 +28101,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV15 = [
@@ -31082,7 +28118,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV15 = [
@@ -31091,13 +28127,10 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV15),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV15 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV15 = ["Mesh", Utils.getPointerReader("uint8")];
 
         this.ModelModelDataV15 = [
           "Name",
@@ -31109,21 +28142,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV15),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV15 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV15 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV15 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV15)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV15),
         ];
 
         this.ModelParticleCloudV15 = [
@@ -31140,15 +28168,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV15 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV15 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV15 = [
           "columns",
@@ -31162,7 +28185,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV15 = [
@@ -31231,7 +28254,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV15 = [
@@ -31250,7 +28273,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV15 = [
@@ -31259,7 +28282,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV15),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV15)
+          Utils.getArrayReader(this.ModelParticleObstacleV15),
         ];
 
         this.ModelStreakV15 = [
@@ -31278,7 +28301,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV15 = [
@@ -31289,14 +28312,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV15 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV15),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV15)
+          Utils.getArrayReader(this.ModelStreakAnchorV15),
         ];
 
         this.ModelEffectLightV15 = [
@@ -31305,13 +28328,10 @@ module.exports = [
           "color",
           ["[]", "uint8", 4],
           "ranges",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
-        this.ModelLightDataV15 = [
-          "effectLights",
-          Utils.getArrayReader(this.ModelEffectLightV15)
-        ];
+        this.ModelLightDataV15 = ["effectLights", Utils.getArrayReader(this.ModelEffectLightV15)];
 
         this.__root = this.ModelFileDataV15 = [
           "materials",
@@ -31331,7 +28351,7 @@ module.exports = [
           "actionOffsetNames",
           Utils.getArrayReader(Utils.getQWordReader()),
           "actionOffsets",
-          Utils.getArrayReader(["[]", "float32", 3])
+          Utils.getArrayReader(["[]", "float32", 3]),
         ];
       },
 
@@ -31349,17 +28369,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV14 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV14 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV14 = [
           "filename",
@@ -31373,7 +28386,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV14),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV14)
+          Utils.getArrayReader(this.ModelConstantDataV14),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -31390,7 +28403,7 @@ module.exports = [
           "actionOffsetNames",
           Utils.getArrayReader(Utils.getQWordReader()),
           "actionOffsets",
-          Utils.getArrayReader(["[]", "float32", 3])
+          Utils.getArrayReader(["[]", "float32", 3]),
         ];
 
         this.ModelTransformDataV14 = [
@@ -31401,7 +28414,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV14 = [
@@ -31418,7 +28431,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV14 = [
@@ -31427,13 +28440,10 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV14),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV14 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV14 = ["Mesh", Utils.getPointerReader("uint8")];
 
         this.ModelModelDataV14 = [
           "Name",
@@ -31445,21 +28455,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV14),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV14 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV14 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV14 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV14)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV14),
         ];
 
         this.ModelParticleCloudV14 = [
@@ -31476,15 +28481,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV14 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV14 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV14 = [
           "columns",
@@ -31498,7 +28498,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV14 = [
@@ -31567,7 +28567,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV14 = [
@@ -31586,7 +28586,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV14 = [
@@ -31595,7 +28595,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV14),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV14)
+          Utils.getArrayReader(this.ModelParticleObstacleV14),
         ];
 
         this.ModelStreakV14 = [
@@ -31614,7 +28614,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV14 = [
@@ -31625,14 +28625,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV14 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV14),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV14)
+          Utils.getArrayReader(this.ModelStreakAnchorV14),
         ];
 
         this.__root = this.ModelFileDataV14 = [
@@ -31647,7 +28647,7 @@ module.exports = [
           "cloudData",
           Utils.getPointerReader(this.ModelCloudDataV14),
           "streakData",
-          Utils.getPointerReader(this.ModelStreakDataV14)
+          Utils.getPointerReader(this.ModelStreakDataV14),
         ];
       },
 
@@ -31665,17 +28665,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV13 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV13 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV13 = [
           "filename",
@@ -31689,7 +28682,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV13),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV13)
+          Utils.getArrayReader(this.ModelConstantDataV13),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -31702,7 +28695,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV13 = [
@@ -31713,7 +28706,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV13 = [
@@ -31730,7 +28723,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV13 = [
@@ -31739,13 +28732,10 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV13),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV13 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV13 = ["Mesh", Utils.getPointerReader("uint8")];
 
         this.ModelModelDataV13 = [
           "Name",
@@ -31757,21 +28747,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV13),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV13 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV13 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV13 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV13)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV13),
         ];
 
         this.ModelParticleCloudV13 = [
@@ -31788,15 +28773,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV13 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV13 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV13 = [
           "columns",
@@ -31810,7 +28790,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV13 = [
@@ -31879,7 +28859,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV13 = [
@@ -31898,7 +28878,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV13 = [
@@ -31907,7 +28887,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV13),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV13)
+          Utils.getArrayReader(this.ModelParticleObstacleV13),
         ];
 
         this.ModelStreakV13 = [
@@ -31926,7 +28906,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV13 = [
@@ -31937,14 +28917,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV13 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV13),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV13)
+          Utils.getArrayReader(this.ModelStreakAnchorV13),
         ];
 
         this.__root = this.ModelFileDataV13 = [
@@ -31959,7 +28939,7 @@ module.exports = [
           "cloudData",
           Utils.getPointerReader(this.ModelCloudDataV13),
           "streakData",
-          Utils.getPointerReader(this.ModelStreakDataV13)
+          Utils.getPointerReader(this.ModelStreakDataV13),
         ];
       },
 
@@ -31977,17 +28957,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV12 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV12 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV12 = [
           "filename",
@@ -32001,7 +28974,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV12),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV12)
+          Utils.getArrayReader(this.ModelConstantDataV12),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -32014,7 +28987,7 @@ module.exports = [
           "visBoneIndices",
           Utils.getArrayReader("uint32"),
           "seamVertIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV12 = [
@@ -32025,7 +28998,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV12 = [
@@ -32042,7 +29015,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV12 = [
@@ -32051,13 +29024,10 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV12),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV12 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV12 = ["Mesh", Utils.getPointerReader("uint8")];
 
         this.ModelModelDataV12 = [
           "Name",
@@ -32069,21 +29039,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV12),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV12 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV12 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV12 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV12)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV12),
         ];
 
         this.ModelParticleCloudV12 = [
@@ -32100,15 +29065,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV12 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV12 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV12 = [
           "columns",
@@ -32122,7 +29082,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV12 = [
@@ -32191,7 +29151,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV12 = [
@@ -32210,7 +29170,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV12 = [
@@ -32219,7 +29179,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV12),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV12)
+          Utils.getArrayReader(this.ModelParticleObstacleV12),
         ];
 
         this.ModelStreakV12 = [
@@ -32238,7 +29198,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV12 = [
@@ -32249,14 +29209,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV12 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV12),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV12)
+          Utils.getArrayReader(this.ModelStreakAnchorV12),
         ];
 
         this.__root = this.ModelFileDataV12 = [
@@ -32271,7 +29231,7 @@ module.exports = [
           "cloudData",
           Utils.getPointerReader(this.ModelCloudDataV12),
           "streakData",
-          Utils.getPointerReader(this.ModelStreakDataV12)
+          Utils.getPointerReader(this.ModelStreakDataV12),
         ];
       },
 
@@ -32289,17 +29249,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV11 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV11 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV11 = [
           "filename",
@@ -32313,7 +29266,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV11),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV11)
+          Utils.getArrayReader(this.ModelConstantDataV11),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -32324,7 +29277,7 @@ module.exports = [
           "flags",
           "uint32",
           "visBoneIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV11 = [
@@ -32335,7 +29288,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV11 = [
@@ -32352,7 +29305,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV11 = [
@@ -32361,13 +29314,10 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV11),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV11 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV11 = ["Mesh", Utils.getPointerReader("uint8")];
 
         this.ModelModelDataV11 = [
           "Name",
@@ -32379,21 +29329,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV11),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV11 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV11 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV11 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV11)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV11),
         ];
 
         this.ModelParticleCloudV11 = [
@@ -32410,15 +29355,10 @@ module.exports = [
           "materialIndex",
           "uint32",
           "obstacleIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelParticleCurveV11 = [
-          "curveType",
-          "uint8",
-          "keys",
-          Utils.getArrayReader(["[]", "float32", 2])
-        ];
+        this.ModelParticleCurveV11 = ["curveType", "uint8", "keys", Utils.getArrayReader(["[]", "float32", 2])];
 
         this.ModelParticleFlipbookV11 = [
           "columns",
@@ -32432,7 +29372,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleEmitterV11 = [
@@ -32501,7 +29441,7 @@ module.exports = [
           "texCoordRect",
           ["[]", "float32", 4],
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV11 = [
@@ -32520,7 +29460,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV11 = [
@@ -32529,7 +29469,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV11),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV11)
+          Utils.getArrayReader(this.ModelParticleObstacleV11),
         ];
 
         this.ModelStreakV11 = [
@@ -32548,7 +29488,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV11 = [
@@ -32559,14 +29499,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV11 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV11),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV11)
+          Utils.getArrayReader(this.ModelStreakAnchorV11),
         ];
 
         this.__root = this.ModelFileDataV11 = [
@@ -32581,7 +29521,7 @@ module.exports = [
           "cloudData",
           Utils.getPointerReader(this.ModelCloudDataV11),
           "streakData",
-          Utils.getPointerReader(this.ModelStreakDataV11)
+          Utils.getPointerReader(this.ModelStreakDataV11),
         ];
       },
 
@@ -32599,17 +29539,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV10 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV10 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV10 = [
           "filename",
@@ -32623,7 +29556,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV10),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV10)
+          Utils.getArrayReader(this.ModelConstantDataV10),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -32634,7 +29567,7 @@ module.exports = [
           "flags",
           "uint32",
           "visBoneIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV10 = [
@@ -32645,7 +29578,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV10 = [
@@ -32662,7 +29595,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV10 = [
@@ -32671,13 +29604,10 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV10),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
-        this.ModelMeshBindingDataV10 = [
-          "Mesh",
-          Utils.getPointerReader("uint8")
-        ];
+        this.ModelMeshBindingDataV10 = ["Mesh", Utils.getPointerReader("uint8")];
 
         this.ModelModelDataV10 = [
           "Name",
@@ -32689,21 +29619,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV10),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV10 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV10 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV10 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV10)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV10),
         ];
 
         this.ModelParticleFlipbookV10 = [
@@ -32718,7 +29643,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleCloudV10 = [
@@ -32745,7 +29670,7 @@ module.exports = [
           "scaleCurveType",
           "uint8",
           "scaleKeys",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.ModelParticleEmitterV10 = [
@@ -32788,7 +29713,7 @@ module.exports = [
           "spawnShape",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV10 = [
@@ -32807,7 +29732,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV10 = [
@@ -32816,7 +29741,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV10),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV10)
+          Utils.getArrayReader(this.ModelParticleObstacleV10),
         ];
 
         this.ModelStreakV10 = [
@@ -32835,7 +29760,7 @@ module.exports = [
           "texScale",
           "float32",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelStreakAnchorV10 = [
@@ -32846,14 +29771,14 @@ module.exports = [
           "falloff",
           "float32",
           "lifetime",
-          "float32"
+          "float32",
         ];
 
         this.ModelStreakDataV10 = [
           "streaks",
           Utils.getArrayReader(this.ModelStreakV10),
           "anchors",
-          Utils.getArrayReader(this.ModelStreakAnchorV10)
+          Utils.getArrayReader(this.ModelStreakAnchorV10),
         ];
 
         this.__root = this.ModelFileDataV10 = [
@@ -32868,7 +29793,7 @@ module.exports = [
           "cloudData",
           Utils.getPointerReader(this.ModelCloudDataV10),
           "streakData",
-          Utils.getPointerReader(this.ModelStreakDataV10)
+          Utils.getPointerReader(this.ModelStreakDataV10),
         ];
       },
 
@@ -32886,17 +29811,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV9 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV9 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV9 = [
           "filename",
@@ -32910,7 +29828,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV9),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV9)
+          Utils.getArrayReader(this.ModelConstantDataV9),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -32921,7 +29839,7 @@ module.exports = [
           "flags",
           "uint32",
           "visBoneIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV9 = [
@@ -32932,7 +29850,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV9 = [
@@ -32949,7 +29867,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV9 = [
@@ -32958,7 +29876,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV9),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV9 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -32973,21 +29891,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV9),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV9 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV9 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV9 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV9)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV9),
         ];
 
         this.ModelParticleFlipbookV9 = [
@@ -33002,7 +29915,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleCloudV9 = [
@@ -33029,7 +29942,7 @@ module.exports = [
           "scaleCurveType",
           "uint8",
           "scaleKeys",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.ModelParticleEmitterV9 = [
@@ -33072,7 +29985,7 @@ module.exports = [
           "spawnShape",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV9 = [
@@ -33091,7 +30004,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV9 = [
@@ -33100,7 +30013,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV9),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV9)
+          Utils.getArrayReader(this.ModelParticleObstacleV9),
         ];
 
         this.__root = this.ModelFileDataV9 = [
@@ -33113,7 +30026,7 @@ module.exports = [
           "properties",
           Utils.getPointerReader(this.ModelPropertyDataV9),
           "cloudData",
-          Utils.getPointerReader(this.ModelCloudDataV9)
+          Utils.getPointerReader(this.ModelCloudDataV9),
         ];
       },
 
@@ -33131,17 +30044,10 @@ module.exports = [
           "uvAnimId",
           "uint8",
           "uvPSInputIndex",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelConstantDataV8 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV8 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV8 = [
           "filename",
@@ -33153,7 +30059,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV8),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV8)
+          Utils.getArrayReader(this.ModelConstantDataV8),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -33164,7 +30070,7 @@ module.exports = [
           "flags",
           "uint32",
           "visBoneIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelTransformDataV8 = [
@@ -33175,7 +30081,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV8 = [
@@ -33192,7 +30098,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV8 = [
@@ -33201,7 +30107,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV8),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV8 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -33216,21 +30122,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV8),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV8 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV8 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV8 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV8)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV8),
         ];
 
         this.ModelParticleFlipbookV8 = [
@@ -33245,7 +30146,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleCloudV8 = [
@@ -33272,7 +30173,7 @@ module.exports = [
           "scaleCurveType",
           "uint8",
           "scaleKeys",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.ModelParticleEmitterV8 = [
@@ -33315,7 +30216,7 @@ module.exports = [
           "spawnShape",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV8 = [
@@ -33334,7 +30235,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV8 = [
@@ -33343,7 +30244,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV8),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV8)
+          Utils.getArrayReader(this.ModelParticleObstacleV8),
         ];
 
         this.__root = this.ModelFileDataV8 = [
@@ -33356,7 +30257,7 @@ module.exports = [
           "properties",
           Utils.getPointerReader(this.ModelPropertyDataV8),
           "cloudData",
-          Utils.getPointerReader(this.ModelCloudDataV8)
+          Utils.getPointerReader(this.ModelCloudDataV8),
         ];
       },
 
@@ -33370,17 +30271,10 @@ module.exports = [
           "token",
           Utils.getQWordReader(),
           "blitId",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelConstantDataV7 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV7 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV7 = [
           "filename",
@@ -33392,7 +30286,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV7),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV7)
+          Utils.getArrayReader(this.ModelConstantDataV7),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -33403,20 +30297,12 @@ module.exports = [
           "flags",
           "uint32",
           "visBoneIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV7 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV7 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelAnimationDataV7 = [
           "token",
@@ -33426,14 +30312,14 @@ module.exports = [
           "moveSpeed",
           "float32",
           "visTrackData",
-          Utils.getArrayReader(this.ModelVisTrackDataV7)
+          Utils.getArrayReader(this.ModelVisTrackDataV7),
         ];
 
         this.ModelAnimationImportDataV7 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelTransformDataV7 = [
@@ -33444,7 +30330,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV7 = [
@@ -33461,7 +30347,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV7 = [
@@ -33470,7 +30356,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV7),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV7 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -33485,21 +30371,16 @@ module.exports = [
           "MeshBindings",
           Utils.getArrayReader(this.ModelMeshBindingDataV7),
           "boneFlags",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelFloatPropertyDataV7 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV7 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV7 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV7)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV7),
         ];
 
         this.ModelCollisionMeshV7 = [
@@ -33510,7 +30391,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "surfaces",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ModelCollisionCloudV7 = [
@@ -33519,29 +30400,14 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "surface",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelCollisionCubeV7 = [
-          "transform",
-          ["[]", ["[]", "float32", 4], 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionCubeV7 = ["transform", ["[]", ["[]", "float32", 4], 3], "surface", "uint8"];
 
-        this.ModelCollisionSphereV7 = [
-          "radius",
-          "float32",
-          "position",
-          ["[]", "float32", 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionSphereV7 = ["radius", "float32", "position", ["[]", "float32", 3], "surface", "uint8"];
 
-        this.ModelCollisionSurfaceV7 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.ModelCollisionSurfaceV7 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.ModelCollisionDataV7 = [
           "meshes",
@@ -33553,7 +30419,7 @@ module.exports = [
           "spheres",
           Utils.getArrayReader(this.ModelCollisionSphereV7),
           "surfaces",
-          Utils.getArrayReader(this.ModelCollisionSurfaceV7)
+          Utils.getArrayReader(this.ModelCollisionSurfaceV7),
         ];
 
         this.ModelParticleFlipbookV7 = [
@@ -33568,7 +30434,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleCloudV7 = [
@@ -33595,7 +30461,7 @@ module.exports = [
           "scaleCurveType",
           "uint8",
           "scaleKeys",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.ModelParticleEmitterV7 = [
@@ -33638,7 +30504,7 @@ module.exports = [
           "spawnShape",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV7 = [
@@ -33657,7 +30523,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV7 = [
@@ -33666,7 +30532,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV7),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV7)
+          Utils.getArrayReader(this.ModelParticleObstacleV7),
         ];
 
         this.__root = this.ModelFileDataV7 = [
@@ -33687,7 +30553,7 @@ module.exports = [
           "collisionData",
           Utils.getPointerReader(this.ModelCollisionDataV7),
           "cloudData",
-          Utils.getPointerReader(this.ModelCloudDataV7)
+          Utils.getPointerReader(this.ModelCloudDataV7),
         ];
       },
 
@@ -33701,17 +30567,10 @@ module.exports = [
           "token",
           Utils.getQWordReader(),
           "blitId",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelConstantDataV6 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV6 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV6 = [
           "filename",
@@ -33723,7 +30582,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV6),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV6)
+          Utils.getArrayReader(this.ModelConstantDataV6),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -33734,20 +30593,12 @@ module.exports = [
           "flags",
           "uint32",
           "visBoneIndices",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV6 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV6 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelAnimationDataV6 = [
           "token",
@@ -33757,14 +30608,14 @@ module.exports = [
           "moveSpeed",
           "float32",
           "visTrackData",
-          Utils.getArrayReader(this.ModelVisTrackDataV6)
+          Utils.getArrayReader(this.ModelVisTrackDataV6),
         ];
 
         this.ModelAnimationImportDataV6 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelTransformDataV6 = [
@@ -33775,7 +30626,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV6 = [
@@ -33792,7 +30643,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV6 = [
@@ -33801,7 +30652,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV6),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV6 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -33814,21 +30665,16 @@ module.exports = [
           "InitialPlacement",
           this.ModelTransformDataV6,
           "MeshBindings",
-          Utils.getArrayReader(this.ModelMeshBindingDataV6)
+          Utils.getArrayReader(this.ModelMeshBindingDataV6),
         ];
 
-        this.ModelFloatPropertyDataV6 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV6 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV6 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV6)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV6),
         ];
 
         this.ModelCollisionMeshV6 = [
@@ -33839,7 +30685,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "surfaces",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ModelCollisionCloudV6 = [
@@ -33848,29 +30694,14 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "surface",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelCollisionCubeV6 = [
-          "transform",
-          ["[]", ["[]", "float32", 4], 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionCubeV6 = ["transform", ["[]", ["[]", "float32", 4], 3], "surface", "uint8"];
 
-        this.ModelCollisionSphereV6 = [
-          "radius",
-          "float32",
-          "position",
-          ["[]", "float32", 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionSphereV6 = ["radius", "float32", "position", ["[]", "float32", 3], "surface", "uint8"];
 
-        this.ModelCollisionSurfaceV6 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.ModelCollisionSurfaceV6 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.ModelCollisionDataV6 = [
           "meshes",
@@ -33882,7 +30713,7 @@ module.exports = [
           "spheres",
           Utils.getArrayReader(this.ModelCollisionSphereV6),
           "surfaces",
-          Utils.getArrayReader(this.ModelCollisionSurfaceV6)
+          Utils.getArrayReader(this.ModelCollisionSurfaceV6),
         ];
 
         this.ModelParticleFlipbookV6 = [
@@ -33897,7 +30728,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleCloudV6 = [
@@ -33924,7 +30755,7 @@ module.exports = [
           "scaleCurveType",
           "uint8",
           "scaleKeys",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.ModelParticleEmitterV6 = [
@@ -33967,7 +30798,7 @@ module.exports = [
           "spawnShape",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelParticleObstacleV6 = [
@@ -33986,7 +30817,7 @@ module.exports = [
           "type",
           "uint8",
           "visBoneIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCloudDataV6 = [
@@ -33995,7 +30826,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV6),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV6)
+          Utils.getArrayReader(this.ModelParticleObstacleV6),
         ];
 
         this.__root = this.ModelFileDataV6 = [
@@ -34016,7 +30847,7 @@ module.exports = [
           "collisionData",
           Utils.getPointerReader(this.ModelCollisionDataV6),
           "cloudData",
-          Utils.getPointerReader(this.ModelCloudDataV6)
+          Utils.getPointerReader(this.ModelCloudDataV6),
         ];
       },
 
@@ -34030,17 +30861,10 @@ module.exports = [
           "token",
           Utils.getQWordReader(),
           "blitId",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelConstantDataV5 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV5 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV5 = [
           "filename",
@@ -34052,7 +30876,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV5),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV5)
+          Utils.getArrayReader(this.ModelConstantDataV5),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -34063,20 +30887,12 @@ module.exports = [
           "flags",
           "uint32",
           "visTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV5 = [
-          "token",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV5 = ["token", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelAnimationDataV5 = [
           "token",
@@ -34086,7 +30902,7 @@ module.exports = [
           "moveSpeed",
           "float32",
           "visTrackData",
-          Utils.getArrayReader(this.ModelVisTrackDataV5)
+          Utils.getArrayReader(this.ModelVisTrackDataV5),
         ];
 
         this.ModelTransformDataV5 = [
@@ -34097,7 +30913,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV5 = [
@@ -34114,7 +30930,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV5 = [
@@ -34123,7 +30939,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV5),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV5 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -34136,21 +30952,16 @@ module.exports = [
           "InitialPlacement",
           this.ModelTransformDataV5,
           "MeshBindings",
-          Utils.getArrayReader(this.ModelMeshBindingDataV5)
+          Utils.getArrayReader(this.ModelMeshBindingDataV5),
         ];
 
-        this.ModelFloatPropertyDataV5 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV5 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV5 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV5)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV5),
         ];
 
         this.ModelCollisionMeshV5 = [
@@ -34161,7 +30972,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "surfaces",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ModelCollisionCloudV5 = [
@@ -34170,29 +30981,14 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "surface",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelCollisionCubeV5 = [
-          "transform",
-          ["[]", ["[]", "float32", 4], 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionCubeV5 = ["transform", ["[]", ["[]", "float32", 4], 3], "surface", "uint8"];
 
-        this.ModelCollisionSphereV5 = [
-          "radius",
-          "float32",
-          "position",
-          ["[]", "float32", 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionSphereV5 = ["radius", "float32", "position", ["[]", "float32", 3], "surface", "uint8"];
 
-        this.ModelCollisionSurfaceV5 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.ModelCollisionSurfaceV5 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.ModelCollisionDataV5 = [
           "meshes",
@@ -34204,7 +31000,7 @@ module.exports = [
           "spheres",
           Utils.getArrayReader(this.ModelCollisionSphereV5),
           "surfaces",
-          Utils.getArrayReader(this.ModelCollisionSurfaceV5)
+          Utils.getArrayReader(this.ModelCollisionSurfaceV5),
         ];
 
         this.ModelParticleFlipbookV5 = [
@@ -34219,7 +31015,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleCloudV5 = [
@@ -34246,7 +31042,7 @@ module.exports = [
           "scaleCurveType",
           "uint8",
           "scaleKeys",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.ModelParticleEmitterV5 = [
@@ -34287,7 +31083,7 @@ module.exports = [
           "spawnRadius",
           ["[]", "float32", 2],
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleObstacleV5 = [
@@ -34304,7 +31100,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV5 = [
@@ -34313,7 +31109,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV5),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV5)
+          Utils.getArrayReader(this.ModelParticleObstacleV5),
         ];
 
         this.__root = this.ModelFileDataV5 = [
@@ -34330,7 +31126,7 @@ module.exports = [
           "collisionData",
           Utils.getPointerReader(this.ModelCollisionDataV5),
           "cloudData",
-          Utils.getPointerReader(this.ModelCloudDataV5)
+          Utils.getPointerReader(this.ModelCloudDataV5),
         ];
       },
 
@@ -34344,17 +31140,10 @@ module.exports = [
           "token",
           Utils.getQWordReader(),
           "blitId",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelConstantDataV4 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV4 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV4 = [
           "filename",
@@ -34366,7 +31155,7 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV4),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV4)
+          Utils.getArrayReader(this.ModelConstantDataV4),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
@@ -34375,20 +31164,12 @@ module.exports = [
           "mesh",
           this.PackGrannyMeshType,
           "visTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV4 = [
-          "token",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV4 = ["token", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelAnimationDataV4 = [
           "token",
@@ -34398,7 +31179,7 @@ module.exports = [
           "moveSpeed",
           "float32",
           "visTrackData",
-          Utils.getArrayReader(this.ModelVisTrackDataV4)
+          Utils.getArrayReader(this.ModelVisTrackDataV4),
         ];
 
         this.ModelTransformDataV4 = [
@@ -34409,7 +31190,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV4 = [
@@ -34426,7 +31207,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV4 = [
@@ -34435,7 +31216,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV4),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV4 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -34448,21 +31229,16 @@ module.exports = [
           "InitialPlacement",
           this.ModelTransformDataV4,
           "MeshBindings",
-          Utils.getArrayReader(this.ModelMeshBindingDataV4)
+          Utils.getArrayReader(this.ModelMeshBindingDataV4),
         ];
 
-        this.ModelFloatPropertyDataV4 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV4 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV4 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV4)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV4),
         ];
 
         this.ModelCollisionMeshV4 = [
@@ -34473,7 +31249,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "surfaces",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ModelCollisionCloudV4 = [
@@ -34482,29 +31258,14 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "surface",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelCollisionCubeV4 = [
-          "transform",
-          ["[]", ["[]", "float32", 4], 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionCubeV4 = ["transform", ["[]", ["[]", "float32", 4], 3], "surface", "uint8"];
 
-        this.ModelCollisionSphereV4 = [
-          "radius",
-          "float32",
-          "position",
-          ["[]", "float32", 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionSphereV4 = ["radius", "float32", "position", ["[]", "float32", 3], "surface", "uint8"];
 
-        this.ModelCollisionSurfaceV4 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.ModelCollisionSurfaceV4 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.ModelCollisionDataV4 = [
           "meshes",
@@ -34516,7 +31277,7 @@ module.exports = [
           "spheres",
           Utils.getArrayReader(this.ModelCollisionSphereV4),
           "surfaces",
-          Utils.getArrayReader(this.ModelCollisionSurfaceV4)
+          Utils.getArrayReader(this.ModelCollisionSurfaceV4),
         ];
 
         this.ModelParticleFlipbookV4 = [
@@ -34531,7 +31292,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleCloudV4 = [
@@ -34556,7 +31317,7 @@ module.exports = [
           "scaleCurveType",
           "uint8",
           "scaleKeys",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.ModelParticleEmitterV4 = [
@@ -34597,7 +31358,7 @@ module.exports = [
           "spawnRadius",
           ["[]", "float32", 2],
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleObstacleV4 = [
@@ -34614,7 +31375,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV4 = [
@@ -34623,7 +31384,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV4),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV4)
+          Utils.getArrayReader(this.ModelParticleObstacleV4),
         ];
 
         this.__root = this.ModelFileDataV4 = [
@@ -34640,7 +31401,7 @@ module.exports = [
           "collisionData",
           Utils.getPointerReader(this.ModelCollisionDataV4),
           "cloudData",
-          Utils.getPointerReader(this.ModelCloudDataV4)
+          Utils.getPointerReader(this.ModelCloudDataV4),
         ];
       },
 
@@ -34654,17 +31415,10 @@ module.exports = [
           "token",
           Utils.getQWordReader(),
           "blitId",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelConstantDataV3 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV3 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV3 = [
           "filename",
@@ -34676,24 +31430,16 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV3),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV3)
+          Utils.getArrayReader(this.ModelConstantDataV3),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
 
         this.ModelMeshDataV3 = ["mesh", this.PackGrannyMeshType];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelAnimationDataV3 = [
-          "token",
-          Utils.getQWordReader(),
-          "animation",
-          this.PackGrannyAnimationTypeV0
-        ];
+        this.ModelAnimationDataV3 = ["token", Utils.getQWordReader(), "animation", this.PackGrannyAnimationTypeV0];
 
         this.ModelTransformDataV3 = [
           "Flags",
@@ -34703,7 +31449,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV3 = [
@@ -34720,7 +31466,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV3 = [
@@ -34729,7 +31475,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV3),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV3 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -34742,21 +31488,16 @@ module.exports = [
           "InitialPlacement",
           this.ModelTransformDataV3,
           "MeshBindings",
-          Utils.getArrayReader(this.ModelMeshBindingDataV3)
+          Utils.getArrayReader(this.ModelMeshBindingDataV3),
         ];
 
-        this.ModelFloatPropertyDataV3 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV3 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV3 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV3)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV3),
         ];
 
         this.ModelCollisionMeshV3 = [
@@ -34767,7 +31508,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "surfaces",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ModelCollisionCloudV3 = [
@@ -34776,29 +31517,14 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "surface",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelCollisionCubeV3 = [
-          "transform",
-          ["[]", ["[]", "float32", 4], 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionCubeV3 = ["transform", ["[]", ["[]", "float32", 4], 3], "surface", "uint8"];
 
-        this.ModelCollisionSphereV3 = [
-          "radius",
-          "float32",
-          "position",
-          ["[]", "float32", 3],
-          "surface",
-          "uint8"
-        ];
+        this.ModelCollisionSphereV3 = ["radius", "float32", "position", ["[]", "float32", 3], "surface", "uint8"];
 
-        this.ModelCollisionSurfaceV3 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.ModelCollisionSurfaceV3 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.ModelCollisionDataV3 = [
           "meshes",
@@ -34810,7 +31536,7 @@ module.exports = [
           "spheres",
           Utils.getArrayReader(this.ModelCollisionSphereV3),
           "surfaces",
-          Utils.getArrayReader(this.ModelCollisionSurfaceV3)
+          Utils.getArrayReader(this.ModelCollisionSurfaceV3),
         ];
 
         this.ModelParticleFlipbookV3 = [
@@ -34825,7 +31551,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleCloudV3 = [
@@ -34850,7 +31576,7 @@ module.exports = [
           "scaleCurveType",
           "uint8",
           "scaleKeys",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.ModelParticleEmitterV3 = [
@@ -34891,7 +31617,7 @@ module.exports = [
           "spawnRadius",
           ["[]", "float32", 2],
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleObstacleV3 = [
@@ -34908,7 +31634,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV3 = [
@@ -34917,7 +31643,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV3),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV3)
+          Utils.getArrayReader(this.ModelParticleObstacleV3),
         ];
 
         this.__root = this.ModelFileDataV3 = [
@@ -34934,7 +31660,7 @@ module.exports = [
           "collisionData",
           Utils.getPointerReader(this.ModelCollisionDataV3),
           "cloudData",
-          Utils.getPointerReader(this.ModelCloudDataV3)
+          Utils.getPointerReader(this.ModelCloudDataV3),
         ];
       },
 
@@ -34948,17 +31674,10 @@ module.exports = [
           "token",
           Utils.getQWordReader(),
           "blitId",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelConstantDataV2 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV2 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV2 = [
           "filename",
@@ -34970,24 +31689,16 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV2),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV2)
+          Utils.getArrayReader(this.ModelConstantDataV2),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
 
         this.ModelMeshDataV2 = ["mesh", this.PackGrannyMeshType];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelAnimationDataV2 = [
-          "token",
-          Utils.getQWordReader(),
-          "animation",
-          this.PackGrannyAnimationTypeV0
-        ];
+        this.ModelAnimationDataV2 = ["token", Utils.getQWordReader(), "animation", this.PackGrannyAnimationTypeV0];
 
         this.ModelTransformDataV2 = [
           "Flags",
@@ -34997,7 +31708,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV2 = [
@@ -35014,7 +31725,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV2 = [
@@ -35023,7 +31734,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV2),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV2 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -35036,21 +31747,16 @@ module.exports = [
           "InitialPlacement",
           this.ModelTransformDataV2,
           "MeshBindings",
-          Utils.getArrayReader(this.ModelMeshBindingDataV2)
+          Utils.getArrayReader(this.ModelMeshBindingDataV2),
         ];
 
-        this.ModelFloatPropertyDataV2 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV2 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV2 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV2)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV2),
         ];
 
         this.ModelCollisionMeshV2 = [
@@ -35061,7 +31767,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "surfaces",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ModelCollisionCloudV2 = [
@@ -35070,13 +31776,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "surface",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelCollisionSurfaceV2 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.ModelCollisionSurfaceV2 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.ModelCollisionDataV2 = [
           "meshes",
@@ -35084,7 +31787,7 @@ module.exports = [
           "clouds",
           Utils.getArrayReader(this.ModelCollisionCloudV2),
           "surfaces",
-          Utils.getArrayReader(this.ModelCollisionSurfaceV2)
+          Utils.getArrayReader(this.ModelCollisionSurfaceV2),
         ];
 
         this.ModelParticleFlipbookV2 = [
@@ -35099,7 +31802,7 @@ module.exports = [
           "rows",
           "uint8",
           "start",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleCloudV2 = [
@@ -35124,7 +31827,7 @@ module.exports = [
           "scaleCurveType",
           "uint8",
           "scaleKeys",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.ModelParticleEmitterV2 = [
@@ -35165,7 +31868,7 @@ module.exports = [
           "spawnRadius",
           ["[]", "float32", 2],
           "spawnShape",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelParticleObstacleV2 = [
@@ -35182,7 +31885,7 @@ module.exports = [
           "response",
           "uint8",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.ModelCloudDataV2 = [
@@ -35191,7 +31894,7 @@ module.exports = [
           "emitters",
           Utils.getArrayReader(this.ModelParticleEmitterV2),
           "obstacles",
-          Utils.getArrayReader(this.ModelParticleObstacleV2)
+          Utils.getArrayReader(this.ModelParticleObstacleV2),
         ];
 
         this.__root = this.ModelFileDataV2 = [
@@ -35208,7 +31911,7 @@ module.exports = [
           "collisionData",
           Utils.getPointerReader(this.ModelCollisionDataV2),
           "cloudData",
-          Utils.getPointerReader(this.ModelCloudDataV2)
+          Utils.getPointerReader(this.ModelCloudDataV2),
         ];
       },
 
@@ -35222,17 +31925,10 @@ module.exports = [
           "token",
           Utils.getQWordReader(),
           "blitId",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelConstantDataV1 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV1 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV1 = [
           "filename",
@@ -35244,24 +31940,16 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV1),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV1)
+          Utils.getArrayReader(this.ModelConstantDataV1),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
 
         this.ModelMeshDataV1 = ["mesh", this.PackGrannyMeshType];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelAnimationDataV1 = [
-          "token",
-          Utils.getQWordReader(),
-          "animation",
-          this.PackGrannyAnimationTypeV0
-        ];
+        this.ModelAnimationDataV1 = ["token", Utils.getQWordReader(), "animation", this.PackGrannyAnimationTypeV0];
 
         this.ModelTransformDataV1 = [
           "Flags",
@@ -35271,7 +31959,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV1 = [
@@ -35288,7 +31976,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV1 = [
@@ -35297,7 +31985,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV1),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV1 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -35310,21 +31998,16 @@ module.exports = [
           "InitialPlacement",
           this.ModelTransformDataV1,
           "MeshBindings",
-          Utils.getArrayReader(this.ModelMeshBindingDataV1)
+          Utils.getArrayReader(this.ModelMeshBindingDataV1),
         ];
 
-        this.ModelFloatPropertyDataV1 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV1 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV1 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV1)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV1),
         ];
 
         this.ModelChunkCollisionMeshV1 = [
@@ -35335,7 +32018,7 @@ module.exports = [
           "indices",
           Utils.getArrayReader("uint16"),
           "surfaces",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ModelChunkCollisionCloudV1 = [
@@ -35344,13 +32027,10 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "surface",
-          "uint8"
+          "uint8",
         ];
 
-        this.ModelChunkCollisionSurfaceV1 = [
-          "tokens",
-          Utils.getArrayReader(Utils.getQWordReader())
-        ];
+        this.ModelChunkCollisionSurfaceV1 = ["tokens", Utils.getArrayReader(Utils.getQWordReader())];
 
         this.ModelChunkCollisionDataV1 = [
           "meshes",
@@ -35358,7 +32038,7 @@ module.exports = [
           "clouds",
           Utils.getArrayReader(this.ModelChunkCollisionCloudV1),
           "surfaces",
-          Utils.getArrayReader(this.ModelChunkCollisionSurfaceV1)
+          Utils.getArrayReader(this.ModelChunkCollisionSurfaceV1),
         ];
 
         this.__root = this.ModelFileDataV1 = [
@@ -35373,7 +32053,7 @@ module.exports = [
           "properties",
           Utils.getPointerReader(this.ModelPropertyDataV1),
           "collisionData",
-          Utils.getPointerReader(this.ModelChunkCollisionDataV1)
+          Utils.getPointerReader(this.ModelChunkCollisionDataV1),
         ];
       },
 
@@ -35387,17 +32067,10 @@ module.exports = [
           "token",
           Utils.getQWordReader(),
           "blitId",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelConstantDataV0 = [
-          "name",
-          "uint32",
-          "value",
-          ["[]", "float32", 4],
-          "constantFlags",
-          "uint32"
-        ];
+        this.ModelConstantDataV0 = ["name", "uint32", "value", ["[]", "float32", 4], "constantFlags", "uint32"];
 
         this.ModelMaterialDataV0 = [
           "filename",
@@ -35409,24 +32082,16 @@ module.exports = [
           "textures",
           Utils.getArrayReader(this.ModelTextureDataV0),
           "constants",
-          Utils.getArrayReader(this.ModelConstantDataV0)
+          Utils.getArrayReader(this.ModelConstantDataV0),
         ];
 
         this.PackGrannyMeshType = ["mesh", Utils.getArrayReader("uint8")];
 
         this.ModelMeshDataV0 = ["mesh", this.PackGrannyMeshType];
 
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelAnimationDataV0 = [
-          "token",
-          Utils.getQWordReader(),
-          "animation",
-          this.PackGrannyAnimationTypeV0
-        ];
+        this.ModelAnimationDataV0 = ["token", Utils.getQWordReader(), "animation", this.PackGrannyAnimationTypeV0];
 
         this.ModelTransformDataV0 = [
           "Flags",
@@ -35436,7 +32101,7 @@ module.exports = [
           "Orientation",
           ["[]", "float32", 4],
           "ScaleShear",
-          ["[]", ["[]", "float32", 3], 3]
+          ["[]", ["[]", "float32", 3], 3],
         ];
 
         this.ModelBoneDataV0 = [
@@ -35453,7 +32118,7 @@ module.exports = [
           "ExtendedData.Type",
           Utils.getPointerReader("uint8"),
           "ExtendedData.Object",
-          Utils.getPointerReader("uint8")
+          Utils.getPointerReader("uint8"),
         ];
 
         this.ModelSkeletonDataV0 = [
@@ -35462,7 +32127,7 @@ module.exports = [
           "Bones",
           Utils.getArrayReader(this.ModelBoneDataV0),
           "LODType",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelMeshBindingDataV0 = ["Mesh", Utils.getPointerReader("uint8")];
@@ -35475,21 +32140,16 @@ module.exports = [
           "InitialPlacement",
           this.ModelTransformDataV0,
           "MeshBindings",
-          Utils.getArrayReader(this.ModelMeshBindingDataV0)
+          Utils.getArrayReader(this.ModelMeshBindingDataV0),
         ];
 
-        this.ModelFloatPropertyDataV0 = [
-          "token",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.ModelFloatPropertyDataV0 = ["token", Utils.getQWordReader(), "value", "float32"];
 
         this.ModelPropertyDataV0 = [
           "boolTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "floatValues",
-          Utils.getArrayReader(this.ModelFloatPropertyDataV0)
+          Utils.getArrayReader(this.ModelFloatPropertyDataV0),
         ];
 
         this.__root = this.ModelFileDataV0 = [
@@ -35502,9 +32162,9 @@ module.exports = [
           "model",
           Utils.getPointerReader(this.ModelModelDataV0),
           "properties",
-          Utils.getPointerReader(this.ModelPropertyDataV0)
+          Utils.getPointerReader(this.ModelPropertyDataV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

@@ -16,9 +16,9 @@ module.exports = [
           "blockDims",
           ["[]", "uint32", 2],
           "blockRecordArray",
-          Utils.getArrayReader(this.PackMapBlockRecord)
+          Utils.getArrayReader(this.PackMapBlockRecord),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

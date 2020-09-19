@@ -154,47 +154,19 @@ window.onload = () => {
     $(w2ui["layout"].el("main"))
       .append($("<h1 id='fileTitle' />"))
       .append($("<div id='fileTabs' />"))
+      .append($("<div class='fileTab' id='fileTabsRaw'>" + "<div class='tabOutput' id='rawOutput' />" + "</div>"))
       .append(
-        $(
-          "<div class='fileTab' id='fileTabsRaw'>" +
-            "<div class='tabOutput' id='rawOutput' />" +
-            "</div>"
-        )
+        $("<div class='fileTab' id='fileTabsPack'>" + "<div class='tabOutput' id='packOutput' />" + "</div>").hide()
       )
       .append(
         $(
-          "<div class='fileTab' id='fileTabsPack'>" +
-            "<div class='tabOutput' id='packOutput' />" +
-            "</div>"
+          "<div class='fileTab' id='fileTabsTexture'>" + "<div class='tabOutput' id='textureOutput' />" + "</div>"
         ).hide()
       )
+      .append($("<div class='fileTab' id='fileTabsString'>" + "<div id='stringOutput' />" + "</div>").hide())
+      .append($("<div class='fileTab' id='fileTabsModel'>" + "<div id='modelOutput'/>" + "</div>").hide())
       .append(
-        $(
-          "<div class='fileTab' id='fileTabsTexture'>" +
-            "<div class='tabOutput' id='textureOutput' />" +
-            "</div>"
-        ).hide()
-      )
-      .append(
-        $(
-          "<div class='fileTab' id='fileTabsString'>" +
-            "<div id='stringOutput' />" +
-            "</div>"
-        ).hide()
-      )
-      .append(
-        $(
-          "<div class='fileTab' id='fileTabsModel'>" +
-            "<div id='modelOutput'/>" +
-            "</div>"
-        ).hide()
-      )
-      .append(
-        $(
-          "<div class='fileTab' id='fileTabsSound'>" +
-            "<div class='tabOutput' id='soundOutput'/>" +
-            "</div>"
-        ).hide()
+        $("<div class='fileTab' id='fileTabsSound'>" + "<div class='tabOutput' id='soundOutput'/>" + "</div>").hide()
       );
 
     $("#fileTabs").w2tabs({
@@ -292,21 +264,13 @@ window.onload = () => {
     });
 
     $("#filePickerPop").change(function (evt) {
-      _lr = T3D.getLocalReader(
-        evt.target.files[0],
-        onReaderCreated,
-        "../static/t3dworker.js"
-      );
+      _lr = T3D.getLocalReader(evt.target.files[0], onReaderCreated, "../static/t3dworker.js");
     });
 
     /// Overwrite progress logger
     T3D.Logger.logFunctions[T3D.Logger.TYPE_PROGRESS] = function () {
       $("#filePickerPop").prop("disabled", true);
-      $("#fileLoadProgress").html(
-        "Indexing .dat file (first visit only)<br/>" +
-          arguments[1] +
-          "%<br/><br/>"
-      );
+      $("#fileLoadProgress").html("Indexing .dat file (first visit only)<br/>" + arguments[1] + "%<br/><br/>");
     };
   });
 
@@ -504,22 +468,12 @@ window.onload = () => {
     _context = {};
 
     /// Run the basic DataRenderer, handles all sorts of files for us.
-    T3D.runRenderer(
-      T3D.DataRenderer,
-      _lr,
-      { id: fileId },
-      _context,
-      onBasicRendererDone
-    );
+    T3D.runRenderer(T3D.DataRenderer, _lr, { id: fileId }, _context, onBasicRendererDone);
   }
 
   function onBasicRendererDone() {
     /// Read render output from _context VO
-    let fileId = (_fileId = T3D.getContextValue(
-      _context,
-      T3D.DataRenderer,
-      "fileId"
-    ));
+    let fileId = (_fileId = T3D.getContextValue(_context, T3D.DataRenderer, "fileId"));
 
     let rawData = T3D.getContextValue(_context, T3D.DataRenderer, "rawData");
 
@@ -533,8 +487,7 @@ window.onload = () => {
 
     /// Update main header to show filename
 
-    let fileName =
-      fileId + (image || !packfile ? "." + fcc : "." + packfile.header.type);
+    let fileName = fileId + (image || !packfile ? "." + fcc : "." + packfile.header.type);
     $("#fileTitle").html(fileName);
 
     /// Update raw view and enable tab
@@ -589,12 +542,7 @@ window.onload = () => {
 
         /// Print some random data about this sound
         $("#soundOutput").html(
-          "Length: " +
-            chunk.data.length +
-            " seconds<br/>" +
-            "Size: " +
-            chunk.data.audioData.length +
-            " bytes"
+          "Length: " + chunk.data.length + " seconds<br/>" + "Size: " + chunk.data.audioData.length + " bytes"
         );
 
         /// Extract sound data
@@ -627,9 +575,7 @@ window.onload = () => {
               _audioSource.connect(_audioContext.destination);
 
               /// Decode and start playing
-              _audioContext.decodeAudioData(soundUintArray.buffer, function (
-                res
-              ) {
+              _audioContext.decodeAudioData(soundUintArray.buffer, function (res) {
                 _audioSource.buffer = res;
                 _audioSource.start();
               });
@@ -671,12 +617,7 @@ window.onload = () => {
 
       let logButton = $("<button>Log Chunk Data to Console</button>");
       logButton.click(function () {
-        T3D.Logger.log(
-          T3D.Logger.TYPE_MESSAGE,
-          "Logging",
-          chunk.header.type,
-          "chunk"
-        );
+        T3D.Logger.log(T3D.Logger.TYPE_MESSAGE, "Logging", chunk.header.type, "chunk");
         T3D.Logger.log(T3D.Logger.TYPE_MESSAGE, chunk.data);
       });
 
@@ -694,23 +635,12 @@ window.onload = () => {
     _context = {};
 
     /// Run single renderer
-    T3D.runRenderer(
-      T3D.StringRenderer,
-      _lr,
-      { id: fileId },
-      _context,
-      onRendererDoneString
-    );
+    T3D.runRenderer(T3D.StringRenderer, _lr, { id: fileId }, _context, onRendererDoneString);
   }
 
   function onRendererDoneString() {
     /// Read data from renderer
-    let strings = T3D.getContextValue(
-      _context,
-      T3D.StringRenderer,
-      "strings",
-      []
-    );
+    let strings = T3D.getContextValue(_context, T3D.StringRenderer, "strings", []);
 
     w2ui.stringGrid.records = strings;
 
@@ -728,13 +658,7 @@ window.onload = () => {
     _context = {};
 
     /// Run single renderer
-    T3D.runRenderer(
-      T3D.SingleModelRenderer,
-      _lr,
-      { id: fileId },
-      _context,
-      onRendererDoneModel
-    );
+    T3D.runRenderer(T3D.SingleModelRenderer, _lr, { id: fileId }, _context, onRendererDoneModel);
   }
 
   function onRendererDoneModel() {
@@ -747,17 +671,10 @@ window.onload = () => {
     onCanvasResize();
 
     /// Add context toolbar export button
-    $("#contextToolbar").append(
-      $("<button>Export scene</button>").click(exportScene)
-    );
+    $("#contextToolbar").append($("<button>Export scene</button>").click(exportScene));
 
     /// Read the new models
-    _models = T3D.getContextValue(
-      _context,
-      T3D.SingleModelRenderer,
-      "meshes",
-      []
-    );
+    _models = T3D.getContextValue(_context, T3D.SingleModelRenderer, "meshes", []);
 
     /// Keeping track of the biggest model for later
     let biggestMdl = null;
@@ -765,10 +682,7 @@ window.onload = () => {
     /// Add all models to the scene
     _models.forEach(function (model) {
       /// Find the biggest model for camera focus/fitting
-      if (
-        !biggestMdl ||
-        biggestMdl.boundingSphere.radius < model.boundingSphere.radius
-      ) {
+      if (!biggestMdl || biggestMdl.boundingSphere.radius < model.boundingSphere.radius) {
         biggestMdl = model;
       }
 
@@ -780,9 +694,7 @@ window.onload = () => {
 
     /// Focus camera to the bigest model, doesn't work great.
     let dist =
-      biggestMdl && biggestMdl.boundingSphere
-        ? biggestMdl.boundingSphere.radius / Math.tan((Math.PI * 60) / 360)
-        : 100;
+      biggestMdl && biggestMdl.boundingSphere ? biggestMdl.boundingSphere.radius / Math.tan((Math.PI * 60) / 360) : 100;
     dist = 1.2 * Math.max(100, dist);
     dist = Math.min(1000, dist);
     _camera.position.zoom = 1;
@@ -809,15 +721,7 @@ window.onload = () => {
     let mtlSource = "";
     texIds.forEach(function (texId) {
       mtlSource +=
-        "newmtl tex_" +
-        texId +
-        "\n" +
-        "  map_Ka tex_" +
-        texId +
-        ".png\n" +
-        "  map_Kd tex_" +
-        texId +
-        ".png\n\n";
+        "newmtl tex_" + texId + "\n" + "  map_Ka tex_" + texId + ".png\n" + "  map_Kd tex_" + texId + ".png\n\n";
     });
 
     /// Download obj
@@ -832,12 +736,7 @@ window.onload = () => {
     texIds.forEach(function (texId) {
       /// LocalReader will have to re-load the textures, don't want to fetch
       /// then from the model data..
-      _lr.loadTextureFile(texId, function (
-        inflatedData,
-        dxtType,
-        imageWidth,
-        imageHeigth
-      ) {
+      _lr.loadTextureFile(texId, function (inflatedData, dxtType, imageWidth, imageHeigth) {
         /// Create js image using returned bitmap data.
         let image = {
           data: new Uint8Array(inflatedData),

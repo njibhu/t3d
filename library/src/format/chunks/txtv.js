@@ -12,11 +12,8 @@ module.exports = [
       0: function() {
         this.TextPackVoice = ["textId", "uint32", "voiceId", "uint32"];
 
-        this.__root = this.TextPackVoices = [
-          "voices",
-          Utils.getArrayReader(this.TextPackVoice)
-        ];
-      }
-    }
-  }
+        this.__root = this.TextPackVoices = ["voices", Utils.getArrayReader(this.TextPackVoice)];
+      },
+    },
+  },
 ];

@@ -122,13 +122,7 @@ function buildPS(textures, numUv, alphaTest, lightMap) {
     let t2uv = "vUv_1"; // + (textures[texIdx].uvIdx+1);
     // console.log("t2uv",t2uv);
 
-    writeColor =
-      "   vec4 c2 = texture2D( texture" +
-      (texIdx + 1) +
-      ", " +
-      t2uv +
-      " );\n" +
-      "     gl_FragColor = c2;\n";
+    writeColor = "   vec4 c2 = texture2D( texture" + (texIdx + 1) + ", " + t2uv + " );\n" + "     gl_FragColor = c2;\n";
     // "     gl_FragColor = vec4(c2.rgb * c1.r/.5, c2.a);\n";
   }
 
@@ -192,7 +186,7 @@ function getUVMat(textures, numUV, alphaTest) {
     vertexShader: vs,
     fragmentShader: buildPS(textures, numUV, alphaTest, lightMap),
     attributes: attributes,
-    side: THREE.FrontSide
+    side: THREE.FrontSide,
   });
 }
 
@@ -228,10 +222,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
   let finalTextures = [];
 
   // Some materials don't use textures..
-  if (
-    material &&
-    material.textures.length /* && material.textures[texIndex] */
-  ) {
+  if (material && material.textures.length /* && material.textures[texIndex] */) {
     /// TODO: check for flags!
     ///
     /// techinques[] -> passes[] -> effects[] -> samplerIndex[]
@@ -279,10 +270,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
 
       material.textures.forEach(function(tex /*, index*/) {
         /// Seems like only 1st part of token is used...
-        if (
-          !samplerTex &&
-          tex.token.split("-")[0] === textureToken.split("-")[0]
-        ) {
+        if (!samplerTex && tex.token.split("-")[0] === textureToken.split("-")[0]) {
           // console.log("TEX match",tex.token, textureToken)
           samplerTex = tex;
         }
@@ -332,11 +320,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     // TODO: make this work!
     //eslint-disable-next-line no-constant-condition
     if (false && finalTextures.length > 0) {
-      finalMaterial = getUVMat(
-        finalTextures,
-        material.texCoordCount,
-        grChunk.data.flags !== 16460
-      );
+      finalMaterial = getUVMat(finalTextures, material.texCoordCount, grChunk.data.flags !== 16460);
     } else {
       let ft = false;
       let nt = false;
@@ -352,7 +336,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
 
       finalMaterial = new THREE.MeshPhongMaterial({
         side: THREE.FrontSide,
-        map: getTexture(ft.filename, localReader, sharedTextures)
+        map: getTexture(ft.filename, localReader, sharedTextures),
       });
       if (nt) {
         let normalMap = getTexture(nt.filename, localReader, sharedTextures);
@@ -373,7 +357,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     finalMaterial = new THREE.MeshBasicMaterial({
       side: THREE.FrontSide,
       color: 0xff0000,
-      shading: THREE.FlatShading
+      shading: THREE.FlatShading,
     });
   }
 
@@ -449,28 +433,10 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
 
     let lightMask = 8;
 
-    let knownFileFlags = [
-      16460,
-      16452,
-      16448,
-      8268,
-      3392,
-      2380,
-      2368,
-      332,
-      324,
-      320,
-      76,
-      68,
-      64
-    ];
+    let knownFileFlags = [16460, 16452, 16448, 8268, 3392, 2380, 2368, 332, 324, 320, 76, 68, 64];
 
     if (knownFileFlags.indexOf(grChunk.data.flags) < 0) {
-      T3D.Logger.log(
-        T3D.Logger.TYPE_WARNING,
-        "unknown GR flag",
-        grChunk.data.flags
-      );
+      T3D.Logger.log(T3D.Logger.TYPE_WARNING, "unknown GR flag", grChunk.data.flags);
     }
 
     if (!(grChunk.data.flags & lightMask)) {
@@ -478,7 +444,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
       // console.log("no light");
       finalMaterial = new THREE.MeshBasicMaterial({
         side: THREE.FrontSide,
-        map: finalMaterial.map
+        map: finalMaterial.map,
       });
     }
 
@@ -561,12 +527,7 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
   }
 
   /// Load file using LocalReader.
-  localReader.loadTextureFile(fileId, function(
-    inflatedData,
-    dxtType,
-    imageWidth,
-    imageHeigth
-  ) {
+  localReader.loadTextureFile(fileId, function(inflatedData, dxtType, imageWidth, imageHeigth) {
     /// Require infalted data to be returned.
     if (!inflatedData) {
       if (onerror) onerror();
@@ -577,16 +538,14 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
     let image = {
       data: new Uint8Array(inflatedData),
       width: imageWidth,
-      height: imageHeigth
+      height: imageHeigth,
     };
 
     /// Use RGBA for all textures for now...
     /// TODO: don't use alpha for some formats!
     texture.format =
       //eslint-disable-next-line no-constant-condition
-      dxtType === 3 || dxtType === 5 || true
-        ? THREE.RGBAFormat
-        : THREE.RGBFormat;
+      dxtType === 3 || dxtType === 5 || true ? THREE.RGBAFormat : THREE.RGBFormat;
 
     /// Update texture with the loaded image.
     texture.image = image;
@@ -603,5 +562,5 @@ module.exports = {
   buildPS: buildPS,
   getUVMat: getUVMat,
   getMaterial: getMaterial,
-  loadLocalTexture: loadLocalTexture
+  loadLocalTexture: loadLocalTexture,
 };

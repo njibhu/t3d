@@ -93,10 +93,7 @@ Logger.log = function() {
   }
 
   /// Otherwise 1st arg is severity, log/warn/error
-  let severity = Math.max(
-    0,
-    Math.min(Logger.logFunctions.length, argArr.shift())
-  );
+  let severity = Math.max(0, Math.min(Logger.logFunctions.length, argArr.shift()));
   let logFunc = Logger.logFunctions[severity];
 
   /// Ouput the rest of the arguments

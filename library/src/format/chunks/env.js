@@ -16,7 +16,7 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV75 = [
@@ -27,7 +27,7 @@ module.exports = [
           "backlightColor",
           ["[]", "uint8", 3],
           "backlightIntensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV46 = [
@@ -42,12 +42,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV46 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV46)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV46),
         ];
 
         this.PackMapEnvDataLayerAttributesV75 = [
@@ -66,7 +66,7 @@ module.exports = [
           "fadeEnd",
           "float32",
           "reserved",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapEnvDataLayerV75 = [
@@ -87,13 +87,10 @@ module.exports = [
           "name",
           Utils.getString16Reader(),
           "reserved",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackMapEnvDataCloudsV75 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV75)
-        ];
+        this.PackMapEnvDataCloudsV75 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV75)];
 
         this.PackMapEnvDataColoredLightRingsV46 = [
           "range",
@@ -103,7 +100,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectExV46 = ["dummy", "uint32"];
@@ -142,7 +139,7 @@ module.exports = [
           "clutTexturePath",
           Utils.getFileNameReader(),
           "ext",
-          Utils.getPointerReader(this.PackMapEnvDataEffectExV46)
+          Utils.getPointerReader(this.PackMapEnvDataEffectExV46),
         ];
 
         this.PackMapEnvDataHazeV75 = [
@@ -159,7 +156,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV75 = [
@@ -214,7 +211,7 @@ module.exports = [
           "name",
           Utils.getString16Reader(),
           "reserved",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapEnvDataPFieldCutoutV46 = [
@@ -225,7 +222,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV75 = [
@@ -256,7 +253,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvLensFlareAtomV46 = [
@@ -279,20 +276,12 @@ module.exports = [
           "cameraRotation",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
-        this.PackMapEnvLensFlareTextureV46 = [
-          "texture",
-          Utils.getFileNameReader()
-        ];
+        this.PackMapEnvLensFlareTextureV46 = ["texture", Utils.getFileNameReader()];
 
-        this.PackMapEnvDataShaderConstantV46 = [
-          "token",
-          "uint32",
-          "value",
-          ["[]", "float32", 4]
-        ];
+        this.PackMapEnvDataShaderConstantV46 = ["token", "uint32", "value", ["[]", "float32", 4]];
 
         this.PackMapEnvLensFlareV46 = [
           "atoms",
@@ -310,7 +299,7 @@ module.exports = [
           "flags",
           "uint8",
           "constants",
-          Utils.getArrayReader(this.PackMapEnvDataShaderConstantV46)
+          Utils.getArrayReader(this.PackMapEnvDataShaderConstantV46),
         ];
 
         this.PackMapEnvDataSkyCardAttributesExV46 = ["dummy", "uint32"];
@@ -341,14 +330,14 @@ module.exports = [
           "lensFlare",
           Utils.getPointerReader(this.PackMapEnvLensFlareV46),
           "ext",
-          Utils.getPointerReader(this.PackMapEnvDataSkyCardAttributesExV46)
+          Utils.getPointerReader(this.PackMapEnvDataSkyCardAttributesExV46),
         ];
 
         this.PackMapEnvDataShaderTextureV46 = [
           "filename",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackEnvDataSkyCardAnimationV46 = [
@@ -363,7 +352,7 @@ module.exports = [
           "textureAnimRotation",
           "float32",
           "texCoords",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapEnvDataSkycardFlipbookV46 = [
@@ -376,7 +365,7 @@ module.exports = [
           "count",
           "uint32",
           "fps",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardMaterialV46 = [
@@ -389,7 +378,7 @@ module.exports = [
           "textureAnimation",
           this.PackEnvDataSkyCardAnimationV46,
           "flipbook",
-          this.PackMapEnvDataSkycardFlipbookV46
+          this.PackMapEnvDataSkycardFlipbookV46,
         ];
 
         this.PackMapEnvDataSkyCardExV46 = ["dummy", "uint32"];
@@ -408,13 +397,10 @@ module.exports = [
           "material",
           Utils.getPointerReader(this.PackMapEnvDataSkyCardMaterialV46),
           "ext",
-          Utils.getPointerReader(this.PackMapEnvDataSkyCardExV46)
+          Utils.getPointerReader(this.PackMapEnvDataSkyCardExV46),
         ];
 
-        this.PackMapEnvDataSkyCardsV75 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV75)
-        ];
+        this.PackMapEnvDataSkyCardsV75 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV75)];
 
         this.PackMapEnvDataSpawnModelDataV46 = [
           "spawnRange",
@@ -442,19 +428,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV46 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV46)
-        ];
+        this.PackMapEnvDataSpawnListV46 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV46)];
 
         this.PackMapEnvDataSpawnGroupsV46 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV46),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV75 = [
@@ -521,7 +504,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV75 = [
@@ -538,7 +521,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataAudioV46 = ["token", Utils.getQWordReader()];
@@ -569,7 +552,7 @@ module.exports = [
           "darkScale",
           "float32",
           "waterReflectionParams",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataShapeV46 = [
@@ -586,7 +569,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV75 = [
@@ -633,7 +616,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV46)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV46),
         ];
 
         this.PackMapEnvDataSkyModeTexV75 = [
@@ -642,7 +625,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV75 = [
@@ -687,14 +670,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV75),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV75 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV75),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV75)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV75),
         ];
       },
 
@@ -706,7 +689,7 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV74 = [
@@ -717,7 +700,7 @@ module.exports = [
           "backlightColor",
           ["[]", "uint8", 3],
           "backlightIntensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV45 = [
@@ -732,12 +715,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV45 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV45)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV45),
         ];
 
         this.PackMapEnvDataLayerAttributesV74 = [
@@ -756,7 +739,7 @@ module.exports = [
           "fadeEnd",
           "float32",
           "reserved",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapEnvDataLayerV74 = [
@@ -777,13 +760,10 @@ module.exports = [
           "name",
           Utils.getString16Reader(),
           "reserved",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackMapEnvDataCloudsV74 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV74)
-        ];
+        this.PackMapEnvDataCloudsV74 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV74)];
 
         this.PackMapEnvDataColoredLightRingsV45 = [
           "range",
@@ -793,7 +773,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV74 = [
@@ -820,7 +800,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV74 = [
@@ -837,7 +817,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV74 = [
@@ -892,7 +872,7 @@ module.exports = [
           "name",
           Utils.getString16Reader(),
           "reserved",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapEnvDataPFieldCutoutV45 = [
@@ -903,7 +883,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV74 = [
@@ -934,7 +914,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV74 = [
@@ -959,7 +939,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV74 = [
@@ -970,13 +950,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV74 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV74)
-        ];
+        this.PackMapEnvDataSkyCardsV74 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV74)];
 
         this.PackMapEnvDataSpawnModelDataV45 = [
           "spawnRange",
@@ -1004,19 +981,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV45 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV45)
-        ];
+        this.PackMapEnvDataSpawnListV45 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV45)];
 
         this.PackMapEnvDataSpawnGroupsV45 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV45),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV74 = [
@@ -1083,7 +1057,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV74 = [
@@ -1100,7 +1074,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataAudioV45 = ["token", Utils.getQWordReader()];
@@ -1119,7 +1093,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV74 = [
@@ -1164,7 +1138,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV45)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV45),
         ];
 
         this.PackMapEnvDataSkyModeTexV74 = [
@@ -1173,7 +1147,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV74 = [
@@ -1216,14 +1190,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV74),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV74 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV74),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV74)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV74),
         ];
       },
 
@@ -1235,7 +1209,7 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV73 = [
@@ -1246,7 +1220,7 @@ module.exports = [
           "backlightColor",
           ["[]", "uint8", 3],
           "backlightIntensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV44 = [
@@ -1261,12 +1235,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV44 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV44)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV44),
         ];
 
         this.PackMapEnvDataLayerAttributesV73 = [
@@ -1283,7 +1257,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV73 = [
@@ -1302,13 +1276,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV73),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV73 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV73)
-        ];
+        this.PackMapEnvDataCloudsV73 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV73)];
 
         this.PackMapEnvDataColoredLightRingsV44 = [
           "range",
@@ -1318,7 +1289,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV73 = [
@@ -1345,7 +1316,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV73 = [
@@ -1362,7 +1333,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV73 = [
@@ -1415,7 +1386,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV44 = [
@@ -1426,7 +1397,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV73 = [
@@ -1457,7 +1428,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV73 = [
@@ -1482,7 +1453,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV73 = [
@@ -1493,13 +1464,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV73 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV73)
-        ];
+        this.PackMapEnvDataSkyCardsV73 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV73)];
 
         this.PackMapEnvDataSpawnModelDataV44 = [
           "spawnRange",
@@ -1527,19 +1495,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV44 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV44)
-        ];
+        this.PackMapEnvDataSpawnListV44 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV44)];
 
         this.PackMapEnvDataSpawnGroupsV44 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV44),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV73 = [
@@ -1606,7 +1571,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV73 = [
@@ -1623,7 +1588,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataAudioV44 = ["token", Utils.getQWordReader()];
@@ -1642,7 +1607,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV73 = [
@@ -1685,7 +1650,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV44)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV44),
         ];
 
         this.PackMapEnvDataSkyModeTexV73 = [
@@ -1694,7 +1659,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV73 = [
@@ -1735,14 +1700,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV73),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV73 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV73),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV73)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV73),
         ];
       },
 
@@ -1754,7 +1719,7 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV72 = [
@@ -1765,7 +1730,7 @@ module.exports = [
           "backlightColor",
           ["[]", "uint8", 3],
           "backlightIntensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV43 = [
@@ -1780,12 +1745,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV43 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV43)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV43),
         ];
 
         this.PackMapEnvDataLayerAttributesV72 = [
@@ -1802,7 +1767,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV72 = [
@@ -1821,13 +1786,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV72),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV72 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV72)
-        ];
+        this.PackMapEnvDataCloudsV72 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV72)];
 
         this.PackMapEnvDataColoredLightRingsV43 = [
           "range",
@@ -1837,7 +1799,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV72 = [
@@ -1864,7 +1826,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV72 = [
@@ -1881,7 +1843,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV72 = [
@@ -1934,7 +1896,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV43 = [
@@ -1945,7 +1907,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV72 = [
@@ -1976,7 +1938,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV72 = [
@@ -2001,7 +1963,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV72 = [
@@ -2012,13 +1974,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV72 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV72)
-        ];
+        this.PackMapEnvDataSkyCardsV72 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV72)];
 
         this.PackMapEnvDataSpawnModelDataV43 = [
           "spawnRange",
@@ -2046,19 +2005,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV43 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV43)
-        ];
+        this.PackMapEnvDataSpawnListV43 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV43)];
 
         this.PackMapEnvDataSpawnGroupsV43 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV43),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV72 = [
@@ -2125,7 +2081,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV72 = [
@@ -2142,7 +2098,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataShapeV43 = [
@@ -2159,7 +2115,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV72 = [
@@ -2202,7 +2158,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV43)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV43),
         ];
 
         this.PackMapEnvDataSkyModeTexV72 = [
@@ -2211,7 +2167,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV72 = [
@@ -2252,14 +2208,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV72),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV72 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV72),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV72)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV72),
         ];
       },
 
@@ -2271,7 +2227,7 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV71 = [
@@ -2282,7 +2238,7 @@ module.exports = [
           "backlightColor",
           ["[]", "uint8", 3],
           "backlightIntensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV42 = [
@@ -2297,12 +2253,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV42 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV42)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV42),
         ];
 
         this.PackMapEnvDataLayerAttributesV71 = [
@@ -2319,7 +2275,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV71 = [
@@ -2338,13 +2294,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV71),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV71 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV71)
-        ];
+        this.PackMapEnvDataCloudsV71 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV71)];
 
         this.PackMapEnvDataColoredLightRingsV42 = [
           "range",
@@ -2354,7 +2307,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV71 = [
@@ -2381,7 +2334,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV71 = [
@@ -2398,7 +2351,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV71 = [
@@ -2451,7 +2404,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV42 = [
@@ -2462,7 +2415,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV71 = [
@@ -2493,7 +2446,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV71 = [
@@ -2518,7 +2471,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV71 = [
@@ -2529,13 +2482,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV71 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV71)
-        ];
+        this.PackMapEnvDataSkyCardsV71 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV71)];
 
         this.PackMapEnvDataSpawnModelDataV42 = [
           "spawnRange",
@@ -2563,19 +2513,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV42 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV42)
-        ];
+        this.PackMapEnvDataSpawnListV42 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV42)];
 
         this.PackMapEnvDataSpawnGroupsV42 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV42),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV71 = [
@@ -2642,7 +2589,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV71 = [
@@ -2659,7 +2606,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataShapeV42 = [
@@ -2676,7 +2623,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV71 = [
@@ -2717,7 +2664,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV42)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV42),
         ];
 
         this.PackMapEnvDataSkyModeTexV71 = [
@@ -2726,7 +2673,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV71 = [
@@ -2765,14 +2712,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV71),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV71 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV71),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV71)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV71),
         ];
       },
 
@@ -2784,14 +2731,14 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV70 = [
           "lights",
           Utils.getRefArrayReader(this.PackMapEnvDataLightV70),
           "shadowInfluence",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV41 = [
@@ -2806,12 +2753,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV41 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV41)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV41),
         ];
 
         this.PackMapEnvDataLayerAttributesV70 = [
@@ -2828,7 +2775,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV70 = [
@@ -2847,13 +2794,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV70),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV70 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV70)
-        ];
+        this.PackMapEnvDataCloudsV70 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV70)];
 
         this.PackMapEnvDataColoredLightRingsV41 = [
           "range",
@@ -2863,7 +2807,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV70 = [
@@ -2890,7 +2834,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV70 = [
@@ -2907,7 +2851,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV70 = [
@@ -2960,7 +2904,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV41 = [
@@ -2971,7 +2915,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV70 = [
@@ -3002,7 +2946,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV70 = [
@@ -3027,7 +2971,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV70 = [
@@ -3038,13 +2982,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV70 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV70)
-        ];
+        this.PackMapEnvDataSkyCardsV70 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV70)];
 
         this.PackMapEnvDataSpawnModelDataV41 = [
           "spawnRange",
@@ -3072,19 +3013,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV41 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV41)
-        ];
+        this.PackMapEnvDataSpawnListV41 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV41)];
 
         this.PackMapEnvDataSpawnGroupsV41 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV41),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV70 = [
@@ -3151,7 +3089,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV70 = [
@@ -3168,7 +3106,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataShapeV41 = [
@@ -3185,7 +3123,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV70 = [
@@ -3226,7 +3164,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV41)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV41),
         ];
 
         this.PackMapEnvDataSkyModeTexV70 = [
@@ -3235,7 +3173,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV70 = [
@@ -3274,14 +3212,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV70),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV70 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV70),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV70)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV70),
         ];
       },
 
@@ -3293,14 +3231,14 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV69 = [
           "lights",
           Utils.getRefArrayReader(this.PackMapEnvDataLightV69),
           "shadowInfluence",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV40 = [
@@ -3315,12 +3253,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV40 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV40)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV40),
         ];
 
         this.PackMapEnvDataLayerAttributesV69 = [
@@ -3337,7 +3275,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV69 = [
@@ -3356,13 +3294,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV69),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV69 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV69)
-        ];
+        this.PackMapEnvDataCloudsV69 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV69)];
 
         this.PackMapEnvDataColoredLightRingsV40 = [
           "range",
@@ -3372,7 +3307,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV69 = [
@@ -3399,7 +3334,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV69 = [
@@ -3416,7 +3351,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV69 = [
@@ -3469,7 +3404,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV40 = [
@@ -3480,7 +3415,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV69 = [
@@ -3511,7 +3446,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV69 = [
@@ -3536,7 +3471,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV69 = [
@@ -3547,13 +3482,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV69 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV69)
-        ];
+        this.PackMapEnvDataSkyCardsV69 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV69)];
 
         this.PackMapEnvDataSpawnModelDataV40 = [
           "spawnRange",
@@ -3581,19 +3513,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV40 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV40)
-        ];
+        this.PackMapEnvDataSpawnListV40 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV40)];
 
         this.PackMapEnvDataSpawnGroupsV40 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV40),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV69 = [
@@ -3660,7 +3589,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV69 = [
@@ -3677,7 +3606,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataShapeV40 = [
@@ -3694,7 +3623,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV69 = [
@@ -3735,7 +3664,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV40)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV40),
         ];
 
         this.PackMapEnvDataSkyModeTexV69 = [
@@ -3744,7 +3673,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV69 = [
@@ -3783,14 +3712,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV69),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV69 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV69),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV69)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV69),
         ];
       },
 
@@ -3802,7 +3731,7 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV68 = [
@@ -3811,7 +3740,7 @@ module.exports = [
           "shadowInfluence",
           "float32",
           "backlight",
-          Utils.getPointerReader(this.PackMapEnvDataLightV68)
+          Utils.getPointerReader(this.PackMapEnvDataLightV68),
         ];
 
         this.PackMapEnvDataLightingCharV39 = [
@@ -3826,12 +3755,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV39 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV39)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV39),
         ];
 
         this.PackMapEnvDataLayerAttributesV68 = [
@@ -3848,7 +3777,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV68 = [
@@ -3867,13 +3796,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV68),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV68 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV68)
-        ];
+        this.PackMapEnvDataCloudsV68 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV68)];
 
         this.PackMapEnvDataColoredLightRingsV39 = [
           "range",
@@ -3883,7 +3809,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV68 = [
@@ -3910,7 +3836,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV68 = [
@@ -3927,7 +3853,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV68 = [
@@ -3980,7 +3906,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV39 = [
@@ -3991,7 +3917,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV68 = [
@@ -4022,7 +3948,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV68 = [
@@ -4047,7 +3973,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV68 = [
@@ -4058,13 +3984,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV68 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV68)
-        ];
+        this.PackMapEnvDataSkyCardsV68 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV68)];
 
         this.PackMapEnvDataSpawnModelDataV39 = [
           "spawnRange",
@@ -4092,19 +4015,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV39 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV39)
-        ];
+        this.PackMapEnvDataSpawnListV39 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV39)];
 
         this.PackMapEnvDataSpawnGroupsV39 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV39),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV68 = [
@@ -4171,7 +4091,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV68 = [
@@ -4188,7 +4108,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataShapeV39 = [
@@ -4205,7 +4125,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV68 = [
@@ -4246,7 +4166,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV39)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV39),
         ];
 
         this.PackMapEnvDataSkyModeTexV68 = [
@@ -4255,7 +4175,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV68 = [
@@ -4294,14 +4214,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV68),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV68 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV68),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV68)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV68),
         ];
       },
 
@@ -4313,14 +4233,14 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV67 = [
           "lights",
           Utils.getRefArrayReader(this.PackMapEnvDataLightV67),
           "shadowInfluence",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV38 = [
@@ -4335,12 +4255,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV38 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV38)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV38),
         ];
 
         this.PackMapEnvDataLayerAttributesV67 = [
@@ -4357,7 +4277,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV67 = [
@@ -4376,13 +4296,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV67),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV67 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV67)
-        ];
+        this.PackMapEnvDataCloudsV67 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV67)];
 
         this.PackMapEnvDataColoredLightRingsV38 = [
           "range",
@@ -4392,7 +4309,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV67 = [
@@ -4419,7 +4336,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV67 = [
@@ -4436,7 +4353,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV67 = [
@@ -4489,7 +4406,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV38 = [
@@ -4500,7 +4417,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV67 = [
@@ -4531,7 +4448,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV67 = [
@@ -4556,7 +4473,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV67 = [
@@ -4567,13 +4484,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV67 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV67)
-        ];
+        this.PackMapEnvDataSkyCardsV67 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV67)];
 
         this.PackMapEnvDataSpawnModelDataV38 = [
           "spawnRange",
@@ -4601,19 +4515,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV38 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV38)
-        ];
+        this.PackMapEnvDataSpawnListV38 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV38)];
 
         this.PackMapEnvDataSpawnGroupsV38 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV38),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV67 = [
@@ -4680,7 +4591,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV67 = [
@@ -4697,7 +4608,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataShapeV38 = [
@@ -4714,7 +4625,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV67 = [
@@ -4755,7 +4666,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV38)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV38),
         ];
 
         this.PackMapEnvDataSkyModeTexV67 = [
@@ -4764,7 +4675,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV67 = [
@@ -4803,14 +4714,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV67),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV67 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV67),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV67)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV67),
         ];
       },
 
@@ -4822,14 +4733,14 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV66 = [
           "lights",
           Utils.getRefArrayReader(this.PackMapEnvDataLightV66),
           "shadowInfluence",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV37 = [
@@ -4844,12 +4755,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV37 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV37)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV37),
         ];
 
         this.PackMapEnvDataLayerAttributesV66 = [
@@ -4866,7 +4777,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV66 = [
@@ -4885,13 +4796,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV66),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV66 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV66)
-        ];
+        this.PackMapEnvDataCloudsV66 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV66)];
 
         this.PackMapEnvDataColoredLightRingsV37 = [
           "range",
@@ -4901,7 +4809,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV66 = [
@@ -4928,7 +4836,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV66 = [
@@ -4945,7 +4853,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV66 = [
@@ -4998,7 +4906,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV37 = [
@@ -5009,7 +4917,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV66 = [
@@ -5040,7 +4948,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV66 = [
@@ -5065,7 +4973,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV66 = [
@@ -5076,13 +4984,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV66 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV66)
-        ];
+        this.PackMapEnvDataSkyCardsV66 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV66)];
 
         this.PackMapEnvDataSpawnModelDataV37 = [
           "spawnRange",
@@ -5108,19 +5013,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV37 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV37)
-        ];
+        this.PackMapEnvDataSpawnListV37 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV37)];
 
         this.PackMapEnvDataSpawnGroupsV37 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV37),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV66 = [
@@ -5187,7 +5089,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV66 = [
@@ -5204,7 +5106,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataShapeV37 = [
@@ -5221,7 +5123,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "shapeType",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV66 = [
@@ -5262,7 +5164,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "shapeArray",
-          Utils.getArrayReader(this.PackMapEnvDataShapeV37)
+          Utils.getArrayReader(this.PackMapEnvDataShapeV37),
         ];
 
         this.PackMapEnvDataSkyModeTexV66 = [
@@ -5271,7 +5173,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV66 = [
@@ -5310,14 +5212,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV66),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV66 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV66),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV66)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV66),
         ];
       },
 
@@ -5329,14 +5231,14 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackMapEnvDataLightingV65 = [
           "lights",
           Utils.getRefArrayReader(this.PackMapEnvDataLightV65),
           "shadowInfluence",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLightingCharV36 = [
@@ -5351,12 +5253,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV36 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV36)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV36),
         ];
 
         this.PackMapEnvDataLayerAttributesV65 = [
@@ -5373,7 +5275,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV65 = [
@@ -5392,13 +5294,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV65),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV65 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV65)
-        ];
+        this.PackMapEnvDataCloudsV65 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV65)];
 
         this.PackMapEnvDataColoredLightRingsV36 = [
           "range",
@@ -5408,7 +5307,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV65 = [
@@ -5435,7 +5334,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV65 = [
@@ -5452,7 +5351,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV65 = [
@@ -5505,7 +5404,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV36 = [
@@ -5516,7 +5415,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV65 = [
@@ -5547,7 +5446,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV65 = [
@@ -5572,7 +5471,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV65 = [
@@ -5583,13 +5482,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV65 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV65)
-        ];
+        this.PackMapEnvDataSkyCardsV65 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV65)];
 
         this.PackMapEnvDataSpawnModelDataV36 = [
           "spawnRange",
@@ -5615,19 +5511,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV36 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV36)
-        ];
+        this.PackMapEnvDataSpawnListV36 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV36)];
 
         this.PackMapEnvDataSpawnGroupsV36 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV36),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV65 = [
@@ -5694,7 +5587,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV65 = [
@@ -5711,7 +5604,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV65 = [
@@ -5762,7 +5655,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV65 = [
@@ -5771,7 +5664,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV65 = [
@@ -5810,14 +5703,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV65),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV65 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV65),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV65)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV65),
         ];
       },
 
@@ -5829,13 +5722,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV64 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV64)
-        ];
+        this.PackMapEnvDataLightingV64 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV64)];
 
         this.PackMapEnvDataLightingCharV35 = [
           "sunScale",
@@ -5849,12 +5739,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV35 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV35)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV35),
         ];
 
         this.PackMapEnvDataLayerAttributesV64 = [
@@ -5871,7 +5761,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV64 = [
@@ -5890,13 +5780,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV64),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV64 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV64)
-        ];
+        this.PackMapEnvDataCloudsV64 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV64)];
 
         this.PackMapEnvDataColoredLightRingsV35 = [
           "range",
@@ -5906,7 +5793,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV64 = [
@@ -5933,7 +5820,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV64 = [
@@ -5950,7 +5837,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV64 = [
@@ -6003,7 +5890,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV35 = [
@@ -6014,7 +5901,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV64 = [
@@ -6045,7 +5932,7 @@ module.exports = [
           "nightStarDensity",
           "float32",
           "verticalOffset",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV64 = [
@@ -6070,7 +5957,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV64 = [
@@ -6081,13 +5968,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV64 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV64)
-        ];
+        this.PackMapEnvDataSkyCardsV64 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV64)];
 
         this.PackMapEnvDataSpawnModelDataV35 = [
           "spawnRange",
@@ -6113,19 +5997,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV35 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV35)
-        ];
+        this.PackMapEnvDataSpawnListV35 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV35)];
 
         this.PackMapEnvDataSpawnGroupsV35 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV35),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV64 = [
@@ -6192,7 +6073,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV64 = [
@@ -6209,7 +6090,7 @@ module.exports = [
           "gustFreq",
           "uint8",
           "gustSpeed",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV64 = [
@@ -6260,7 +6141,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV64 = [
@@ -6269,7 +6150,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV64 = [
@@ -6308,14 +6189,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV64),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV64 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV64),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV64)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV64),
         ];
       },
 
@@ -6327,13 +6208,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV63 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV63)
-        ];
+        this.PackMapEnvDataLightingV63 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV63)];
 
         this.PackMapEnvDataLightingCharV34 = [
           "sunScale",
@@ -6347,12 +6225,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV34 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV34)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV34),
         ];
 
         this.PackMapEnvDataLayerAttributesV63 = [
@@ -6369,7 +6247,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV63 = [
@@ -6388,13 +6266,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV63),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV63 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV63)
-        ];
+        this.PackMapEnvDataCloudsV63 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV63)];
 
         this.PackMapEnvDataColoredLightRingsV34 = [
           "range",
@@ -6404,7 +6279,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV63 = [
@@ -6431,7 +6306,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV63 = [
@@ -6448,7 +6323,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV63 = [
@@ -6501,7 +6376,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV34 = [
@@ -6512,7 +6387,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV63 = [
@@ -6541,7 +6416,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV63 = [
@@ -6566,7 +6441,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV63 = [
@@ -6577,13 +6452,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV63 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV63)
-        ];
+        this.PackMapEnvDataSkyCardsV63 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV63)];
 
         this.PackMapEnvDataSpawnModelDataV34 = [
           "spawnRange",
@@ -6609,19 +6481,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV34 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV34)
-        ];
+        this.PackMapEnvDataSpawnListV34 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV34)];
 
         this.PackMapEnvDataSpawnGroupsV34 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV34),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV63 = [
@@ -6688,7 +6557,7 @@ module.exports = [
           "foamColor0",
           ["[]", "uint8", 4],
           "foamColor1",
-          ["[]", "uint8", 4]
+          ["[]", "uint8", 4],
         ];
 
         this.PackMapEnvDataWindV63 = [
@@ -6703,7 +6572,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV63 = [
@@ -6754,7 +6623,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV63 = [
@@ -6763,7 +6632,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV63 = [
@@ -6802,14 +6671,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV63),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV63 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV63),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV63)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV63),
         ];
       },
 
@@ -6821,13 +6690,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV62 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV62)
-        ];
+        this.PackMapEnvDataLightingV62 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV62)];
 
         this.PackMapEnvDataLightingCharV33 = [
           "sunScale",
@@ -6841,12 +6707,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV33 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV33)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV33),
         ];
 
         this.PackMapEnvDataLayerAttributesV62 = [
@@ -6863,7 +6729,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV62 = [
@@ -6882,13 +6748,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV62),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV62 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV62)
-        ];
+        this.PackMapEnvDataCloudsV62 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV62)];
 
         this.PackMapEnvDataColoredLightRingsV33 = [
           "range",
@@ -6898,7 +6761,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV62 = [
@@ -6925,7 +6788,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV62 = [
@@ -6942,7 +6805,7 @@ module.exports = [
           "depthCue",
           "float32",
           "sunDirRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataPFieldV62 = [
@@ -6995,7 +6858,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV33 = [
@@ -7006,7 +6869,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV62 = [
@@ -7035,7 +6898,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV62 = [
@@ -7060,7 +6923,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV62 = [
@@ -7071,13 +6934,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV62 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV62)
-        ];
+        this.PackMapEnvDataSkyCardsV62 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV62)];
 
         this.PackMapEnvDataSpawnModelDataV33 = [
           "spawnRange",
@@ -7103,19 +6963,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV33 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV33)
-        ];
+        this.PackMapEnvDataSpawnListV33 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV33)];
 
         this.PackMapEnvDataSpawnGroupsV33 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV33),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV62 = [
@@ -7172,7 +7029,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV62 = [
@@ -7187,7 +7044,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV62 = [
@@ -7238,7 +7095,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV62 = [
@@ -7247,7 +7104,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV62 = [
@@ -7286,14 +7143,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV62),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV62 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV62),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV62)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV62),
         ];
       },
 
@@ -7305,13 +7162,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV61 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV61)
-        ];
+        this.PackMapEnvDataLightingV61 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV61)];
 
         this.PackMapEnvDataLightingCharV32 = [
           "sunScale",
@@ -7325,12 +7179,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV32 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV32)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV32),
         ];
 
         this.PackMapEnvDataLayerAttributesV61 = [
@@ -7347,7 +7201,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV61 = [
@@ -7366,13 +7220,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV61),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV61 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV61)
-        ];
+        this.PackMapEnvDataCloudsV61 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV61)];
 
         this.PackMapEnvDataColoredLightRingsV32 = [
           "range",
@@ -7382,7 +7233,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV61 = [
@@ -7409,7 +7260,7 @@ module.exports = [
           "flatteningRange",
           ["[]", "float32", 2],
           "flatteningCharacterRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV61 = [
@@ -7424,7 +7275,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV61 = [
@@ -7477,7 +7328,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV32 = [
@@ -7488,7 +7339,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV61 = [
@@ -7517,7 +7368,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV61 = [
@@ -7542,7 +7393,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV61 = [
@@ -7553,13 +7404,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV61 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV61)
-        ];
+        this.PackMapEnvDataSkyCardsV61 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV61)];
 
         this.PackMapEnvDataSpawnModelDataV32 = [
           "spawnRange",
@@ -7585,19 +7433,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV32 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV32)
-        ];
+        this.PackMapEnvDataSpawnListV32 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV32)];
 
         this.PackMapEnvDataSpawnGroupsV32 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV32),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV61 = [
@@ -7654,7 +7499,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV61 = [
@@ -7669,7 +7514,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV61 = [
@@ -7720,7 +7565,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV61 = [
@@ -7729,7 +7574,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV61 = [
@@ -7768,14 +7613,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV61),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV61 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV61),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV61)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV61),
         ];
       },
 
@@ -7787,13 +7632,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV60 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV60)
-        ];
+        this.PackMapEnvDataLightingV60 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV60)];
 
         this.PackMapEnvDataLightingCharV31 = [
           "sunScale",
@@ -7807,12 +7649,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV31 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV31)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV31),
         ];
 
         this.PackMapEnvDataLayerAttributesV60 = [
@@ -7829,7 +7671,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV60 = [
@@ -7848,13 +7690,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV60),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV60 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV60)
-        ];
+        this.PackMapEnvDataCloudsV60 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV60)];
 
         this.PackMapEnvDataColoredLightRingsV31 = [
           "range",
@@ -7864,7 +7703,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV60 = [
@@ -7889,7 +7728,7 @@ module.exports = [
           "focalRange",
           "float32",
           "flatteningRange",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataHazeV60 = [
@@ -7904,7 +7743,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV60 = [
@@ -7957,7 +7796,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV31 = [
@@ -7968,7 +7807,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV60 = [
@@ -7997,7 +7836,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV60 = [
@@ -8022,7 +7861,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV60 = [
@@ -8033,13 +7872,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV60 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV60)
-        ];
+        this.PackMapEnvDataSkyCardsV60 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV60)];
 
         this.PackMapEnvDataSpawnModelDataV31 = [
           "spawnRange",
@@ -8065,19 +7901,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV31 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV31)
-        ];
+        this.PackMapEnvDataSpawnListV31 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV31)];
 
         this.PackMapEnvDataSpawnGroupsV31 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV31),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV60 = [
@@ -8134,7 +7967,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV60 = [
@@ -8149,7 +7982,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV60 = [
@@ -8200,7 +8033,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV60 = [
@@ -8209,7 +8042,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV60 = [
@@ -8248,14 +8081,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV60),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV60 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV60),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV60)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV60),
         ];
       },
 
@@ -8267,13 +8100,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV59 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV59)
-        ];
+        this.PackMapEnvDataLightingV59 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV59)];
 
         this.PackMapEnvDataLightingCharV30 = [
           "sunScale",
@@ -8287,12 +8117,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV30 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV30)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV30),
         ];
 
         this.PackMapEnvDataLayerAttributesV59 = [
@@ -8309,7 +8139,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV59 = [
@@ -8328,13 +8158,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV59),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV59 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV59)
-        ];
+        this.PackMapEnvDataCloudsV59 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV59)];
 
         this.PackMapEnvDataColoredLightRingsV30 = [
           "range",
@@ -8344,7 +8171,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV59 = [
@@ -8367,7 +8194,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV59 = [
@@ -8382,7 +8209,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV59 = [
@@ -8435,7 +8262,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV30 = [
@@ -8446,7 +8273,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV59 = [
@@ -8475,7 +8302,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV59 = [
@@ -8500,7 +8327,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV59 = [
@@ -8511,13 +8338,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV59 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV59)
-        ];
+        this.PackMapEnvDataSkyCardsV59 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV59)];
 
         this.PackMapEnvDataSpawnModelDataV30 = [
           "spawnRange",
@@ -8543,19 +8367,16 @@ module.exports = [
           "modelFile",
           Utils.getFileNameReader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV30 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV30)
-        ];
+        this.PackMapEnvDataSpawnListV30 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV30)];
 
         this.PackMapEnvDataSpawnGroupsV30 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV30),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV59 = [
@@ -8612,7 +8433,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV59 = [
@@ -8627,7 +8448,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV59 = [
@@ -8678,7 +8499,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV59 = [
@@ -8687,7 +8508,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV59 = [
@@ -8726,14 +8547,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV59),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV59 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV59),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV59)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV59),
         ];
       },
 
@@ -8745,13 +8566,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV58 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV58)
-        ];
+        this.PackMapEnvDataLightingV58 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV58)];
 
         this.PackMapEnvDataLightingCharV29 = [
           "sunScale",
@@ -8765,12 +8583,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV29 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV29)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV29),
         ];
 
         this.PackMapEnvDataLayerAttributesV58 = [
@@ -8787,7 +8605,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV58 = [
@@ -8806,13 +8624,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV58),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV58 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV58)
-        ];
+        this.PackMapEnvDataCloudsV58 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV58)];
 
         this.PackMapEnvDataColoredLightRingsV29 = [
           "range",
@@ -8822,7 +8637,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV58 = [
@@ -8845,7 +8660,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV58 = [
@@ -8860,7 +8675,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV58 = [
@@ -8913,7 +8728,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV29 = [
@@ -8924,7 +8739,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV58 = [
@@ -8953,7 +8768,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV58 = [
@@ -8978,7 +8793,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV58 = [
@@ -8989,13 +8804,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV58 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV58)
-        ];
+        this.PackMapEnvDataSkyCardsV58 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV58)];
 
         this.PackMapEnvDataSpawnModelDataV29 = [
           "spawnRange",
@@ -9021,19 +8833,16 @@ module.exports = [
           "modelFile",
           Utils.getString16Reader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV29 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV29)
-        ];
+        this.PackMapEnvDataSpawnListV29 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV29)];
 
         this.PackMapEnvDataSpawnGroupsV29 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV29),
           "targets",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.PackMapEnvDataWaterV58 = [
@@ -9090,7 +8899,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV58 = [
@@ -9105,7 +8914,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV58 = [
@@ -9156,7 +8965,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV58 = [
@@ -9165,7 +8974,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV58 = [
@@ -9204,14 +9013,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV58),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV58 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV58),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV58)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV58),
         ];
       },
 
@@ -9223,13 +9032,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV57 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV57)
-        ];
+        this.PackMapEnvDataLightingV57 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV57)];
 
         this.PackMapEnvDataLightingCharV28 = [
           "sunScale",
@@ -9243,12 +9049,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV28 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV28)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV28),
         ];
 
         this.PackMapEnvDataLayerAttributesV57 = [
@@ -9265,7 +9071,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV57 = [
@@ -9284,13 +9090,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV57),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV57 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV57)
-        ];
+        this.PackMapEnvDataCloudsV57 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV57)];
 
         this.PackMapEnvDataColoredLightRingsV28 = [
           "range",
@@ -9300,7 +9103,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV57 = [
@@ -9323,7 +9126,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV57 = [
@@ -9336,7 +9139,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV57 = [
@@ -9389,7 +9192,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV28 = [
@@ -9400,7 +9203,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV57 = [
@@ -9429,7 +9232,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV57 = [
@@ -9454,7 +9257,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV57 = [
@@ -9465,13 +9268,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV57 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV57)
-        ];
+        this.PackMapEnvDataSkyCardsV57 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV57)];
 
         this.PackMapEnvDataSpawnModelDataV28 = [
           "spawnRange",
@@ -9497,19 +9297,16 @@ module.exports = [
           "modelFile",
           Utils.getString16Reader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV28 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV28)
-        ];
+        this.PackMapEnvDataSpawnListV28 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV28)];
 
         this.PackMapEnvDataSpawnGroupsV28 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV28),
           "targetVolume",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataWaterV57 = [
@@ -9566,7 +9363,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV57 = [
@@ -9581,7 +9378,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV57 = [
@@ -9632,7 +9429,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV57 = [
@@ -9641,7 +9438,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV57 = [
@@ -9680,14 +9477,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV57),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV57 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV57),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV57)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV57),
         ];
       },
 
@@ -9699,13 +9496,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV56 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV56)
-        ];
+        this.PackMapEnvDataLightingV56 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV56)];
 
         this.PackMapEnvDataLightingCharV27 = [
           "sunScale",
@@ -9719,12 +9513,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV27 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV27)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV27),
         ];
 
         this.PackMapEnvDataLayerAttributesV56 = [
@@ -9741,7 +9535,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV56 = [
@@ -9760,13 +9554,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV56),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV56 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV56)
-        ];
+        this.PackMapEnvDataCloudsV56 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV56)];
 
         this.PackMapEnvDataColoredLightRingsV27 = [
           "range",
@@ -9776,7 +9567,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV56 = [
@@ -9799,7 +9590,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV56 = [
@@ -9812,7 +9603,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV56 = [
@@ -9865,7 +9656,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV27 = [
@@ -9876,7 +9667,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV56 = [
@@ -9905,7 +9696,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV56 = [
@@ -9930,7 +9721,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV56 = [
@@ -9941,13 +9732,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV56 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV56)
-        ];
+        this.PackMapEnvDataSkyCardsV56 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV56)];
 
         this.PackMapEnvDataSpawnModelDataV27 = [
           "spawnRange",
@@ -9971,19 +9759,16 @@ module.exports = [
           "modelFile",
           Utils.getString16Reader(),
           "maxConcurrent",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackMapEnvDataSpawnListV27 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV27)
-        ];
+        this.PackMapEnvDataSpawnListV27 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV27)];
 
         this.PackMapEnvDataSpawnGroupsV27 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV27),
           "targetVolume",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataWaterV56 = [
@@ -10040,7 +9825,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV56 = [
@@ -10055,7 +9840,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV56 = [
@@ -10106,7 +9891,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV56 = [
@@ -10115,7 +9900,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV56 = [
@@ -10154,14 +9939,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV56),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV56 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV56),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV56)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV56),
         ];
       },
 
@@ -10173,13 +9958,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV55 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV55)
-        ];
+        this.PackMapEnvDataLightingV55 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV55)];
 
         this.PackMapEnvDataLightingCharV26 = [
           "sunScale",
@@ -10193,12 +9975,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV26 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV26)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV26),
         ];
 
         this.PackMapEnvDataLayerAttributesV55 = [
@@ -10215,7 +9997,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV55 = [
@@ -10234,13 +10016,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV55),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV55 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV55)
-        ];
+        this.PackMapEnvDataCloudsV55 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV55)];
 
         this.PackMapEnvDataColoredLightRingsV26 = [
           "range",
@@ -10250,7 +10029,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV55 = [
@@ -10273,7 +10052,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV55 = [
@@ -10286,7 +10065,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV55 = [
@@ -10339,7 +10118,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV26 = [
@@ -10350,7 +10129,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV55 = [
@@ -10379,7 +10158,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV55 = [
@@ -10404,7 +10183,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV55 = [
@@ -10415,13 +10194,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV55 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV55)
-        ];
+        this.PackMapEnvDataSkyCardsV55 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV55)];
 
         this.PackMapEnvDataSpawnModelDataV26 = [
           "spawnRange",
@@ -10437,19 +10213,16 @@ module.exports = [
           "flags",
           "uint32",
           "modelFile",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSpawnListV26 = [
-          "spawns",
-          Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV26)
-        ];
+        this.PackMapEnvDataSpawnListV26 = ["spawns", Utils.getArrayReader(this.PackMapEnvDataSpawnModelDataV26)];
 
         this.PackMapEnvDataSpawnGroupsV26 = [
           "spawnGroups",
           Utils.getArrayReader(this.PackMapEnvDataSpawnListV26),
           "targetVolume",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataWaterV55 = [
@@ -10506,7 +10279,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV55 = [
@@ -10521,7 +10294,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV55 = [
@@ -10572,7 +10345,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV55 = [
@@ -10581,7 +10354,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV55 = [
@@ -10620,14 +10393,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV55),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV55 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV55),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV55)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV55),
         ];
       },
 
@@ -10639,13 +10412,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV54 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV54)
-        ];
+        this.PackMapEnvDataLightingV54 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV54)];
 
         this.PackMapEnvDataLightingCharV25 = [
           "sunScale",
@@ -10659,12 +10429,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV25 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV25)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV25),
         ];
 
         this.PackMapEnvDataLayerAttributesV54 = [
@@ -10681,7 +10451,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV54 = [
@@ -10700,13 +10470,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV54),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV54 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV54)
-        ];
+        this.PackMapEnvDataCloudsV54 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV54)];
 
         this.PackMapEnvDataColoredLightRingsV25 = [
           "range",
@@ -10716,7 +10483,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV54 = [
@@ -10739,7 +10506,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV54 = [
@@ -10752,7 +10519,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV54 = [
@@ -10805,7 +10572,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV25 = [
@@ -10816,7 +10583,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV54 = [
@@ -10845,7 +10612,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV54 = [
@@ -10870,7 +10637,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV54 = [
@@ -10881,13 +10648,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV54 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV54)
-        ];
+        this.PackMapEnvDataSkyCardsV54 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV54)];
 
         this.PackMapEnvDataWaterV54 = [
           "waterFlags",
@@ -10943,7 +10707,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV54 = [
@@ -10958,7 +10722,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV54 = [
@@ -11007,7 +10771,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV54 = [
@@ -11016,7 +10780,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV54 = [
@@ -11053,14 +10817,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV54),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV54 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV54),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV54)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV54),
         ];
       },
 
@@ -11072,13 +10836,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV53 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV53)
-        ];
+        this.PackMapEnvDataLightingV53 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV53)];
 
         this.PackMapEnvDataLightingCharV24 = [
           "sunScale",
@@ -11092,12 +10853,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV24 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV24)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV24),
         ];
 
         this.PackMapEnvDataLayerAttributesV53 = [
@@ -11114,7 +10875,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV53 = [
@@ -11133,13 +10894,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV53),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV53 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV53)
-        ];
+        this.PackMapEnvDataCloudsV53 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV53)];
 
         this.PackMapEnvDataColoredLightRingsV24 = [
           "range",
@@ -11149,7 +10907,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV53 = [
@@ -11172,7 +10930,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV53 = [
@@ -11185,7 +10943,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV53 = [
@@ -11238,7 +10996,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV24 = [
@@ -11249,7 +11007,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV53 = [
@@ -11278,7 +11036,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV53 = [
@@ -11303,7 +11061,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV53 = [
@@ -11314,13 +11072,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV53 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV53)
-        ];
+        this.PackMapEnvDataSkyCardsV53 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV53)];
 
         this.PackMapEnvDataWaterV53 = [
           "waterFlags",
@@ -11376,7 +11131,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV53 = [
@@ -11391,7 +11146,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV53 = [
@@ -11440,7 +11195,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV53 = [
@@ -11449,7 +11204,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV53 = [
@@ -11486,14 +11241,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV53),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV53 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV53),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV53)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV53),
         ];
       },
 
@@ -11505,13 +11260,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV52 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV52)
-        ];
+        this.PackMapEnvDataLightingV52 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV52)];
 
         this.PackMapEnvDataLightingCharV23 = [
           "sunScale",
@@ -11525,12 +11277,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV23 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV23)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV23),
         ];
 
         this.PackMapEnvDataLayerAttributesV52 = [
@@ -11547,7 +11299,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV52 = [
@@ -11566,13 +11318,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV52),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV52 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV52)
-        ];
+        this.PackMapEnvDataCloudsV52 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV52)];
 
         this.PackMapEnvDataColoredLightRingsV23 = [
           "range",
@@ -11582,7 +11331,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV52 = [
@@ -11605,7 +11354,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV52 = [
@@ -11618,7 +11367,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV52 = [
@@ -11669,7 +11418,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV23 = [
@@ -11680,7 +11429,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV52 = [
@@ -11709,7 +11458,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV52 = [
@@ -11734,7 +11483,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV52 = [
@@ -11745,13 +11494,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV52 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV52)
-        ];
+        this.PackMapEnvDataSkyCardsV52 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV52)];
 
         this.PackMapEnvDataWaterV52 = [
           "waterFlags",
@@ -11807,7 +11553,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV52 = [
@@ -11822,7 +11568,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV52 = [
@@ -11871,7 +11617,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV52 = [
@@ -11880,7 +11626,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV52 = [
@@ -11917,14 +11663,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV52),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV52 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV52),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV52)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV52),
         ];
       },
 
@@ -11936,13 +11682,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV51 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV51)
-        ];
+        this.PackMapEnvDataLightingV51 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV51)];
 
         this.PackMapEnvDataLightingCharV22 = [
           "sunScale",
@@ -11956,12 +11699,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV22 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV22)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV22),
         ];
 
         this.PackMapEnvDataLayerAttributesV51 = [
@@ -11978,7 +11721,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV51 = [
@@ -11997,13 +11740,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV51),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV51 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV51)
-        ];
+        this.PackMapEnvDataCloudsV51 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV51)];
 
         this.PackMapEnvDataColoredLightRingsV22 = [
           "range",
@@ -12013,7 +11753,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV51 = [
@@ -12036,7 +11776,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV51 = [
@@ -12049,7 +11789,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV51 = [
@@ -12094,7 +11834,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV22 = [
@@ -12105,7 +11845,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV51 = [
@@ -12134,7 +11874,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV51 = [
@@ -12159,7 +11899,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV51 = [
@@ -12170,13 +11910,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV51 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV51)
-        ];
+        this.PackMapEnvDataSkyCardsV51 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV51)];
 
         this.PackMapEnvDataWaterV51 = [
           "waterFlags",
@@ -12232,7 +11969,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV51 = [
@@ -12247,7 +11984,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV51 = [
@@ -12296,7 +12033,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV51 = [
@@ -12305,7 +12042,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV51 = [
@@ -12342,14 +12079,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV51),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV51 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV51),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV51)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV51),
         ];
       },
 
@@ -12361,13 +12098,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV50 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV50)
-        ];
+        this.PackMapEnvDataLightingV50 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV50)];
 
         this.PackMapEnvDataLightingCharV21 = [
           "sunScale",
@@ -12381,12 +12115,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV21 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV21)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV21),
         ];
 
         this.PackMapEnvDataLayerAttributesV50 = [
@@ -12403,7 +12137,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV50 = [
@@ -12422,13 +12156,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV50),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV50 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV50)
-        ];
+        this.PackMapEnvDataCloudsV50 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV50)];
 
         this.PackMapEnvDataColoredLightRingsV21 = [
           "range",
@@ -12438,7 +12169,7 @@ module.exports = [
           "lightColors",
           ["[]", ["[]", "uint8", 4], 6],
           "shadowColors",
-          ["[]", ["[]", "uint8", 4], 6]
+          ["[]", ["[]", "uint8", 4], 6],
         ];
 
         this.PackMapEnvDataEffectV50 = [
@@ -12461,7 +12192,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV50 = [
@@ -12474,7 +12205,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV50 = [
@@ -12515,7 +12246,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV21 = [
@@ -12526,7 +12257,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV50 = [
@@ -12555,7 +12286,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV50 = [
@@ -12580,7 +12311,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV50 = [
@@ -12591,13 +12322,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV50 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV50)
-        ];
+        this.PackMapEnvDataSkyCardsV50 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV50)];
 
         this.PackMapEnvDataWaterV50 = [
           "waterFlags",
@@ -12653,7 +12381,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV50 = [
@@ -12668,7 +12396,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV50 = [
@@ -12717,7 +12445,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV50 = [
@@ -12726,7 +12454,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV50 = [
@@ -12763,14 +12491,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV50),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV50 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV50),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV50)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV50),
         ];
       },
 
@@ -12782,13 +12510,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV49 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV49)
-        ];
+        this.PackMapEnvDataLightingV49 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV49)];
 
         this.PackMapEnvDataLightingCharV20 = [
           "sunScale",
@@ -12802,12 +12527,12 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLightingCharGroupV20 = [
           "lightingChar",
-          Utils.getArrayReader(this.PackMapEnvDataLightingCharV20)
+          Utils.getArrayReader(this.PackMapEnvDataLightingCharV20),
         ];
 
         this.PackMapEnvDataLayerAttributesV49 = [
@@ -12824,7 +12549,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV49 = [
@@ -12843,13 +12568,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV49),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV49 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV49)
-        ];
+        this.PackMapEnvDataCloudsV49 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV49)];
 
         this.PackMapEnvDataColoredLightRingsV20 = [
           "range",
@@ -12857,7 +12579,7 @@ module.exports = [
           "colors",
           ["[]", ["[]", "uint8", 4], 6],
           "distances",
-          ["[]", "float32", 6]
+          ["[]", "float32", 6],
         ];
 
         this.PackMapEnvDataEffectV49 = [
@@ -12880,7 +12602,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV49 = [
@@ -12893,7 +12615,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV49 = [
@@ -12934,7 +12656,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV20 = [
@@ -12945,7 +12667,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV49 = [
@@ -12974,7 +12696,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV49 = [
@@ -12999,7 +12721,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV49 = [
@@ -13010,13 +12732,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV49 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV49)
-        ];
+        this.PackMapEnvDataSkyCardsV49 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV49)];
 
         this.PackMapEnvDataWaterV49 = [
           "waterFlags",
@@ -13072,7 +12791,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV49 = [
@@ -13087,7 +12806,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV49 = [
@@ -13136,7 +12855,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV49 = [
@@ -13145,7 +12864,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV49 = [
@@ -13182,14 +12901,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV49),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV49 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV49),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV49)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV49),
         ];
       },
 
@@ -13201,13 +12920,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV48 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV48)
-        ];
+        this.PackMapEnvDataLightingV48 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV48)];
 
         this.PackMapEnvDataLightingCharV19 = [
           "sunScale",
@@ -13221,7 +12937,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV48 = [
@@ -13238,7 +12954,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV48 = [
@@ -13257,13 +12973,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV48),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV48 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV48)
-        ];
+        this.PackMapEnvDataCloudsV48 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV48)];
 
         this.PackMapEnvDataColoredLightRingsV19 = [
           "range",
@@ -13271,7 +12984,7 @@ module.exports = [
           "colors",
           ["[]", ["[]", "uint8", 4], 6],
           "distances",
-          ["[]", "float32", 6]
+          ["[]", "float32", 6],
         ];
 
         this.PackMapEnvDataEffectV48 = [
@@ -13294,7 +13007,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV48 = [
@@ -13307,7 +13020,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV48 = [
@@ -13348,7 +13061,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV19 = [
@@ -13359,7 +13072,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV48 = [
@@ -13388,7 +13101,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV48 = [
@@ -13413,7 +13126,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV48 = [
@@ -13424,13 +13137,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV48 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV48)
-        ];
+        this.PackMapEnvDataSkyCardsV48 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV48)];
 
         this.PackMapEnvDataWaterV48 = [
           "waterFlags",
@@ -13486,7 +13196,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV48 = [
@@ -13501,7 +13211,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV48 = [
@@ -13550,7 +13260,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV48 = [
@@ -13559,7 +13269,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV48 = [
@@ -13596,14 +13306,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV48),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV48 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV48),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV48)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV48),
         ];
       },
 
@@ -13615,13 +13325,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV47 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV47)
-        ];
+        this.PackMapEnvDataLightingV47 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV47)];
 
         this.PackMapEnvDataLightingCharV18 = [
           "sunScale",
@@ -13635,7 +13342,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV47 = [
@@ -13652,7 +13359,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV47 = [
@@ -13671,13 +13378,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV47),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV47 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV47)
-        ];
+        this.PackMapEnvDataCloudsV47 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV47)];
 
         this.PackMapEnvDataColoredLightRingsV18 = [
           "range",
@@ -13685,7 +13389,7 @@ module.exports = [
           "colors",
           ["[]", ["[]", "uint8", 4], 6],
           "distances",
-          ["[]", "float32", 6]
+          ["[]", "float32", 6],
         ];
 
         this.PackMapEnvDataEffectV47 = [
@@ -13708,7 +13412,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV47 = [
@@ -13721,7 +13425,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV47 = [
@@ -13762,7 +13466,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV18 = [
@@ -13773,7 +13477,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV47 = [
@@ -13802,7 +13506,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV47 = [
@@ -13827,7 +13531,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV47 = [
@@ -13838,13 +13542,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV47 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV47)
-        ];
+        this.PackMapEnvDataSkyCardsV47 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV47)];
 
         this.PackMapEnvDataWaterV47 = [
           "waterFlags",
@@ -13900,7 +13601,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV47 = [
@@ -13915,7 +13616,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV47 = [
@@ -13962,7 +13663,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV47 = [
@@ -13971,7 +13672,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV47 = [
@@ -14006,14 +13707,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV47),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV47 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV47),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV47)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV47),
         ];
       },
 
@@ -14025,13 +13726,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV46 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV46)
-        ];
+        this.PackMapEnvDataLightingV46 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV46)];
 
         this.PackMapEnvDataLightingCharV17 = [
           "sunScale",
@@ -14045,7 +13743,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV46 = [
@@ -14062,7 +13760,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV46 = [
@@ -14081,13 +13779,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV46),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV46 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV46)
-        ];
+        this.PackMapEnvDataCloudsV46 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV46)];
 
         this.PackMapEnvDataColoredLightRingsV17 = [
           "range",
@@ -14095,7 +13790,7 @@ module.exports = [
           "colors",
           ["[]", ["[]", "uint8", 4], 6],
           "distances",
-          ["[]", "float32", 6]
+          ["[]", "float32", 6],
         ];
 
         this.PackMapEnvDataEffectV46 = [
@@ -14118,7 +13813,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV46 = [
@@ -14131,7 +13826,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV46 = [
@@ -14172,7 +13867,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV17 = [
@@ -14183,7 +13878,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV46 = [
@@ -14212,7 +13907,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV46 = [
@@ -14237,7 +13932,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV46 = [
@@ -14248,13 +13943,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV46 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV46)
-        ];
+        this.PackMapEnvDataSkyCardsV46 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV46)];
 
         this.PackMapEnvDataWaterV46 = [
           "waterFlags",
@@ -14310,7 +14002,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV46 = [
@@ -14325,7 +14017,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV46 = [
@@ -14372,7 +14064,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV46 = [
@@ -14381,7 +14073,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV46 = [
@@ -14416,14 +14108,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV46),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV46 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV46),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV46)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV46),
         ];
       },
 
@@ -14435,13 +14127,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV45 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV45)
-        ];
+        this.PackMapEnvDataLightingV45 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV45)];
 
         this.PackMapEnvDataLightingCharV16 = [
           "sunScale",
@@ -14455,7 +14144,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV45 = [
@@ -14472,7 +14161,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV45 = [
@@ -14491,13 +14180,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV45),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV45 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV45)
-        ];
+        this.PackMapEnvDataCloudsV45 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV45)];
 
         this.PackMapEnvDataColoredLightRingsV16 = [
           "range",
@@ -14505,7 +14191,7 @@ module.exports = [
           "colors",
           ["[]", ["[]", "uint8", 4], 6],
           "distances",
-          ["[]", "float32", 6]
+          ["[]", "float32", 6],
         ];
 
         this.PackMapEnvDataEffectV45 = [
@@ -14528,7 +14214,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV45 = [
@@ -14541,7 +14227,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV45 = [
@@ -14582,7 +14268,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV16 = [
@@ -14593,7 +14279,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV45 = [
@@ -14622,7 +14308,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV45 = [
@@ -14647,7 +14333,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV45 = [
@@ -14658,13 +14344,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV45 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV45)
-        ];
+        this.PackMapEnvDataSkyCardsV45 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV45)];
 
         this.PackMapEnvDataWaterV45 = [
           "waterFlags",
@@ -14720,7 +14403,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV45 = [
@@ -14735,7 +14418,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV45 = [
@@ -14782,7 +14465,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV45 = [
@@ -14791,7 +14474,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV45 = [
@@ -14826,14 +14509,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV45),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV45 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV45),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV45)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV45),
         ];
       },
 
@@ -14845,13 +14528,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV44 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV44)
-        ];
+        this.PackMapEnvDataLightingV44 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV44)];
 
         this.PackMapEnvDataLightingCharV15 = [
           "sunScale",
@@ -14865,7 +14545,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV44 = [
@@ -14882,7 +14562,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV44 = [
@@ -14901,13 +14581,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV44),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV44 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV44)
-        ];
+        this.PackMapEnvDataCloudsV44 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV44)];
 
         this.PackMapEnvDataColoredLightRingsV15 = [
           "range",
@@ -14915,7 +14592,7 @@ module.exports = [
           "colors",
           ["[]", ["[]", "uint8", 4], 6],
           "distances",
-          ["[]", "float32", 6]
+          ["[]", "float32", 6],
         ];
 
         this.PackMapEnvDataEffectV44 = [
@@ -14938,7 +14615,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV44 = [
@@ -14951,7 +14628,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV44 = [
@@ -14992,7 +14669,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV15 = [
@@ -15003,7 +14680,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV44 = [
@@ -15032,7 +14709,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV44 = [
@@ -15057,7 +14734,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV44 = [
@@ -15068,13 +14745,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV44 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV44)
-        ];
+        this.PackMapEnvDataSkyCardsV44 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV44)];
 
         this.PackMapEnvDataWaterV44 = [
           "waterFlags",
@@ -15130,7 +14804,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV44 = [
@@ -15145,7 +14819,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV44 = [
@@ -15192,7 +14866,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV44 = [
@@ -15201,7 +14875,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV44 = [
@@ -15236,14 +14910,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV44),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV44 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV44),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV44)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV44),
         ];
       },
 
@@ -15255,13 +14929,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV43 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV43)
-        ];
+        this.PackMapEnvDataLightingV43 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV43)];
 
         this.PackMapEnvDataLightingCharV14 = [
           "sunScale",
@@ -15275,7 +14946,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV43 = [
@@ -15292,7 +14963,7 @@ module.exports = [
           "fadeWidth",
           "float32",
           "fadeEnd",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataLayerV43 = [
@@ -15311,13 +14982,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV43),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV43 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV43)
-        ];
+        this.PackMapEnvDataCloudsV43 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV43)];
 
         this.PackMapEnvDataEffectV43 = [
           "glow",
@@ -15339,7 +15007,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV43 = [
@@ -15352,7 +15020,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV43 = [
@@ -15393,7 +15061,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV14 = [
@@ -15404,7 +15072,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV43 = [
@@ -15433,7 +15101,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV43 = [
@@ -15458,7 +15126,7 @@ module.exports = [
           "textureUV",
           ["[]", "float32", 4],
           "brightness",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardV43 = [
@@ -15469,13 +15137,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV43 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV43)
-        ];
+        this.PackMapEnvDataSkyCardsV43 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV43)];
 
         this.PackMapEnvDataWaterV43 = [
           "waterFlags",
@@ -15531,7 +15196,7 @@ module.exports = [
           "constantTokens",
           Utils.getArrayReader("uint32"),
           "constantValues",
-          Utils.getArrayReader(["[]", "float32", 4])
+          Utils.getArrayReader(["[]", "float32", 4]),
         ];
 
         this.PackMapEnvDataWindV43 = [
@@ -15546,7 +15211,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV43 = [
@@ -15591,7 +15256,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV43 = [
@@ -15600,7 +15265,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV43 = [
@@ -15633,14 +15298,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV43),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV43 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV43),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV43)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV43),
         ];
       },
 
@@ -15652,13 +15317,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV42 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV42)
-        ];
+        this.PackMapEnvDataLightingV42 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV42)];
 
         this.PackMapEnvDataLightingCharV13 = [
           "sunScale",
@@ -15672,7 +15334,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV42 = [
@@ -15685,7 +15347,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV42 = [
@@ -15704,13 +15366,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV42),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV42 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV42)
-        ];
+        this.PackMapEnvDataCloudsV42 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV42)];
 
         this.PackMapEnvDataEffectV42 = [
           "glow",
@@ -15732,7 +15391,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV42 = [
@@ -15745,7 +15404,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV42 = [
@@ -15786,7 +15445,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV13 = [
@@ -15797,7 +15456,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV42 = [
@@ -15826,7 +15485,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV42 = [
@@ -15849,7 +15508,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV42 = [
@@ -15860,13 +15519,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV42 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV42)
-        ];
+        this.PackMapEnvDataSkyCardsV42 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV42)];
 
         this.PackMapEnvDataWaterV42 = [
           "waterFlags",
@@ -15918,7 +15574,7 @@ module.exports = [
           "materialFilename",
           Utils.getFileNameReader(),
           "textureFilenames",
-          Utils.getArrayReader(Utils.getFileNameReader())
+          Utils.getArrayReader(Utils.getFileNameReader()),
         ];
 
         this.PackMapEnvDataWindV42 = [
@@ -15933,7 +15589,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV42 = [
@@ -15978,7 +15634,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV42 = [
@@ -15987,7 +15643,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV42 = [
@@ -16020,14 +15676,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV42),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV42 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV42),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV42)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV42),
         ];
       },
 
@@ -16039,13 +15695,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV41 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV41)
-        ];
+        this.PackMapEnvDataLightingV41 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV41)];
 
         this.PackMapEnvDataLightingCharV12 = [
           "sunScale",
@@ -16059,7 +15712,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV41 = [
@@ -16070,7 +15723,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV41 = [
@@ -16089,13 +15742,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV41),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV41 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV41)
-        ];
+        this.PackMapEnvDataCloudsV41 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV41)];
 
         this.PackMapEnvDataEffectV41 = [
           "glow",
@@ -16117,7 +15767,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV41 = [
@@ -16130,7 +15780,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV41 = [
@@ -16171,7 +15821,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV12 = [
@@ -16182,7 +15832,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV41 = [
@@ -16211,7 +15861,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV41 = [
@@ -16234,7 +15884,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV41 = [
@@ -16245,13 +15895,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV41 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV41)
-        ];
+        this.PackMapEnvDataSkyCardsV41 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV41)];
 
         this.PackMapEnvDataWaterV41 = [
           "waterFlags",
@@ -16303,7 +15950,7 @@ module.exports = [
           "materialFilename",
           Utils.getFileNameReader(),
           "textureFilenames",
-          Utils.getArrayReader(Utils.getFileNameReader())
+          Utils.getArrayReader(Utils.getFileNameReader()),
         ];
 
         this.PackMapEnvDataWindV41 = [
@@ -16318,7 +15965,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV41 = [
@@ -16363,7 +16010,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV41 = [
@@ -16372,7 +16019,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV41 = [
@@ -16405,14 +16052,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV41),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV41 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV41),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV41)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV41),
         ];
       },
 
@@ -16424,13 +16071,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV40 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV40)
-        ];
+        this.PackMapEnvDataLightingV40 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV40)];
 
         this.PackMapEnvDataLightingCharV11 = [
           "sunScale",
@@ -16444,7 +16088,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV40 = [
@@ -16455,7 +16099,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV40 = [
@@ -16474,13 +16118,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV40),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV40 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV40)
-        ];
+        this.PackMapEnvDataCloudsV40 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV40)];
 
         this.PackMapEnvDataEffectV40 = [
           "glow",
@@ -16502,7 +16143,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV40 = [
@@ -16515,7 +16156,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV40 = [
@@ -16556,7 +16197,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV11 = [
@@ -16567,7 +16208,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV40 = [
@@ -16596,7 +16237,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV40 = [
@@ -16619,7 +16260,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV40 = [
@@ -16630,13 +16271,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV40 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV40)
-        ];
+        this.PackMapEnvDataSkyCardsV40 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV40)];
 
         this.PackMapEnvDataWaterV40 = [
           "waterFlags",
@@ -16688,7 +16326,7 @@ module.exports = [
           "patternTexture",
           Utils.getFileNameReader(),
           "depthAttenuation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataWindV40 = [
@@ -16703,7 +16341,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV40 = [
@@ -16746,7 +16384,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV40 = [
@@ -16755,7 +16393,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV40 = [
@@ -16786,14 +16424,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV40),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV40 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV40),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV40)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV40),
         ];
       },
 
@@ -16805,13 +16443,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV39 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV39)
-        ];
+        this.PackMapEnvDataLightingV39 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV39)];
 
         this.PackMapEnvDataLightingCharV10 = [
           "sunScale",
@@ -16825,7 +16460,7 @@ module.exports = [
           "ambFill",
           "float32",
           "flags",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLayerAttributesV39 = [
@@ -16836,7 +16471,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV39 = [
@@ -16855,13 +16490,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV39),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV39 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV39)
-        ];
+        this.PackMapEnvDataCloudsV39 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV39)];
 
         this.PackMapEnvDataEffectV39 = [
           "glow",
@@ -16883,7 +16515,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV39 = [
@@ -16896,7 +16528,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV39 = [
@@ -16937,7 +16569,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV10 = [
@@ -16948,7 +16580,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV39 = [
@@ -16977,7 +16609,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV39 = [
@@ -17000,7 +16632,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV39 = [
@@ -17009,13 +16641,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV39,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV39 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV39)
-        ];
+        this.PackMapEnvDataSkyCardsV39 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV39)];
 
         this.PackMapEnvDataWaterV39 = [
           "waterFlags",
@@ -17067,7 +16696,7 @@ module.exports = [
           "patternTexture",
           Utils.getFileNameReader(),
           "depthAttenuation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataWindV39 = [
@@ -17082,7 +16711,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV39 = [
@@ -17125,7 +16754,7 @@ module.exports = [
           "vertexArray",
           Utils.getArrayReader(["[]", "float32", 2]),
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackMapEnvDataSkyModeTexV39 = [
@@ -17134,7 +16763,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV39 = [
@@ -17165,14 +16794,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV39),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV39 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV39),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV39)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV39),
         ];
       },
 
@@ -17184,13 +16813,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV38 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV38)
-        ];
+        this.PackMapEnvDataLightingV38 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV38)];
 
         this.PackMapEnvDataLayerAttributesV38 = [
           "density",
@@ -17200,7 +16826,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV38 = [
@@ -17219,13 +16845,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV38),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV38 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV38)
-        ];
+        this.PackMapEnvDataCloudsV38 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV38)];
 
         this.PackMapEnvDataEffectV38 = [
           "glow",
@@ -17247,7 +16870,7 @@ module.exports = [
           "focalDepth",
           "float32",
           "focalRange",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV38 = [
@@ -17260,7 +16883,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV38 = [
@@ -17301,7 +16924,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV9 = [
@@ -17312,7 +16935,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV38 = [
@@ -17341,7 +16964,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV38 = [
@@ -17364,7 +16987,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV38 = [
@@ -17373,13 +16996,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV38,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV38 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV38)
-        ];
+        this.PackMapEnvDataSkyCardsV38 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV38)];
 
         this.PackMapEnvDataWaterV38 = [
           "waterFlags",
@@ -17431,7 +17051,7 @@ module.exports = [
           "patternTexture",
           Utils.getFileNameReader(),
           "depthAttenuation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataWindV38 = [
@@ -17446,7 +17066,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV38 = [
@@ -17485,7 +17105,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV38 = [
@@ -17494,7 +17114,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV38 = [
@@ -17523,14 +17143,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV38),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV38 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV38),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV38)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV38),
         ];
       },
 
@@ -17542,13 +17162,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV37 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV37)
-        ];
+        this.PackMapEnvDataLightingV37 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV37)];
 
         this.PackMapEnvDataLayerAttributesV37 = [
           "density",
@@ -17558,7 +17175,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV37 = [
@@ -17577,13 +17194,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV37),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV37 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV37)
-        ];
+        this.PackMapEnvDataCloudsV37 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV37)];
 
         this.PackMapEnvDataEffectV37 = [
           "glow",
@@ -17601,7 +17215,7 @@ module.exports = [
           "glowLevel",
           ["[]", "uint8", 4],
           "glowAmplify",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV37 = [
@@ -17614,7 +17228,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV37 = [
@@ -17655,7 +17269,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV8 = [
@@ -17666,7 +17280,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV37 = [
@@ -17695,7 +17309,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV37 = [
@@ -17718,7 +17332,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV37 = [
@@ -17727,13 +17341,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV37,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV37 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV37)
-        ];
+        this.PackMapEnvDataSkyCardsV37 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV37)];
 
         this.PackMapEnvDataWaterV37 = [
           "waterFlags",
@@ -17785,7 +17396,7 @@ module.exports = [
           "patternTexture",
           Utils.getFileNameReader(),
           "depthAttenuation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataWindV37 = [
@@ -17800,7 +17411,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV37 = [
@@ -17839,7 +17450,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV37 = [
@@ -17848,7 +17459,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV37 = [
@@ -17877,14 +17488,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV37),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV37 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV37),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV37)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV37),
         ];
       },
 
@@ -17896,13 +17507,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV36 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV36)
-        ];
+        this.PackMapEnvDataLightingV36 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV36)];
 
         this.PackMapEnvDataLayerAttributesV36 = [
           "density",
@@ -17912,7 +17520,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV36 = [
@@ -17929,13 +17537,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV36),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV36 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV36)
-        ];
+        this.PackMapEnvDataCloudsV36 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV36)];
 
         this.PackMapEnvDataEffectV36 = [
           "glow",
@@ -17953,7 +17558,7 @@ module.exports = [
           "glowLevel",
           ["[]", "uint8", 4],
           "glowAmplify",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV36 = [
@@ -17966,7 +17571,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV36 = [
@@ -18007,7 +17612,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV7 = [
@@ -18018,7 +17623,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV36 = [
@@ -18047,7 +17652,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV36 = [
@@ -18070,7 +17675,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV36 = [
@@ -18079,13 +17684,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV36,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV36 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV36)
-        ];
+        this.PackMapEnvDataSkyCardsV36 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV36)];
 
         this.PackMapEnvDataWaterV36 = [
           "waterFlags",
@@ -18137,7 +17739,7 @@ module.exports = [
           "patternTexture",
           Utils.getFileNameReader(),
           "depthAttenuation",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataWindV36 = [
@@ -18152,7 +17754,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV36 = [
@@ -18191,7 +17793,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV36 = [
@@ -18200,7 +17802,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV36 = [
@@ -18229,14 +17831,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV36),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV36 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV36),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV36)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV36),
         ];
       },
 
@@ -18248,13 +17850,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV35 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV35)
-        ];
+        this.PackMapEnvDataLightingV35 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV35)];
 
         this.PackMapEnvDataLayerAttributesV35 = [
           "density",
@@ -18264,7 +17863,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV35 = [
@@ -18281,13 +17880,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV35),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV35 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV35)
-        ];
+        this.PackMapEnvDataCloudsV35 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV35)];
 
         this.PackMapEnvDataEffectV35 = [
           "glow",
@@ -18305,7 +17901,7 @@ module.exports = [
           "glowLevel",
           ["[]", "uint8", 4],
           "glowAmplify",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV35 = [
@@ -18318,7 +17914,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV35 = [
@@ -18359,7 +17955,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataPFieldCutoutV6 = [
@@ -18370,7 +17966,7 @@ module.exports = [
           "y",
           ["[]", "float32", 4],
           "z",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyV35 = [
@@ -18399,7 +17995,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV35 = [
@@ -18422,7 +18018,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV35 = [
@@ -18431,13 +18027,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV35,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV35 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV35)
-        ];
+        this.PackMapEnvDataSkyCardsV35 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV35)];
 
         this.PackMapEnvDataWaterV35 = [
           "waterFlags",
@@ -18487,7 +18080,7 @@ module.exports = [
           "bumpTexture",
           Utils.getFileNameReader(),
           "patternTexture",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataWindV35 = [
@@ -18502,7 +18095,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV35 = [
@@ -18541,7 +18134,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV35 = [
@@ -18550,7 +18143,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV35 = [
@@ -18579,14 +18172,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV35),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV35 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV35),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV35)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV35),
         ];
       },
 
@@ -18598,13 +18191,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV34 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV34)
-        ];
+        this.PackMapEnvDataLightingV34 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV34)];
 
         this.PackMapEnvDataLayerAttributesV34 = [
           "density",
@@ -18614,7 +18204,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV34 = [
@@ -18631,13 +18221,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV34),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV34 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV34)
-        ];
+        this.PackMapEnvDataCloudsV34 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV34)];
 
         this.PackMapEnvDataEffectV34 = [
           "glow",
@@ -18655,7 +18242,7 @@ module.exports = [
           "glowLevel",
           ["[]", "uint8", 4],
           "glowAmplify",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV34 = [
@@ -18668,7 +18255,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV34 = [
@@ -18709,7 +18296,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataSkyV34 = [
@@ -18734,7 +18321,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV34 = [
@@ -18757,7 +18344,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV34 = [
@@ -18766,13 +18353,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV34,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV34 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV34)
-        ];
+        this.PackMapEnvDataSkyCardsV34 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV34)];
 
         this.PackMapEnvDataWaterV34 = [
           "waterFlags",
@@ -18822,7 +18406,7 @@ module.exports = [
           "bumpTexture",
           Utils.getFileNameReader(),
           "patternTexture",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataWindV34 = [
@@ -18837,7 +18421,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV34 = [
@@ -18874,7 +18458,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV34 = [
@@ -18883,7 +18467,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV34 = [
@@ -18910,14 +18494,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV34),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV34 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV34),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV34)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV34),
         ];
       },
 
@@ -18929,13 +18513,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV33 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV33)
-        ];
+        this.PackMapEnvDataLightingV33 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV33)];
 
         this.PackMapEnvDataLayerAttributesV33 = [
           "density",
@@ -18945,7 +18526,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV33 = [
@@ -18962,13 +18543,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV33),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV33 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV33)
-        ];
+        this.PackMapEnvDataCloudsV33 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV33)];
 
         this.PackMapEnvDataEffectV33 = [
           "glow",
@@ -18982,7 +18560,7 @@ module.exports = [
           "glowLevel",
           ["[]", "uint8", 4],
           "glowAmplify",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV33 = [
@@ -18995,7 +18573,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV33 = [
@@ -19036,7 +18614,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataSkyV33 = [
@@ -19061,7 +18639,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV33 = [
@@ -19084,7 +18662,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV33 = [
@@ -19093,13 +18671,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV33,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV33 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV33)
-        ];
+        this.PackMapEnvDataSkyCardsV33 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV33)];
 
         this.PackMapEnvDataWaterV33 = [
           "waterFlags",
@@ -19149,7 +18724,7 @@ module.exports = [
           "bumpTexture",
           Utils.getFileNameReader(),
           "patternTexture",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataWindV33 = [
@@ -19164,7 +18739,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV33 = [
@@ -19201,7 +18776,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV33 = [
@@ -19210,7 +18785,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV33 = [
@@ -19237,14 +18812,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV33),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV33 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV33),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV33)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV33),
         ];
       },
 
@@ -19256,13 +18831,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV32 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV32)
-        ];
+        this.PackMapEnvDataLightingV32 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV32)];
 
         this.PackMapEnvDataLayerAttributesV32 = [
           "density",
@@ -19272,7 +18844,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV32 = [
@@ -19289,13 +18861,10 @@ module.exports = [
           "attributes",
           Utils.getArrayReader(this.PackMapEnvDataLayerAttributesV32),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV32 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV32)
-        ];
+        this.PackMapEnvDataCloudsV32 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV32)];
 
         this.PackMapEnvDataEffectV32 = [
           "glow",
@@ -19309,7 +18878,7 @@ module.exports = [
           "glowLevel",
           ["[]", "uint8", 4],
           "glowAmplify",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV32 = [
@@ -19322,7 +18891,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV32 = [
@@ -19363,7 +18932,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataSkyV32 = [
@@ -19388,7 +18957,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV32 = [
@@ -19411,7 +18980,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV32 = [
@@ -19420,13 +18989,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV32,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV32 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV32)
-        ];
+        this.PackMapEnvDataSkyCardsV32 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV32)];
 
         this.PackMapEnvDataWaterV32 = [
           "waterFlags",
@@ -19476,7 +19042,7 @@ module.exports = [
           "bumpTexture",
           Utils.getFileNameReader(),
           "patternTexture",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataWindV32 = [
@@ -19491,7 +19057,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV32 = [
@@ -19526,7 +19092,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV32 = [
@@ -19535,7 +19101,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV32 = [
@@ -19560,14 +19126,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV32),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV32 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV32),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV32)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV32),
         ];
       },
 
@@ -19579,13 +19145,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV31 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV31)
-        ];
+        this.PackMapEnvDataLightingV31 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV31)];
 
         this.PackMapEnvDataLayerAttributesV31 = [
           "density",
@@ -19597,7 +19160,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV31 = [
@@ -19614,13 +19177,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataLayerAttributesV31,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV31 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV31)
-        ];
+        this.PackMapEnvDataCloudsV31 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV31)];
 
         this.PackMapEnvDataEffectV31 = [
           "glow",
@@ -19634,7 +19194,7 @@ module.exports = [
           "glowLevel",
           ["[]", "uint8", 4],
           "glowAmplify",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV31 = [
@@ -19647,7 +19207,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV31 = [
@@ -19688,7 +19248,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataSkyV31 = [
@@ -19713,7 +19273,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV31 = [
@@ -19736,7 +19296,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV31 = [
@@ -19745,13 +19305,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV31,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV31 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV31)
-        ];
+        this.PackMapEnvDataSkyCardsV31 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV31)];
 
         this.PackMapEnvDataWaterV31 = [
           "waterFlags",
@@ -19801,7 +19358,7 @@ module.exports = [
           "bumpTexture",
           Utils.getFileNameReader(),
           "patternTexture",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataWindV31 = [
@@ -19816,7 +19373,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV31 = [
@@ -19851,7 +19408,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV31 = [
@@ -19860,7 +19417,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV31 = [
@@ -19885,14 +19442,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV31),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV31 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV31),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV31)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV31),
         ];
       },
 
@@ -19904,13 +19461,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV30 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV30)
-        ];
+        this.PackMapEnvDataLightingV30 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV30)];
 
         this.PackMapEnvDataLayerAttributesV30 = [
           "density",
@@ -19922,7 +19476,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV30 = [
@@ -19939,13 +19493,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataLayerAttributesV30,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV30 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV30)
-        ];
+        this.PackMapEnvDataCloudsV30 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV30)];
 
         this.PackMapEnvDataEffectV30 = [
           "glow",
@@ -19959,7 +19510,7 @@ module.exports = [
           "glowLevel",
           ["[]", "uint8", 4],
           "glowAmplify",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV30 = [
@@ -19972,7 +19523,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV30 = [
@@ -20007,7 +19558,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataSkyV30 = [
@@ -20032,7 +19583,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV30 = [
@@ -20055,7 +19606,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV30 = [
@@ -20064,13 +19615,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV30,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV30 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV30)
-        ];
+        this.PackMapEnvDataSkyCardsV30 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV30)];
 
         this.PackMapEnvDataWaterV30 = [
           "waterFlags",
@@ -20118,7 +19666,7 @@ module.exports = [
           "bumpTexture",
           Utils.getFileNameReader(),
           "patternTexture",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataWindV30 = [
@@ -20133,7 +19681,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV30 = [
@@ -20168,7 +19716,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV30 = [
@@ -20177,7 +19725,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV30 = [
@@ -20202,14 +19750,14 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV30),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV30 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV30),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV30)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV30),
         ];
       },
 
@@ -20221,13 +19769,10 @@ module.exports = [
           "intensity",
           "float32",
           "direction",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
-        this.PackMapEnvDataLightingV29 = [
-          "lights",
-          Utils.getRefArrayReader(this.PackMapEnvDataLightV29)
-        ];
+        this.PackMapEnvDataLightingV29 = ["lights", Utils.getRefArrayReader(this.PackMapEnvDataLightV29)];
 
         this.PackMapEnvDataLayerAttributesV29 = [
           "density",
@@ -20239,7 +19784,7 @@ module.exports = [
           "lightIntensity",
           "float32",
           "velocity",
-          ["[]", "float32", 2]
+          ["[]", "float32", 2],
         ];
 
         this.PackMapEnvDataLayerV29 = [
@@ -20254,13 +19799,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataLayerAttributesV29,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataCloudsV29 = [
-          "layers",
-          Utils.getArrayReader(this.PackMapEnvDataLayerV29)
-        ];
+        this.PackMapEnvDataCloudsV29 = ["layers", Utils.getArrayReader(this.PackMapEnvDataLayerV29)];
 
         this.PackMapEnvDataEffectV29 = [
           "glow",
@@ -20274,7 +19816,7 @@ module.exports = [
           "glowLevel",
           ["[]", "uint8", 4],
           "glowAmplify",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataHazeV29 = [
@@ -20287,7 +19829,7 @@ module.exports = [
           "heightRange",
           ["[]", "float32", 2],
           "depthCue",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataPFieldV29 = [
@@ -20322,7 +19864,7 @@ module.exports = [
           "type",
           "uint8",
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
         this.PackMapEnvDataSkyV29 = [
@@ -20347,7 +19889,7 @@ module.exports = [
           "nightLightIntensity",
           "float32",
           "nightStarDensity",
-          "float32"
+          "float32",
         ];
 
         this.PackMapEnvDataSkyCardAttributesV29 = [
@@ -20370,7 +19912,7 @@ module.exports = [
           "texture",
           Utils.getFileNameReader(),
           "textureUV",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.PackMapEnvDataSkyCardV29 = [
@@ -20379,13 +19921,10 @@ module.exports = [
           "night",
           this.PackMapEnvDataSkyCardAttributesV29,
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.PackMapEnvDataSkyCardsV29 = [
-          "cards",
-          Utils.getArrayReader(this.PackMapEnvDataSkyCardV29)
-        ];
+        this.PackMapEnvDataSkyCardsV29 = ["cards", Utils.getArrayReader(this.PackMapEnvDataSkyCardV29)];
 
         this.PackMapEnvDataWaterV29 = [
           "waterFlags",
@@ -20433,7 +19972,7 @@ module.exports = [
           "bumpTexture",
           Utils.getFileNameReader(),
           "patternTexture",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataWindV29 = [
@@ -20448,7 +19987,7 @@ module.exports = [
           "gust",
           "uint8",
           "gustFreq",
-          "uint8"
+          "uint8",
         ];
 
         this.PackMapEnvDataLocalV29 = [
@@ -20483,7 +20022,7 @@ module.exports = [
           "type",
           "uint8",
           "vertexArray",
-          Utils.getArrayReader(["[]", "float32", 2])
+          Utils.getArrayReader(["[]", "float32", 2]),
         ];
 
         this.PackMapEnvDataSkyModeTexV29 = [
@@ -20492,7 +20031,7 @@ module.exports = [
           "texPathSW",
           Utils.getFileNameReader(),
           "texPathT",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapEnvDataGlobalV29 = [
@@ -20517,16 +20056,16 @@ module.exports = [
           "skyModeTex",
           Utils.getArrayReader(this.PackMapEnvDataSkyModeTexV29),
           "starFile",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapEnvironmentV29 = [
           "dataLocalArray",
           Utils.getArrayReader(this.PackMapEnvDataLocalV29),
           "dataGlobal",
-          Utils.getPointerReader(this.PackMapEnvDataGlobalV29)
+          Utils.getPointerReader(this.PackMapEnvDataGlobalV29),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

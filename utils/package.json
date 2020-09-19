@@ -23,12 +23,5 @@
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
   },
-  "devDependencies": {
-    "prettier": "1.19.1"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "tabWidth": 2,
-    "printWidth": 120
-  }
+  "devDependencies": {}
 }

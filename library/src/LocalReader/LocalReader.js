@@ -151,11 +151,7 @@ class LocalReader {
     if (!meta) throw new Error("Unexistant file");
 
     // Slice up the data
-    let { ds, len } = await ArchiveParser.getFilePart(
-      this._file,
-      meta.offset,
-      fileLength || meta.size
-    );
+    let { ds, len } = await ArchiveParser.getFilePart(this._file, meta.offset, fileLength || meta.size);
 
     // If needed we decompress, if not we keep raw
     if (meta.compressed || raw !== false) {
@@ -170,7 +166,7 @@ class LocalReader {
             buffer: undefined,
             dxtType: undefined,
             imageWidth: undefined,
-            imageHeight: undefined
+            imageHeight: undefined,
           };
         });
       return data;
@@ -193,9 +189,7 @@ class LocalReader {
 
     // Load previously saved data
     if (this._persistantStore) {
-      let lastListing = await this._persistantStore.getLastListing(
-        this._file.name
-      );
+      let lastListing = await this._persistantStore.getLastListing(this._file.name);
       persistantList = lastListing.array;
       // If the last scan was not completed then we will just update it..
       if (!lastListing.complete) {
@@ -234,7 +228,7 @@ class LocalReader {
             baseId: baseId,
             size: scanResult.size,
             crc: scanResult.crc,
-            fileType: scanResult.fileType
+            fileType: scanResult.fileType,
           };
           return { task: taskId };
         });
@@ -250,11 +244,7 @@ class LocalReader {
       // Tasks to do only every %
       if (index % Math.floor(iterateList.length / 100) === 0) {
         // Print progress
-        T3D.Logger.log(
-          T3D.Logger.TYPE_PROGRESS,
-          "Finding types",
-          index / Math.floor(iterateList.length / 100)
-        );
+        T3D.Logger.log(T3D.Logger.TYPE_PROGRESS, "Finding types", index / Math.floor(iterateList.length / 100));
 
         // Update the persistant storage if needed
         if (self._persistantStore && persistantNeedsUpdate) {
@@ -269,12 +259,7 @@ class LocalReader {
     await Promise.all(taskArray).then(() => {
       // Finally update the listing as complete
       if (self._persistantStore) {
-        self._persistantStore.putListing(
-          persistantId,
-          persistantList,
-          self._file.name,
-          true
-        );
+        self._persistantStore.putListing(persistantId, persistantList, self._file.name, true);
       }
     });
     this._persistantData = persistantList;
@@ -303,22 +288,18 @@ class LocalReader {
       let reversedIndex = this.getReverseIndex();
       let maps = this._persistantData
         .filter(file => file.fileType === "PF_mapc")
-        .filter(
-          id => id.baseId === reversedIndex[self.getFileIndex(id.baseId)][0]
-        );
+        .filter(id => id.baseId === reversedIndex[self.getFileIndex(id.baseId)][0]);
 
       for (let map of maps) {
         let found = false;
         // Try to see if we already have some informations on this map
         for (let category of MapFileList.maps) {
-          let fileMap = category.maps.find(
-            item => Number(item.fileName.split(".data")[0]) === map.baseId
-          );
+          let fileMap = category.maps.find(item => Number(item.fileName.split(".data")[0]) === map.baseId);
           if (fileMap) {
             mapArray.push({
               name: fileMap.name,
               category: category.name,
-              baseId: map.baseId
+              baseId: map.baseId,
             });
             found = true;
             break;
@@ -329,7 +310,7 @@ class LocalReader {
           mapArray.push({
             name: map.baseId.toString(),
             category: "Uncategorized",
-            baseId: map.baseId
+            baseId: map.baseId,
           });
         }
       }
@@ -342,7 +323,7 @@ class LocalReader {
             mapArray.push({
               name: mapEntry.name,
               category: category.name,
-              baseId: Number(mapEntry.fileName.split(".data")[0])
+              baseId: Number(mapEntry.fileName.split(".data")[0]),
             });
           }
         }
@@ -367,22 +348,18 @@ class LocalReader {
    * @returns {Array<FileItem>}
    */
   getFileList() {
-    let typeList = this._persistantData
-      ? this._persistantData.map(i => i.fileType)
-      : [];
+    let typeList = this._persistantData ? this._persistantData.map(i => i.fileType) : [];
     let reverseBaseIdList = this.getReverseIndex();
 
     let fileList = this._fileMetaTable.map((meta, mftId) => {
       let baseIds = reverseBaseIdList[mftId] ? reverseBaseIdList[mftId] : [];
-      let type = reverseBaseIdList[mftId]
-        ? typeList[baseIds[0]]
-        : "Non-Registered";
+      let type = reverseBaseIdList[mftId] ? typeList[baseIds[0]] : "Non-Registered";
       return {
         mftId: mftId,
         baseIdList: baseIds,
         size: meta.size,
         crc: meta.crc,
-        fileType: type
+        fileType: type,
       };
     });
     fileList[0] = {
@@ -390,7 +367,7 @@ class LocalReader {
       baseIdList: [],
       size: 0,
       crc: 0,
-      fileType: "Non-Registered"
+      fileType: "Non-Registered",
     };
     return fileList;
   }
@@ -440,10 +417,7 @@ class LocalReader {
     */
   readMapListAsync(searchAll, callback) {
     let self = this;
-    T3D.Logger.log(
-      T3D.Logger.TYPE_WARNING,
-      "LocalReader.readMapListAsync is deprecated !"
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.readMapListAsync is deprecated !");
 
     // Let's preserve the old output way
     function restoreOuput(array) {
@@ -455,7 +429,7 @@ class LocalReader {
         }
         returnArray[category].maps.push({
           fileName: elt.baseId,
-          name: elt.name
+          name: elt.name,
         });
       }
       // And resort it in order
@@ -487,10 +461,7 @@ class LocalReader {
    * First argument is the a list of mft indices grouped by file type.
    */
   readFileListAsync(callback) {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_WARNING,
-      "LocalReader.readFileListAsync is deprecated !"
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.readFileListAsync is deprecated !");
 
     // Because the API changed we reform the data as wanted previously
     this.readFileList().then(result => {
@@ -523,20 +494,12 @@ class LocalReader {
    * @param  {boolean}   raw      If true, any infation is skipped and raw data is returned.
    */
   loadFile(baseId, callback, isImage, raw) {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_WARNING,
-      "LocalReader.loadFile is deprecated !"
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.loadFile is deprecated !");
     let mftId = this.getFileIndex(baseId);
     if (mftId <= 0) return callback(null);
     this.readFile(mftId, isImage, raw).then(result => {
       if (result.buffer === undefined) return callback(null);
-      callback(
-        result.buffer,
-        result.dxtType,
-        result.imageWidth,
-        result.imageHeight
-      );
+      callback(result.buffer, result.dxtType, result.imageWidth, result.imageHeight);
     });
   }
 
@@ -555,10 +518,7 @@ class LocalReader {
    *
    */
   loadTextureFile(baseId, callback) {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_WARNING,
-      "LocalReader.loadTextureFile is deprecated !"
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.loadTextureFile is deprecated !");
 
     this.loadFile(baseId, callback, true);
   }
@@ -571,10 +531,7 @@ class LocalReader {
    * @deprecated
    */
   loadFileList() {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_WARNING,
-      "LocalReader.loadFileList is deprecated !"
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.loadFileList is deprecated !");
     return undefined;
   }
 
@@ -586,10 +543,7 @@ class LocalReader {
    * @deprecated
    */
   loadMapList() {
-    T3D.Logger.log(
-      T3D.Logger.TYPE_WARNING,
-      "LocalReader.loadMapList is deprecated !"
-    );
+    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.loadMapList is deprecated !");
     return undefined;
   }
 
@@ -620,10 +574,7 @@ class LocalReader {
       return { change: "added", scan: true };
     }
     // If the size or crc don't match
-    else if (
-      metaData.size !== persistantData[baseId].size ||
-      metaData.crc !== persistantData[baseId].crc
-    ) {
+    else if (metaData.size !== persistantData[baseId].size || metaData.crc !== persistantData[baseId].crc) {
       return { change: "modified", scan: true };
     }
     // If everything is the same
@@ -648,13 +599,7 @@ class LocalReader {
     if (this._fileTypeCache[baseId] !== undefined) {
       fileType = this._fileTypeCache[baseId];
     } else {
-      let fileBuffer = (await this.readFile(
-        mftId,
-        false,
-        false,
-        Math.min(metaData.size, 1000),
-        32
-      )).buffer;
+      let fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
       if (fileBuffer === undefined) return undefined;
       fileType = FileTypes.getFileType(new DataStream(fileBuffer));
     }

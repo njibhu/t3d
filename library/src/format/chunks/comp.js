@@ -18,7 +18,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeBoneScaleParamV19 = [
@@ -35,7 +35,7 @@ module.exports = [
           "scale",
           ["[]", "float32", 3],
           "translate",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackCompositeBoneScaleRegionV19 = [
@@ -44,27 +44,19 @@ module.exports = [
           "value",
           "float32",
           "Bone",
-          Utils.getArrayReader(this.PackCompositeBoneScaleParamV19)
+          Utils.getArrayReader(this.PackCompositeBoneScaleParamV19),
         ];
 
-        this.PackCompositeMorphWeightV19 = [
-          "name",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.PackCompositeMorphWeightV19 = ["name", Utils.getQWordReader(), "value", "float32"];
 
         this.PackCompositeBoneScaleV19 = [
           "BodyRegion",
           Utils.getArrayReader(this.PackCompositeBoneScaleRegionV19),
           "MorphWeight",
-          Utils.getArrayReader(this.PackCompositeMorphWeightV19)
+          Utils.getArrayReader(this.PackCompositeMorphWeightV19),
         ];
 
-        this.PackCompositeBoneScaleFileV19 = [
-          "fileName",
-          Utils.getString16Reader()
-        ];
+        this.PackCompositeBoneScaleFileV19 = ["fileName", Utils.getString16Reader()];
 
         this.PackCompositeFileDataV19 = [
           "name",
@@ -100,7 +92,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeSkinPatternV19 = [
@@ -115,7 +107,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeSkinStyleV19 = [
@@ -126,7 +118,7 @@ module.exports = [
           "hands",
           Utils.getQWordReader(),
           "legs",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackCompositeColorV19 = [
@@ -139,7 +131,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV19 = [
@@ -152,7 +144,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV19,
           "color3",
-          this.PackCompositeColorV19
+          this.PackCompositeColorV19,
         ];
 
         this.PackCompositeVariantV19 = [
@@ -175,15 +167,10 @@ module.exports = [
           "skinIndex",
           "uint32",
           "skinStyle",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackCompositeAnimOverrideV19 = [
-          "animRole",
-          Utils.getQWordReader(),
-          "filepath",
-          Utils.getFileNameReader()
-        ];
+        this.PackCompositeAnimOverrideV19 = ["animRole", Utils.getQWordReader(), "filepath", Utils.getFileNameReader()];
 
         this.PackCompositeRaceDataV19 = [
           "name",
@@ -231,7 +218,7 @@ module.exports = [
           "variants",
           Utils.getArrayReader(this.PackCompositeVariantV19),
           "animOverrides",
-          Utils.getArrayReader(this.PackCompositeAnimOverrideV19)
+          Utils.getArrayReader(this.PackCompositeAnimOverrideV19),
         ];
 
         this.__root = this.PackCompositeV19 = [
@@ -244,7 +231,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV19),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -258,7 +245,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeBoneScaleParamV18 = [
@@ -275,7 +262,7 @@ module.exports = [
           "scale",
           ["[]", "float32", 3],
           "translate",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackCompositeBoneScaleRegionV18 = [
@@ -284,27 +271,19 @@ module.exports = [
           "value",
           "float32",
           "Bone",
-          Utils.getArrayReader(this.PackCompositeBoneScaleParamV18)
+          Utils.getArrayReader(this.PackCompositeBoneScaleParamV18),
         ];
 
-        this.PackCompositeMorphWeightV18 = [
-          "name",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.PackCompositeMorphWeightV18 = ["name", Utils.getQWordReader(), "value", "float32"];
 
         this.PackCompositeBoneScaleV18 = [
           "BodyRegion",
           Utils.getArrayReader(this.PackCompositeBoneScaleRegionV18),
           "MorphWeight",
-          Utils.getArrayReader(this.PackCompositeMorphWeightV18)
+          Utils.getArrayReader(this.PackCompositeMorphWeightV18),
         ];
 
-        this.PackCompositeBoneScaleFileV18 = [
-          "fileName",
-          Utils.getString16Reader()
-        ];
+        this.PackCompositeBoneScaleFileV18 = ["fileName", Utils.getString16Reader()];
 
         this.PackCompositeFileDataV18 = [
           "name",
@@ -340,7 +319,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeSkinPatternV18 = [
@@ -355,7 +334,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeSkinStyleV18 = [
@@ -366,7 +345,7 @@ module.exports = [
           "hands",
           Utils.getQWordReader(),
           "legs",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackCompositeColorV18 = [
@@ -379,7 +358,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV18 = [
@@ -392,7 +371,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV18,
           "color3",
-          this.PackCompositeColorV18
+          this.PackCompositeColorV18,
         ];
 
         this.PackCompositeVariantV18 = [
@@ -413,15 +392,10 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV18,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackCompositeAnimOverrideV18 = [
-          "animRole",
-          Utils.getQWordReader(),
-          "filepath",
-          Utils.getFileNameReader()
-        ];
+        this.PackCompositeAnimOverrideV18 = ["animRole", Utils.getQWordReader(), "filepath", Utils.getFileNameReader()];
 
         this.PackCompositeRaceDataV18 = [
           "name",
@@ -469,7 +443,7 @@ module.exports = [
           "variants",
           Utils.getArrayReader(this.PackCompositeVariantV18),
           "animOverrides",
-          Utils.getArrayReader(this.PackCompositeAnimOverrideV18)
+          Utils.getArrayReader(this.PackCompositeAnimOverrideV18),
         ];
 
         this.__root = this.PackCompositeV18 = [
@@ -482,7 +456,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV18),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -496,7 +470,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeBoneScaleParamV17 = [
@@ -513,7 +487,7 @@ module.exports = [
           "scale",
           ["[]", "float32", 3],
           "translate",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackCompositeBoneScaleRegionV17 = [
@@ -522,27 +496,19 @@ module.exports = [
           "value",
           "float32",
           "Bone",
-          Utils.getArrayReader(this.PackCompositeBoneScaleParamV17)
+          Utils.getArrayReader(this.PackCompositeBoneScaleParamV17),
         ];
 
-        this.PackCompositeMorphWeightV17 = [
-          "name",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.PackCompositeMorphWeightV17 = ["name", Utils.getQWordReader(), "value", "float32"];
 
         this.PackCompositeBoneScaleV17 = [
           "BodyRegion",
           Utils.getArrayReader(this.PackCompositeBoneScaleRegionV17),
           "MorphWeight",
-          Utils.getArrayReader(this.PackCompositeMorphWeightV17)
+          Utils.getArrayReader(this.PackCompositeMorphWeightV17),
         ];
 
-        this.PackCompositeBoneScaleFileV17 = [
-          "fileName",
-          Utils.getString16Reader()
-        ];
+        this.PackCompositeBoneScaleFileV17 = ["fileName", Utils.getString16Reader()];
 
         this.PackCompositeFileDataV17 = [
           "name",
@@ -576,7 +542,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeSkinPatternV17 = [
@@ -591,7 +557,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeSkinStyleV17 = [
@@ -602,7 +568,7 @@ module.exports = [
           "hands",
           Utils.getQWordReader(),
           "legs",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.PackCompositeColorV17 = [
@@ -615,7 +581,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV17 = [
@@ -628,7 +594,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV17,
           "color3",
-          this.PackCompositeColorV17
+          this.PackCompositeColorV17,
         ];
 
         this.PackCompositeVariantV17 = [
@@ -649,15 +615,10 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV17,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackCompositeAnimOverrideV17 = [
-          "animRole",
-          Utils.getQWordReader(),
-          "filepath",
-          Utils.getFileNameReader()
-        ];
+        this.PackCompositeAnimOverrideV17 = ["animRole", Utils.getQWordReader(), "filepath", Utils.getFileNameReader()];
 
         this.PackCompositeRaceDataV17 = [
           "name",
@@ -705,7 +666,7 @@ module.exports = [
           "variants",
           Utils.getArrayReader(this.PackCompositeVariantV17),
           "animOverrides",
-          Utils.getArrayReader(this.PackCompositeAnimOverrideV17)
+          Utils.getArrayReader(this.PackCompositeAnimOverrideV17),
         ];
 
         this.__root = this.PackCompositeV17 = [
@@ -718,7 +679,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV17),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -732,7 +693,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeBoneScaleParamV16 = [
@@ -749,7 +710,7 @@ module.exports = [
           "scale",
           ["[]", "float32", 3],
           "translate",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackCompositeBoneScaleRegionV16 = [
@@ -758,27 +719,19 @@ module.exports = [
           "value",
           "float32",
           "Bone",
-          Utils.getArrayReader(this.PackCompositeBoneScaleParamV16)
+          Utils.getArrayReader(this.PackCompositeBoneScaleParamV16),
         ];
 
-        this.PackCompositeMorphWeightV16 = [
-          "name",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.PackCompositeMorphWeightV16 = ["name", Utils.getQWordReader(), "value", "float32"];
 
         this.PackCompositeBoneScaleV16 = [
           "BodyRegion",
           Utils.getArrayReader(this.PackCompositeBoneScaleRegionV16),
           "MorphWeight",
-          Utils.getArrayReader(this.PackCompositeMorphWeightV16)
+          Utils.getArrayReader(this.PackCompositeMorphWeightV16),
         ];
 
-        this.PackCompositeBoneScaleFileV16 = [
-          "fileName",
-          Utils.getString16Reader()
-        ];
+        this.PackCompositeBoneScaleFileV16 = ["fileName", Utils.getString16Reader()];
 
         this.PackCompositeFileDataV16 = [
           "name",
@@ -812,7 +765,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeSkinPatternV16 = [
@@ -827,7 +780,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV16 = [
@@ -840,7 +793,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV16 = [
@@ -853,7 +806,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV16,
           "color3",
-          this.PackCompositeColorV16
+          this.PackCompositeColorV16,
         ];
 
         this.PackCompositeVariantV16 = [
@@ -874,15 +827,10 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV16,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackCompositeAnimOverrideV16 = [
-          "animRole",
-          Utils.getQWordReader(),
-          "filepath",
-          Utils.getFileNameReader()
-        ];
+        this.PackCompositeAnimOverrideV16 = ["animRole", Utils.getQWordReader(), "filepath", Utils.getFileNameReader()];
 
         this.PackCompositeRaceDataV16 = [
           "name",
@@ -930,7 +878,7 @@ module.exports = [
           "variants",
           Utils.getArrayReader(this.PackCompositeVariantV16),
           "animOverrides",
-          Utils.getArrayReader(this.PackCompositeAnimOverrideV16)
+          Utils.getArrayReader(this.PackCompositeAnimOverrideV16),
         ];
 
         this.__root = this.PackCompositeV16 = [
@@ -943,7 +891,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV16),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -957,7 +905,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeBoneScaleParamV15 = [
@@ -974,7 +922,7 @@ module.exports = [
           "scale",
           ["[]", "float32", 3],
           "translate",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackCompositeBoneScaleRegionV15 = [
@@ -983,27 +931,19 @@ module.exports = [
           "value",
           "float32",
           "Bone",
-          Utils.getArrayReader(this.PackCompositeBoneScaleParamV15)
+          Utils.getArrayReader(this.PackCompositeBoneScaleParamV15),
         ];
 
-        this.PackCompositeMorphWeightV15 = [
-          "name",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.PackCompositeMorphWeightV15 = ["name", Utils.getQWordReader(), "value", "float32"];
 
         this.PackCompositeBoneScaleV15 = [
           "BodyRegion",
           Utils.getArrayReader(this.PackCompositeBoneScaleRegionV15),
           "MorphWeight",
-          Utils.getArrayReader(this.PackCompositeMorphWeightV15)
+          Utils.getArrayReader(this.PackCompositeMorphWeightV15),
         ];
 
-        this.PackCompositeBoneScaleFileV15 = [
-          "fileName",
-          Utils.getString16Reader()
-        ];
+        this.PackCompositeBoneScaleFileV15 = ["fileName", Utils.getString16Reader()];
 
         this.PackCompositeFileDataV15 = [
           "name",
@@ -1037,7 +977,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeSkinPatternV15 = [
@@ -1052,7 +992,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV15 = [
@@ -1065,7 +1005,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV15 = [
@@ -1078,7 +1018,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV15,
           "color3",
-          this.PackCompositeColorV15
+          this.PackCompositeColorV15,
         ];
 
         this.PackCompositeVariantV15 = [
@@ -1099,15 +1039,10 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV15,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackCompositeAnimOverrideV15 = [
-          "animRole",
-          Utils.getQWordReader(),
-          "filepath",
-          Utils.getFileNameReader()
-        ];
+        this.PackCompositeAnimOverrideV15 = ["animRole", Utils.getQWordReader(), "filepath", Utils.getFileNameReader()];
 
         this.PackCompositeRaceDataV15 = [
           "name",
@@ -1155,7 +1090,7 @@ module.exports = [
           "variants",
           Utils.getArrayReader(this.PackCompositeVariantV15),
           "animOverrides",
-          Utils.getArrayReader(this.PackCompositeAnimOverrideV15)
+          Utils.getArrayReader(this.PackCompositeAnimOverrideV15),
         ];
 
         this.__root = this.PackCompositeV15 = [
@@ -1168,7 +1103,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV15),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -1182,7 +1117,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeBoneScaleParamV14 = [
@@ -1199,7 +1134,7 @@ module.exports = [
           "scale",
           ["[]", "float32", 3],
           "translate",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackCompositeBoneScaleRegionV14 = [
@@ -1208,27 +1143,19 @@ module.exports = [
           "value",
           "float32",
           "Bone",
-          Utils.getArrayReader(this.PackCompositeBoneScaleParamV14)
+          Utils.getArrayReader(this.PackCompositeBoneScaleParamV14),
         ];
 
-        this.PackCompositeMorphWeightV14 = [
-          "name",
-          Utils.getQWordReader(),
-          "value",
-          "float32"
-        ];
+        this.PackCompositeMorphWeightV14 = ["name", Utils.getQWordReader(), "value", "float32"];
 
         this.PackCompositeBoneScaleV14 = [
           "BodyRegion",
           Utils.getArrayReader(this.PackCompositeBoneScaleRegionV14),
           "MorphWeight",
-          Utils.getArrayReader(this.PackCompositeMorphWeightV14)
+          Utils.getArrayReader(this.PackCompositeMorphWeightV14),
         ];
 
-        this.PackCompositeBoneScaleFileV14 = [
-          "fileName",
-          Utils.getString16Reader()
-        ];
+        this.PackCompositeBoneScaleFileV14 = ["fileName", Utils.getString16Reader()];
 
         this.PackCompositeFileDataV14 = [
           "name",
@@ -1262,7 +1189,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeSkinPatternV14 = [
@@ -1277,7 +1204,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV14 = [
@@ -1290,7 +1217,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV14 = [
@@ -1303,7 +1230,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV14,
           "color3",
-          this.PackCompositeColorV14
+          this.PackCompositeColorV14,
         ];
 
         this.PackCompositeVariantV14 = [
@@ -1324,7 +1251,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV14,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV14 = [
@@ -1371,7 +1298,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV14)
+          Utils.getArrayReader(this.PackCompositeVariantV14),
         ];
 
         this.__root = this.PackCompositeV14 = [
@@ -1384,7 +1311,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV14),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -1398,7 +1325,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeBoneScaleParamV13 = [
@@ -1415,7 +1342,7 @@ module.exports = [
           "scale",
           ["[]", "float32", 3],
           "translate",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackCompositeBoneScaleRegionV13 = [
@@ -1424,27 +1351,19 @@ module.exports = [
           "value",
           "float32",
           "Bone",
-          Utils.getArrayReader(this.PackCompositeBoneScaleParamV13)
+          Utils.getArrayReader(this.PackCompositeBoneScaleParamV13),
         ];
 
-        this.PackCompositeMorphWeightV13 = [
-          "value",
-          "float32",
-          "name",
-          Utils.getQWordReader()
-        ];
+        this.PackCompositeMorphWeightV13 = ["value", "float32", "name", Utils.getQWordReader()];
 
         this.PackCompositeBoneScaleV13 = [
           "BodyRegion",
           Utils.getArrayReader(this.PackCompositeBoneScaleRegionV13),
           "MorphWeight",
-          Utils.getArrayReader(this.PackCompositeMorphWeightV13)
+          Utils.getArrayReader(this.PackCompositeMorphWeightV13),
         ];
 
-        this.PackCompositeBoneScaleFileV13 = [
-          "fileName",
-          Utils.getString16Reader()
-        ];
+        this.PackCompositeBoneScaleFileV13 = ["fileName", Utils.getString16Reader()];
 
         this.PackCompositeFileDataV13 = [
           "name",
@@ -1478,7 +1397,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeSkinPatternV13 = [
@@ -1493,7 +1412,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV13 = [
@@ -1506,7 +1425,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV13 = [
@@ -1519,7 +1438,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV13,
           "color3",
-          this.PackCompositeColorV13
+          this.PackCompositeColorV13,
         ];
 
         this.PackCompositeVariantV13 = [
@@ -1538,7 +1457,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV13,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV13 = [
@@ -1583,7 +1502,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV13)
+          Utils.getArrayReader(this.PackCompositeVariantV13),
         ];
 
         this.__root = this.PackCompositeV13 = [
@@ -1596,7 +1515,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV13),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -1610,7 +1529,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeBoneScaleParamV12 = [
@@ -1627,7 +1546,7 @@ module.exports = [
           "scale",
           ["[]", "float32", 3],
           "translate",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackCompositeBoneScaleRegionV12 = [
@@ -1636,27 +1555,19 @@ module.exports = [
           "value",
           "float32",
           "Bone",
-          Utils.getArrayReader(this.PackCompositeBoneScaleParamV12)
+          Utils.getArrayReader(this.PackCompositeBoneScaleParamV12),
         ];
 
-        this.PackCompositeMorphWeightV12 = [
-          "value",
-          "float32",
-          "name",
-          Utils.getQWordReader()
-        ];
+        this.PackCompositeMorphWeightV12 = ["value", "float32", "name", Utils.getQWordReader()];
 
         this.PackCompositeBoneScaleV12 = [
           "BodyRegion",
           Utils.getArrayReader(this.PackCompositeBoneScaleRegionV12),
           "MorphWeight",
-          Utils.getArrayReader(this.PackCompositeMorphWeightV12)
+          Utils.getArrayReader(this.PackCompositeMorphWeightV12),
         ];
 
-        this.PackCompositeBoneScaleFileV12 = [
-          "fileName",
-          Utils.getString16Reader()
-        ];
+        this.PackCompositeBoneScaleFileV12 = ["fileName", Utils.getString16Reader()];
 
         this.PackCompositeFileDataV12 = [
           "name",
@@ -1688,7 +1599,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV12 = [
@@ -1703,7 +1614,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV12 = [
@@ -1716,7 +1627,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV12 = [
@@ -1729,7 +1640,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV12,
           "color3",
-          this.PackCompositeColorV12
+          this.PackCompositeColorV12,
         ];
 
         this.PackCompositeVariantV12 = [
@@ -1748,7 +1659,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV12,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV12 = [
@@ -1793,7 +1704,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV12)
+          Utils.getArrayReader(this.PackCompositeVariantV12),
         ];
 
         this.__root = this.PackCompositeV12 = [
@@ -1806,7 +1717,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV12),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -1820,7 +1731,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeBoneScaleParamV11 = [
@@ -1837,20 +1748,17 @@ module.exports = [
           "scale",
           ["[]", "float32", 3],
           "translate",
-          ["[]", "float32", 3]
+          ["[]", "float32", 3],
         ];
 
         this.PackCompositeBoneScaleRegionV11 = [
           "value",
           "float32",
           "Bone",
-          Utils.getArrayReader(this.PackCompositeBoneScaleParamV11)
+          Utils.getArrayReader(this.PackCompositeBoneScaleParamV11),
         ];
 
-        this.PackCompositeBoneScaleV11 = [
-          "BodyRegion",
-          Utils.getArrayReader(this.PackCompositeBoneScaleRegionV11)
-        ];
+        this.PackCompositeBoneScaleV11 = ["BodyRegion", Utils.getArrayReader(this.PackCompositeBoneScaleRegionV11)];
 
         this.PackCompositeFileDataV11 = [
           "name",
@@ -1882,7 +1790,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV11 = [
@@ -1897,7 +1805,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV11 = [
@@ -1910,7 +1818,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV11 = [
@@ -1923,7 +1831,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV11,
           "color3",
-          this.PackCompositeColorV11
+          this.PackCompositeColorV11,
         ];
 
         this.PackCompositeVariantV11 = [
@@ -1942,7 +1850,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV11,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV11 = [
@@ -1979,7 +1887,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV11)
+          Utils.getArrayReader(this.PackCompositeVariantV11),
         ];
 
         this.__root = this.PackCompositeV11 = [
@@ -1992,7 +1900,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV11),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -2006,7 +1914,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV10 = [
@@ -2039,7 +1947,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV10 = [
@@ -2054,7 +1962,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV10 = [
@@ -2067,7 +1975,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV10 = [
@@ -2080,7 +1988,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV10,
           "color3",
-          this.PackCompositeColorV10
+          this.PackCompositeColorV10,
         ];
 
         this.PackCompositeVariantV10 = [
@@ -2097,7 +2005,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV10,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV10 = [
@@ -2134,7 +2042,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV10)
+          Utils.getArrayReader(this.PackCompositeVariantV10),
         ];
 
         this.__root = this.PackCompositeV10 = [
@@ -2145,7 +2053,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV10),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -2159,7 +2067,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV9 = [
@@ -2192,7 +2100,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV9 = [
@@ -2207,7 +2115,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV9 = [
@@ -2220,7 +2128,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV9 = [
@@ -2233,7 +2141,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV9,
           "color3",
-          this.PackCompositeColorV9
+          this.PackCompositeColorV9,
         ];
 
         this.PackCompositeVariantV9 = [
@@ -2250,7 +2158,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV9,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV9 = [
@@ -2285,7 +2193,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV9)
+          Utils.getArrayReader(this.PackCompositeVariantV9),
         ];
 
         this.__root = this.PackCompositeV9 = [
@@ -2296,7 +2204,7 @@ module.exports = [
           "raceSexData",
           Utils.getArrayReader(this.PackCompositeRaceDataV9),
           "configVersion",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -2310,7 +2218,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV8 = [
@@ -2343,7 +2251,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV8 = [
@@ -2358,7 +2266,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV8 = [
@@ -2371,7 +2279,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV8 = [
@@ -2384,7 +2292,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV8,
           "color3",
-          this.PackCompositeColorV8
+          this.PackCompositeColorV8,
         ];
 
         this.PackCompositeVariantV8 = [
@@ -2401,7 +2309,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV8,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV8 = [
@@ -2436,7 +2344,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV8)
+          Utils.getArrayReader(this.PackCompositeVariantV8),
         ];
 
         this.__root = this.PackCompositeV8 = [
@@ -2445,7 +2353,7 @@ module.exports = [
           "blitRects",
           Utils.getArrayReader(this.PackCompositeBlitRectSetV8),
           "raceSexData",
-          Utils.getArrayReader(this.PackCompositeRaceDataV8)
+          Utils.getArrayReader(this.PackCompositeRaceDataV8),
         ];
       },
 
@@ -2459,7 +2367,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV7 = [
@@ -2492,7 +2400,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV7 = [
@@ -2507,7 +2415,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV7 = [
@@ -2520,7 +2428,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV7 = [
@@ -2533,7 +2441,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV7,
           "color3",
-          this.PackCompositeColorV7
+          this.PackCompositeColorV7,
         ];
 
         this.PackCompositeVariantV7 = [
@@ -2550,7 +2458,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV7,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV7 = [
@@ -2583,7 +2491,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV7)
+          Utils.getArrayReader(this.PackCompositeVariantV7),
         ];
 
         this.__root = this.PackCompositeV7 = [
@@ -2592,7 +2500,7 @@ module.exports = [
           "blitRects",
           Utils.getArrayReader(this.PackCompositeBlitRectSetV7),
           "raceSexData",
-          Utils.getArrayReader(this.PackCompositeRaceDataV7)
+          Utils.getArrayReader(this.PackCompositeRaceDataV7),
         ];
       },
 
@@ -2606,7 +2514,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV6 = [
@@ -2639,7 +2547,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV6 = [
@@ -2654,7 +2562,7 @@ module.exports = [
           "legs",
           Utils.getFileNameReader(),
           "ears",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV6 = [
@@ -2667,7 +2575,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV6 = [
@@ -2680,7 +2588,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV6,
           "color3",
-          this.PackCompositeColorV6
+          this.PackCompositeColorV6,
         ];
 
         this.PackCompositeVariantV6 = [
@@ -2697,7 +2605,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV6,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV6 = [
@@ -2728,7 +2636,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV6)
+          Utils.getArrayReader(this.PackCompositeVariantV6),
         ];
 
         this.__root = this.PackCompositeV6 = [
@@ -2737,7 +2645,7 @@ module.exports = [
           "blitRects",
           Utils.getArrayReader(this.PackCompositeBlitRectSetV6),
           "raceSexData",
-          Utils.getArrayReader(this.PackCompositeRaceDataV6)
+          Utils.getArrayReader(this.PackCompositeRaceDataV6),
         ];
       },
 
@@ -2751,7 +2659,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV5 = [
@@ -2784,7 +2692,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV5 = [
@@ -2797,7 +2705,7 @@ module.exports = [
           "hands",
           Utils.getFileNameReader(),
           "legs",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV5 = [
@@ -2810,7 +2718,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV5 = [
@@ -2823,7 +2731,7 @@ module.exports = [
           "color2",
           this.PackCompositeColorV5,
           "color3",
-          this.PackCompositeColorV5
+          this.PackCompositeColorV5,
         ];
 
         this.PackCompositeVariantV5 = [
@@ -2840,7 +2748,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV5,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV5 = [
@@ -2871,7 +2779,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV5)
+          Utils.getArrayReader(this.PackCompositeVariantV5),
         ];
 
         this.__root = this.PackCompositeV5 = [
@@ -2880,7 +2788,7 @@ module.exports = [
           "blitRects",
           Utils.getArrayReader(this.PackCompositeBlitRectSetV5),
           "raceSexData",
-          Utils.getArrayReader(this.PackCompositeRaceDataV5)
+          Utils.getArrayReader(this.PackCompositeRaceDataV5),
         ];
       },
 
@@ -2894,7 +2802,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint8"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV4 = [
@@ -2927,7 +2835,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV4 = [
@@ -2940,7 +2848,7 @@ module.exports = [
           "hands",
           Utils.getFileNameReader(),
           "legs",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV4 = [
@@ -2953,7 +2861,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV4 = [
@@ -2964,7 +2872,7 @@ module.exports = [
           "leatherColor",
           this.PackCompositeColorV4,
           "metalColor",
-          this.PackCompositeColorV4
+          this.PackCompositeColorV4,
         ];
 
         this.PackCompositeVariantV4 = [
@@ -2977,7 +2885,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV4,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV4 = [
@@ -3008,7 +2916,7 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV4)
+          Utils.getArrayReader(this.PackCompositeVariantV4),
         ];
 
         this.__root = this.PackCompositeV4 = [
@@ -3017,7 +2925,7 @@ module.exports = [
           "blitRects",
           Utils.getArrayReader(this.PackCompositeBlitRectSetV4),
           "raceSexData",
-          Utils.getArrayReader(this.PackCompositeRaceDataV4)
+          Utils.getArrayReader(this.PackCompositeRaceDataV4),
         ];
       },
 
@@ -3031,7 +2939,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint32"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV3 = [
@@ -3062,7 +2970,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV3 = [
@@ -3075,7 +2983,7 @@ module.exports = [
           "hands",
           Utils.getFileNameReader(),
           "legs",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV3 = [
@@ -3088,7 +2996,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV3 = [
@@ -3099,7 +3007,7 @@ module.exports = [
           "leatherColor",
           this.PackCompositeColorV3,
           "metalColor",
-          this.PackCompositeColorV3
+          this.PackCompositeColorV3,
         ];
 
         this.PackCompositeVariantV3 = [
@@ -3112,7 +3020,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV3,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV3 = [
@@ -3143,14 +3051,14 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV3)
+          Utils.getArrayReader(this.PackCompositeVariantV3),
         ];
 
         this.__root = this.PackCompositeV3 = [
           "blitRects",
           Utils.getArrayReader(this.PackCompositeBlitRectSetV3),
           "raceSexData",
-          Utils.getArrayReader(this.PackCompositeRaceDataV3)
+          Utils.getArrayReader(this.PackCompositeRaceDataV3),
         ];
       },
 
@@ -3164,7 +3072,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint32"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV2 = [
@@ -3195,7 +3103,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV2 = [
@@ -3208,7 +3116,7 @@ module.exports = [
           "hands",
           Utils.getFileNameReader(),
           "legs",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV2 = [
@@ -3221,7 +3129,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV2 = [
@@ -3232,7 +3140,7 @@ module.exports = [
           "leatherColor",
           this.PackCompositeColorV2,
           "metalColor",
-          this.PackCompositeColorV2
+          this.PackCompositeColorV2,
         ];
 
         this.PackCompositeVariantV2 = [
@@ -3245,7 +3153,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV2,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV2 = [
@@ -3274,14 +3182,14 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV2)
+          Utils.getArrayReader(this.PackCompositeVariantV2),
         ];
 
         this.__root = this.PackCompositeV2 = [
           "blitRects",
           Utils.getArrayReader(this.PackCompositeBlitRectSetV2),
           "raceSexData",
-          Utils.getArrayReader(this.PackCompositeRaceDataV2)
+          Utils.getArrayReader(this.PackCompositeRaceDataV2),
         ];
       },
 
@@ -3295,7 +3203,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint32"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV1 = [
@@ -3328,7 +3236,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV1 = [
@@ -3341,7 +3249,7 @@ module.exports = [
           "hands",
           Utils.getFileNameReader(),
           "legs",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV1 = [
@@ -3354,7 +3262,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV1 = [
@@ -3365,7 +3273,7 @@ module.exports = [
           "leatherColor",
           this.PackCompositeColorV1,
           "metalColor",
-          this.PackCompositeColorV1
+          this.PackCompositeColorV1,
         ];
 
         this.PackCompositeVariantV1 = [
@@ -3378,7 +3286,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV1,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV1 = [
@@ -3407,14 +3315,14 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV1)
+          Utils.getArrayReader(this.PackCompositeVariantV1),
         ];
 
         this.__root = this.PackCompositeV1 = [
           "blitRects",
           Utils.getArrayReader(this.PackCompositeBlitRectSetV1),
           "raceSexData",
-          Utils.getArrayReader(this.PackCompositeRaceDataV1)
+          Utils.getArrayReader(this.PackCompositeRaceDataV1),
         ];
       },
 
@@ -3428,7 +3336,7 @@ module.exports = [
           "rectIndex",
           Utils.getArrayReader("uint32"),
           "rectArray",
-          Utils.getArrayReader(["[]", "uint32", 4])
+          Utils.getArrayReader(["[]", "uint32", 4]),
         ];
 
         this.PackCompositeFileDataV0 = [
@@ -3457,7 +3365,7 @@ module.exports = [
           "skinFlags",
           "uint32",
           "blitRectIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeSkinPatternV0 = [
@@ -3470,7 +3378,7 @@ module.exports = [
           "hands",
           Utils.getFileNameReader(),
           "legs",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackCompositeColorV0 = [
@@ -3483,7 +3391,7 @@ module.exports = [
           "saturation",
           "uint8",
           "lightness",
-          "uint8"
+          "uint8",
         ];
 
         this.PackCompositeVariantComponentV0 = [
@@ -3494,7 +3402,7 @@ module.exports = [
           "leatherColor",
           this.PackCompositeColorV0,
           "metalColor",
-          this.PackCompositeColorV0
+          this.PackCompositeColorV0,
         ];
 
         this.PackCompositeVariantV0 = [
@@ -3507,7 +3415,7 @@ module.exports = [
           "skinColor",
           this.PackCompositeColorV0,
           "skinIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.PackCompositeRaceDataV0 = [
@@ -3532,16 +3440,16 @@ module.exports = [
           "variantRefRace",
           Utils.getQWordReader(),
           "variants",
-          Utils.getArrayReader(this.PackCompositeVariantV0)
+          Utils.getArrayReader(this.PackCompositeVariantV0),
         ];
 
         this.__root = this.PackCompositeV0 = [
           "blitRects",
           Utils.getArrayReader(this.PackCompositeBlitRectSetV0),
           "raceSexData",
-          Utils.getArrayReader(this.PackCompositeRaceDataV0)
+          Utils.getArrayReader(this.PackCompositeRaceDataV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

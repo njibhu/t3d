@@ -16,7 +16,7 @@ module.exports = [
           "state",
           Utils.getArrayReader("uint32"),
           "usesBindTexture",
-          "uint32"
+          "uint32",
         ];
 
         this.AmatDx9ShaderV11 = [
@@ -27,7 +27,7 @@ module.exports = [
           "constTokens",
           Utils.getArrayReader("uint32"),
           "instructionCount",
-          "uint16"
+          "uint16",
         ];
 
         this.AmatDx9EffectV11 = [
@@ -46,13 +46,10 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
-        this.AmatDx9PassV11 = [
-          "effects",
-          Utils.getRefArrayReader(this.AmatDx9EffectV11)
-        ];
+        this.AmatDx9PassV11 = ["effects", Utils.getRefArrayReader(this.AmatDx9EffectV11)];
 
         this.AmatDx9TechniqueV11 = [
           "name",
@@ -62,7 +59,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV11 = [
@@ -73,18 +70,13 @@ module.exports = [
           "techniques",
           Utils.getArrayReader(this.AmatDx9TechniqueV11),
           "useLegacyBindTextures",
-          "uint32"
+          "uint32",
         ];
       },
 
       // => Version: 10
       10: function() {
-        this.AmatDx9SamplerV10 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV10 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV10 = [
           "shader",
@@ -94,7 +86,7 @@ module.exports = [
           "constTokens",
           Utils.getArrayReader("uint32"),
           "instructionCount",
-          "uint16"
+          "uint16",
         ];
 
         this.AmatDx9EffectV10 = [
@@ -115,13 +107,10 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
-        this.AmatDx9PassV10 = [
-          "effects",
-          Utils.getRefArrayReader(this.AmatDx9EffectV10)
-        ];
+        this.AmatDx9PassV10 = ["effects", Utils.getRefArrayReader(this.AmatDx9EffectV10)];
 
         this.AmatDx9TechniqueV10 = [
           "name",
@@ -131,7 +120,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV10 = [
@@ -140,18 +129,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV10),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV10)
+          Utils.getArrayReader(this.AmatDx9TechniqueV10),
         ];
       },
 
       // => Version: 9, ReferencedFunction: 0x5AE990
       9: function() {
-        this.AmatDx9SamplerV9 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV9 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV9 = [
           "shader",
@@ -159,7 +143,7 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.AmatDx9EffectV9 = [
@@ -180,13 +164,10 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
-        this.AmatDx9PassV9 = [
-          "effects",
-          Utils.getRefArrayReader(this.AmatDx9EffectV9)
-        ];
+        this.AmatDx9PassV9 = ["effects", Utils.getRefArrayReader(this.AmatDx9EffectV9)];
 
         this.AmatDx9TechniqueV9 = [
           "name",
@@ -196,7 +177,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV9 = [
@@ -205,18 +186,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV9),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV9)
+          Utils.getArrayReader(this.AmatDx9TechniqueV9),
         ];
       },
 
       // => Version: 8, ReferencedFunction: 0x5AE760
       8: function() {
-        this.AmatDx9SamplerV8 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV8 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV8 = [
           "shader",
@@ -224,7 +200,7 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.AmatDx9EffectV8 = [
@@ -243,13 +219,10 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
-        this.AmatDx9PassV8 = [
-          "effects",
-          Utils.getRefArrayReader(this.AmatDx9EffectV8)
-        ];
+        this.AmatDx9PassV8 = ["effects", Utils.getRefArrayReader(this.AmatDx9EffectV8)];
 
         this.AmatDx9TechniqueV8 = [
           "name",
@@ -259,7 +232,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV8 = [
@@ -268,18 +241,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV8),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV8)
+          Utils.getArrayReader(this.AmatDx9TechniqueV8),
         ];
       },
 
       // => Version: 7, ReferencedFunction: 0x5AE6E0
       7: function() {
-        this.AmatDx9SamplerV7 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV7 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV7 = [
           "shader",
@@ -287,7 +255,7 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.AmatDx9EffectV7 = [
@@ -306,7 +274,7 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
         this.AmatDx9PassV7 = ["effects", ["[]", this.AmatDx9EffectV7, 8]];
@@ -319,7 +287,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV7 = [
@@ -328,18 +296,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV7),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV7)
+          Utils.getArrayReader(this.AmatDx9TechniqueV7),
         ];
       },
 
       // => Version: 6, ReferencedFunction: 0x5AE690
       6: function() {
-        this.AmatDx9SamplerV6 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV6 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV6 = [
           "shader",
@@ -347,7 +310,7 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.AmatDx9EffectV6 = [
@@ -366,7 +329,7 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
         this.AmatDx9PassV6 = ["effects", ["[]", this.AmatDx9EffectV6, 8]];
@@ -379,7 +342,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV6 = [
@@ -388,18 +351,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV6),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV6)
+          Utils.getArrayReader(this.AmatDx9TechniqueV6),
         ];
       },
 
       // => Version: 5, ReferencedFunction: 0x5AE5A0
       5: function() {
-        this.AmatDx9SamplerV5 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV5 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV5 = [
           "shader",
@@ -407,7 +365,7 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.AmatDx9EffectV5 = [
@@ -426,7 +384,7 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
         this.AmatDx9PassV5 = ["effects", ["[]", this.AmatDx9EffectV5, 7]];
@@ -441,7 +399,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV5 = [
@@ -450,18 +408,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV5),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV5)
+          Utils.getArrayReader(this.AmatDx9TechniqueV5),
         ];
       },
 
       // => Version: 4
       4: function() {
-        this.AmatDx9SamplerV4 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV4 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV4 = [
           "shader",
@@ -469,7 +422,7 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.AmatDx9EffectV4 = [
@@ -488,7 +441,7 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
         this.AmatDx9PassV4 = ["effects", ["[]", this.AmatDx9EffectV4, 7]];
@@ -503,7 +456,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV4 = [
@@ -512,18 +465,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV4),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV4)
+          Utils.getArrayReader(this.AmatDx9TechniqueV4),
         ];
       },
 
       // => Version: 3
       3: function() {
-        this.AmatDx9SamplerV3 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV3 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV3 = [
           "shader",
@@ -531,7 +479,7 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.AmatDx9EffectV3 = [
@@ -550,7 +498,7 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
         this.AmatDx9PassV3 = ["effects", ["[]", this.AmatDx9EffectV3, 7]];
@@ -565,7 +513,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV3 = [
@@ -574,18 +522,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV3),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV3)
+          Utils.getArrayReader(this.AmatDx9TechniqueV3),
         ];
       },
 
       // => Version: 2, ReferencedFunction: 0x5AE370
       2: function() {
-        this.AmatDx9SamplerV2 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV2 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV2 = [
           "shader",
@@ -593,7 +536,7 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.AmatDx9EffectV2 = [
@@ -612,7 +555,7 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
         this.AmatDx9PassV2 = ["effects", ["[]", this.AmatDx9EffectV2, 7]];
@@ -627,7 +570,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV2 = [
@@ -636,18 +579,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV2),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV2)
+          Utils.getArrayReader(this.AmatDx9TechniqueV2),
         ];
       },
 
       // => Version: 1, ReferencedFunction: 0x5AE1C0
       1: function() {
-        this.AmatDx9SamplerV1 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV1 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV1 = [
           "shader",
@@ -655,13 +593,10 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.AmatDx9RenderStatesV1 = [
-          "renderStates",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9RenderStatesV1 = ["renderStates", Utils.getArrayReader("uint32")];
 
         this.AmatDx9PassV1 = [
           "effectRenderStates",
@@ -679,7 +614,7 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          ["[]", "uint32", 5]
+          ["[]", "uint32", 5],
         ];
 
         this.AmatDx9TechniqueV1 = [
@@ -692,7 +627,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV1 = [
@@ -701,18 +636,13 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV1),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV1)
+          Utils.getArrayReader(this.AmatDx9TechniqueV1),
         ];
       },
 
       // => Version: 0
       0: function() {
-        this.AmatDx9SamplerV0 = [
-          "textureIndex",
-          "uint32",
-          "state",
-          Utils.getArrayReader("uint32")
-        ];
+        this.AmatDx9SamplerV0 = ["textureIndex", "uint32", "state", Utils.getArrayReader("uint32")];
 
         this.AmatDx9ShaderV0 = [
           "shader",
@@ -720,7 +650,7 @@ module.exports = [
           "constRegisters",
           Utils.getArrayReader("uint32"),
           "constTokens",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.AmatDx9PassV0 = [
@@ -739,7 +669,7 @@ module.exports = [
           "vsGenFlags",
           "uint32",
           "passFlags",
-          "uint32"
+          "uint32",
         ];
 
         this.AmatDx9TechniqueV0 = [
@@ -752,7 +682,7 @@ module.exports = [
           "maxPsVersion",
           "uint16",
           "maxVsVersion",
-          "uint16"
+          "uint16",
         ];
 
         this.__root = this.AmatDx9MaterialV0 = [
@@ -761,9 +691,9 @@ module.exports = [
           "shaders",
           Utils.getArrayReader(this.AmatDx9ShaderV0),
           "techniques",
-          Utils.getArrayReader(this.AmatDx9TechniqueV0)
+          Utils.getArrayReader(this.AmatDx9TechniqueV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

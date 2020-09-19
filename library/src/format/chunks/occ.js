@@ -18,14 +18,11 @@ module.exports = [
           "vertices",
           Utils.getArrayReader(["[]", "float32", 3]),
           "name",
-          Utils.getString16Reader()
+          Utils.getString16Reader(),
         ];
 
-        this.__root = this.MapOcclusions = [
-          "Occlusions",
-          Utils.getArrayReader(this.MapOcclusion)
-        ];
-      }
-    }
-  }
+        this.__root = this.MapOcclusions = ["Occlusions", Utils.getArrayReader(this.MapOcclusion)];
+      },
+    },
+  },
 ];

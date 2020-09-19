@@ -98,25 +98,14 @@ class HavokRenderer extends DataRenderer {
     for (; i < offset + chunkSize && i < models.length; i++) {
       let p = Math.round((i * 100) / models.length);
       if (p !== this.lastP) {
-        this.logger.log(
-          T3D.Logger.TYPE_PROGRESS,
-          "Loading Collision Models (" + title + ")",
-          p
-        );
+        this.logger.log(T3D.Logger.TYPE_PROGRESS, "Loading Collision Models (" + title + ")", p);
         this.lastP = p;
       }
 
       /// Get animation object
-      let animation = this.animationFromGeomIndex(
-        models[i].geometryIndex,
-        this.geometries,
-        this.animations
-      );
+      let animation = this.animationFromGeomIndex(models[i].geometryIndex, this.geometries, this.animations);
 
-      let collisions = this.getCollisionsForAnimation(
-        animation,
-        this.havokChunkData.collisions
-      );
+      let collisions = this.getCollisionsForAnimation(animation, this.havokChunkData.collisions);
 
       for (let j = 0; j < collisions.length; j++) {
         let collision = collisions[j];
@@ -126,15 +115,7 @@ class HavokRenderer extends DataRenderer {
 
     if (i < models.length) {
       window.setTimeout(
-        this.parseAllModels.bind(
-          this,
-          models,
-          mat,
-          title,
-          chunkSize,
-          offset + chunkSize,
-          callback
-        ),
+        this.parseAllModels.bind(this, models, mat, title, chunkSize, offset + chunkSize, callback),
         10 /* time in ms to next call */
       );
     } else {
@@ -229,17 +210,10 @@ class HavokRenderer extends DataRenderer {
         let f2 = collision.indices[i + 1];
         let f3 = collision.indices[i + 2];
 
-        if (
-          f1 <= collision.vertices.length &&
-          f2 <= collision.vertices.length &&
-          f3 <= collision.vertices.length
-        ) {
+        if (f1 <= collision.vertices.length && f2 <= collision.vertices.length && f3 <= collision.vertices.length) {
           geom.faces.push(new THREE.Face3(f1, f2, f3));
         } else {
-          this.logger.log(
-            T3D.Logger.TYPE_ERROR,
-            "Errorus index in havok model geometry."
-          );
+          this.logger.log(T3D.Logger.TYPE_ERROR, "Errorus index in havok model geometry.");
         }
       }
 

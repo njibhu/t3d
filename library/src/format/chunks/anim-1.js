@@ -24,20 +24,17 @@ module.exports = [
           "OutroDuration",
           "uint32",
           "StartOffset",
-          "uint32"
+          "uint32",
         ];
 
         this.PackEmoteAnimationV3 = [
           "Token",
           Utils.getQWordReader(),
           "Timing",
-          Utils.getArrayReader(this.PackEmoteTimingV3)
+          Utils.getArrayReader(this.PackEmoteTimingV3),
         ];
 
-        this.__root = this.PackEmoteAnimationsV3 = [
-          "Animation",
-          Utils.getArrayReader(this.PackEmoteAnimationV3)
-        ];
+        this.__root = this.PackEmoteAnimationsV3 = ["Animation", Utils.getArrayReader(this.PackEmoteAnimationV3)];
       },
 
       // => Version: 2, ReferencedFunction: 0x1103330
@@ -54,20 +51,17 @@ module.exports = [
           "LoopDuration",
           "uint32",
           "OutroDuration",
-          "uint32"
+          "uint32",
         ];
 
         this.PackEmoteAnimationV2 = [
           "Token",
           Utils.getQWordReader(),
           "Timing",
-          Utils.getArrayReader(this.PackEmoteTimingV2)
+          Utils.getArrayReader(this.PackEmoteTimingV2),
         ];
 
-        this.__root = this.PackEmoteAnimationsV2 = [
-          "Animation",
-          Utils.getArrayReader(this.PackEmoteAnimationV2)
-        ];
+        this.__root = this.PackEmoteAnimationsV2 = ["Animation", Utils.getArrayReader(this.PackEmoteAnimationV2)];
       },
 
       // => Version: 1
@@ -82,20 +76,17 @@ module.exports = [
           "duration",
           "uint32",
           "loopDuration",
-          "uint32"
+          "uint32",
         ];
 
         this.PackEmoteAnimationV1 = [
           "token",
           Utils.getQWordReader(),
           "timings",
-          Utils.getArrayReader(this.PackEmoteTimingV1)
+          Utils.getArrayReader(this.PackEmoteTimingV1),
         ];
 
-        this.__root = this.PackEmoteAnimationsV1 = [
-          "animations",
-          Utils.getArrayReader(this.PackEmoteAnimationV1)
-        ];
+        this.__root = this.PackEmoteAnimationsV1 = ["animations", Utils.getArrayReader(this.PackEmoteAnimationV1)];
       },
 
       // => Version: 0
@@ -108,21 +99,18 @@ module.exports = [
           "blendOutTime",
           "float32",
           "duration",
-          "uint32"
+          "uint32",
         ];
 
         this.PackEmoteAnimationV0 = [
           "token",
           Utils.getQWordReader(),
           "timings",
-          Utils.getArrayReader(this.PackEmoteTimingV0)
+          Utils.getArrayReader(this.PackEmoteTimingV0),
         ];
 
-        this.__root = this.PackEmoteAnimationsV0 = [
-          "animations",
-          Utils.getArrayReader(this.PackEmoteAnimationV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.PackEmoteAnimationsV0 = ["animations", Utils.getArrayReader(this.PackEmoteAnimationV0)];
+      },
+    },
+  },
 ];

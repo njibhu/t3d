@@ -10,14 +10,7 @@ module.exports = [
     versions: {
       // => Version: 29
       29: function() {
-        this.DspDataV29 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV29 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV29 = [
           "name",
@@ -27,7 +20,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV29)
+          Utils.getArrayReader(this.DspDataV29),
         ];
 
         this.BussDataV29 = [
@@ -52,7 +45,7 @@ module.exports = [
           "compressorGainMakeup",
           "float32",
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV29)
+          Utils.getPointerReader(this.BussDynamicDataV29),
         ];
 
         this.EnvelopePointDataV29 = ["offset", "float32", "value", "float32"];
@@ -63,24 +56,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV29),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV29 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV29 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV29 = [
-          "time",
-          this.RangeDataV29,
-          "value",
-          this.RangeDataV29
-        ];
+        this.RandomParamDataV29 = ["time", this.RangeDataV29, "value", this.RangeDataV29];
 
         this.DynamicParamDataV29 = [
           "envelopeData",
@@ -90,7 +71,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV29 = [
@@ -111,7 +92,7 @@ module.exports = [
           "volumeB",
           this.DynamicParamDataV29,
           "lfe",
-          this.DynamicParamDataV29
+          this.DynamicParamDataV29,
         ];
 
         this.CategoryDynamicDataV29 = [
@@ -136,7 +117,7 @@ module.exports = [
           "maxAudibleLQ",
           "uint32",
           "maxAudibleHG",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV29 = [
@@ -161,7 +142,7 @@ module.exports = [
           "maxAudibleBehavior",
           "uint8",
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.MaterialDataV29 = [
@@ -176,7 +157,7 @@ module.exports = [
           "absorptionHF",
           "float32",
           "occlusion",
-          "float32"
+          "float32",
         ];
 
         this.MusicConditionDataV29 = [
@@ -185,7 +166,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV29 = [
@@ -206,7 +187,7 @@ module.exports = [
           "noteMin",
           "uint8",
           "noteMax",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicPlaylistDataV29 = [
@@ -235,7 +216,7 @@ module.exports = [
           "volume",
           this.DynamicParamDataV29,
           "fileIterateMode",
-          "uint8"
+          "uint8",
         ];
 
         this.PropertyDataV29 = [
@@ -244,7 +225,7 @@ module.exports = [
           "tokenValue",
           Utils.getQWordReader(),
           "floatValue",
-          "float32"
+          "float32",
         ];
 
         this.ReverbDataV29 = [
@@ -285,15 +266,10 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
-        this.ScriptRefDataV29 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV29 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.SnapshotDataV29 = [
           "name",
@@ -309,15 +285,10 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV29),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
-        this.MusicExternalDataV29 = [
-          "name",
-          Utils.getQWordReader(),
-          "externalPlaylist",
-          Utils.getString16Reader()
-        ];
+        this.MusicExternalDataV29 = ["name", Utils.getQWordReader(), "externalPlaylist", Utils.getString16Reader()];
 
         this.AudioSettingsDataV29 = [
           "defaultSnapshot",
@@ -365,7 +336,7 @@ module.exports = [
           "musicScriptFileName",
           Utils.getFileNameReader(),
           "musicExternal",
-          Utils.getArrayReader(this.MusicExternalDataV29)
+          Utils.getArrayReader(this.MusicExternalDataV29),
         ];
 
         this.HandlerDataV29 = [
@@ -374,7 +345,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.MetaSoundDataV29 = [
@@ -455,7 +426,7 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerMarkerDataV29 = [
@@ -466,14 +437,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV29 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV29)
+          Utils.getArrayReader(this.TriggerMarkerDataV29),
         ];
 
         this.__root = this.ScriptFileDataV29 = [
@@ -510,20 +481,13 @@ module.exports = [
           "musicMutePriority",
           "uint8",
           "soundPoolMode",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 28
       28: function() {
-        this.DspDataV28 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV28 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV28 = [
           "name",
@@ -533,7 +497,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV28)
+          Utils.getArrayReader(this.DspDataV28),
         ];
 
         this.BussDataV28 = [
@@ -558,7 +522,7 @@ module.exports = [
           "compressorGainMakeup",
           "float32",
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV28)
+          Utils.getPointerReader(this.BussDynamicDataV28),
         ];
 
         this.EnvelopePointDataV28 = ["offset", "float32", "value", "float32"];
@@ -569,24 +533,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV28),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV28 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV28 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV28 = [
-          "time",
-          this.RangeDataV28,
-          "value",
-          this.RangeDataV28
-        ];
+        this.RandomParamDataV28 = ["time", this.RangeDataV28, "value", this.RangeDataV28];
 
         this.DynamicParamDataV28 = [
           "envelopeData",
@@ -596,7 +548,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV28 = [
@@ -617,7 +569,7 @@ module.exports = [
           "volumeB",
           this.DynamicParamDataV28,
           "lfe",
-          this.DynamicParamDataV28
+          this.DynamicParamDataV28,
         ];
 
         this.CategoryDynamicDataV28 = [
@@ -642,7 +594,7 @@ module.exports = [
           "maxAudibleLQ",
           "uint32",
           "maxAudibleHG",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV28 = [
@@ -667,7 +619,7 @@ module.exports = [
           "maxAudibleBehavior",
           "uint8",
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.MaterialDataV28 = [
@@ -682,7 +634,7 @@ module.exports = [
           "absorptionHF",
           "float32",
           "occlusion",
-          "float32"
+          "float32",
         ];
 
         this.MusicConditionDataV28 = [
@@ -691,7 +643,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV28 = [
@@ -712,7 +664,7 @@ module.exports = [
           "noteMin",
           "uint8",
           "noteMax",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicPlaylistDataV28 = [
@@ -741,7 +693,7 @@ module.exports = [
           "volume",
           this.DynamicParamDataV28,
           "fileIterateMode",
-          "uint8"
+          "uint8",
         ];
 
         this.PropertyDataV28 = [
@@ -750,7 +702,7 @@ module.exports = [
           "tokenValue",
           Utils.getQWordReader(),
           "floatValue",
-          "float32"
+          "float32",
         ];
 
         this.ReverbDataV28 = [
@@ -791,15 +743,10 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
-        this.ScriptRefDataV28 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV28 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.SnapshotDataV28 = [
           "name",
@@ -815,7 +762,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV28),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV28 = [
@@ -862,7 +809,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV28 = [
@@ -871,7 +818,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.MetaSoundDataV28 = [
@@ -952,7 +899,7 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerMarkerDataV28 = [
@@ -963,14 +910,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV28 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV28)
+          Utils.getArrayReader(this.TriggerMarkerDataV28),
         ];
 
         this.__root = this.ScriptFileDataV28 = [
@@ -1007,20 +954,13 @@ module.exports = [
           "musicMutePriority",
           "uint8",
           "soundPoolMode",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 27
       27: function() {
-        this.DspDataV27 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV27 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV27 = [
           "name",
@@ -1030,7 +970,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV27)
+          Utils.getArrayReader(this.DspDataV27),
         ];
 
         this.BussDataV27 = [
@@ -1055,7 +995,7 @@ module.exports = [
           "compressorGainMakeup",
           "float32",
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV27)
+          Utils.getPointerReader(this.BussDynamicDataV27),
         ];
 
         this.EnvelopePointDataV27 = ["offset", "float32", "value", "float32"];
@@ -1066,24 +1006,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV27),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV27 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV27 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV27 = [
-          "time",
-          this.RangeDataV27,
-          "value",
-          this.RangeDataV27
-        ];
+        this.RandomParamDataV27 = ["time", this.RangeDataV27, "value", this.RangeDataV27];
 
         this.DynamicParamDataV27 = [
           "envelopeData",
@@ -1093,7 +1021,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV27 = [
@@ -1114,7 +1042,7 @@ module.exports = [
           "volumeB",
           this.DynamicParamDataV27,
           "lfe",
-          this.DynamicParamDataV27
+          this.DynamicParamDataV27,
         ];
 
         this.CategoryDynamicDataV27 = [
@@ -1139,7 +1067,7 @@ module.exports = [
           "maxAudibleLQ",
           "uint32",
           "maxAudibleHG",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV27 = [
@@ -1164,7 +1092,7 @@ module.exports = [
           "maxAudibleBehavior",
           "uint8",
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.MaterialDataV27 = [
@@ -1179,7 +1107,7 @@ module.exports = [
           "absorptionHF",
           "float32",
           "occlusion",
-          "float32"
+          "float32",
         ];
 
         this.MusicConditionDataV27 = [
@@ -1188,7 +1116,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV27 = [
@@ -1209,7 +1137,7 @@ module.exports = [
           "noteMin",
           "uint8",
           "noteMax",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicPlaylistDataV27 = [
@@ -1238,7 +1166,7 @@ module.exports = [
           "volume",
           this.DynamicParamDataV27,
           "fileIterateMode",
-          "uint8"
+          "uint8",
         ];
 
         this.PropertyDataV27 = [
@@ -1247,7 +1175,7 @@ module.exports = [
           "tokenValue",
           Utils.getQWordReader(),
           "floatValue",
-          "float32"
+          "float32",
         ];
 
         this.ReverbDataV27 = [
@@ -1288,15 +1216,10 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
-        this.ScriptRefDataV27 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV27 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.SnapshotDataV27 = [
           "name",
@@ -1312,7 +1235,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV27),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV27 = [
@@ -1359,7 +1282,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV27 = [
@@ -1368,7 +1291,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.MetaSoundDataV27 = [
@@ -1447,7 +1370,7 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerMarkerDataV27 = [
@@ -1458,14 +1381,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV27 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV27)
+          Utils.getArrayReader(this.TriggerMarkerDataV27),
         ];
 
         this.__root = this.ScriptFileDataV27 = [
@@ -1500,20 +1423,13 @@ module.exports = [
           "musicCuePriority",
           "uint8",
           "musicMutePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 26
       26: function() {
-        this.DspDataV26 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV26 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV26 = [
           "name",
@@ -1523,7 +1439,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV26)
+          Utils.getArrayReader(this.DspDataV26),
         ];
 
         this.BussDataV26 = [
@@ -1548,7 +1464,7 @@ module.exports = [
           "compressorGainMakeup",
           "float32",
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV26)
+          Utils.getPointerReader(this.BussDynamicDataV26),
         ];
 
         this.EnvelopePointDataV26 = ["offset", "float32", "value", "float32"];
@@ -1559,24 +1475,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV26),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV26 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV26 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV26 = [
-          "time",
-          this.RangeDataV26,
-          "value",
-          this.RangeDataV26
-        ];
+        this.RandomParamDataV26 = ["time", this.RangeDataV26, "value", this.RangeDataV26];
 
         this.DynamicParamDataV26 = [
           "envelopeData",
@@ -1586,7 +1490,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV26 = [
@@ -1607,7 +1511,7 @@ module.exports = [
           "volumeB",
           this.DynamicParamDataV26,
           "lfe",
-          this.DynamicParamDataV26
+          this.DynamicParamDataV26,
         ];
 
         this.CategoryDynamicDataV26 = [
@@ -1632,7 +1536,7 @@ module.exports = [
           "maxAudibleLQ",
           "uint32",
           "maxAudibleHG",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV26 = [
@@ -1657,7 +1561,7 @@ module.exports = [
           "maxAudibleBehavior",
           "uint8",
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.MaterialDataV26 = [
@@ -1672,7 +1576,7 @@ module.exports = [
           "absorptionHF",
           "float32",
           "occlusion",
-          "float32"
+          "float32",
         ];
 
         this.MusicConditionDataV26 = [
@@ -1681,7 +1585,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV26 = [
@@ -1702,7 +1606,7 @@ module.exports = [
           "noteMin",
           "uint8",
           "noteMax",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicPlaylistDataV26 = [
@@ -1731,7 +1635,7 @@ module.exports = [
           "volume",
           this.DynamicParamDataV26,
           "fileIterateMode",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV26 = [
@@ -1772,7 +1676,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV26 = [
@@ -1789,7 +1693,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV26),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV26 = [
@@ -1830,7 +1734,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV26 = [
@@ -1839,7 +1743,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.MetaSoundDataV26 = [
@@ -1918,15 +1822,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV26 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV26 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV26 = [
           "cue",
@@ -1936,14 +1835,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV26 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV26)
+          Utils.getArrayReader(this.TriggerMarkerDataV26),
         ];
 
         this.__root = this.ScriptFileDataV26 = [
@@ -1976,20 +1875,13 @@ module.exports = [
           "musicCuePriority",
           "uint8",
           "musicMutePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 25
       25: function() {
-        this.DspDataV25 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV25 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV25 = [
           "name",
@@ -1999,7 +1891,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV25)
+          Utils.getArrayReader(this.DspDataV25),
         ];
 
         this.BussDataV25 = [
@@ -2010,7 +1902,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV25)
+          Utils.getPointerReader(this.BussDynamicDataV25),
         ];
 
         this.EnvelopePointDataV25 = ["offset", "float32", "value", "float32"];
@@ -2021,24 +1913,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV25),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV25 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV25 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV25 = [
-          "time",
-          this.RangeDataV25,
-          "value",
-          this.RangeDataV25
-        ];
+        this.RandomParamDataV25 = ["time", this.RangeDataV25, "value", this.RangeDataV25];
 
         this.DynamicParamDataV25 = [
           "envelopeData",
@@ -2048,7 +1928,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV25 = [
@@ -2067,7 +1947,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV25,
           "volumeB",
-          this.DynamicParamDataV25
+          this.DynamicParamDataV25,
         ];
 
         this.CategoryDynamicDataV25 = [
@@ -2086,7 +1966,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV25 = [
@@ -2107,7 +1987,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.MaterialDataV25 = [
@@ -2122,7 +2002,7 @@ module.exports = [
           "absorptionHF",
           "float32",
           "occlusion",
-          "float32"
+          "float32",
         ];
 
         this.MusicConditionDataV25 = [
@@ -2131,7 +2011,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV25 = [
@@ -2152,7 +2032,7 @@ module.exports = [
           "noteMin",
           "uint8",
           "noteMax",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicPlaylistDataV25 = [
@@ -2181,7 +2061,7 @@ module.exports = [
           "volume",
           this.DynamicParamDataV25,
           "fileIterateMode",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV25 = [
@@ -2222,7 +2102,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV25 = [
@@ -2239,7 +2119,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV25),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV25 = [
@@ -2272,7 +2152,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV25 = [
@@ -2281,7 +2161,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.MetaSoundDataV25 = [
@@ -2360,15 +2240,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV25 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV25 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV25 = [
           "cue",
@@ -2378,14 +2253,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV25 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV25)
+          Utils.getArrayReader(this.TriggerMarkerDataV25),
         ];
 
         this.__root = this.ScriptFileDataV25 = [
@@ -2418,20 +2293,13 @@ module.exports = [
           "musicCuePriority",
           "uint8",
           "musicMutePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 24
       24: function() {
-        this.DspDataV24 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV24 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV24 = [
           "name",
@@ -2441,7 +2309,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV24)
+          Utils.getArrayReader(this.DspDataV24),
         ];
 
         this.BussDataV24 = [
@@ -2452,7 +2320,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV24)
+          Utils.getPointerReader(this.BussDynamicDataV24),
         ];
 
         this.EnvelopePointDataV24 = ["offset", "float32", "value", "float32"];
@@ -2463,24 +2331,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV24),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV24 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV24 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV24 = [
-          "time",
-          this.RangeDataV24,
-          "value",
-          this.RangeDataV24
-        ];
+        this.RandomParamDataV24 = ["time", this.RangeDataV24, "value", this.RangeDataV24];
 
         this.DynamicParamDataV24 = [
           "envelopeData",
@@ -2490,7 +2346,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV24 = [
@@ -2509,7 +2365,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV24,
           "volumeB",
-          this.DynamicParamDataV24
+          this.DynamicParamDataV24,
         ];
 
         this.CategoryDynamicDataV24 = [
@@ -2528,7 +2384,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV24 = [
@@ -2549,7 +2405,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicConditionDataV24 = [
@@ -2558,7 +2414,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV24 = [
@@ -2579,7 +2435,7 @@ module.exports = [
           "noteMin",
           "uint8",
           "noteMax",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicPlaylistDataV24 = [
@@ -2608,7 +2464,7 @@ module.exports = [
           "volume",
           this.DynamicParamDataV24,
           "fileIterateMode",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV24 = [
@@ -2649,7 +2505,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV24 = [
@@ -2666,7 +2522,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV24),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV24 = [
@@ -2697,7 +2553,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV24 = [
@@ -2706,7 +2562,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.MetaSoundDataV24 = [
@@ -2785,15 +2641,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV24 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV24 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV24 = [
           "cue",
@@ -2803,14 +2654,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV24 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV24)
+          Utils.getArrayReader(this.TriggerMarkerDataV24),
         ];
 
         this.__root = this.ScriptFileDataV24 = [
@@ -2843,20 +2694,13 @@ module.exports = [
           "musicCuePriority",
           "uint8",
           "musicMutePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 23
       23: function() {
-        this.DspDataV23 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV23 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV23 = [
           "name",
@@ -2866,7 +2710,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV23)
+          Utils.getArrayReader(this.DspDataV23),
         ];
 
         this.BussDataV23 = [
@@ -2877,7 +2721,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV23)
+          Utils.getPointerReader(this.BussDynamicDataV23),
         ];
 
         this.EnvelopePointDataV23 = ["offset", "float32", "value", "float32"];
@@ -2888,24 +2732,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV23),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV23 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV23 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV23 = [
-          "time",
-          this.RangeDataV23,
-          "value",
-          this.RangeDataV23
-        ];
+        this.RandomParamDataV23 = ["time", this.RangeDataV23, "value", this.RangeDataV23];
 
         this.DynamicParamDataV23 = [
           "envelopeData",
@@ -2915,7 +2747,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV23 = [
@@ -2934,7 +2766,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV23,
           "volumeB",
-          this.DynamicParamDataV23
+          this.DynamicParamDataV23,
         ];
 
         this.CategoryDynamicDataV23 = [
@@ -2953,7 +2785,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV23 = [
@@ -2974,7 +2806,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicConditionDataV23 = [
@@ -2983,7 +2815,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV23 = [
@@ -2998,7 +2830,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicPlaylistDataV23 = [
@@ -3027,7 +2859,7 @@ module.exports = [
           "volume",
           this.DynamicParamDataV23,
           "fileIterateMode",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV23 = [
@@ -3068,7 +2900,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV23 = [
@@ -3085,7 +2917,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV23),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV23 = [
@@ -3116,7 +2948,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV23 = [
@@ -3125,7 +2957,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.MetaSoundDataV23 = [
@@ -3204,15 +3036,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV23 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV23 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV23 = [
           "cue",
@@ -3222,14 +3049,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV23 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV23)
+          Utils.getArrayReader(this.TriggerMarkerDataV23),
         ];
 
         this.__root = this.ScriptFileDataV23 = [
@@ -3262,20 +3089,13 @@ module.exports = [
           "musicCuePriority",
           "uint8",
           "musicMutePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 22
       22: function() {
-        this.DspDataV22 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV22 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV22 = [
           "name",
@@ -3285,7 +3105,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV22)
+          Utils.getArrayReader(this.DspDataV22),
         ];
 
         this.BussDataV22 = [
@@ -3296,7 +3116,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV22)
+          Utils.getPointerReader(this.BussDynamicDataV22),
         ];
 
         this.EnvelopePointDataV22 = ["offset", "float32", "value", "float32"];
@@ -3307,24 +3127,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV22),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV22 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV22 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV22 = [
-          "time",
-          this.RangeDataV22,
-          "value",
-          this.RangeDataV22
-        ];
+        this.RandomParamDataV22 = ["time", this.RangeDataV22, "value", this.RangeDataV22];
 
         this.DynamicParamDataV22 = [
           "envelopeData",
@@ -3334,7 +3142,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV22 = [
@@ -3353,7 +3161,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV22,
           "volumeB",
-          this.DynamicParamDataV22
+          this.DynamicParamDataV22,
         ];
 
         this.CategoryDynamicDataV22 = [
@@ -3372,7 +3180,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV22 = [
@@ -3393,7 +3201,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicConditionDataV22 = [
@@ -3402,7 +3210,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV22 = [
@@ -3417,7 +3225,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicPlaylistDataV22 = [
@@ -3446,7 +3254,7 @@ module.exports = [
           "volume",
           this.DynamicParamDataV22,
           "fileIterateMode",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV22 = [
@@ -3487,7 +3295,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV22 = [
@@ -3504,7 +3312,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV22),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV22 = [
@@ -3535,7 +3343,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV22 = [
@@ -3544,7 +3352,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.MetaSoundDataV22 = [
@@ -3623,15 +3431,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV22 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV22 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV22 = [
           "cue",
@@ -3641,14 +3444,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV22 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV22)
+          Utils.getArrayReader(this.TriggerMarkerDataV22),
         ];
 
         this.__root = this.ScriptFileDataV22 = [
@@ -3679,20 +3482,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 21
       21: function() {
-        this.DspDataV21 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV21 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV21 = [
           "name",
@@ -3702,7 +3498,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV21)
+          Utils.getArrayReader(this.DspDataV21),
         ];
 
         this.BussDataV21 = [
@@ -3713,7 +3509,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV21)
+          Utils.getPointerReader(this.BussDynamicDataV21),
         ];
 
         this.EnvelopePointDataV21 = ["offset", "float32", "value", "float32"];
@@ -3724,24 +3520,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV21),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV21 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV21 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV21 = [
-          "time",
-          this.RangeDataV21,
-          "value",
-          this.RangeDataV21
-        ];
+        this.RandomParamDataV21 = ["time", this.RangeDataV21, "value", this.RangeDataV21];
 
         this.DynamicParamDataV21 = [
           "envelopeData",
@@ -3751,7 +3535,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV21 = [
@@ -3768,7 +3552,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV21,
           "volumeB",
-          this.DynamicParamDataV21
+          this.DynamicParamDataV21,
         ];
 
         this.CategoryDynamicDataV21 = [
@@ -3785,7 +3569,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV21 = [
@@ -3806,7 +3590,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicConditionDataV21 = [
@@ -3815,7 +3599,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV21 = [
@@ -3830,7 +3614,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MusicPlaylistDataV21 = [
@@ -3859,7 +3643,7 @@ module.exports = [
           "volume",
           this.DynamicParamDataV21,
           "fileIterateMode",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV21 = [
@@ -3900,7 +3684,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV21 = [
@@ -3917,7 +3701,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV21),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV21 = [
@@ -3948,7 +3732,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV21 = [
@@ -3957,7 +3741,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.MetaSoundDataV21 = [
@@ -4036,15 +3820,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV21 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV21 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV21 = [
           "cue",
@@ -4054,14 +3833,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV21 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV21)
+          Utils.getArrayReader(this.TriggerMarkerDataV21),
         ];
 
         this.__root = this.ScriptFileDataV21 = [
@@ -4092,20 +3871,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 20
       20: function() {
-        this.DspDataV20 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV20 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV20 = [
           "name",
@@ -4115,7 +3887,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV20)
+          Utils.getArrayReader(this.DspDataV20),
         ];
 
         this.BussDataV20 = [
@@ -4126,7 +3898,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV20)
+          Utils.getPointerReader(this.BussDynamicDataV20),
         ];
 
         this.EnvelopePointDataV20 = ["offset", "float32", "value", "float32"];
@@ -4137,24 +3909,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV20),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV20 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV20 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV20 = [
-          "time",
-          this.RangeDataV20,
-          "value",
-          this.RangeDataV20
-        ];
+        this.RandomParamDataV20 = ["time", this.RangeDataV20, "value", this.RangeDataV20];
 
         this.DynamicParamDataV20 = [
           "envelopeData",
@@ -4164,7 +3924,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV20 = [
@@ -4181,7 +3941,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV20,
           "volumeB",
-          this.DynamicParamDataV20
+          this.DynamicParamDataV20,
         ];
 
         this.CategoryDynamicDataV20 = [
@@ -4198,7 +3958,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV20 = [
@@ -4219,7 +3979,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV20 = [
@@ -4260,7 +4020,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV20 = [
@@ -4277,7 +4037,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV20),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV20 = [
@@ -4304,7 +4064,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV20 = [
@@ -4313,7 +4073,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV20 = [
@@ -4324,7 +4084,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV20 = [
@@ -4403,15 +4163,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV20 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV20 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV20 = [
           "cue",
@@ -4421,14 +4176,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV20 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV20)
+          Utils.getArrayReader(this.TriggerMarkerDataV20),
         ];
 
         this.__root = this.ScriptFileDataV20 = [
@@ -4459,20 +4214,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 19, ReferencedFunction: 0xE21080
       19: function() {
-        this.DspDataV19 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV19 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV19 = [
           "name",
@@ -4482,7 +4230,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV19)
+          Utils.getArrayReader(this.DspDataV19),
         ];
 
         this.BussDataV19 = [
@@ -4493,7 +4241,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV19)
+          Utils.getPointerReader(this.BussDynamicDataV19),
         ];
 
         this.EnvelopePointDataV19 = ["offset", "float32", "value", "float32"];
@@ -4504,24 +4252,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV19),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV19 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV19 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV19 = [
-          "time",
-          this.RangeDataV19,
-          "value",
-          this.RangeDataV19
-        ];
+        this.RandomParamDataV19 = ["time", this.RangeDataV19, "value", this.RangeDataV19];
 
         this.DynamicParamDataV19 = [
           "envelopeData",
@@ -4531,7 +4267,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV19 = [
@@ -4548,7 +4284,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV19,
           "volumeB",
-          this.DynamicParamDataV19
+          this.DynamicParamDataV19,
         ];
 
         this.CategoryDynamicDataV19 = [
@@ -4565,7 +4301,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV19 = [
@@ -4586,7 +4322,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV19 = [
@@ -4627,7 +4363,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV19 = [
@@ -4644,7 +4380,7 @@ module.exports = [
           "category",
           Utils.getArrayReader(this.CategoryDynamicDataV19),
           "priority",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV19 = [
@@ -4671,7 +4407,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV19 = [
@@ -4680,7 +4416,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV19 = [
@@ -4691,7 +4427,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV19 = [
@@ -4770,15 +4506,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV19 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV19 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV19 = [
           "cue",
@@ -4788,14 +4519,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV19 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV19)
+          Utils.getArrayReader(this.TriggerMarkerDataV19),
         ];
 
         this.__root = this.ScriptFileDataV19 = [
@@ -4824,20 +4555,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 18, ReferencedFunction: 0xE20F40
       18: function() {
-        this.DspDataV18 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV18 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV18 = [
           "name",
@@ -4847,7 +4571,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV18)
+          Utils.getArrayReader(this.DspDataV18),
         ];
 
         this.BussDataV18 = [
@@ -4858,7 +4582,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV18)
+          Utils.getPointerReader(this.BussDynamicDataV18),
         ];
 
         this.EnvelopePointDataV18 = ["offset", "float32", "value", "float32"];
@@ -4869,24 +4593,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV18),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV18 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV18 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV18 = [
-          "time",
-          this.RangeDataV18,
-          "value",
-          this.RangeDataV18
-        ];
+        this.RandomParamDataV18 = ["time", this.RangeDataV18, "value", this.RangeDataV18];
 
         this.DynamicParamDataV18 = [
           "envelopeData",
@@ -4896,7 +4608,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV18 = [
@@ -4913,7 +4625,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV18,
           "volumeB",
-          this.DynamicParamDataV18
+          this.DynamicParamDataV18,
         ];
 
         this.CategoryDynamicDataV18 = [
@@ -4930,7 +4642,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV18 = [
@@ -4951,7 +4663,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV18 = [
@@ -4992,7 +4704,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV18 = [
@@ -5007,7 +4719,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV18),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV18)
+          Utils.getArrayReader(this.CategoryDynamicDataV18),
         ];
 
         this.AudioSettingsDataV18 = [
@@ -5034,7 +4746,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV18 = [
@@ -5043,7 +4755,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV18 = [
@@ -5054,7 +4766,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV18 = [
@@ -5133,15 +4845,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV18 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV18 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV18 = [
           "cue",
@@ -5151,14 +4858,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV18 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV18)
+          Utils.getArrayReader(this.TriggerMarkerDataV18),
         ];
 
         this.__root = this.ScriptFileDataV18 = [
@@ -5187,20 +4894,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 17
       17: function() {
-        this.DspDataV17 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV17 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV17 = [
           "name",
@@ -5210,7 +4910,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV17)
+          Utils.getArrayReader(this.DspDataV17),
         ];
 
         this.BussDataV17 = [
@@ -5221,7 +4921,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV17)
+          Utils.getPointerReader(this.BussDynamicDataV17),
         ];
 
         this.EnvelopePointDataV17 = ["offset", "float32", "value", "float32"];
@@ -5232,24 +4932,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV17),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV17 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV17 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV17 = [
-          "time",
-          this.RangeDataV17,
-          "value",
-          this.RangeDataV17
-        ];
+        this.RandomParamDataV17 = ["time", this.RangeDataV17, "value", this.RangeDataV17];
 
         this.DynamicParamDataV17 = [
           "envelopeData",
@@ -5259,7 +4947,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV17 = [
@@ -5276,7 +4964,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV17,
           "volumeB",
-          this.DynamicParamDataV17
+          this.DynamicParamDataV17,
         ];
 
         this.CategoryDynamicDataV17 = [
@@ -5293,7 +4981,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV17 = [
@@ -5314,7 +5002,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV17 = [
@@ -5355,7 +5043,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV17 = [
@@ -5370,7 +5058,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV17),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV17)
+          Utils.getArrayReader(this.CategoryDynamicDataV17),
         ];
 
         this.AudioSettingsDataV17 = [
@@ -5397,7 +5085,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV17 = [
@@ -5406,7 +5094,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV17 = [
@@ -5417,7 +5105,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV17 = [
@@ -5496,15 +5184,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV17 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV17 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV17 = [
           "cue",
@@ -5514,14 +5197,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV17 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV17)
+          Utils.getArrayReader(this.TriggerMarkerDataV17),
         ];
 
         this.__root = this.ScriptFileDataV17 = [
@@ -5550,20 +5233,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 16
       16: function() {
-        this.DspDataV16 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV16 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV16 = [
           "name",
@@ -5573,7 +5249,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV16)
+          Utils.getArrayReader(this.DspDataV16),
         ];
 
         this.BussDataV16 = [
@@ -5584,7 +5260,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV16)
+          Utils.getPointerReader(this.BussDynamicDataV16),
         ];
 
         this.EnvelopePointDataV16 = ["offset", "float32", "value", "float32"];
@@ -5595,24 +5271,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV16),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV16 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV16 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV16 = [
-          "time",
-          this.RangeDataV16,
-          "value",
-          this.RangeDataV16
-        ];
+        this.RandomParamDataV16 = ["time", this.RangeDataV16, "value", this.RangeDataV16];
 
         this.DynamicParamDataV16 = [
           "envelopeData",
@@ -5622,7 +5286,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV16 = [
@@ -5639,7 +5303,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV16,
           "volumeB",
-          this.DynamicParamDataV16
+          this.DynamicParamDataV16,
         ];
 
         this.CategoryDynamicDataV16 = [
@@ -5656,7 +5320,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV16 = [
@@ -5677,7 +5341,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV16 = [
@@ -5718,7 +5382,7 @@ module.exports = [
           "echoWetMix",
           "float32",
           "echoDryMix",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV16 = [
@@ -5733,7 +5397,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV16),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV16)
+          Utils.getArrayReader(this.CategoryDynamicDataV16),
         ];
 
         this.AudioSettingsDataV16 = [
@@ -5760,7 +5424,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV16 = [
@@ -5769,7 +5433,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV16 = [
@@ -5780,7 +5444,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV16 = [
@@ -5853,15 +5517,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV16 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV16 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV16 = [
           "cue",
@@ -5871,14 +5530,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV16 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV16)
+          Utils.getArrayReader(this.TriggerMarkerDataV16),
         ];
 
         this.__root = this.ScriptFileDataV16 = [
@@ -5907,20 +5566,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 15
       15: function() {
-        this.DspDataV15 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV15 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV15 = [
           "name",
@@ -5930,7 +5582,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV15)
+          Utils.getArrayReader(this.DspDataV15),
         ];
 
         this.BussDataV15 = [
@@ -5941,7 +5593,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV15)
+          Utils.getPointerReader(this.BussDynamicDataV15),
         ];
 
         this.EnvelopePointDataV15 = ["offset", "float32", "value", "float32"];
@@ -5952,24 +5604,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV15),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV15 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV15 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV15 = [
-          "time",
-          this.RangeDataV15,
-          "value",
-          this.RangeDataV15
-        ];
+        this.RandomParamDataV15 = ["time", this.RangeDataV15, "value", this.RangeDataV15];
 
         this.DynamicParamDataV15 = [
           "envelopeData",
@@ -5979,7 +5619,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV15 = [
@@ -5996,7 +5636,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV15,
           "volumeB",
-          this.DynamicParamDataV15
+          this.DynamicParamDataV15,
         ];
 
         this.CategoryDynamicDataV15 = [
@@ -6013,7 +5653,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV15 = [
@@ -6034,7 +5674,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV15 = [
@@ -6067,7 +5707,7 @@ module.exports = [
           "diffusion",
           "float32",
           "density",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV15 = [
@@ -6082,7 +5722,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV15),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV15)
+          Utils.getArrayReader(this.CategoryDynamicDataV15),
         ];
 
         this.AudioSettingsDataV15 = [
@@ -6109,7 +5749,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV15 = [
@@ -6118,7 +5758,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV15 = [
@@ -6129,7 +5769,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV15 = [
@@ -6202,15 +5842,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV15 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV15 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV15 = [
           "cue",
@@ -6220,14 +5855,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV15 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV15)
+          Utils.getArrayReader(this.TriggerMarkerDataV15),
         ];
 
         this.__root = this.ScriptFileDataV15 = [
@@ -6256,20 +5891,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 14
       14: function() {
-        this.DspDataV14 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV14 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV14 = [
           "name",
@@ -6279,7 +5907,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV14)
+          Utils.getArrayReader(this.DspDataV14),
         ];
 
         this.BussDataV14 = [
@@ -6290,7 +5918,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV14)
+          Utils.getPointerReader(this.BussDynamicDataV14),
         ];
 
         this.EnvelopePointDataV14 = ["offset", "float32", "value", "float32"];
@@ -6301,24 +5929,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV14),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV14 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV14 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV14 = [
-          "time",
-          this.RangeDataV14,
-          "value",
-          this.RangeDataV14
-        ];
+        this.RandomParamDataV14 = ["time", this.RangeDataV14, "value", this.RangeDataV14];
 
         this.DynamicParamDataV14 = [
           "envelopeData",
@@ -6328,7 +5944,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV14 = [
@@ -6343,7 +5959,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV14,
           "volumeB",
-          this.DynamicParamDataV14
+          this.DynamicParamDataV14,
         ];
 
         this.CategoryDynamicDataV14 = [
@@ -6360,7 +5976,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV14 = [
@@ -6381,7 +5997,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV14 = [
@@ -6414,7 +6030,7 @@ module.exports = [
           "diffusion",
           "float32",
           "density",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV14 = [
@@ -6429,7 +6045,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV14),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV14)
+          Utils.getArrayReader(this.CategoryDynamicDataV14),
         ];
 
         this.AudioSettingsDataV14 = [
@@ -6456,7 +6072,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV14 = [
@@ -6465,7 +6081,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV14 = [
@@ -6476,7 +6092,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV14 = [
@@ -6549,15 +6165,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV14 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV14 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV14 = [
           "cue",
@@ -6567,14 +6178,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV14 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV14)
+          Utils.getArrayReader(this.TriggerMarkerDataV14),
         ];
 
         this.__root = this.ScriptFileDataV14 = [
@@ -6603,20 +6214,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 13
       13: function() {
-        this.DspDataV13 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV13 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV13 = [
           "name",
@@ -6626,7 +6230,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV13)
+          Utils.getArrayReader(this.DspDataV13),
         ];
 
         this.BussDataV13 = [
@@ -6637,7 +6241,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV13)
+          Utils.getPointerReader(this.BussDynamicDataV13),
         ];
 
         this.EnvelopePointDataV13 = ["offset", "float32", "value", "float32"];
@@ -6648,24 +6252,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV13),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV13 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV13 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV13 = [
-          "time",
-          this.RangeDataV13,
-          "value",
-          this.RangeDataV13
-        ];
+        this.RandomParamDataV13 = ["time", this.RangeDataV13, "value", this.RangeDataV13];
 
         this.DynamicParamDataV13 = [
           "envelopeData",
@@ -6675,7 +6267,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV13 = [
@@ -6694,7 +6286,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV13,
           "volumeB",
-          this.DynamicParamDataV13
+          this.DynamicParamDataV13,
         ];
 
         this.CategoryDynamicDataV13 = [
@@ -6711,7 +6303,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV13 = [
@@ -6732,7 +6324,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV13 = [
@@ -6765,7 +6357,7 @@ module.exports = [
           "diffusion",
           "float32",
           "density",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV13 = [
@@ -6780,7 +6372,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV13),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV13)
+          Utils.getArrayReader(this.CategoryDynamicDataV13),
         ];
 
         this.AudioSettingsDataV13 = [
@@ -6805,7 +6397,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV13 = [
@@ -6814,7 +6406,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV13 = [
@@ -6825,7 +6417,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV13 = [
@@ -6898,15 +6490,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV13 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV13 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV13 = [
           "cue",
@@ -6916,14 +6503,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV13 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV13)
+          Utils.getArrayReader(this.TriggerMarkerDataV13),
         ];
 
         this.__root = this.ScriptFileDataV13 = [
@@ -6952,20 +6539,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 12, ReferencedFunction: 0xE20F20
       12: function() {
-        this.DspDataV12 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV12 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV12 = [
           "name",
@@ -6975,7 +6555,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV12)
+          Utils.getArrayReader(this.DspDataV12),
         ];
 
         this.BussDataV12 = [
@@ -6986,7 +6566,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV12)
+          Utils.getPointerReader(this.BussDynamicDataV12),
         ];
 
         this.EnvelopePointDataV12 = ["offset", "float32", "value", "float32"];
@@ -6997,24 +6577,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV12),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV12 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV12 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV12 = [
-          "time",
-          this.RangeDataV12,
-          "value",
-          this.RangeDataV12
-        ];
+        this.RandomParamDataV12 = ["time", this.RangeDataV12, "value", this.RangeDataV12];
 
         this.DynamicParamDataV12 = [
           "envelopeData",
@@ -7024,7 +6592,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV12 = [
@@ -7043,7 +6611,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV12,
           "volumeB",
-          this.DynamicParamDataV12
+          this.DynamicParamDataV12,
         ];
 
         this.CategoryDynamicDataV12 = [
@@ -7060,7 +6628,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV12 = [
@@ -7081,7 +6649,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV12 = [
@@ -7114,7 +6682,7 @@ module.exports = [
           "diffusion",
           "float32",
           "density",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV12 = [
@@ -7129,7 +6697,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV12),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV12)
+          Utils.getArrayReader(this.CategoryDynamicDataV12),
         ];
 
         this.AudioSettingsDataV12 = [
@@ -7154,7 +6722,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV12 = [
@@ -7163,7 +6731,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV12 = [
@@ -7174,7 +6742,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV12 = [
@@ -7247,15 +6815,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV12 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV12 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV12 = [
           "cue",
@@ -7265,14 +6828,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV12 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV12)
+          Utils.getArrayReader(this.TriggerMarkerDataV12),
         ];
 
         this.__root = this.ScriptFileDataV12 = [
@@ -7299,20 +6862,13 @@ module.exports = [
           "volume",
           "float32",
           "musicCuePriority",
-          "uint8"
+          "uint8",
         ];
       },
 
       // => Version: 11
       11: function() {
-        this.DspDataV11 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV11 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV11 = [
           "name",
@@ -7322,7 +6878,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV11)
+          Utils.getArrayReader(this.DspDataV11),
         ];
 
         this.BussDataV11 = [
@@ -7333,7 +6889,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV11)
+          Utils.getPointerReader(this.BussDynamicDataV11),
         ];
 
         this.EnvelopePointDataV11 = ["offset", "float32", "value", "float32"];
@@ -7344,24 +6900,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV11),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV11 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV11 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV11 = [
-          "time",
-          this.RangeDataV11,
-          "value",
-          this.RangeDataV11
-        ];
+        this.RandomParamDataV11 = ["time", this.RangeDataV11, "value", this.RangeDataV11];
 
         this.DynamicParamDataV11 = [
           "envelopeData",
@@ -7371,7 +6915,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV11 = [
@@ -7390,7 +6934,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV11,
           "volumeB",
-          this.DynamicParamDataV11
+          this.DynamicParamDataV11,
         ];
 
         this.CategoryDynamicDataV11 = [
@@ -7407,7 +6951,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV11 = [
@@ -7428,7 +6972,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV11 = [
@@ -7461,7 +7005,7 @@ module.exports = [
           "diffusion",
           "float32",
           "density",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV11 = [
@@ -7476,7 +7020,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV11),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV11)
+          Utils.getArrayReader(this.CategoryDynamicDataV11),
         ];
 
         this.AudioSettingsDataV11 = [
@@ -7501,7 +7045,7 @@ module.exports = [
           "bankScriptFileName",
           Utils.getFileNameReader(),
           "musicScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV11 = [
@@ -7510,7 +7054,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV11 = [
@@ -7521,7 +7065,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV11 = [
@@ -7594,15 +7138,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV11 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV11 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV11 = [
           "cue",
@@ -7612,14 +7151,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV11 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV11)
+          Utils.getArrayReader(this.TriggerMarkerDataV11),
         ];
 
         this.__root = this.ScriptFileDataV11 = [
@@ -7644,20 +7183,13 @@ module.exports = [
           "soundPoolDelay",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
       // => Version: 10
       10: function() {
-        this.DspDataV10 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV10 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV10 = [
           "name",
@@ -7667,7 +7199,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV10)
+          Utils.getArrayReader(this.DspDataV10),
         ];
 
         this.BussDataV10 = [
@@ -7678,7 +7210,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV10)
+          Utils.getPointerReader(this.BussDynamicDataV10),
         ];
 
         this.EnvelopePointDataV10 = ["offset", "float32", "value", "float32"];
@@ -7689,24 +7221,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV10),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
-        this.RangeDataV10 = [
-          "max",
-          "float32",
-          "min",
-          "float32",
-          "min",
-          "uint8"
-        ];
+        this.RangeDataV10 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV10 = [
-          "time",
-          this.RangeDataV10,
-          "value",
-          this.RangeDataV10
-        ];
+        this.RandomParamDataV10 = ["time", this.RangeDataV10, "value", this.RangeDataV10];
 
         this.DynamicParamDataV10 = [
           "envelopeData",
@@ -7716,7 +7236,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV10 = [
@@ -7735,7 +7255,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV10,
           "volumeB",
-          this.DynamicParamDataV10
+          this.DynamicParamDataV10,
         ];
 
         this.CategoryDynamicDataV10 = [
@@ -7752,7 +7272,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV10 = [
@@ -7773,7 +7293,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV10 = [
@@ -7806,7 +7326,7 @@ module.exports = [
           "diffusion",
           "float32",
           "density",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV10 = [
@@ -7821,7 +7341,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV10),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV10)
+          Utils.getArrayReader(this.CategoryDynamicDataV10),
         ];
 
         this.AudioSettingsDataV10 = [
@@ -7844,7 +7364,7 @@ module.exports = [
           "bankIndexFileName",
           Utils.getFileNameReader(),
           "bankScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV10 = [
@@ -7853,7 +7373,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV10 = [
@@ -7864,7 +7384,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV10 = [
@@ -7937,15 +7457,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV10 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV10 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV10 = [
           "cue",
@@ -7955,14 +7470,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV10 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV10)
+          Utils.getArrayReader(this.TriggerMarkerDataV10),
         ];
 
         this.__root = this.ScriptFileDataV10 = [
@@ -7987,20 +7502,13 @@ module.exports = [
           "soundPoolDelay",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
       // => Version: 9
       9: function() {
-        this.DspDataV9 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV9 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV9 = [
           "name",
@@ -8010,7 +7518,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV9)
+          Utils.getArrayReader(this.DspDataV9),
         ];
 
         this.BussDataV9 = [
@@ -8021,7 +7529,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV9)
+          Utils.getPointerReader(this.BussDynamicDataV9),
         ];
 
         this.EnvelopePointDataV9 = ["offset", "float32", "value", "float32"];
@@ -8032,17 +7540,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV9),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
         this.RangeDataV9 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV9 = [
-          "time",
-          this.RangeDataV9,
-          "value",
-          this.RangeDataV9
-        ];
+        this.RandomParamDataV9 = ["time", this.RangeDataV9, "value", this.RangeDataV9];
 
         this.DynamicParamDataV9 = [
           "envelopeData",
@@ -8052,7 +7555,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV9 = [
@@ -8071,7 +7574,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV9,
           "volumeB",
-          this.DynamicParamDataV9
+          this.DynamicParamDataV9,
         ];
 
         this.CategoryDynamicDataV9 = [
@@ -8088,7 +7591,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV9 = [
@@ -8119,7 +7622,7 @@ module.exports = [
           "soundPoolCountBehavior",
           "uint8",
           "soundPoolMode",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV9 = [
@@ -8152,7 +7655,7 @@ module.exports = [
           "diffusion",
           "float32",
           "density",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV9 = [
@@ -8167,7 +7670,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV9),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV9)
+          Utils.getArrayReader(this.CategoryDynamicDataV9),
         ];
 
         this.AudioSettingsDataV9 = [
@@ -8190,7 +7693,7 @@ module.exports = [
           "bankIndexFileName",
           Utils.getFileNameReader(),
           "bankScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV9 = [
@@ -8199,7 +7702,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV9 = [
@@ -8210,7 +7713,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV9 = [
@@ -8283,15 +7786,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV9 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV9 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV9 = [
           "cue",
@@ -8301,14 +7799,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV9 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV9)
+          Utils.getArrayReader(this.TriggerMarkerDataV9),
         ];
 
         this.__root = this.ScriptFileDataV9 = [
@@ -8331,20 +7829,13 @@ module.exports = [
           "fadeInTime",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
       // => Version: 8
       8: function() {
-        this.DspDataV8 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV8 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV8 = [
           "name",
@@ -8354,7 +7845,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV8)
+          Utils.getArrayReader(this.DspDataV8),
         ];
 
         this.BussDataV8 = [
@@ -8365,7 +7856,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV8)
+          Utils.getPointerReader(this.BussDynamicDataV8),
         ];
 
         this.EnvelopePointDataV8 = ["offset", "float32", "value", "float32"];
@@ -8376,17 +7867,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV8),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
         this.RangeDataV8 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV8 = [
-          "time",
-          this.RangeDataV8,
-          "value",
-          this.RangeDataV8
-        ];
+        this.RandomParamDataV8 = ["time", this.RangeDataV8, "value", this.RangeDataV8];
 
         this.DynamicParamDataV8 = [
           "envelopeData",
@@ -8396,7 +7882,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV8 = [
@@ -8415,7 +7901,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV8,
           "volumeB",
-          this.DynamicParamDataV8
+          this.DynamicParamDataV8,
         ];
 
         this.CategoryDynamicDataV8 = [
@@ -8432,7 +7918,7 @@ module.exports = [
           "reverbRoom",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV8 = [
@@ -8453,7 +7939,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.ReverbDataV8 = [
@@ -8486,7 +7972,7 @@ module.exports = [
           "diffusion",
           "float32",
           "density",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV8 = [
@@ -8501,7 +7987,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV8),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV8)
+          Utils.getArrayReader(this.CategoryDynamicDataV8),
         ];
 
         this.AudioSettingsDataV8 = [
@@ -8524,7 +8010,7 @@ module.exports = [
           "bankIndexFileName",
           Utils.getFileNameReader(),
           "bankScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV8 = [
@@ -8533,7 +8019,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV8 = [
@@ -8544,7 +8030,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV8 = [
@@ -8617,15 +8103,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV8 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV8 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV8 = [
           "cue",
@@ -8635,14 +8116,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV8 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV8)
+          Utils.getArrayReader(this.TriggerMarkerDataV8),
         ];
 
         this.__root = this.ScriptFileDataV8 = [
@@ -8665,20 +8146,13 @@ module.exports = [
           "fadeInTime",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
       // => Version: 7, ReferencedFunction: 0xE20EB0
       7: function() {
-        this.DspDataV7 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV7 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV7 = [
           "name",
@@ -8688,7 +8162,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV7)
+          Utils.getArrayReader(this.DspDataV7),
         ];
 
         this.BussDataV7 = [
@@ -8699,7 +8173,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV7)
+          Utils.getPointerReader(this.BussDynamicDataV7),
         ];
 
         this.EnvelopePointDataV7 = ["offset", "float32", "value", "float32"];
@@ -8710,17 +8184,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV7),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
         this.RangeDataV7 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV7 = [
-          "time",
-          this.RangeDataV7,
-          "value",
-          this.RangeDataV7
-        ];
+        this.RandomParamDataV7 = ["time", this.RangeDataV7, "value", this.RangeDataV7];
 
         this.DynamicParamDataV7 = [
           "envelopeData",
@@ -8730,7 +8199,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV7 = [
@@ -8749,7 +8218,7 @@ module.exports = [
           "volumeA",
           this.DynamicParamDataV7,
           "volumeB",
-          this.DynamicParamDataV7
+          this.DynamicParamDataV7,
         ];
 
         this.CategoryDynamicDataV7 = [
@@ -8762,7 +8231,7 @@ module.exports = [
           "lowPass",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.CategoryDataV7 = [
@@ -8783,7 +8252,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.SnapshotDataV7 = [
@@ -8798,7 +8267,7 @@ module.exports = [
           "buss",
           Utils.getArrayReader(this.BussDynamicDataV7),
           "category",
-          Utils.getArrayReader(this.CategoryDynamicDataV7)
+          Utils.getArrayReader(this.CategoryDynamicDataV7),
         ];
 
         this.AudioSettingsDataV7 = [
@@ -8819,7 +8288,7 @@ module.exports = [
           "bankIndexFileName",
           Utils.getFileNameReader(),
           "bankScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV7 = [
@@ -8828,7 +8297,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV7 = [
@@ -8839,7 +8308,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV7 = [
@@ -8910,15 +8379,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV7 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV7 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV7 = [
           "cue",
@@ -8928,14 +8392,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV7 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV7)
+          Utils.getArrayReader(this.TriggerMarkerDataV7),
         ];
 
         this.__root = this.ScriptFileDataV7 = [
@@ -8958,20 +8422,13 @@ module.exports = [
           "fadeInTime",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
       // => Version: 6
       6: function() {
-        this.DspDataV6 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV6 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDynamicDataV6 = [
           "name",
@@ -8981,7 +8438,7 @@ module.exports = [
           "volume",
           "float32",
           "dsp",
-          Utils.getArrayReader(this.DspDataV6)
+          Utils.getArrayReader(this.DspDataV6),
         ];
 
         this.BussDataV6 = [
@@ -8992,7 +8449,7 @@ module.exports = [
           "output",
           Utils.getQWordReader(),
           "dynamicData",
-          Utils.getPointerReader(this.BussDynamicDataV6)
+          Utils.getPointerReader(this.BussDynamicDataV6),
         ];
 
         this.EnvelopePointDataV6 = ["offset", "float32", "value", "float32"];
@@ -9003,17 +8460,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV6),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
         this.RangeDataV6 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV6 = [
-          "time",
-          this.RangeDataV6,
-          "value",
-          this.RangeDataV6
-        ];
+        this.RandomParamDataV6 = ["time", this.RangeDataV6, "value", this.RangeDataV6];
 
         this.DynamicParamDataV6 = [
           "envelopeData",
@@ -9023,7 +8475,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV6 = [
@@ -9040,7 +8492,7 @@ module.exports = [
           "spread3D",
           this.DynamicParamDataV6,
           "volumeA",
-          this.DynamicParamDataV6
+          this.DynamicParamDataV6,
         ];
 
         this.CategoryDataV6 = [
@@ -9075,7 +8527,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.SnapshotDataV6 = [
@@ -9088,7 +8540,7 @@ module.exports = [
           "flags",
           "uint32",
           "buss",
-          Utils.getArrayReader(this.BussDynamicDataV6)
+          Utils.getArrayReader(this.BussDynamicDataV6),
         ];
 
         this.AudioSettingsDataV6 = [
@@ -9107,7 +8559,7 @@ module.exports = [
           "bankIndexFileName",
           Utils.getFileNameReader(),
           "bankScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV6 = [
@@ -9116,7 +8568,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV6 = [
@@ -9127,7 +8579,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV6 = [
@@ -9196,15 +8648,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV6 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV6 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV6 = [
           "cue",
@@ -9214,14 +8661,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV6 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV6)
+          Utils.getArrayReader(this.TriggerMarkerDataV6),
         ];
 
         this.__root = this.ScriptFileDataV6 = [
@@ -9244,7 +8691,7 @@ module.exports = [
           "fadeInTime",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
@@ -9258,17 +8705,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV5),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
         this.RangeDataV5 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV5 = [
-          "time",
-          this.RangeDataV5,
-          "value",
-          this.RangeDataV5
-        ];
+        this.RandomParamDataV5 = ["time", this.RangeDataV5, "value", this.RangeDataV5];
 
         this.DynamicParamDataV5 = [
           "envelopeData",
@@ -9278,7 +8720,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV5 = [
@@ -9295,7 +8737,7 @@ module.exports = [
           "spread3D",
           this.DynamicParamDataV5,
           "volumeA",
-          this.DynamicParamDataV5
+          this.DynamicParamDataV5,
         ];
 
         this.CategoryDataV5 = [
@@ -9328,17 +8770,10 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
-        this.DspDataV5 = [
-          "type",
-          "uint32",
-          "flags",
-          "uint32",
-          "property",
-          Utils.getArrayReader("float32")
-        ];
+        this.DspDataV5 = ["type", "uint32", "flags", "uint32", "property", Utils.getArrayReader("float32")];
 
         this.BussDataV5 = [
           "name",
@@ -9350,7 +8785,7 @@ module.exports = [
           "dsp",
           Utils.getArrayReader(this.DspDataV5),
           "volume",
-          "float32"
+          "float32",
         ];
 
         this.SnapshotDataV5 = [
@@ -9363,7 +8798,7 @@ module.exports = [
           "flags",
           "uint32",
           "buss",
-          Utils.getArrayReader(this.BussDataV5)
+          Utils.getArrayReader(this.BussDataV5),
         ];
 
         this.AudioSettingsDataV5 = [
@@ -9380,7 +8815,7 @@ module.exports = [
           "bankIndexFileName",
           Utils.getFileNameReader(),
           "bankScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV5 = [
@@ -9389,7 +8824,7 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.FileNameDataV5 = [
@@ -9400,7 +8835,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV5 = [
@@ -9469,15 +8904,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV5 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV5 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV5 = [
           "cue",
@@ -9487,14 +8917,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV5 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV5)
+          Utils.getArrayReader(this.TriggerMarkerDataV5),
         ];
 
         this.__root = this.ScriptFileDataV5 = [
@@ -9517,7 +8947,7 @@ module.exports = [
           "fadeInTime",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
@@ -9531,7 +8961,7 @@ module.exports = [
           "flags",
           "uint32",
           "volume",
-          "float32"
+          "float32",
         ];
 
         this.EnvelopePointDataV4 = ["offset", "float32", "value", "float32"];
@@ -9542,17 +8972,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV4),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
         this.RangeDataV4 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV4 = [
-          "time",
-          this.RangeDataV4,
-          "value",
-          this.RangeDataV4
-        ];
+        this.RandomParamDataV4 = ["time", this.RangeDataV4, "value", this.RangeDataV4];
 
         this.DynamicParamDataV4 = [
           "envelopeData",
@@ -9562,7 +8987,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV4 = [
@@ -9579,7 +9004,7 @@ module.exports = [
           "spread3D",
           this.DynamicParamDataV4,
           "volumeA",
-          this.DynamicParamDataV4
+          this.DynamicParamDataV4,
         ];
 
         this.CategoryDataV4 = [
@@ -9612,7 +9037,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV4 = [
@@ -9625,7 +9050,7 @@ module.exports = [
           "bankIndexFileName",
           Utils.getFileNameReader(),
           "bankScriptFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV4 = [
@@ -9634,15 +9059,10 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.DspDataV4 = [
-          "param",
-          Utils.getArrayReader(this.DynamicParamDataV4),
-          "type",
-          "uint8"
-        ];
+        this.DspDataV4 = ["param", Utils.getArrayReader(this.DynamicParamDataV4), "type", "uint8"];
 
         this.FileNameDataV4 = [
           "language",
@@ -9652,7 +9072,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV4 = [
@@ -9721,15 +9141,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV4 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV4 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV4 = [
           "cue",
@@ -9739,14 +9154,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV4 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV4)
+          Utils.getArrayReader(this.TriggerMarkerDataV4),
         ];
 
         this.__root = this.ScriptFileDataV4 = [
@@ -9769,7 +9184,7 @@ module.exports = [
           "fadeInTime",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
@@ -9783,7 +9198,7 @@ module.exports = [
           "flags",
           "uint32",
           "volume",
-          "float32"
+          "float32",
         ];
 
         this.EnvelopePointDataV3 = ["offset", "float32", "value", "float32"];
@@ -9794,17 +9209,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV3),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
         this.RangeDataV3 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV3 = [
-          "time",
-          this.RangeDataV3,
-          "value",
-          this.RangeDataV3
-        ];
+        this.RandomParamDataV3 = ["time", this.RangeDataV3, "value", this.RangeDataV3];
 
         this.DynamicParamDataV3 = [
           "envelopeData",
@@ -9814,7 +9224,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV3 = [
@@ -9831,7 +9241,7 @@ module.exports = [
           "spread3D",
           this.DynamicParamDataV3,
           "volumeA",
-          this.DynamicParamDataV3
+          this.DynamicParamDataV3,
         ];
 
         this.CategoryDataV3 = [
@@ -9864,7 +9274,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV3 = [
@@ -9875,7 +9285,7 @@ module.exports = [
           "distanceScale",
           "float32",
           "voiceBankFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV3 = [
@@ -9884,15 +9294,10 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.DspDataV3 = [
-          "param",
-          Utils.getArrayReader(this.DynamicParamDataV3),
-          "type",
-          "uint8"
-        ];
+        this.DspDataV3 = ["param", Utils.getArrayReader(this.DynamicParamDataV3), "type", "uint8"];
 
         this.FileNameDataV3 = [
           "language",
@@ -9902,7 +9307,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV3 = [
@@ -9971,15 +9376,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV3 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV3 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV3 = [
           "cue",
@@ -9989,14 +9389,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV3 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV3)
+          Utils.getArrayReader(this.TriggerMarkerDataV3),
         ];
 
         this.__root = this.ScriptFileDataV3 = [
@@ -10019,7 +9419,7 @@ module.exports = [
           "fadeInTime",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
@@ -10033,7 +9433,7 @@ module.exports = [
           "flags",
           "uint32",
           "volume",
-          "float32"
+          "float32",
         ];
 
         this.EnvelopePointDataV2 = ["offset", "float32", "value", "float32"];
@@ -10044,17 +9444,12 @@ module.exports = [
           "envelopePoint",
           Utils.getArrayReader(this.EnvelopePointDataV2),
           "offsetType",
-          "uint8"
+          "uint8",
         ];
 
         this.RangeDataV2 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV2 = [
-          "time",
-          this.RangeDataV2,
-          "value",
-          this.RangeDataV2
-        ];
+        this.RandomParamDataV2 = ["time", this.RangeDataV2, "value", this.RangeDataV2];
 
         this.DynamicParamDataV2 = [
           "envelopeData",
@@ -10064,7 +9459,7 @@ module.exports = [
           "value",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.AttenuationDataV2 = [
@@ -10081,7 +9476,7 @@ module.exports = [
           "spread3D",
           this.DynamicParamDataV2,
           "volumeA",
-          this.DynamicParamDataV2
+          this.DynamicParamDataV2,
         ];
 
         this.CategoryDataV2 = [
@@ -10114,7 +9509,7 @@ module.exports = [
           "maxAudible",
           "uint32",
           "maxAudibleBehavior",
-          "uint8"
+          "uint8",
         ];
 
         this.AudioSettingsDataV2 = [
@@ -10125,7 +9520,7 @@ module.exports = [
           "distanceScale",
           "float32",
           "voiceBankFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.HandlerDataV2 = [
@@ -10134,15 +9529,10 @@ module.exports = [
           "flags",
           "uint32",
           "byteCode",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.DspDataV2 = [
-          "param",
-          Utils.getArrayReader(this.DynamicParamDataV2),
-          "type",
-          "uint8"
-        ];
+        this.DspDataV2 = ["param", Utils.getArrayReader(this.DynamicParamDataV2), "type", "uint8"];
 
         this.FileNameDataV2 = [
           "language",
@@ -10152,7 +9542,7 @@ module.exports = [
           "fileName",
           Utils.getFileNameReader(),
           "audioType",
-          "uint8"
+          "uint8",
         ];
 
         this.MetaSoundDataV2 = [
@@ -10221,15 +9611,10 @@ module.exports = [
           "positionMode",
           "uint8",
           "repeatTimeFrom",
-          "uint8"
+          "uint8",
         ];
 
-        this.ScriptRefDataV2 = [
-          "name",
-          Utils.getQWordReader(),
-          "fileName",
-          Utils.getFileNameReader()
-        ];
+        this.ScriptRefDataV2 = ["name", Utils.getQWordReader(), "fileName", Utils.getFileNameReader()];
 
         this.TriggerMarkerDataV2 = [
           "cue",
@@ -10239,14 +9624,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV2 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV2)
+          Utils.getArrayReader(this.TriggerMarkerDataV2),
         ];
 
         this.__root = this.ScriptFileDataV2 = [
@@ -10267,7 +9652,7 @@ module.exports = [
           "fadeInTime",
           "float32",
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
@@ -10281,17 +9666,12 @@ module.exports = [
           "offsetType",
           "uint8",
           "offsetParameter",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.RangeDataV1 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV1 = [
-          "time",
-          this.RangeDataV1,
-          "value",
-          this.RangeDataV1
-        ];
+        this.RandomParamDataV1 = ["time", this.RangeDataV1, "value", this.RangeDataV1];
 
         this.DynamicParamDataV1 = [
           "envelopeData",
@@ -10301,7 +9681,7 @@ module.exports = [
           "type",
           "uint8",
           "value",
-          "float32"
+          "float32",
         ];
 
         this.AttenuationDataV1 = [
@@ -10318,7 +9698,7 @@ module.exports = [
           "spread3D",
           this.DynamicParamDataV1,
           "volumeA",
-          this.DynamicParamDataV1
+          this.DynamicParamDataV1,
         ];
 
         this.CategoryDataV1 = [
@@ -10351,7 +9731,7 @@ module.exports = [
           "volumeDuckingTimeRelease",
           "float32",
           "volumeGroupName",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.VolumeGroupDataV1 = [
@@ -10362,7 +9742,7 @@ module.exports = [
           "parentName",
           Utils.getQWordReader(),
           "volume",
-          "float32"
+          "float32",
         ];
 
         this.AudioSettingsDataV1 = [
@@ -10373,7 +9753,7 @@ module.exports = [
           "voiceBankFileName",
           Utils.getFileNameReader(),
           "volumeGroup",
-          Utils.getArrayReader(this.VolumeGroupDataV1)
+          Utils.getArrayReader(this.VolumeGroupDataV1),
         ];
 
         this.HandlerDataV1 = [
@@ -10382,15 +9762,10 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.DspDataV1 = [
-          "param",
-          Utils.getArrayReader(this.DynamicParamDataV1),
-          "type",
-          "uint8"
-        ];
+        this.DspDataV1 = ["param", Utils.getArrayReader(this.DynamicParamDataV1), "type", "uint8"];
 
         this.FileNameDataV1 = [
           "audioType",
@@ -10400,7 +9775,7 @@ module.exports = [
           "language",
           Utils.getQWordReader(),
           "weight",
-          "float32"
+          "float32",
         ];
 
         this.MetaSoundDataV1 = [
@@ -10465,15 +9840,10 @@ module.exports = [
           "repeatTimeFrom",
           "uint8",
           "volume",
-          this.DynamicParamDataV1
+          this.DynamicParamDataV1,
         ];
 
-        this.ScriptRefDataV1 = [
-          "fileName",
-          Utils.getFileNameReader(),
-          "name",
-          Utils.getQWordReader()
-        ];
+        this.ScriptRefDataV1 = ["fileName", Utils.getFileNameReader(), "name", Utils.getQWordReader()];
 
         this.TriggerMarkerDataV1 = [
           "cue",
@@ -10483,14 +9853,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV1 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV1)
+          Utils.getArrayReader(this.TriggerMarkerDataV1),
         ];
 
         this.__root = this.ScriptFileDataV1 = [
@@ -10509,7 +9879,7 @@ module.exports = [
           "triggerKey",
           Utils.getArrayReader(this.TriggerKeyDataV1),
           "volume",
-          "float32"
+          "float32",
         ];
       },
 
@@ -10521,7 +9891,7 @@ module.exports = [
           "flags",
           "uint32",
           "name",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.EnvelopePointDataV0 = ["offset", "float32", "value", "float32"];
@@ -10532,17 +9902,12 @@ module.exports = [
           "offsetType",
           "uint8",
           "offsetParameter",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.RangeDataV0 = ["max", "float32", "min", "float32", "min", "uint8"];
 
-        this.RandomParamDataV0 = [
-          "time",
-          this.RangeDataV0,
-          "value",
-          this.RangeDataV0
-        ];
+        this.RandomParamDataV0 = ["time", this.RangeDataV0, "value", this.RangeDataV0];
 
         this.DynamicParamDataV0 = [
           "envelopeData",
@@ -10552,7 +9917,7 @@ module.exports = [
           "type",
           "uint8",
           "value",
-          "float32"
+          "float32",
         ];
 
         this.AttenuationDataV0 = [
@@ -10569,15 +9934,10 @@ module.exports = [
           "spread3D",
           this.DynamicParamDataV0,
           "volumeA",
-          this.DynamicParamDataV0
+          this.DynamicParamDataV0,
         ];
 
-        this.DspDataV0 = [
-          "param",
-          Utils.getArrayReader(this.DynamicParamDataV0),
-          "type",
-          "uint8"
-        ];
+        this.DspDataV0 = ["param", Utils.getArrayReader(this.DynamicParamDataV0), "type", "uint8"];
 
         this.FileNameDataV0 = [
           "audioType",
@@ -10587,7 +9947,7 @@ module.exports = [
           "language",
           Utils.getQWordReader(),
           "weight",
-          "float32"
+          "float32",
         ];
 
         this.MetaSoundDataV0 = [
@@ -10652,15 +10012,10 @@ module.exports = [
           "repeatTimeFrom",
           "uint8",
           "volume",
-          this.DynamicParamDataV0
+          this.DynamicParamDataV0,
         ];
 
-        this.ScriptRefDataV0 = [
-          "fileName",
-          Utils.getFileNameReader(),
-          "name",
-          Utils.getQWordReader()
-        ];
+        this.ScriptRefDataV0 = ["fileName", Utils.getFileNameReader(), "name", Utils.getQWordReader()];
 
         this.TriggerMarkerDataV0 = [
           "cue",
@@ -10670,14 +10025,14 @@ module.exports = [
           "time",
           "float32",
           "type",
-          "uint8"
+          "uint8",
         ];
 
         this.TriggerKeyDataV0 = [
           "name",
           Utils.getQWordReader(),
           "triggerMarker",
-          Utils.getArrayReader(this.TriggerMarkerDataV0)
+          Utils.getArrayReader(this.TriggerMarkerDataV0),
         ];
 
         this.__root = this.ScriptFileDataV0 = [
@@ -10694,9 +10049,9 @@ module.exports = [
           "triggerKey",
           Utils.getArrayReader(this.TriggerKeyDataV0),
           "volume",
-          "float32"
+          "float32",
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

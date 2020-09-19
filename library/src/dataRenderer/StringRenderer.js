@@ -69,14 +69,7 @@ class StringRenderer extends DataRenderer {
       /// skip past fcc
       ds.seek(4);
 
-      let entryHeaderDef = [
-        "size",
-        "uint16",
-        "decryptionOffset",
-        "uint16",
-        "bitsPerSymbol",
-        "uint16"
-      ];
+      let entryHeaderDef = ["size", "uint16", "decryptionOffset", "uint16", "bitsPerSymbol", "uint16"];
 
       let entryIndex = 0;
 
@@ -85,15 +78,14 @@ class StringRenderer extends DataRenderer {
         entry.size -= 6;
 
         if (entry.size > 0) {
-          let isEncrypted =
-            entry.decryptionOffset !== 0 || entry.bitsPerSymbol !== 0x10;
+          let isEncrypted = entry.decryptionOffset !== 0 || entry.bitsPerSymbol !== 0x10;
 
           /// UTF-16
           if (!isEncrypted) {
             let value = ds.readUCS2String(entry.size / 2);
             self.getOutput().strings.push({
               value: value,
-              recid: entryIndex
+              recid: entryIndex,
             });
           }
 

@@ -95,11 +95,7 @@ class PropertiesRenderer extends DataRenderer {
       if (lastPct !== pct) {
         let pctStr = pct + (pct.toString().indexOf(".") < 0 ? ".0" : "");
 
-        self.logger.log(
-          T3D.Logger.TYPE_PROGRESS,
-          "Loading 3D Models (Props)",
-          pctStr
-        );
+        self.logger.log(T3D.Logger.TYPE_PROGRESS, "Loading 3D Models (Props)", pctStr);
         lastPct = pct;
       }
 
@@ -155,10 +151,7 @@ class PropertiesRenderer extends DataRenderer {
         /// Each mesh is added to a group corresponding to its LOD distane
         let maxDist = 0;
         meshArray.forEach(function(mesh) {
-          maxDist = Math.max(
-            maxDist,
-            addMeshToLOD(mesh, groups, lod, prop, needsClone)
-          );
+          maxDist = Math.max(maxDist, addMeshToLOD(mesh, groups, lod, prop, needsClone));
         });
 
         /// Add invisible level (the raycaster crashes on lod without any levels)
@@ -168,23 +161,12 @@ class PropertiesRenderer extends DataRenderer {
         if (prop.rotation) {
           lod.rotation.order = "ZXY";
           // ["x","float32","z","float32","y","float32"],
-          lod.rotation.set(
-            prop.rotation[0],
-            -prop.rotation[2],
-            -prop.rotation[1]
-          );
+          lod.rotation.set(prop.rotation[0], -prop.rotation[2], -prop.rotation[1]);
         }
         lod.scale.set(prop.scale, prop.scale, prop.scale);
-        lod.position.set(
-          prop.position[0],
-          -prop.position[2],
-          -prop.position[1]
-        );
+        lod.position.set(prop.position[0], -prop.position[2], -prop.position[1]);
 
-        lod.boundingSphereRadius =
-          (boundingSphere && boundingSphere.radius
-            ? boundingSphere.radius
-            : 1.0) * prop.scale;
+        lod.boundingSphereRadius = (boundingSphere && boundingSphere.radius ? boundingSphere.radius : 1.0) * prop.scale;
 
         lod.updateMatrix();
         lod.matrixAutoUpdate = false;
@@ -205,10 +187,7 @@ class PropertiesRenderer extends DataRenderer {
             /// Each mesh is added to a group corresponding to its LOD distane
             let maxDist = 0;
             meshArray.forEach(function(mesh) {
-              maxDist = Math.max(
-                maxDist,
-                addMeshToLOD(mesh, groups, lod, prop, true)
-              );
+              maxDist = Math.max(maxDist, addMeshToLOD(mesh, groups, lod, prop, true));
             });
 
             /// Add invisible level
@@ -217,26 +196,16 @@ class PropertiesRenderer extends DataRenderer {
             /// Set position, scale and rotation of the LOD object
             if (transform.rotation) {
               lod.rotation.order = "ZXY";
-              lod.rotation.set(
-                transform.rotation[0],
-                -transform.rotation[2],
-                -transform.rotation[1]
-              );
+              lod.rotation.set(transform.rotation[0], -transform.rotation[2], -transform.rotation[1]);
             }
             lod.scale.set(transform.scale, transform.scale, transform.scale);
-            lod.position.set(
-              transform.position[0],
-              -transform.position[2],
-              -transform.position[1]
-            );
+            lod.position.set(transform.position[0], -transform.position[2], -transform.position[1]);
 
             lod.updateMatrix();
             lod.matrixAutoUpdate = false;
 
             lod.boundingSphereRadius =
-              (boundingSphere && boundingSphere.radius
-                ? boundingSphere.radius
-                : 1.0) * prop.scale;
+              (boundingSphere && boundingSphere.radius ? boundingSphere.radius : 1.0) * prop.scale;
 
             /// Show highest level always
             lod.update(lod);
@@ -298,13 +267,7 @@ class PropertiesRenderer extends DataRenderer {
       }
 
       if (idx % 100 === 0) {
-        this.logger.log(
-          T3D.Logger.TYPE_MESSAGE,
-          "getting ids for entry",
-          idx,
-          "of",
-          props.length
-        );
+        this.logger.log(T3D.Logger.TYPE_MESSAGE, "getting ids for entry", idx, "of", props.length);
       }
 
       let prop = props[idx];

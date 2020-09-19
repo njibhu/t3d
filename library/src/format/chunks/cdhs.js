@@ -22,7 +22,7 @@ module.exports = [
           "hazeMode",
           "uint8",
           "flags",
-          "uint16"
+          "uint16",
         ];
 
         this.PackVertexShaderKey = [
@@ -35,13 +35,10 @@ module.exports = [
           "texGen",
           ["[]", "uint32", 14],
           "vsVersion",
-          "uint32"
+          "uint32",
         ];
 
-        this.__root = this.PackShaderCache = [
-          "data",
-          Utils.getArrayReader(this.PackVertexShaderKey)
-        ];
+        this.__root = this.PackShaderCache = ["data", Utils.getArrayReader(this.PackVertexShaderKey)];
       },
 
       // => Version: 0
@@ -56,14 +53,11 @@ module.exports = [
           "texGen",
           ["[]", "uint32", 14],
           "vsVersion",
-          "uint32"
+          "uint32",
         ];
 
-        this.__root = this.PackShaderCacheV0 = [
-          "data",
-          Utils.getArrayReader(this.PackVertexShaderKeyV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.PackShaderCacheV0 = ["data", Utils.getArrayReader(this.PackVertexShaderKeyV0)];
+      },
+    },
+  },
 ];

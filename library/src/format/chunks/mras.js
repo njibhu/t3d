@@ -10,14 +10,7 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.AmatAppleShaderConstant = [
-          "token",
-          "uint32",
-          "regIndex",
-          "uint32",
-          "regCount",
-          "uint32"
-        ];
+        this.AmatAppleShaderConstant = ["token", "uint32", "regIndex", "uint32", "regCount", "uint32"];
 
         this.AmatAppleShader = [
           "isPixelShader",
@@ -29,7 +22,7 @@ module.exports = [
           "constants",
           Utils.getArrayReader(this.AmatAppleShaderConstant),
           "samplers",
-          Utils.getArrayReader(this.AmatAppleShaderConstant)
+          Utils.getArrayReader(this.AmatAppleShaderConstant),
         ];
 
         this.AmatAppleRenderState = [
@@ -48,7 +41,7 @@ module.exports = [
           "depthFunction",
           "uint32",
           "depthBias",
-          "float32"
+          "float32",
         ];
 
         this.AmatApplePass = [
@@ -61,15 +54,10 @@ module.exports = [
           "psFileFame",
           Utils.getFileNameReader(),
           "vsFileName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
-        this.AmatAppleEffect = [
-          "token",
-          Utils.getQWordReader(),
-          "passes",
-          Utils.getArrayReader(this.AmatApplePass)
-        ];
+        this.AmatAppleEffect = ["token", Utils.getQWordReader(), "passes", Utils.getArrayReader(this.AmatApplePass)];
 
         this.AmatAppleSamplerState = [
           "addressU",
@@ -91,7 +79,7 @@ module.exports = [
           "mipFilter",
           "uint32",
           "mipMapLodBias",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.AmatAppleMaterial = [
@@ -102,9 +90,9 @@ module.exports = [
           "effects",
           Utils.getArrayReader(this.AmatAppleEffect),
           "samplers",
-          Utils.getArrayReader(this.AmatAppleSamplerState)
+          Utils.getArrayReader(this.AmatAppleSamplerState),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

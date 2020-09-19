@@ -51,7 +51,7 @@ class TerrainRenderer extends DataRenderer {
     let material = new THREE.MeshBasicMaterial({
       color: 0x5bb1e8,
       wireframe: false,
-      opacity: 0.35
+      opacity: 0.35,
     });
 
     material.transparent = true;
@@ -59,12 +59,8 @@ class TerrainRenderer extends DataRenderer {
   }
 
   parseNumChunks(terrainData) {
-    terrainData.numChunksD_1 = Math.sqrt(
-      (terrainData.dims[0] * terrainData.chunkArray.length) /
-        terrainData.dims[1]
-    );
-    terrainData.numChunksD_2 =
-      terrainData.chunkArray.length / terrainData.numChunksD_1;
+    terrainData.numChunksD_1 = Math.sqrt((terrainData.dims[0] * terrainData.chunkArray.length) / terrainData.dims[1]);
+    terrainData.numChunksD_2 = terrainData.chunkArray.length / terrainData.numChunksD_1;
   }
 
   loadPagedImageCallback(callback, infaltedBuffer) {
@@ -120,7 +116,7 @@ class TerrainRenderer extends DataRenderer {
     let customMaterial = new THREE.MeshLambertMaterial({
       side: THREE.DoubleSide,
       color: 0x666666,
-      flatShading: true
+      flatShading: true,
     });
     //let texMats = {};
 
@@ -145,10 +141,7 @@ class TerrainRenderer extends DataRenderer {
           /// Add texture to list, note that coord name is used, not actual file name
           if (!chunkTextures[matName]) {
             /// Load local texture, here we use file name!
-            let chunkTex = RenderUtils.loadLocalTexture(
-              self.localReader,
-              filename
-            );
+            let chunkTex = RenderUtils.loadLocalTexture(self.localReader, filename);
 
             if (chunkTex) {
               /// Set repeat, antistropy and repeat Y
@@ -174,8 +167,7 @@ class TerrainRenderer extends DataRenderer {
       let pageY = Math.floor(cy / 4);
 
       // TODO: Terrain texture LOD ?
-      let chunkTextureIndices =
-        allMaterials[chunkIndex].loResMaterial.texIndexArray;
+      let chunkTextureIndices = allMaterials[chunkIndex].loResMaterial.texIndexArray;
       // let matFileName = allMaterials[chunkIndex].loResMaterial.materialFile;
       // let chunkTextureIndices = allMaterials[chunkIndex].hiResMaterial.texIndexArray;
       // let matFileName = allMaterials[chunkIndex].hiResMaterial.materialFile;
@@ -201,10 +193,7 @@ class TerrainRenderer extends DataRenderer {
         /// If the texture is not already loaded, read it from the .dat!
         if (!chunkTextures[textureFileName]) {
           /// Load local texture
-          let chunkTex = RenderUtils.loadLocalTexture(
-            self.localReader,
-            textureFileName
-          );
+          let chunkTex = RenderUtils.loadLocalTexture(self.localReader, textureFileName);
 
           if (chunkTex) {
             /// Set repeat, antistropy and repeat Y
@@ -226,7 +215,7 @@ class TerrainRenderer extends DataRenderer {
       let fog = {
         color: { r: 1, g: 1, b: 1 },
         near: 0,
-        far: 0
+        far: 0,
       };
 
       /// Get haze color from environment rednerer
@@ -243,16 +232,16 @@ class TerrainRenderer extends DataRenderer {
       uniforms.uvScale = { type: "v2", value: new THREE.Vector2(8.0, 8.0) };
       uniforms.offset = {
         type: "v2",
-        value: new THREE.Vector2(pageOffetX, pageOffetY)
+        value: new THREE.Vector2(pageOffetX, pageOffetY),
       };
 
       uniforms.texturePicker = {
         type: "t",
-        value: chunkTextures[pageTexName]
+        value: chunkTextures[pageTexName],
       };
       uniforms.texturePicker2 = {
         type: "t",
-        value: chunkTextures[pageTexName2]
+        value: chunkTextures[pageTexName2],
       };
 
       uniforms.texture1 = { type: "t", value: chunkTextures[fileNames[0]] };
@@ -263,19 +252,14 @@ class TerrainRenderer extends DataRenderer {
       mat = new THREE.ShaderMaterial({
         uniforms: uniforms,
         fragmentShader: TerrainShader.getFragmentShader(),
-        vertexShader: TerrainShader.getVertexShader()
+        vertexShader: TerrainShader.getVertexShader(),
       });
 
       /// Store referenceto each material
       allMats.push(mat);
 
       /// -1 for faces -> vertices , -2 for ignoring outer faces
-      let chunkGeo = new THREE.PlaneBufferGeometry(
-        cdx,
-        cdy,
-        chunkW - 3,
-        chunkW - 3
-      );
+      let chunkGeo = new THREE.PlaneBufferGeometry(cdx, cdy, chunkW - 3, chunkW - 3);
 
       let cn = 0;
 
@@ -285,8 +269,7 @@ class TerrainRenderer extends DataRenderer {
       for (let y = 0; y < chunkW; y++) {
         for (let x = 0; x < chunkW; x++) {
           if (x !== 0 && x !== chunkW - 1 && y !== 0 && y !== chunkW - 1) {
-            chunkGeo.getAttribute("position").array[cn * 3 + 2] =
-              terrainData.heightMapArray[n];
+            chunkGeo.getAttribute("position").array[cn * 3 + 2] = terrainData.heightMapArray[n];
             cn++;
           }
 
@@ -343,7 +326,7 @@ class TerrainRenderer extends DataRenderer {
           x1: px - cdx / 2,
           x2: px + cdx / 2,
           y1: py - cdy / 2,
-          y2: py + cdy / 2
+          y2: py + cdy / 2,
         };
       }
 
@@ -405,10 +388,7 @@ class TerrainRenderer extends DataRenderer {
   renderAsync(callback) {
     /// Load all paged Images, requires inflation of other pack files!
     let pagedImageId = this.mapFile.getChunk("trn").data.materials.pagedImage;
-    this.localReader.loadFile(
-      pagedImageId,
-      this.loadPagedImageCallback.bind(this, callback)
-    );
+    this.localReader.loadFile(pagedImageId, this.loadPagedImageCallback.bind(this, callback));
   }
 
   /**

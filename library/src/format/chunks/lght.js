@@ -22,7 +22,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -39,7 +39,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapPointLightgroups = [
@@ -50,7 +50,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapPortalData = [
@@ -61,7 +61,7 @@ module.exports = [
           "lighten",
           "float32",
           "darken",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPortalLight = [
@@ -72,7 +72,7 @@ module.exports = [
           "portalData",
           Utils.getArrayReader(this.PackMapPortalData),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapSpotShadow = ["shadowFilename", Utils.getFileNameReader()];
@@ -101,7 +101,7 @@ module.exports = [
           "textureName",
           Utils.getFileNameReader(),
           "shadowData",
-          Utils.getPointerReader(this.PackMapSpotShadow)
+          Utils.getPointerReader(this.PackMapSpotShadow),
         ];
 
         this.PackMapSpotLightgroups = [
@@ -112,7 +112,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapVolumeImage = [
@@ -123,7 +123,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -148,13 +148,10 @@ module.exports = [
           "images",
           Utils.getArrayReader(this.PackMapVolumeImage),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapLights = [
           "pointLights",
@@ -168,7 +165,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -186,7 +183,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -203,7 +200,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapPointLightgroups = [
@@ -214,7 +211,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapPortalData = [
@@ -225,7 +222,7 @@ module.exports = [
           "lighten",
           "float32",
           "darken",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPortalLight = [
@@ -236,7 +233,7 @@ module.exports = [
           "portalData",
           Utils.getArrayReader(this.PackMapPortalData),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapSpotShadow = ["shadowFilename", Utils.getFileNameReader()];
@@ -263,7 +260,7 @@ module.exports = [
           "textureName",
           Utils.getFileNameReader(),
           "shadowData",
-          Utils.getPointerReader(this.PackMapSpotShadow)
+          Utils.getPointerReader(this.PackMapSpotShadow),
         ];
 
         this.PackMapSpotLightgroups = [
@@ -274,7 +271,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapVolumeImage = [
@@ -285,7 +282,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -310,13 +307,10 @@ module.exports = [
           "images",
           Utils.getArrayReader(this.PackMapVolumeImage),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapLights = [
           "pointLights",
@@ -330,7 +324,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -348,7 +342,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -365,7 +359,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapPointLightgroups = [
@@ -376,7 +370,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapPortalData = [
@@ -387,7 +381,7 @@ module.exports = [
           "lighten",
           "float32",
           "darken",
-          "float32"
+          "float32",
         ];
 
         this.PackMapPortalLight = [
@@ -398,7 +392,7 @@ module.exports = [
           "portalData",
           Utils.getArrayReader(this.PackMapPortalData),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapPointLight = [
@@ -421,7 +415,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapSpotLightgroups = [
@@ -432,7 +426,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapVolumeImage = [
@@ -443,7 +437,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -468,13 +462,10 @@ module.exports = [
           "images",
           Utils.getArrayReader(this.PackMapVolumeImage),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapLightsV15 = [
           "pointLights",
@@ -488,7 +479,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -506,7 +497,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -523,7 +514,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapPointLightgroups = [
@@ -534,7 +525,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapProtalLight = [
@@ -551,7 +542,7 @@ module.exports = [
           "points",
           Utils.getArrayReader(["[]", "float32", 3]),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapPointLight = [
@@ -574,7 +565,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapSpotLightgroups = [
@@ -585,7 +576,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapVolumeImage = [
@@ -596,7 +587,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -621,13 +612,10 @@ module.exports = [
           "images",
           Utils.getArrayReader(this.PackMapVolumeImage),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapLightsV14 = [
           "pointLights",
@@ -641,7 +629,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -659,7 +647,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -676,7 +664,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -687,7 +675,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapPointLight = [
@@ -710,7 +698,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapPointLightgroups = [
@@ -721,7 +709,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapVolumeImage = [
@@ -732,7 +720,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -757,13 +745,10 @@ module.exports = [
           "images",
           Utils.getArrayReader(this.PackMapVolumeImage),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapLights = [
           "pointLights",
@@ -775,7 +760,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -793,7 +778,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -810,7 +795,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -821,7 +806,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapPointLight = [
@@ -844,7 +829,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapPointLightgroups = [
@@ -855,7 +840,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapVolumeImage = [
@@ -866,7 +851,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -891,13 +876,10 @@ module.exports = [
           "images",
           Utils.getArrayReader(this.PackMapVolumeImage),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapLights = [
           "pointLights",
@@ -909,7 +891,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -927,7 +909,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -944,7 +926,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -955,7 +937,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapPointLight = [
@@ -978,7 +960,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapPointLightgroups = [
@@ -989,7 +971,7 @@ module.exports = [
           "curves",
           Utils.getArrayReader(this.PackMapCurve),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
         this.PackMapVolumeImage = [
@@ -1000,7 +982,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -1025,13 +1007,10 @@ module.exports = [
           "images",
           Utils.getArrayReader(this.PackMapVolumeImage),
           "broadId",
-          "uint16"
+          "uint16",
         ];
 
-        this.PackBroadphaseType = [
-          "broadphaseData",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackBroadphaseType = ["broadphaseData", Utils.getArrayReader("uint8")];
 
         this.__root = this.PackMapLights = [
           "pointLights",
@@ -1043,7 +1022,7 @@ module.exports = [
           "broadPhase",
           this.PackBroadphaseType,
           "maxBroadId",
-          "uint16"
+          "uint16",
         ];
       },
 
@@ -1061,7 +1040,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -1078,7 +1057,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -1087,7 +1066,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapPointLight = [
@@ -1110,7 +1089,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapPointLightgroups = [
@@ -1119,7 +1098,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapPointLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapVolumeImage = [
@@ -1130,7 +1109,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -1153,7 +1132,7 @@ module.exports = [
           "flags",
           "uint32",
           "images",
-          Utils.getArrayReader(this.PackMapVolumeImage)
+          Utils.getArrayReader(this.PackMapVolumeImage),
         ];
 
         this.__root = this.PackMapLights = [
@@ -1162,7 +1141,7 @@ module.exports = [
           "spotLights",
           Utils.getArrayReader(this.PackMapPointLightgroups),
           "volumeLights",
-          Utils.getArrayReader(this.PackMapVolumeLight)
+          Utils.getArrayReader(this.PackMapVolumeLight),
         ];
       },
 
@@ -1180,7 +1159,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -1197,7 +1176,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -1206,7 +1185,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapPointLight = [
@@ -1229,7 +1208,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapPointLightgroups = [
@@ -1238,7 +1217,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapPointLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapVolumeImage = [
@@ -1249,7 +1228,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -1272,7 +1251,7 @@ module.exports = [
           "flags",
           "uint32",
           "images",
-          Utils.getArrayReader(this.PackMapVolumeImage)
+          Utils.getArrayReader(this.PackMapVolumeImage),
         ];
 
         this.__root = this.PackMapLights = [
@@ -1281,7 +1260,7 @@ module.exports = [
           "spotLights",
           Utils.getArrayReader(this.PackMapPointLightgroups),
           "volumeLights",
-          Utils.getArrayReader(this.PackMapVolumeLight)
+          Utils.getArrayReader(this.PackMapVolumeLight),
         ];
       },
 
@@ -1299,7 +1278,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -1316,7 +1295,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -1325,7 +1304,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapPointLight = [
@@ -1348,7 +1327,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapPointLightgroups = [
@@ -1357,7 +1336,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapPointLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapVolumeImage = [
@@ -1368,7 +1347,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -1387,7 +1366,7 @@ module.exports = [
           "floodPoint",
           ["[]", "float32", 3],
           "images",
-          Utils.getArrayReader(this.PackMapVolumeImage)
+          Utils.getArrayReader(this.PackMapVolumeImage),
         ];
 
         this.__root = this.PackMapLights = [
@@ -1396,7 +1375,7 @@ module.exports = [
           "spotLights",
           Utils.getArrayReader(this.PackMapPointLightgroups),
           "volumeLights",
-          Utils.getArrayReader(this.PackMapVolumeLight)
+          Utils.getArrayReader(this.PackMapVolumeLight),
         ];
       },
 
@@ -1414,7 +1393,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -1431,7 +1410,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -1440,7 +1419,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapPointLight = [
@@ -1463,7 +1442,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapPointLightgroups = [
@@ -1472,7 +1451,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapPointLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapVolumeImage = [
@@ -1483,7 +1462,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -1500,7 +1479,7 @@ module.exports = [
           "name",
           Utils.getString16Reader(),
           "images",
-          Utils.getArrayReader(this.PackMapVolumeImage)
+          Utils.getArrayReader(this.PackMapVolumeImage),
         ];
 
         this.__root = this.PackMapLights = [
@@ -1509,7 +1488,7 @@ module.exports = [
           "spotLights",
           Utils.getArrayReader(this.PackMapPointLightgroups),
           "volumeLights",
-          Utils.getArrayReader(this.PackMapVolumeLight)
+          Utils.getArrayReader(this.PackMapVolumeLight),
         ];
       },
 
@@ -1527,7 +1506,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -1544,7 +1523,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -1553,7 +1532,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapPointLight = [
@@ -1576,7 +1555,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapPointLightgroups = [
@@ -1585,7 +1564,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapPointLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapVolumeImage = [
@@ -1596,7 +1575,7 @@ module.exports = [
           "format",
           "uint32",
           "image",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapVolumeLight = [
@@ -1611,7 +1590,7 @@ module.exports = [
           "pack",
           ["[]", "float32", 4],
           "images",
-          Utils.getArrayReader(this.PackMapVolumeImage)
+          Utils.getArrayReader(this.PackMapVolumeImage),
         ];
 
         this.__root = this.PackMapLights = [
@@ -1620,7 +1599,7 @@ module.exports = [
           "spotLights",
           Utils.getArrayReader(this.PackMapPointLightgroups),
           "volumeLights",
-          Utils.getArrayReader(this.PackMapVolumeLight)
+          Utils.getArrayReader(this.PackMapVolumeLight),
         ];
       },
 
@@ -1638,7 +1617,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -1655,7 +1634,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -1664,7 +1643,7 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.PackMapPointLight = [
@@ -1687,7 +1666,7 @@ module.exports = [
           "outerAngle",
           "float32",
           "textureName",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapPointLightgroups = [
@@ -1696,14 +1675,14 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapPointLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
         this.__root = this.PackMapLights = [
           "pointLights",
           Utils.getArrayReader(this.PackMapLightgroups),
           "spotLights",
-          Utils.getArrayReader(this.PackMapPointLightgroups)
+          Utils.getArrayReader(this.PackMapPointLightgroups),
         ];
       },
 
@@ -1721,7 +1700,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -1738,7 +1717,7 @@ module.exports = [
           "amplitude",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
@@ -1747,13 +1726,10 @@ module.exports = [
           "lights",
           Utils.getArrayReader(this.PackMapLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
-        this.__root = this.PackMapLights = [
-          "lights",
-          Utils.getArrayReader(this.PackMapLightgroups)
-        ];
+        this.__root = this.PackMapLights = ["lights", Utils.getArrayReader(this.PackMapLightgroups)];
       },
 
       // => Version: 3, ReferencedFunction: 0xEB9910
@@ -1776,7 +1752,7 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapCurve = [
@@ -1789,20 +1765,17 @@ module.exports = [
           "phase",
           "float32",
           "curveType",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapLightgroups = [
           "lights",
           Utils.getArrayReader(this.PackMapLight),
           "curves",
-          Utils.getArrayReader(this.PackMapCurve)
+          Utils.getArrayReader(this.PackMapCurve),
         ];
 
-        this.__root = this.PackMapLights = [
-          "lights",
-          Utils.getArrayReader(this.PackMapLightgroups)
-        ];
+        this.__root = this.PackMapLights = ["lights", Utils.getArrayReader(this.PackMapLightgroups)];
       },
 
       // => Version: 2, ReferencedFunction: 0xEB97F0
@@ -1825,18 +1798,12 @@ module.exports = [
           "farDistance",
           "float32",
           "flags",
-          "uint32"
+          "uint32",
         ];
 
-        this.PackMapLightgroups = [
-          "lights",
-          Utils.getArrayReader(this.PackMapLight)
-        ];
+        this.PackMapLightgroups = ["lights", Utils.getArrayReader(this.PackMapLight)];
 
-        this.__root = this.PackMapLights = [
-          "groups",
-          Utils.getArrayReader(this.PackMapLightgroups)
-        ];
+        this.__root = this.PackMapLights = ["groups", Utils.getArrayReader(this.PackMapLightgroups)];
       },
 
       // => Version: 1
@@ -1857,14 +1824,11 @@ module.exports = [
           "nearDistance",
           "float32",
           "farDistance",
-          "float32"
+          "float32",
         ];
 
-        this.__root = this.PackMapLights = [
-          "lights",
-          Utils.getArrayReader(this.PackMapLight)
-        ];
-      }
-    }
-  }
+        this.__root = this.PackMapLights = ["lights", Utils.getArrayReader(this.PackMapLight)];
+      },
+    },
+  },
 ];

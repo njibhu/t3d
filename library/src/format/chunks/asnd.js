@@ -18,7 +18,7 @@ module.exports = [
           "reserved3",
           "uint32",
           "reserved4",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.WaveformDataV2 = [
@@ -61,7 +61,7 @@ module.exports = [
           "audioData",
           Utils.getArrayReader("uint8"),
           "otherData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
       },
 
@@ -101,7 +101,7 @@ module.exports = [
           "audioData",
           Utils.getArrayReader("uint8"),
           "otherData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
       },
 
@@ -125,9 +125,9 @@ module.exports = [
           "numSamples",
           "uint32",
           "waveformDataType",
-          "uint8"
+          "uint8",
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

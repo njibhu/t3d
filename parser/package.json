@@ -20,17 +20,12 @@
     "type": "git",
     "url": "git+https://github.com/njibhu/t3d.git"
   },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
+  "scripts": {},
   "devDependencies": {
     "ts-node": "^8.9.1",
     "typescript": "^3.7.2"
   },
   "dependencies": {
     "t3d-lib": "file:../library"
-  },
-  "prettier": {
-    "printWidth": 120
   }
 }

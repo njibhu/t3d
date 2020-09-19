@@ -14,22 +14,12 @@ module.exports = [
           "animation",
           Utils.getArrayReader("uint8"),
           "pointers",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
-        this.ModelAnimationLodV25 = [
-          "data",
-          this.PackGrannyAnimationTypeV1,
-          "fileFull",
-          Utils.getFileNameReader()
-        ];
+        this.ModelAnimationLodV25 = ["data", this.PackGrannyAnimationTypeV1, "fileFull", Utils.getFileNameReader()];
 
-        this.ModelVisTrackDataV33 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV33 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV25 = [
           "type",
@@ -39,21 +29,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV25 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV25)
+          Utils.getArrayReader(this.ModelTrackTypeDataV25),
         ];
 
         this.ModelCloudAnimV25 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV25)
+          Utils.getArrayReader(this.ModelTrackTypeDataV25),
         ];
 
         this.ModelMatConstAnimV25 = [
@@ -66,14 +56,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV25 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV25)
+          Utils.getArrayReader(this.ModelTrackTypeDataV25),
         ];
 
         this.ModelAnimPropertyDataV25 = [
@@ -86,7 +76,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV25 = [
@@ -97,42 +87,42 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV25 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV25)
+          Utils.getArrayReader(this.ModelTrackTypeDataV25),
         ];
 
         this.ModelAnchorAnimV25 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV25)
+          Utils.getArrayReader(this.ModelTrackTypeDataV25),
         ];
 
         this.ModelStreakAnimV25 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV25)
+          Utils.getArrayReader(this.ModelAnchorAnimV25),
         ];
 
         this.ModelLightningAnimV25 = [
           "bone",
           Utils.getQWordReader(),
           "lightningTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV25)
+          Utils.getArrayReader(this.ModelTrackTypeDataV25),
         ];
 
         this.ModelWindAnimationV25 = [
           "bone",
           Utils.getQWordReader(),
           "windTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV25)
+          Utils.getArrayReader(this.ModelTrackTypeDataV25),
         ];
 
         this.ModelAnimationDataV33 = [
@@ -181,7 +171,7 @@ module.exports = [
           "lightningAnim",
           Utils.getArrayReader(this.ModelLightningAnimV25),
           "windAnimData",
-          Utils.getArrayReader(this.ModelWindAnimationV25)
+          Utils.getArrayReader(this.ModelWindAnimationV25),
         ];
 
         this.ModelCompoundAnimationDataV25 = [
@@ -192,21 +182,16 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelAnimationImportSequenceV25 = [
-          "name",
-          Utils.getQWordReader(),
-          "duration",
-          "float32"
-        ];
+        this.ModelAnimationImportSequenceV25 = ["name", Utils.getQWordReader(), "duration", "float32"];
 
         this.ModelAnimationImportDataV33 = [
           "filename",
           Utils.getFileNameReader(),
           "sequences",
-          Utils.getArrayReader(this.ModelAnimationImportSequenceV25)
+          Utils.getArrayReader(this.ModelAnimationImportSequenceV25),
         ];
 
         this.ModelFileAnimationBankV25 = [
@@ -217,37 +202,24 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV33)
+          Utils.getArrayReader(this.ModelAnimationImportDataV33),
         ];
 
         this.__root = this.ModelFileAnimationV25 = [
           "bank",
           Utils.getPointerReader(this.ModelFileAnimationBankV25),
           "anim",
-          this.PackGrannyAnimationTypeV1
+          this.PackGrannyAnimationTypeV1,
         ];
       },
 
       // => Version: 24, ReferencedFunction: 0xF27440
       24: function() {
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelAnimationLodV24 = [
-          "data",
-          this.PackGrannyAnimationTypeV0,
-          "fileFull",
-          Utils.getFileNameReader()
-        ];
+        this.ModelAnimationLodV24 = ["data", this.PackGrannyAnimationTypeV0, "fileFull", Utils.getFileNameReader()];
 
-        this.ModelVisTrackDataV32 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV32 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV24 = [
           "type",
@@ -257,21 +229,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV24 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV24)
+          Utils.getArrayReader(this.ModelTrackTypeDataV24),
         ];
 
         this.ModelCloudAnimV24 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV24)
+          Utils.getArrayReader(this.ModelTrackTypeDataV24),
         ];
 
         this.ModelMatConstAnimV24 = [
@@ -284,14 +256,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV24 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV24)
+          Utils.getArrayReader(this.ModelTrackTypeDataV24),
         ];
 
         this.ModelAnimPropertyDataV24 = [
@@ -304,7 +276,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV24 = [
@@ -315,42 +287,42 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV24 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV24)
+          Utils.getArrayReader(this.ModelTrackTypeDataV24),
         ];
 
         this.ModelAnchorAnimV24 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV24)
+          Utils.getArrayReader(this.ModelTrackTypeDataV24),
         ];
 
         this.ModelStreakAnimV24 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV24)
+          Utils.getArrayReader(this.ModelAnchorAnimV24),
         ];
 
         this.ModelLightningAnimV24 = [
           "bone",
           Utils.getQWordReader(),
           "lightningTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV24)
+          Utils.getArrayReader(this.ModelTrackTypeDataV24),
         ];
 
         this.ModelWindAnimationV24 = [
           "bone",
           Utils.getQWordReader(),
           "windTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV24)
+          Utils.getArrayReader(this.ModelTrackTypeDataV24),
         ];
 
         this.ModelAnimationDataV32 = [
@@ -399,7 +371,7 @@ module.exports = [
           "lightningAnim",
           Utils.getArrayReader(this.ModelLightningAnimV24),
           "windAnimData",
-          Utils.getArrayReader(this.ModelWindAnimationV24)
+          Utils.getArrayReader(this.ModelWindAnimationV24),
         ];
 
         this.ModelCompoundAnimationDataV24 = [
@@ -410,21 +382,16 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelAnimationImportSequenceV24 = [
-          "name",
-          Utils.getQWordReader(),
-          "duration",
-          "float32"
-        ];
+        this.ModelAnimationImportSequenceV24 = ["name", Utils.getQWordReader(), "duration", "float32"];
 
         this.ModelAnimationImportDataV32 = [
           "filename",
           Utils.getFileNameReader(),
           "sequences",
-          Utils.getArrayReader(this.ModelAnimationImportSequenceV24)
+          Utils.getArrayReader(this.ModelAnimationImportSequenceV24),
         ];
 
         this.ModelFileAnimationBankV24 = [
@@ -435,30 +402,22 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV32)
+          Utils.getArrayReader(this.ModelAnimationImportDataV32),
         ];
 
         this.__root = this.ModelFileAnimationV24 = [
           "bank",
           Utils.getPointerReader(this.ModelFileAnimationBankV24),
           "anim",
-          this.PackGrannyAnimationTypeV0
+          this.PackGrannyAnimationTypeV0,
         ];
       },
 
       // => Version: 23, ReferencedFunction: 0xF272A0
       23: function() {
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV31 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV31 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV23 = [
           "type",
@@ -468,21 +427,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV23 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV23)
+          Utils.getArrayReader(this.ModelTrackTypeDataV23),
         ];
 
         this.ModelCloudAnimV23 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV23)
+          Utils.getArrayReader(this.ModelTrackTypeDataV23),
         ];
 
         this.ModelMatConstAnimV23 = [
@@ -495,14 +454,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV23 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV23)
+          Utils.getArrayReader(this.ModelTrackTypeDataV23),
         ];
 
         this.ModelAnimPropertyDataV23 = [
@@ -515,7 +474,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV23 = [
@@ -526,42 +485,42 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV23 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV23)
+          Utils.getArrayReader(this.ModelTrackTypeDataV23),
         ];
 
         this.ModelAnchorAnimV23 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV23)
+          Utils.getArrayReader(this.ModelTrackTypeDataV23),
         ];
 
         this.ModelStreakAnimV23 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV23)
+          Utils.getArrayReader(this.ModelAnchorAnimV23),
         ];
 
         this.ModelLightningAnimV23 = [
           "bone",
           Utils.getQWordReader(),
           "lightningTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV23)
+          Utils.getArrayReader(this.ModelTrackTypeDataV23),
         ];
 
         this.ModelWindAnimationV23 = [
           "bone",
           Utils.getQWordReader(),
           "windTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV23)
+          Utils.getArrayReader(this.ModelTrackTypeDataV23),
         ];
 
         this.ModelAnimationDataV31 = [
@@ -608,7 +567,7 @@ module.exports = [
           "lightningAnim",
           Utils.getArrayReader(this.ModelLightningAnimV23),
           "windAnimData",
-          Utils.getArrayReader(this.ModelWindAnimationV23)
+          Utils.getArrayReader(this.ModelWindAnimationV23),
         ];
 
         this.ModelCompoundAnimationDataV23 = [
@@ -619,21 +578,16 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelAnimationImportSequenceV23 = [
-          "name",
-          Utils.getQWordReader(),
-          "duration",
-          "float32"
-        ];
+        this.ModelAnimationImportSequenceV23 = ["name", Utils.getQWordReader(), "duration", "float32"];
 
         this.ModelAnimationImportDataV31 = [
           "filename",
           Utils.getFileNameReader(),
           "sequences",
-          Utils.getArrayReader(this.ModelAnimationImportSequenceV23)
+          Utils.getArrayReader(this.ModelAnimationImportSequenceV23),
         ];
 
         this.__root = this.ModelFileAnimationBankV23 = [
@@ -644,23 +598,15 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV31)
+          Utils.getArrayReader(this.ModelAnimationImportDataV31),
         ];
       },
 
       // => Version: 22
       22: function() {
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV30 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV30 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV22 = [
           "type",
@@ -670,21 +616,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV22 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV22)
+          Utils.getArrayReader(this.ModelTrackTypeDataV22),
         ];
 
         this.ModelCloudAnimV22 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV22)
+          Utils.getArrayReader(this.ModelTrackTypeDataV22),
         ];
 
         this.ModelMatConstAnimV22 = [
@@ -697,14 +643,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV22 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV22)
+          Utils.getArrayReader(this.ModelTrackTypeDataV22),
         ];
 
         this.ModelAnimPropertyDataV22 = [
@@ -717,7 +663,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV22 = [
@@ -728,42 +674,42 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV22 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV22)
+          Utils.getArrayReader(this.ModelTrackTypeDataV22),
         ];
 
         this.ModelAnchorAnimV22 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV22)
+          Utils.getArrayReader(this.ModelTrackTypeDataV22),
         ];
 
         this.ModelStreakAnimV22 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV22)
+          Utils.getArrayReader(this.ModelAnchorAnimV22),
         ];
 
         this.ModelLightningAnimV22 = [
           "bone",
           Utils.getQWordReader(),
           "lightningTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV22)
+          Utils.getArrayReader(this.ModelTrackTypeDataV22),
         ];
 
         this.ModelWindAnimationV22 = [
           "bone",
           Utils.getQWordReader(),
           "windTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV22)
+          Utils.getArrayReader(this.ModelTrackTypeDataV22),
         ];
 
         this.ModelAnimationDataV30 = [
@@ -810,7 +756,7 @@ module.exports = [
           "lightningAnim",
           Utils.getArrayReader(this.ModelLightningAnimV22),
           "windAnimData",
-          Utils.getArrayReader(this.ModelWindAnimationV22)
+          Utils.getArrayReader(this.ModelWindAnimationV22),
         ];
 
         this.ModelCompoundAnimationDataV22 = [
@@ -821,21 +767,16 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelAnimationImportSequenceV22 = [
-          "name",
-          Utils.getQWordReader(),
-          "duration",
-          "float32"
-        ];
+        this.ModelAnimationImportSequenceV22 = ["name", Utils.getQWordReader(), "duration", "float32"];
 
         this.ModelAnimationImportDataV30 = [
           "filename",
           Utils.getFileNameReader(),
           "sequences",
-          Utils.getArrayReader(this.ModelAnimationImportSequenceV22)
+          Utils.getArrayReader(this.ModelAnimationImportSequenceV22),
         ];
 
         this.__root = this.ModelFileAnimationBankV22 = [
@@ -846,23 +787,15 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV30)
+          Utils.getArrayReader(this.ModelAnimationImportDataV30),
         ];
       },
 
       // => Version: 21
       21: function() {
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV29 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV29 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV21 = [
           "type",
@@ -872,21 +805,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV21 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV21)
+          Utils.getArrayReader(this.ModelTrackTypeDataV21),
         ];
 
         this.ModelCloudAnimV21 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV21)
+          Utils.getArrayReader(this.ModelTrackTypeDataV21),
         ];
 
         this.ModelMatConstAnimV21 = [
@@ -899,14 +832,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV21 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV21)
+          Utils.getArrayReader(this.ModelTrackTypeDataV21),
         ];
 
         this.ModelAnimPropertyDataV21 = [
@@ -919,7 +852,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV21 = [
@@ -930,42 +863,42 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV21 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV21)
+          Utils.getArrayReader(this.ModelTrackTypeDataV21),
         ];
 
         this.ModelAnchorAnimV21 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV21)
+          Utils.getArrayReader(this.ModelTrackTypeDataV21),
         ];
 
         this.ModelStreakAnimV21 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV21)
+          Utils.getArrayReader(this.ModelAnchorAnimV21),
         ];
 
         this.ModelLightningAnimV21 = [
           "bone",
           Utils.getQWordReader(),
           "lightningTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV21)
+          Utils.getArrayReader(this.ModelTrackTypeDataV21),
         ];
 
         this.ModelWindAnimationV21 = [
           "bone",
           Utils.getQWordReader(),
           "windTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV21)
+          Utils.getArrayReader(this.ModelTrackTypeDataV21),
         ];
 
         this.ModelAnimationDataV29 = [
@@ -1012,7 +945,7 @@ module.exports = [
           "lightningAnim",
           Utils.getArrayReader(this.ModelLightningAnimV21),
           "windAnimData",
-          Utils.getArrayReader(this.ModelWindAnimationV21)
+          Utils.getArrayReader(this.ModelWindAnimationV21),
         ];
 
         this.ModelCompoundAnimationDataV21 = [
@@ -1023,21 +956,16 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelAnimationImportSequenceV21 = [
-          "name",
-          Utils.getQWordReader(),
-          "duration",
-          "float32"
-        ];
+        this.ModelAnimationImportSequenceV21 = ["name", Utils.getQWordReader(), "duration", "float32"];
 
         this.ModelAnimationImportDataV29 = [
           "filename",
           Utils.getFileNameReader(),
           "sequences",
-          Utils.getArrayReader(this.ModelAnimationImportSequenceV21)
+          Utils.getArrayReader(this.ModelAnimationImportSequenceV21),
         ];
 
         this.__root = this.ModelFileAnimationBankV21 = [
@@ -1050,23 +978,15 @@ module.exports = [
           "imports",
           Utils.getArrayReader(this.ModelAnimationImportDataV29),
           "modelReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
       // => Version: 20
       20: function() {
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV28 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV28 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV20 = [
           "type",
@@ -1076,21 +996,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV20 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV20)
+          Utils.getArrayReader(this.ModelTrackTypeDataV20),
         ];
 
         this.ModelCloudAnimV20 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV20)
+          Utils.getArrayReader(this.ModelTrackTypeDataV20),
         ];
 
         this.ModelMatConstAnimV20 = [
@@ -1103,14 +1023,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV20 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV20)
+          Utils.getArrayReader(this.ModelTrackTypeDataV20),
         ];
 
         this.ModelAnimPropertyDataV20 = [
@@ -1123,7 +1043,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV20 = [
@@ -1134,35 +1054,35 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV20 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV20)
+          Utils.getArrayReader(this.ModelTrackTypeDataV20),
         ];
 
         this.ModelAnchorAnimV20 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV20)
+          Utils.getArrayReader(this.ModelTrackTypeDataV20),
         ];
 
         this.ModelStreakAnimV20 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV20)
+          Utils.getArrayReader(this.ModelAnchorAnimV20),
         ];
 
         this.ModelLightningAnimV20 = [
           "bone",
           Utils.getQWordReader(),
           "lightningTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV20)
+          Utils.getArrayReader(this.ModelTrackTypeDataV20),
         ];
 
         this.ModelAnimationDataV28 = [
@@ -1207,7 +1127,7 @@ module.exports = [
           "streakAnim",
           Utils.getArrayReader(this.ModelStreakAnimV20),
           "lightningAnim",
-          Utils.getArrayReader(this.ModelLightningAnimV20)
+          Utils.getArrayReader(this.ModelLightningAnimV20),
         ];
 
         this.ModelCompoundAnimationDataV20 = [
@@ -1218,21 +1138,16 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelAnimationImportSequenceV20 = [
-          "name",
-          Utils.getQWordReader(),
-          "duration",
-          "float32"
-        ];
+        this.ModelAnimationImportSequenceV20 = ["name", Utils.getQWordReader(), "duration", "float32"];
 
         this.ModelAnimationImportDataV28 = [
           "filename",
           Utils.getFileNameReader(),
           "sequences",
-          Utils.getArrayReader(this.ModelAnimationImportSequenceV20)
+          Utils.getArrayReader(this.ModelAnimationImportSequenceV20),
         ];
 
         this.__root = this.ModelFileAnimationBankV20 = [
@@ -1245,23 +1160,15 @@ module.exports = [
           "imports",
           Utils.getArrayReader(this.ModelAnimationImportDataV28),
           "modelReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
       // => Version: 19
       19: function() {
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV27 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV27 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV19 = [
           "type",
@@ -1271,21 +1178,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV19 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV19)
+          Utils.getArrayReader(this.ModelTrackTypeDataV19),
         ];
 
         this.ModelCloudAnimV19 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV19)
+          Utils.getArrayReader(this.ModelTrackTypeDataV19),
         ];
 
         this.ModelMatConstAnimV19 = [
@@ -1298,14 +1205,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV19 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV19)
+          Utils.getArrayReader(this.ModelTrackTypeDataV19),
         ];
 
         this.ModelAnimPropertyDataV19 = [
@@ -1318,7 +1225,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV19 = [
@@ -1329,28 +1236,28 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV19 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV19)
+          Utils.getArrayReader(this.ModelTrackTypeDataV19),
         ];
 
         this.ModelAnchorAnimV19 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV19)
+          Utils.getArrayReader(this.ModelTrackTypeDataV19),
         ];
 
         this.ModelStreakAnimV19 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV19)
+          Utils.getArrayReader(this.ModelAnchorAnimV19),
         ];
 
         this.ModelAnimationDataV27 = [
@@ -1393,7 +1300,7 @@ module.exports = [
           "bcAnim",
           Utils.getArrayReader(this.ModelBoneConstraintAnimV19),
           "streakAnim",
-          Utils.getArrayReader(this.ModelStreakAnimV19)
+          Utils.getArrayReader(this.ModelStreakAnimV19),
         ];
 
         this.ModelCompoundAnimationDataV19 = [
@@ -1404,21 +1311,16 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelAnimationImportSequenceV19 = [
-          "name",
-          Utils.getQWordReader(),
-          "duration",
-          "float32"
-        ];
+        this.ModelAnimationImportSequenceV19 = ["name", Utils.getQWordReader(), "duration", "float32"];
 
         this.ModelAnimationImportDataV27 = [
           "filename",
           Utils.getFileNameReader(),
           "sequences",
-          Utils.getArrayReader(this.ModelAnimationImportSequenceV19)
+          Utils.getArrayReader(this.ModelAnimationImportSequenceV19),
         ];
 
         this.__root = this.ModelFileAnimationBankV19 = [
@@ -1431,23 +1333,15 @@ module.exports = [
           "imports",
           Utils.getArrayReader(this.ModelAnimationImportDataV27),
           "modelReference",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
       },
 
       // => Version: 18, ReferencedFunction: 0xF271F0
       18: function() {
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV26 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV26 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV18 = [
           "type",
@@ -1457,21 +1351,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV18 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV18)
+          Utils.getArrayReader(this.ModelTrackTypeDataV18),
         ];
 
         this.ModelCloudAnimV18 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV18)
+          Utils.getArrayReader(this.ModelTrackTypeDataV18),
         ];
 
         this.ModelMatConstAnimV18 = [
@@ -1484,14 +1378,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV18 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV18)
+          Utils.getArrayReader(this.ModelTrackTypeDataV18),
         ];
 
         this.ModelAnimPropertyDataV18 = [
@@ -1504,7 +1398,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV18 = [
@@ -1515,28 +1409,28 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV18 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV18)
+          Utils.getArrayReader(this.ModelTrackTypeDataV18),
         ];
 
         this.ModelAnchorAnimV18 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV18)
+          Utils.getArrayReader(this.ModelTrackTypeDataV18),
         ];
 
         this.ModelStreakAnimV18 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV18)
+          Utils.getArrayReader(this.ModelAnchorAnimV18),
         ];
 
         this.ModelAnimationDataV26 = [
@@ -1579,7 +1473,7 @@ module.exports = [
           "bcAnim",
           Utils.getArrayReader(this.ModelBoneConstraintAnimV18),
           "streakAnim",
-          Utils.getArrayReader(this.ModelStreakAnimV18)
+          Utils.getArrayReader(this.ModelStreakAnimV18),
         ];
 
         this.ModelCompoundAnimationDataV18 = [
@@ -1590,21 +1484,16 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelAnimationImportSequenceV18 = [
-          "name",
-          Utils.getQWordReader(),
-          "duration",
-          "float32"
-        ];
+        this.ModelAnimationImportSequenceV18 = ["name", Utils.getQWordReader(), "duration", "float32"];
 
         this.ModelAnimationImportDataV26 = [
           "filename",
           Utils.getFileNameReader(),
           "sequences",
-          Utils.getArrayReader(this.ModelAnimationImportSequenceV18)
+          Utils.getArrayReader(this.ModelAnimationImportSequenceV18),
         ];
 
         this.__root = this.ModelFileAnimationBankV18 = [
@@ -1615,23 +1504,15 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV26)
+          Utils.getArrayReader(this.ModelAnimationImportDataV26),
         ];
       },
 
       // => Version: 17, ReferencedFunction: 0xF26BD0
       17: function() {
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV25 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV25 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV17 = [
           "type",
@@ -1641,21 +1522,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV17 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV17)
+          Utils.getArrayReader(this.ModelTrackTypeDataV17),
         ];
 
         this.ModelCloudAnimV17 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV17)
+          Utils.getArrayReader(this.ModelTrackTypeDataV17),
         ];
 
         this.ModelMatConstAnimV17 = [
@@ -1668,14 +1549,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV17 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV17)
+          Utils.getArrayReader(this.ModelTrackTypeDataV17),
         ];
 
         this.ModelAnimPropertyDataV17 = [
@@ -1688,7 +1569,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV17 = [
@@ -1699,28 +1580,28 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV17 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV17)
+          Utils.getArrayReader(this.ModelTrackTypeDataV17),
         ];
 
         this.ModelAnchorAnimV17 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV17)
+          Utils.getArrayReader(this.ModelTrackTypeDataV17),
         ];
 
         this.ModelStreakAnimV17 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV17)
+          Utils.getArrayReader(this.ModelAnchorAnimV17),
         ];
 
         this.ModelAnimationDataV25 = [
@@ -1763,7 +1644,7 @@ module.exports = [
           "bcAnim",
           Utils.getArrayReader(this.ModelBoneConstraintAnimV17),
           "streakAnim",
-          Utils.getArrayReader(this.ModelStreakAnimV17)
+          Utils.getArrayReader(this.ModelStreakAnimV17),
         ];
 
         this.ModelCompoundAnimationDataV17 = [
@@ -1774,21 +1655,16 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
-        this.ModelAnimationImportSequenceV17 = [
-          "name",
-          Utils.getQWordReader(),
-          "duration",
-          "float32"
-        ];
+        this.ModelAnimationImportSequenceV17 = ["name", Utils.getQWordReader(), "duration", "float32"];
 
         this.ModelAnimationImportDataV25 = [
           "filename",
           Utils.getFileNameReader(),
           "sequences",
-          Utils.getArrayReader(this.ModelAnimationImportSequenceV17)
+          Utils.getArrayReader(this.ModelAnimationImportSequenceV17),
         ];
 
         this.__root = this.ModelFileAnimationBankV17 = [
@@ -1799,23 +1675,15 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV25)
+          Utils.getArrayReader(this.ModelAnimationImportDataV25),
         ];
       },
 
       // => Version: 16
       16: function() {
-        this.PackGrannyAnimationTypeV0 = [
-          "animation",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackGrannyAnimationTypeV0 = ["animation", Utils.getArrayReader("uint8")];
 
-        this.ModelVisTrackDataV24 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV24 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV16 = [
           "type",
@@ -1825,21 +1693,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV16 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV16)
+          Utils.getArrayReader(this.ModelTrackTypeDataV16),
         ];
 
         this.ModelCloudAnimV16 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV16)
+          Utils.getArrayReader(this.ModelTrackTypeDataV16),
         ];
 
         this.ModelMatConstAnimV16 = [
@@ -1852,14 +1720,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV16 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV16)
+          Utils.getArrayReader(this.ModelTrackTypeDataV16),
         ];
 
         this.ModelAnimPropertyDataV16 = [
@@ -1872,7 +1740,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV16 = [
@@ -1883,28 +1751,28 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV16 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV16)
+          Utils.getArrayReader(this.ModelTrackTypeDataV16),
         ];
 
         this.ModelAnchorAnimV16 = [
           "bone",
           Utils.getQWordReader(),
           "anchorTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV16)
+          Utils.getArrayReader(this.ModelTrackTypeDataV16),
         ];
 
         this.ModelStreakAnimV16 = [
           "bone",
           Utils.getQWordReader(),
           "anchorAnim",
-          Utils.getArrayReader(this.ModelAnchorAnimV16)
+          Utils.getArrayReader(this.ModelAnchorAnimV16),
         ];
 
         this.ModelAnimationDataV24 = [
@@ -1947,7 +1815,7 @@ module.exports = [
           "bcAnim",
           Utils.getArrayReader(this.ModelBoneConstraintAnimV16),
           "streakAnim",
-          Utils.getArrayReader(this.ModelStreakAnimV16)
+          Utils.getArrayReader(this.ModelStreakAnimV16),
         ];
 
         this.ModelCompoundAnimationDataV16 = [
@@ -1958,14 +1826,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV24 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV16 = [
@@ -1976,18 +1844,13 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV24)
+          Utils.getArrayReader(this.ModelAnimationImportDataV24),
         ];
       },
 
       // => Version: 15
       15: function() {
-        this.ModelVisTrackDataV23 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV23 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV15 = [
           "type",
@@ -1997,21 +1860,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV15 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV15)
+          Utils.getArrayReader(this.ModelTrackTypeDataV15),
         ];
 
         this.ModelCloudAnimV15 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV15)
+          Utils.getArrayReader(this.ModelTrackTypeDataV15),
         ];
 
         this.ModelMatConstAnimV15 = [
@@ -2024,14 +1887,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV15 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV15)
+          Utils.getArrayReader(this.ModelTrackTypeDataV15),
         ];
 
         this.ModelAnimPropertyDataV15 = [
@@ -2044,7 +1907,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV15 = [
@@ -2055,14 +1918,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelBoneConstraintAnimV15 = [
           "bone",
           Utils.getQWordReader(),
           "bcTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV15)
+          Utils.getArrayReader(this.ModelTrackTypeDataV15),
         ];
 
         this.ModelAnimationDataV23 = [
@@ -2103,7 +1966,7 @@ module.exports = [
           "tokenMapAnims",
           Utils.getArrayReader(this.ModelTokenMapAnimV15),
           "bcAnim",
-          Utils.getArrayReader(this.ModelBoneConstraintAnimV15)
+          Utils.getArrayReader(this.ModelBoneConstraintAnimV15),
         ];
 
         this.ModelCompoundAnimationDataV15 = [
@@ -2114,14 +1977,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV23 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV15 = [
@@ -2132,18 +1995,13 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV23)
+          Utils.getArrayReader(this.ModelAnimationImportDataV23),
         ];
       },
 
       // => Version: 14, ReferencedFunction: 0xF26950
       14: function() {
-        this.ModelVisTrackDataV22 = [
-          "boneToken",
-          Utils.getQWordReader(),
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV22 = ["boneToken", Utils.getQWordReader(), "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV14 = [
           "type",
@@ -2153,21 +2011,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV14 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV14)
+          Utils.getArrayReader(this.ModelTrackTypeDataV14),
         ];
 
         this.ModelCloudAnimV14 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV14)
+          Utils.getArrayReader(this.ModelTrackTypeDataV14),
         ];
 
         this.ModelMatConstAnimV14 = [
@@ -2180,14 +2038,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV14 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV14)
+          Utils.getArrayReader(this.ModelTrackTypeDataV14),
         ];
 
         this.ModelAnimPropertyDataV14 = [
@@ -2200,7 +2058,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV14 = [
@@ -2211,7 +2069,7 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelAnimationDataV22 = [
@@ -2250,7 +2108,7 @@ module.exports = [
           "radius",
           "float32",
           "tokenMapAnims",
-          Utils.getArrayReader(this.ModelTokenMapAnimV14)
+          Utils.getArrayReader(this.ModelTokenMapAnimV14),
         ];
 
         this.ModelCompoundAnimationDataV14 = [
@@ -2261,14 +2119,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV22 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV14 = [
@@ -2279,18 +2137,13 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV22)
+          Utils.getArrayReader(this.ModelAnimationImportDataV22),
         ];
       },
 
       // => Version: 13
       13: function() {
-        this.ModelVisTrackDataV21 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV21 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV13 = [
           "type",
@@ -2300,21 +2153,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV13 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV13)
+          Utils.getArrayReader(this.ModelTrackTypeDataV13),
         ];
 
         this.ModelCloudAnimV13 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV13)
+          Utils.getArrayReader(this.ModelTrackTypeDataV13),
         ];
 
         this.ModelMatConstAnimV13 = [
@@ -2327,14 +2180,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV13 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV13)
+          Utils.getArrayReader(this.ModelTrackTypeDataV13),
         ];
 
         this.ModelAnimPropertyDataV13 = [
@@ -2347,7 +2200,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV13 = [
@@ -2358,7 +2211,7 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelAnimationDataV21 = [
@@ -2397,7 +2250,7 @@ module.exports = [
           "radius",
           "float32",
           "tokenMapAnims",
-          Utils.getArrayReader(this.ModelTokenMapAnimV13)
+          Utils.getArrayReader(this.ModelTokenMapAnimV13),
         ];
 
         this.ModelCompoundAnimationDataV13 = [
@@ -2408,14 +2261,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV21 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV13 = [
@@ -2426,18 +2279,13 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV21)
+          Utils.getArrayReader(this.ModelAnimationImportDataV21),
         ];
       },
 
       // => Version: 12, ReferencedFunction: 0xF268A0
       12: function() {
-        this.ModelVisTrackDataV20 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV20 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV12 = [
           "type",
@@ -2447,21 +2295,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV12 = [
           "uvAnimId",
           "uint32",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV12)
+          Utils.getArrayReader(this.ModelTrackTypeDataV12),
         ];
 
         this.ModelCloudAnimV12 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV12)
+          Utils.getArrayReader(this.ModelTrackTypeDataV12),
         ];
 
         this.ModelMatConstAnimV12 = [
@@ -2474,14 +2322,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV12 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV12)
+          Utils.getArrayReader(this.ModelTrackTypeDataV12),
         ];
 
         this.ModelAnimPropertyDataV12 = [
@@ -2492,7 +2340,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelTokenMapAnimV12 = [
@@ -2503,7 +2351,7 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelAnimationDataV20 = [
@@ -2542,7 +2390,7 @@ module.exports = [
           "radius",
           "float32",
           "tokenMapAnims",
-          Utils.getArrayReader(this.ModelTokenMapAnimV12)
+          Utils.getArrayReader(this.ModelTokenMapAnimV12),
         ];
 
         this.ModelCompoundAnimationDataV12 = [
@@ -2553,14 +2401,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV20 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV12 = [
@@ -2571,18 +2419,13 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV20)
+          Utils.getArrayReader(this.ModelAnimationImportDataV20),
         ];
       },
 
       // => Version: 11
       11: function() {
-        this.ModelVisTrackDataV19 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV19 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV11 = [
           "type",
@@ -2592,21 +2435,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV11 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV11)
+          Utils.getArrayReader(this.ModelTrackTypeDataV11),
         ];
 
         this.ModelCloudAnimV11 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV11)
+          Utils.getArrayReader(this.ModelTrackTypeDataV11),
         ];
 
         this.ModelMatConstAnimV11 = [
@@ -2619,14 +2462,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV11 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV11)
+          Utils.getArrayReader(this.ModelTrackTypeDataV11),
         ];
 
         this.ModelAnimPropertyDataV11 = [
@@ -2637,7 +2480,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelAnimationDataV19 = [
@@ -2674,7 +2517,7 @@ module.exports = [
           "center",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ModelCompoundAnimationDataV11 = [
@@ -2685,14 +2528,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV19 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV11 = [
@@ -2703,18 +2546,13 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV19)
+          Utils.getArrayReader(this.ModelAnimationImportDataV19),
         ];
       },
 
       // => Version: 10
       10: function() {
-        this.ModelVisTrackDataV18 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV18 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV10 = [
           "type",
@@ -2724,21 +2562,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV10 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV10)
+          Utils.getArrayReader(this.ModelTrackTypeDataV10),
         ];
 
         this.ModelCloudAnimV10 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV10)
+          Utils.getArrayReader(this.ModelTrackTypeDataV10),
         ];
 
         this.ModelMatConstAnimV10 = [
@@ -2751,14 +2589,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV10 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV10)
+          Utils.getArrayReader(this.ModelTrackTypeDataV10),
         ];
 
         this.ModelAnimPropertyDataV10 = [
@@ -2769,7 +2607,7 @@ module.exports = [
           "val",
           Utils.getQWordReader(),
           "strVal",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.ModelAnimationDataV18 = [
@@ -2802,7 +2640,7 @@ module.exports = [
           "variantIndices",
           ["[]", "uint32", 3],
           "properties",
-          Utils.getArrayReader(this.ModelAnimPropertyDataV10)
+          Utils.getArrayReader(this.ModelAnimPropertyDataV10),
         ];
 
         this.ModelCompoundAnimationDataV10 = [
@@ -2813,14 +2651,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV18 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV10 = [
@@ -2831,18 +2669,13 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV18)
+          Utils.getArrayReader(this.ModelAnimationImportDataV18),
         ];
       },
 
       // => Version: 9
       9: function() {
-        this.ModelVisTrackDataV17 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV17 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
         this.ModelTrackTypeDataV9 = [
           "type",
@@ -2852,21 +2685,21 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelUVAnimationV9 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV9)
+          Utils.getArrayReader(this.ModelTrackTypeDataV9),
         ];
 
         this.ModelCloudAnimV9 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV9)
+          Utils.getArrayReader(this.ModelTrackTypeDataV9),
         ];
 
         this.ModelMatConstAnimV9 = [
@@ -2879,14 +2712,14 @@ module.exports = [
           "vectorTrackIndex",
           "uint32",
           "initialValue",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
         this.ModelLightAnimationV9 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV9)
+          Utils.getArrayReader(this.ModelTrackTypeDataV9),
         ];
 
         this.ModelAnimationDataV17 = [
@@ -2917,7 +2750,7 @@ module.exports = [
           "variantCount",
           "uint32",
           "variantIndices",
-          ["[]", "uint32", 3]
+          ["[]", "uint32", 3],
         ];
 
         this.ModelCompoundAnimationDataV9 = [
@@ -2928,14 +2761,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV17 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV9 = [
@@ -2946,40 +2779,28 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV17)
+          Utils.getArrayReader(this.ModelAnimationImportDataV17),
         ];
       },
 
       // => Version: 8
       8: function() {
-        this.ModelVisTrackDataV16 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV16 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
-        this.ModelTrackTypeDataV8 = [
-          "type",
-          "uint8",
-          "trackGroupIndex",
-          "uint32",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelTrackTypeDataV8 = ["type", "uint8", "trackGroupIndex", "uint32", "vectorTrackIndex", "uint32"];
 
         this.ModelUVAnimationV8 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV8)
+          Utils.getArrayReader(this.ModelTrackTypeDataV8),
         ];
 
         this.ModelCloudAnimV8 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV8)
+          Utils.getArrayReader(this.ModelTrackTypeDataV8),
         ];
 
         this.ModelMatConstAnimV8 = [
@@ -2990,14 +2811,14 @@ module.exports = [
           "trackGroupIndex",
           "uint32",
           "vectorTrackIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightAnimationV8 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV8)
+          Utils.getArrayReader(this.ModelTrackTypeDataV8),
         ];
 
         this.ModelAnimationDataV16 = [
@@ -3028,7 +2849,7 @@ module.exports = [
           "variantCount",
           "uint32",
           "variantIndices",
-          ["[]", "uint32", 3]
+          ["[]", "uint32", 3],
         ];
 
         this.ModelCompoundAnimationDataV8 = [
@@ -3039,14 +2860,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV16 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV8 = [
@@ -3057,40 +2878,28 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV16)
+          Utils.getArrayReader(this.ModelAnimationImportDataV16),
         ];
       },
 
       // => Version: 7
       7: function() {
-        this.ModelVisTrackDataV15 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV15 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
-        this.ModelTrackTypeDataV7 = [
-          "type",
-          "uint8",
-          "trackGroupIndex",
-          "uint32",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelTrackTypeDataV7 = ["type", "uint8", "trackGroupIndex", "uint32", "vectorTrackIndex", "uint32"];
 
         this.ModelUVAnimationV7 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV7)
+          Utils.getArrayReader(this.ModelTrackTypeDataV7),
         ];
 
         this.ModelCloudAnimV7 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV7)
+          Utils.getArrayReader(this.ModelTrackTypeDataV7),
         ];
 
         this.ModelMatConstAnimV7 = [
@@ -3101,14 +2910,14 @@ module.exports = [
           "trackGroupIndex",
           "uint32",
           "vectorTrackIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelLightAnimationV7 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV7)
+          Utils.getArrayReader(this.ModelTrackTypeDataV7),
         ];
 
         this.ModelAnimationDataV15 = [
@@ -3135,7 +2944,7 @@ module.exports = [
           "lightAnimData",
           Utils.getArrayReader(this.ModelLightAnimationV7),
           "isAdditive",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCompoundAnimationDataV7 = [
@@ -3146,14 +2955,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV15 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV7 = [
@@ -3164,54 +2973,37 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV15)
+          Utils.getArrayReader(this.ModelAnimationImportDataV15),
         ];
       },
 
       // => Version: 6
       6: function() {
-        this.ModelVisTrackDataV14 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV14 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
-        this.ModelTrackTypeDataV6 = [
-          "type",
-          "uint8",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelTrackTypeDataV6 = ["type", "uint8", "vectorTrackIndex", "uint32"];
 
         this.ModelUVAnimationV6 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV6)
+          Utils.getArrayReader(this.ModelTrackTypeDataV6),
         ];
 
         this.ModelCloudAnimV6 = [
           "bone",
           Utils.getQWordReader(),
           "cloudTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV6)
+          Utils.getArrayReader(this.ModelTrackTypeDataV6),
         ];
 
-        this.ModelMatConstAnimV6 = [
-          "matIndex",
-          "uint32",
-          "constToken",
-          "uint32",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelMatConstAnimV6 = ["matIndex", "uint32", "constToken", "uint32", "vectorTrackIndex", "uint32"];
 
         this.ModelLightAnimationV6 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV6)
+          Utils.getArrayReader(this.ModelTrackTypeDataV6),
         ];
 
         this.ModelAnimationDataV14 = [
@@ -3238,7 +3030,7 @@ module.exports = [
           "lightAnimData",
           Utils.getArrayReader(this.ModelLightAnimationV6),
           "isAdditive",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCompoundAnimationDataV6 = [
@@ -3249,14 +3041,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV14 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV6 = [
@@ -3267,38 +3059,28 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV14)
+          Utils.getArrayReader(this.ModelAnimationImportDataV14),
         ];
       },
 
       // => Version: 5
       5: function() {
-        this.ModelVisTrackDataV13 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV13 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
-        this.ModelTrackTypeDataV5 = [
-          "type",
-          "uint8",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelTrackTypeDataV5 = ["type", "uint8", "vectorTrackIndex", "uint32"];
 
         this.ModelUVAnimationV5 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV5)
+          Utils.getArrayReader(this.ModelTrackTypeDataV5),
         ];
 
         this.ModelLightAnimationV5 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV5)
+          Utils.getArrayReader(this.ModelTrackTypeDataV5),
         ];
 
         this.ModelAnimationDataV13 = [
@@ -3321,7 +3103,7 @@ module.exports = [
           "lightAnimData",
           Utils.getArrayReader(this.ModelLightAnimationV5),
           "isAdditive",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCompoundAnimationDataV5 = [
@@ -3332,14 +3114,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV13 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV5 = [
@@ -3350,38 +3132,28 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV13)
+          Utils.getArrayReader(this.ModelAnimationImportDataV13),
         ];
       },
 
       // => Version: 4
       4: function() {
-        this.ModelVisTrackDataV12 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV12 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
-        this.ModelTrackTypeDataV4 = [
-          "type",
-          "uint8",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelTrackTypeDataV4 = ["type", "uint8", "vectorTrackIndex", "uint32"];
 
         this.ModelUVAnimationV4 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV4)
+          Utils.getArrayReader(this.ModelTrackTypeDataV4),
         ];
 
         this.ModelLightAnimationV4 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV4)
+          Utils.getArrayReader(this.ModelTrackTypeDataV4),
         ];
 
         this.ModelAnimationDataV12 = [
@@ -3404,7 +3176,7 @@ module.exports = [
           "lightAnimData",
           Utils.getArrayReader(this.ModelLightAnimationV4),
           "isAdditive",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelCompoundAnimationDataV4 = [
@@ -3415,14 +3187,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV12 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV4 = [
@@ -3433,38 +3205,28 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV12)
+          Utils.getArrayReader(this.ModelAnimationImportDataV12),
         ];
       },
 
       // => Version: 3
       3: function() {
-        this.ModelVisTrackDataV11 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV11 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
-        this.ModelTrackTypeDataV3 = [
-          "type",
-          "uint8",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelTrackTypeDataV3 = ["type", "uint8", "vectorTrackIndex", "uint32"];
 
         this.ModelUVAnimationV3 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV3)
+          Utils.getArrayReader(this.ModelTrackTypeDataV3),
         ];
 
         this.ModelLightAnimationV3 = [
           "bone",
           Utils.getQWordReader(),
           "lightTrackData",
-          Utils.getArrayReader(this.ModelTrackTypeDataV3)
+          Utils.getArrayReader(this.ModelTrackTypeDataV3),
         ];
 
         this.ModelAnimationDataV11 = [
@@ -3485,7 +3247,7 @@ module.exports = [
           "triggerTokens",
           Utils.getArrayReader(Utils.getQWordReader()),
           "lightAnimData",
-          Utils.getArrayReader(this.ModelLightAnimationV3)
+          Utils.getArrayReader(this.ModelLightAnimationV3),
         ];
 
         this.ModelCompoundAnimationDataV3 = [
@@ -3496,14 +3258,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV11 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV3 = [
@@ -3514,31 +3276,21 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV11)
+          Utils.getArrayReader(this.ModelAnimationImportDataV11),
         ];
       },
 
       // => Version: 2
       2: function() {
-        this.ModelVisTrackDataV10 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV10 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
-        this.ModelUVTransformV2 = [
-          "type",
-          "uint8",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelUVTransformV2 = ["type", "uint8", "vectorTrackIndex", "uint32"];
 
         this.ModelUVAnimationV2 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelUVTransformV2)
+          Utils.getArrayReader(this.ModelUVTransformV2),
         ];
 
         this.ModelAnimationDataV10 = [
@@ -3557,7 +3309,7 @@ module.exports = [
           "triggerTimes",
           Utils.getArrayReader("float32"),
           "triggerTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelCompoundAnimationDataV2 = [
@@ -3568,14 +3320,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV10 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationBankV2 = [
@@ -3586,31 +3338,21 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV10)
+          Utils.getArrayReader(this.ModelAnimationImportDataV10),
         ];
       },
 
       // => Version: 1
       1: function() {
-        this.ModelVisTrackDataV9 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV9 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
-        this.ModelUVTransformV1 = [
-          "type",
-          "uint8",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelUVTransformV1 = ["type", "uint8", "vectorTrackIndex", "uint32"];
 
         this.ModelUVAnimationV1 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelUVTransformV1)
+          Utils.getArrayReader(this.ModelUVTransformV1),
         ];
 
         this.ModelAnimationDataV9 = [
@@ -3627,7 +3369,7 @@ module.exports = [
           "triggerTimes",
           Utils.getArrayReader("float32"),
           "triggerTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.ModelCompoundAnimationDataV1 = [
@@ -3638,14 +3380,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV9 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationV1 = [
@@ -3656,31 +3398,21 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV9)
+          Utils.getArrayReader(this.ModelAnimationImportDataV9),
         ];
       },
 
       // => Version: 0
       0: function() {
-        this.ModelVisTrackDataV8 = [
-          "boneIndex",
-          "uint32",
-          "keys",
-          Utils.getArrayReader("float32")
-        ];
+        this.ModelVisTrackDataV8 = ["boneIndex", "uint32", "keys", Utils.getArrayReader("float32")];
 
-        this.ModelUVTransformV0 = [
-          "type",
-          "uint8",
-          "vectorTrackIndex",
-          "uint32"
-        ];
+        this.ModelUVTransformV0 = ["type", "uint8", "vectorTrackIndex", "uint32"];
 
         this.ModelUVAnimationV0 = [
           "uvAnimId",
           "uint8",
           "uvTransformData",
-          Utils.getArrayReader(this.ModelUVTransformV0)
+          Utils.getArrayReader(this.ModelUVTransformV0),
         ];
 
         this.ModelAnimationDataV8 = [
@@ -3693,7 +3425,7 @@ module.exports = [
           "visTrackData",
           Utils.getArrayReader(this.ModelVisTrackDataV8),
           "uvAnimData",
-          Utils.getArrayReader(this.ModelUVAnimationV0)
+          Utils.getArrayReader(this.ModelUVAnimationV0),
         ];
 
         this.ModelCompoundAnimationDataV0 = [
@@ -3704,14 +3436,14 @@ module.exports = [
           "loop",
           Utils.getQWordReader(),
           "end",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ModelAnimationImportDataV8 = [
           "filename",
           Utils.getFileNameReader(),
           "sequenceTokens",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.ModelFileAnimationV0 = [
@@ -3722,10 +3454,10 @@ module.exports = [
           "fallbacks",
           Utils.getArrayReader(Utils.getQWordReader()),
           "imports",
-          Utils.getArrayReader(this.ModelAnimationImportDataV8)
+          Utils.getArrayReader(this.ModelAnimationImportDataV8),
         ];
-      }
-    }
+      },
+    },
   },
 
   /// ==================================================
@@ -3737,33 +3469,13 @@ module.exports = [
     versions: {
       // => Version: 2
       2: function() {
-        this.SceneKeyframeV2 = [
-          "time",
-          "float32",
-          "position",
-          ["[]", "float32", 3],
-          "rotation",
-          ["[]", "float32", 4]
-        ];
+        this.SceneKeyframeV2 = ["time", "float32", "position", ["[]", "float32", 3], "rotation", ["[]", "float32", 4]];
 
-        this.SceneMotionV2 = [
-          "keys",
-          Utils.getArrayReader(this.SceneKeyframeV2)
-        ];
+        this.SceneMotionV2 = ["keys", Utils.getArrayReader(this.SceneKeyframeV2)];
 
-        this.SceneActionPointV2 = [
-          "name",
-          Utils.getQWordReader(),
-          "motion",
-          this.SceneMotionV2
-        ];
+        this.SceneActionPointV2 = ["name", Utils.getQWordReader(), "motion", this.SceneMotionV2];
 
-        this.SceneAnimationEventV2 = [
-          "name",
-          Utils.getQWordReader(),
-          "time",
-          "float32"
-        ];
+        this.SceneAnimationEventV2 = ["name", Utils.getQWordReader(), "time", "float32"];
 
         this.SceneAnimationV2 = [
           "name",
@@ -3773,7 +3485,7 @@ module.exports = [
           "actionPoints",
           Utils.getArrayReader(this.SceneActionPointV2),
           "events",
-          Utils.getArrayReader(this.SceneAnimationEventV2)
+          Utils.getArrayReader(this.SceneAnimationEventV2),
         ];
 
         this.SceneTransformV2 = [
@@ -3782,15 +3494,10 @@ module.exports = [
           "translation",
           ["[]", "float32", 3],
           "rotation",
-          ["[]", "float32", 4]
+          ["[]", "float32", 4],
         ];
 
-        this.ScenePoseV2 = [
-          "name",
-          Utils.getQWordReader(),
-          "transforms",
-          Utils.getArrayReader(this.SceneTransformV2)
-        ];
+        this.ScenePoseV2 = ["name", Utils.getQWordReader(), "transforms", Utils.getArrayReader(this.SceneTransformV2)];
 
         this.SceneImportSequenceV2 = ["name", Utils.getQWordReader()];
 
@@ -3800,7 +3507,7 @@ module.exports = [
           "animNames",
           Utils.getArrayReader(this.SceneImportSequenceV2),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.SceneFileAnimationV2 = [
@@ -3809,39 +3516,19 @@ module.exports = [
           "poses",
           Utils.getArrayReader(this.ScenePoseV2),
           "imports",
-          Utils.getArrayReader(this.SceneAnimationImportV2)
+          Utils.getArrayReader(this.SceneAnimationImportV2),
         ];
       },
 
       // => Version: 1
       1: function() {
-        this.SceneKeyframeV1 = [
-          "time",
-          "float32",
-          "position",
-          ["[]", "float32", 3],
-          "rotation",
-          ["[]", "float32", 4]
-        ];
+        this.SceneKeyframeV1 = ["time", "float32", "position", ["[]", "float32", 3], "rotation", ["[]", "float32", 4]];
 
-        this.SceneMotionV1 = [
-          "keys",
-          Utils.getArrayReader(this.SceneKeyframeV1)
-        ];
+        this.SceneMotionV1 = ["keys", Utils.getArrayReader(this.SceneKeyframeV1)];
 
-        this.SceneActionPointV1 = [
-          "name",
-          Utils.getQWordReader(),
-          "motion",
-          this.SceneMotionV1
-        ];
+        this.SceneActionPointV1 = ["name", Utils.getQWordReader(), "motion", this.SceneMotionV1];
 
-        this.SceneAnimationEventV1 = [
-          "name",
-          Utils.getQWordReader(),
-          "time",
-          "float32"
-        ];
+        this.SceneAnimationEventV1 = ["name", Utils.getQWordReader(), "time", "float32"];
 
         this.SceneAnimationV1 = [
           "name",
@@ -3851,46 +3538,31 @@ module.exports = [
           "actionPoints",
           Utils.getArrayReader(this.SceneActionPointV1),
           "events",
-          Utils.getArrayReader(this.SceneAnimationEventV1)
+          Utils.getArrayReader(this.SceneAnimationEventV1),
         ];
 
         this.SceneAnimationImportV1 = [
           "filename",
           Utils.getFileNameReader(),
           "animNames",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.SceneFileAnimationV1 = [
           "animations",
           Utils.getArrayReader(this.SceneAnimationV1),
           "imports",
-          Utils.getArrayReader(this.SceneAnimationImportV1)
+          Utils.getArrayReader(this.SceneAnimationImportV1),
         ];
       },
 
       // => Version: 0
       0: function() {
-        this.SceneKeyframeV0 = [
-          "time",
-          "float32",
-          "position",
-          ["[]", "float32", 3],
-          "rotation",
-          ["[]", "float32", 4]
-        ];
+        this.SceneKeyframeV0 = ["time", "float32", "position", ["[]", "float32", 3], "rotation", ["[]", "float32", 4]];
 
-        this.SceneMotionV0 = [
-          "keys",
-          Utils.getArrayReader(this.SceneKeyframeV0)
-        ];
+        this.SceneMotionV0 = ["keys", Utils.getArrayReader(this.SceneKeyframeV0)];
 
-        this.SceneActionPointV0 = [
-          "name",
-          Utils.getQWordReader(),
-          "motion",
-          this.SceneMotionV0
-        ];
+        this.SceneActionPointV0 = ["name", Utils.getQWordReader(), "motion", this.SceneMotionV0];
 
         this.SceneAnimationV0 = [
           "name",
@@ -3898,23 +3570,23 @@ module.exports = [
           "motion",
           this.SceneMotionV0,
           "actionPoints",
-          Utils.getArrayReader(this.SceneActionPointV0)
+          Utils.getArrayReader(this.SceneActionPointV0),
         ];
 
         this.SceneAnimationImportV0 = [
           "filename",
           Utils.getFileNameReader(),
           "animNames",
-          Utils.getArrayReader(Utils.getQWordReader())
+          Utils.getArrayReader(Utils.getQWordReader()),
         ];
 
         this.__root = this.SceneFileAnimationV0 = [
           "animations",
           Utils.getArrayReader(this.SceneAnimationV0),
           "imports",
-          Utils.getArrayReader(this.SceneAnimationImportV0)
+          Utils.getArrayReader(this.SceneAnimationImportV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

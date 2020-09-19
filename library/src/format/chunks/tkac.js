@@ -10,20 +10,10 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.KeyEntry = [
-          "assetType",
-          "uint32",
-          "assetId",
-          "uint32",
-          "key",
-          Utils.getQWordReader()
-        ];
+        this.KeyEntry = ["assetType", "uint32", "assetId", "uint32", "key", Utils.getQWordReader()];
 
-        this.__root = this.KeyTableData = [
-          "keyEntryArr",
-          Utils.getArrayReader(this.KeyEntry)
-        ];
-      }
-    }
-  }
+        this.__root = this.KeyTableData = ["keyEntryArr", Utils.getArrayReader(this.KeyEntry)];
+      },
+    },
+  },
 ];

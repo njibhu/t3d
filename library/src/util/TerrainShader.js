@@ -85,7 +85,7 @@ module.exports = {
       "color *= 0.5+tp2.r;",
       "gl_FragColor = vec4(color,1.0);",
       THREE.ShaderChunk["logdepthbuf_fragment"],
-      "}"
+      "}",
     ].join("\n");
   },
   getVertexShader: function() {
@@ -101,7 +101,7 @@ module.exports = {
       "vecNormal = (modelMatrix * vec4(normal, 0.0)).xyz;",
       "gl_Position = projectionMatrix * mvPosition;",
       THREE.ShaderChunk["logdepthbuf_vertex"],
-      "}"
+      "}",
     ].join("\n");
-  }
+  },
 };

@@ -46,7 +46,7 @@ let fvfFormat = {
   Unknown3: 0x04000000 /** < 4 bytes. Unknown data. */,
   Unknown4: 0x08000000 /** < 16 bytes. Unknown data. */,
   PositionCompressed: 0x10000000 /** < 6 bytes. Position as three 16-bit floats in the order x, y, z. */,
-  Unknown5: 0x20000000 /** < 12 bytes. Unknown data. **/
+  Unknown5: 0x20000000 /** < 12 bytes. Unknown data. **/,
 };
 
 /**
@@ -79,7 +79,7 @@ function renderRect(rect, yPos, material, dy) {
     material ||
     new THREE.MeshBasicMaterial({
       color: 0xff0000,
-      wireframe: true
+      wireframe: true,
     });
   let plane = new THREE.Mesh(geometry, material);
   plane.overdraw = true;
@@ -109,13 +109,7 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
     T3D.Logger.TYPE_WARNING,
     "RenderUtils.loadLocalTexture is deprecated ! Please use the one from MaterialUtils."
   );
-  return MaterialUtils.loadLocalTexture(
-    localReader,
-    fileId,
-    mapping,
-    defaultColor,
-    onerror
-  );
+  return MaterialUtils.loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror);
 }
 
 /**
@@ -131,13 +125,7 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
  *
  * @return {Array} Each geometry in the model file represented by a textured THREE.Mesh object
  */
-function renderGeomChunk(
-  localReader,
-  chunk,
-  modelDataChunk,
-  sharedTextures,
-  showUnmaterialed
-) {
+function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, showUnmaterialed) {
   let rawMeshes = chunk.data.meshes;
   let meshes = [];
   let mats = modelDataChunk.data.permutations[0].materials;
@@ -170,19 +158,13 @@ function renderGeomChunk(
     /// start of the vertex entry
     ///
     let distToNormals =
-      !!(fvf & fvfFormat.Position) * 12 +
-      !!(fvf & fvfFormat.Weights) * 4 +
-      !!(fvf & fvfFormat.Group) * 4;
+      !!(fvf & fvfFormat.Position) * 12 + !!(fvf & fvfFormat.Weights) * 4 + !!(fvf & fvfFormat.Group) * 4;
 
-    let distToTangent =
-      distToNormals +
-      !!(fvf & fvfFormat.Normal) * 12 +
-      !!(fvf & fvfFormat.Color) * 4;
+    let distToTangent = distToNormals + !!(fvf & fvfFormat.Normal) * 12 + !!(fvf & fvfFormat.Color) * 4;
 
     let distToBittangent = distToTangent + !!(fvf & fvfFormat.Tangent) * 12;
 
-    let distToTangentFrame =
-      distToBittangent + !!(fvf & fvfFormat.Bitangent) * 12;
+    let distToTangentFrame = distToBittangent + !!(fvf & fvfFormat.Bitangent) * 12;
 
     let distToUV = distToTangentFrame + !!(fvf & fvfFormat.TangentFrame) * 12;
 
@@ -314,12 +296,7 @@ function renderGeomChunk(
       materialFile = matFiles[mat.filename];
     }
 
-    let finalMaterial = MaterialUtils.getMaterial(
-      mat,
-      materialFile,
-      localReader,
-      sharedTextures
-    );
+    let finalMaterial = MaterialUtils.getMaterial(mat, materialFile, localReader, sharedTextures);
 
     /// IF we could not find a material abort OR use a wireframe placeholder.
     if (!finalMaterial) {
@@ -327,7 +304,7 @@ function renderGeomChunk(
         finalMaterial = new THREE.MeshLambertMaterial({
           color: 0x5bb1e8,
           wireframe: false,
-          side: THREE.DoubleSide
+          side: THREE.DoubleSide,
         });
       } else {
         return;
@@ -382,14 +359,7 @@ function renderGeomChunk(
  *
  */
 
-function loadMeshFromModelFile(
-  filename,
-  solidColor,
-  localReader,
-  sharedTextures,
-  showUnmaterialed,
-  callback
-) {
+function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures, showUnmaterialed, callback) {
   // Short handles prop attributes
   let finalMeshes = [];
 
@@ -413,9 +383,7 @@ function loadMeshFromModelFile(
       /// Hacky fix for not being able to adjust for position
       let boundingSphere = modelDataChunk.data.boundingSphere;
       let bsc = boundingSphere.center;
-      boundingSphere.radius += Math.sqrt(
-        bsc[0] * bsc[0] + Math.sqrt(bsc[1] * bsc[1] + bsc[2] * bsc[2])
-      );
+      boundingSphere.radius += Math.sqrt(bsc[0] * bsc[0] + Math.sqrt(bsc[1] * bsc[1] + bsc[2] * bsc[2]));
 
       /// Load all material files
       let allMats = modelDataChunk.data.permutations[0].materials;
@@ -448,13 +416,7 @@ function loadMeshFromModelFile(
 
       loadMaterialIndex(0, function() {
         /// Create meshes
-        let meshes = renderGeomChunk(
-          localReader,
-          geometryDataChunk,
-          modelDataChunk,
-          sharedTextures,
-          showUnmaterialed
-        );
+        let meshes = renderGeomChunk(localReader, geometryDataChunk, modelDataChunk, sharedTextures, showUnmaterialed);
 
         // Build mesh group
         meshes.forEach(function(mesh) {
@@ -506,7 +468,7 @@ function loadMeshFromModelFile(
             2840, // 0 1011 0001 1000    Fountain running water + pipe water
 
             4617, // 1 0010 0000 1001    Found nothing
-            6664 // 1 1010 0000 1000    Two groups of solid boxes
+            6664, // 1 1010 0000 1000    Two groups of solid boxes
           ];
 
           // let alphaMask0 = 0x0001 // + 0x0100 + 0x0200;
@@ -543,10 +505,7 @@ function loadMeshFromModelFile(
       }); /// END LOAD MATERIALS CALLBACK
     } catch (e) {
       console.warn("Failed rendering model " + filename, e);
-      let mesh = new THREE.Mesh(
-        new THREE.BoxGeometry(200, 2000, 200),
-        new THREE.MeshNormalMaterial()
-      );
+      let mesh = new THREE.Mesh(new THREE.BoxGeometry(200, 2000, 200), new THREE.MeshNormalMaterial());
       mesh.flags = 4;
       mesh.materialFlags = 2056;
       mesh.lodOverride = [1000000, 1000000];
@@ -580,48 +539,32 @@ function loadMeshFromModelFile(
  *
  * The third argument is the bounding spehere of this model file.
  */
-function getMeshesForFilename(
-  filename,
-  color,
-  localReader,
-  sharedMeshes,
-  sharedTextures,
-  showUnmaterialed,
-  callback
-) {
+function getMeshesForFilename(filename, color, localReader, sharedMeshes, sharedTextures, showUnmaterialed, callback) {
   /// If this file has already been loaded, just return a reference to the meshes.
   /// isCached will be set to true to inform the caller the meshes will probably
   /// have to be cloned in some way.
   if (sharedMeshes[filename]) {
-    callback(
-      sharedMeshes[filename].meshes,
-      true,
-      sharedMeshes[filename].boundingSphere
-    );
+    callback(sharedMeshes[filename].meshes, true, sharedMeshes[filename].boundingSphere);
   }
 
   /// If this file has never been loaded, load it using loadMeshFromModelFile
   /// the resulting mesh array will be cached within this model's scope.
   else {
-    loadMeshFromModelFile(
-      filename,
-      color,
-      localReader,
-      sharedTextures,
-      showUnmaterialed,
-      function(meshes, boundingSphere) {
-        /// Cache result if any.
-        if (meshes) {
-          sharedMeshes[filename] = {
-            meshes: meshes,
-            boundingSphere: boundingSphere
-          };
-        }
-
-        /// Allways fire callback.
-        callback(meshes, false, boundingSphere);
+    loadMeshFromModelFile(filename, color, localReader, sharedTextures, showUnmaterialed, function(
+      meshes,
+      boundingSphere
+    ) {
+      /// Cache result if any.
+      if (meshes) {
+        sharedMeshes[filename] = {
+          meshes: meshes,
+          boundingSphere: boundingSphere,
+        };
       }
-    );
+
+      /// Allways fire callback.
+      callback(meshes, false, boundingSphere);
+    });
   }
 }
 
@@ -678,5 +621,5 @@ module.exports = {
   renderGeomChunk: renderGeomChunk,
   loadMeshFromModelFile: loadMeshFromModelFile,
   getMeshesForFilename: getMeshesForFilename,
-  getFilesUsedByModel: getFilesUsedByModel
+  getFilesUsedByModel: getFilesUsedByModel,
 };

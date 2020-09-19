@@ -10,12 +10,7 @@ module.exports = [
     versions: {
       // => Version: 1, ReferencedFunction: 0xF28010
       1: function() {
-        this.ModelMeshMorphVertV66 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV66 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV66 = [
           "positions",
@@ -23,7 +18,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV66),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.GrBoundData = [
@@ -32,22 +27,12 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelMeshVertexDataV1 = [
-          "vertexCount",
-          "uint32",
-          "mesh",
-          this.PackVertexType
-        ];
+        this.ModelMeshVertexDataV1 = ["vertexCount", "uint32", "mesh", this.PackVertexType];
 
         this.ModelMeshIndexDataV1 = ["indices", Utils.getArrayReader("uint16")];
 
@@ -59,7 +44,7 @@ module.exports = [
           "lods",
           Utils.getArrayReader(this.ModelMeshIndexDataV1),
           "transforms",
-          Utils.getArrayReader("uint32")
+          Utils.getArrayReader("uint32"),
         ];
 
         this.ModelMeshDataV66 = [
@@ -86,23 +71,15 @@ module.exports = [
           "boneBindings",
           Utils.getArrayReader(Utils.getQWordReader()),
           "geometry",
-          Utils.getPointerReader(this.ModelMeshGeometryV1)
+          Utils.getPointerReader(this.ModelMeshGeometryV1),
         ];
 
-        this.__root = this.ModelFileGeometryV1 = [
-          "meshes",
-          Utils.getRefArrayReader(this.ModelMeshDataV66)
-        ];
+        this.__root = this.ModelFileGeometryV1 = ["meshes", Utils.getRefArrayReader(this.ModelMeshDataV66)];
       },
 
       // => Version: 0
       0: function() {
-        this.ModelMeshMorphVertV65 = [
-          "index",
-          "uint16",
-          "vector",
-          ["[]", "float32", 3]
-        ];
+        this.ModelMeshMorphVertV65 = ["index", "uint16", "vector", ["[]", "float32", 3]];
 
         this.ModelMeshMorphTargetV65 = [
           "positions",
@@ -110,7 +87,7 @@ module.exports = [
           "normals",
           Utils.getArrayReader(this.ModelMeshMorphVertV65),
           "mesh",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.GrBoundData = [
@@ -119,22 +96,12 @@ module.exports = [
           "boxExtent",
           ["[]", "float32", 3],
           "sphereRadius",
-          "float32"
+          "float32",
         ];
 
-        this.PackVertexType = [
-          "fvf",
-          "uint32",
-          "vertices",
-          Utils.getArrayReader("uint8")
-        ];
+        this.PackVertexType = ["fvf", "uint32", "vertices", Utils.getArrayReader("uint8")];
 
-        this.ModelMeshVertexDataV0 = [
-          "vertexCount",
-          "uint32",
-          "mesh",
-          this.PackVertexType
-        ];
+        this.ModelMeshVertexDataV0 = ["vertexCount", "uint32", "mesh", this.PackVertexType];
 
         this.ModelMeshIndexDataV0 = ["indices", Utils.getArrayReader("uint16")];
 
@@ -144,7 +111,7 @@ module.exports = [
           "indices",
           this.ModelMeshIndexDataV0,
           "lods",
-          Utils.getArrayReader(this.ModelMeshIndexDataV0)
+          Utils.getArrayReader(this.ModelMeshIndexDataV0),
         ];
 
         this.ModelMeshDataV65 = [
@@ -171,14 +138,11 @@ module.exports = [
           "boneNames",
           Utils.getArrayReader(Utils.getStringReader()),
           "geometry",
-          Utils.getPointerReader(this.ModelMeshGeometryV0)
+          Utils.getPointerReader(this.ModelMeshGeometryV0),
         ];
 
-        this.__root = this.ModelFileGeometryV0 = [
-          "meshes",
-          Utils.getRefArrayReader(this.ModelMeshDataV65)
-        ];
-      }
-    }
-  }
+        this.__root = this.ModelFileGeometryV0 = ["meshes", Utils.getRefArrayReader(this.ModelMeshDataV65)];
+      },
+    },
+  },
 ];

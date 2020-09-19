@@ -2,16 +2,25 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "DataStream.js": "github:kig/DataStream.js",
-    "eslint": "^7.2.0",
-    "jquery": "1.11.1",
-    "lerna": "^3.18.4",
-    "three": "0.91.0",
-    "w2ui": "1.4.3"
+    "husky": "^4.3.0",
+    "lerna": "^3.18.4"
   },
   "scripts": {
+    "lint": "lerna run --parallel lint",
+    "format": "lerna run --parallel format",
     "preversion": "git pull",
     "releaseMinor": "lerna version minor",
     "lernaInstall": "lerna exec --parallel npm install"
+  },
+  "dependencies": {
+    "DataStream.js": "github:kig/DataStream.js",
+    "jquery": "^1.11.1",
+    "three": "^0.91.0",
+    "w2ui": "^1.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run format; npm run lint"
+    }
   }
 }

@@ -36,5 +36,5 @@ module.exports = [
 
   // uint32_t unknown3;
   "unknown3",
-  "uint32"
+  "uint32",
 ];

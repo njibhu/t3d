@@ -12,31 +12,28 @@ module.exports = [
       1: function() {
         this.PackAnimMachineActionV1 = [
           "actionData",
-          "uint32" // Replaced unknown type: 0x1C
+          "uint32", // Replaced unknown type: 0x1C
         ];
 
-        this.PackAnimMachineActionBlockV1 = [
-          "actions",
-          Utils.getArrayReader(this.PackAnimMachineActionV1)
-        ];
+        this.PackAnimMachineActionBlockV1 = ["actions", Utils.getArrayReader(this.PackAnimMachineActionV1)];
 
         this.PackAnimMachineActionVariantV1 = [
           "token",
           Utils.getQWordReader(),
           "actionBlock",
-          Utils.getPointerReader(this.PackAnimMachineActionBlockV1)
+          Utils.getPointerReader(this.PackAnimMachineActionBlockV1),
         ];
 
         this.PackAnimMachineActionVariantBlockV1 = [
           "actionVariants",
-          Utils.getArrayReader(this.PackAnimMachineActionVariantV1)
+          Utils.getArrayReader(this.PackAnimMachineActionVariantV1),
         ];
 
         this.PackAnimMachineTransitionVariantV1 = [
           "token",
           Utils.getQWordReader(),
           "actionBlock",
-          Utils.getPointerReader(this.PackAnimMachineActionBlockV1)
+          Utils.getPointerReader(this.PackAnimMachineActionBlockV1),
         ];
 
         this.PackAnimMachineTransitionV1 = [
@@ -47,7 +44,7 @@ module.exports = [
           "actionBlock",
           Utils.getPointerReader(this.PackAnimMachineActionBlockV1),
           "variants",
-          Utils.getArrayReader(this.PackAnimMachineTransitionVariantV1)
+          Utils.getArrayReader(this.PackAnimMachineTransitionVariantV1),
         ];
 
         this.PackAnimMachineStateVariantV1 = [
@@ -58,7 +55,7 @@ module.exports = [
           "actionVariantBlock",
           Utils.getPointerReader(this.PackAnimMachineActionVariantBlockV1),
           "transitions",
-          Utils.getArrayReader(this.PackAnimMachineTransitionV1)
+          Utils.getArrayReader(this.PackAnimMachineTransitionV1),
         ];
 
         this.PackAnimMachineStateV1 = [
@@ -71,13 +68,10 @@ module.exports = [
           "transitions",
           Utils.getArrayReader(this.PackAnimMachineTransitionV1),
           "variants",
-          Utils.getArrayReader(this.PackAnimMachineStateVariantV1)
+          Utils.getArrayReader(this.PackAnimMachineStateVariantV1),
         ];
 
-        this.PackAnimMachineV1 = [
-          "states",
-          Utils.getArrayReader(this.PackAnimMachineStateV1)
-        ];
+        this.PackAnimMachineV1 = ["states", Utils.getArrayReader(this.PackAnimMachineStateV1)];
 
         this.PackAnimModelV1 = [
           "modelFileId",
@@ -87,14 +81,14 @@ module.exports = [
           "machineIndex",
           "uint32",
           "listeners",
-          ["[]", "uint8", 16]
+          ["[]", "uint8", 16],
         ];
 
         this.__root = this.PackAnimMachinesV1 = [
           "machines",
           Utils.getArrayReader(this.PackAnimMachineV1),
           "models",
-          Utils.getArrayReader(this.PackAnimModelV1)
+          Utils.getArrayReader(this.PackAnimModelV1),
         ];
       },
 
@@ -102,31 +96,28 @@ module.exports = [
       0: function() {
         this.PackAnimMachineActionV0 = [
           "actionData",
-          "uint32" // Replaced unknown type: 0x1C
+          "uint32", // Replaced unknown type: 0x1C
         ];
 
-        this.PackAnimMachineActionBlockV0 = [
-          "actions",
-          Utils.getArrayReader(this.PackAnimMachineActionV0)
-        ];
+        this.PackAnimMachineActionBlockV0 = ["actions", Utils.getArrayReader(this.PackAnimMachineActionV0)];
 
         this.PackAnimMachineActionVariantV0 = [
           "token",
           Utils.getQWordReader(),
           "actionBlock",
-          Utils.getPointerReader(this.PackAnimMachineActionBlockV0)
+          Utils.getPointerReader(this.PackAnimMachineActionBlockV0),
         ];
 
         this.PackAnimMachineActionVariantBlockV0 = [
           "actionVariants",
-          Utils.getArrayReader(this.PackAnimMachineActionVariantV0)
+          Utils.getArrayReader(this.PackAnimMachineActionVariantV0),
         ];
 
         this.PackAnimMachineTransitionVariantV0 = [
           "token",
           Utils.getQWordReader(),
           "actionBlock",
-          Utils.getPointerReader(this.PackAnimMachineActionBlockV0)
+          Utils.getPointerReader(this.PackAnimMachineActionBlockV0),
         ];
 
         this.PackAnimMachineTransitionV0 = [
@@ -137,7 +128,7 @@ module.exports = [
           "actionBlock",
           Utils.getPointerReader(this.PackAnimMachineActionBlockV0),
           "variants",
-          Utils.getArrayReader(this.PackAnimMachineTransitionVariantV0)
+          Utils.getArrayReader(this.PackAnimMachineTransitionVariantV0),
         ];
 
         this.PackAnimMachineStateVariantV0 = [
@@ -148,7 +139,7 @@ module.exports = [
           "actionVariantBlock",
           Utils.getPointerReader(this.PackAnimMachineActionVariantBlockV0),
           "transitions",
-          Utils.getArrayReader(this.PackAnimMachineTransitionV0)
+          Utils.getArrayReader(this.PackAnimMachineTransitionV0),
         ];
 
         this.PackAnimMachineStateV0 = [
@@ -161,13 +152,10 @@ module.exports = [
           "transitions",
           Utils.getArrayReader(this.PackAnimMachineTransitionV0),
           "variants",
-          Utils.getArrayReader(this.PackAnimMachineStateVariantV0)
+          Utils.getArrayReader(this.PackAnimMachineStateVariantV0),
         ];
 
-        this.PackAnimMachineV0 = [
-          "states",
-          Utils.getArrayReader(this.PackAnimMachineStateV0)
-        ];
+        this.PackAnimMachineV0 = ["states", Utils.getArrayReader(this.PackAnimMachineStateV0)];
 
         this.PackAnimModelV0 = [
           "modelFileId",
@@ -175,16 +163,16 @@ module.exports = [
           "modelFileRaw",
           Utils.getString16Reader(),
           "machineIndex",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.PackAnimMachinesV0 = [
           "machines",
           Utils.getArrayReader(this.PackAnimMachineV0),
           "models",
-          Utils.getArrayReader(this.PackAnimModelV0)
+          Utils.getArrayReader(this.PackAnimModelV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

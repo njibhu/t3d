@@ -14,9 +14,9 @@ module.exports = [
           "filename",
           Utils.getFileNameReader(),
           "shadowDims",
-          ["[]", "uint32", 2]
+          ["[]", "uint32", 2],
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

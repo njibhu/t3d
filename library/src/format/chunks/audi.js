@@ -44,17 +44,12 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapAudioRegionTool = ["annotation", Utils.getString16Reader()];
 
-        this.PackMapAudioDep = [
-          "dependency",
-          Utils.getFileNameReader(),
-          "flags",
-          "uint32"
-        ];
+        this.PackMapAudioDep = ["dependency", Utils.getFileNameReader(), "flags", "uint32"];
 
         this.__root = this.MapAudio = [
           "filenameAmbientDaySurface",
@@ -70,7 +65,7 @@ module.exports = [
           "audioRegionTools",
           Utils.getArrayReader(this.PackMapAudioRegionTool),
           "audioDepArray",
-          Utils.getArrayReader(this.PackMapAudioDep)
+          Utils.getArrayReader(this.PackMapAudioDep),
         ];
       },
 
@@ -110,7 +105,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.PackMapAudioRegionTool = ["annotation", Utils.getString16Reader()];
@@ -127,7 +122,7 @@ module.exports = [
           "audioRegions",
           Utils.getArrayReader(this.PackMapAudioRegion),
           "audioRegionTools",
-          Utils.getArrayReader(this.PackMapAudioRegionTool)
+          Utils.getArrayReader(this.PackMapAudioRegionTool),
         ];
       },
 
@@ -167,7 +162,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.MapAudio = [
@@ -180,7 +175,7 @@ module.exports = [
           "filenameAmbientNightUnderwater",
           Utils.getFileNameReader(),
           "audioRegions",
-          Utils.getArrayReader(this.PackMapAudioRegion)
+          Utils.getArrayReader(this.PackMapAudioRegion),
         ];
       },
 
@@ -214,7 +209,7 @@ module.exports = [
           "guid",
           Utils.getQWordReader(),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.MapAudio = [
@@ -227,7 +222,7 @@ module.exports = [
           "filenameAmbientNightUnderwater",
           Utils.getFileNameReader(),
           "audioRegions",
-          Utils.getArrayReader(this.PackMapAudioRegion)
+          Utils.getArrayReader(this.PackMapAudioRegion),
         ];
       },
 
@@ -263,7 +258,7 @@ module.exports = [
           "radius",
           "float32",
           "guid",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.__root = this.MapAudio = [
@@ -284,7 +279,7 @@ module.exports = [
           "filenameMusicNightUnderwater",
           Utils.getFileNameReader(),
           "audioRegions",
-          Utils.getArrayReader(this.PackMapAudioRegion)
+          Utils.getArrayReader(this.PackMapAudioRegion),
         ];
       },
 
@@ -318,7 +313,7 @@ module.exports = [
           "height",
           "float32",
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.MapAudio = [
@@ -339,7 +334,7 @@ module.exports = [
           "filenameMusicNightUnderwater",
           Utils.getFileNameReader(),
           "audioRegions",
-          Utils.getArrayReader(this.PackMapAudioRegion)
+          Utils.getArrayReader(this.PackMapAudioRegion),
         ];
       },
 
@@ -367,7 +362,7 @@ module.exports = [
           "height",
           "float32",
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.MapAudio = [
@@ -380,7 +375,7 @@ module.exports = [
           "globalMusicUnderwaterScriptFilename",
           Utils.getFileNameReader(),
           "audioRegions",
-          Utils.getArrayReader(this.PackMapAudioRegion)
+          Utils.getArrayReader(this.PackMapAudioRegion),
         ];
       },
 
@@ -408,7 +403,7 @@ module.exports = [
           "height",
           "float32",
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.MapAudio = [
@@ -417,7 +412,7 @@ module.exports = [
           "globalMusicScriptFilename",
           Utils.getFileNameReader(),
           "audioRegions",
-          Utils.getArrayReader(this.PackMapAudioRegion)
+          Utils.getArrayReader(this.PackMapAudioRegion),
         ];
       },
 
@@ -427,9 +422,9 @@ module.exports = [
           "globalAmbientScriptFilename",
           Utils.getFileNameReader(),
           "globalMusicScriptFilename",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

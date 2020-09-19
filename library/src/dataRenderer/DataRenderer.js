@@ -55,13 +55,7 @@ const GW2File = require("../format/file/GW2File");
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 class DataRenderer {
-  constructor(
-    localReader,
-    settings,
-    context,
-    logger,
-    rendererName = "DataRenderer"
-  ) {
+  constructor(localReader, settings, context, logger, rendererName = "DataRenderer") {
     this.rendererName = rendererName;
     /// Just storing parameters
     this.localReader = localReader;
@@ -84,9 +78,7 @@ class DataRenderer {
    * @return {Object}            The output value object for this class within the context.
    */
   getOutput(otherClass) {
-    return this.context[
-      otherClass ? otherClass.rendererName : this.rendererName
-    ];
+    return this.context[otherClass ? otherClass.rendererName : this.rendererName];
   }
 
   /**
@@ -124,20 +116,11 @@ class DataRenderer {
 
       // There is a maximum stack size. We cannot call String.fromCharCode with as many arguments as we want
       for (let i = 0; i * chunksize < len; i++) {
-        rawStrings.push(
-          String.fromCharCode.apply(
-            null,
-            uarr.subarray(i * chunksize, (i + 1) * chunksize)
-          )
-        );
+        rawStrings.push(String.fromCharCode.apply(null, uarr.subarray(i * chunksize, (i + 1) * chunksize)));
       }
 
       if (len < uarr.length) {
-        rawStrings.push(
-          "T3D Ignored the last " +
-            (uarr.length - len) +
-            " bytes when generating this raw output"
-        );
+        rawStrings.push("T3D Ignored the last " + (uarr.length - len) + " bytes when generating this raw output");
       }
 
       self.getOutput().rawString = rawStrings.join();
@@ -162,17 +145,12 @@ class DataRenderer {
       ) {
         /// TODO: MOVE TO GW2 texture file!!
         /// Load file using LocalReader.
-        self.localReader.loadTextureFile(self.settings.id, function(
-          inflatedData,
-          dxtType,
-          imageWidth,
-          imageHeigth
-        ) {
+        self.localReader.loadTextureFile(self.settings.id, function(inflatedData, dxtType, imageWidth, imageHeigth) {
           /// Create image using returned data.
           let image = {
             data: new Uint8Array(inflatedData),
             width: imageWidth,
-            height: imageHeigth
+            height: imageHeigth,
           };
 
           self.getOutput().image = image;

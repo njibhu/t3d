@@ -16,7 +16,7 @@ module.exports = [
           "shape",
           Utils.getQWordReader(),
           "flags",
-          "uint32"
+          "uint32",
         ];
 
         this.ModelExpansionEmitterV3 = [
@@ -29,7 +29,7 @@ module.exports = [
           "curlFlags",
           "uint32",
           "fieldScale",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.ModelFileExpansionV3 = [
@@ -38,18 +38,13 @@ module.exports = [
           "snapPointPriority",
           "float32",
           "emitters",
-          Utils.getArrayReader(this.ModelExpansionEmitterV3)
+          Utils.getArrayReader(this.ModelExpansionEmitterV3),
         ];
       },
 
       // => Version: 2
       2: function() {
-        this.ModelFileSnapPointV2 = [
-          "bone",
-          Utils.getQWordReader(),
-          "shape",
-          Utils.getQWordReader()
-        ];
+        this.ModelFileSnapPointV2 = ["bone", Utils.getQWordReader(), "shape", Utils.getQWordReader()];
 
         this.ModelExpansionEmitterV2 = [
           "curl",
@@ -61,7 +56,7 @@ module.exports = [
           "curlFlags",
           "uint32",
           "fieldScale",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.ModelFileExpansionV2 = [
@@ -70,7 +65,7 @@ module.exports = [
           "snapPointPriority",
           "float32",
           "emitters",
-          Utils.getArrayReader(this.ModelExpansionEmitterV2)
+          Utils.getArrayReader(this.ModelExpansionEmitterV2),
         ];
       },
 
@@ -88,7 +83,7 @@ module.exports = [
           "curlFlags",
           "uint32",
           "fieldScale",
-          "float32"
+          "float32",
         ];
 
         this.__root = this.ModelFileExpansionV1 = [
@@ -97,7 +92,7 @@ module.exports = [
           "snapPointPriority",
           "float32",
           "emitters",
-          Utils.getArrayReader(this.ModelExpansionEmitterV1)
+          Utils.getArrayReader(this.ModelExpansionEmitterV1),
         ];
       },
 
@@ -105,12 +100,7 @@ module.exports = [
       0: function() {
         this.ModelFileSnapPointV0 = ["bone", Utils.getQWordReader()];
 
-        this.ModelExpansionEmitterV0 = [
-          "curl",
-          "float32",
-          "vortexSize",
-          "float32"
-        ];
+        this.ModelExpansionEmitterV0 = ["curl", "float32", "vortexSize", "float32"];
 
         this.__root = this.ModelFileExpansionV0 = [
           "snapPoints",
@@ -118,9 +108,9 @@ module.exports = [
           "snapPointPriority",
           "float32",
           "emitters",
-          Utils.getArrayReader(this.ModelExpansionEmitterV0)
+          Utils.getArrayReader(this.ModelExpansionEmitterV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

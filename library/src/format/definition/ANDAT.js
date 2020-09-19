@@ -56,5 +56,5 @@ module.exports = [
 
   // uint32_t flags;
   "flags",
-  "uint32"
+  "uint32",
 ];

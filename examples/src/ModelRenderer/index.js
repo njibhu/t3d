@@ -33,12 +33,7 @@ $(document).ready(function () {
   $("#filePicker").change(function (evt) {
     let file = evt.target.files[0];
 
-    _lr = T3D.getLocalReader(
-      file,
-      onReaderCreated,
-      "../static/t3dworker.js",
-      myLogger
-    );
+    _lr = T3D.getLocalReader(file, onReaderCreated, "../static/t3dworker.js", myLogger);
   });
 
   /// Handle button click
@@ -118,10 +113,7 @@ function onRendererDone() {
   /// Add all models to the scene
   _models.forEach(function (model) {
     /// Find the biggest model for camera focus/fitting
-    if (
-      !biggestMdl ||
-      biggestMdl.boundingSphere.radius < model.boundingSphere.radius
-    ) {
+    if (!biggestMdl || biggestMdl.boundingSphere.radius < model.boundingSphere.radius) {
       biggestMdl = model;
     }
 

@@ -16,13 +16,10 @@ module.exports = [
           "flags",
           "uint32",
           "data",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.__root = this.ModelFileGr2sV4 = [
-          "gr2Data",
-          Utils.getArrayReader(this.ModelGr2DataV4)
-        ];
+        this.__root = this.ModelFileGr2sV4 = ["gr2Data", Utils.getArrayReader(this.ModelGr2DataV4)];
       },
 
       // => Version: 3, ReferencedFunction: 0xF28880
@@ -33,13 +30,10 @@ module.exports = [
           "flags",
           "uint32",
           "data",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.__root = this.ModelFileGr2sV3 = [
-          "gr2Data",
-          Utils.getArrayReader(this.ModelGr2DataV3)
-        ];
+        this.__root = this.ModelFileGr2sV3 = ["gr2Data", Utils.getArrayReader(this.ModelGr2DataV3)];
       },
 
       // => Version: 2, ReferencedFunction: 0xF282D0
@@ -50,13 +44,10 @@ module.exports = [
           "flags",
           "uint32",
           "data",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.__root = this.ModelFileGr2sV2 = [
-          "gr2Data",
-          Utils.getArrayReader(this.ModelGr2DataV2)
-        ];
+        this.__root = this.ModelFileGr2sV2 = ["gr2Data", Utils.getArrayReader(this.ModelGr2DataV2)];
       },
 
       // => Version: 1
@@ -67,24 +58,18 @@ module.exports = [
           "flags",
           "uint32",
           "data",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
-        this.__root = this.ModelFileGr2sV1 = [
-          "gr2Data",
-          Utils.getArrayReader(this.ModelGr2DataV1)
-        ];
+        this.__root = this.ModelFileGr2sV1 = ["gr2Data", Utils.getArrayReader(this.ModelGr2DataV1)];
       },
 
       // => Version: 0
       0: function() {
         this.ModelGr2DataV0 = ["data", Utils.getArrayReader("uint8")];
 
-        this.__root = this.ModelFileGr2sV0 = [
-          "gr2Data",
-          Utils.getArrayReader(this.ModelGr2DataV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.ModelFileGr2sV0 = ["gr2Data", Utils.getArrayReader(this.ModelGr2DataV0)];
+      },
+    },
+  },
 ];

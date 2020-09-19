@@ -16,7 +16,7 @@ module.exports = [
           "boundsMax",
           ["[]", "float32", 3],
           "filename",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapNavMeshMoverV3 = [
@@ -29,7 +29,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "mediatorData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapNavMeshExternalV3 = [
@@ -42,7 +42,7 @@ module.exports = [
           "chunkArray",
           Utils.getArrayReader(this.PackMapNavMeshChunkExternalV3),
           "dynamicArray",
-          Utils.getArrayReader(this.PackMapNavMeshMoverV3)
+          Utils.getArrayReader(this.PackMapNavMeshMoverV3),
         ];
       },
 
@@ -54,7 +54,7 @@ module.exports = [
           "boundsMax",
           ["[]", "float32", 3],
           "filename",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.PackMapNavMeshMoverV2 = [
@@ -65,7 +65,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "mediatorData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapNavMeshExternalV2 = [
@@ -78,7 +78,7 @@ module.exports = [
           "chunkArray",
           Utils.getArrayReader(this.PackMapNavMeshChunkExternalV2),
           "dynamicArray",
-          Utils.getArrayReader(this.PackMapNavMeshMoverV2)
+          Utils.getArrayReader(this.PackMapNavMeshMoverV2),
         ];
       },
 
@@ -90,7 +90,7 @@ module.exports = [
           "boundsMax",
           ["[]", "float32", 3],
           "filename",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapNavMeshExternalV1 = [
@@ -101,7 +101,7 @@ module.exports = [
           "chunkDims",
           ["[]", "uint32", 2],
           "chunkArray",
-          Utils.getArrayReader(this.PackMapNavMeshChunkExternalV1)
+          Utils.getArrayReader(this.PackMapNavMeshChunkExternalV1),
         ];
       },
 
@@ -113,7 +113,7 @@ module.exports = [
           "boundsMax",
           ["[]", "float32", 3],
           "filename",
-          Utils.getFileNameReader()
+          Utils.getFileNameReader(),
         ];
 
         this.__root = this.PackMapNavMeshExternalV0 = [
@@ -124,9 +124,9 @@ module.exports = [
           "chunkDims",
           ["[]", "uint32", 2],
           "chunkArray",
-          Utils.getArrayReader(this.PackMapNavMeshChunkExternalV0)
+          Utils.getArrayReader(this.PackMapNavMeshChunkExternalV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

@@ -8,15 +8,8 @@ module.exports = [
     versions: {
       // => Version: 0
       0: function() {
-        this.__root = this.MapParam = [
-          "rect",
-          ["[]", "float32", 4],
-          "flags",
-          "uint32",
-          "guid",
-          ["[]", "uint8", 16]
-        ];
-      }
-    }
-  }
+        this.__root = this.MapParam = ["rect", ["[]", "float32", 4], "flags", "uint32", "guid", ["[]", "uint8", 16]];
+      },
+    },
+  },
 ];

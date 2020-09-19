@@ -22,7 +22,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapNavMeshMoverV3 = [
@@ -35,7 +35,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "mediatorData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapNavMeshV3 = [
@@ -48,7 +48,7 @@ module.exports = [
           "chunkArray",
           Utils.getArrayReader(this.PackMapNavMeshChunkV3),
           "dynamicArray",
-          Utils.getArrayReader(this.PackMapNavMeshMoverV3)
+          Utils.getArrayReader(this.PackMapNavMeshMoverV3),
         ];
       },
 
@@ -64,7 +64,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.PackMapNavMeshMoverV2 = [
@@ -75,7 +75,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "mediatorData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapNavMeshV2 = [
@@ -88,7 +88,7 @@ module.exports = [
           "chunkArray",
           Utils.getArrayReader(this.PackMapNavMeshChunkV2),
           "dynamicArray",
-          Utils.getArrayReader(this.PackMapNavMeshMoverV2)
+          Utils.getArrayReader(this.PackMapNavMeshMoverV2),
         ];
       },
 
@@ -104,7 +104,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapNavMeshV1 = [
@@ -115,7 +115,7 @@ module.exports = [
           "chunkDims",
           ["[]", "uint32", 2],
           "chunkArray",
-          Utils.getArrayReader(this.PackMapNavMeshChunkV1)
+          Utils.getArrayReader(this.PackMapNavMeshChunkV1),
         ];
       },
 
@@ -131,7 +131,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.PackMapNavMeshV0 = [
@@ -142,10 +142,10 @@ module.exports = [
           "chunkDims",
           ["[]", "uint32", 2],
           "chunkArray",
-          Utils.getArrayReader(this.PackMapNavMeshChunkV0)
+          Utils.getArrayReader(this.PackMapNavMeshChunkV0),
         ];
-      }
-    }
+      },
+    },
   },
 
   /// ==================================================
@@ -169,7 +169,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
       },
 
@@ -185,7 +185,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
       },
 
@@ -201,7 +201,7 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
       },
 
@@ -217,9 +217,9 @@ module.exports = [
           "coarseGraphData",
           Utils.getArrayReader("uint8"),
           "queryMediatorMoppData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

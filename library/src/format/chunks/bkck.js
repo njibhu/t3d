@@ -36,7 +36,7 @@ module.exports = [
           "reserved8",
           "uint8",
           "audioData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.ReservedBankDataV2 = [
@@ -47,7 +47,7 @@ module.exports = [
           "reserved3",
           "uint32",
           "reserved4",
-          "uint32"
+          "uint32",
         ];
 
         this.__root = this.BankFileDataV2 = [
@@ -62,7 +62,7 @@ module.exports = [
           "asndFile",
           Utils.getArrayReader(this.AsndFileDataV2),
           "reservedData",
-          Utils.getPointerReader(this.ReservedBankDataV2)
+          Utils.getPointerReader(this.ReservedBankDataV2),
         ];
       },
 
@@ -82,7 +82,7 @@ module.exports = [
           "offset",
           "float32",
           "audioData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.BankFileDataV1 = [
@@ -91,7 +91,7 @@ module.exports = [
           "reserved2",
           "uint32",
           "asndFile",
-          Utils.getArrayReader(this.AsndFileDataV1)
+          Utils.getArrayReader(this.AsndFileDataV1),
         ];
       },
 
@@ -111,7 +111,7 @@ module.exports = [
           "offset",
           "float32",
           "audioData",
-          Utils.getArrayReader("uint8")
+          Utils.getArrayReader("uint8"),
         ];
 
         this.__root = this.BankFileDataV0 = [
@@ -120,9 +120,9 @@ module.exports = [
           "reserved2",
           "uint32",
           "asndFile",
-          Utils.getArrayReader(this.AsndFileDataV0)
+          Utils.getArrayReader(this.AsndFileDataV0),
         ];
-      }
-    }
-  }
+      },
+    },
+  },
 ];

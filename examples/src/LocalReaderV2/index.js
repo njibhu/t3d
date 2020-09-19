@@ -15,12 +15,7 @@ $("#filePicker").change(function (evt) {
           lr.readFile(elt.mftId).then((r) => {
             let file = new T3D.GW2File(new DataStream(r.buffer), 0);
             let mainChunk = file.getChunk("Main").data;
-            console.log(
-              elt.baseIdList[0],
-              mainChunk.typeInfos.length,
-              mainChunk.content.length,
-              res.buffer.byteLength
-            );
+            console.log(elt.baseIdList[0], mainChunk.typeInfos.length, mainChunk.content.length, res.buffer.byteLength);
           });
         }
       });

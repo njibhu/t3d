@@ -18,7 +18,7 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ContentMapModel = [
@@ -29,7 +29,7 @@ module.exports = [
           "type",
           "uint32",
           "permutation",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ContentMapStart = [
@@ -40,7 +40,7 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ContentMap = [
@@ -49,13 +49,10 @@ module.exports = [
           "mapRedirectorArray",
           Utils.getArrayReader(this.ContentMapRedirector),
           "mapStartArray",
-          Utils.getArrayReader(this.ContentMapStart)
+          Utils.getArrayReader(this.ContentMapStart),
         ];
 
-        this.__root = this.ContentPortalManifest = [
-          "mapArray",
-          Utils.getArrayReader(this.ContentMap)
-        ];
+        this.__root = this.ContentPortalManifest = ["mapArray", Utils.getArrayReader(this.ContentMap)];
       },
 
       // => Version: 1
@@ -68,7 +65,7 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ContentMapModelV1 = [
@@ -79,7 +76,7 @@ module.exports = [
           "type",
           "uint32",
           "permutation",
-          Utils.getQWordReader()
+          Utils.getQWordReader(),
         ];
 
         this.ContentMapStartV1 = [
@@ -90,7 +87,7 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ContentMapV1 = [
@@ -99,13 +96,10 @@ module.exports = [
           "mapRedirectorArray",
           Utils.getArrayReader(this.ContentMapRedirectorV1),
           "mapStartArray",
-          Utils.getArrayReader(this.ContentMapStartV1)
+          Utils.getArrayReader(this.ContentMapStartV1),
         ];
 
-        this.__root = this.ContentPortalManifestV1 = [
-          "mapArray",
-          Utils.getArrayReader(this.ContentMapV1)
-        ];
+        this.__root = this.ContentPortalManifestV1 = ["mapArray", Utils.getArrayReader(this.ContentMapV1)];
       },
 
       // => Version: 0
@@ -118,17 +112,10 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
-        this.ContentMapModelV0 = [
-          "filename",
-          Utils.getFileNameReader(),
-          "flags",
-          "uint32",
-          "type",
-          "uint32"
-        ];
+        this.ContentMapModelV0 = ["filename", Utils.getFileNameReader(), "flags", "uint32", "type", "uint32"];
 
         this.ContentMapStartV0 = [
           "token",
@@ -138,7 +125,7 @@ module.exports = [
           "position",
           ["[]", "float32", 3],
           "radius",
-          "float32"
+          "float32",
         ];
 
         this.ContentMapV0 = [
@@ -147,14 +134,11 @@ module.exports = [
           "mapRedirectorArray",
           Utils.getArrayReader(this.ContentMapRedirectorV0),
           "mapStartArray",
-          Utils.getArrayReader(this.ContentMapStartV0)
+          Utils.getArrayReader(this.ContentMapStartV0),
         ];
 
-        this.__root = this.ContentPortalManifestV0 = [
-          "mapArray",
-          Utils.getArrayReader(this.ContentMapV0)
-        ];
-      }
-    }
-  }
+        this.__root = this.ContentPortalManifestV0 = ["mapArray", Utils.getArrayReader(this.ContentMapV0)];
+      },
+    },
+  },
 ];

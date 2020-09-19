@@ -63,14 +63,12 @@ class PersistantStore {
 
         if (currentVersion < 2) {
           db.createObjectStore("listings", {
-            autoIncrement: true
+            autoIncrement: true,
           });
         }
 
         if (currentVersion < 3) {
-          let storeListing = event.currentTarget.transaction.objectStore(
-            "listings"
-          );
+          let storeListing = event.currentTarget.transaction.objectStore("listings");
           storeListing.createIndex("filename", "filename", { unique: false });
         }
       };
@@ -82,10 +80,7 @@ class PersistantStore {
       };
 
       request.onerror = () => {
-        T3D.Logger.log(
-          T3D.Logger.TYPE_ERROR,
-          "The T3D persistant database could not be opened."
-        );
+        T3D.Logger.log(T3D.Logger.TYPE_ERROR, "The T3D persistant database could not be opened.");
         reject();
       };
     });
@@ -105,15 +100,10 @@ class PersistantStore {
     let self = this;
     return new Promise((resolve, reject) => {
       self._getConnection().then(db => {
-        let store = db
-          .transaction(["listings"], "readwrite")
-          .objectStore("listings");
+        let store = db.transaction(["listings"], "readwrite").objectStore("listings");
 
         let request = id
-          ? store.put(
-              { array: listing, filename: fileName, complete: isComplete },
-              id
-            )
+          ? store.put({ array: listing, filename: fileName, complete: isComplete }, id)
           : store.put({ array: listing, name: fileName });
 
         request.onsuccess = () => {
@@ -144,17 +134,14 @@ class PersistantStore {
           .objectStore("listings")
           .index("filename");
 
-        listingsStore.openCursor(
-          IDBKeyRange.only(fileName),
-          "prev"
-        ).onsuccess = event => {
+        listingsStore.openCursor(IDBKeyRange.only(fileName), "prev").onsuccess = event => {
           let cursor = event.target.result;
           if (!cursor) resolve({ array: [], key: undefined, complete: true });
           else {
             resolve({
               array: cursor.value.array,
               key: cursor.primaryKey,
-              complete: cursor.value.complete
+              complete: cursor.value.complete,
             });
           }
         };

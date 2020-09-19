@@ -27,7 +27,7 @@ const HEAD_STRUCT = [
   "chunkHeaderSize",
   "uint16",
   "offsetTableOffset",
-  "uint32"
+  "uint32",
 ];
 
 /**
@@ -47,7 +47,7 @@ const PACKTOCHUNK = [
   { pack: "cntc", chunk: "Main", root: "PackContent" },
   { pack: "mMet", chunk: "Main", root: "PackMapMetadata" },
   { pack: "AMAT", chunk: "TOOL", root: "AmatToolParams" },
-  { pack: "cmaC", chunk: "main", root: "CollideModelManifest" }
+  { pack: "cmaC", chunk: "main", root: "CollideModelManifest" },
 ];
 
 // Builds the DUPLICATE_SETTINGS based on the provided T3D.formats.
