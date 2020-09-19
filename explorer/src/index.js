@@ -89,15 +89,22 @@ function onReaderCreated() {
   opt.innerHTML = ""; // whatever property it has
   $("#fileMapSelect").append(opt);
 
-  for (const category of T3D.MapFileList.maps) {
+  const mapFileList = mapRenderer.localReader.getMapList();
+  const categoryList = mapFileList.reduce((list, map) => {
+    if (!list.includes(map.category)) {
+      list.push(map.category);
+    }
+    return list;
+  }, []);
+  for (const category of categoryList) {
     let opt = document.createElement("option");
     opt.disabled = true;
-    opt.innerHTML = category.name;
+    opt.innerHTML = category;
     $("#fileMapSelect").append(opt);
 
-    for (const map of category.maps) {
+    for (const map of mapFileList.filter((m) => m.category === category)) {
       let opt = document.createElement("option");
-      opt.value = map.fileName.split(".data")[0];
+      opt.value = map.baseId;
       opt.innerHTML = map.name; // whatever property it has
 
       // then append it to the select element
