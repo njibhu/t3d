@@ -84,11 +84,6 @@ function onReaderCreated() {
   $("#fileMapSelect").removeAttr("disabled");
   $("#loadMapBtn").removeAttr("disabled");
 
-  let opt = document.createElement("option");
-  opt.value = undefined;
-  opt.innerHTML = ""; // whatever property it has
-  $("#fileMapSelect").append(opt);
-
   const mapFileList = mapRenderer.localReader.getMapList();
   const categoryList = mapFileList.reduce((list, map) => {
     if (!list.includes(map.category)) {
@@ -106,6 +101,9 @@ function onReaderCreated() {
       let opt = document.createElement("option");
       opt.value = map.baseId;
       opt.innerHTML = map.name; // whatever property it has
+      if (map.baseId === 294938) {
+        opt.setAttribute("selected", true);
+      }
 
       // then append it to the select element
       $("#fileMapSelect").append(opt);
@@ -115,12 +113,19 @@ function onReaderCreated() {
 
 /// The insterresting part!
 function onLoadMapClick() {
+  $("#loadMapBtn").prop("disabled", true);
   $("#loadCollBtn").click(loadCollModels);
   $("#loadCollBtn").removeAttr("disabled");
   $("#loadPropsBtn").click(loadPropModels);
   $("#loadPropsBtn").removeAttr("disabled");
   $("#loadZoneBtn").click(loadZoneModels);
   $("#loadZoneBtn").removeAttr("disabled");
+  $("#mvntSpeedRange").removeAttr("disabled");
+  $("#mvntSpeedRange").change(changeMovementSpeed);
+  $("#fogRange").removeAttr("disabled");
+  $("#fogRange").change((event) => {
+    setFog(event.target.valueAsNumber);
+  });
 
   // Clean previous render states
   mapRenderer.mapData = Object.assign({}, cleanMapData);
@@ -262,6 +267,12 @@ function loadCollModels() {
   }
 }
 
+function changeMovementSpeed(evt) {
+  if (mapRenderer.controls) {
+    mapRenderer.controls.movementSpeed = evt.target.valueAsNumber;
+  }
+}
+
 /// Wipes out the data
 function cleanScene() {
   for (const type of ["terrain", "props", "zone", "collision"]) {
@@ -284,6 +295,7 @@ function setupScene() {
   let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
   let fov = 60;
   let aspect = canvasWidth / canvasHeight;
+  const fogDistance = Number($("#fogRange").val());
 
   mapRenderer.camera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 100000);
 
@@ -307,6 +319,10 @@ function setupScene() {
   let directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
   directionalLight3.position.set(0, 1, 0);
   mapRenderer.scene.add(directionalLight3);
+
+  // Fog
+  mapRenderer.scene.fog = new THREE.Fog(0xffffff, fogDistance, fogDistance + 1000);
+  mapRenderer.camera.far = fogDistance + 1000;
 
   /// Standard THREE renderer with AA
   mapRenderer.renderer = new THREE.WebGLRenderer({
@@ -336,13 +352,24 @@ function setupScene() {
   render();
 }
 
+function setFog(fogDistance) {
+  if (mapRenderer.scene && mapRenderer.scene.fog) {
+    mapRenderer.scene.fog.near = fogDistance;
+    mapRenderer.scene.fog.far = fogDistance + 1000;
+  }
+  if (mapRenderer.camera) {
+    mapRenderer.camera.far = fogDistance + 1000;
+    mapRenderer.camera.updateProjectionMatrix();
+  }
+}
+
 function setupController() {
   if (!mapRenderer.controls) {
     let controls = new THREE.FlyControls(mapRenderer.camera, mapRenderer.renderer.domElement);
 
-    controls.movementSpeed = 1000;
+    controls.movementSpeed = Number($("#mvntSpeedRange").val()) | 1000;
     controls.domElement = mapRenderer.renderer.domElement;
-    controls.rollSpeed = Math.PI / 24;
+    controls.rollSpeed = Math.PI / 6;
     controls.autoForward = false;
     controls.dragToLook = true;
     mapRenderer.controls = controls;
@@ -357,3 +384,12 @@ function render() {
 
   mapRenderer.renderer.render(mapRenderer.scene, mapRenderer.camera);
 }
+
+// FlyControls quickfix
+// Sometimes camera roll gets stuck because of the event implementation
+// This fixes it. Probably needs to be removed after threejs upgrade
+mapRenderer.renderer.domElement.on("mouseup", function () {
+  if (mapRenderer.controls) {
+    mapRenderer.controls.mouseStatus = 0;
+  }
+});
