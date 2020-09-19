@@ -21,7 +21,9 @@
     "url": "git+https://github.com/njibhu/t3d.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "lint": "",
+    "format": "prettier --write 'src/**/*.js'"
   },
   "devDependencies": {
     "ts-node": "^8.9.1",
@@ -29,8 +31,5 @@
   },
   "dependencies": {
     "t3d-lib": "file:../library"
-  },
-  "prettier": {
-    "printWidth": 120
   }
 }

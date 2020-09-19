@@ -3,6 +3,8 @@
   "version": "2.0.1",
   "main": "t3dtools.js",
   "scripts": {
+    "lint": "",
+    "format": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "T3D Contributors",
