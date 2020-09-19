@@ -28,10 +28,7 @@ function buildExample(entryPoint) {
 
 function copyStaticAssets() {
   return [
-    gulp
-      .src(`../t3dtools.js/t3dworker.js`)
-      .pipe(rename("t3dworker.js"))
-      .pipe(gulp.dest("./dist/static")),
+    gulp.src(`../t3dtools.js/t3dworker.js`).pipe(rename("t3dworker.js")).pipe(gulp.dest("./dist/static")),
     gulp
       .src([
         `../node_modules/three/build/three.js`,
@@ -56,9 +53,5 @@ gulp.task("watch", () => {
   const delay = 500;
 
   gulp.watch("src/*", { delay }, Promise.all(Explorer()));
-  gulp.watch(
-    "node_modules/t3d-lib/src/**/*",
-    { delay },
-    gulp.series("default")
-  );
+  gulp.watch("../library/src/**/*", { delay }, gulp.series("default"));
 });

@@ -10,16 +10,9 @@ function copyExampleAssets(asset) {
   gulp.src(`./src/${asset}`).pipe(rename(asset)).pipe(gulp.dest("./dist/"));
 }
 
-function _cStatic(path) {
-  return gulp.src(path).pipe(gulp.dest("./dist/static"));
-}
-
 function copyStaticAssets() {
   return [
-    gulp
-      .src(`./node_modules/t3d-toolsjs/t3dworker.js`)
-      .pipe(rename("t3dworker.js"))
-      .pipe(gulp.dest("./dist/static")),
+    gulp.src(`./node_modules/t3d-toolsjs/t3dworker.js`).pipe(rename("t3dworker.js")).pipe(gulp.dest("./dist/static")),
     gulp
       .src([
         `../node_modules/w2ui/w2ui-1.4.3.min.js`,
@@ -59,49 +52,27 @@ function statics() {
 }
 
 function MapRenderer() {
-  return [
-    buildExample("MapRenderer/index.js"),
-    copyExampleAssets("MapRenderer/index.html"),
-  ];
+  return [buildExample("MapRenderer/index.js"), copyExampleAssets("MapRenderer/index.html")];
 }
 
 function LocalReaderV2() {
-  return [
-    buildExample("LocalReaderV2/index.js"),
-    copyExampleAssets("LocalReaderV2/index.html"),
-  ];
+  return [buildExample("LocalReaderV2/index.js"), copyExampleAssets("LocalReaderV2/index.html")];
 }
 
 function ModelRenderer() {
-  return [
-    buildExample("ModelRenderer/index.js"),
-    copyExampleAssets("ModelRenderer/index.html"),
-  ];
+  return [buildExample("ModelRenderer/index.js"), copyExampleAssets("ModelRenderer/index.html")];
 }
 
 function MapScan() {
-  return [
-    buildExample("MapScan/index.js"),
-    copyExampleAssets("MapScan/index.html"),
-  ];
+  return [buildExample("MapScan/index.js"), copyExampleAssets("MapScan/index.html")];
 }
 
 function Tyria2D() {
-  return [
-    buildExample("Tyria2D/index.js"),
-    copyExampleAssets("Tyria2D/index.html"),
-  ];
+  return [buildExample("Tyria2D/index.js"), copyExampleAssets("Tyria2D/index.html")];
 }
 
 gulp.task("default", () =>
-  Promise.all([
-    ...statics(),
-    ...MapRenderer(),
-    ...LocalReaderV2(),
-    ...ModelRenderer(),
-    ...Tyria2D(),
-    ...MapScan(),
-  ])
+  Promise.all([...statics(), ...MapRenderer(), ...LocalReaderV2(), ...ModelRenderer(), ...Tyria2D(), ...MapScan()])
 );
 
 gulp.task("watch", () => {
@@ -112,9 +83,5 @@ gulp.task("watch", () => {
   gulp.watch("src/ModelRenderer/*", { delay }, Promise.all(ModelRenderer()));
   gulp.watch("src/Tyria2D/*", { delay }, Promise.all(Tyria2D()));
   gulp.watch("src/index.html", { delay }, Promise.all(statics()));
-  gulp.watch(
-    "node_modules/t3d-lib/src/**/*",
-    { delay },
-    gulp.series("default")
-  );
+  gulp.watch("../library/src/**/*", { delay }, gulp.series("default"));
 });
