@@ -71,7 +71,7 @@ $(document).ready(function () {
   $("#filePicker").change(function (evt) {
     let file = evt.target.files[0];
 
-    mapRenderer.localReader = T3D.getLocalReader(file, onReaderCreated, "../static/t3dworker.js", myLogger);
+    mapRenderer.localReader = T3D.getLocalReader(file, onReaderCreated, "./static/t3dworker.js", myLogger);
   });
 
   /// Handle button click
