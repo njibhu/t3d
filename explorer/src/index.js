@@ -70,6 +70,8 @@ $(document).ready(function () {
   /// Handle file pick
   $("#filePicker").change(function (evt) {
     let file = evt.target.files[0];
+    // Disable button
+    $("#filePicker").prop("disabled", true);
 
     mapRenderer.localReader = T3D.getLocalReader(file, onReaderCreated, "./static/t3dworker.js", myLogger);
   });
@@ -346,6 +348,8 @@ function setupScene() {
     mapRenderer.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
   });
 
+  registerQuickfix();
+
   setupController();
 
   /// Note: constant continous rendering from page load
@@ -388,8 +392,10 @@ function render() {
 // FlyControls quickfix
 // Sometimes camera roll gets stuck because of the event implementation
 // This fixes it. Probably needs to be removed after threejs upgrade
-mapRenderer.renderer.domElement.on("mouseup", function () {
-  if (mapRenderer.controls) {
-    mapRenderer.controls.mouseStatus = 0;
-  }
-});
+function registerQuickfix() {
+  mapRenderer.renderer.domElement.on("mouseup", function () {
+    if (mapRenderer.controls) {
+      mapRenderer.controls.mouseStatus = 0;
+    }
+  });
+}
