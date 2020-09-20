@@ -348,8 +348,6 @@ function setupScene() {
     mapRenderer.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
   });
 
-  registerQuickfix();
-
   setupController();
 
   /// Note: constant continous rendering from page load
@@ -387,15 +385,4 @@ function render() {
   mapRenderer.controls.update(delta);
 
   mapRenderer.renderer.render(mapRenderer.scene, mapRenderer.camera);
-}
-
-// FlyControls quickfix
-// Sometimes camera roll gets stuck because of the event implementation
-// This fixes it. Probably needs to be removed after threejs upgrade
-function registerQuickfix() {
-  mapRenderer.renderer.domElement.on("mouseup", function () {
-    if (mapRenderer.controls) {
-      mapRenderer.controls.mouseStatus = 0;
-    }
-  });
 }
