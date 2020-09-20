@@ -82,7 +82,6 @@ $(document).ready(function () {
 
 /// Callback for when the LocalReader has finished setting up!
 function onReaderCreated() {
-  $("#fileIdInput").removeAttr("disabled");
   $("#fileMapSelect").removeAttr("disabled");
   $("#loadMapBtn").removeAttr("disabled");
 
@@ -133,11 +132,9 @@ function onLoadMapClick() {
   mapRenderer.mapData = Object.assign({}, cleanMapData);
 
   /// Get selected file id
-  if ($("#fileMapSelect").val() && $("#fileMapSelect").val() !== "undefined") {
-    mapRenderer.mapData.id = $("#fileMapSelect").val();
-  } else {
-    mapRenderer.mapData.id = $("#fileIdInput").val();
-  }
+  mapRenderer.mapData.id = $("#fileMapSelect").val();
+  console.log($("#fileMapSelect").val());
+  $("#fileMapSelect").prop("disabled", true);
 
   /// Renderer settings (see the documentation of each Renderer for details)
   let renderers = [
@@ -325,6 +322,7 @@ function setupScene() {
   // Fog
   mapRenderer.scene.fog = new THREE.Fog(0xffffff, fogDistance, fogDistance + 1000);
   mapRenderer.camera.far = fogDistance + 1000;
+  mapRenderer.camera.updateProjectionMatrix();
 
   /// Standard THREE renderer with AA
   mapRenderer.renderer = new THREE.WebGLRenderer({
