@@ -133,7 +133,6 @@ function onLoadMapClick() {
 
   /// Get selected file id
   mapRenderer.mapData.id = $("#fileMapSelect").val();
-  console.log($("#fileMapSelect").val());
   $("#fileMapSelect").prop("disabled", true);
 
   /// Renderer settings (see the documentation of each Renderer for details)
@@ -347,6 +346,18 @@ function setupScene() {
   });
 
   setupController();
+
+  mapRenderer.renderer.domElement.addEventListener("mousedown", () => {
+    if (mapRenderer.controls) {
+      console.log(mapRenderer.controls.mouseStatus);
+    }
+  });
+
+  mapRenderer.renderer.domElement.addEventListener("mouseup", () => {
+    if (mapRenderer.controls) {
+      console.log(mapRenderer.controls.mouseStatus);
+    }
+  });
 
   /// Note: constant continous rendering from page load
   render();
