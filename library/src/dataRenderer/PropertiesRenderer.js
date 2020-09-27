@@ -37,6 +37,7 @@ class PropertiesRenderer extends DataRenderer {
   constructor(localReader, settings, context, logger) {
     super(localReader, settings, context, logger, "PropertiesRenderer");
     this.mapFile = this.settings.mapFile;
+    this.showUnmaterialized = this.settings.showUnmaterialized || false;
   }
 
   /**
@@ -213,15 +214,15 @@ class PropertiesRenderer extends DataRenderer {
         }
       };
 
+      console.log(self);
       /// Get meshes
-      let showUnmaterialed = false;
       RenderUtils.getMeshesForFilename(
         prop.filename,
         prop.color,
         self.localReader,
         self.meshCache,
         self.textureCache,
-        showUnmaterialed,
+        self.showUnmaterialized,
         function (meshes, isCached, boundingSphere) {
           if (meshes) {
             addMeshesToScene(meshes, isCached, boundingSphere);
