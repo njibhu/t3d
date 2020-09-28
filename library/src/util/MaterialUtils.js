@@ -222,7 +222,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
   let finalTextures = [];
 
   // Some materials don't use textures..
-  if (material && material.textures.length /* && material.textures[texIndex] */) {
+  if (material && material.textures.length && dxChunk.data.techniques.length > 0) {
     /// TODO: check for flags!
     ///
     /// techinques[] -> passes[] -> effects[] -> samplerIndex[]
@@ -237,7 +237,6 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     /// 15 effects      Each effect has a pixel shader     HOW??
     /// 1 or 2 sampler indices                   USE ALL! (Multi material)
 
-    if (dxChunk.data.techniques.length < 1) return;
     let effects = dxChunk.data.techniques[0].passes[0].effects;
     // var effect = effects[10];
     let effect = effects[0];
@@ -285,7 +284,9 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
           samplerTextures.push(material.textures[sampler.textureIndex]);
         } else if (material.textures.length > 0) {
           samplerTextures.push(material.textures[0]);
-        } else return;
+        } else {
+          return;
+        }
       }
     } /// END for each sampler index in effect
 
