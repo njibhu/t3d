@@ -70,6 +70,8 @@ $(document).ready(function () {
   /// Handle file pick
   $("#filePicker").change(function (evt) {
     let file = evt.target.files[0];
+    // Disable button
+    $("#filePicker").prop("disabled", true);
 
     mapRenderer.localReader = T3D.getLocalReader(file, onReaderCreated, "./static/t3dworker.js", myLogger);
   });
@@ -80,7 +82,6 @@ $(document).ready(function () {
 
 /// Callback for when the LocalReader has finished setting up!
 function onReaderCreated() {
-  $("#fileIdInput").removeAttr("disabled");
   $("#fileMapSelect").removeAttr("disabled");
   $("#loadMapBtn").removeAttr("disabled");
 
@@ -131,11 +132,8 @@ function onLoadMapClick() {
   mapRenderer.mapData = Object.assign({}, cleanMapData);
 
   /// Get selected file id
-  if ($("#fileMapSelect").val() && $("#fileMapSelect").val() !== "undefined") {
-    mapRenderer.mapData.id = $("#fileMapSelect").val();
-  } else {
-    mapRenderer.mapData.id = $("#fileIdInput").val();
-  }
+  mapRenderer.mapData.id = $("#fileMapSelect").val();
+  $("#fileMapSelect").prop("disabled", true);
 
   /// Renderer settings (see the documentation of each Renderer for details)
   let renderers = [
@@ -323,6 +321,7 @@ function setupScene() {
   // Fog
   mapRenderer.scene.fog = new THREE.Fog(0xffffff, fogDistance, fogDistance + 1000);
   mapRenderer.camera.far = fogDistance + 1000;
+  mapRenderer.camera.updateProjectionMatrix();
 
   /// Standard THREE renderer with AA
   mapRenderer.renderer = new THREE.WebGLRenderer({
@@ -384,12 +383,3 @@ function render() {
 
   mapRenderer.renderer.render(mapRenderer.scene, mapRenderer.camera);
 }
-
-// FlyControls quickfix
-// Sometimes camera roll gets stuck because of the event implementation
-// This fixes it. Probably needs to be removed after threejs upgrade
-mapRenderer.renderer.domElement.on("mouseup", function () {
-  if (mapRenderer.controls) {
-    mapRenderer.controls.mouseStatus = 0;
-  }
-});
