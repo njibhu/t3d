@@ -205,7 +205,7 @@ function loadMeshes(rendererClass, outRendererData, callback) {
   T3D.runRenderer(
     rendererClass,
     mapRenderer.localReader,
-    { visible: true, mapFile: mapRenderer.mapData.mapFile, showUnmaterialized: true },
+    { visible: true, mapFile: mapRenderer.mapData.mapFile, showUnmaterialized: false },
     mapRenderer.context,
     function () {
       outRendererData.data = T3D.getContextValue(mapRenderer.context, rendererClass, "meshes");
