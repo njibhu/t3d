@@ -347,18 +347,6 @@ function setupScene() {
 
   setupController();
 
-  mapRenderer.renderer.domElement.addEventListener("mousedown", () => {
-    if (mapRenderer.controls) {
-      console.log(mapRenderer.controls.mouseStatus);
-    }
-  });
-
-  mapRenderer.renderer.domElement.addEventListener("mouseup", () => {
-    if (mapRenderer.controls) {
-      console.log(mapRenderer.controls.mouseStatus);
-    }
-  });
-
   /// Note: constant continous rendering from page load
   render();
 }
