@@ -1,0 +1,8 @@
+* Make an hexviewer
+* Rework a bit the interface, add menubar and make layout open/closable.
+* Default view on PackFiles is a list of meta infos + chunks.
+* MODL loads a 3D view only if they contain MODL + GEOM chunks (some are ANIM only)
+* cntc viewer: files with a grid like strings and an hexadecimal preview window
+* Rework strings view, lots are omited ?
+* Map viewer
+* Switch type previews from tabs to toolbar and use tabs to have multiple files opened

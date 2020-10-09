@@ -68,7 +68,7 @@ function MapScan() {
 }
 
 function Tyria2D() {
-  return [buildExample("Tyria2D/index.js"), copyExampleAssets("Tyria2D/index.html")];
+  return [buildExample("Tyria2D/App.js"), copyExampleAssets("Tyria2D/index.html")];
 }
 
 gulp.task("default", () =>
