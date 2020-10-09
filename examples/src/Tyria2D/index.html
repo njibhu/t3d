@@ -17,82 +17,90 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 !-->
 <html>
-  <head>
-    <title>Tyria 2D</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../static/w2ui-1.4.3.min.css"
-    />
-    <style type="text/css">
-      body,
-      html {
-        margin: 0;
-      }
 
-      body,
-      h1,
-      h2,
-      h3 {
-        font-family: sans-serif;
-      }
-      h1,
-      h2 {
-        text-align: center;
-      }
+<head>
+	<title>Tyria 2D</title>
+	<link rel="stylesheet" type="text/css" href="../static/w2ui-1.4.3.min.css" />
+	<style type="text/css">
+		body,
+		html {
+			margin: 0;
+		}
 
-      #mainGrid {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
+		body,
+		h1,
+		h2,
+		h3 {
+			font-family: sans-serif;
+		}
 
-      .toolbarEntry {
-        padding: 3px 10px;
-      }
-      .toolbarEntry button,
-      .toolbarEntry input {
-        padding: 3px;
-        border-radius: 2px;
-        border: 1px solid silver;
-        margin-right: 10px;
-      }
+		h1,
+		h2 {
+			text-align: center;
+		}
 
-      .tabOutput {
-        padding: 10px;
-      }
+		#mainGrid {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
 
-      #stringOutput,
-      #modelOutput {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 108px;
-        bottom: 0;
-      }
+		.toolbarEntry {
+			padding: 3px 10px;
+		}
 
-      #stringOutput.w2ui-grid .w2ui-grid-body table td.w2ui-grid-data > div {
-        white-space: normal !important;
-      }
+		.toolbarEntry button,
+		.toolbarEntry input {
+			padding: 3px;
+			border-radius: 2px;
+			border: 1px solid silver;
+			margin-right: 10px;
+		}
 
-      #mainGrid > div {
-        vertical-align: top;
-        display: inline-block;
-      }
-      #rawOutput {
-        font-family: monospace;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="layout" style="width: 100%; height: 100%"></div>
+		.tabOutput {
+			padding: 10px;
+		}
+
+		#stringOutput,
+		#modelOutput {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 108px;
+			bottom: 0;
+		}
+
+		#stringOutput.w2ui-grid .w2ui-grid-body table td.w2ui-grid-data>div {
+			white-space: normal !important;
+		}
+
+		#mainGrid>div {
+			vertical-align: top;
+			display: inline-block;
+		}
+
+		#rawOutput {
+			font-family: monospace;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div id="layout" style="width: 100%; height: 100%;">
+	</div>
+
+
     <script src="../static/jquery.js"></script>
     <script src="../static/DataStream.js"></script>
     <script src="../static/three.js"></script>
     <script src="../static/PointerLockControls.js"></script>
     <script src="../static/OrbitControls.js"></script>
     <script src="../static/T3D.js"></script>
-    <script type="text/javascript" src="./index.js"></script>
     <script type="text/javascript" src="../static/w2ui-1.4.3.min.js"></script>
-  </body>
+    <script type="text/javascript" src="./App.js"></script>
+
+</body>
+
 </html>
