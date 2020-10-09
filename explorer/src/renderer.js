@@ -1,26 +1,3 @@
-const nullMapData = {
-  id: null,
-  mapFile: null,
-  terrain: {
-    data: [],
-  },
-  collision: {
-    enabled: false,
-    loaded: false,
-    data: [],
-  },
-  props: {
-    enabled: false,
-    loaded: false,
-    data: [],
-  },
-  zone: {
-    enabled: false,
-    loaded: false,
-    data: [],
-  },
-};
-
 class AppRenderer {
   constructor(logger) {
     this.logger = logger;
@@ -47,14 +24,22 @@ class AppRenderer {
     this.controlsEnabled = false;
 
     /// Data:
-    this.cleanMapData();
+    this._cleanMapData();
   }
 
-  cleanMapData() {
-    this.mapData = Object.assign({}, nullMapData);
+  /**
+   * Public methods
+   */
+  createLocalReader(file, callback) {
+    this.localReader = T3D.getLocalReader(file, callback, "./static/t3dworker.js", this.logger);
   }
 
-  setupScene() {
+  getMapList() {
+    return this.localReader.getMapList();
+  }
+
+  // Setup schene
+  init() {
     let canvasWidth = window.innerWidth;
     let canvasHeight = window.innerHeight;
     let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
@@ -110,63 +95,27 @@ class AppRenderer {
       this.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     });
 
-    this.setupController();
+    this._setupController();
 
     /// Note: constant continous rendering from page load
-    this.render();
+    this._render();
   }
 
-  /// Wipes out the data
-  cleanScene() {
-    for (const type of ["terrain", "props", "zone", "collision"]) {
-      for (const elem of this.mapData[type].data) {
-        this.scene.remove(elem);
-      }
-      this.mapData[type].data = [];
-    }
-
-    for (const type of ["props", "zone", "collision"]) {
-      this.mapData[type].loaded = false;
-      this.mapData[type].enabled = false;
-    }
+  isCollModelsLoaded() {
+    this.mapData.collision.loaded;
   }
 
-  setupController() {
-    if (!this.controls) {
-      let controls = new THREE.FlyControls(this.camera, this.renderer.domElement);
-
-      controls.movementSpeed = Number($("#mvntSpeedRange").val()) | 1000;
-      controls.domElement = this.renderer.domElement;
-      controls.rollSpeed = Math.PI / 6;
-      controls.autoForward = false;
-      controls.dragToLook = true;
-      this.controls = controls;
-    }
+  isPropModelsLoaded() {
+    return this.mapData.props.loaded;
   }
 
-  render() {
-    window.requestAnimationFrame(() => this.render());
-
-    let delta = this.clock.getDelta();
-    this.controls.update(delta);
-
-    this.renderer.render(this.scene, this.camera);
-  }
-
-  setFog(fogDistance) {
-    if (this.scene && this.scene.fog) {
-      this.scene.fog.near = fogDistance;
-      this.scene.fog.far = fogDistance + 1000;
-    }
-    if (this.camera) {
-      this.camera.far = fogDistance + 1000;
-      this.camera.updateProjectionMatrix();
-    }
+  isZoneModelsLoaded() {
+    return this.mapData.zone.loaded;
   }
 
   loadMap(mapId) {
     // Clean previous render states
-    this.cleanMapData();
+    this._cleanMapData();
     this.mapData.id = mapId;
 
     /// Renderer settings (see the documentation of each Renderer for details)
@@ -186,18 +135,161 @@ class AppRenderer {
       this.mapData.id,
       renderers,
       (context) => {
-        this.onRendererDone(context);
+        this._onRendererDone(context);
       },
       this.logger
     );
 
-    /// And store the mapfile for future use
-    this.loadMapFile(this.mapData.id);
+    // Cache mapFile for later use
+    if (parseInt(this.mapData.id)) {
+      this.localReader.loadFile(this.mapData.id, (arrayBuffer) => {
+        let ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
+        this.mapData.mapFile = new T3D.GW2File(ds, 0);
+      });
+    }
+  }
+
+  loadZoneModels(callback) {
+    this._loadMeshes(T3D.ZoneRenderer, this.mapData.zone, callback);
+  }
+
+  loadPropModels(callback) {
+    this._loadMeshes(T3D.PropertiesRenderer, this.mapData.props, callback);
+  }
+
+  loadCollModels(callback) {
+    this._loadMeshes(T3D.HavokRenderer, this.mapData.collision, callback);
+  }
+
+  setFog(fogDistance) {
+    if (this.scene && this.scene.fog) {
+      this.scene.fog.near = fogDistance;
+      this.scene.fog.far = fogDistance + 1000;
+    }
+    if (this.camera) {
+      this.camera.far = fogDistance + 1000;
+      this.camera.updateProjectionMatrix();
+    }
+  }
+
+  setMovementSpeed(speed) {
+    if (this.controls) {
+      this.controls.movementSpeed = speed;
+    }
+  }
+
+  toggleZoneModels() {
+    return this._toggleModels("zone");
+  }
+
+  togglePropModels() {
+    return this._toggleModels("props");
+  }
+
+  toggleCollModels() {
+    return this._toggleModels("collision");
+  }
+
+  /**
+   * Private methods
+   */
+
+  _cleanMapData() {
+    this.mapData = {
+      id: null,
+      mapFile: null,
+      terrain: {
+        data: [],
+      },
+      collision: {
+        enabled: false,
+        loaded: false,
+        data: [],
+      },
+      props: {
+        enabled: false,
+        loaded: false,
+        data: [],
+      },
+      zone: {
+        enabled: false,
+        loaded: false,
+        data: [],
+      },
+    };
+  }
+
+  /// Wipes out the data
+  _cleanScene() {
+    for (const type of ["terrain", "props", "zone", "collision"]) {
+      for (const elem of this.mapData[type].data) {
+        this.scene.remove(elem);
+      }
+      this.mapData[type].data = [];
+    }
+
+    for (const type of ["props", "zone", "collision"]) {
+      this.mapData[type].loaded = false;
+      this.mapData[type].enabled = false;
+    }
+  }
+
+  /// Run a renderer manually and populates the data object
+  _loadMeshes(rendererClass, outRendererData, callback) {
+    T3D.runRenderer(
+      rendererClass,
+      this.localReader,
+      { visible: true, mapFile: this.mapData.mapFile, showUnmaterialized: false },
+      this.context,
+      () => {
+        outRendererData.data = T3D.getContextValue(this.context, rendererClass, "meshes");
+        outRendererData.loaded = true;
+        callback();
+      }
+    );
+  }
+
+  _setupController() {
+    if (!this.controls) {
+      let controls = new THREE.FlyControls(this.camera, this.renderer.domElement);
+
+      controls.movementSpeed = Number($("#mvntSpeedRange").val()) | 1000;
+      controls.domElement = this.renderer.domElement;
+      controls.rollSpeed = Math.PI / 6;
+      controls.autoForward = false;
+      controls.dragToLook = true;
+      this.controls = controls;
+    }
+  }
+
+  _render() {
+    window.requestAnimationFrame(() => this._render());
+
+    let delta = this.clock.getDelta();
+    this.controls.update(delta);
+
+    this.renderer.render(this.scene, this.camera);
+  }
+
+  _toggleModels(meshType) {
+    if (this.mapData[meshType].enabled) {
+      for (const elem of this.mapData[meshType].data) {
+        this.scene.remove(elem);
+      }
+      this.mapData[meshType].enabled = false;
+      return false;
+    } else {
+      for (const elem of this.mapData[meshType].data) {
+        this.scene.add(elem);
+      }
+      this.mapData[meshType].enabled = true;
+      return true;
+    }
   }
 
   /// Runs when the ModelRenderer is finshed
-  onRendererDone(context) {
-    this.cleanScene();
+  _onRendererDone(context) {
+    this._cleanScene();
 
     /// Populate our context with the context returned
     this.context = context;
@@ -219,17 +311,6 @@ class AppRenderer {
     this.camera.position.y = bounds ? bounds.y2 : 0;
     this.camera.position.z = 0;
     this.camera.rotation.x = (-90 * Math.PI) / 180;
-  }
-
-  /// It's usually not needed to keep the mapFile independently but
-  /// because we're loading the colision/props/zone models manually, it is.
-  loadMapFile(fileId) {
-    if (parseInt(fileId)) {
-      this.localReader.loadFile(fileId, (arrayBuffer) => {
-        let ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
-        this.mapData.mapFile = new T3D.GW2File(ds, 0);
-      });
-    }
   }
 }
 

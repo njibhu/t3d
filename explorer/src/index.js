@@ -21,7 +21,7 @@ const mapRenderer = new AppRenderer(myLogger);
 
 $(document).ready(function () {
   /// Build TREE scene
-  mapRenderer.setupScene();
+  mapRenderer.init();
 
   /// Handle file pick
   $("#filePicker").change(function (evt) {
@@ -29,7 +29,7 @@ $(document).ready(function () {
     // Disable button
     $("#filePicker").prop("disabled", true);
 
-    mapRenderer.localReader = T3D.getLocalReader(file, onReaderCreated, "./static/t3dworker.js", myLogger);
+    mapRenderer.createLocalReader(file, onReaderCreated);
   });
 
   /// Handle button click
@@ -41,7 +41,7 @@ function onReaderCreated() {
   $("#fileMapSelect").removeAttr("disabled");
   $("#loadMapBtn").removeAttr("disabled");
 
-  const mapFileList = mapRenderer.localReader.getMapList();
+  const mapFileList = mapRenderer.getMapList();
   const categoryList = mapFileList.reduce((list, map) => {
     if (!list.includes(map.category)) {
       list.push(map.category);
@@ -78,7 +78,7 @@ function onLoadMapClick() {
   $("#loadZoneBtn").click(loadZoneModels);
   $("#loadZoneBtn").removeAttr("disabled");
   $("#mvntSpeedRange").removeAttr("disabled");
-  $("#mvntSpeedRange").change(changeMovementSpeed);
+  $("#mvntSpeedRange").change((event) => mapRenderer.setMovementSpeed(event.target.valueAsNumber));
   $("#fogRange").removeAttr("disabled");
   $("#fogRange").change((event) => {
     mapRenderer.setFog(event.target.valueAsNumber);
@@ -95,73 +95,44 @@ function onLoadMapClick() {
   };
 }
 
-/// Run a renderer manually and populates the data object
-function loadMeshes(rendererClass, outRendererData, callback) {
-  T3D.runRenderer(
-    rendererClass,
-    mapRenderer.localReader,
-    { visible: true, mapFile: mapRenderer.mapData.mapFile, showUnmaterialized: false },
-    mapRenderer.context,
-    function () {
-      outRendererData.data = T3D.getContextValue(mapRenderer.context, rendererClass, "meshes");
-      outRendererData.loaded = true;
-      callback();
-    }
-  );
-}
-
-function toggleMeshes(meshType, buttonId) {
-  let mapData = mapRenderer.mapData[meshType];
-  if (!mapData.enabled) {
-    for (const elem of mapData.data) {
-      mapRenderer.scene.add(elem);
-    }
-    mapData.enabled = true;
-    $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Load", "Unload");
-  } else {
-    for (const elem of mapData.data) {
-      mapRenderer.scene.remove(elem);
-    }
-    mapData.enabled = false;
-    $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Unload", "Load");
-  }
-}
-
 /// Action when the load zone props button is clicked
 function loadZoneModels() {
-  if (!mapRenderer.mapData.zone.loaded) {
-    loadMeshes(T3D.ZoneRenderer, mapRenderer.mapData.zone, function () {
-      toggleMeshes("zone", "#loadZoneBtn");
+  const buttonId = "#loadZoneBtn";
+  if (!mapRenderer.isZoneModelsLoaded()) {
+    mapRenderer.loadZoneModels(function () {
+      mapRenderer.toggleZoneModels();
+      $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Load", "Unload");
     });
   } else {
-    toggleMeshes("zone", "#loadZoneBtn");
+    mapRenderer.toggleZoneModels();
+    $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Unload", "Load");
   }
 }
 
 /// Action when the load props button is clicked
 function loadPropModels() {
-  if (!mapRenderer.mapData.props.loaded) {
-    loadMeshes(T3D.PropertiesRenderer, mapRenderer.mapData.props, function () {
-      toggleMeshes("props", "#loadPropsBtn");
+  const buttonId = "#loadPropsBtn";
+  if (!mapRenderer.isPropModelsLoaded()) {
+    mapRenderer.loadPropModels(function () {
+      mapRenderer.togglePropModels();
+      $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Load", "Unload");
     });
   } else {
-    toggleMeshes("props", "#loadPropsBtn");
+    mapRenderer.togglePropModels();
+    $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Unload", "Load");
   }
 }
 
 /// Action when the load collisions button is clicked
 function loadCollModels() {
-  if (!mapRenderer.mapData.collision.loaded) {
-    loadMeshes(T3D.HavokRenderer, mapRenderer.mapData.collision, function () {
-      toggleMeshes("collision", "#loadCollBtn");
+  const buttonId = "#loadCollBtn";
+  if (!mapRenderer.isCollModelsLoaded()) {
+    mapRenderer.loadCollModels(function () {
+      mapRenderer.toggleCollModels();
+      $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Load", "Unload");
     });
   } else {
-    toggleMeshes("collision", "#loadCollBtn");
-  }
-}
-
-function changeMovementSpeed(evt) {
-  if (mapRenderer.controls) {
-    mapRenderer.controls.movementSpeed = evt.target.valueAsNumber;
+    mapRenderer.toggleCollModels();
+    $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Unload", "Load");
   }
 }
