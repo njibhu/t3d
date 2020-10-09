@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const RenderUtils = require("../util/RenderUtils");
+const MaterialUtils = require("../util/MaterialUtils");
 const DataRenderer = require("./DataRenderer");
 
 /**
@@ -69,7 +69,7 @@ class EnvironmentRenderer extends DataRenderer {
     }
 
     let mat = self.getMat(
-      RenderUtils.loadLocalTexture(this.localReader, filename, null, hazeColorAsInt, errorCallback)
+      MaterialUtils.loadLocalTexture(this.localReader, filename, null, hazeColorAsInt, errorCallback)
     );
 
     writeMat(mat);

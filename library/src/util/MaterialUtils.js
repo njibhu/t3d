@@ -528,30 +528,34 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
   }
 
   /// Load file using LocalReader.
-  localReader.loadTextureFile(fileId, function (inflatedData, dxtType, imageWidth, imageHeigth) {
-    /// Require infalted data to be returned.
-    if (!inflatedData) {
-      if (onerror) onerror();
-      return;
-    }
+  localReader.loadFile(
+    fileId,
+    function (inflatedData, dxtType, imageWidth, imageHeigth) {
+      /// Require infalted data to be returned.
+      if (!inflatedData) {
+        if (onerror) onerror();
+        return;
+      }
 
-    /// Create image using returned data.
-    let image = {
-      data: new Uint8Array(inflatedData),
-      width: imageWidth,
-      height: imageHeigth,
-    };
+      /// Create image using returned data.
+      let image = {
+        data: new Uint8Array(inflatedData),
+        width: imageWidth,
+        height: imageHeigth,
+      };
 
-    /// Use RGBA for all textures for now...
-    /// TODO: don't use alpha for some formats!
-    texture.format =
-      //eslint-disable-next-line no-constant-condition
-      dxtType === 3 || dxtType === 5 || true ? THREE.RGBAFormat : THREE.RGBFormat;
+      /// Use RGBA for all textures for now...
+      /// TODO: don't use alpha for some formats!
+      texture.format =
+        //eslint-disable-next-line no-constant-condition
+        dxtType === 3 || dxtType === 5 || true ? THREE.RGBAFormat : THREE.RGBFormat;
 
-    /// Update texture with the loaded image.
-    texture.image = image;
-    texture.needsUpdate = true;
-  });
+      /// Update texture with the loaded image.
+      texture.image = image;
+      texture.needsUpdate = true;
+    },
+    true
+  );
 
   /// Return texture with temporary content.
   return texture;

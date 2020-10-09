@@ -145,17 +145,21 @@ class DataRenderer {
       ) {
         /// TODO: MOVE TO GW2 texture file!!
         /// Load file using LocalReader.
-        self.localReader.loadTextureFile(self.settings.id, function (inflatedData, dxtType, imageWidth, imageHeigth) {
-          /// Create image using returned data.
-          let image = {
-            data: new Uint8Array(inflatedData),
-            width: imageWidth,
-            height: imageHeigth,
-          };
+        self.localReader.loadFile(
+          self.settings.id,
+          function (inflatedData, dxtType, imageWidth, imageHeigth) {
+            /// Create image using returned data.
+            let image = {
+              data: new Uint8Array(inflatedData),
+              width: imageWidth,
+              height: imageHeigth,
+            };
 
-          self.getOutput().image = image;
-          callback();
-        });
+            self.getOutput().image = image;
+            callback();
+          },
+          true
+        );
       } else if (first4.indexOf("PF") === 0) {
         self.getOutput().file = new GW2File(ds, 0);
         callback();

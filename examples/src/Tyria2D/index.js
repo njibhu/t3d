@@ -364,7 +364,7 @@ window.onload = () => {
 
         /// Select the "All" category
         w2ui.sidebar.click("All");
-      } /// End readFileListAsync callback
+      } /// End getFileListAsync callback
     );
   }
 
@@ -736,70 +736,74 @@ window.onload = () => {
     texIds.forEach(function (texId) {
       /// LocalReader will have to re-load the textures, don't want to fetch
       /// then from the model data..
-      _lr.loadTextureFile(texId, function (inflatedData, dxtType, imageWidth, imageHeigth) {
-        /// Create js image using returned bitmap data.
-        let image = {
-          data: new Uint8Array(inflatedData),
-          width: imageWidth,
-          height: imageHeigth,
-        };
+      _lr.loadFile(
+        texId,
+        function (inflatedData, dxtType, imageWidth, imageHeigth) {
+          /// Create js image using returned bitmap data.
+          let image = {
+            data: new Uint8Array(inflatedData),
+            width: imageWidth,
+            height: imageHeigth,
+          };
 
-        /// Need a canvas in order to draw
-        let canvas = $("<canvas />");
-        $("body").append(canvas);
+          /// Need a canvas in order to draw
+          let canvas = $("<canvas />");
+          $("body").append(canvas);
 
-        canvas[0].width = image.width;
-        canvas[0].height = image.height;
+          canvas[0].width = image.width;
+          canvas[0].height = image.height;
 
-        let ctx = canvas[0].getContext("2d");
+          let ctx = canvas[0].getContext("2d");
 
-        /// Draw raw bitmap to canvas
-        let uica = new Uint8ClampedArray(image.data);
-        let imagedata = new ImageData(uica, image.width, image.height);
-        ctx.putImageData(imagedata, 0, 0);
+          /// Draw raw bitmap to canvas
+          let uica = new Uint8ClampedArray(image.data);
+          let imagedata = new ImageData(uica, image.width, image.height);
+          ctx.putImageData(imagedata, 0, 0);
 
-        /// This is where shit gets stupid. Flipping raw bitmaps in js
-        /// is apparently a pain. Basicly read current state pixel by pixel
-        /// and write it back with flipped y-axis
-        let input = ctx.getImageData(0, 0, image.width, image.height);
+          /// This is where shit gets stupid. Flipping raw bitmaps in js
+          /// is apparently a pain. Basicly read current state pixel by pixel
+          /// and write it back with flipped y-axis
+          let input = ctx.getImageData(0, 0, image.width, image.height);
 
-        /// Create output image data buffer
-        let output = ctx.createImageData(image.width, image.height);
+          /// Create output image data buffer
+          let output = ctx.createImageData(image.width, image.height);
 
-        /// Get imagedata size
-        let w = input.width,
-          h = input.height;
-        let inputData = input.data;
-        let outputData = output.data;
+          /// Get imagedata size
+          let w = input.width,
+            h = input.height;
+          let inputData = input.data;
+          let outputData = output.data;
 
-        /// Loop pixels
-        for (let y = 1; y < h - 1; y += 1) {
-          for (let x = 1; x < w - 1; x += 1) {
-            /// Input linear coordinate
-            let i = (y * w + x) * 4;
+          /// Loop pixels
+          for (let y = 1; y < h - 1; y += 1) {
+            for (let x = 1; x < w - 1; x += 1) {
+              /// Input linear coordinate
+              let i = (y * w + x) * 4;
 
-            /// Output linear coordinate
-            let flip = ((h - y) * w + x) * 4;
+              /// Output linear coordinate
+              let flip = ((h - y) * w + x) * 4;
 
-            /// Read and write RGBA
-            /// TODO: Perhaps put alpha to 100%
-            for (let c = 0; c < 4; c += 1) {
-              outputData[i + c] = inputData[flip + c];
+              /// Read and write RGBA
+              /// TODO: Perhaps put alpha to 100%
+              for (let c = 0; c < 4; c += 1) {
+                outputData[i + c] = inputData[flip + c];
+              }
             }
           }
-        }
 
-        /// Write back flipped data
-        ctx.putImageData(output, 0, 0);
+          /// Write back flipped data
+          ctx.putImageData(output, 0, 0);
 
-        /// Fetch canvas data as png and download.
-        canvas[0].toBlob(function (pngBlob) {
-          saveData(pngBlob, "tex_" + texId + ".png");
-        });
+          /// Fetch canvas data as png and download.
+          canvas[0].toBlob(function (pngBlob) {
+            saveData(pngBlob, "tex_" + texId + ".png");
+          });
 
-        /// Remove canvas from DOM
-        canvas.remove();
-      });
+          /// Remove canvas from DOM
+          canvas.remove();
+        },
+        true
+      );
     });
   }
 

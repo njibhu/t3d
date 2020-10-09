@@ -25,29 +25,6 @@ const FileTypes = require("./FileTypes");
 
 /**
  * A statefull class that handles reading and inflating data from a local GW2 dat file.
- * LocalReader have been completely rewritten from scratch,
- * the API changed quite a lot between 1.0.4 and 1.1.0.
- *
- * API CHANGES: LocalReader (1.1.0 from 1.0.4)
- * - The constructor have __changed__.
- * - parseHeaderAsync have been __removed__.
- * - connectInflated have been __removed__.
- * - NaClListener have been __removed__.
- * - readANDatHeader have been __removed__.
- * - readMFTHeader have been __removed__.
- * - readMFTIndexFile have been __removed__.
- * - loadFileList is now __deprecated__.
- * - loadMapList is now __deprecated__.
- * - storeFileList have been __removed__.
- * - storeMapList have been __removed__.
- * - readFileListAsync is now __deprecated__.
- * - readMapListAsync is now __deprecated__.
- * - listFiles have been __removed__.
- * - getFileIndex have been slightly __changed__.
- * - loadTextureFile is now __deprecated__.
- * - loadFile have been __removed__.
- * - inflate have been __removed__.
- * - loadFilePart have been __removed__.
  *
  * @param {{workerPath: String, workersNb: number, noIndexedDB: boolean}} settings
  *   * workerPath: the path to the t3dtools worker script file.
@@ -383,103 +360,11 @@ class LocalReader {
     }, []);
   }
 
-  // API Compatibility
-
-  /**
-     * Looks up mft indices for all mapc pack files in the dat. Either looks trough all files or
-     * only the list defined in {@link MapFileList}
-     *
-     * @deprecated Use now the getFileList method.
-     * @param  {boolean}   searchAll if true forces re-indexing of entire dat.
-     * If false only reads indices specified in "T3D/MapFileList".
-     * @param  {Function} callback Fired when the list is generated
-     *
-     * First argument is the a list of mft indices grouped by file type. For exmample:
-     *
-     *     {
-     *       maps:[
-     *         {
-     *           name: 'Heart of Maguuma',
-     *           maps: [
-     *             {fileName:1151420, name:'HoT BWE3 Raid'},
-     *             {fileName:969663, name:'Verdant Brink}
-     *           ]
-     *         },
-     *         {
-     *           name: 'Unknown maps',
-     *           maps: [
-     *             {fileName:12345678, name:'Unknown map 12345678'}
-     *           ]
-     *         }
-     *       ]
-
-    *      };
-    */
-  readMapListAsync(searchAll, callback) {
-    let self = this;
-    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.readMapListAsync is deprecated !");
-
-    // Let's preserve the old output way
-    function restoreOuput(array) {
-      let returnArray = [];
-      for (let elt of array) {
-        let category = returnArray.findIndex((i) => i.name === elt.category);
-        if (category === -1) {
-          category = returnArray.push({ name: elt.category, maps: [] }) - 1;
-        }
-        returnArray[category].maps.push({
-          fileName: elt.baseId,
-          name: elt.name,
-        });
-      }
-      // And resort it in order
-      returnArray.sort((i, j) => {
-        if (i.name < j.name) return -1;
-        if (i.name > j.name) return 1;
-        return 0;
-      });
-      return { maps: returnArray };
-    }
-
-    /// If seachAll flag is true, force a deep search
-    if (searchAll) {
-      this.readFileList().then(() => {
-        callback(restoreOuput(self.getMapList()));
-      });
-    } else {
-      callback(restoreOuput(self.getMapList()));
-    }
-  }
-
-  /**
-   * Reads the file type of each file in the dat and stores the resulting list in
-   * the browser's local storage.
-   *
-   * @deprecated Use now the readFileList or getFileList methods.
-   * @param  {Function} callback Fired when the list is generated and stores
-   *
-   * First argument is the a list of mft indices grouped by file type.
-   */
-  readFileListAsync(callback) {
-    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.readFileListAsync is deprecated !");
-
-    // Because the API changed we reform the data as wanted previously
-    this.readFileList().then((result) => {
-      let returnObj = {};
-      for (let fileEntry of result) {
-        if (returnObj[fileEntry.fileType] === undefined) {
-          returnObj[fileEntry.fileType] = [];
-        }
-        returnObj[fileEntry.fileType].push(fileEntry.mftId);
-      }
-      callback(returnObj);
-    });
-  }
+  // Callback wrapper
 
   /**
    * Reads data from a file in the dat.
    *
-   * @deprecated Use now the Promise-based method readFile.
    * @param  {Number}   baseId   Base or File id of the texture to load
    * @param  {Function} callback Fires when the inflater has read the data.
    *
@@ -494,57 +379,12 @@ class LocalReader {
    * @param  {boolean}   raw      If true, any infation is skipped and raw data is returned.
    */
   loadFile(baseId, callback, isImage, raw) {
-    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.loadFile is deprecated !");
     let mftId = this.getFileIndex(baseId);
     if (mftId <= 0) return callback(null);
     this.readFile(mftId, isImage, raw).then((result) => {
       if (result.buffer === undefined) return callback(null);
       callback(result.buffer, result.dxtType, result.imageWidth, result.imageHeight);
     });
-  }
-
-  /**
-   * Reads a bitmap from a texture file in the dat.
-   *
-   * @deprecated
-   * @param  {Number}   baseId   Base or File id of the texture to load
-   * @param  {Function} callback Fires when the inflater has read the texture data.
-   *
-   * The passed arguments are
-   * -ArrayBuffer Bitmap
-   * -Number DXT Type
-   * -Number image width
-   * -Number image height
-   *
-   */
-  loadTextureFile(baseId, callback) {
-    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.loadTextureFile is deprecated !");
-
-    this.loadFile(baseId, callback, true);
-  }
-
-  /**
-   * Used to read the cached list of files corresponding to the reader's .dat from the localStorage.
-   * Now kept only for backward compatibility, but doesn't do anything.
-   * Please use getFileList now.
-   *
-   * @deprecated
-   */
-  loadFileList() {
-    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.loadFileList is deprecated !");
-    return undefined;
-  }
-
-  /**
-   * Used to read the cached list of maps corresponding to the reader's .dat from the localStorage.
-   * Now kept only for backward compatibility, but doesn't do anything.
-   * Please use getMapList now.
-   *
-   * @deprecated
-   */
-  loadMapList() {
-    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "LocalReader.loadMapList is deprecated !");
-    return undefined;
   }
 
   // Private

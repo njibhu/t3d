@@ -325,18 +325,16 @@ T3D = module.exports = {
    * {{#crossLink "LocalReader/listFiles:method"}}{{/crossLink}}
    */
   getFileListAsync: function (localReader, callback) {
-    /// Check local storage for an existing file list
-    let fileList = localReader.loadFileList();
-
-    /// If there is no cached list, look for pre-defined maps.
-    if (!fileList) {
-      localReader.readFileListAsync(callback);
-    }
-
-    /// Otherwise, just fire the callback with the cached list
-    else {
-      callback(fileList);
-    }
+    localReader.readFileList().then((result) => {
+      let returnObj = {};
+      for (let fileEntry of result) {
+        if (returnObj[fileEntry.fileType] === undefined) {
+          returnObj[fileEntry.fileType] = [];
+        }
+        returnObj[fileEntry.fileType].push(fileEntry.mftId);
+      }
+      callback(returnObj);
+    });
   },
 
   /**
@@ -380,23 +378,35 @@ T3D = module.exports = {
   * @param {boolean} searchAll if true forces re-indexing of entire dat.
   */
   getMapListAsync: function (localReader, callback, searchAll) {
+    function restoreOuput(array) {
+      let returnArray = [];
+      for (let elt of array) {
+        let category = returnArray.findIndex((i) => i.name === elt.category);
+        if (category === -1) {
+          category = returnArray.push({ name: elt.category, maps: [] }) - 1;
+        }
+        returnArray[category].maps.push({
+          fileName: elt.baseId,
+          name: elt.name,
+        });
+      }
+      // And resort it in order
+      returnArray.sort((i, j) => {
+        if (i.name < j.name) return -1;
+        if (i.name > j.name) return 1;
+        return 0;
+      });
+      return { maps: returnArray };
+    }
+
     /// If seachAll flag is true, force a deep search
     if (searchAll) {
-      localReader.readMapListAsync(true, callback);
+      localReader.readFileList().then(() => {
+        callback(restoreOuput(localReader.getMapList()));
+      });
       return;
-    }
-
-    /// Check local storage for an existing map list
-    let mapList = localReader.loadMapList();
-
-    /// If there is no cached list, look for pre-defined maps.
-    if (!mapList) {
-      localReader.readMapListAsync(false, callback);
-    }
-
-    /// Otherwise, just fire the callback with the cached list
-    else {
-      callback(mapList);
+    } else {
+      callback(restoreOuput(localReader.getMapList()));
     }
   },
 

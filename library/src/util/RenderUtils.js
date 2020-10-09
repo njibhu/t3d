@@ -92,27 +92,6 @@ function renderRect(rect, yPos, material, dy) {
 }
 
 /**
- * Load image data into a THREE.Texture from a file within the GW2 .dat file using a LocalReader.
- *
- * @deprecated Please use the original function from MaterialUtils
- * @memberof RenderUtils
- * @param {LocalReader} localReader The LocalReader to load the file contents from.
- * @param {Number} fileId The fileId or baseId of the file to load image data from.
- * @param {Number} mapping What THREE mapping the returned texture will use, not implemented.
- * @param  {Array} defaultColor RGBA array of 4 integers. The default solid color of the mesh, should texture loading fail.
- * @param {Function} onerror Error callback, not implemented.
- *
- * @return {THREE.Texture} A texture that will be populated by the file data when it is loaded.
- */
-function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
-  T3D.Logger.log(
-    T3D.Logger.TYPE_WARNING,
-    "RenderUtils.loadLocalTexture is deprecated ! Please use the one from MaterialUtils."
-  );
-  return MaterialUtils.loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror);
-}
-
-/**
  * Returns a THREE representation of the data contained by a GW2 model file.
  * The data is read using a LocalReader reference into the GW2 .dat.
  *
@@ -617,7 +596,6 @@ function getFilesUsedByModel(filename, localReader, callback) {
 
 module.exports = {
   renderRect: renderRect,
-  loadLocalTexture: loadLocalTexture,
   renderGeomChunk: renderGeomChunk,
   loadMeshFromModelFile: loadMeshFromModelFile,
   getMeshesForFilename: getMeshesForFilename,
