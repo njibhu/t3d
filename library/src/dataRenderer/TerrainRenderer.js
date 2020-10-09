@@ -18,6 +18,7 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
 const RenderUtils = require("../util/RenderUtils");
+const MaterialUtils = require("../util/MaterialUtils");
 const DataRenderer = require("./DataRenderer");
 const GW2File = require("../format/file/GW2File.js");
 
@@ -141,7 +142,7 @@ class TerrainRenderer extends DataRenderer {
           /// Add texture to list, note that coord name is used, not actual file name
           if (!chunkTextures[matName]) {
             /// Load local texture, here we use file name!
-            let chunkTex = RenderUtils.loadLocalTexture(self.localReader, filename);
+            let chunkTex = MaterialUtils.loadLocalTexture(self.localReader, filename);
 
             if (chunkTex) {
               /// Set repeat, antistropy and repeat Y
@@ -193,7 +194,7 @@ class TerrainRenderer extends DataRenderer {
         /// If the texture is not already loaded, read it from the .dat!
         if (!chunkTextures[textureFileName]) {
           /// Load local texture
-          let chunkTex = RenderUtils.loadLocalTexture(self.localReader, textureFileName);
+          let chunkTex = MaterialUtils.loadLocalTexture(self.localReader, textureFileName);
 
           if (chunkTex) {
             /// Set repeat, antistropy and repeat Y
