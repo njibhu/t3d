@@ -62,3 +62,8 @@ Here are a few people which contributions have been critical to the existance of
 
 - Ahom
 - RequestTimeout408
+
+## License
+
+All the code is under GPL 3 license with the exception of assets from ArenaNet's Guild Wars 2 Asset Kit. 
+A COPYRIGHT file in the same folder of these assets contains the necessary copyright notice.
