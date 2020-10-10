@@ -1,7 +1,7 @@
 import { FixedArray, Float32, Uint32, Uint8, DynArray, Uint64 } from "../src/types";
 
 export const V0 = {
-  chunkName: "nvms",
+  chunkName: "nm15",
   name: "PackMapNavMeshV0",
   version: 0,
   definitions: {
@@ -22,7 +22,7 @@ export const V0 = {
 };
 
 export const V1 = {
-  chunkName: "nvms",
+  chunkName: "nm15",
   name: "PackMapNavMeshV1",
   version: 1,
   definitions: {
@@ -43,7 +43,7 @@ export const V1 = {
 };
 
 export const V2 = {
-  chunkName: "nvms",
+  chunkName: "nm15",
   name: "PackMapNavMeshV2",
   version: 2,
   definitions: {
@@ -70,5 +70,35 @@ export const V2 = {
   }
 };
 
-export const latest = V2;
-export const definitionArray = [V0, V1, V2];
+export const V3 = {
+  chunkName: "nm15",
+  name: "PackMapNavMeshV3",
+  version: 3,
+  definitions: {
+    PackMapNavMeshChunkV3: {
+      chunkIndex: Uint32,
+      boundsMin: FixedArray(Float32, 3),
+      boundsMax: FixedArray(Float32, 3),
+      navMeshData: DynArray(Uint8),
+      coarseGraphData: DynArray(Uint8),
+      queryMediatorMoppData: DynArray(Uint8)
+    },
+    PackMapNavMeshMoverV3: {
+      chunkIndex: Uint32,
+      mapPropId: Uint64,
+      navMeshData: DynArray(Uint8),
+      coarseGraphData: DynArray(Uint8),
+      mediatorData: DynArray(Uint8)
+    }
+  },
+  root: {
+    boundsMin: FixedArray(Float32, 3),
+    boundsMax: FixedArray(Float32, 3),
+    chunkDims: FixedArray(Uint32, 2),
+    chunkArray: DynArray("PackMapNavMeshChunkV3"),
+    dynamicArray: DynArray("PackMapNavMeshMoverV3")
+  }
+};
+
+export const latest = V3;
+export const definitionArray = [V0, V1, V2, V3];

@@ -572,5 +572,187 @@ export const V14 = {
   }
 };
 
-export const latest = V14;
-export const definitionArray = [V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14];
+export const V15 = {
+  chunkName: "edit",
+  name: "MapEditData",
+  version: 15,
+  definitions: {
+    MapEditLayers: {
+      layerStates: DynArray(Uint8),
+      layerNames: DynArray(String16()),
+      layerIds: DynArray(Uint32),
+      items: DynArray("MapEditLayerItem")
+    },
+    MapEditLayerItem: {
+      guid: Uint64,
+      moduleId: Uint32,
+      layerFlags: DynArray(Uint32)
+    },
+    PackMapEditAnnotations: {
+      annotations: DynArray("PackMapEditAnnotation")
+    },
+    PackMapEditAnnotation: {
+      name: String16(),
+      flags: Uint32,
+      anchors: DynArray(FixedArray(Float32, 2)),
+      zRange: FixedArray(Float32, 2)
+    },
+    PackMapEditDirtyChunks: {
+      flags: Uint32,
+      position: FixedArray(Float32, 3)
+    },
+    MapEditCamLocations: {
+      attack: Float32,
+      rotation: Float32,
+      position: FixedArray(Float32, 3),
+      name: String16()
+    },
+    PackMapEditNavMeshData: {
+      floodPoints: DynArray("PackMapEditDirtyChunks"),
+      surfacePolys: DynArray("PackMapEditSurfacePoly"),
+      surfaceRoads: DynArray("PackMapEditSurfaceRoad")
+    },
+    PackMapEditSurfacePoly: {
+      name: String16(),
+      surfaceType: Uint32,
+      vertices: DynArray(FixedArray(Float32, 2)),
+      range: FixedArray(Float32, 2)
+    },
+    PackMapEditSurfaceRoad: {
+      name: String16(),
+      surfaceType: Uint32,
+      nodes: DynArray("PackMapEditSurfaceRoadNode")
+    },
+    PackMapEditSurfaceRoadNode: {
+      position: FixedArray(Float32, 3),
+      radius: Float32
+    },
+    MapEditSnapPoint: {
+      guid: Uint64,
+      moduleId: Uint32,
+      flags: Uint32,
+      position: FixedArray(Float32, 3),
+      rotation: FixedArray(Float32, 3),
+      scale: Float32
+    },
+    MapEditMeasureSpan: {
+      name: String16(),
+      substrateId0: Uint64,
+      substrateId1: Uint64,
+      substrateModuleId0: Uint32,
+      substrateModuleId1: Uint32,
+      position0: FixedArray(Float32, 3),
+      position1: FixedArray(Float32, 3),
+      limits: FixedArray(Float32, 3)
+    }
+  },
+  root: {
+    layers: "MapEditLayers",
+    annotations: "PackMapEditAnnotations",
+    dirtyChunks: DynArray("PackMapEditDirtyChunks"),
+    camLocations: DynArray("MapEditCamLocations"),
+    navMeshData: "PackMapEditNavMeshData",
+    snapPoints: DynArray("MapEditSnapPoint"),
+    measureSpans: DynArray("MapEditMeasureSpan"),
+    mapHome: String16(),
+    homeSave: Uint8,
+    reserved: String16()
+  }
+};
+
+export const V16 = {
+  chunkName: "edit",
+  name: "MapEditData",
+  version: 16,
+  definitions: {
+    MapEditLayers: {
+      layerStates: DynArray(Uint8),
+      layerNames: DynArray(String16()),
+      layerIds: DynArray(Uint32),
+      items: DynArray("MapEditLayerItem")
+    },
+    MapEditLayerItem: {
+      guid: Uint64,
+      moduleId: Uint32,
+      layerFlags: DynArray(Uint32)
+    },
+    PackMapEditAnnotations: {
+      annotations: DynArray("PackMapEditAnnotation")
+    },
+    PackMapEditAnnotation: {
+      name: String16(),
+      flags: Uint32,
+      anchors: DynArray(FixedArray(Float32, 2)),
+      zRange: FixedArray(Float32, 2)
+    },
+    PackMapEditDirtyChunks: {
+      flags: Uint32,
+      position: FixedArray(Float32, 3)
+    },
+    MapEditCamLocations: {
+      attack: Float32,
+      rotation: Float32,
+      position: FixedArray(Float32, 3),
+      name: String16()
+    },
+    PackMapEditNavMeshData: {
+      floodPoints: DynArray("PackMapEditDirtyChunks"),
+      surfacePolys: DynArray("PackMapEditSurfacePoly"),
+      surfaceRoads: DynArray("PackMapEditSurfaceRoad"),
+      propModesForGeneration: DynArray("PackMapEditNavmeshGenPropMode")
+    },
+    PackMapEditSurfacePoly: {
+      name: String16(),
+      surfaceType: Uint32,
+      vertices: DynArray(FixedArray(Float32, 2)),
+      range: FixedArray(Float32, 2)
+    },
+    PackMapEditSurfaceRoad: {
+      name: String16(),
+      surfaceType: Uint32,
+      nodes: DynArray("PackMapEditSurfaceRoadNode")
+    },
+    PackMapEditSurfaceRoadNode: {
+      position: FixedArray(Float32, 3),
+      radius: Float32
+    },
+    PackMapEditNavmeshGenPropMode: {
+      propId: Uint64,
+      mode: Uint8,
+      animSequence: Uint64
+    },
+    MapEditSnapPoint: {
+      guid: Uint64,
+      moduleId: Uint32,
+      flags: Uint32,
+      position: FixedArray(Float32, 3),
+      rotation: FixedArray(Float32, 3),
+      scale: Float32
+    },
+    MapEditMeasureSpan: {
+      name: String16(),
+      substrateId0: Uint64,
+      substrateId1: Uint64,
+      substrateModuleId0: Uint32,
+      substrateModuleId1: Uint32,
+      position0: FixedArray(Float32, 3),
+      position1: FixedArray(Float32, 3),
+      limits: FixedArray(Float32, 3)
+    }
+  },
+  root: {
+    layers: "MapEditLayers",
+    annotations: "PackMapEditAnnotations",
+    dirtyChunks: DynArray("PackMapEditDirtyChunks"),
+    camLocations: DynArray("MapEditCamLocations"),
+    navMeshData: "PackMapEditNavMeshData",
+    snapPoints: DynArray("MapEditSnapPoint"),
+    measureSpans: DynArray("MapEditMeasureSpan"),
+    mapHome: String16(),
+    homeSave: Uint8,
+    reserved: String16()
+  }
+};
+
+export const latest = V16;
+export const definitionArray = [V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16];

@@ -1912,3 +1912,144 @@ export type PackCompositeAnimOverrideV18 = {
   animRole: number,
   filepath: string
 }
+
+export type PackCompositeV19 = {
+  armorColorIds: Array<number>,
+  blitRects: Array<PackCompositeBlitRectSetV19>,
+  boneScales: Array<PackCompositeBoneScaleV19>,
+  raceSexData: Array<PackCompositeRaceDataV19>,
+  configVersion: number
+}
+
+export type PackCompositeBlitRectSetV19 = {
+  name: string,
+  size: Array<number>,
+  rectIndex: Array<number>,
+  rectArray: Array<Array<number>>
+}
+
+export type PackCompositeBoneScaleV19 = {
+  BodyRegion: Array<PackCompositeBoneScaleRegionV19>,
+  MorphWeight: Array<PackCompositeMorphWeightV19>
+}
+
+export type PackCompositeBoneScaleRegionV19 = {
+  name: number,
+  value: number,
+  Bone: Array<PackCompositeBoneScaleParamV19>
+}
+
+export type PackCompositeBoneScaleParamV19 = {
+  name: number,
+  flags: number,
+  max: number,
+  min: number,
+  rotate: Array<number>,
+  scale: Array<number>,
+  translate: Array<number>
+}
+
+export type PackCompositeMorphWeightV19 = {
+  name: number,
+  value: number
+}
+
+export type PackCompositeRaceDataV19 = {
+  name: string,
+  nameToken: number,
+  baseHeadToken: number,
+  beard: Array<number>,
+  bodyBoneScales: Array<PackCompositeBoneScaleV19>,
+  bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV19>,
+  ears: Array<number>,
+  eyeColorPalette: string,
+  faceBoneScales: Array<PackCompositeBoneScaleV19>,
+  faces: Array<number>,
+  fileData: Array<PackCompositeFileDataV19>,
+  flags: number,
+  hairStyles: Array<number>,
+  hairColorPalette: string,
+  skeletonFile: string,
+  skinPatterns: Array<PackCompositeSkinPatternV19>,
+  skinColorPalette: string,
+  skinPatternPalette: string,
+  skinStyles: Array<PackCompositeSkinStyleV19>,
+  type: number,
+  variantRefRace: number,
+  variants: Array<PackCompositeVariantV19>,
+  animOverrides: Array<PackCompositeAnimOverrideV19>
+}
+
+export type PackCompositeBoneScaleFileV19 = {
+  fileName: string
+}
+
+export type PackCompositeFileDataV19 = {
+  name: number,
+  type: number,
+  flags: number,
+  animRoleOverride: number,
+  meshBase: string,
+  meshOverlap: string,
+  maskDye1: string,
+  maskDye2: string,
+  maskDye3: string,
+  maskDye4: string,
+  maskCut: string,
+  textureBase: string,
+  textureNormal: string,
+  dyeFlags: number,
+  hideFlags: number,
+  skinFlags: number,
+  blitRectIndex: number
+}
+
+export type PackCompositeSkinPatternV19 = {
+  chest: string,
+  face: string,
+  feet: string,
+  hands: string,
+  legs: string,
+  ears: string
+}
+
+export type PackCompositeSkinStyleV19 = {
+  chest: number,
+  feet: number,
+  hands: number,
+  legs: number
+}
+
+export type PackCompositeVariantV19 = {
+  token: number,
+  boneScaleIndex: number,
+  components: Array<PackCompositeVariantComponentV19>,
+  eyeColor: PackCompositeColorV19,
+  hairColor: PackCompositeColorV19,
+  hairColor2: PackCompositeColorV19,
+  patternColor: PackCompositeColorV19,
+  skinColor: PackCompositeColorV19,
+  skinIndex: number,
+  skinStyle: number
+}
+
+export type PackCompositeVariantComponentV19 = {
+  nameToken: number,
+  color0: PackCompositeColorV19,
+  color1: PackCompositeColorV19,
+  color2: PackCompositeColorV19,
+  color3: PackCompositeColorV19
+}
+
+export type PackCompositeColorV19 = {
+  brightness: number,
+  contrast: number,
+  hue: number,
+  saturation: number,
+  lightness: number
+}
+
+export type PackCompositeAnimOverrideV19 = {
+  animRole: number,
+  filepath: string
+}

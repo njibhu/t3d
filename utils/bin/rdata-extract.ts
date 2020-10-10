@@ -2,6 +2,7 @@
 import { R2Pipe } from "r2pipe-promise";
 import { RDataParser } from "../lib/rdata-parsing";
 import { StructTabParser } from "../lib/struct-parsing";
+import { getNameForChunk } from "../lib/chunk-mapping";
 import { writeFileSync } from "fs";
 
 async function run() {
@@ -17,7 +18,7 @@ async function run() {
   const r2 = await R2Pipe.open(filePath);
   const segments: any[] = JSON.parse(await r2.cmd("iSj"));
 
-  const rdata = segments.find(i => i.name === ".rdata");
+  const rdata = segments.find((i) => i.name === ".rdata");
 
   if (rdata) {
     const { vaddr, vsize } = rdata;
@@ -39,18 +40,25 @@ async function run() {
         continue;
       }
       const imports = Array.from(structParser.typesSet).join(", ");
+      const fileName = getNameForChunk(currentChunk, chunk.name);
+      if (!fileName) {
+        continue;
+      }
       writeFileSync(
-        `${destinationFolder}/${chunk.name}_${chunk.offset}.ts`,
+        `${destinationFolder}/${fileName}.ts`,
         `import { ${imports} } from "../src/types";
 
-${currentChunk.map(chunk => 
-`export const V${chunk.version} = ${JSON.stringify(chunk, null, 2)
-  .replace(/"/g, "") // Remove all double quotes
-  .replace(/'/g, '"')};` // Transform all single quotes into double quotes
-).join("\n\n")}
+${currentChunk
+  .map(
+    (chunk) =>
+      `export const V${chunk.version} = ${JSON.stringify(chunk, null, 2)
+        .replace(/"/g, "") // Remove all double quotes
+        .replace(/'/g, '"')};` // Transform all single quotes into double quotes
+  )
+  .join("\n\n")}
 
 export const latest = V${currentChunk.slice(-1)[0].version};
-export const definitionArray = [${currentChunk.map(c => `V${c.version}`).join(", ")}];`
+export const definitionArray = [${currentChunk.map((c) => `V${c.version}`).join(", ")}];`
       );
     }
   }
@@ -59,7 +67,7 @@ export const definitionArray = [${currentChunk.map(c => `V${c.version}`).join(",
 }
 
 run()
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
     process.exit(1);
   })

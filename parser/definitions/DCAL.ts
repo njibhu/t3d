@@ -304,5 +304,49 @@ export const V9 = {
   }
 };
 
-export const latest = V9;
-export const definitionArray = [V1, V2, V3, V4, V5, V6, V7, V8, V9];
+export const V10 = {
+  chunkName: "dcal",
+  name: "PackMapDecalsV10",
+  version: 10,
+  definitions: {
+    PackMapDecalV10: {
+      position: FixedArray(Float32, 3),
+      extents: FixedArray(Float32, 3),
+      rotation: FixedArray(Float32, 3),
+      textureScaleUV0: FixedArray(Float32, 2),
+      textureOffsetUV0: FixedArray(Float32, 2),
+      textureScaleUV1: FixedArray(Float32, 2),
+      textureOffsetUV1: FixedArray(Float32, 2),
+      gridSize: FixedArray(Float32, 2),
+      materialFilename: Filename(),
+      textureFilenames: DynArray(Filename()),
+      flags: Uint32,
+      animTranslation: FixedArray(Float32, 2),
+      animScaleRangeX: FixedArray(Float32, 2),
+      animScaleRangeY: FixedArray(Float32, 2),
+      animScaleSpeed: FixedArray(Float32, 2),
+      animRotation: Float32,
+      surfaceBias: Float32,
+      constantTokens: DynArray(Uint32),
+      constantValues: DynArray(FixedArray(Float32, 4)),
+      vertices: DynArray("PackMapDecalVertexV9"),
+      indices: DynArray(Uint16),
+      propIds: DynArray(Uint64),
+      projection: Uint8,
+      surfaceId: Uint64,
+      id: Uint64
+    },
+    PackMapDecalVertexV9: {
+      position: FixedArray(Float32, 3),
+      normal: FixedArray(Float32, 3),
+      tangent: FixedArray(Float32, 3),
+      bitangent: FixedArray(Float32, 3)
+    }
+  },
+  root: {
+    decals: DynArray("PackMapDecalV10")
+  }
+};
+
+export const latest = V10;
+export const definitionArray = [V1, V2, V3, V4, V5, V6, V7, V8, V9, V10];

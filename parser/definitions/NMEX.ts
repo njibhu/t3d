@@ -64,5 +64,32 @@ export const V2 = {
   }
 };
 
-export const latest = V2;
-export const definitionArray = [V0, V1, V2];
+export const V3 = {
+  chunkName: "nmex",
+  name: "PackMapNavMeshExternalV3",
+  version: 3,
+  definitions: {
+    PackMapNavMeshChunkExternalV3: {
+      boundsMin: FixedArray(Float32, 3),
+      boundsMax: FixedArray(Float32, 3),
+      filename: Filename()
+    },
+    PackMapNavMeshMoverV3: {
+      chunkIndex: Uint32,
+      mapPropId: Uint64,
+      navMeshData: DynArray(Uint8),
+      coarseGraphData: DynArray(Uint8),
+      mediatorData: DynArray(Uint8)
+    }
+  },
+  root: {
+    boundsMin: FixedArray(Float32, 3),
+    boundsMax: FixedArray(Float32, 3),
+    chunkDims: FixedArray(Uint32, 2),
+    chunkArray: DynArray("PackMapNavMeshChunkExternalV3"),
+    dynamicArray: DynArray("PackMapNavMeshMoverV3")
+  }
+};
+
+export const latest = V3;
+export const definitionArray = [V0, V1, V2, V3];

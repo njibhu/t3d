@@ -7,6 +7,7 @@ export type MapEditData = {
   camLocations: Array<MapEditCamLocations>,
   navMeshData: PackMapEditNavMeshData,
   snapPoints: Array<MapEditSnapPoint>,
+  measureSpans: Array<MapEditMeasureSpan>,
   mapHome: string,
   homeSave: number,
   reserved: string
@@ -67,7 +68,8 @@ export type MapEditSnapPoint = {
 export type PackMapEditNavMeshData = {
   floodPoints: Array<PackMapEditDirtyChunks>,
   surfacePolys: Array<PackMapEditSurfacePoly>,
-  surfaceRoads: Array<PackMapEditSurfaceRoad>
+  surfaceRoads: Array<PackMapEditSurfaceRoad>,
+  propModesForGeneration: Array<PackMapEditNavmeshGenPropMode>
 }
 
 export type PackMapEditSurfacePoly = {
@@ -86,4 +88,21 @@ export type PackMapEditSurfaceRoad = {
 export type PackMapEditSurfaceRoadNode = {
   position: Array<number>,
   radius: number
+}
+
+export type MapEditMeasureSpan = {
+  name: string,
+  substrateId0: number,
+  substrateId1: number,
+  substrateModuleId0: number,
+  substrateModuleId1: number,
+  position0: Array<number>,
+  position1: Array<number>,
+  limits: Array<number>
+}
+
+export type PackMapEditNavmeshGenPropMode = {
+  propId: number,
+  mode: number,
+  animSequence: number
 }

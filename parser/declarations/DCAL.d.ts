@@ -254,3 +254,42 @@ export type PackMapDecalVertexV8 = {
   tangent: Array<number>,
   bitangent: Array<number>
 }
+
+export type PackMapDecalsV10 = {
+  decals: Array<PackMapDecalV10>
+}
+
+export type PackMapDecalV10 = {
+  position: Array<number>,
+  extents: Array<number>,
+  rotation: Array<number>,
+  textureScaleUV0: Array<number>,
+  textureOffsetUV0: Array<number>,
+  textureScaleUV1: Array<number>,
+  textureOffsetUV1: Array<number>,
+  gridSize: Array<number>,
+  materialFilename: string,
+  textureFilenames: Array<string>,
+  flags: number,
+  animTranslation: Array<number>,
+  animScaleRangeX: Array<number>,
+  animScaleRangeY: Array<number>,
+  animScaleSpeed: Array<number>,
+  animRotation: number,
+  surfaceBias: number,
+  constantTokens: Array<number>,
+  constantValues: Array<Array<number>>,
+  vertices: Array<PackMapDecalVertexV9>,
+  indices: Array<number>,
+  propIds: Array<number>,
+  projection: number,
+  surfaceId: number,
+  id: number
+}
+
+export type PackMapDecalVertexV9 = {
+  position: Array<number>,
+  normal: Array<number>,
+  tangent: Array<number>,
+  bitangent: Array<number>
+}

@@ -52,3 +52,28 @@ export type PackMapNavMeshMoverV2 = {
   coarseGraphData: Array<number>,
   mediatorData: Array<number>
 }
+
+export type PackMapNavMeshV3 = {
+  boundsMin: Array<number>,
+  boundsMax: Array<number>,
+  chunkDims: Array<number>,
+  chunkArray: Array<PackMapNavMeshChunkV3>,
+  dynamicArray: Array<PackMapNavMeshMoverV3>
+}
+
+export type PackMapNavMeshChunkV3 = {
+  chunkIndex: number,
+  boundsMin: Array<number>,
+  boundsMax: Array<number>,
+  navMeshData: Array<number>,
+  coarseGraphData: Array<number>,
+  queryMediatorMoppData: Array<number>
+}
+
+export type PackMapNavMeshMoverV3 = {
+  chunkIndex: number,
+  mapPropId: number,
+  navMeshData: Array<number>,
+  coarseGraphData: Array<number>,
+  mediatorData: Array<number>
+}
