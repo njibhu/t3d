@@ -5,10 +5,10 @@ interface Definition {
   name: string;
   version: number;
   definitions: {
-    [definition: string]: { [key: string]: BaseType };
+    [definition: string]: { [key: string]: DataType };
   };
   root: {
-    [key: string]: BaseType;
+    [key: string]: DataType;
   };
 }
 
@@ -18,21 +18,22 @@ interface ParseFunctionReturn {
 }
 
 export class ChunkParser implements Definition {
-  public readonly chunkName;
-  public readonly name;
-  public readonly version;
-  public readonly definitions;
-  public readonly root;
+  public readonly chunkName: Definition["chunkName"];
+  public readonly name: Definition["name"];
+  public readonly version: Definition["version"];
+  public readonly definitions: Definition["definitions"];
+  public readonly root: Definition["root"];
 
-  constructor(definitions: Definition) {
-    Object.assign(this, definitions);
+  constructor(definition: Definition) {
+    Object.assign(this, definition);
   }
 
   public parse(dv: DataView, pos: number): ParseFunctionReturn {
     let position = pos;
     const parsedObject = {};
     for (const key in this.root) {
-      let parsedResult: ParseFunctionReturn = this[this.root[key]](dv, position);
+      const { baseType, subType, length } = this.root[key];
+      let parsedResult: ParseFunctionReturn = this[baseType](dv, position, subType, length);
       parsedObject[key] = parsedResult.data;
       position = parsedResult.newPosition;
     }
@@ -48,7 +49,8 @@ export class ChunkParser implements Definition {
     let position = pos;
     const definition = this.definitions[typeDefinitionName];
     for (const key in definition) {
-      let parsedResult: ParseFunctionReturn = definition[key](dv, position);
+      const { baseType, subType, length } = definition[key];
+      let parsedResult: ParseFunctionReturn = this[baseType](dv, position, subType, length);
       parsedObject[key] = parsedResult.data;
       position = parsedResult.newPosition;
     }
