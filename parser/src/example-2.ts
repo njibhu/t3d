@@ -1,11 +1,27 @@
-import * as AMSPTypes from "../declarations/AMSP_2281648";
-import { latest as AMSPDef, latest } from "../definitions/AMSP_2281648";
-import { registerDefinitions } from "./custom-types";
+//import * as HAVKTypes from "../declarations/HAVK";
+import { latest as HAVKDef } from "../definitions/HAVK";
+import { ChunkParser } from "./chunk-parser";
+import * as fs from "fs";
 
-registerDefinitions(latest);
-
-function parseAMSP(binaryChunk: Buffer): AMSPTypes.ScriptFileDataV29 {
-  // wip
+function toArrayBuffer(buf) {
+  var ab = new ArrayBuffer(buf.length);
+  var view = new Uint8Array(ab);
+  for (var i = 0; i < buf.length; ++i) {
+    view[i] = buf[i];
+  }
+  return ab;
 }
 
-function chunkParseFunction(definition: typeof latest) {}
+try {
+  const chunkBuffer = fs.readFileSync("../test/havk1.bin", null);
+  const chunkParser = new ChunkParser(HAVKDef);
+
+  const dv = new DataView(toArrayBuffer(chunkBuffer));
+  const pos = 28; // After all the chunk and file headers
+  setTimeout(() => {
+    const test = chunkParser.parse(dv, pos);
+    console.log(test);
+  });
+} catch (err) {
+  console.log(err);
+}

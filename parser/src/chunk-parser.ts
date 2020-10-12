@@ -5,10 +5,10 @@ interface Definition {
   name: string;
   version: number;
   definitions: {
-    [definition: string]: { [key: string]: DataType };
+    [definition: string]: { [key: string]: DataType | string };
   };
   root: {
-    [key: string]: DataType;
+    [key: string]: DataType | string;
   };
 }
 
@@ -32,8 +32,14 @@ export class ChunkParser implements Definition {
     let position = pos;
     const parsedObject = {};
     for (const key in this.root) {
-      const { baseType, subType, length } = this.root[key];
-      let parsedResult: ParseFunctionReturn = this[baseType](dv, position, subType, length);
+      const value = this.root[key];
+      let parsedResult: ParseFunctionReturn;
+      if (typeof value === "string") {
+        parsedResult = this.parseType(dv, position, value);
+      } else {
+        const { baseType, subType, length } = value;
+        parsedResult = this[baseType](dv, position, subType, length);
+      }
       parsedObject[key] = parsedResult.data;
       position = parsedResult.newPosition;
     }
@@ -49,9 +55,16 @@ export class ChunkParser implements Definition {
     let position = pos;
     const definition = this.definitions[typeDefinitionName];
     for (const key in definition) {
-      const { baseType, subType, length } = definition[key];
-      let parsedResult: ParseFunctionReturn = this[baseType](dv, position, subType, length);
+      const value = definition[key];
+      let parsedResult: ParseFunctionReturn;
+      if (typeof value === "string") {
+        parsedResult = this.parseType(dv, position, value);
+      } else {
+        const { baseType, subType, length } = value;
+        parsedResult = this[baseType](dv, position, subType, length);
+      }
       parsedObject[key] = parsedResult.data;
+
       position = parsedResult.newPosition;
     }
 
@@ -115,7 +128,6 @@ export class ChunkParser implements Definition {
         typeof type === "string"
           ? this.parseType(dv, newPosition, type)
           : this[type.baseType](dv, newPosition, type, type.length);
-
       data.push(parsedItem.data);
       newPosition = parsedItem.newPosition;
     }
@@ -127,21 +139,25 @@ export class ChunkParser implements Definition {
   }
 
   private DynArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
-    let arrayLength = dv.getUint32(pos);
-    let arrayOffset = dv.getUint32(pos + 4);
+    let arrayLength = dv.getUint32(pos, true);
+    let arrayOffset = dv.getUint32(pos + 4, true);
+
     if (arrayOffset === 0) {
       // 0 is the place of the offset itself, it cannot be the content of the array itself.
       throw new Error("DynArray offset cannot be 0");
     }
     let arrayPtr = pos + 4 + arrayOffset;
 
-    return this.FixedArray(dv, arrayPtr, type, arrayLength);
+    return {
+      newPosition: pos + 8,
+      data: this.FixedArray(dv, arrayPtr, type, arrayLength).data,
+    };
   }
 
   private RefArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     let data = [];
-    let arrayLength = dv.getUint32(pos);
-    let arrayPtr = dv.getUint32(pos + 4) + pos;
+    let arrayLength = dv.getUint32(pos, true);
+    let arrayPtr = dv.getUint32(pos + 4, true) + pos;
     if (arrayLength === 0) {
       return {
         data,
@@ -149,7 +165,7 @@ export class ChunkParser implements Definition {
       };
     }
 
-    const pointer = dv.getUint32(pos + 4) + pos + 4;
+    const pointer = dv.getUint32(pos + 4, true) + pos + 4;
     for (let index = 0; index < arrayLength; index++) {
       const offset = dv.getInt32(arrayPtr + 4 * index);
       if (offset !== 0) {
@@ -169,7 +185,7 @@ export class ChunkParser implements Definition {
   }
 
   private Pointer(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
-    const offset = dv.getUint32(pos);
+    const offset = dv.getUint32(pos, true);
     const parsedItem =
       typeof type === "string"
         ? this.parseType(dv, pos + offset, type)
@@ -183,7 +199,7 @@ export class ChunkParser implements Definition {
 
   private String16(dv: DataView, pos: number): ParseFunctionReturn {
     let newPosition = pos;
-    let ptr = pos + dv.getUint32(pos);
+    let ptr = pos + dv.getUint32(pos, true);
     newPosition += 4;
 
     let data = "";
@@ -207,7 +223,7 @@ export class ChunkParser implements Definition {
     // This implementation is based on the old Utils.getFileNameReader() function
     let newPosition = pos;
     try {
-      let ptr = newPosition + dv.getUint32(newPosition);
+      let ptr = newPosition + dv.getUint32(newPosition, true);
       newPosition += 4;
 
       const m_lowPart = dv.getUint16(ptr);
@@ -245,7 +261,7 @@ export class ChunkParser implements Definition {
     const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType);
     return {
       newPosition: pos + length * OptimisedArray.BYTES_PER_ELEMENT,
-      data: new OptimisedArray(dv.buffer, 0, length),
+      data: new OptimisedArray(dv.buffer, pos, length),
     };
   }
 
