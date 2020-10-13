@@ -32,6 +32,7 @@ export class ChunkParser implements Definition {
     let position = pos;
     const parsedObject = {};
     for (const key in this.root) {
+      console.log("", key);
       const value = this.root[key];
       let parsedResult: ParseFunctionReturn;
       if (typeof value === "string") {
@@ -55,6 +56,7 @@ export class ChunkParser implements Definition {
     let position = pos;
     const definition = this.definitions[typeDefinitionName];
     for (const key in definition) {
+      console.log("-", key);
       const value = definition[key];
       let parsedResult: ParseFunctionReturn;
       if (typeof value === "string") {
@@ -127,7 +129,7 @@ export class ChunkParser implements Definition {
       const parsedItem =
         typeof type === "string"
           ? this.parseType(dv, newPosition, type)
-          : this[type.baseType](dv, newPosition, type, type.length);
+          : this[type.baseType](dv, newPosition, type.subType, type.length);
       data.push(parsedItem.data);
       newPosition = parsedItem.newPosition;
     }
@@ -143,8 +145,10 @@ export class ChunkParser implements Definition {
     let arrayOffset = dv.getUint32(pos + 4, true);
 
     if (arrayOffset === 0) {
-      // 0 is the place of the offset itself, it cannot be the content of the array itself.
-      throw new Error("DynArray offset cannot be 0");
+      return {
+        newPosition: pos + 8,
+        data: [],
+      };
     }
     let arrayPtr = pos + 4 + arrayOffset;
 
@@ -173,7 +177,7 @@ export class ChunkParser implements Definition {
         if (typeof type === "string") {
           data.push(this.parseType(dv, newPosition, type).data);
         } else {
-          data.push(this[type.baseType](dv, newPosition, type, type.length).data);
+          data.push(this[type.baseType](dv, newPosition, type.subType, type.length).data);
         }
       }
     }
@@ -189,7 +193,7 @@ export class ChunkParser implements Definition {
     const parsedItem =
       typeof type === "string"
         ? this.parseType(dv, pos + offset, type)
-        : this[type.baseType](dv, pos + offset, type, type.length);
+        : this[type.baseType](dv, pos + offset, type.subType, type.length);
 
     return {
       newPosition: parsedItem.newPosition,
@@ -259,6 +263,7 @@ export class ChunkParser implements Definition {
 
   private optimisedArray(dv: DataView, pos: number, type: DataType, length: number): ParseFunctionReturn {
     const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType);
+    console.log(dv.buffer.byteLength, pos, length);
     return {
       newPosition: pos + length * OptimisedArray.BYTES_PER_ELEMENT,
       data: new OptimisedArray(dv.buffer, pos, length),
@@ -279,8 +284,8 @@ export class ChunkParser implements Definition {
       case BaseType.Uint16:
         return Uint16Array;
 
-      case BaseType.Uint32:
-        return Uint32Array;
+      // case BaseType.Uint32:
+      //   return Uint32Array;
     }
   }
 }

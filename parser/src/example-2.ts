@@ -13,6 +13,7 @@ function toArrayBuffer(buf) {
 }
 
 try {
+  debugger;
   const chunkBuffer = fs.readFileSync("../test/havk1.bin", null);
   const chunkParser = new ChunkParser(HAVKDef);
 
