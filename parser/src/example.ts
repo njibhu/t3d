@@ -1,51 +1,33 @@
-import {
-  FixedArray,
-  DynArray,
-  RefArray,
-  Uint8,
-  Float64,
-  Uint32,
-  Filename,
-  Float32,
-  Pointer,
-  Uint64,
-  String16,
-  CString,
-  Uint16,
-  Fileref,
-} from "./types";
+//import * as HAVKTypes from "../declarations/HAVK";
+import { latest as HAVKDef } from "../definitions/HAVK";
+import { ChunkParser } from "./chunk-parser";
+import * as fs from "fs";
 
-module.exports = [
-  {
-    chunk: "area",
-    name: "PackMapAreas",
-    version: 4,
-    definitions: {
-      PackMapAreaPolygon: { points: FixedArray(Float32, 3), height: Float32 },
-      PackMapAreaPortal: {
-        position: FixedArray(Float32, 3),
-        rotation: FixedArray(Float32, 3),
-      },
-      PackMapAreaVolume: {
-        portals: DynArray("PackMapAreaPortal"),
-        position: FixedArray(Float32, 3),
-        extents: FixedArray(Float32, 3),
-        pointInterior: FixedArray(Float32, 3),
-        pointExterior: FixedArray(Float32, 3),
-      },
-      PackMapArea: {
-        token: Uint64,
-        type: Uint8,
-        floor: Uint8,
-        flags: Uint32,
-        polygon: "PackMapAreaPolygon",
-        volume: Pointer("PackMapAreaVolume"),
-      },
-      PackMapAreaTool: { annotation: String16, renderOffset: Float32 },
-    },
-    root: {
-      areas: DynArray("PackMapArea"),
-      areaTools: DynArray("PackMapAreaTool"),
-    },
-  },
-];
+function toArrayBuffer(buf) {
+  var ab = new ArrayBuffer(buf.length);
+  var view = new Uint8Array(ab);
+  for (var i = 0; i < buf.length; ++i) {
+    view[i] = buf[i];
+  }
+  return ab;
+}
+
+try {
+  debugger;
+  const chunkBuffer = fs.readFileSync("../test/havk1.bin", null);
+  const chunkParser = new ChunkParser(HAVKDef);
+
+  const dv = new DataView(toArrayBuffer(chunkBuffer));
+  const pos = 28; // After all the chunk and file headers
+
+  const test = chunkParser.parse(dv, pos);
+  console.log(
+    JSON.stringify(
+      test,
+      (key, value) => (typeof value === "bigint" ? value.toString() : value),
+      2
+    )
+  );
+} catch (err) {
+  console.log(err);
+}
