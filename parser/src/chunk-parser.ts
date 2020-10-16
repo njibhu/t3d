@@ -32,7 +32,6 @@ export class ChunkParser implements Definition {
     let position = pos;
     const parsedObject = {};
     for (const key in this.root) {
-      console.log("", key);
       const value = this.root[key];
       let parsedResult: ParseFunctionReturn;
       if (typeof value === "string") {
@@ -56,7 +55,6 @@ export class ChunkParser implements Definition {
     let position = pos;
     const definition = this.definitions[typeDefinitionName];
     for (const key in definition) {
-      console.log("-", key);
       const value = definition[key];
       let parsedResult: ParseFunctionReturn;
       if (typeof value === "string") {
@@ -102,8 +100,8 @@ export class ChunkParser implements Definition {
 
   private Uint64(dv: DataView, pos: number): ParseFunctionReturn {
     return {
-      newPosition: pos + 4,
-      data: dv.getUint32(pos, true) + 2 ** 32 * dv.getUint32(pos + 8, true),
+      newPosition: pos + 8,
+      data: (BigInt(dv.getUint32(pos + 4, true)) << BigInt(32)) | BigInt(dv.getUint32(pos, true))
     };
   }
 
@@ -263,7 +261,6 @@ export class ChunkParser implements Definition {
 
   private optimisedArray(dv: DataView, pos: number, type: DataType, length: number): ParseFunctionReturn {
     const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType);
-    console.log(dv.buffer.byteLength, pos, length);
     return {
       newPosition: pos + length * OptimisedArray.BYTES_PER_ELEMENT,
       data: new OptimisedArray(dv.buffer, pos, length),

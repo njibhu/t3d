@@ -50,7 +50,7 @@ export const Uint32: DataType = {
 
 export const Uint64: DataType = {
   baseType: BaseType.Uint64,
-  declarationType: "number",
+  declarationType: "BigInt",
 };
 
 export const CString: DataType = {

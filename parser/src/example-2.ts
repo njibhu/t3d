@@ -19,10 +19,15 @@ try {
 
   const dv = new DataView(toArrayBuffer(chunkBuffer));
   const pos = 28; // After all the chunk and file headers
-  setTimeout(() => {
-    const test = chunkParser.parse(dv, pos);
-    console.log(test);
-  });
+
+  const test = chunkParser.parse(dv, pos);
+  console.log(
+    JSON.stringify(
+      test,
+      (key, value) => (typeof value === "bigint" ? value.toString() : value),
+      2
+    )
+  );
 } catch (err) {
   console.log(err);
 }
