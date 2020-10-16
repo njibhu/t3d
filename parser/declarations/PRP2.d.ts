@@ -8,7 +8,7 @@ export type PackMapPropV3 = {
 
 export type PackMapPropObjV3 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   scale: number,
@@ -19,18 +19,18 @@ export type PackMapPropObjV3 = {
 
 export type PackMapPropObjAnimSeqV3 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   scale: number,
   lod1: number,
   lod2: number,
   flags: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV3 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number
 }
 
@@ -42,7 +42,7 @@ export type PackMapPropV4 = {
 
 export type PackMapPropObjV4 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   scale: number,
@@ -54,7 +54,7 @@ export type PackMapPropObjV4 = {
 
 export type PackMapPropObjAnimSeqV4 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   scale: number,
@@ -62,11 +62,11 @@ export type PackMapPropObjAnimSeqV4 = {
   lod2: number,
   flags: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV4 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number
 }
 
@@ -78,7 +78,7 @@ export type PackMapPropV5 = {
 
 export type PackMapPropObjV5 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   scale: number,
@@ -90,7 +90,7 @@ export type PackMapPropObjV5 = {
 
 export type PackMapPropObjAnimSeqV5 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   scale: number,
@@ -98,15 +98,15 @@ export type PackMapPropObjAnimSeqV5 = {
   lod2: number,
   flags: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV5 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomOrigin: Array<number>,
   glomClipScale: Array<number>,
-  glomTargetId: number,
+  glomTargetId: BigInt,
   glomType: number
 }
 
@@ -118,7 +118,7 @@ export type PackMapPropV6 = {
 
 export type PackMapPropObjV6 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   scale: number,
@@ -130,7 +130,7 @@ export type PackMapPropObjV6 = {
 
 export type PackMapPropObjAnimSeqV6 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   scale: number,
@@ -138,15 +138,15 @@ export type PackMapPropObjAnimSeqV6 = {
   lod2: number,
   flags: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV6 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomOrigin: Array<number>,
   glomClipScale: Array<number>,
-  glomTargetId: number,
+  glomTargetId: BigInt,
   glomType: number
 }
 
@@ -158,7 +158,7 @@ export type PackMapPropV7 = {
 
 export type PackMapPropObjV7 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -171,7 +171,7 @@ export type PackMapPropObjV7 = {
 
 export type PackMapPropObjAnimSeqV7 = {
   filename: string,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -180,15 +180,15 @@ export type PackMapPropObjAnimSeqV7 = {
   lod2: number,
   flags: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV7 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomOrigin: Array<number>,
   glomClipScale: Array<number>,
-  glomTargetId: number,
+  glomTargetId: BigInt,
   glomType: number
 }
 
@@ -201,7 +201,7 @@ export type PackMapPropV8 = {
 export type PackMapPropObjV8 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -215,7 +215,7 @@ export type PackMapPropObjV8 = {
 export type PackMapPropObjAnimSeqV8 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -224,15 +224,15 @@ export type PackMapPropObjAnimSeqV8 = {
   lod2: number,
   flags: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV8 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomOrigin: Array<number>,
   glomClipScale: Array<number>,
-  glomTargetId: number,
+  glomTargetId: BigInt,
   glomType: number
 }
 
@@ -245,7 +245,7 @@ export type PackMapPropV9 = {
 export type PackMapPropObjV9 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -259,7 +259,7 @@ export type PackMapPropObjV9 = {
 export type PackMapPropObjAnimSeqV9 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -268,15 +268,15 @@ export type PackMapPropObjAnimSeqV9 = {
   lod2: number,
   flags: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV9 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomOrigin: Array<number>,
   glomClipScale: Array<number>,
-  glomTargetId: number,
+  glomTargetId: BigInt,
   glomType: number
 }
 
@@ -289,7 +289,7 @@ export type PackMapPropV10 = {
 export type PackMapPropObjV10 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -303,7 +303,7 @@ export type PackMapPropObjV10 = {
 export type PackMapPropObjAnimSeqV10 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -312,15 +312,15 @@ export type PackMapPropObjAnimSeqV10 = {
   lod2: number,
   flags: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV10 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomOrigin: Array<number>,
   glomClipScale: Array<number>,
-  glomTargetId: number,
+  glomTargetId: BigInt,
   glomType: number
 }
 
@@ -335,7 +335,7 @@ export type PackMapPropV11 = {
 export type PackMapPropObjV11 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -350,7 +350,7 @@ export type PackMapPropObjV11 = {
 export type PackMapPropObjAnimSeqV11 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -360,15 +360,15 @@ export type PackMapPropObjAnimSeqV11 = {
   flags: number,
   broadId: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV11 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomOrigin: Array<number>,
   glomClipScale: Array<number>,
-  glomTargetId: number,
+  glomTargetId: BigInt,
   glomType: number
 }
 
@@ -389,7 +389,7 @@ export type PackMapPropV12 = {
 export type PackMapPropObjV12 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -404,7 +404,7 @@ export type PackMapPropObjV12 = {
 export type PackMapPropObjAnimSeqV12 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -414,11 +414,11 @@ export type PackMapPropObjAnimSeqV12 = {
   flags: number,
   broadId: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV12 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number
 }
@@ -426,7 +426,7 @@ export type PackMapPropObjToolV12 = {
 export type PackMapPropObjMetaV12 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -438,12 +438,12 @@ export type PackMapPropObjMetaV12 = {
   byte: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV12 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
   glomClipScale: Array<number>,
@@ -465,7 +465,7 @@ export type PackMapPropV13 = {
 export type PackMapPropObjV13 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -480,7 +480,7 @@ export type PackMapPropObjV13 = {
 export type PackMapPropObjAnimSeqV13 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -490,20 +490,20 @@ export type PackMapPropObjAnimSeqV13 = {
   flags: number,
   broadId: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV13 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>
+  children: Array<BigInt>
 }
 
 export type PackMapPropObjMetaV13 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -515,15 +515,15 @@ export type PackMapPropObjMetaV13 = {
   byte: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV13 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>,
+  children: Array<BigInt>,
   glomClipScale: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -543,7 +543,7 @@ export type PackMapPropV14 = {
 export type PackMapPropObjV14 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -559,7 +559,7 @@ export type PackMapPropObjV14 = {
 export type PackMapPropObjAnimSeqV14 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -570,20 +570,20 @@ export type PackMapPropObjAnimSeqV14 = {
   broadId: number,
   bucketId: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjToolV14 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>
+  children: Array<BigInt>
 }
 
 export type PackMapPropObjMetaV14 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   rotation: Array<number>,
   color: Array<number>,
@@ -596,15 +596,15 @@ export type PackMapPropObjMetaV14 = {
   byte: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV14 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>,
+  children: Array<BigInt>,
   glomClipScale: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -625,7 +625,7 @@ export type PackMapPropV15 = {
 export type PackMapPropObjV15 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -642,7 +642,7 @@ export type PackMapPropObjV15 = {
 export type PackMapPropObjAnimSeqV15 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -654,13 +654,13 @@ export type PackMapPropObjAnimSeqV15 = {
   broadId: number,
   bucketId: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjInstanceV15 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -673,7 +673,7 @@ export type PackMapPropObjInstanceV15 = {
   bucketId: number,
   byte: number,
   transforms: Array<PackMapPropTransformV15>,
-  origGuidArray: Array<number>
+  origGuidArray: Array<BigInt>
 }
 
 export type PackMapPropTransformV15 = {
@@ -683,16 +683,16 @@ export type PackMapPropTransformV15 = {
 }
 
 export type PackMapPropObjToolV15 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>
+  children: Array<BigInt>
 }
 
 export type PackMapPropObjMetaV15 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
+  guid: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -706,15 +706,15 @@ export type PackMapPropObjMetaV15 = {
   byte: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV15 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>,
+  children: Array<BigInt>,
   glomClipScale: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -735,8 +735,8 @@ export type PackMapPropV16 = {
 export type PackMapPropObjV16 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -753,8 +753,8 @@ export type PackMapPropObjV16 = {
 export type PackMapPropObjAnimSeqV16 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -766,14 +766,14 @@ export type PackMapPropObjAnimSeqV16 = {
   broadId: number,
   bucketId: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjInstanceV16 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -786,7 +786,7 @@ export type PackMapPropObjInstanceV16 = {
   bucketId: number,
   byte: number,
   transforms: Array<PackMapPropTransformV16>,
-  origGuidArray: Array<number>
+  origGuidArray: Array<BigInt>
 }
 
 export type PackMapPropTransformV16 = {
@@ -796,17 +796,17 @@ export type PackMapPropTransformV16 = {
 }
 
 export type PackMapPropObjToolV16 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>
+  children: Array<BigInt>
 }
 
 export type PackMapPropObjMetaV16 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -820,15 +820,15 @@ export type PackMapPropObjMetaV16 = {
   byte: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV16 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>,
+  children: Array<BigInt>,
   glomClipScale: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -849,8 +849,8 @@ export type PackMapPropV17 = {
 export type PackMapPropObjV17 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -867,8 +867,8 @@ export type PackMapPropObjV17 = {
 export type PackMapPropObjAnimSeqV17 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -880,14 +880,14 @@ export type PackMapPropObjAnimSeqV17 = {
   broadId: number,
   bucketId: number,
   byte: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjInstanceV17 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -900,7 +900,7 @@ export type PackMapPropObjInstanceV17 = {
   bucketId: number,
   byte: number,
   transforms: Array<PackMapPropTransformV17>,
-  origGuidArray: Array<number>
+  origGuidArray: Array<BigInt>
 }
 
 export type PackMapPropTransformV17 = {
@@ -910,17 +910,17 @@ export type PackMapPropTransformV17 = {
 }
 
 export type PackMapPropObjToolV17 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>
+  children: Array<BigInt>
 }
 
 export type PackMapPropObjMetaV17 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -934,15 +934,15 @@ export type PackMapPropObjMetaV17 = {
   byte: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV17 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>,
+  children: Array<BigInt>,
   glomClipScale: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -963,8 +963,8 @@ export type PackMapPropV18 = {
 export type PackMapPropObjV18 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -982,8 +982,8 @@ export type PackMapPropObjV18 = {
 export type PackMapPropObjAnimSeqV18 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -996,14 +996,14 @@ export type PackMapPropObjAnimSeqV18 = {
   bucketId: number,
   byte: number,
   sortLayer: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjInstanceV18 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1017,7 +1017,7 @@ export type PackMapPropObjInstanceV18 = {
   byte: number,
   sortLayer: number,
   transforms: Array<PackMapPropTransformV18>,
-  origGuidArray: Array<number>
+  origGuidArray: Array<BigInt>
 }
 
 export type PackMapPropTransformV18 = {
@@ -1027,17 +1027,17 @@ export type PackMapPropTransformV18 = {
 }
 
 export type PackMapPropObjToolV18 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>
+  children: Array<BigInt>
 }
 
 export type PackMapPropObjMetaV18 = {
   filename: string,
   blitTextures: Array<string>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1052,15 +1052,15 @@ export type PackMapPropObjMetaV18 = {
   sortLayer: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV18 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>,
+  children: Array<BigInt>,
   glomClipScale: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1083,8 +1083,8 @@ export type PackMapPropObjV19 = {
   blitTextures: Array<string>,
   constTokens: Array<number>,
   constValues: Array<Array<number>>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1104,8 +1104,8 @@ export type PackMapPropObjAnimSeqV19 = {
   blitTextures: Array<string>,
   constTokens: Array<number>,
   constValues: Array<Array<number>>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1118,7 +1118,7 @@ export type PackMapPropObjAnimSeqV19 = {
   bucketId: number,
   byte: number,
   sortLayer: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjInstanceV19 = {
@@ -1126,8 +1126,8 @@ export type PackMapPropObjInstanceV19 = {
   blitTextures: Array<string>,
   constTokens: Array<number>,
   constValues: Array<Array<number>>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1141,7 +1141,7 @@ export type PackMapPropObjInstanceV19 = {
   byte: number,
   sortLayer: number,
   transforms: Array<PackMapPropTransformV19>,
-  origGuidArray: Array<number>
+  origGuidArray: Array<BigInt>
 }
 
 export type PackMapPropTransformV19 = {
@@ -1151,10 +1151,10 @@ export type PackMapPropTransformV19 = {
 }
 
 export type PackMapPropObjToolV19 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>
+  children: Array<BigInt>
 }
 
 export type PackMapPropObjMetaV19 = {
@@ -1162,8 +1162,8 @@ export type PackMapPropObjMetaV19 = {
   blitTextures: Array<string>,
   constTokens: Array<number>,
   constValues: Array<Array<number>>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1178,15 +1178,15 @@ export type PackMapPropObjMetaV19 = {
   sortLayer: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV19 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>,
+  children: Array<BigInt>,
   glomClipScale: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1208,8 +1208,8 @@ export type PackMapPropObjV20 = {
   filename: string,
   blitTextures: Array<string>,
   constants: Array<PackMapPropConstantV17>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1234,8 +1234,8 @@ export type PackMapPropObjAnimSeqV20 = {
   filename: string,
   blitTextures: Array<string>,
   constants: Array<PackMapPropConstantV17>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1248,15 +1248,15 @@ export type PackMapPropObjAnimSeqV20 = {
   bucketId: number,
   byte: number,
   sortLayer: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjInstanceV20 = {
   filename: string,
   blitTextures: Array<string>,
   constants: Array<PackMapPropConstantV17>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1270,7 +1270,7 @@ export type PackMapPropObjInstanceV20 = {
   byte: number,
   sortLayer: number,
   transforms: Array<PackMapPropTransformV20>,
-  origGuidArray: Array<number>
+  origGuidArray: Array<BigInt>
 }
 
 export type PackMapPropTransformV20 = {
@@ -1280,18 +1280,18 @@ export type PackMapPropTransformV20 = {
 }
 
 export type PackMapPropObjToolV20 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>
+  children: Array<BigInt>
 }
 
 export type PackMapPropObjMetaV20 = {
   filename: string,
   blitTextures: Array<string>,
   constants: Array<PackMapPropConstantV17>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1306,15 +1306,15 @@ export type PackMapPropObjMetaV20 = {
   sortLayer: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV20 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>,
+  children: Array<BigInt>,
   glomClipScale: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1337,8 +1337,8 @@ export type PackMapPropObjV21 = {
   filename: string,
   blitTextures: Array<string>,
   constants: Array<PackMapPropConstantV18>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1364,8 +1364,8 @@ export type PackMapPropObjAnimSeqV21 = {
   filename: string,
   blitTextures: Array<string>,
   constants: Array<PackMapPropConstantV18>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1379,15 +1379,15 @@ export type PackMapPropObjAnimSeqV21 = {
   bucketId: number,
   byte: number,
   sortLayer: number,
-  animSequence: number
+  animSequence: BigInt
 }
 
 export type PackMapPropObjInstanceV21 = {
   filename: string,
   blitTextures: Array<string>,
   constants: Array<PackMapPropConstantV18>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1402,7 +1402,7 @@ export type PackMapPropObjInstanceV21 = {
   byte: number,
   sortLayer: number,
   transforms: Array<PackMapPropTransformV21>,
-  origGuidArray: Array<number>
+  origGuidArray: Array<BigInt>
 }
 
 export type PackMapPropTransformV21 = {
@@ -1412,18 +1412,18 @@ export type PackMapPropTransformV21 = {
 }
 
 export type PackMapPropObjToolV21 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>
+  children: Array<BigInt>
 }
 
 export type PackMapPropObjMetaV21 = {
   filename: string,
   blitTextures: Array<string>,
   constants: Array<PackMapPropConstantV18>,
-  guid: number,
-  permutation: number,
+  guid: BigInt,
+  permutation: BigInt,
   bounds: Array<number>,
   position: Array<number>,
   rotation: Array<number>,
@@ -1439,15 +1439,15 @@ export type PackMapPropObjMetaV21 = {
   sortLayer: number,
   layerMask: number,
   glomType: number,
-  parent: number,
+  parent: BigInt,
   glomOrigin: Array<number>
 }
 
 export type PackMapPropObjVolumeV21 = {
-  guid: number,
+  guid: BigInt,
   layerMask: number,
   glomType: number,
-  children: Array<number>,
+  children: Array<BigInt>,
   glomClipScale: Array<number>,
   position: Array<number>,
   rotation: Array<number>,

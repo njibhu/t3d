@@ -6,7 +6,7 @@ export type PackMapLayers = {
 }
 
 export type PackMapLayerProp = {
-  guid: number,
+  guid: BigInt,
   layerIds: Array<number>
 }
 

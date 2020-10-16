@@ -20,8 +20,8 @@ export type MapSurfaceMeta = {
 }
 
 export type MapSurfaceAttribute = {
-  Id: number,
-  Sound: number,
+  Id: BigInt,
+  Sound: BigInt,
   flags: number
 }
 
@@ -37,11 +37,11 @@ export type MapSurfaceTerrainOverride = {
 }
 
 export type MapSurfaceOverride = {
-  surfaceId: number,
+  surfaceId: BigInt,
   bitArray: Array<number>
 }
 
 export type MapSurfacePropOverride = {
-  propId: number,
+  propId: BigInt,
   overrideArray: Array<MapSurfaceOverride>
 }

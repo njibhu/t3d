@@ -139,7 +139,7 @@ export type PackAssetManifestPropertyIndexV5 = {
 
 export type PackAssetManifest = {
   buildId: number,
-  totalRecordSize: number,
+  totalRecordSize: BigInt,
   records: Array<PackAssetManifestRecord>,
   streams: Array<PackAssetManifestStream>,
   properties: Array<PackAssetManifestProperty>,

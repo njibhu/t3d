@@ -50,5 +50,5 @@ export type AmatGr = {
   procAnim: number,
   debugFlags: number,
   flags: number,
-  texTokens: Array<number>
+  texTokens: Array<BigInt>
 }

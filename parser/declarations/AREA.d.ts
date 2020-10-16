@@ -23,7 +23,7 @@ export type PackMapAreasV1 = {
 }
 
 export type PackMapAreaV1 = {
-  token: number,
+  token: BigInt,
   type: number,
   floor: number,
   polygon: PackMapAreaPolygonV1,
@@ -55,7 +55,7 @@ export type PackMapAreasV2 = {
 }
 
 export type PackMapAreaV2 = {
-  token: number,
+  token: BigInt,
   type: number,
   floor: number,
   flags: number,
@@ -92,7 +92,7 @@ export type PackMapAreasV3 = {
 }
 
 export type PackMapAreaV3 = {
-  token: number,
+  token: BigInt,
   type: number,
   floor: number,
   flags: number,
@@ -130,7 +130,7 @@ export type PackMapAreasV4 = {
 }
 
 export type PackMapAreaV4 = {
-  token: number,
+  token: BigInt,
   type: number,
   floor: number,
   flags: number,

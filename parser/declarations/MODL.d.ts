@@ -19,8 +19,8 @@ export type ModelMaterialDataV0 = {
 export type ModelTextureDataV0 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number
+  token: BigInt,
+  blitId: BigInt
 }
 
 export type ModelConstantDataV0 = {
@@ -38,7 +38,7 @@ export type PackGrannyMeshType = {
 }
 
 export type ModelAnimationDataV0 = {
-  token: number,
+  token: BigInt,
   animation: PackGrannyAnimationTypeV0
 }
 
@@ -80,12 +80,12 @@ export type ModelMeshBindingDataV0 = {
 }
 
 export type ModelPropertyDataV0 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV0>
 }
 
 export type ModelFloatPropertyDataV0 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -109,8 +109,8 @@ export type ModelMaterialDataV1 = {
 export type ModelTextureDataV1 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number
+  token: BigInt,
+  blitId: BigInt
 }
 
 export type ModelConstantDataV1 = {
@@ -124,7 +124,7 @@ export type ModelMeshDataV1 = {
 }
 
 export type ModelAnimationDataV1 = {
-  token: number,
+  token: BigInt,
   animation: PackGrannyAnimationTypeV0
 }
 
@@ -162,12 +162,12 @@ export type ModelMeshBindingDataV1 = {
 }
 
 export type ModelPropertyDataV1 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV1>
 }
 
 export type ModelFloatPropertyDataV1 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -178,20 +178,20 @@ export type ModelChunkCollisionDataV1 = {
 }
 
 export type ModelChunkCollisionMeshV1 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelChunkCollisionCloudV1 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
 
 export type ModelChunkCollisionSurfaceV1 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelFileDataV2 = {
@@ -215,8 +215,8 @@ export type ModelMaterialDataV2 = {
 export type ModelTextureDataV2 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number
+  token: BigInt,
+  blitId: BigInt
 }
 
 export type ModelConstantDataV2 = {
@@ -230,7 +230,7 @@ export type ModelMeshDataV2 = {
 }
 
 export type ModelAnimationDataV2 = {
-  token: number,
+  token: BigInt,
   animation: PackGrannyAnimationTypeV0
 }
 
@@ -268,12 +268,12 @@ export type ModelMeshBindingDataV2 = {
 }
 
 export type ModelPropertyDataV2 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV2>
 }
 
 export type ModelFloatPropertyDataV2 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -284,20 +284,20 @@ export type ModelCollisionDataV2 = {
 }
 
 export type ModelCollisionMeshV2 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelCollisionCloudV2 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
 
 export type ModelCollisionSurfaceV2 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelCloudDataV2 = {
@@ -308,7 +308,7 @@ export type ModelCloudDataV2 = {
 
 export type ModelParticleCloudV2 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flipbook: Array<ModelParticleFlipbookV2>,
@@ -331,7 +331,7 @@ export type ModelParticleFlipbookV2 = {
 
 export type ModelParticleEmitterV2 = {
   acceleration: Array<Array<number>>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -352,7 +352,7 @@ export type ModelParticleEmitterV2 = {
 }
 
 export type ModelParticleObstacleV2 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -382,8 +382,8 @@ export type ModelMaterialDataV3 = {
 export type ModelTextureDataV3 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number
+  token: BigInt,
+  blitId: BigInt
 }
 
 export type ModelConstantDataV3 = {
@@ -397,7 +397,7 @@ export type ModelMeshDataV3 = {
 }
 
 export type ModelAnimationDataV3 = {
-  token: number,
+  token: BigInt,
   animation: PackGrannyAnimationTypeV0
 }
 
@@ -435,12 +435,12 @@ export type ModelMeshBindingDataV3 = {
 }
 
 export type ModelPropertyDataV3 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV3>
 }
 
 export type ModelFloatPropertyDataV3 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -453,14 +453,14 @@ export type ModelCollisionDataV3 = {
 }
 
 export type ModelCollisionMeshV3 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelCollisionCloudV3 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
@@ -477,7 +477,7 @@ export type ModelCollisionSphereV3 = {
 }
 
 export type ModelCollisionSurfaceV3 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelCloudDataV3 = {
@@ -488,7 +488,7 @@ export type ModelCloudDataV3 = {
 
 export type ModelParticleCloudV3 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flipbook: Array<ModelParticleFlipbookV3>,
@@ -511,7 +511,7 @@ export type ModelParticleFlipbookV3 = {
 
 export type ModelParticleEmitterV3 = {
   acceleration: Array<Array<number>>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -532,7 +532,7 @@ export type ModelParticleEmitterV3 = {
 }
 
 export type ModelParticleObstacleV3 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -562,8 +562,8 @@ export type ModelMaterialDataV4 = {
 export type ModelTextureDataV4 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number
+  token: BigInt,
+  blitId: BigInt
 }
 
 export type ModelConstantDataV4 = {
@@ -574,18 +574,18 @@ export type ModelConstantDataV4 = {
 
 export type ModelMeshDataV4 = {
   mesh: PackGrannyMeshType,
-  visTokens: Array<number>
+  visTokens: Array<BigInt>
 }
 
 export type ModelAnimationDataV4 = {
-  token: number,
+  token: BigInt,
   animation: PackGrannyAnimationTypeV0,
   moveSpeed: number,
   visTrackData: Array<ModelVisTrackDataV4>
 }
 
 export type ModelVisTrackDataV4 = {
-  token: number,
+  token: BigInt,
   keys: Array<number>
 }
 
@@ -623,12 +623,12 @@ export type ModelMeshBindingDataV4 = {
 }
 
 export type ModelPropertyDataV4 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV4>
 }
 
 export type ModelFloatPropertyDataV4 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -641,14 +641,14 @@ export type ModelCollisionDataV4 = {
 }
 
 export type ModelCollisionMeshV4 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelCollisionCloudV4 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
@@ -665,7 +665,7 @@ export type ModelCollisionSphereV4 = {
 }
 
 export type ModelCollisionSurfaceV4 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelCloudDataV4 = {
@@ -676,7 +676,7 @@ export type ModelCloudDataV4 = {
 
 export type ModelParticleCloudV4 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flipbook: Array<ModelParticleFlipbookV4>,
@@ -699,7 +699,7 @@ export type ModelParticleFlipbookV4 = {
 
 export type ModelParticleEmitterV4 = {
   acceleration: Array<Array<number>>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -720,7 +720,7 @@ export type ModelParticleEmitterV4 = {
 }
 
 export type ModelParticleObstacleV4 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -750,8 +750,8 @@ export type ModelMaterialDataV5 = {
 export type ModelTextureDataV5 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number
+  token: BigInt,
+  blitId: BigInt
 }
 
 export type ModelConstantDataV5 = {
@@ -763,18 +763,18 @@ export type ModelConstantDataV5 = {
 export type ModelMeshDataV5 = {
   mesh: PackGrannyMeshType,
   flags: number,
-  visTokens: Array<number>
+  visTokens: Array<BigInt>
 }
 
 export type ModelAnimationDataV5 = {
-  token: number,
+  token: BigInt,
   animation: PackGrannyAnimationTypeV0,
   moveSpeed: number,
   visTrackData: Array<ModelVisTrackDataV5>
 }
 
 export type ModelVisTrackDataV5 = {
-  token: number,
+  token: BigInt,
   keys: Array<number>
 }
 
@@ -812,12 +812,12 @@ export type ModelMeshBindingDataV5 = {
 }
 
 export type ModelPropertyDataV5 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV5>
 }
 
 export type ModelFloatPropertyDataV5 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -830,14 +830,14 @@ export type ModelCollisionDataV5 = {
 }
 
 export type ModelCollisionMeshV5 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelCollisionCloudV5 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
@@ -854,7 +854,7 @@ export type ModelCollisionSphereV5 = {
 }
 
 export type ModelCollisionSurfaceV5 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelCloudDataV5 = {
@@ -865,7 +865,7 @@ export type ModelCloudDataV5 = {
 
 export type ModelParticleCloudV5 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -889,7 +889,7 @@ export type ModelParticleFlipbookV5 = {
 
 export type ModelParticleEmitterV5 = {
   acceleration: Array<Array<number>>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -910,7 +910,7 @@ export type ModelParticleEmitterV5 = {
 }
 
 export type ModelParticleObstacleV5 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -923,7 +923,7 @@ export type ModelFileDataV6 = {
   materials: Array<ModelMaterialDataV6>,
   meshes: Array<ModelMeshDataV6>,
   animations: Array<ModelAnimationDataV6>,
-  animationFallbacks: Array<number>,
+  animationFallbacks: Array<BigInt>,
   animationImports: Array<ModelAnimationImportDataV6>,
   model: ModelModelDataV6,
   properties: ModelPropertyDataV6,
@@ -942,8 +942,8 @@ export type ModelMaterialDataV6 = {
 export type ModelTextureDataV6 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number
+  token: BigInt,
+  blitId: BigInt
 }
 
 export type ModelConstantDataV6 = {
@@ -959,7 +959,7 @@ export type ModelMeshDataV6 = {
 }
 
 export type ModelAnimationDataV6 = {
-  token: number,
+  token: BigInt,
   animation: PackGrannyAnimationTypeV0,
   moveSpeed: number,
   visTrackData: Array<ModelVisTrackDataV6>
@@ -972,7 +972,7 @@ export type ModelVisTrackDataV6 = {
 
 export type ModelAnimationImportDataV6 = {
   filename: string,
-  sequenceTokens: Array<number>
+  sequenceTokens: Array<BigInt>
 }
 
 export type ModelModelDataV6 = {
@@ -1009,12 +1009,12 @@ export type ModelMeshBindingDataV6 = {
 }
 
 export type ModelPropertyDataV6 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV6>
 }
 
 export type ModelFloatPropertyDataV6 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -1027,14 +1027,14 @@ export type ModelCollisionDataV6 = {
 }
 
 export type ModelCollisionMeshV6 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelCollisionCloudV6 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
@@ -1051,7 +1051,7 @@ export type ModelCollisionSphereV6 = {
 }
 
 export type ModelCollisionSurfaceV6 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelCloudDataV6 = {
@@ -1062,7 +1062,7 @@ export type ModelCloudDataV6 = {
 
 export type ModelParticleCloudV6 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -1086,7 +1086,7 @@ export type ModelParticleFlipbookV6 = {
 
 export type ModelParticleEmitterV6 = {
   acceleration: Array<Array<number>>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -1108,7 +1108,7 @@ export type ModelParticleEmitterV6 = {
 }
 
 export type ModelParticleObstacleV6 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -1122,7 +1122,7 @@ export type ModelFileDataV7 = {
   materials: Array<ModelMaterialDataV7>,
   meshes: Array<ModelMeshDataV7>,
   animations: Array<ModelAnimationDataV7>,
-  animationFallbacks: Array<number>,
+  animationFallbacks: Array<BigInt>,
   animationImports: Array<ModelAnimationImportDataV7>,
   model: ModelModelDataV7,
   properties: ModelPropertyDataV7,
@@ -1141,8 +1141,8 @@ export type ModelMaterialDataV7 = {
 export type ModelTextureDataV7 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number
+  token: BigInt,
+  blitId: BigInt
 }
 
 export type ModelConstantDataV7 = {
@@ -1158,7 +1158,7 @@ export type ModelMeshDataV7 = {
 }
 
 export type ModelAnimationDataV7 = {
-  token: number,
+  token: BigInt,
   animation: PackGrannyAnimationTypeV0,
   moveSpeed: number,
   visTrackData: Array<ModelVisTrackDataV7>
@@ -1171,7 +1171,7 @@ export type ModelVisTrackDataV7 = {
 
 export type ModelAnimationImportDataV7 = {
   filename: string,
-  sequenceTokens: Array<number>
+  sequenceTokens: Array<BigInt>
 }
 
 export type ModelModelDataV7 = {
@@ -1209,12 +1209,12 @@ export type ModelMeshBindingDataV7 = {
 }
 
 export type ModelPropertyDataV7 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV7>
 }
 
 export type ModelFloatPropertyDataV7 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -1227,14 +1227,14 @@ export type ModelCollisionDataV7 = {
 }
 
 export type ModelCollisionMeshV7 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelCollisionCloudV7 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
@@ -1251,7 +1251,7 @@ export type ModelCollisionSphereV7 = {
 }
 
 export type ModelCollisionSurfaceV7 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelCloudDataV7 = {
@@ -1262,7 +1262,7 @@ export type ModelCloudDataV7 = {
 
 export type ModelParticleCloudV7 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -1286,7 +1286,7 @@ export type ModelParticleFlipbookV7 = {
 
 export type ModelParticleEmitterV7 = {
   acceleration: Array<Array<number>>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -1308,7 +1308,7 @@ export type ModelParticleEmitterV7 = {
 }
 
 export type ModelParticleObstacleV7 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -1337,8 +1337,8 @@ export type ModelMaterialDataV8 = {
 export type ModelTextureDataV8 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -1390,12 +1390,12 @@ export type ModelMeshBindingDataV8 = {
 }
 
 export type ModelPropertyDataV8 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV8>
 }
 
 export type ModelFloatPropertyDataV8 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -1407,7 +1407,7 @@ export type ModelCloudDataV8 = {
 
 export type ModelParticleCloudV8 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -1431,7 +1431,7 @@ export type ModelParticleFlipbookV8 = {
 
 export type ModelParticleEmitterV8 = {
   acceleration: Array<Array<number>>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -1453,7 +1453,7 @@ export type ModelParticleEmitterV8 = {
 }
 
 export type ModelParticleObstacleV8 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -1483,8 +1483,8 @@ export type ModelMaterialDataV9 = {
 export type ModelTextureDataV9 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -1536,12 +1536,12 @@ export type ModelMeshBindingDataV9 = {
 }
 
 export type ModelPropertyDataV9 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV9>
 }
 
 export type ModelFloatPropertyDataV9 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -1553,7 +1553,7 @@ export type ModelCloudDataV9 = {
 
 export type ModelParticleCloudV9 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -1577,7 +1577,7 @@ export type ModelParticleFlipbookV9 = {
 
 export type ModelParticleEmitterV9 = {
   acceleration: Array<Array<number>>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -1599,7 +1599,7 @@ export type ModelParticleEmitterV9 = {
 }
 
 export type ModelParticleObstacleV9 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -1630,8 +1630,8 @@ export type ModelMaterialDataV10 = {
 export type ModelTextureDataV10 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -1683,12 +1683,12 @@ export type ModelMeshBindingDataV10 = {
 }
 
 export type ModelPropertyDataV10 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV10>
 }
 
 export type ModelFloatPropertyDataV10 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -1700,7 +1700,7 @@ export type ModelCloudDataV10 = {
 
 export type ModelParticleCloudV10 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -1724,7 +1724,7 @@ export type ModelParticleFlipbookV10 = {
 
 export type ModelParticleEmitterV10 = {
   acceleration: Array<Array<number>>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -1746,7 +1746,7 @@ export type ModelParticleEmitterV10 = {
 }
 
 export type ModelParticleObstacleV10 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -1763,7 +1763,7 @@ export type ModelStreakDataV10 = {
 
 export type ModelStreakV10 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -1773,7 +1773,7 @@ export type ModelStreakV10 = {
 }
 
 export type ModelStreakAnchorV10 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -1800,8 +1800,8 @@ export type ModelMaterialDataV11 = {
 export type ModelTextureDataV11 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -1853,12 +1853,12 @@ export type ModelMeshBindingDataV11 = {
 }
 
 export type ModelPropertyDataV11 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV11>
 }
 
 export type ModelFloatPropertyDataV11 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -1870,7 +1870,7 @@ export type ModelCloudDataV11 = {
 
 export type ModelParticleCloudV11 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -1882,7 +1882,7 @@ export type ModelParticleEmitterV11 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -1929,7 +1929,7 @@ export type ModelParticleFlipbookV11 = {
 }
 
 export type ModelParticleObstacleV11 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -1946,7 +1946,7 @@ export type ModelStreakDataV11 = {
 
 export type ModelStreakV11 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -1956,7 +1956,7 @@ export type ModelStreakV11 = {
 }
 
 export type ModelStreakAnchorV11 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -1983,8 +1983,8 @@ export type ModelMaterialDataV12 = {
 export type ModelTextureDataV12 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -2037,12 +2037,12 @@ export type ModelMeshBindingDataV12 = {
 }
 
 export type ModelPropertyDataV12 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV12>
 }
 
 export type ModelFloatPropertyDataV12 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -2054,7 +2054,7 @@ export type ModelCloudDataV12 = {
 
 export type ModelParticleCloudV12 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -2066,7 +2066,7 @@ export type ModelParticleEmitterV12 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -2113,7 +2113,7 @@ export type ModelParticleFlipbookV12 = {
 }
 
 export type ModelParticleObstacleV12 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -2130,7 +2130,7 @@ export type ModelStreakDataV12 = {
 
 export type ModelStreakV12 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -2140,7 +2140,7 @@ export type ModelStreakV12 = {
 }
 
 export type ModelStreakAnchorV12 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -2167,8 +2167,8 @@ export type ModelMaterialDataV13 = {
 export type ModelTextureDataV13 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -2221,12 +2221,12 @@ export type ModelMeshBindingDataV13 = {
 }
 
 export type ModelPropertyDataV13 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV13>
 }
 
 export type ModelFloatPropertyDataV13 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -2238,7 +2238,7 @@ export type ModelCloudDataV13 = {
 
 export type ModelParticleCloudV13 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -2250,7 +2250,7 @@ export type ModelParticleEmitterV13 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -2297,7 +2297,7 @@ export type ModelParticleFlipbookV13 = {
 }
 
 export type ModelParticleObstacleV13 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -2314,7 +2314,7 @@ export type ModelStreakDataV13 = {
 
 export type ModelStreakV13 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -2324,7 +2324,7 @@ export type ModelStreakV13 = {
 }
 
 export type ModelStreakAnchorV13 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -2351,8 +2351,8 @@ export type ModelMaterialDataV14 = {
 export type ModelTextureDataV14 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -2368,7 +2368,7 @@ export type ModelMeshDataV14 = {
   flags: number,
   visBoneIndices: Array<number>,
   seamVertIndices: Array<number>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>
 }
 
@@ -2407,12 +2407,12 @@ export type ModelMeshBindingDataV14 = {
 }
 
 export type ModelPropertyDataV14 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV14>
 }
 
 export type ModelFloatPropertyDataV14 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -2424,7 +2424,7 @@ export type ModelCloudDataV14 = {
 
 export type ModelParticleCloudV14 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -2436,7 +2436,7 @@ export type ModelParticleEmitterV14 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -2483,7 +2483,7 @@ export type ModelParticleFlipbookV14 = {
 }
 
 export type ModelParticleObstacleV14 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -2500,7 +2500,7 @@ export type ModelStreakDataV14 = {
 
 export type ModelStreakV14 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -2510,7 +2510,7 @@ export type ModelStreakV14 = {
 }
 
 export type ModelStreakAnchorV14 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -2524,7 +2524,7 @@ export type ModelFileDataV15 = {
   cloudData: ModelCloudDataV15,
   streakData: ModelStreakDataV15,
   lightData: ModelLightDataV15,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>
 }
 
@@ -2540,8 +2540,8 @@ export type ModelMaterialDataV15 = {
 export type ModelTextureDataV15 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -2599,12 +2599,12 @@ export type ModelMeshBindingDataV15 = {
 }
 
 export type ModelPropertyDataV15 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV15>
 }
 
 export type ModelFloatPropertyDataV15 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -2616,7 +2616,7 @@ export type ModelCloudDataV15 = {
 
 export type ModelParticleCloudV15 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -2628,7 +2628,7 @@ export type ModelParticleEmitterV15 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -2675,7 +2675,7 @@ export type ModelParticleFlipbookV15 = {
 }
 
 export type ModelParticleObstacleV15 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -2692,7 +2692,7 @@ export type ModelStreakDataV15 = {
 
 export type ModelStreakV15 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -2702,7 +2702,7 @@ export type ModelStreakV15 = {
 }
 
 export type ModelStreakAnchorV15 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -2713,7 +2713,7 @@ export type ModelLightDataV15 = {
 }
 
 export type ModelEffectLightV15 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   ranges: Array<number>
 }
@@ -2726,7 +2726,7 @@ export type ModelFileDataV16 = {
   cloudData: ModelCloudDataV16,
   streakData: ModelStreakDataV16,
   lightData: ModelLightDataV16,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>
 }
@@ -2743,8 +2743,8 @@ export type ModelMaterialDataV16 = {
 export type ModelTextureDataV16 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -2802,12 +2802,12 @@ export type ModelMeshBindingDataV16 = {
 }
 
 export type ModelPropertyDataV16 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV16>
 }
 
 export type ModelFloatPropertyDataV16 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -2819,7 +2819,7 @@ export type ModelCloudDataV16 = {
 
 export type ModelParticleCloudV16 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -2831,7 +2831,7 @@ export type ModelParticleEmitterV16 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -2878,7 +2878,7 @@ export type ModelParticleFlipbookV16 = {
 }
 
 export type ModelParticleObstacleV16 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -2895,7 +2895,7 @@ export type ModelStreakDataV16 = {
 
 export type ModelStreakV16 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -2905,7 +2905,7 @@ export type ModelStreakV16 = {
 }
 
 export type ModelStreakAnchorV16 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -2916,7 +2916,7 @@ export type ModelLightDataV16 = {
 }
 
 export type ModelEffectLightV16 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   ranges: Array<number>
 }
@@ -2929,7 +2929,7 @@ export type ModelFileDataV17 = {
   cloudData: ModelCloudDataV17,
   streakData: ModelStreakDataV17,
   lightData: ModelLightDataV17,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -2947,8 +2947,8 @@ export type ModelMaterialDataV17 = {
 export type ModelTextureDataV17 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -3014,12 +3014,12 @@ export type ModelMeshBindingDataV17 = {
 }
 
 export type ModelPropertyDataV17 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV17>
 }
 
 export type ModelFloatPropertyDataV17 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -3031,7 +3031,7 @@ export type ModelCloudDataV17 = {
 
 export type ModelParticleCloudV17 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -3043,7 +3043,7 @@ export type ModelParticleEmitterV17 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -3090,7 +3090,7 @@ export type ModelParticleFlipbookV17 = {
 }
 
 export type ModelParticleObstacleV17 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -3107,7 +3107,7 @@ export type ModelStreakDataV17 = {
 
 export type ModelStreakV17 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -3117,7 +3117,7 @@ export type ModelStreakV17 = {
 }
 
 export type ModelStreakAnchorV17 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -3128,7 +3128,7 @@ export type ModelLightDataV17 = {
 }
 
 export type ModelEffectLightV17 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   ranges: Array<number>
 }
@@ -3141,7 +3141,7 @@ export type ModelFileDataV18 = {
   cloudData: ModelCloudDataV18,
   streakData: ModelStreakDataV18,
   lightData: ModelLightDataV18,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -3159,8 +3159,8 @@ export type ModelMaterialDataV18 = {
 export type ModelTextureDataV18 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -3230,7 +3230,7 @@ export type ModelMeshBindingDataV18 = {
 
 export type ModelTrackMaskV18 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type PackGrannyTrackMaskType = {
@@ -3238,12 +3238,12 @@ export type PackGrannyTrackMaskType = {
 }
 
 export type ModelPropertyDataV18 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV18>
 }
 
 export type ModelFloatPropertyDataV18 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -3255,7 +3255,7 @@ export type ModelCloudDataV18 = {
 
 export type ModelParticleCloudV18 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -3267,7 +3267,7 @@ export type ModelParticleEmitterV18 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -3314,7 +3314,7 @@ export type ModelParticleFlipbookV18 = {
 }
 
 export type ModelParticleObstacleV18 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -3331,7 +3331,7 @@ export type ModelStreakDataV18 = {
 
 export type ModelStreakV18 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -3341,7 +3341,7 @@ export type ModelStreakV18 = {
 }
 
 export type ModelStreakAnchorV18 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -3352,7 +3352,7 @@ export type ModelLightDataV18 = {
 }
 
 export type ModelEffectLightV18 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -3369,7 +3369,7 @@ export type ModelFileDataV19 = {
   streakData: ModelStreakDataV19,
   lightData: ModelLightDataV19,
   clothData: Array<ModelClothDataV19>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -3387,8 +3387,8 @@ export type ModelMaterialDataV19 = {
 export type ModelTextureDataV19 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -3458,16 +3458,16 @@ export type ModelMeshBindingDataV19 = {
 
 export type ModelTrackMaskV19 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV19 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV19>
 }
 
 export type ModelFloatPropertyDataV19 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -3479,7 +3479,7 @@ export type ModelCloudDataV19 = {
 
 export type ModelParticleCloudV19 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -3491,7 +3491,7 @@ export type ModelParticleEmitterV19 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -3538,7 +3538,7 @@ export type ModelParticleFlipbookV19 = {
 }
 
 export type ModelParticleObstacleV19 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -3555,7 +3555,7 @@ export type ModelStreakDataV19 = {
 
 export type ModelStreakV19 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -3565,7 +3565,7 @@ export type ModelStreakV19 = {
 }
 
 export type ModelStreakAnchorV19 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -3576,7 +3576,7 @@ export type ModelLightDataV19 = {
 }
 
 export type ModelEffectLightV19 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -3633,7 +3633,7 @@ export type ModelFileDataV20 = {
   streakData: ModelStreakDataV20,
   lightData: ModelLightDataV20,
   clothData: Array<ModelClothDataV20>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -3651,8 +3651,8 @@ export type ModelMaterialDataV20 = {
 export type ModelTextureDataV20 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -3722,16 +3722,16 @@ export type ModelMeshBindingDataV20 = {
 
 export type ModelTrackMaskV20 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV20 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV20>
 }
 
 export type ModelFloatPropertyDataV20 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -3743,7 +3743,7 @@ export type ModelCloudDataV20 = {
 
 export type ModelParticleCloudV20 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -3755,7 +3755,7 @@ export type ModelParticleEmitterV20 = {
   acceleration: Array<Array<number>>,
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: Array<number>,
@@ -3802,7 +3802,7 @@ export type ModelParticleFlipbookV20 = {
 }
 
 export type ModelParticleObstacleV20 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -3819,7 +3819,7 @@ export type ModelStreakDataV20 = {
 
 export type ModelStreakV20 = {
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   spawnFreq: number,
@@ -3829,7 +3829,7 @@ export type ModelStreakV20 = {
 }
 
 export type ModelStreakAnchorV20 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -3840,7 +3840,7 @@ export type ModelLightDataV20 = {
 }
 
 export type ModelEffectLightV20 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -3873,7 +3873,7 @@ export type ModelClothMeshGroupV20 = {
 }
 
 export type ModelClothBoneWeightV20 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -3892,7 +3892,7 @@ export type ModelFileDataV21 = {
   streakData: ModelStreakDataV21,
   lightData: ModelLightDataV21,
   clothData: Array<ModelClothDataV21>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -3910,8 +3910,8 @@ export type ModelMaterialDataV21 = {
 export type ModelTextureDataV21 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -3982,16 +3982,16 @@ export type ModelMeshBindingDataV21 = {
 
 export type ModelTrackMaskV21 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV21 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV21>
 }
 
 export type ModelFloatPropertyDataV21 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -4003,7 +4003,7 @@ export type ModelCloudDataV21 = {
 
 export type ModelParticleCloudV21 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -4018,7 +4018,7 @@ export type ModelParticleEmitterV21 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -4065,7 +4065,7 @@ export type ModelParticleFlipbookV21 = {
 }
 
 export type ModelParticleObstacleV21 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -4083,7 +4083,7 @@ export type ModelStreakDataV21 = {
 export type ModelStreakV21 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   noise: number,
@@ -4095,7 +4095,7 @@ export type ModelStreakV21 = {
 }
 
 export type ModelStreakAnchorV21 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -4106,7 +4106,7 @@ export type ModelLightDataV21 = {
 }
 
 export type ModelEffectLightV21 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -4139,7 +4139,7 @@ export type ModelClothMeshGroupV21 = {
 }
 
 export type ModelClothBoneWeightV21 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -4158,7 +4158,7 @@ export type ModelFileDataV22 = {
   streakData: ModelStreakDataV22,
   lightData: ModelLightDataV22,
   clothData: Array<ModelClothDataV22>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -4176,8 +4176,8 @@ export type ModelMaterialDataV22 = {
 export type ModelTextureDataV22 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -4248,16 +4248,16 @@ export type ModelMeshBindingDataV22 = {
 
 export type ModelTrackMaskV22 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV22 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV22>
 }
 
 export type ModelFloatPropertyDataV22 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -4269,7 +4269,7 @@ export type ModelCloudDataV22 = {
 
 export type ModelParticleCloudV22 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -4284,7 +4284,7 @@ export type ModelParticleEmitterV22 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -4331,7 +4331,7 @@ export type ModelParticleFlipbookV22 = {
 }
 
 export type ModelParticleObstacleV22 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -4349,7 +4349,7 @@ export type ModelStreakDataV22 = {
 export type ModelStreakV22 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   noise: number,
@@ -4361,7 +4361,7 @@ export type ModelStreakV22 = {
 }
 
 export type ModelStreakAnchorV22 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -4372,7 +4372,7 @@ export type ModelLightDataV22 = {
 }
 
 export type ModelEffectLightV22 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -4405,7 +4405,7 @@ export type ModelClothMeshGroupV22 = {
 }
 
 export type ModelClothBoneWeightV22 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -4425,7 +4425,7 @@ export type ModelFileDataV23 = {
   streakData: ModelStreakDataV23,
   lightData: ModelLightDataV23,
   clothData: Array<ModelClothDataV23>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -4443,8 +4443,8 @@ export type ModelMaterialDataV23 = {
 export type ModelTextureDataV23 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -4515,16 +4515,16 @@ export type ModelMeshBindingDataV23 = {
 
 export type ModelTrackMaskV23 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV23 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV23>
 }
 
 export type ModelFloatPropertyDataV23 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -4535,7 +4535,7 @@ export type ModelCloudDataV23 = {
 
 export type ModelParticleCloudV23 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -4550,7 +4550,7 @@ export type ModelParticleEmitterV23 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -4597,7 +4597,7 @@ export type ModelParticleFlipbookV23 = {
 }
 
 export type ModelObstacleDataV23 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -4615,7 +4615,7 @@ export type ModelStreakDataV23 = {
 export type ModelStreakV23 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   noise: number,
@@ -4627,7 +4627,7 @@ export type ModelStreakV23 = {
 }
 
 export type ModelStreakAnchorV23 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -4638,7 +4638,7 @@ export type ModelLightDataV23 = {
 }
 
 export type ModelEffectLightV23 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -4671,7 +4671,7 @@ export type ModelClothMeshGroupV23 = {
 }
 
 export type ModelClothBoneWeightV23 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -4691,7 +4691,7 @@ export type ModelFileDataV24 = {
   streakData: ModelStreakDataV24,
   lightData: ModelLightDataV24,
   clothData: Array<ModelClothDataV24>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -4709,8 +4709,8 @@ export type ModelMaterialDataV24 = {
 export type ModelTextureDataV24 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -4781,16 +4781,16 @@ export type ModelMeshBindingDataV24 = {
 
 export type ModelTrackMaskV24 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV24 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV24>
 }
 
 export type ModelFloatPropertyDataV24 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -4801,7 +4801,7 @@ export type ModelCloudDataV24 = {
 
 export type ModelParticleCloudV24 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -4816,7 +4816,7 @@ export type ModelParticleEmitterV24 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -4864,7 +4864,7 @@ export type ModelParticleFlipbookV24 = {
 }
 
 export type ModelObstacleDataV24 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -4882,7 +4882,7 @@ export type ModelStreakDataV24 = {
 export type ModelStreakV24 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   materialIndex: number,
   noise: number,
@@ -4894,7 +4894,7 @@ export type ModelStreakV24 = {
 }
 
 export type ModelStreakAnchorV24 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -4905,7 +4905,7 @@ export type ModelLightDataV24 = {
 }
 
 export type ModelEffectLightV24 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -4938,7 +4938,7 @@ export type ModelClothMeshGroupV24 = {
 }
 
 export type ModelClothBoneWeightV24 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -4958,7 +4958,7 @@ export type ModelFileDataV25 = {
   streakData: ModelStreakDataV25,
   lightData: ModelLightDataV25,
   clothData: Array<ModelClothDataV25>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -4976,8 +4976,8 @@ export type ModelMaterialDataV25 = {
 export type ModelTextureDataV25 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -5048,16 +5048,16 @@ export type ModelMeshBindingDataV25 = {
 
 export type ModelTrackMaskV25 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV25 = {
-  boolTokens: Array<number>,
+  boolTokens: Array<BigInt>,
   floatValues: Array<ModelFloatPropertyDataV25>
 }
 
 export type ModelFloatPropertyDataV25 = {
-  token: number,
+  token: BigInt,
   value: number
 }
 
@@ -5068,7 +5068,7 @@ export type ModelCloudDataV25 = {
 
 export type ModelParticleCloudV25 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -5083,7 +5083,7 @@ export type ModelParticleEmitterV25 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -5131,7 +5131,7 @@ export type ModelParticleFlipbookV25 = {
 }
 
 export type ModelObstacleDataV25 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -5149,7 +5149,7 @@ export type ModelStreakDataV25 = {
 export type ModelStreakV25 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -5162,7 +5162,7 @@ export type ModelStreakV25 = {
 }
 
 export type ModelStreakAnchorV25 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -5173,7 +5173,7 @@ export type ModelLightDataV25 = {
 }
 
 export type ModelEffectLightV25 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -5206,7 +5206,7 @@ export type ModelClothMeshGroupV25 = {
 }
 
 export type ModelClothBoneWeightV25 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -5226,7 +5226,7 @@ export type ModelFileDataV26 = {
   streakData: ModelStreakDataV26,
   lightData: ModelLightDataV26,
   clothData: Array<ModelClothDataV26>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -5244,8 +5244,8 @@ export type ModelMaterialDataV26 = {
 export type ModelTextureDataV26 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -5316,14 +5316,14 @@ export type ModelMeshBindingDataV26 = {
 
 export type ModelTrackMaskV26 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV26 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -5334,7 +5334,7 @@ export type ModelCloudDataV26 = {
 
 export type ModelParticleCloudV26 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -5349,7 +5349,7 @@ export type ModelParticleEmitterV26 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -5397,7 +5397,7 @@ export type ModelParticleFlipbookV26 = {
 }
 
 export type ModelObstacleDataV26 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -5415,7 +5415,7 @@ export type ModelStreakDataV26 = {
 export type ModelStreakV26 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -5428,7 +5428,7 @@ export type ModelStreakV26 = {
 }
 
 export type ModelStreakAnchorV26 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -5439,7 +5439,7 @@ export type ModelLightDataV26 = {
 }
 
 export type ModelEffectLightV26 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -5472,7 +5472,7 @@ export type ModelClothMeshGroupV26 = {
 }
 
 export type ModelClothBoneWeightV26 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -5492,7 +5492,7 @@ export type ModelFileDataV27 = {
   streakData: ModelStreakDataV27,
   lightData: ModelLightDataV27,
   clothData: Array<ModelClothDataV27>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -5510,8 +5510,8 @@ export type ModelMaterialDataV27 = {
 export type ModelTextureDataV27 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -5529,7 +5529,7 @@ export type ModelMeshDataV27 = {
   flags: number,
   visBoneIndices: Array<number>,
   seamVertIndices: Array<number>,
-  meshName: number
+  meshName: BigInt
 }
 
 export type ModelMeshLodDataV27 = {
@@ -5583,14 +5583,14 @@ export type ModelMeshBindingDataV27 = {
 
 export type ModelTrackMaskV27 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV27 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -5601,7 +5601,7 @@ export type ModelCloudDataV27 = {
 
 export type ModelParticleCloudV27 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -5616,7 +5616,7 @@ export type ModelParticleEmitterV27 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -5664,7 +5664,7 @@ export type ModelParticleFlipbookV27 = {
 }
 
 export type ModelObstacleDataV27 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -5682,7 +5682,7 @@ export type ModelStreakDataV27 = {
 export type ModelStreakV27 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -5695,7 +5695,7 @@ export type ModelStreakV27 = {
 }
 
 export type ModelStreakAnchorV27 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -5706,7 +5706,7 @@ export type ModelLightDataV27 = {
 }
 
 export type ModelEffectLightV27 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -5739,7 +5739,7 @@ export type ModelClothMeshGroupV27 = {
 }
 
 export type ModelClothBoneWeightV27 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -5759,7 +5759,7 @@ export type ModelFileDataV28 = {
   streakData: ModelStreakDataV28,
   lightData: ModelLightDataV28,
   clothData: Array<ModelClothDataV28>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -5777,8 +5777,8 @@ export type ModelMaterialDataV28 = {
 export type ModelTextureDataV28 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -5796,7 +5796,7 @@ export type ModelMeshDataV28 = {
   flags: number,
   visBoneIndices: Array<number>,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -5854,14 +5854,14 @@ export type ModelMeshBindingDataV28 = {
 
 export type ModelTrackMaskV28 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV28 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -5872,7 +5872,7 @@ export type ModelCloudDataV28 = {
 
 export type ModelParticleCloudV28 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -5887,7 +5887,7 @@ export type ModelParticleEmitterV28 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -5935,7 +5935,7 @@ export type ModelParticleFlipbookV28 = {
 }
 
 export type ModelObstacleDataV28 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -5953,7 +5953,7 @@ export type ModelStreakDataV28 = {
 export type ModelStreakV28 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -5966,7 +5966,7 @@ export type ModelStreakV28 = {
 }
 
 export type ModelStreakAnchorV28 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -5977,7 +5977,7 @@ export type ModelLightDataV28 = {
 }
 
 export type ModelEffectLightV28 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -6010,7 +6010,7 @@ export type ModelClothMeshGroupV28 = {
 }
 
 export type ModelClothBoneWeightV28 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -6030,7 +6030,7 @@ export type ModelFileDataV29 = {
   streakData: ModelStreakDataV29,
   lightData: ModelLightDataV29,
   clothData: Array<ModelClothDataV29>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -6050,8 +6050,8 @@ export type ModelMaterialDataV29 = {
 export type ModelTextureDataV29 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -6063,12 +6063,12 @@ export type ModelConstantDataV29 = {
 }
 
 export type ModelMatConstLinkV29 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV29 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -6080,7 +6080,7 @@ export type ModelMeshDataV29 = {
   flags: number,
   visBoneIndices: Array<number>,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -6138,14 +6138,14 @@ export type ModelMeshBindingDataV29 = {
 
 export type ModelTrackMaskV29 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV29 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -6156,7 +6156,7 @@ export type ModelCloudDataV29 = {
 
 export type ModelParticleCloudV29 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -6171,7 +6171,7 @@ export type ModelParticleEmitterV29 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -6219,7 +6219,7 @@ export type ModelParticleFlipbookV29 = {
 }
 
 export type ModelObstacleDataV29 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -6237,7 +6237,7 @@ export type ModelStreakDataV29 = {
 export type ModelStreakV29 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -6250,7 +6250,7 @@ export type ModelStreakV29 = {
 }
 
 export type ModelStreakAnchorV29 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -6261,7 +6261,7 @@ export type ModelLightDataV29 = {
 }
 
 export type ModelEffectLightV29 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -6295,7 +6295,7 @@ export type ModelClothMeshGroupV29 = {
 }
 
 export type ModelClothBoneWeightV29 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -6306,7 +6306,7 @@ export type ModelClothConstraintV29 = {
 }
 
 export type ModelClothObstacleV29 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -6320,7 +6320,7 @@ export type ModelFileDataV30 = {
   streakData: ModelStreakDataV30,
   lightData: ModelLightDataV30,
   clothData: Array<ModelClothDataV30>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -6340,8 +6340,8 @@ export type ModelMaterialDataV30 = {
 export type ModelTextureDataV30 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -6353,12 +6353,12 @@ export type ModelConstantDataV30 = {
 }
 
 export type ModelMatConstLinkV30 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV30 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -6370,7 +6370,7 @@ export type ModelMeshDataV30 = {
   flags: number,
   visBoneIndices: Array<number>,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -6428,15 +6428,15 @@ export type ModelMeshBindingDataV30 = {
 
 export type ModelTrackMaskV30 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV30 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -6447,7 +6447,7 @@ export type ModelCloudDataV30 = {
 
 export type ModelParticleCloudV30 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -6462,7 +6462,7 @@ export type ModelParticleEmitterV30 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -6510,7 +6510,7 @@ export type ModelParticleFlipbookV30 = {
 }
 
 export type ModelObstacleDataV30 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -6528,7 +6528,7 @@ export type ModelStreakDataV30 = {
 export type ModelStreakV30 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -6541,7 +6541,7 @@ export type ModelStreakV30 = {
 }
 
 export type ModelStreakAnchorV30 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number
@@ -6552,7 +6552,7 @@ export type ModelLightDataV30 = {
 }
 
 export type ModelEffectLightV30 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -6586,7 +6586,7 @@ export type ModelClothMeshGroupV30 = {
 }
 
 export type ModelClothBoneWeightV30 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -6597,7 +6597,7 @@ export type ModelClothConstraintV30 = {
 }
 
 export type ModelClothObstacleV30 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -6611,7 +6611,7 @@ export type ModelFileDataV31 = {
   streakData: ModelStreakDataV31,
   lightData: ModelLightDataV31,
   clothData: Array<ModelClothDataV31>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string
@@ -6631,8 +6631,8 @@ export type ModelMaterialDataV31 = {
 export type ModelTextureDataV31 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -6644,12 +6644,12 @@ export type ModelConstantDataV31 = {
 }
 
 export type ModelMatConstLinkV31 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV31 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -6661,7 +6661,7 @@ export type ModelMeshDataV31 = {
   flags: number,
   visBoneIndices: Array<number>,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -6719,15 +6719,15 @@ export type ModelMeshBindingDataV31 = {
 
 export type ModelTrackMaskV31 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV31 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -6738,7 +6738,7 @@ export type ModelCloudDataV31 = {
 
 export type ModelParticleCloudV31 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -6753,7 +6753,7 @@ export type ModelParticleEmitterV31 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -6801,7 +6801,7 @@ export type ModelParticleFlipbookV31 = {
 }
 
 export type ModelObstacleDataV31 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -6819,7 +6819,7 @@ export type ModelStreakDataV31 = {
 export type ModelStreakV31 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -6831,7 +6831,7 @@ export type ModelStreakV31 = {
 }
 
 export type ModelStreakAnchorV31 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number,
@@ -6844,7 +6844,7 @@ export type ModelLightDataV31 = {
 }
 
 export type ModelEffectLightV31 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -6878,7 +6878,7 @@ export type ModelClothMeshGroupV31 = {
 }
 
 export type ModelClothBoneWeightV31 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -6889,7 +6889,7 @@ export type ModelClothConstraintV31 = {
 }
 
 export type ModelClothObstacleV31 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -6903,7 +6903,7 @@ export type ModelFileDataV32 = {
   streakData: ModelStreakDataV32,
   lightData: ModelLightDataV32,
   clothData: Array<ModelClothDataV32>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -6924,8 +6924,8 @@ export type ModelMaterialDataV32 = {
 export type ModelTextureDataV32 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -6937,12 +6937,12 @@ export type ModelConstantDataV32 = {
 }
 
 export type ModelMatConstLinkV32 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV32 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -6954,7 +6954,7 @@ export type ModelMeshDataV32 = {
   flags: number,
   visBoneIndices: Array<number>,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -7012,15 +7012,15 @@ export type ModelMeshBindingDataV32 = {
 
 export type ModelTrackMaskV32 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV32 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -7031,7 +7031,7 @@ export type ModelCloudDataV32 = {
 
 export type ModelParticleCloudV32 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -7046,7 +7046,7 @@ export type ModelParticleEmitterV32 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -7094,7 +7094,7 @@ export type ModelParticleFlipbookV32 = {
 }
 
 export type ModelObstacleDataV32 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -7112,7 +7112,7 @@ export type ModelStreakDataV32 = {
 export type ModelStreakV32 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -7124,7 +7124,7 @@ export type ModelStreakV32 = {
 }
 
 export type ModelStreakAnchorV32 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number,
@@ -7137,7 +7137,7 @@ export type ModelLightDataV32 = {
 }
 
 export type ModelEffectLightV32 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -7171,7 +7171,7 @@ export type ModelClothMeshGroupV32 = {
 }
 
 export type ModelClothBoneWeightV32 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -7182,7 +7182,7 @@ export type ModelClothConstraintV32 = {
 }
 
 export type ModelClothObstacleV32 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -7199,7 +7199,7 @@ export type ModelLightningSystemV32 = {
 }
 
 export type ModelLightningBoltV32 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: number,
   colorEnd: number,
@@ -7223,7 +7223,7 @@ export type ModelLightningBoltV32 = {
 }
 
 export type ModelLightningNodeV32 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -7242,7 +7242,7 @@ export type ModelFileDataV33 = {
   streakData: ModelStreakDataV33,
   lightData: ModelLightDataV33,
   clothData: Array<ModelClothDataV33>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -7264,8 +7264,8 @@ export type ModelMaterialDataV33 = {
 export type ModelTextureDataV33 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -7277,12 +7277,12 @@ export type ModelConstantDataV33 = {
 }
 
 export type ModelMatConstLinkV33 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV33 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -7294,7 +7294,7 @@ export type ModelMeshDataV33 = {
   flags: number,
   visBoneIndices: Array<number>,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -7352,15 +7352,15 @@ export type ModelMeshBindingDataV33 = {
 
 export type ModelTrackMaskV33 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV33 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -7371,7 +7371,7 @@ export type ModelCloudDataV33 = {
 
 export type ModelParticleCloudV33 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -7386,7 +7386,7 @@ export type ModelParticleEmitterV33 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -7434,7 +7434,7 @@ export type ModelParticleFlipbookV33 = {
 }
 
 export type ModelObstacleDataV33 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -7452,7 +7452,7 @@ export type ModelStreakDataV33 = {
 export type ModelStreakV33 = {
   acceleration: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -7464,7 +7464,7 @@ export type ModelStreakV33 = {
 }
 
 export type ModelStreakAnchorV33 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number,
@@ -7477,7 +7477,7 @@ export type ModelLightDataV33 = {
 }
 
 export type ModelEffectLightV33 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -7511,7 +7511,7 @@ export type ModelClothMeshGroupV33 = {
 }
 
 export type ModelClothBoneWeightV33 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -7522,7 +7522,7 @@ export type ModelClothConstraintV33 = {
 }
 
 export type ModelClothObstacleV33 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -7539,7 +7539,7 @@ export type ModelLightningSystemV33 = {
 }
 
 export type ModelLightningBoltV33 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: number,
   colorEnd: number,
@@ -7563,7 +7563,7 @@ export type ModelLightningBoltV33 = {
 }
 
 export type ModelLightningNodeV33 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -7573,7 +7573,7 @@ export type ModelLightningNodeV33 = {
 }
 
 export type ModelBoneConstraintV33 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -7606,7 +7606,7 @@ export type ModelFileDataV34 = {
   streakData: ModelStreakDataV34,
   lightData: ModelLightDataV34,
   clothData: Array<ModelClothDataV34>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -7628,8 +7628,8 @@ export type ModelMaterialDataV34 = {
 export type ModelTextureDataV34 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -7641,24 +7641,24 @@ export type ModelConstantDataV34 = {
 }
 
 export type ModelMatConstLinkV34 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV34 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV34 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV34>,
   morphTargets: Array<ModelMeshMorphTargetV34>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -7716,15 +7716,15 @@ export type ModelMeshBindingDataV34 = {
 
 export type ModelTrackMaskV34 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV34 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -7735,7 +7735,7 @@ export type ModelCloudDataV34 = {
 
 export type ModelParticleCloudV34 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -7750,7 +7750,7 @@ export type ModelParticleEmitterV34 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -7797,7 +7797,7 @@ export type ModelParticleFlipbookV34 = {
 }
 
 export type ModelObstacleDataV34 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -7815,7 +7815,7 @@ export type ModelStreakV34 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -7826,7 +7826,7 @@ export type ModelStreakV34 = {
 }
 
 export type ModelStreakAnchorV34 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number,
@@ -7839,7 +7839,7 @@ export type ModelLightDataV34 = {
 }
 
 export type ModelEffectLightV34 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -7872,7 +7872,7 @@ export type ModelClothMeshGroupV34 = {
 }
 
 export type ModelClothBoneWeightV34 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -7883,7 +7883,7 @@ export type ModelClothConstraintV34 = {
 }
 
 export type ModelClothObstacleV34 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -7900,7 +7900,7 @@ export type ModelLightningSystemV34 = {
 }
 
 export type ModelLightningBoltV34 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: number,
   colorEnd: number,
@@ -7924,7 +7924,7 @@ export type ModelLightningBoltV34 = {
 }
 
 export type ModelLightningNodeV34 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -7933,7 +7933,7 @@ export type ModelLightningNodeV34 = {
 }
 
 export type ModelBoneConstraintV34 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -7966,7 +7966,7 @@ export type ModelFileDataV35 = {
   streakData: ModelStreakDataV35,
   lightData: ModelLightDataV35,
   clothData: Array<ModelClothDataV35>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -7988,8 +7988,8 @@ export type ModelMaterialDataV35 = {
 export type ModelTextureDataV35 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -8001,24 +8001,24 @@ export type ModelConstantDataV35 = {
 }
 
 export type ModelMatConstLinkV35 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV35 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV35 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV35>,
   morphTargets: Array<ModelMeshMorphTargetV35>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -8076,15 +8076,15 @@ export type ModelMeshBindingDataV35 = {
 
 export type ModelTrackMaskV35 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV35 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -8095,7 +8095,7 @@ export type ModelCloudDataV35 = {
 
 export type ModelParticleCloudV35 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -8110,7 +8110,7 @@ export type ModelParticleEmitterV35 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -8157,7 +8157,7 @@ export type ModelParticleFlipbookV35 = {
 }
 
 export type ModelObstacleDataV35 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -8175,7 +8175,7 @@ export type ModelStreakV35 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -8186,7 +8186,7 @@ export type ModelStreakV35 = {
 }
 
 export type ModelStreakAnchorV35 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number,
@@ -8199,7 +8199,7 @@ export type ModelLightDataV35 = {
 }
 
 export type ModelEffectLightV35 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -8232,7 +8232,7 @@ export type ModelClothMeshGroupV35 = {
 }
 
 export type ModelClothBoneWeightV35 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -8243,7 +8243,7 @@ export type ModelClothConstraintV35 = {
 }
 
 export type ModelClothObstacleV35 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -8260,7 +8260,7 @@ export type ModelLightningSystemV35 = {
 }
 
 export type ModelLightningBoltV35 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -8286,7 +8286,7 @@ export type ModelLightningBoltV35 = {
 }
 
 export type ModelLightningNodeV35 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -8296,7 +8296,7 @@ export type ModelLightningNodeV35 = {
 }
 
 export type ModelBoneConstraintV35 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -8329,7 +8329,7 @@ export type ModelFileDataV36 = {
   streakData: ModelStreakDataV36,
   lightData: ModelLightDataV36,
   clothData: Array<ModelClothDataV36>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -8351,8 +8351,8 @@ export type ModelMaterialDataV36 = {
 export type ModelTextureDataV36 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -8364,24 +8364,24 @@ export type ModelConstantDataV36 = {
 }
 
 export type ModelMatConstLinkV36 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV36 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV36 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV36>,
   morphTargets: Array<ModelMeshMorphTargetV36>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -8439,15 +8439,15 @@ export type ModelMeshBindingDataV36 = {
 
 export type ModelTrackMaskV36 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV36 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -8458,7 +8458,7 @@ export type ModelCloudDataV36 = {
 
 export type ModelParticleCloudV36 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -8473,7 +8473,7 @@ export type ModelParticleEmitterV36 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -8520,7 +8520,7 @@ export type ModelParticleFlipbookV36 = {
 }
 
 export type ModelObstacleDataV36 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -8538,7 +8538,7 @@ export type ModelStreakV36 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -8549,7 +8549,7 @@ export type ModelStreakV36 = {
 }
 
 export type ModelStreakAnchorV36 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number,
@@ -8562,7 +8562,7 @@ export type ModelLightDataV36 = {
 }
 
 export type ModelEffectLightV36 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -8595,7 +8595,7 @@ export type ModelClothMeshGroupV36 = {
 }
 
 export type ModelClothBoneWeightV36 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -8606,7 +8606,7 @@ export type ModelClothConstraintV36 = {
 }
 
 export type ModelClothObstacleV36 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -8623,7 +8623,7 @@ export type ModelLightningSystemV36 = {
 }
 
 export type ModelLightningBoltV36 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -8649,7 +8649,7 @@ export type ModelLightningBoltV36 = {
 }
 
 export type ModelLightningNodeV36 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -8659,7 +8659,7 @@ export type ModelLightningNodeV36 = {
 }
 
 export type ModelBoneConstraintV36 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -8687,7 +8687,7 @@ export type ModelBoneConstraintLinkV36 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelFileDataV37 = {
@@ -8700,7 +8700,7 @@ export type ModelFileDataV37 = {
   streakData: ModelStreakDataV37,
   lightData: ModelLightDataV37,
   clothData: Array<ModelClothDataV37>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -8722,8 +8722,8 @@ export type ModelMaterialDataV37 = {
 export type ModelTextureDataV37 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -8735,24 +8735,24 @@ export type ModelConstantDataV37 = {
 }
 
 export type ModelMatConstLinkV37 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV37 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV37 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV37>,
   morphTargets: Array<ModelMeshMorphTargetV37>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -8809,15 +8809,15 @@ export type ModelMeshBindingDataV37 = {
 
 export type ModelTrackMaskV37 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV37 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -8828,7 +8828,7 @@ export type ModelCloudDataV37 = {
 
 export type ModelParticleCloudV37 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -8843,7 +8843,7 @@ export type ModelParticleEmitterV37 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -8890,7 +8890,7 @@ export type ModelParticleFlipbookV37 = {
 }
 
 export type ModelObstacleDataV37 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -8908,7 +8908,7 @@ export type ModelStreakV37 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -8919,7 +8919,7 @@ export type ModelStreakV37 = {
 }
 
 export type ModelStreakAnchorV37 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number,
@@ -8932,7 +8932,7 @@ export type ModelLightDataV37 = {
 }
 
 export type ModelEffectLightV37 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -8965,7 +8965,7 @@ export type ModelClothMeshGroupV37 = {
 }
 
 export type ModelClothBoneWeightV37 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -8976,7 +8976,7 @@ export type ModelClothConstraintV37 = {
 }
 
 export type ModelClothObstacleV37 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -8993,7 +8993,7 @@ export type ModelLightningSystemV37 = {
 }
 
 export type ModelLightningBoltV37 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -9019,7 +9019,7 @@ export type ModelLightningBoltV37 = {
 }
 
 export type ModelLightningNodeV37 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -9029,7 +9029,7 @@ export type ModelLightningNodeV37 = {
 }
 
 export type ModelBoneConstraintV37 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -9057,7 +9057,7 @@ export type ModelBoneConstraintLinkV37 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelFileDataV38 = {
@@ -9070,7 +9070,7 @@ export type ModelFileDataV38 = {
   streakData: ModelStreakDataV38,
   lightData: ModelLightDataV38,
   clothData: Array<ModelClothDataV38>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -9092,8 +9092,8 @@ export type ModelMaterialDataV38 = {
 export type ModelTextureDataV38 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -9105,24 +9105,24 @@ export type ModelConstantDataV38 = {
 }
 
 export type ModelMatConstLinkV38 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV38 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV38 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV38>,
   morphTargets: Array<ModelMeshMorphTargetV38>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -9179,15 +9179,15 @@ export type ModelMeshBindingDataV38 = {
 
 export type ModelTrackMaskV38 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV38 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -9198,7 +9198,7 @@ export type ModelCloudDataV38 = {
 
 export type ModelParticleCloudV38 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -9213,7 +9213,7 @@ export type ModelParticleEmitterV38 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -9260,7 +9260,7 @@ export type ModelParticleFlipbookV38 = {
 }
 
 export type ModelObstacleDataV38 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -9278,7 +9278,7 @@ export type ModelStreakV38 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -9289,7 +9289,7 @@ export type ModelStreakV38 = {
 }
 
 export type ModelStreakAnchorV38 = {
-  bone: number,
+  bone: BigInt,
   color: number,
   falloff: number,
   lifetime: number,
@@ -9302,7 +9302,7 @@ export type ModelLightDataV38 = {
 }
 
 export type ModelEffectLightV38 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -9335,7 +9335,7 @@ export type ModelClothMeshGroupV38 = {
 }
 
 export type ModelClothBoneWeightV38 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -9346,7 +9346,7 @@ export type ModelClothConstraintV38 = {
 }
 
 export type ModelClothObstacleV38 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -9363,7 +9363,7 @@ export type ModelLightningSystemV38 = {
 }
 
 export type ModelLightningBoltV38 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -9389,7 +9389,7 @@ export type ModelLightningBoltV38 = {
 }
 
 export type ModelLightningNodeV38 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -9399,7 +9399,7 @@ export type ModelLightningNodeV38 = {
 }
 
 export type ModelBoneConstraintV38 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -9427,7 +9427,7 @@ export type ModelBoneConstraintLinkV38 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelFileDataV39 = {
@@ -9440,7 +9440,7 @@ export type ModelFileDataV39 = {
   streakData: ModelStreakDataV39,
   lightData: ModelLightDataV39,
   clothData: Array<ModelClothDataV39>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -9462,8 +9462,8 @@ export type ModelMaterialDataV39 = {
 export type ModelTextureDataV39 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -9475,24 +9475,24 @@ export type ModelConstantDataV39 = {
 }
 
 export type ModelMatConstLinkV39 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV39 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV39 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV39>,
   morphTargets: Array<ModelMeshMorphTargetV39>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -9549,15 +9549,15 @@ export type ModelMeshBindingDataV39 = {
 
 export type ModelTrackMaskV39 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV39 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -9568,7 +9568,7 @@ export type ModelCloudDataV39 = {
 
 export type ModelParticleCloudV39 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   flags: number,
@@ -9583,7 +9583,7 @@ export type ModelParticleEmitterV39 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -9630,7 +9630,7 @@ export type ModelParticleFlipbookV39 = {
 }
 
 export type ModelObstacleDataV39 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -9648,7 +9648,7 @@ export type ModelStreakV39 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -9659,7 +9659,7 @@ export type ModelStreakV39 = {
 }
 
 export type ModelStreakAnchorV39 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -9673,7 +9673,7 @@ export type ModelLightDataV39 = {
 }
 
 export type ModelEffectLightV39 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -9706,7 +9706,7 @@ export type ModelClothMeshGroupV39 = {
 }
 
 export type ModelClothBoneWeightV39 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -9717,7 +9717,7 @@ export type ModelClothConstraintV39 = {
 }
 
 export type ModelClothObstacleV39 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -9734,7 +9734,7 @@ export type ModelLightningSystemV39 = {
 }
 
 export type ModelLightningBoltV39 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -9760,7 +9760,7 @@ export type ModelLightningBoltV39 = {
 }
 
 export type ModelLightningNodeV39 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -9770,7 +9770,7 @@ export type ModelLightningNodeV39 = {
 }
 
 export type ModelBoneConstraintV39 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -9798,7 +9798,7 @@ export type ModelBoneConstraintLinkV39 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelFileDataV40 = {
@@ -9811,7 +9811,7 @@ export type ModelFileDataV40 = {
   streakData: ModelStreakDataV40,
   lightData: ModelLightDataV40,
   clothData: Array<ModelClothDataV40>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -9833,8 +9833,8 @@ export type ModelMaterialDataV40 = {
 export type ModelTextureDataV40 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -9846,24 +9846,24 @@ export type ModelConstantDataV40 = {
 }
 
 export type ModelMatConstLinkV40 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV40 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV40 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV40>,
   morphTargets: Array<ModelMeshMorphTargetV40>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -9920,15 +9920,15 @@ export type ModelMeshBindingDataV40 = {
 
 export type ModelTrackMaskV40 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV40 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -9939,7 +9939,7 @@ export type ModelCloudDataV40 = {
 
 export type ModelParticleCloudV40 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -9955,7 +9955,7 @@ export type ModelParticleEmitterV40 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -10004,7 +10004,7 @@ export type ModelParticleFlipbookV40 = {
 }
 
 export type ModelObstacleDataV40 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -10022,7 +10022,7 @@ export type ModelStreakV40 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -10033,7 +10033,7 @@ export type ModelStreakV40 = {
 }
 
 export type ModelStreakAnchorV40 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -10047,7 +10047,7 @@ export type ModelLightDataV40 = {
 }
 
 export type ModelEffectLightV40 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -10080,7 +10080,7 @@ export type ModelClothMeshGroupV40 = {
 }
 
 export type ModelClothBoneWeightV40 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -10091,7 +10091,7 @@ export type ModelClothConstraintV40 = {
 }
 
 export type ModelClothObstacleV40 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -10108,7 +10108,7 @@ export type ModelLightningSystemV40 = {
 }
 
 export type ModelLightningBoltV40 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -10134,7 +10134,7 @@ export type ModelLightningBoltV40 = {
 }
 
 export type ModelLightningNodeV40 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -10144,7 +10144,7 @@ export type ModelLightningNodeV40 = {
 }
 
 export type ModelBoneConstraintV40 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -10172,7 +10172,7 @@ export type ModelBoneConstraintLinkV40 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelFileDataV41 = {
@@ -10185,7 +10185,7 @@ export type ModelFileDataV41 = {
   streakData: ModelStreakDataV41,
   lightData: ModelLightDataV41,
   clothData: Array<ModelClothDataV41>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -10208,8 +10208,8 @@ export type ModelMaterialDataV41 = {
 export type ModelTextureDataV41 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -10221,24 +10221,24 @@ export type ModelConstantDataV41 = {
 }
 
 export type ModelMatConstLinkV41 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV41 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV41 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV41>,
   morphTargets: Array<ModelMeshMorphTargetV41>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -10295,15 +10295,15 @@ export type ModelMeshBindingDataV41 = {
 
 export type ModelTrackMaskV41 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV41 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -10314,7 +10314,7 @@ export type ModelCloudDataV41 = {
 
 export type ModelParticleCloudV41 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -10330,7 +10330,7 @@ export type ModelParticleEmitterV41 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -10379,7 +10379,7 @@ export type ModelParticleFlipbookV41 = {
 }
 
 export type ModelObstacleDataV41 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -10397,7 +10397,7 @@ export type ModelStreakV41 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -10408,7 +10408,7 @@ export type ModelStreakV41 = {
 }
 
 export type ModelStreakAnchorV41 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -10422,7 +10422,7 @@ export type ModelLightDataV41 = {
 }
 
 export type ModelEffectLightV41 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -10455,7 +10455,7 @@ export type ModelClothMeshGroupV41 = {
 }
 
 export type ModelClothBoneWeightV41 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -10466,7 +10466,7 @@ export type ModelClothConstraintV41 = {
 }
 
 export type ModelClothObstacleV41 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -10483,7 +10483,7 @@ export type ModelLightningSystemV41 = {
 }
 
 export type ModelLightningBoltV41 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -10509,7 +10509,7 @@ export type ModelLightningBoltV41 = {
 }
 
 export type ModelLightningNodeV41 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -10519,7 +10519,7 @@ export type ModelLightningNodeV41 = {
 }
 
 export type ModelBoneConstraintV41 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -10547,7 +10547,7 @@ export type ModelBoneConstraintLinkV41 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV41 = {
@@ -10556,7 +10556,7 @@ export type ModelSoftBodyDataV41 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelFileDataV42 = {
@@ -10569,7 +10569,7 @@ export type ModelFileDataV42 = {
   streakData: ModelStreakDataV42,
   lightData: ModelLightDataV42,
   clothData: Array<ModelClothDataV42>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -10592,8 +10592,8 @@ export type ModelMaterialDataV42 = {
 export type ModelTextureDataV42 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -10605,24 +10605,24 @@ export type ModelConstantDataV42 = {
 }
 
 export type ModelMatConstLinkV42 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV42 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV42 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV42>,
   morphTargets: Array<ModelMeshMorphTargetV42>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -10679,15 +10679,15 @@ export type ModelMeshBindingDataV42 = {
 
 export type ModelTrackMaskV42 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV42 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -10698,7 +10698,7 @@ export type ModelCloudDataV42 = {
 
 export type ModelParticleCloudV42 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -10714,7 +10714,7 @@ export type ModelParticleEmitterV42 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -10763,7 +10763,7 @@ export type ModelParticleFlipbookV42 = {
 }
 
 export type ModelObstacleDataV42 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -10781,7 +10781,7 @@ export type ModelStreakV42 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -10792,7 +10792,7 @@ export type ModelStreakV42 = {
 }
 
 export type ModelStreakAnchorV42 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -10806,7 +10806,7 @@ export type ModelLightDataV42 = {
 }
 
 export type ModelEffectLightV42 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -10839,7 +10839,7 @@ export type ModelClothMeshGroupV42 = {
 }
 
 export type ModelClothBoneWeightV42 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -10850,7 +10850,7 @@ export type ModelClothConstraintV42 = {
 }
 
 export type ModelClothObstacleV42 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -10861,14 +10861,14 @@ export type ModelLightningDataV42 = {
 }
 
 export type ModelLightningSystemV42 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   materialIndex: number
 }
 
 export type ModelLightningBoltV42 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -10894,7 +10894,7 @@ export type ModelLightningBoltV42 = {
 }
 
 export type ModelLightningNodeV42 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -10904,7 +10904,7 @@ export type ModelLightningNodeV42 = {
 }
 
 export type ModelBoneConstraintV42 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -10932,7 +10932,7 @@ export type ModelBoneConstraintLinkV42 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV42 = {
@@ -10941,7 +10941,7 @@ export type ModelSoftBodyDataV42 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelFileDataV43 = {
@@ -10954,7 +10954,7 @@ export type ModelFileDataV43 = {
   streakData: ModelStreakDataV43,
   lightData: ModelLightDataV43,
   clothData: Array<ModelClothDataV43>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -10977,8 +10977,8 @@ export type ModelMaterialDataV43 = {
 export type ModelTextureDataV43 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -10990,24 +10990,24 @@ export type ModelConstantDataV43 = {
 }
 
 export type ModelMatConstLinkV43 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV43 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV43 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV43>,
   morphTargets: Array<ModelMeshMorphTargetV43>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -11066,15 +11066,15 @@ export type ModelMeshBindingDataV43 = {
 
 export type ModelTrackMaskV43 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV43 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -11085,7 +11085,7 @@ export type ModelCloudDataV43 = {
 
 export type ModelParticleCloudV43 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -11101,7 +11101,7 @@ export type ModelParticleEmitterV43 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -11150,7 +11150,7 @@ export type ModelParticleFlipbookV43 = {
 }
 
 export type ModelObstacleDataV43 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -11168,7 +11168,7 @@ export type ModelStreakV43 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -11179,7 +11179,7 @@ export type ModelStreakV43 = {
 }
 
 export type ModelStreakAnchorV43 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -11193,7 +11193,7 @@ export type ModelLightDataV43 = {
 }
 
 export type ModelEffectLightV43 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -11226,7 +11226,7 @@ export type ModelClothMeshGroupV43 = {
 }
 
 export type ModelClothBoneWeightV43 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -11237,7 +11237,7 @@ export type ModelClothConstraintV43 = {
 }
 
 export type ModelClothObstacleV43 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -11248,14 +11248,14 @@ export type ModelLightningDataV43 = {
 }
 
 export type ModelLightningSystemV43 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   materialIndex: number
 }
 
 export type ModelLightningBoltV43 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -11281,7 +11281,7 @@ export type ModelLightningBoltV43 = {
 }
 
 export type ModelLightningNodeV43 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -11291,7 +11291,7 @@ export type ModelLightningNodeV43 = {
 }
 
 export type ModelBoneConstraintV43 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -11319,7 +11319,7 @@ export type ModelBoneConstraintLinkV43 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV43 = {
@@ -11328,7 +11328,7 @@ export type ModelSoftBodyDataV43 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelFileDataV44 = {
@@ -11341,7 +11341,7 @@ export type ModelFileDataV44 = {
   streakData: ModelStreakDataV44,
   lightData: ModelLightDataV44,
   clothData: Array<ModelClothDataV44>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -11364,8 +11364,8 @@ export type ModelMaterialDataV44 = {
 export type ModelTextureDataV44 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -11377,24 +11377,24 @@ export type ModelConstantDataV44 = {
 }
 
 export type ModelMatConstLinkV44 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV44 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
 
 export type ModelMeshDataV44 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV44>,
   morphTargets: Array<ModelMeshMorphTargetV44>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -11453,15 +11453,15 @@ export type ModelMeshBindingDataV44 = {
 
 export type ModelTrackMaskV44 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV44 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -11472,7 +11472,7 @@ export type ModelCloudDataV44 = {
 
 export type ModelParticleCloudV44 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -11488,7 +11488,7 @@ export type ModelParticleEmitterV44 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -11537,7 +11537,7 @@ export type ModelParticleFlipbookV44 = {
 }
 
 export type ModelObstacleDataV44 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -11555,7 +11555,7 @@ export type ModelStreakV44 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -11566,7 +11566,7 @@ export type ModelStreakV44 = {
 }
 
 export type ModelStreakAnchorV44 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -11580,7 +11580,7 @@ export type ModelLightDataV44 = {
 }
 
 export type ModelEffectLightV44 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -11613,7 +11613,7 @@ export type ModelClothMeshGroupV44 = {
 }
 
 export type ModelClothBoneWeightV44 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -11624,7 +11624,7 @@ export type ModelClothConstraintV44 = {
 }
 
 export type ModelClothObstacleV44 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -11635,14 +11635,14 @@ export type ModelLightningDataV44 = {
 }
 
 export type ModelLightningSystemV44 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   materialIndex: number
 }
 
 export type ModelLightningBoltV44 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -11668,7 +11668,7 @@ export type ModelLightningBoltV44 = {
 }
 
 export type ModelLightningNodeV44 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -11678,7 +11678,7 @@ export type ModelLightningNodeV44 = {
 }
 
 export type ModelBoneConstraintV44 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -11706,7 +11706,7 @@ export type ModelBoneConstraintLinkV44 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV44 = {
@@ -11715,7 +11715,7 @@ export type ModelSoftBodyDataV44 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelFileDataV45 = {
@@ -11728,7 +11728,7 @@ export type ModelFileDataV45 = {
   streakData: ModelStreakDataV45,
   lightData: ModelLightDataV45,
   clothData: Array<ModelClothDataV45>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -11752,8 +11752,8 @@ export type ModelMaterialDataV45 = {
 export type ModelTextureDataV45 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -11765,12 +11765,12 @@ export type ModelConstantDataV45 = {
 }
 
 export type ModelMatConstLinkV45 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV45 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -11786,13 +11786,13 @@ export type ModelMaterialTexTransformV45 = {
 }
 
 export type ModelMeshDataV45 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV45>,
   morphTargets: Array<ModelMeshMorphTargetV45>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -11851,15 +11851,15 @@ export type ModelMeshBindingDataV45 = {
 
 export type ModelTrackMaskV45 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV45 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -11870,7 +11870,7 @@ export type ModelCloudDataV45 = {
 
 export type ModelParticleCloudV45 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -11886,7 +11886,7 @@ export type ModelParticleEmitterV45 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -11935,7 +11935,7 @@ export type ModelParticleFlipbookV45 = {
 }
 
 export type ModelObstacleDataV45 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -11953,7 +11953,7 @@ export type ModelStreakV45 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -11964,7 +11964,7 @@ export type ModelStreakV45 = {
 }
 
 export type ModelStreakAnchorV45 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -11978,7 +11978,7 @@ export type ModelLightDataV45 = {
 }
 
 export type ModelEffectLightV45 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -12011,7 +12011,7 @@ export type ModelClothMeshGroupV45 = {
 }
 
 export type ModelClothBoneWeightV45 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -12022,7 +12022,7 @@ export type ModelClothConstraintV45 = {
 }
 
 export type ModelClothObstacleV45 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -12033,14 +12033,14 @@ export type ModelLightningDataV45 = {
 }
 
 export type ModelLightningSystemV45 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   materialIndex: number
 }
 
 export type ModelLightningBoltV45 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -12066,7 +12066,7 @@ export type ModelLightningBoltV45 = {
 }
 
 export type ModelLightningNodeV45 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -12076,7 +12076,7 @@ export type ModelLightningNodeV45 = {
 }
 
 export type ModelBoneConstraintV45 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -12104,7 +12104,7 @@ export type ModelBoneConstraintLinkV45 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV45 = {
@@ -12113,7 +12113,7 @@ export type ModelSoftBodyDataV45 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelFileDataV46 = {
@@ -12126,7 +12126,7 @@ export type ModelFileDataV46 = {
   streakData: ModelStreakDataV46,
   lightData: ModelLightDataV46,
   clothData: Array<ModelClothDataV46>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -12150,8 +12150,8 @@ export type ModelMaterialDataV46 = {
 export type ModelTextureDataV46 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -12163,12 +12163,12 @@ export type ModelConstantDataV46 = {
 }
 
 export type ModelMatConstLinkV46 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV46 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -12184,13 +12184,13 @@ export type ModelMaterialTexTransformV46 = {
 }
 
 export type ModelMeshDataV46 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV46>,
   morphTargets: Array<ModelMeshMorphTargetV46>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -12249,15 +12249,15 @@ export type ModelMeshBindingDataV46 = {
 
 export type ModelTrackMaskV46 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV46 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -12268,7 +12268,7 @@ export type ModelCloudDataV46 = {
 
 export type ModelParticleCloudV46 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -12284,7 +12284,7 @@ export type ModelParticleEmitterV46 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -12333,7 +12333,7 @@ export type ModelParticleFlipbookV46 = {
 }
 
 export type ModelObstacleDataV46 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -12351,7 +12351,7 @@ export type ModelStreakV46 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -12362,7 +12362,7 @@ export type ModelStreakV46 = {
 }
 
 export type ModelStreakAnchorV46 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -12376,7 +12376,7 @@ export type ModelLightDataV46 = {
 }
 
 export type ModelEffectLightV46 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -12409,7 +12409,7 @@ export type ModelClothMeshGroupV46 = {
 }
 
 export type ModelClothBoneWeightV46 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -12420,7 +12420,7 @@ export type ModelClothConstraintV46 = {
 }
 
 export type ModelClothObstacleV46 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -12431,14 +12431,14 @@ export type ModelLightningDataV46 = {
 }
 
 export type ModelLightningSystemV46 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   materialIndex: number
 }
 
 export type ModelLightningBoltV46 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -12464,7 +12464,7 @@ export type ModelLightningBoltV46 = {
 }
 
 export type ModelLightningNodeV46 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -12474,7 +12474,7 @@ export type ModelLightningNodeV46 = {
 }
 
 export type ModelBoneConstraintV46 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -12502,7 +12502,7 @@ export type ModelBoneConstraintLinkV46 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV46 = {
@@ -12511,7 +12511,7 @@ export type ModelSoftBodyDataV46 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelFileDataV47 = {
@@ -12524,7 +12524,7 @@ export type ModelFileDataV47 = {
   streakData: ModelStreakDataV47,
   lightData: ModelLightDataV47,
   clothData: Array<ModelClothDataV47>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -12548,8 +12548,8 @@ export type ModelMaterialDataV47 = {
 export type ModelTextureDataV47 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -12561,12 +12561,12 @@ export type ModelConstantDataV47 = {
 }
 
 export type ModelMatConstLinkV47 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV47 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -12582,13 +12582,13 @@ export type ModelMaterialTexTransformV47 = {
 }
 
 export type ModelMeshDataV47 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV47>,
   morphTargets: Array<ModelMeshMorphTargetV47>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>
 }
@@ -12600,7 +12600,7 @@ export type ModelMeshLodDataV47 = {
 export type ModelMeshMorphTargetV47 = {
   positions: Array<ModelMeshMorphVertV47>,
   normals: Array<ModelMeshMorphVertV47>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV47 = {
@@ -12650,15 +12650,15 @@ export type ModelMeshBindingDataV47 = {
 
 export type ModelTrackMaskV47 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV47 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -12669,7 +12669,7 @@ export type ModelCloudDataV47 = {
 
 export type ModelParticleCloudV47 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -12685,7 +12685,7 @@ export type ModelParticleEmitterV47 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -12734,7 +12734,7 @@ export type ModelParticleFlipbookV47 = {
 }
 
 export type ModelObstacleDataV47 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -12752,7 +12752,7 @@ export type ModelStreakV47 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -12763,7 +12763,7 @@ export type ModelStreakV47 = {
 }
 
 export type ModelStreakAnchorV47 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -12777,7 +12777,7 @@ export type ModelLightDataV47 = {
 }
 
 export type ModelEffectLightV47 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -12810,7 +12810,7 @@ export type ModelClothMeshGroupV47 = {
 }
 
 export type ModelClothBoneWeightV47 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -12821,7 +12821,7 @@ export type ModelClothConstraintV47 = {
 }
 
 export type ModelClothObstacleV47 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -12832,14 +12832,14 @@ export type ModelLightningDataV47 = {
 }
 
 export type ModelLightningSystemV47 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   materialIndex: number
 }
 
 export type ModelLightningBoltV47 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -12865,7 +12865,7 @@ export type ModelLightningBoltV47 = {
 }
 
 export type ModelLightningNodeV47 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -12875,7 +12875,7 @@ export type ModelLightningNodeV47 = {
 }
 
 export type ModelBoneConstraintV47 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -12903,7 +12903,7 @@ export type ModelBoneConstraintLinkV47 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV47 = {
@@ -12912,7 +12912,7 @@ export type ModelSoftBodyDataV47 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelFileDataV48 = {
@@ -12925,7 +12925,7 @@ export type ModelFileDataV48 = {
   streakData: ModelStreakDataV48,
   lightData: ModelLightDataV48,
   clothData: Array<ModelClothDataV48>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -12949,8 +12949,8 @@ export type ModelMaterialDataV48 = {
 export type ModelTextureDataV48 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -12962,12 +12962,12 @@ export type ModelConstantDataV48 = {
 }
 
 export type ModelMatConstLinkV48 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV48 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -12983,13 +12983,13 @@ export type ModelMaterialTexTransformV48 = {
 }
 
 export type ModelMeshDataV48 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV48>,
   morphTargets: Array<ModelMeshMorphTargetV48>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>
@@ -13002,7 +13002,7 @@ export type ModelMeshLodDataV48 = {
 export type ModelMeshMorphTargetV48 = {
   positions: Array<ModelMeshMorphVertV48>,
   normals: Array<ModelMeshMorphVertV48>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV48 = {
@@ -13058,15 +13058,15 @@ export type ModelMeshBindingDataV48 = {
 
 export type ModelTrackMaskV48 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV48 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -13077,7 +13077,7 @@ export type ModelCloudDataV48 = {
 
 export type ModelParticleCloudV48 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -13093,7 +13093,7 @@ export type ModelParticleEmitterV48 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -13142,7 +13142,7 @@ export type ModelParticleFlipbookV48 = {
 }
 
 export type ModelObstacleDataV48 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -13160,7 +13160,7 @@ export type ModelStreakV48 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -13171,7 +13171,7 @@ export type ModelStreakV48 = {
 }
 
 export type ModelStreakAnchorV48 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -13185,7 +13185,7 @@ export type ModelLightDataV48 = {
 }
 
 export type ModelEffectLightV48 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -13218,7 +13218,7 @@ export type ModelClothMeshGroupV48 = {
 }
 
 export type ModelClothBoneWeightV48 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -13229,7 +13229,7 @@ export type ModelClothConstraintV48 = {
 }
 
 export type ModelClothObstacleV48 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -13240,14 +13240,14 @@ export type ModelLightningDataV48 = {
 }
 
 export type ModelLightningSystemV48 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   materialIndex: number
 }
 
 export type ModelLightningBoltV48 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -13273,7 +13273,7 @@ export type ModelLightningBoltV48 = {
 }
 
 export type ModelLightningNodeV48 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -13283,7 +13283,7 @@ export type ModelLightningNodeV48 = {
 }
 
 export type ModelBoneConstraintV48 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -13311,7 +13311,7 @@ export type ModelBoneConstraintLinkV48 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV48 = {
@@ -13320,7 +13320,7 @@ export type ModelSoftBodyDataV48 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelFileDataV49 = {
@@ -13333,7 +13333,7 @@ export type ModelFileDataV49 = {
   streakData: ModelStreakDataV49,
   lightData: ModelLightDataV49,
   clothData: Array<ModelClothDataV49>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -13358,8 +13358,8 @@ export type ModelMaterialDataV49 = {
 export type ModelTextureDataV49 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -13371,12 +13371,12 @@ export type ModelConstantDataV49 = {
 }
 
 export type ModelMatConstLinkV49 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV49 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -13392,13 +13392,13 @@ export type ModelMaterialTexTransformV49 = {
 }
 
 export type ModelMeshDataV49 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV49>,
   morphTargets: Array<ModelMeshMorphTargetV49>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>
@@ -13411,7 +13411,7 @@ export type ModelMeshLodDataV49 = {
 export type ModelMeshMorphTargetV49 = {
   positions: Array<ModelMeshMorphVertV49>,
   normals: Array<ModelMeshMorphVertV49>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV49 = {
@@ -13461,15 +13461,15 @@ export type ModelMeshBindingDataV49 = {
 
 export type ModelTrackMaskV49 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV49 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -13480,7 +13480,7 @@ export type ModelCloudDataV49 = {
 
 export type ModelParticleCloudV49 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -13496,7 +13496,7 @@ export type ModelParticleEmitterV49 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -13545,7 +13545,7 @@ export type ModelParticleFlipbookV49 = {
 }
 
 export type ModelObstacleDataV49 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -13563,7 +13563,7 @@ export type ModelStreakV49 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -13574,7 +13574,7 @@ export type ModelStreakV49 = {
 }
 
 export type ModelStreakAnchorV49 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -13588,7 +13588,7 @@ export type ModelLightDataV49 = {
 }
 
 export type ModelEffectLightV49 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -13621,7 +13621,7 @@ export type ModelClothMeshGroupV49 = {
 }
 
 export type ModelClothBoneWeightV49 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -13632,7 +13632,7 @@ export type ModelClothConstraintV49 = {
 }
 
 export type ModelClothObstacleV49 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -13643,14 +13643,14 @@ export type ModelLightningDataV49 = {
 }
 
 export type ModelLightningSystemV49 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   materialIndex: number
 }
 
 export type ModelLightningBoltV49 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -13676,7 +13676,7 @@ export type ModelLightningBoltV49 = {
 }
 
 export type ModelLightningNodeV49 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -13686,7 +13686,7 @@ export type ModelLightningNodeV49 = {
 }
 
 export type ModelBoneConstraintV49 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -13714,7 +13714,7 @@ export type ModelBoneConstraintLinkV49 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV49 = {
@@ -13723,11 +13723,11 @@ export type ModelSoftBodyDataV49 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV49 = {
-  bone: number,
+  bone: BigInt,
   offset: Array<number>
 }
 
@@ -13741,7 +13741,7 @@ export type ModelFileDataV50 = {
   streakData: ModelStreakDataV50,
   lightData: ModelLightDataV50,
   clothData: Array<ModelClothDataV50>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -13766,8 +13766,8 @@ export type ModelMaterialDataV50 = {
 export type ModelTextureDataV50 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -13779,12 +13779,12 @@ export type ModelConstantDataV50 = {
 }
 
 export type ModelMatConstLinkV50 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV50 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -13800,13 +13800,13 @@ export type ModelMaterialTexTransformV50 = {
 }
 
 export type ModelMeshDataV50 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV50>,
   morphTargets: Array<ModelMeshMorphTargetV50>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>
@@ -13819,7 +13819,7 @@ export type ModelMeshLodDataV50 = {
 export type ModelMeshMorphTargetV50 = {
   positions: Array<ModelMeshMorphVertV50>,
   normals: Array<ModelMeshMorphVertV50>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV50 = {
@@ -13869,15 +13869,15 @@ export type ModelMeshBindingDataV50 = {
 
 export type ModelTrackMaskV50 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV50 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -13888,7 +13888,7 @@ export type ModelCloudDataV50 = {
 
 export type ModelParticleCloudV50 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -13904,7 +13904,7 @@ export type ModelParticleEmitterV50 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -13953,7 +13953,7 @@ export type ModelParticleFlipbookV50 = {
 }
 
 export type ModelObstacleDataV50 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -13971,7 +13971,7 @@ export type ModelStreakV50 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -13982,7 +13982,7 @@ export type ModelStreakV50 = {
 }
 
 export type ModelStreakAnchorV50 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -13996,7 +13996,7 @@ export type ModelLightDataV50 = {
 }
 
 export type ModelEffectLightV50 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -14029,7 +14029,7 @@ export type ModelClothMeshGroupV50 = {
 }
 
 export type ModelClothBoneWeightV50 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -14040,7 +14040,7 @@ export type ModelClothConstraintV50 = {
 }
 
 export type ModelClothObstacleV50 = {
-  bone: number,
+  bone: BigInt,
   type: number
 }
 
@@ -14051,7 +14051,7 @@ export type ModelLightningDataV50 = {
 }
 
 export type ModelLightningSystemV50 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -14059,7 +14059,7 @@ export type ModelLightningSystemV50 = {
 }
 
 export type ModelLightningBoltV50 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -14085,7 +14085,7 @@ export type ModelLightningBoltV50 = {
 }
 
 export type ModelLightningNodeV50 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -14095,7 +14095,7 @@ export type ModelLightningNodeV50 = {
 }
 
 export type ModelBoneConstraintV50 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -14123,7 +14123,7 @@ export type ModelBoneConstraintLinkV50 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV50 = {
@@ -14132,11 +14132,11 @@ export type ModelSoftBodyDataV50 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV50 = {
-  bone: number,
+  bone: BigInt,
   offset: Array<number>
 }
 
@@ -14150,7 +14150,7 @@ export type ModelFileDataV51 = {
   streakData: ModelStreakDataV51,
   lightData: ModelLightDataV51,
   clothData: Array<ModelClothDataV51>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -14161,7 +14161,7 @@ export type ModelFileDataV51 = {
 }
 
 export type ModelPermutationDataV51 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV51>
 }
 
@@ -14181,8 +14181,8 @@ export type ModelMaterialDataV51 = {
 export type ModelTextureDataV51 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -14194,12 +14194,12 @@ export type ModelConstantDataV51 = {
 }
 
 export type ModelMatConstLinkV51 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV51 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -14215,13 +14215,13 @@ export type ModelMaterialTexTransformV51 = {
 }
 
 export type ModelMeshDataV51 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV51>,
   morphTargets: Array<ModelMeshMorphTargetV51>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -14236,7 +14236,7 @@ export type ModelMeshLodDataV51 = {
 export type ModelMeshMorphTargetV51 = {
   positions: Array<ModelMeshMorphVertV51>,
   normals: Array<ModelMeshMorphVertV51>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV51 = {
@@ -14286,15 +14286,15 @@ export type ModelMeshBindingDataV51 = {
 
 export type ModelTrackMaskV51 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV51 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -14305,7 +14305,7 @@ export type ModelCloudDataV51 = {
 
 export type ModelParticleCloudV51 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -14321,7 +14321,7 @@ export type ModelParticleEmitterV51 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -14370,7 +14370,7 @@ export type ModelParticleFlipbookV51 = {
 }
 
 export type ModelObstacleDataV51 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -14388,7 +14388,7 @@ export type ModelStreakV51 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -14399,7 +14399,7 @@ export type ModelStreakV51 = {
 }
 
 export type ModelStreakAnchorV51 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -14413,7 +14413,7 @@ export type ModelLightDataV51 = {
 }
 
 export type ModelEffectLightV51 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -14446,7 +14446,7 @@ export type ModelClothMeshGroupV51 = {
 }
 
 export type ModelClothBoneWeightV51 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -14457,7 +14457,7 @@ export type ModelClothConstraintV51 = {
 }
 
 export type ModelClothObstacleV51 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   depth: number,
   height: number,
@@ -14472,7 +14472,7 @@ export type ModelLightningDataV51 = {
 }
 
 export type ModelLightningSystemV51 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -14480,7 +14480,7 @@ export type ModelLightningSystemV51 = {
 }
 
 export type ModelLightningBoltV51 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -14506,7 +14506,7 @@ export type ModelLightningBoltV51 = {
 }
 
 export type ModelLightningNodeV51 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -14516,7 +14516,7 @@ export type ModelLightningNodeV51 = {
 }
 
 export type ModelBoneConstraintV51 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -14544,7 +14544,7 @@ export type ModelBoneConstraintLinkV51 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV51 = {
@@ -14553,11 +14553,11 @@ export type ModelSoftBodyDataV51 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV51 = {
-  bone: number,
+  bone: BigInt,
   offset: Array<number>
 }
 
@@ -14571,7 +14571,7 @@ export type ModelFileDataV52 = {
   streakData: ModelStreakDataV52,
   lightData: ModelLightDataV52,
   clothData: Array<ModelClothDataV52>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -14582,7 +14582,7 @@ export type ModelFileDataV52 = {
 }
 
 export type ModelPermutationDataV52 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV52>
 }
 
@@ -14602,8 +14602,8 @@ export type ModelMaterialDataV52 = {
 export type ModelTextureDataV52 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -14615,12 +14615,12 @@ export type ModelConstantDataV52 = {
 }
 
 export type ModelMatConstLinkV52 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV52 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -14636,13 +14636,13 @@ export type ModelMaterialTexTransformV52 = {
 }
 
 export type ModelMeshDataV52 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV52>,
   morphTargets: Array<ModelMeshMorphTargetV52>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -14657,7 +14657,7 @@ export type ModelMeshLodDataV52 = {
 export type ModelMeshMorphTargetV52 = {
   positions: Array<ModelMeshMorphVertV52>,
   normals: Array<ModelMeshMorphVertV52>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV52 = {
@@ -14707,15 +14707,15 @@ export type ModelMeshBindingDataV52 = {
 
 export type ModelTrackMaskV52 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV52 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -14726,7 +14726,7 @@ export type ModelCloudDataV52 = {
 
 export type ModelParticleCloudV52 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -14742,7 +14742,7 @@ export type ModelParticleEmitterV52 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -14791,7 +14791,7 @@ export type ModelParticleFlipbookV52 = {
 }
 
 export type ModelObstacleDataV52 = {
-  bone: number,
+  bone: BigInt,
   dragCoef: number,
   flags: number,
   geoData: Array<number>,
@@ -14809,7 +14809,7 @@ export type ModelStreakV52 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -14820,7 +14820,7 @@ export type ModelStreakV52 = {
 }
 
 export type ModelStreakAnchorV52 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -14834,7 +14834,7 @@ export type ModelLightDataV52 = {
 }
 
 export type ModelEffectLightV52 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -14870,7 +14870,7 @@ export type ModelClothMeshGroupV52 = {
 }
 
 export type ModelClothBoneWeightV52 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -14887,7 +14887,7 @@ export type ModelClothConstraintV52 = {
 }
 
 export type ModelClothObstacleV52 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   depth: number,
   height: number,
@@ -14902,7 +14902,7 @@ export type ModelLightningDataV52 = {
 }
 
 export type ModelLightningSystemV52 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -14910,7 +14910,7 @@ export type ModelLightningSystemV52 = {
 }
 
 export type ModelLightningBoltV52 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -14936,7 +14936,7 @@ export type ModelLightningBoltV52 = {
 }
 
 export type ModelLightningNodeV52 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -14946,7 +14946,7 @@ export type ModelLightningNodeV52 = {
 }
 
 export type ModelBoneConstraintV52 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -14974,7 +14974,7 @@ export type ModelBoneConstraintLinkV52 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV52 = {
@@ -14983,11 +14983,11 @@ export type ModelSoftBodyDataV52 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV52 = {
-  bone: number,
+  bone: BigInt,
   offset: Array<number>
 }
 
@@ -15001,7 +15001,7 @@ export type ModelFileDataV53 = {
   streakData: ModelStreakDataV53,
   lightData: ModelLightDataV53,
   clothData: Array<ModelClothDataV53>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -15012,7 +15012,7 @@ export type ModelFileDataV53 = {
 }
 
 export type ModelPermutationDataV53 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV53>
 }
 
@@ -15032,8 +15032,8 @@ export type ModelMaterialDataV53 = {
 export type ModelTextureDataV53 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -15045,12 +15045,12 @@ export type ModelConstantDataV53 = {
 }
 
 export type ModelMatConstLinkV53 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV53 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -15066,13 +15066,13 @@ export type ModelMaterialTexTransformV53 = {
 }
 
 export type ModelMeshDataV53 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV53>,
   morphTargets: Array<ModelMeshMorphTargetV53>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -15087,7 +15087,7 @@ export type ModelMeshLodDataV53 = {
 export type ModelMeshMorphTargetV53 = {
   positions: Array<ModelMeshMorphVertV53>,
   normals: Array<ModelMeshMorphVertV53>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV53 = {
@@ -15137,15 +15137,15 @@ export type ModelMeshBindingDataV53 = {
 
 export type ModelTrackMaskV53 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV53 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -15156,7 +15156,7 @@ export type ModelCloudDataV53 = {
 
 export type ModelParticleCloudV53 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -15172,7 +15172,7 @@ export type ModelParticleEmitterV53 = {
   accelerationDistSpeed: Array<number>,
   alignmentType: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -15221,7 +15221,7 @@ export type ModelParticleFlipbookV53 = {
 }
 
 export type ModelObstacleDataV53 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -15249,7 +15249,7 @@ export type ModelStreakV53 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -15260,7 +15260,7 @@ export type ModelStreakV53 = {
 }
 
 export type ModelStreakAnchorV53 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -15274,7 +15274,7 @@ export type ModelLightDataV53 = {
 }
 
 export type ModelEffectLightV53 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -15310,7 +15310,7 @@ export type ModelClothMeshGroupV53 = {
 }
 
 export type ModelClothBoneWeightV53 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -15333,7 +15333,7 @@ export type ModelLightningDataV53 = {
 }
 
 export type ModelLightningSystemV53 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -15341,7 +15341,7 @@ export type ModelLightningSystemV53 = {
 }
 
 export type ModelLightningBoltV53 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -15367,7 +15367,7 @@ export type ModelLightningBoltV53 = {
 }
 
 export type ModelLightningNodeV53 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -15377,7 +15377,7 @@ export type ModelLightningNodeV53 = {
 }
 
 export type ModelBoneConstraintV53 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -15405,7 +15405,7 @@ export type ModelBoneConstraintLinkV53 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV53 = {
@@ -15414,11 +15414,11 @@ export type ModelSoftBodyDataV53 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV53 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>
 }
@@ -15433,7 +15433,7 @@ export type ModelFileDataV54 = {
   streakData: ModelStreakDataV54,
   lightData: ModelLightDataV54,
   clothData: Array<ModelClothDataV54>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -15444,12 +15444,12 @@ export type ModelFileDataV54 = {
 }
 
 export type ModelPermutationDataV54 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV54>
 }
 
 export type ModelMaterialDataV54 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -15465,8 +15465,8 @@ export type ModelMaterialDataV54 = {
 export type ModelTextureDataV54 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -15478,12 +15478,12 @@ export type ModelConstantDataV54 = {
 }
 
 export type ModelMatConstLinkV54 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV54 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -15499,13 +15499,13 @@ export type ModelMaterialTexTransformV54 = {
 }
 
 export type ModelMeshDataV54 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV54>,
   morphTargets: Array<ModelMeshMorphTargetV54>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -15520,7 +15520,7 @@ export type ModelMeshLodDataV54 = {
 export type ModelMeshMorphTargetV54 = {
   positions: Array<ModelMeshMorphVertV54>,
   normals: Array<ModelMeshMorphVertV54>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV54 = {
@@ -15566,8 +15566,8 @@ export type ModelTransformDataV54 = {
 }
 
 export type ModelBoneSymmetryV54 = {
-  boneLeft: number,
-  boneRight: number
+  boneLeft: BigInt,
+  boneRight: BigInt
 }
 
 export type ModelMeshBindingDataV54 = {
@@ -15576,15 +15576,15 @@ export type ModelMeshBindingDataV54 = {
 
 export type ModelTrackMaskV54 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV54 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -15595,7 +15595,7 @@ export type ModelCloudDataV54 = {
 
 export type ModelParticleCloudV54 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -15610,7 +15610,7 @@ export type ModelParticleEmitterV54 = {
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -15667,7 +15667,7 @@ export type ModelMatrix43V54 = {
 }
 
 export type ModelObstacleDataV54 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -15689,7 +15689,7 @@ export type ModelStreakV54 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -15700,7 +15700,7 @@ export type ModelStreakV54 = {
 }
 
 export type ModelStreakAnchorV54 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -15714,7 +15714,7 @@ export type ModelLightDataV54 = {
 }
 
 export type ModelEffectLightV54 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -15751,7 +15751,7 @@ export type ModelClothMeshGroupV54 = {
 }
 
 export type ModelClothBoneWeightV54 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -15774,7 +15774,7 @@ export type ModelLightningDataV54 = {
 }
 
 export type ModelLightningSystemV54 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -15782,7 +15782,7 @@ export type ModelLightningSystemV54 = {
 }
 
 export type ModelLightningBoltV54 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -15808,7 +15808,7 @@ export type ModelLightningBoltV54 = {
 }
 
 export type ModelLightningNodeV54 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -15818,7 +15818,7 @@ export type ModelLightningNodeV54 = {
 }
 
 export type ModelBoneConstraintV54 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -15846,7 +15846,7 @@ export type ModelBoneConstraintLinkV54 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV54 = {
@@ -15855,11 +15855,11 @@ export type ModelSoftBodyDataV54 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV54 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>
 }
@@ -15874,7 +15874,7 @@ export type ModelFileDataV55 = {
   streakData: ModelStreakDataV55,
   lightData: ModelLightDataV55,
   clothData: Array<ModelClothDataV55>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -15885,12 +15885,12 @@ export type ModelFileDataV55 = {
 }
 
 export type ModelPermutationDataV55 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV55>
 }
 
 export type ModelMaterialDataV55 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -15906,8 +15906,8 @@ export type ModelMaterialDataV55 = {
 export type ModelTextureDataV55 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -15919,12 +15919,12 @@ export type ModelConstantDataV55 = {
 }
 
 export type ModelMatConstLinkV55 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV55 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -15940,13 +15940,13 @@ export type ModelMaterialTexTransformV55 = {
 }
 
 export type ModelMeshDataV55 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV55>,
   morphTargets: Array<ModelMeshMorphTargetV55>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -15961,7 +15961,7 @@ export type ModelMeshLodDataV55 = {
 export type ModelMeshMorphTargetV55 = {
   positions: Array<ModelMeshMorphVertV55>,
   normals: Array<ModelMeshMorphVertV55>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV55 = {
@@ -16007,8 +16007,8 @@ export type ModelTransformDataV55 = {
 }
 
 export type ModelBoneSymmetryV55 = {
-  boneLeft: number,
-  boneRight: number
+  boneLeft: BigInt,
+  boneRight: BigInt
 }
 
 export type ModelMeshBindingDataV55 = {
@@ -16017,15 +16017,15 @@ export type ModelMeshBindingDataV55 = {
 
 export type ModelTrackMaskV55 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV55 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -16036,7 +16036,7 @@ export type ModelCloudDataV55 = {
 
 export type ModelParticleCloudV55 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -16051,7 +16051,7 @@ export type ModelParticleEmitterV55 = {
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -16108,7 +16108,7 @@ export type ModelMatrix43V55 = {
 }
 
 export type ModelObstacleDataV55 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -16130,7 +16130,7 @@ export type ModelStreakV55 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -16141,7 +16141,7 @@ export type ModelStreakV55 = {
 }
 
 export type ModelStreakAnchorV55 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -16155,7 +16155,7 @@ export type ModelLightDataV55 = {
 }
 
 export type ModelEffectLightV55 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -16192,7 +16192,7 @@ export type ModelClothMeshGroupV55 = {
 }
 
 export type ModelClothBoneWeightV55 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -16215,7 +16215,7 @@ export type ModelLightningDataV55 = {
 }
 
 export type ModelLightningSystemV55 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -16223,7 +16223,7 @@ export type ModelLightningSystemV55 = {
 }
 
 export type ModelLightningBoltV55 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -16249,7 +16249,7 @@ export type ModelLightningBoltV55 = {
 }
 
 export type ModelLightningNodeV55 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -16259,7 +16259,7 @@ export type ModelLightningNodeV55 = {
 }
 
 export type ModelBoneConstraintV55 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -16287,7 +16287,7 @@ export type ModelBoneConstraintLinkV55 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV55 = {
@@ -16296,11 +16296,11 @@ export type ModelSoftBodyDataV55 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV55 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
@@ -16316,7 +16316,7 @@ export type ModelFileDataV56 = {
   streakData: ModelStreakDataV56,
   lightData: ModelLightDataV56,
   clothData: Array<ModelClothDataV56>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -16328,12 +16328,12 @@ export type ModelFileDataV56 = {
 }
 
 export type ModelPermutationDataV56 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV56>
 }
 
 export type ModelMaterialDataV56 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -16349,8 +16349,8 @@ export type ModelMaterialDataV56 = {
 export type ModelTextureDataV56 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -16362,12 +16362,12 @@ export type ModelConstantDataV56 = {
 }
 
 export type ModelMatConstLinkV56 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV56 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -16383,13 +16383,13 @@ export type ModelMaterialTexTransformV56 = {
 }
 
 export type ModelMeshDataV56 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV56>,
   morphTargets: Array<ModelMeshMorphTargetV56>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -16404,7 +16404,7 @@ export type ModelMeshLodDataV56 = {
 export type ModelMeshMorphTargetV56 = {
   positions: Array<ModelMeshMorphVertV56>,
   normals: Array<ModelMeshMorphVertV56>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV56 = {
@@ -16450,8 +16450,8 @@ export type ModelTransformDataV56 = {
 }
 
 export type ModelBoneSymmetryV56 = {
-  boneLeft: number,
-  boneRight: number
+  boneLeft: BigInt,
+  boneRight: BigInt
 }
 
 export type ModelMeshBindingDataV56 = {
@@ -16460,15 +16460,15 @@ export type ModelMeshBindingDataV56 = {
 
 export type ModelTrackMaskV56 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV56 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -16479,7 +16479,7 @@ export type ModelCloudDataV56 = {
 
 export type ModelParticleCloudV56 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -16494,7 +16494,7 @@ export type ModelParticleEmitterV56 = {
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -16551,7 +16551,7 @@ export type ModelMatrix43V56 = {
 }
 
 export type ModelObstacleDataV56 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -16573,7 +16573,7 @@ export type ModelStreakV56 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -16584,7 +16584,7 @@ export type ModelStreakV56 = {
 }
 
 export type ModelStreakAnchorV56 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -16598,7 +16598,7 @@ export type ModelLightDataV56 = {
 }
 
 export type ModelEffectLightV56 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -16635,7 +16635,7 @@ export type ModelClothMeshGroupV56 = {
 }
 
 export type ModelClothBoneWeightV56 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -16658,7 +16658,7 @@ export type ModelLightningDataV56 = {
 }
 
 export type ModelLightningSystemV56 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -16666,7 +16666,7 @@ export type ModelLightningSystemV56 = {
 }
 
 export type ModelLightningBoltV56 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -16692,7 +16692,7 @@ export type ModelLightningBoltV56 = {
 }
 
 export type ModelLightningNodeV56 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -16702,7 +16702,7 @@ export type ModelLightningNodeV56 = {
 }
 
 export type ModelBoneConstraintV56 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -16730,7 +16730,7 @@ export type ModelBoneConstraintLinkV56 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV56 = {
@@ -16739,11 +16739,11 @@ export type ModelSoftBodyDataV56 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV56 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
@@ -16759,7 +16759,7 @@ export type ModelFileDataV57 = {
   streakData: ModelStreakDataV57,
   lightData: ModelLightDataV57,
   clothData: Array<ModelClothDataV57>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -16772,12 +16772,12 @@ export type ModelFileDataV57 = {
 }
 
 export type ModelPermutationDataV57 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV57>
 }
 
 export type ModelMaterialDataV57 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -16793,8 +16793,8 @@ export type ModelMaterialDataV57 = {
 export type ModelTextureDataV57 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -16806,12 +16806,12 @@ export type ModelConstantDataV57 = {
 }
 
 export type ModelMatConstLinkV57 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV57 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -16827,13 +16827,13 @@ export type ModelMaterialTexTransformV57 = {
 }
 
 export type ModelMeshDataV57 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV57>,
   morphTargets: Array<ModelMeshMorphTargetV57>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -16848,7 +16848,7 @@ export type ModelMeshLodDataV57 = {
 export type ModelMeshMorphTargetV57 = {
   positions: Array<ModelMeshMorphVertV57>,
   normals: Array<ModelMeshMorphVertV57>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV57 = {
@@ -16894,8 +16894,8 @@ export type ModelTransformDataV57 = {
 }
 
 export type ModelBoneSymmetryV57 = {
-  boneLeft: number,
-  boneRight: number
+  boneLeft: BigInt,
+  boneRight: BigInt
 }
 
 export type ModelMeshBindingDataV57 = {
@@ -16904,15 +16904,15 @@ export type ModelMeshBindingDataV57 = {
 
 export type ModelTrackMaskV57 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV57 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -16923,7 +16923,7 @@ export type ModelCloudDataV57 = {
 
 export type ModelParticleCloudV57 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -16938,7 +16938,7 @@ export type ModelParticleEmitterV57 = {
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -16995,7 +16995,7 @@ export type ModelMatrix43V57 = {
 }
 
 export type ModelObstacleDataV57 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -17017,7 +17017,7 @@ export type ModelStreakV57 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -17028,7 +17028,7 @@ export type ModelStreakV57 = {
 }
 
 export type ModelStreakAnchorV57 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -17042,7 +17042,7 @@ export type ModelLightDataV57 = {
 }
 
 export type ModelEffectLightV57 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -17079,7 +17079,7 @@ export type ModelClothMeshGroupV57 = {
 }
 
 export type ModelClothBoneWeightV57 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -17102,7 +17102,7 @@ export type ModelLightningDataV57 = {
 }
 
 export type ModelLightningSystemV57 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -17110,7 +17110,7 @@ export type ModelLightningSystemV57 = {
 }
 
 export type ModelLightningBoltV57 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -17136,7 +17136,7 @@ export type ModelLightningBoltV57 = {
 }
 
 export type ModelLightningNodeV57 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -17146,7 +17146,7 @@ export type ModelLightningNodeV57 = {
 }
 
 export type ModelBoneConstraintV57 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -17174,7 +17174,7 @@ export type ModelBoneConstraintLinkV57 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV57 = {
@@ -17183,19 +17183,19 @@ export type ModelSoftBodyDataV57 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV57 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
 }
 
 export type ModelFixedOffsetDataV57 = {
-  name: number,
-  parentBone: number,
+  name: BigInt,
+  parentBone: BigInt,
   translation: Array<number>
 }
 
@@ -17209,7 +17209,7 @@ export type ModelFileDataV58 = {
   streakData: ModelStreakDataV58,
   lightData: ModelLightDataV58,
   clothData: Array<ModelClothDataV58>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -17222,12 +17222,12 @@ export type ModelFileDataV58 = {
 }
 
 export type ModelPermutationDataV58 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV58>
 }
 
 export type ModelMaterialDataV58 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -17243,8 +17243,8 @@ export type ModelMaterialDataV58 = {
 export type ModelTextureDataV58 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -17256,12 +17256,12 @@ export type ModelConstantDataV58 = {
 }
 
 export type ModelMatConstLinkV58 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV58 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -17277,13 +17277,13 @@ export type ModelMaterialTexTransformV58 = {
 }
 
 export type ModelMeshDataV58 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV58>,
   morphTargets: Array<ModelMeshMorphTargetV58>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -17298,7 +17298,7 @@ export type ModelMeshLodDataV58 = {
 export type ModelMeshMorphTargetV58 = {
   positions: Array<ModelMeshMorphVertV58>,
   normals: Array<ModelMeshMorphVertV58>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV58 = {
@@ -17344,8 +17344,8 @@ export type ModelTransformDataV58 = {
 }
 
 export type ModelBoneSymmetryV58 = {
-  boneLeft: number,
-  boneRight: number
+  boneLeft: BigInt,
+  boneRight: BigInt
 }
 
 export type ModelMeshBindingDataV58 = {
@@ -17354,15 +17354,15 @@ export type ModelMeshBindingDataV58 = {
 
 export type ModelTrackMaskV58 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV58 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -17373,7 +17373,7 @@ export type ModelCloudDataV58 = {
 
 export type ModelParticleCloudV58 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -17388,7 +17388,7 @@ export type ModelParticleEmitterV58 = {
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -17445,7 +17445,7 @@ export type ModelMatrix43V58 = {
 }
 
 export type ModelObstacleDataV58 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -17467,7 +17467,7 @@ export type ModelStreakV58 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -17478,7 +17478,7 @@ export type ModelStreakV58 = {
 }
 
 export type ModelStreakAnchorV58 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -17492,7 +17492,7 @@ export type ModelLightDataV58 = {
 }
 
 export type ModelEffectLightV58 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -17532,7 +17532,7 @@ export type ModelClothMeshGroupV58 = {
 }
 
 export type ModelClothBoneWeightV58 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -17555,7 +17555,7 @@ export type ModelLightningDataV58 = {
 }
 
 export type ModelLightningSystemV58 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -17563,7 +17563,7 @@ export type ModelLightningSystemV58 = {
 }
 
 export type ModelLightningBoltV58 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -17592,7 +17592,7 @@ export type ModelLightningBoltV58 = {
 }
 
 export type ModelLightningNodeV58 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -17602,7 +17602,7 @@ export type ModelLightningNodeV58 = {
 }
 
 export type ModelBoneConstraintV58 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -17630,7 +17630,7 @@ export type ModelBoneConstraintLinkV58 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV58 = {
@@ -17639,19 +17639,19 @@ export type ModelSoftBodyDataV58 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV58 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
 }
 
 export type ModelFixedOffsetDataV58 = {
-  name: number,
-  parentBone: number,
+  name: BigInt,
+  parentBone: BigInt,
   translation: Array<number>
 }
 
@@ -17665,7 +17665,7 @@ export type ModelFileDataV59 = {
   streakData: ModelStreakDataV59,
   lightData: ModelLightDataV59,
   clothData: Array<ModelClothDataV59>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -17678,12 +17678,12 @@ export type ModelFileDataV59 = {
 }
 
 export type ModelPermutationDataV59 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV59>
 }
 
 export type ModelMaterialDataV59 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -17699,8 +17699,8 @@ export type ModelMaterialDataV59 = {
 export type ModelTextureDataV59 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -17712,12 +17712,12 @@ export type ModelConstantDataV59 = {
 }
 
 export type ModelMatConstLinkV59 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV59 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -17733,13 +17733,13 @@ export type ModelMaterialTexTransformV59 = {
 }
 
 export type ModelMeshDataV59 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV59>,
   morphTargets: Array<ModelMeshMorphTargetV59>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -17754,7 +17754,7 @@ export type ModelMeshLodDataV59 = {
 export type ModelMeshMorphTargetV59 = {
   positions: Array<ModelMeshMorphVertV59>,
   normals: Array<ModelMeshMorphVertV59>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV59 = {
@@ -17800,8 +17800,8 @@ export type ModelTransformDataV59 = {
 }
 
 export type ModelBoneSymmetryV59 = {
-  boneLeft: number,
-  boneRight: number
+  boneLeft: BigInt,
+  boneRight: BigInt
 }
 
 export type ModelMeshBindingDataV59 = {
@@ -17810,15 +17810,15 @@ export type ModelMeshBindingDataV59 = {
 
 export type ModelTrackMaskV59 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV59 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -17829,7 +17829,7 @@ export type ModelCloudDataV59 = {
 
 export type ModelParticleCloudV59 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -17844,7 +17844,7 @@ export type ModelParticleEmitterV59 = {
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -17901,7 +17901,7 @@ export type ModelMatrix43V59 = {
 }
 
 export type ModelObstacleDataV59 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -17923,7 +17923,7 @@ export type ModelStreakV59 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -17934,7 +17934,7 @@ export type ModelStreakV59 = {
 }
 
 export type ModelStreakAnchorV59 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -17948,7 +17948,7 @@ export type ModelLightDataV59 = {
 }
 
 export type ModelEffectLightV59 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -17988,7 +17988,7 @@ export type ModelClothMeshGroupV59 = {
 }
 
 export type ModelClothBoneWeightV59 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
@@ -18011,7 +18011,7 @@ export type ModelLightningDataV59 = {
 }
 
 export type ModelLightningSystemV59 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -18019,7 +18019,7 @@ export type ModelLightningSystemV59 = {
 }
 
 export type ModelLightningBoltV59 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -18049,7 +18049,7 @@ export type ModelLightningBoltV59 = {
 }
 
 export type ModelLightningNodeV59 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -18059,7 +18059,7 @@ export type ModelLightningNodeV59 = {
 }
 
 export type ModelBoneConstraintV59 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -18087,7 +18087,7 @@ export type ModelBoneConstraintLinkV59 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV59 = {
@@ -18096,19 +18096,19 @@ export type ModelSoftBodyDataV59 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV59 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
 }
 
 export type ModelFixedOffsetDataV59 = {
-  name: number,
-  parentBone: number,
+  name: BigInt,
+  parentBone: BigInt,
   translation: Array<number>
 }
 
@@ -18122,7 +18122,7 @@ export type ModelFileDataV60 = {
   streakData: ModelStreakDataV60,
   lightData: ModelLightDataV60,
   clothData: Array<ModelClothDataV60>,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -18135,12 +18135,12 @@ export type ModelFileDataV60 = {
 }
 
 export type ModelPermutationDataV60 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV60>
 }
 
 export type ModelMaterialDataV60 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -18156,8 +18156,8 @@ export type ModelMaterialDataV60 = {
 export type ModelTextureDataV60 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -18169,12 +18169,12 @@ export type ModelConstantDataV60 = {
 }
 
 export type ModelMatConstLinkV60 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV60 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -18190,13 +18190,13 @@ export type ModelMaterialTexTransformV60 = {
 }
 
 export type ModelMeshDataV60 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV60>,
   morphTargets: Array<ModelMeshMorphTargetV60>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -18211,7 +18211,7 @@ export type ModelMeshLodDataV60 = {
 export type ModelMeshMorphTargetV60 = {
   positions: Array<ModelMeshMorphVertV60>,
   normals: Array<ModelMeshMorphVertV60>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV60 = {
@@ -18257,8 +18257,8 @@ export type ModelTransformDataV60 = {
 }
 
 export type ModelBoneSymmetryV60 = {
-  boneLeft: number,
-  boneRight: number
+  boneLeft: BigInt,
+  boneRight: BigInt
 }
 
 export type ModelMeshBindingDataV60 = {
@@ -18267,15 +18267,15 @@ export type ModelMeshBindingDataV60 = {
 
 export type ModelTrackMaskV60 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV60 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -18286,7 +18286,7 @@ export type ModelCloudDataV60 = {
 
 export type ModelParticleCloudV60 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -18301,7 +18301,7 @@ export type ModelParticleEmitterV60 = {
   accelerationDistRange: Array<number>,
   accelerationDistSpeed: Array<number>,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -18358,7 +18358,7 @@ export type ModelMatrix43V60 = {
 }
 
 export type ModelObstacleDataV60 = {
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -18380,7 +18380,7 @@ export type ModelStreakV60 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -18391,7 +18391,7 @@ export type ModelStreakV60 = {
 }
 
 export type ModelStreakAnchorV60 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -18405,7 +18405,7 @@ export type ModelLightDataV60 = {
 }
 
 export type ModelEffectLightV60 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -18446,12 +18446,12 @@ export type ModelClothMeshGroupV60 = {
 }
 
 export type ModelClothBoneWeightV60 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
 export type ModelClothGroupBindingV60 = {
-  strippedToken: number,
+  strippedToken: BigInt,
   boneName: string,
   OBBMin: Array<number>,
   OBBMax: Array<number>
@@ -18476,7 +18476,7 @@ export type ModelLightningDataV60 = {
 }
 
 export type ModelLightningSystemV60 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -18484,7 +18484,7 @@ export type ModelLightningSystemV60 = {
 }
 
 export type ModelLightningBoltV60 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -18514,7 +18514,7 @@ export type ModelLightningBoltV60 = {
 }
 
 export type ModelLightningNodeV60 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -18524,7 +18524,7 @@ export type ModelLightningNodeV60 = {
 }
 
 export type ModelBoneConstraintV60 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -18552,7 +18552,7 @@ export type ModelBoneConstraintLinkV60 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV60 = {
@@ -18561,19 +18561,19 @@ export type ModelSoftBodyDataV60 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV60 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
 }
 
 export type ModelFixedOffsetDataV60 = {
-  name: number,
-  parentBone: number,
+  name: BigInt,
+  parentBone: BigInt,
   translation: Array<number>
 }
 
@@ -18588,7 +18588,7 @@ export type ModelFileDataV61 = {
   lightData: ModelLightDataV61,
   clothData: Array<ModelClothDataV61>,
   windData: ModelWindDataV61,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -18601,12 +18601,12 @@ export type ModelFileDataV61 = {
 }
 
 export type ModelPermutationDataV61 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV61>
 }
 
 export type ModelMaterialDataV61 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -18622,8 +18622,8 @@ export type ModelMaterialDataV61 = {
 export type ModelTextureDataV61 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -18635,12 +18635,12 @@ export type ModelConstantDataV61 = {
 }
 
 export type ModelMatConstLinkV61 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV61 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -18656,13 +18656,13 @@ export type ModelMaterialTexTransformV61 = {
 }
 
 export type ModelMeshDataV61 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV61>,
   morphTargets: Array<ModelMeshMorphTargetV61>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -18677,7 +18677,7 @@ export type ModelMeshLodDataV61 = {
 export type ModelMeshMorphTargetV61 = {
   positions: Array<ModelMeshMorphVertV61>,
   normals: Array<ModelMeshMorphVertV61>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV61 = {
@@ -18723,8 +18723,8 @@ export type ModelTransformDataV61 = {
 }
 
 export type ModelBoneSymmetryV61 = {
-  boneLeft: number,
-  boneRight: number
+  boneLeft: BigInt,
+  boneRight: BigInt
 }
 
 export type ModelMeshBindingDataV61 = {
@@ -18733,15 +18733,15 @@ export type ModelMeshBindingDataV61 = {
 
 export type ModelTrackMaskV61 = {
   trackMask: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelPropertyDataV61 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
@@ -18752,7 +18752,7 @@ export type ModelCloudDataV61 = {
 
 export type ModelParticleCloudV61 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -18768,7 +18768,7 @@ export type ModelParticleEmitterV61 = {
   accelerationDistSpeed: Array<number>,
   affinity: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -18826,7 +18826,7 @@ export type ModelMatrix43V61 = {
 
 export type ModelObstacleDataV61 = {
   affinity: number,
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -18848,7 +18848,7 @@ export type ModelStreakV61 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -18859,7 +18859,7 @@ export type ModelStreakV61 = {
 }
 
 export type ModelStreakAnchorV61 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -18873,7 +18873,7 @@ export type ModelLightDataV61 = {
 }
 
 export type ModelEffectLightV61 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -18914,12 +18914,12 @@ export type ModelClothMeshGroupV61 = {
 }
 
 export type ModelClothBoneWeightV61 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
 export type ModelClothGroupBindingV61 = {
-  strippedToken: number,
+  strippedToken: BigInt,
   boneName: string,
   OBBMin: Array<number>,
   OBBMax: Array<number>
@@ -18942,7 +18942,7 @@ export type ModelWindDataV61 = {
 }
 
 export type ModelEffectWindV61 = {
-  bone: number,
+  bone: BigInt,
   farDistance: number,
   intensity: number,
   nearDistance: number
@@ -18955,7 +18955,7 @@ export type ModelLightningDataV61 = {
 }
 
 export type ModelLightningSystemV61 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -18963,7 +18963,7 @@ export type ModelLightningSystemV61 = {
 }
 
 export type ModelLightningBoltV61 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -18993,7 +18993,7 @@ export type ModelLightningBoltV61 = {
 }
 
 export type ModelLightningNodeV61 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -19003,7 +19003,7 @@ export type ModelLightningNodeV61 = {
 }
 
 export type ModelBoneConstraintV61 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -19031,7 +19031,7 @@ export type ModelBoneConstraintLinkV61 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelSoftBodyDataV61 = {
@@ -19040,19 +19040,19 @@ export type ModelSoftBodyDataV61 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV61 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
 }
 
 export type ModelFixedOffsetDataV61 = {
-  name: number,
-  parentBone: number,
+  name: BigInt,
+  parentBone: BigInt,
   translation: Array<number>
 }
 
@@ -19065,7 +19065,7 @@ export type ModelFileDataV62 = {
   lightData: ModelLightDataV62,
   clothData: Array<ModelClothDataV62>,
   windData: ModelWindDataV62,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -19076,12 +19076,12 @@ export type ModelFileDataV62 = {
 }
 
 export type ModelPermutationDataV62 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV62>
 }
 
 export type ModelMaterialDataV62 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -19097,8 +19097,8 @@ export type ModelMaterialDataV62 = {
 export type ModelTextureDataV62 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -19110,12 +19110,12 @@ export type ModelConstantDataV62 = {
 }
 
 export type ModelMatConstLinkV62 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV62 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -19131,13 +19131,13 @@ export type ModelMaterialTexTransformV62 = {
 }
 
 export type ModelMeshDataV62 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV62>,
   morphTargets: Array<ModelMeshMorphTargetV62>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -19152,7 +19152,7 @@ export type ModelMeshLodDataV62 = {
 export type ModelMeshMorphTargetV62 = {
   positions: Array<ModelMeshMorphVertV62>,
   normals: Array<ModelMeshMorphVertV62>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV62 = {
@@ -19167,7 +19167,7 @@ export type ModelCloudDataV62 = {
 
 export type ModelParticleCloudV62 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -19183,7 +19183,7 @@ export type ModelParticleEmitterV62 = {
   accelerationDistSpeed: Array<number>,
   affinity: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -19241,7 +19241,7 @@ export type ModelMatrix43V62 = {
 
 export type ModelObstacleDataV62 = {
   affinity: number,
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -19263,7 +19263,7 @@ export type ModelStreakV62 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -19274,7 +19274,7 @@ export type ModelStreakV62 = {
 }
 
 export type ModelStreakAnchorV62 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -19288,7 +19288,7 @@ export type ModelLightDataV62 = {
 }
 
 export type ModelEffectLightV62 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -19330,12 +19330,12 @@ export type ModelClothMeshGroupV62 = {
 }
 
 export type ModelClothBoneWeightV62 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
 export type ModelClothGroupBindingV62 = {
-  strippedToken: number,
+  strippedToken: BigInt,
   boneName: string,
   OBBMin: Array<number>,
   OBBMax: Array<number>
@@ -19358,7 +19358,7 @@ export type ModelWindDataV62 = {
 }
 
 export type ModelEffectWindV62 = {
-  bone: number,
+  bone: BigInt,
   farDistance: number,
   intensity: number,
   nearDistance: number
@@ -19371,7 +19371,7 @@ export type ModelLightningDataV62 = {
 }
 
 export type ModelLightningSystemV62 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -19379,7 +19379,7 @@ export type ModelLightningSystemV62 = {
 }
 
 export type ModelLightningBoltV62 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -19409,7 +19409,7 @@ export type ModelLightningBoltV62 = {
 }
 
 export type ModelLightningNodeV62 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -19424,11 +19424,11 @@ export type ModelSoftBodyDataV62 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV62 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
@@ -19448,7 +19448,7 @@ export type ModelFileDataV63 = {
   lightData: ModelLightDataV63,
   clothData: Array<ModelClothDataV63>,
   windData: ModelWindDataV63,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -19459,12 +19459,12 @@ export type ModelFileDataV63 = {
 }
 
 export type ModelPermutationDataV63 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV63>
 }
 
 export type ModelMaterialDataV63 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -19480,8 +19480,8 @@ export type ModelMaterialDataV63 = {
 export type ModelTextureDataV63 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -19493,12 +19493,12 @@ export type ModelConstantDataV63 = {
 }
 
 export type ModelMatConstLinkV63 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV63 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -19514,13 +19514,13 @@ export type ModelMaterialTexTransformV63 = {
 }
 
 export type ModelMeshDataV63 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV63>,
   morphTargets: Array<ModelMeshMorphTargetV63>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -19535,7 +19535,7 @@ export type ModelMeshLodDataV63 = {
 export type ModelMeshMorphTargetV63 = {
   positions: Array<ModelMeshMorphVertV63>,
   normals: Array<ModelMeshMorphVertV63>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV63 = {
@@ -19550,7 +19550,7 @@ export type ModelCloudDataV63 = {
 
 export type ModelParticleCloudV63 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -19566,7 +19566,7 @@ export type ModelParticleEmitterV63 = {
   accelerationDistSpeed: Array<number>,
   affinity: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -19624,7 +19624,7 @@ export type ModelMatrix43V63 = {
 
 export type ModelObstacleDataV63 = {
   affinity: number,
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -19646,7 +19646,7 @@ export type ModelStreakV63 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -19657,7 +19657,7 @@ export type ModelStreakV63 = {
 }
 
 export type ModelStreakAnchorV63 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -19671,7 +19671,7 @@ export type ModelLightDataV63 = {
 }
 
 export type ModelEffectLightV63 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -19713,12 +19713,12 @@ export type ModelClothMeshGroupV63 = {
 }
 
 export type ModelClothBoneWeightV63 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
 export type ModelClothGroupBindingV63 = {
-  strippedToken: number,
+  strippedToken: BigInt,
   boneName: string,
   OBBMin: Array<number>,
   OBBMax: Array<number>
@@ -19741,7 +19741,7 @@ export type ModelWindDataV63 = {
 }
 
 export type ModelEffectWindV63 = {
-  bone: number,
+  bone: BigInt,
   farDistance: number,
   intensity: number,
   nearDistance: number
@@ -19754,7 +19754,7 @@ export type ModelLightningDataV63 = {
 }
 
 export type ModelLightningSystemV63 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -19762,7 +19762,7 @@ export type ModelLightningSystemV63 = {
 }
 
 export type ModelLightningBoltV63 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -19792,7 +19792,7 @@ export type ModelLightningBoltV63 = {
 }
 
 export type ModelLightningNodeV63 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -19807,11 +19807,11 @@ export type ModelSoftBodyDataV63 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV63 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
@@ -19831,7 +19831,7 @@ export type ModelFileDataV64 = {
   lightData: ModelLightDataV64,
   clothData: Array<ModelClothDataV64>,
   windData: ModelWindDataV64,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -19842,12 +19842,12 @@ export type ModelFileDataV64 = {
 }
 
 export type ModelPermutationDataV64 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV64>
 }
 
 export type ModelMaterialDataV64 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -19863,8 +19863,8 @@ export type ModelMaterialDataV64 = {
 export type ModelTextureDataV64 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -19876,12 +19876,12 @@ export type ModelConstantDataV64 = {
 }
 
 export type ModelMatConstLinkV64 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV64 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -19901,13 +19901,13 @@ export type ModelMaterialTexTransformV64 = {
 }
 
 export type ModelMeshDataV64 = {
-  visBone: number,
+  visBone: BigInt,
   lods: Array<ModelMeshLodDataV64>,
   morphTargets: Array<ModelMeshMorphTargetV64>,
   mesh: PackGrannyMeshType,
   flags: number,
   seamVertIndices: Array<number>,
-  meshName: number,
+  meshName: BigInt,
   minBound: Array<number>,
   maxBound: Array<number>,
   bounds: Array<GrBoundData>,
@@ -19922,7 +19922,7 @@ export type ModelMeshLodDataV64 = {
 export type ModelMeshMorphTargetV64 = {
   positions: Array<ModelMeshMorphVertV64>,
   normals: Array<ModelMeshMorphVertV64>,
-  mesh: number
+  mesh: BigInt
 }
 
 export type ModelMeshMorphVertV64 = {
@@ -19937,7 +19937,7 @@ export type ModelCloudDataV64 = {
 
 export type ModelParticleCloudV64 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -19953,7 +19953,7 @@ export type ModelParticleEmitterV64 = {
   accelerationDistSpeed: Array<number>,
   affinity: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -20011,7 +20011,7 @@ export type ModelMatrix43V64 = {
 
 export type ModelObstacleDataV64 = {
   affinity: number,
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -20033,7 +20033,7 @@ export type ModelStreakV64 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -20044,7 +20044,7 @@ export type ModelStreakV64 = {
 }
 
 export type ModelStreakAnchorV64 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -20058,7 +20058,7 @@ export type ModelLightDataV64 = {
 }
 
 export type ModelEffectLightV64 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -20093,7 +20093,7 @@ export type ModelClothDataV64 = {
   flags: number,
   rigidness: number,
   translateWeight: number,
-  visBone: number
+  visBone: BigInt
 }
 
 export type ModelClothMeshGroupV64 = {
@@ -20101,12 +20101,12 @@ export type ModelClothMeshGroupV64 = {
 }
 
 export type ModelClothBoneWeightV64 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
 export type ModelClothGroupBindingV64 = {
-  strippedToken: number,
+  strippedToken: BigInt,
   boneName: string,
   OBBMin: Array<number>,
   OBBMax: Array<number>
@@ -20129,7 +20129,7 @@ export type ModelWindDataV64 = {
 }
 
 export type ModelEffectWindV64 = {
-  bone: number,
+  bone: BigInt,
   farDistance: number,
   intensity: number,
   nearDistance: number
@@ -20142,7 +20142,7 @@ export type ModelLightningDataV64 = {
 }
 
 export type ModelLightningSystemV64 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -20150,7 +20150,7 @@ export type ModelLightningSystemV64 = {
 }
 
 export type ModelLightningBoltV64 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -20180,7 +20180,7 @@ export type ModelLightningBoltV64 = {
 }
 
 export type ModelLightningNodeV64 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -20195,11 +20195,11 @@ export type ModelSoftBodyDataV64 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV64 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>
@@ -20218,7 +20218,7 @@ export type ModelFileDataV65 = {
   lightData: ModelLightDataV65,
   clothData: Array<ModelClothDataV65>,
   windData: ModelWindDataV65,
-  actionOffsetNames: Array<number>,
+  actionOffsetNames: Array<BigInt>,
   actionOffsets: Array<Array<number>>,
   lodOverride: Array<number>,
   soundScript: string,
@@ -20229,12 +20229,12 @@ export type ModelFileDataV65 = {
 }
 
 export type ModelPermutationDataV65 = {
-  token: number,
+  token: BigInt,
   materials: Array<ModelMaterialDataV65>
 }
 
 export type ModelMaterialDataV65 = {
-  token: number,
+  token: BigInt,
   materialId: number,
   filename: string,
   materialFlags: number,
@@ -20250,8 +20250,8 @@ export type ModelMaterialDataV65 = {
 export type ModelTextureDataV65 = {
   filename: string,
   textureFlags: number,
-  token: number,
-  blitId: number,
+  token: BigInt,
+  blitId: BigInt,
   uvAnimId: number,
   uvPSInputIndex: number
 }
@@ -20263,12 +20263,12 @@ export type ModelConstantDataV65 = {
 }
 
 export type ModelMatConstLinkV65 = {
-  linkToken: number,
+  linkToken: BigInt,
   constantToken: number
 }
 
 export type ModelUVTransLinkV65 = {
-  linkToken: number,
+  linkToken: BigInt,
   uvAnimId: number,
   type: number
 }
@@ -20294,7 +20294,7 @@ export type ModelCloudDataV65 = {
 
 export type ModelParticleCloudV65 = {
   acceleration: Array<number>,
-  bone: number,
+  bone: BigInt,
   drag: number,
   emitterIndices: Array<number>,
   fvf: number,
@@ -20310,7 +20310,7 @@ export type ModelParticleEmitterV65 = {
   accelerationDistSpeed: Array<number>,
   affinity: number,
   alignmentDir: Array<number>,
-  bone: number,
+  bone: BigInt,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
   colorPeriod: number,
@@ -20368,7 +20368,7 @@ export type ModelMatrix43V65 = {
 
 export type ModelObstacleDataV65 = {
   affinity: number,
-  bone: number,
+  bone: BigInt,
   type: number,
   response: number,
   flags: number,
@@ -20390,7 +20390,7 @@ export type ModelStreakV65 = {
   acceleration: Array<number>,
   velocity: Array<number>,
   anchorIndices: Array<number>,
-  bone: number,
+  bone: BigInt,
   flags: number,
   jitter: number,
   materialIndex: number,
@@ -20401,7 +20401,7 @@ export type ModelStreakV65 = {
 }
 
 export type ModelStreakAnchorV65 = {
-  bone: number,
+  bone: BigInt,
   colorStart: number,
   colorEnd: number,
   falloff: number,
@@ -20415,7 +20415,7 @@ export type ModelLightDataV65 = {
 }
 
 export type ModelEffectLightV65 = {
-  bone: number,
+  bone: BigInt,
   color: Array<number>,
   farDistance: number,
   intensity: number,
@@ -20450,7 +20450,7 @@ export type ModelClothDataV65 = {
   flags: number,
   rigidness: number,
   translateWeight: number,
-  visBone: number
+  visBone: BigInt
 }
 
 export type ModelClothMeshGroupV65 = {
@@ -20458,12 +20458,12 @@ export type ModelClothMeshGroupV65 = {
 }
 
 export type ModelClothBoneWeightV65 = {
-  token: number,
+  token: BigInt,
   weight: number
 }
 
 export type ModelClothGroupBindingV65 = {
-  strippedToken: number,
+  strippedToken: BigInt,
   boneName: string,
   OBBMin: Array<number>,
   OBBMax: Array<number>
@@ -20486,7 +20486,7 @@ export type ModelWindDataV65 = {
 }
 
 export type ModelEffectWindV65 = {
-  bone: number,
+  bone: BigInt,
   farDistance: number,
   intensity: number,
   nearDistance: number
@@ -20499,7 +20499,7 @@ export type ModelLightningDataV65 = {
 }
 
 export type ModelLightningSystemV65 = {
-  bone: number,
+  bone: BigInt,
   boltIndices: Array<number>,
   flags: number,
   fvf: number,
@@ -20507,7 +20507,7 @@ export type ModelLightningSystemV65 = {
 }
 
 export type ModelLightningBoltV65 = {
-  bone: number,
+  bone: BigInt,
   nodeIndices: Array<number>,
   colorBegin: Array<number>,
   colorEnd: Array<number>,
@@ -20537,7 +20537,7 @@ export type ModelLightningBoltV65 = {
 }
 
 export type ModelLightningNodeV65 = {
-  bone: number,
+  bone: BigInt,
   childrenIndices: Array<number>,
   flags: number,
   probability: number,
@@ -20552,11 +20552,11 @@ export type ModelSoftBodyDataV65 = {
   vertexFvf: number,
   vertBytes: Array<number>,
   indices: Array<number>,
-  bones: Array<number>
+  bones: Array<BigInt>
 }
 
 export type ModelBoneOffsetDataV65 = {
-  bone: number,
+  bone: BigInt,
   translation: Array<number>,
   rotation: Array<number>,
   boneInverseOffset: Array<Array<number>>

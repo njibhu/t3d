@@ -9,13 +9,13 @@ export type SequenceDataV0 = {
   environmentMap: string,
   map: string,
   clientMap: string,
-  name: number,
+  name: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV0>
 }
 
 export type TrackGroupDataV0 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV0>,
@@ -24,12 +24,12 @@ export type TrackGroupDataV0 = {
 
 export type PropertyDataV0 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV0 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV0>,
   flagKey: Array<FlagKeyDataV0>,
@@ -54,8 +54,8 @@ export type TriggerKeyDataV0 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -72,7 +72,7 @@ export type AmbientLightDataV0 = {
   ambientSkyColor: ColorDefDataV0,
   fillColor: ColorDefDataV0,
   hemisphericalColor: ColorDefDataV0,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV0 = {
@@ -81,7 +81,7 @@ export type ColorDefDataV0 = {
 }
 
 export type TextResourceDataV0 = {
-  name: number,
+  name: BigInt,
   textEntry: Array<TextEntryDataV0>
 }
 
@@ -99,13 +99,13 @@ export type SequenceDataV1 = {
   environmentMap: string,
   map: string,
   clientMap: string,
-  name: number,
+  name: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV1>
 }
 
 export type TrackGroupDataV1 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV1>,
@@ -114,12 +114,12 @@ export type TrackGroupDataV1 = {
 
 export type PropertyDataV1 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV1 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV1>,
   flagKey: Array<FlagKeyDataV1>,
@@ -144,8 +144,8 @@ export type TriggerKeyDataV1 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -163,7 +163,7 @@ export type AmbientLightDataV1 = {
   ambientSkyColor: ColorDefDataV1,
   fillColor: ColorDefDataV1,
   hemisphericalColor: ColorDefDataV1,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV1 = {
@@ -172,12 +172,12 @@ export type ColorDefDataV1 = {
 }
 
 export type ScriptDataV1 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV1 = {
-  name: number,
+  name: BigInt,
   textEntry: Array<TextEntryDataV1>
 }
 
@@ -187,7 +187,7 @@ export type TextEntryDataV1 = {
 }
 
 export type SceneDataV2 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV2>,
   resources: ResourceDataV2
 }
@@ -196,13 +196,13 @@ export type SequenceDataV2 = {
   environmentMap: string,
   map: string,
   clientMap: string,
-  name: number,
+  name: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV2>
 }
 
 export type TrackGroupDataV2 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV2>,
@@ -211,12 +211,12 @@ export type TrackGroupDataV2 = {
 
 export type PropertyDataV2 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV2 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV2>,
   flagKey: Array<FlagKeyDataV2>,
@@ -241,8 +241,8 @@ export type TriggerKeyDataV2 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -260,7 +260,7 @@ export type AmbientLightDataV2 = {
   ambientSkyColor: ColorDefDataV2,
   fillColor: ColorDefDataV2,
   hemisphericalColor: ColorDefDataV2,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV2 = {
@@ -269,12 +269,12 @@ export type ColorDefDataV2 = {
 }
 
 export type ScriptDataV2 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV2 = {
-  name: number,
+  name: BigInt,
   textEntry: Array<TextEntryDataV2>
 }
 
@@ -284,7 +284,7 @@ export type TextEntryDataV2 = {
 }
 
 export type SceneDataV3 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV3>,
   resources: ResourceDataV3
 }
@@ -293,13 +293,13 @@ export type SequenceDataV3 = {
   environmentMap: string,
   map: string,
   clientMap: string,
-  name: number,
+  name: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV3>
 }
 
 export type TrackGroupDataV3 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV3>,
@@ -308,12 +308,12 @@ export type TrackGroupDataV3 = {
 
 export type PropertyDataV3 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV3 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV3>,
   flagKey: Array<FlagKeyDataV3>,
@@ -338,8 +338,8 @@ export type TriggerKeyDataV3 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -357,7 +357,7 @@ export type AmbientLightDataV3 = {
   ambientSkyColor: ColorDefDataV3,
   fillColor: ColorDefDataV3,
   hemisphericalColor: ColorDefDataV3,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV3 = {
@@ -366,12 +366,12 @@ export type ColorDefDataV3 = {
 }
 
 export type ScriptDataV3 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV3 = {
-  name: number,
+  name: BigInt,
   textEntry: Array<TextEntryDataV3>
 }
 
@@ -381,7 +381,7 @@ export type TextEntryDataV3 = {
 }
 
 export type SceneDataV4 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV4>,
   resources: ResourceDataV4
 }
@@ -390,13 +390,13 @@ export type SequenceDataV4 = {
   environmentMap: string,
   map: string,
   clientMap: string,
-  name: number,
+  name: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV4>
 }
 
 export type TrackGroupDataV4 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV4>,
@@ -405,12 +405,12 @@ export type TrackGroupDataV4 = {
 
 export type PropertyDataV4 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV4 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV4>,
   flagKey: Array<FlagKeyDataV4>,
@@ -435,8 +435,8 @@ export type TriggerKeyDataV4 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -454,7 +454,7 @@ export type AmbientLightDataV4 = {
   ambientSkyColor: ColorDefDataV4,
   fillColor: ColorDefDataV4,
   hemisphericalColor: ColorDefDataV4,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV4 = {
@@ -463,12 +463,12 @@ export type ColorDefDataV4 = {
 }
 
 export type ScriptDataV4 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV4 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV4>
 }
@@ -479,7 +479,7 @@ export type TextEntryDataV4 = {
 }
 
 export type SceneDataV5 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV5>,
   resources: ResourceDataV5
 }
@@ -488,13 +488,13 @@ export type SequenceDataV5 = {
   environmentMap: string,
   map: string,
   clientMap: string,
-  name: number,
+  name: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV5>
 }
 
 export type TrackGroupDataV5 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV5>,
@@ -503,12 +503,12 @@ export type TrackGroupDataV5 = {
 
 export type PropertyDataV5 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV5 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV5>,
   flagKey: Array<FlagKeyDataV5>,
@@ -533,8 +533,8 @@ export type TriggerKeyDataV5 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -552,7 +552,7 @@ export type AmbientLightDataV5 = {
   ambientSkyColor: ColorDefDataV5,
   fillColor: ColorDefDataV5,
   hemisphericalColor: ColorDefDataV5,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV5 = {
@@ -561,12 +561,12 @@ export type ColorDefDataV5 = {
 }
 
 export type ScriptDataV5 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV5 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV5>
 }
@@ -577,13 +577,13 @@ export type TextEntryDataV5 = {
 }
 
 export type SceneDataV6 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV6>,
   resources: ResourceDataV6
 }
 
 export type SequenceDataV6 = {
-  name: number,
+  name: BigInt,
   length: number,
   environmentMap: string,
   map: string,
@@ -592,7 +592,7 @@ export type SequenceDataV6 = {
 }
 
 export type TrackGroupDataV6 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV6>,
@@ -601,12 +601,12 @@ export type TrackGroupDataV6 = {
 
 export type PropertyDataV6 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV6 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV6>,
   flagKey: Array<FlagKeyDataV6>,
@@ -631,8 +631,8 @@ export type TriggerKeyDataV6 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -650,7 +650,7 @@ export type AmbientLightDataV6 = {
   ambientSkyColor: ColorDefDataV6,
   fillColor: ColorDefDataV6,
   hemisphericalColor: ColorDefDataV6,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV6 = {
@@ -659,12 +659,12 @@ export type ColorDefDataV6 = {
 }
 
 export type ScriptDataV6 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV6 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV6>
 }
@@ -675,13 +675,13 @@ export type TextEntryDataV6 = {
 }
 
 export type SceneDataV7 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV7>,
   resources: ResourceDataV7
 }
 
 export type SequenceDataV7 = {
-  name: number,
+  name: BigInt,
   length: number,
   environmentMap: string,
   map: string,
@@ -690,7 +690,7 @@ export type SequenceDataV7 = {
 }
 
 export type TrackGroupDataV7 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV7>,
@@ -699,12 +699,12 @@ export type TrackGroupDataV7 = {
 
 export type PropertyDataV7 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV7 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV7>,
   flagKey: Array<FlagKeyDataV7>,
@@ -729,8 +729,8 @@ export type TriggerKeyDataV7 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -748,7 +748,7 @@ export type AmbientLightDataV7 = {
   ambientSkyColor: ColorDefDataV7,
   fillColor: ColorDefDataV7,
   hemisphericalColor: ColorDefDataV7,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV7 = {
@@ -757,12 +757,12 @@ export type ColorDefDataV7 = {
 }
 
 export type ScriptDataV7 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV7 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV7>
 }
@@ -773,13 +773,13 @@ export type TextEntryDataV7 = {
 }
 
 export type SceneDataV8 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV8>,
   resources: ResourceDataV8
 }
 
 export type SequenceDataV8 = {
-  name: number,
+  name: BigInt,
   length: number,
   environmentMap: string,
   map: string,
@@ -788,7 +788,7 @@ export type SequenceDataV8 = {
 }
 
 export type TrackGroupDataV8 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV8>,
@@ -797,12 +797,12 @@ export type TrackGroupDataV8 = {
 
 export type PropertyDataV8 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV8 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV8>,
   flagKey: Array<FlagKeyDataV8>,
@@ -827,8 +827,8 @@ export type TriggerKeyDataV8 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -847,7 +847,7 @@ export type AmbientLightDataV8 = {
   ambientSkyColor: ColorDefDataV8,
   fillColor: ColorDefDataV8,
   hemisphericalColor: ColorDefDataV8,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV8 = {
@@ -856,17 +856,17 @@ export type ColorDefDataV8 = {
 }
 
 export type FileNameRefDataV8 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV8 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV8 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV8>
 }
@@ -877,13 +877,13 @@ export type TextEntryDataV8 = {
 }
 
 export type SceneDataV9 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV9>,
   resources: ResourceDataV9
 }
 
 export type SequenceDataV9 = {
-  name: number,
+  name: BigInt,
   length: number,
   environmentMap: string,
   map: string,
@@ -892,7 +892,7 @@ export type SequenceDataV9 = {
 }
 
 export type TrackGroupDataV9 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV9>,
@@ -901,12 +901,12 @@ export type TrackGroupDataV9 = {
 
 export type PropertyDataV9 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV9 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV9>,
   flagKey: Array<FlagKeyDataV9>,
@@ -931,8 +931,8 @@ export type TriggerKeyDataV9 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -952,7 +952,7 @@ export type AmbientLightDataV9 = {
   ambientSkyColor: ColorDefDataV9,
   fillColor: ColorDefDataV9,
   hemisphericalColor: ColorDefDataV9,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV9 = {
@@ -961,17 +961,17 @@ export type ColorDefDataV9 = {
 }
 
 export type FileNameRefDataV9 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV9 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV9 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV9>
 }
@@ -982,13 +982,13 @@ export type TextEntryDataV9 = {
 }
 
 export type SceneDataV10 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV10>,
   resources: ResourceDataV10
 }
 
 export type SequenceDataV10 = {
-  name: number,
+  name: BigInt,
   length: number,
   environmentMap: string,
   map: string,
@@ -997,7 +997,7 @@ export type SequenceDataV10 = {
 }
 
 export type TrackGroupDataV10 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV10>,
@@ -1006,12 +1006,12 @@ export type TrackGroupDataV10 = {
 
 export type PropertyDataV10 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV10 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV10>,
   flagKey: Array<FlagKeyDataV10>,
@@ -1036,8 +1036,8 @@ export type TriggerKeyDataV10 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -1057,7 +1057,7 @@ export type AmbientLightDataV10 = {
   ambientSkyColor: ColorDefDataV10,
   fillColor: ColorDefDataV10,
   hemisphericalColor: ColorDefDataV10,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV10 = {
@@ -1066,17 +1066,17 @@ export type ColorDefDataV10 = {
 }
 
 export type FileNameRefDataV10 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV10 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV10 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV10>
 }
@@ -1087,13 +1087,13 @@ export type TextEntryDataV10 = {
 }
 
 export type SceneDataV11 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV11>,
   resources: ResourceDataV11
 }
 
 export type SequenceDataV11 = {
-  name: number,
+  name: BigInt,
   length: number,
   environmentMap: string,
   map: string,
@@ -1102,7 +1102,7 @@ export type SequenceDataV11 = {
 }
 
 export type TrackGroupDataV11 = {
-  name: number,
+  name: BigInt,
   type: number,
   flags: number,
   prop: Array<PropertyDataV11>,
@@ -1111,12 +1111,12 @@ export type TrackGroupDataV11 = {
 
 export type PropertyDataV11 = {
   type: number,
-  value: number,
+  value: BigInt,
   pathVal: string
 }
 
 export type TrackDataV11 = {
-  name: number,
+  name: BigInt,
   type: number,
   curveKey: Array<CurveKeyDataV11>,
   flagKey: Array<FlagKeyDataV11>,
@@ -1141,8 +1141,8 @@ export type TriggerKeyDataV11 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -1162,7 +1162,7 @@ export type AmbientLightDataV11 = {
   ambientSkyColor: ColorDefDataV11,
   fillColor: ColorDefDataV11,
   hemisphericalColor: ColorDefDataV11,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV11 = {
@@ -1171,17 +1171,17 @@ export type ColorDefDataV11 = {
 }
 
 export type FileNameRefDataV11 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV11 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV11 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV11>
 }
@@ -1192,13 +1192,13 @@ export type TextEntryDataV11 = {
 }
 
 export type SceneDataV12 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV12>,
   resources: ResourceDataV12
 }
 
 export type SequenceDataV12 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -1207,7 +1207,7 @@ export type SequenceDataV12 = {
 }
 
 export type TrackGroupDataV12 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV12>,
   track: Array<TrackDataV12>,
@@ -1215,13 +1215,13 @@ export type TrackGroupDataV12 = {
 }
 
 export type PropertyDataV12 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV12 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV12>,
   flagKey: Array<FlagKeyDataV12>,
   triggerKey: Array<TriggerKeyDataV12>,
@@ -1246,8 +1246,8 @@ export type TriggerKeyDataV12 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -1267,7 +1267,7 @@ export type AmbientLightDataV12 = {
   ambientSkyColor: ColorDefDataV12,
   fillColor: ColorDefDataV12,
   hemisphericalColor: ColorDefDataV12,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV12 = {
@@ -1276,17 +1276,17 @@ export type ColorDefDataV12 = {
 }
 
 export type FileNameRefDataV12 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV12 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV12 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV12>
 }
@@ -1297,13 +1297,13 @@ export type TextEntryDataV12 = {
 }
 
 export type SceneDataV13 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV13>,
   resources: ResourceDataV13
 }
 
 export type SequenceDataV13 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -1312,7 +1312,7 @@ export type SequenceDataV13 = {
 }
 
 export type TrackGroupDataV13 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV13>,
   track: Array<TrackDataV13>,
@@ -1320,13 +1320,13 @@ export type TrackGroupDataV13 = {
 }
 
 export type PropertyDataV13 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV13 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV13>,
   flagKey: Array<FlagKeyDataV13>,
   triggerKey: Array<TriggerKeyDataV13>,
@@ -1351,8 +1351,8 @@ export type TriggerKeyDataV13 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -1372,7 +1372,7 @@ export type AmbientLightDataV13 = {
   ambientSkyColor: ColorDefDataV13,
   fillColor: ColorDefDataV13,
   hemisphericalColor: ColorDefDataV13,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV13 = {
@@ -1381,17 +1381,17 @@ export type ColorDefDataV13 = {
 }
 
 export type FileNameRefDataV13 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV13 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV13 = {
-  name: number,
+  name: BigInt,
   id: number,
   textEntry: Array<TextEntryDataV13>
 }
@@ -1402,13 +1402,13 @@ export type TextEntryDataV13 = {
 }
 
 export type SceneDataV14 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV14>,
   resources: ResourceDataV14
 }
 
 export type SequenceDataV14 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -1417,7 +1417,7 @@ export type SequenceDataV14 = {
 }
 
 export type TrackGroupDataV14 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV14>,
   track: Array<TrackDataV14>,
@@ -1425,13 +1425,13 @@ export type TrackGroupDataV14 = {
 }
 
 export type PropertyDataV14 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV14 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV14>,
   flagKey: Array<FlagKeyDataV14>,
   triggerKey: Array<TriggerKeyDataV14>,
@@ -1456,8 +1456,8 @@ export type TriggerKeyDataV14 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -1477,7 +1477,7 @@ export type AmbientLightDataV14 = {
   ambientSkyColor: ColorDefDataV14,
   fillColor: ColorDefDataV14,
   hemisphericalColor: ColorDefDataV14,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV14 = {
@@ -1486,17 +1486,17 @@ export type ColorDefDataV14 = {
 }
 
 export type FileNameRefDataV14 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV14 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV14 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV14>
@@ -1508,23 +1508,23 @@ export type TextEntryDataV14 = {
 }
 
 export type SceneDataV15 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV15>,
   resources: ResourceDataV15
 }
 
 export type SequenceDataV15 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
-  updateScript: number,
+  updateScript: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV15>
 }
 
 export type TrackGroupDataV15 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV15>,
   track: Array<TrackDataV15>,
@@ -1532,13 +1532,13 @@ export type TrackGroupDataV15 = {
 }
 
 export type PropertyDataV15 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV15 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV15>,
   flagKey: Array<FlagKeyDataV15>,
   triggerKey: Array<TriggerKeyDataV15>,
@@ -1563,8 +1563,8 @@ export type TriggerKeyDataV15 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -1584,7 +1584,7 @@ export type AmbientLightDataV15 = {
   ambientSkyColor: ColorDefDataV15,
   fillColor: ColorDefDataV15,
   hemisphericalColor: ColorDefDataV15,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV15 = {
@@ -1593,17 +1593,17 @@ export type ColorDefDataV15 = {
 }
 
 export type FileNameRefDataV15 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV15 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV15 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV15>
@@ -1615,23 +1615,23 @@ export type TextEntryDataV15 = {
 }
 
 export type SceneDataV16 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV16>,
   resources: ResourceDataV16
 }
 
 export type SequenceDataV16 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
-  updateScript: number,
+  updateScript: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV16>
 }
 
 export type TrackGroupDataV16 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV16>,
   track: Array<TrackDataV16>,
@@ -1639,13 +1639,13 @@ export type TrackGroupDataV16 = {
 }
 
 export type PropertyDataV16 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV16 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV16>,
   flagKey: Array<FlagKeyDataV16>,
   triggerKey: Array<TriggerKeyDataV16>,
@@ -1670,8 +1670,8 @@ export type TriggerKeyDataV16 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -1691,7 +1691,7 @@ export type AmbientLightDataV16 = {
   ambientSkyColor: ColorDefDataV16,
   fillColor: ColorDefDataV16,
   hemisphericalColor: ColorDefDataV16,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV16 = {
@@ -1700,17 +1700,17 @@ export type ColorDefDataV16 = {
 }
 
 export type FileNameRefDataV16 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV16 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV16 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV16>
@@ -1722,23 +1722,23 @@ export type TextEntryDataV16 = {
 }
 
 export type SceneDataV17 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV17>,
   resources: ResourceDataV17
 }
 
 export type SequenceDataV17 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
-  updateScript: number,
+  updateScript: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV17>
 }
 
 export type TrackGroupDataV17 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV17>,
   track: Array<TrackDataV17>,
@@ -1746,13 +1746,13 @@ export type TrackGroupDataV17 = {
 }
 
 export type PropertyDataV17 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV17 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV17>,
   flagKey: Array<FlagKeyDataV17>,
   triggerKey: Array<TriggerKeyDataV17>,
@@ -1777,8 +1777,8 @@ export type TriggerKeyDataV17 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -1798,7 +1798,7 @@ export type AmbientLightDataV17 = {
   ambientSkyColor: ColorDefDataV17,
   fillColor: ColorDefDataV17,
   hemisphericalColor: ColorDefDataV17,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV17 = {
@@ -1807,17 +1807,17 @@ export type ColorDefDataV17 = {
 }
 
 export type FileNameRefDataV17 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV17 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV17 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV17>
@@ -1829,23 +1829,23 @@ export type TextEntryDataV17 = {
 }
 
 export type SceneDataV18 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV18>,
   resources: ResourceDataV18
 }
 
 export type SequenceDataV18 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
-  updateScript: number,
+  updateScript: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV18>
 }
 
 export type TrackGroupDataV18 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV18>,
   track: Array<TrackDataV18>,
@@ -1853,13 +1853,13 @@ export type TrackGroupDataV18 = {
 }
 
 export type PropertyDataV18 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV18 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV18>,
   flagKey: Array<FlagKeyDataV18>,
   triggerKey: Array<TriggerKeyDataV18>,
@@ -1884,8 +1884,8 @@ export type TriggerKeyDataV18 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -1905,7 +1905,7 @@ export type AmbientLightDataV18 = {
   ambientSkyColor: ColorDefDataV18,
   fillColor: ColorDefDataV18,
   hemisphericalColor: ColorDefDataV18,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV18 = {
@@ -1914,17 +1914,17 @@ export type ColorDefDataV18 = {
 }
 
 export type FileNameRefDataV18 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV18 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV18 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV18>
@@ -1936,23 +1936,23 @@ export type TextEntryDataV18 = {
 }
 
 export type SceneDataV19 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV19>,
   resources: ResourceDataV19
 }
 
 export type SequenceDataV19 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
-  updateScript: number,
+  updateScript: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV19>
 }
 
 export type TrackGroupDataV19 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV19>,
   track: Array<TrackDataV19>,
@@ -1960,13 +1960,13 @@ export type TrackGroupDataV19 = {
 }
 
 export type PropertyDataV19 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV19 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV19>,
   flagKey: Array<FlagKeyDataV19>,
   triggerKey: Array<TriggerKeyDataV19>,
@@ -1991,8 +1991,8 @@ export type TriggerKeyDataV19 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2012,7 +2012,7 @@ export type AmbientLightDataV19 = {
   ambientSkyColor: ColorDefDataV19,
   fillColor: ColorDefDataV19,
   hemisphericalColor: ColorDefDataV19,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV19 = {
@@ -2021,17 +2021,17 @@ export type ColorDefDataV19 = {
 }
 
 export type FileNameRefDataV19 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV19 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV19 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV19>
@@ -2043,23 +2043,23 @@ export type TextEntryDataV19 = {
 }
 
 export type SceneDataV20 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV20>,
   resources: ResourceDataV20
 }
 
 export type SequenceDataV20 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
-  updateScript: number,
+  updateScript: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV20>
 }
 
 export type TrackGroupDataV20 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV20>,
   track: Array<TrackDataV20>,
@@ -2067,13 +2067,13 @@ export type TrackGroupDataV20 = {
 }
 
 export type PropertyDataV20 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV20 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV20>,
   flagKey: Array<FlagKeyDataV20>,
   triggerKey: Array<TriggerKeyDataV20>,
@@ -2098,8 +2098,8 @@ export type TriggerKeyDataV20 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2119,7 +2119,7 @@ export type AmbientLightDataV20 = {
   ambientSkyColor: ColorDefDataV20,
   fillColor: ColorDefDataV20,
   hemisphericalColor: ColorDefDataV20,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV20 = {
@@ -2128,17 +2128,17 @@ export type ColorDefDataV20 = {
 }
 
 export type FileNameRefDataV20 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV20 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV20 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV20>
@@ -2150,24 +2150,24 @@ export type TextEntryDataV20 = {
 }
 
 export type SceneDataV21 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV21>,
   resources: ResourceDataV21,
   trackGroup: TrackGroupDataV21
 }
 
 export type SequenceDataV21 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
-  updateScript: number,
+  updateScript: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV21>
 }
 
 export type TrackGroupDataV21 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV21>,
   track: Array<TrackDataV21>,
@@ -2175,13 +2175,13 @@ export type TrackGroupDataV21 = {
 }
 
 export type PropertyDataV21 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV21 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV21>,
   flagKey: Array<FlagKeyDataV21>,
   triggerKey: Array<TriggerKeyDataV21>,
@@ -2206,8 +2206,8 @@ export type TriggerKeyDataV21 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2227,7 +2227,7 @@ export type AmbientLightDataV21 = {
   ambientSkyColor: ColorDefDataV21,
   fillColor: ColorDefDataV21,
   hemisphericalColor: ColorDefDataV21,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV21 = {
@@ -2236,17 +2236,17 @@ export type ColorDefDataV21 = {
 }
 
 export type FileNameRefDataV21 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV21 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV21 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV21>
@@ -2258,24 +2258,24 @@ export type TextEntryDataV21 = {
 }
 
 export type SceneDataV22 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV22>,
   resources: ResourceDataV22,
   trackGroup: TrackGroupDataV22
 }
 
 export type SequenceDataV22 = {
-  name: number,
+  name: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
-  updateScript: number,
+  updateScript: BigInt,
   length: number,
   trackGroup: Array<TrackGroupDataV22>
 }
 
 export type TrackGroupDataV22 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV22>,
   track: Array<TrackDataV22>,
@@ -2283,13 +2283,13 @@ export type TrackGroupDataV22 = {
 }
 
 export type PropertyDataV22 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV22 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV22>,
   flagKey: Array<FlagKeyDataV22>,
   triggerKey: Array<TriggerKeyDataV22>,
@@ -2314,8 +2314,8 @@ export type TriggerKeyDataV22 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2335,7 +2335,7 @@ export type AmbientLightDataV22 = {
   ambientSkyColor: ColorDefDataV22,
   fillColor: ColorDefDataV22,
   hemisphericalColor: ColorDefDataV22,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV22 = {
@@ -2344,17 +2344,17 @@ export type ColorDefDataV22 = {
 }
 
 export type FileNameRefDataV22 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV22 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV22 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV22>
@@ -2366,15 +2366,15 @@ export type TextEntryDataV22 = {
 }
 
 export type SceneDataV23 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV23>,
   resources: ResourceDataV23,
   trackGroup: TrackGroupDataV23
 }
 
 export type SequenceDataV23 = {
-  name: number,
-  updateScript: number,
+  name: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -2384,7 +2384,7 @@ export type SequenceDataV23 = {
 }
 
 export type TrackGroupDataV23 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV23>,
   track: Array<TrackDataV23>,
@@ -2392,13 +2392,13 @@ export type TrackGroupDataV23 = {
 }
 
 export type PropertyDataV23 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV23 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV23>,
   flagKey: Array<FlagKeyDataV23>,
   triggerKey: Array<TriggerKeyDataV23>,
@@ -2423,8 +2423,8 @@ export type TriggerKeyDataV23 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2444,7 +2444,7 @@ export type AmbientLightDataV23 = {
   ambientSkyColor: ColorDefDataV23,
   fillColor: ColorDefDataV23,
   hemisphericalColor: ColorDefDataV23,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV23 = {
@@ -2453,17 +2453,17 @@ export type ColorDefDataV23 = {
 }
 
 export type FileNameRefDataV23 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV23 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV23 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV23>
@@ -2475,16 +2475,16 @@ export type TextEntryDataV23 = {
 }
 
 export type SceneDataV24 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV24>,
   resources: ResourceDataV24,
   trackGroup: TrackGroupDataV24
 }
 
 export type SequenceDataV24 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -2494,7 +2494,7 @@ export type SequenceDataV24 = {
 }
 
 export type TrackGroupDataV24 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV24>,
   track: Array<TrackDataV24>,
@@ -2502,13 +2502,13 @@ export type TrackGroupDataV24 = {
 }
 
 export type PropertyDataV24 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV24 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV24>,
   flagKey: Array<FlagKeyDataV24>,
   triggerKey: Array<TriggerKeyDataV24>,
@@ -2533,8 +2533,8 @@ export type TriggerKeyDataV24 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2554,7 +2554,7 @@ export type AmbientLightDataV24 = {
   ambientSkyColor: ColorDefDataV24,
   fillColor: ColorDefDataV24,
   hemisphericalColor: ColorDefDataV24,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV24 = {
@@ -2563,17 +2563,17 @@ export type ColorDefDataV24 = {
 }
 
 export type FileNameRefDataV24 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV24 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV24 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV24>
@@ -2585,16 +2585,16 @@ export type TextEntryDataV24 = {
 }
 
 export type SceneDataV25 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV25>,
   resources: ResourceDataV25,
   trackGroup: TrackGroupDataV25
 }
 
 export type SequenceDataV25 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -2604,7 +2604,7 @@ export type SequenceDataV25 = {
 }
 
 export type TrackGroupDataV25 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV25>,
   track: Array<TrackDataV25>,
@@ -2612,13 +2612,13 @@ export type TrackGroupDataV25 = {
 }
 
 export type PropertyDataV25 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV25 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV25>,
   flagKey: Array<FlagKeyDataV25>,
   triggerKey: Array<TriggerKeyDataV25>,
@@ -2643,8 +2643,8 @@ export type TriggerKeyDataV25 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2664,7 +2664,7 @@ export type AmbientLightDataV25 = {
   ambientSkyColor: ColorDefDataV25,
   fillColor: ColorDefDataV25,
   hemisphericalColor: ColorDefDataV25,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV25 = {
@@ -2673,17 +2673,17 @@ export type ColorDefDataV25 = {
 }
 
 export type FileNameRefDataV25 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV25 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV25 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV25>
@@ -2695,16 +2695,16 @@ export type TextEntryDataV25 = {
 }
 
 export type SceneDataV26 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV26>,
   resources: ResourceDataV26,
   trackGroup: TrackGroupDataV26
 }
 
 export type SequenceDataV26 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -2714,7 +2714,7 @@ export type SequenceDataV26 = {
 }
 
 export type TrackGroupDataV26 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV26>,
   track: Array<TrackDataV26>,
@@ -2722,13 +2722,13 @@ export type TrackGroupDataV26 = {
 }
 
 export type PropertyDataV26 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV26 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV26>,
   flagKey: Array<FlagKeyDataV26>,
   triggerKey: Array<TriggerKeyDataV26>,
@@ -2753,8 +2753,8 @@ export type TriggerKeyDataV26 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2774,7 +2774,7 @@ export type AmbientLightDataV26 = {
   ambientSkyColor: ColorDefDataV26,
   fillColor: ColorDefDataV26,
   hemisphericalColor: ColorDefDataV26,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV26 = {
@@ -2783,17 +2783,17 @@ export type ColorDefDataV26 = {
 }
 
 export type FileNameRefDataV26 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV26 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV26 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV26>
@@ -2805,16 +2805,16 @@ export type TextEntryDataV26 = {
 }
 
 export type SceneDataV27 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV27>,
   resources: ResourceDataV27,
   trackGroup: TrackGroupDataV27
 }
 
 export type SequenceDataV27 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -2824,7 +2824,7 @@ export type SequenceDataV27 = {
 }
 
 export type TrackGroupDataV27 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV27>,
   track: Array<TrackDataV27>,
@@ -2832,13 +2832,13 @@ export type TrackGroupDataV27 = {
 }
 
 export type PropertyDataV27 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV27 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV27>,
   flagKey: Array<FlagKeyDataV27>,
   triggerKey: Array<TriggerKeyDataV27>,
@@ -2863,8 +2863,8 @@ export type TriggerKeyDataV27 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2884,7 +2884,7 @@ export type AmbientLightDataV27 = {
   ambientSkyColor: ColorDefDataV27,
   fillColor: ColorDefDataV27,
   hemisphericalColor: ColorDefDataV27,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV27 = {
@@ -2893,17 +2893,17 @@ export type ColorDefDataV27 = {
 }
 
 export type FileNameRefDataV27 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV27 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV27 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV27>
@@ -2915,16 +2915,16 @@ export type TextEntryDataV27 = {
 }
 
 export type SceneDataV28 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV28>,
   resources: ResourceDataV28,
   trackGroup: TrackGroupDataV28
 }
 
 export type SequenceDataV28 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -2934,7 +2934,7 @@ export type SequenceDataV28 = {
 }
 
 export type TrackGroupDataV28 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV28>,
   track: Array<TrackDataV28>,
@@ -2942,13 +2942,13 @@ export type TrackGroupDataV28 = {
 }
 
 export type PropertyDataV28 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV28 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV28>,
   flagKey: Array<FlagKeyDataV28>,
   triggerKey: Array<TriggerKeyDataV28>,
@@ -2973,8 +2973,8 @@ export type TriggerKeyDataV28 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -2994,7 +2994,7 @@ export type AmbientLightDataV28 = {
   ambientSkyColor: ColorDefDataV28,
   fillColor: ColorDefDataV28,
   hemisphericalColor: ColorDefDataV28,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV28 = {
@@ -3003,17 +3003,17 @@ export type ColorDefDataV28 = {
 }
 
 export type FileNameRefDataV28 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV28 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV28 = {
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV28>
@@ -3025,16 +3025,16 @@ export type TextEntryDataV28 = {
 }
 
 export type SceneDataV29 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV29>,
   resources: ResourceDataV29,
   trackGroup: TrackGroupDataV29
 }
 
 export type SequenceDataV29 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -3044,7 +3044,7 @@ export type SequenceDataV29 = {
 }
 
 export type TrackGroupDataV29 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV29>,
   track: Array<TrackDataV29>,
@@ -3052,13 +3052,13 @@ export type TrackGroupDataV29 = {
 }
 
 export type PropertyDataV29 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV29 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV29>,
   flagKey: Array<FlagKeyDataV29>,
   triggerKey: Array<TriggerKeyDataV29>,
@@ -3083,8 +3083,8 @@ export type TriggerKeyDataV29 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -3104,7 +3104,7 @@ export type AmbientLightDataV29 = {
   ambientSkyColor: ColorDefDataV29,
   fillColor: ColorDefDataV29,
   hemisphericalColor: ColorDefDataV29,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV29 = {
@@ -3113,18 +3113,18 @@ export type ColorDefDataV29 = {
 }
 
 export type FileNameRefDataV29 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV29 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV29 = {
   guid: Array<number>,
-  name: number,
+  name: BigInt,
   id: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV29>
@@ -3136,16 +3136,16 @@ export type TextEntryDataV29 = {
 }
 
 export type SceneDataV30 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV30>,
   resources: ResourceDataV30,
   trackGroup: TrackGroupDataV30
 }
 
 export type SequenceDataV30 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -3155,7 +3155,7 @@ export type SequenceDataV30 = {
 }
 
 export type TrackGroupDataV30 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV30>,
   track: Array<TrackDataV30>,
@@ -3163,13 +3163,13 @@ export type TrackGroupDataV30 = {
 }
 
 export type PropertyDataV30 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV30 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV30>,
   flagKey: Array<FlagKeyDataV30>,
   triggerKey: Array<TriggerKeyDataV30>,
@@ -3194,8 +3194,8 @@ export type TriggerKeyDataV30 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -3215,7 +3215,7 @@ export type AmbientLightDataV30 = {
   ambientSkyColor: ColorDefDataV30,
   fillColor: ColorDefDataV30,
   hemisphericalColor: ColorDefDataV30,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV30 = {
@@ -3224,17 +3224,17 @@ export type ColorDefDataV30 = {
 }
 
 export type FileNameRefDataV30 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV30 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV30 = {
-  name: number,
+  name: BigInt,
   index: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV30>
@@ -3246,16 +3246,16 @@ export type TextEntryDataV30 = {
 }
 
 export type SceneDataV31 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV31>,
   resources: ResourceDataV31,
   trackGroup: TrackGroupDataV31
 }
 
 export type SequenceDataV31 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -3265,7 +3265,7 @@ export type SequenceDataV31 = {
 }
 
 export type TrackGroupDataV31 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV31>,
   track: Array<TrackDataV31>,
@@ -3273,13 +3273,13 @@ export type TrackGroupDataV31 = {
 }
 
 export type PropertyDataV31 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV31 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV31>,
   flagKey: Array<FlagKeyDataV31>,
   triggerKey: Array<TriggerKeyDataV31>,
@@ -3304,8 +3304,8 @@ export type TriggerKeyDataV31 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -3325,7 +3325,7 @@ export type AmbientLightDataV31 = {
   ambientSkyColor: ColorDefDataV31,
   fillColor: ColorDefDataV31,
   hemisphericalColor: ColorDefDataV31,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV31 = {
@@ -3334,17 +3334,17 @@ export type ColorDefDataV31 = {
 }
 
 export type FileNameRefDataV31 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV31 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV31 = {
-  name: number,
+  name: BigInt,
   index: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV31>
@@ -3356,16 +3356,16 @@ export type TextEntryDataV31 = {
 }
 
 export type SceneDataV32 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV32>,
   resources: ResourceDataV32,
   trackGroup: TrackGroupDataV32
 }
 
 export type SequenceDataV32 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -3375,7 +3375,7 @@ export type SequenceDataV32 = {
 }
 
 export type TrackGroupDataV32 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV32>,
   track: Array<TrackDataV32>,
@@ -3383,13 +3383,13 @@ export type TrackGroupDataV32 = {
 }
 
 export type PropertyDataV32 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV32 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV32>,
   flagKey: Array<FlagKeyDataV32>,
   triggerKey: Array<TriggerKeyDataV32>,
@@ -3414,8 +3414,8 @@ export type TriggerKeyDataV32 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -3435,7 +3435,7 @@ export type AmbientLightDataV32 = {
   ambientSkyColor: ColorDefDataV32,
   fillColor: ColorDefDataV32,
   hemisphericalColor: ColorDefDataV32,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV32 = {
@@ -3444,17 +3444,17 @@ export type ColorDefDataV32 = {
 }
 
 export type FileNameRefDataV32 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV32 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV32 = {
-  name: number,
+  name: BigInt,
   index: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV32>
@@ -3466,16 +3466,16 @@ export type TextEntryDataV32 = {
 }
 
 export type SceneDataV33 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV33>,
   resources: ResourceDataV33,
   trackGroup: TrackGroupDataV33
 }
 
 export type SequenceDataV33 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -3485,7 +3485,7 @@ export type SequenceDataV33 = {
 }
 
 export type TrackGroupDataV33 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV33>,
   track: Array<TrackDataV33>,
@@ -3493,13 +3493,13 @@ export type TrackGroupDataV33 = {
 }
 
 export type PropertyDataV33 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV33 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV33>,
   flagKey: Array<FlagKeyDataV33>,
   triggerKey: Array<TriggerKeyDataV33>,
@@ -3524,8 +3524,8 @@ export type TriggerKeyDataV33 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -3545,7 +3545,7 @@ export type AmbientLightDataV33 = {
   ambientSkyColor: ColorDefDataV33,
   fillColor: ColorDefDataV33,
   hemisphericalColor: ColorDefDataV33,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV33 = {
@@ -3554,17 +3554,17 @@ export type ColorDefDataV33 = {
 }
 
 export type FileNameRefDataV33 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV33 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV33 = {
-  name: number,
+  name: BigInt,
   index: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV33>
@@ -3576,16 +3576,16 @@ export type TextEntryDataV33 = {
 }
 
 export type SceneDataV34 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV34>,
   resources: ResourceDataV34,
   trackGroup: TrackGroupDataV34
 }
 
 export type SequenceDataV34 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -3595,7 +3595,7 @@ export type SequenceDataV34 = {
 }
 
 export type TrackGroupDataV34 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV34>,
   track: Array<TrackDataV34>,
@@ -3603,13 +3603,13 @@ export type TrackGroupDataV34 = {
 }
 
 export type PropertyDataV34 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV34 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV34>,
   flagKey: Array<FlagKeyDataV34>,
   triggerKey: Array<TriggerKeyDataV34>,
@@ -3634,8 +3634,8 @@ export type TriggerKeyDataV34 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -3655,7 +3655,7 @@ export type AmbientLightDataV34 = {
   ambientSkyColor: ColorDefDataV34,
   fillColor: ColorDefDataV34,
   hemisphericalColor: ColorDefDataV34,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV34 = {
@@ -3664,17 +3664,17 @@ export type ColorDefDataV34 = {
 }
 
 export type FileNameRefDataV34 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV34 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV34 = {
-  name: number,
+  name: BigInt,
   index: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV34>
@@ -3687,21 +3687,21 @@ export type TextEntryDataV34 = {
 
 export type SpeciesResourceDataV34 = {
   speciesId: Array<number>,
-  modelId: number,
-  modelVariant: number
+  modelId: BigInt,
+  modelVariant: BigInt
 }
 
 export type SceneDataV35 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV35>,
   resources: ResourceDataV35,
   trackGroup: TrackGroupDataV35
 }
 
 export type SequenceDataV35 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -3711,7 +3711,7 @@ export type SequenceDataV35 = {
 }
 
 export type TrackGroupDataV35 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV35>,
   track: Array<TrackDataV35>,
@@ -3719,13 +3719,13 @@ export type TrackGroupDataV35 = {
 }
 
 export type PropertyDataV35 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV35 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV35>,
   flagKey: Array<FlagKeyDataV35>,
   triggerKey: Array<TriggerKeyDataV35>,
@@ -3750,8 +3750,8 @@ export type TriggerKeyDataV35 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -3771,7 +3771,7 @@ export type AmbientLightDataV35 = {
   ambientSkyColor: ColorDefDataV35,
   fillColor: ColorDefDataV35,
   hemisphericalColor: ColorDefDataV35,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV35 = {
@@ -3780,17 +3780,17 @@ export type ColorDefDataV35 = {
 }
 
 export type FileNameRefDataV35 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV35 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV35 = {
-  name: number,
+  name: BigInt,
   index: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV35>
@@ -3803,22 +3803,22 @@ export type TextEntryDataV35 = {
 
 export type SpeciesResourceDataV35 = {
   speciesId: Array<number>,
-  name: number,
-  modelId: number,
-  modelVariant: number
+  name: BigInt,
+  modelId: BigInt,
+  modelVariant: BigInt
 }
 
 export type SceneDataV36 = {
-  startingSequence: number,
+  startingSequence: BigInt,
   sequence: Array<SequenceDataV36>,
   resources: ResourceDataV36,
   trackGroup: TrackGroupDataV36
 }
 
 export type SequenceDataV36 = {
-  name: number,
-  playScript: number,
-  updateScript: number,
+  name: BigInt,
+  playScript: BigInt,
+  updateScript: BigInt,
   environmentMap: string,
   map: string,
   clientMap: string,
@@ -3828,7 +3828,7 @@ export type SequenceDataV36 = {
 }
 
 export type TrackGroupDataV36 = {
-  name: number,
+  name: BigInt,
   flags: number,
   prop: Array<PropertyDataV36>,
   track: Array<TrackDataV36>,
@@ -3836,13 +3836,13 @@ export type TrackGroupDataV36 = {
 }
 
 export type PropertyDataV36 = {
-  value: number,
+  value: BigInt,
   pathVal: string,
   type: number
 }
 
 export type TrackDataV36 = {
-  name: number,
+  name: BigInt,
   curveKey: Array<CurveKeyDataV36>,
   flagKey: Array<FlagKeyDataV36>,
   triggerKey: Array<TriggerKeyDataV36>,
@@ -3867,8 +3867,8 @@ export type TriggerKeyDataV36 = {
   flags2: number,
   flags3: number,
   flags4: number,
-  token1: number,
-  token2: number,
+  token1: BigInt,
+  token2: BigInt,
   value1: number,
   value2: number,
   value3: number,
@@ -3888,7 +3888,7 @@ export type AmbientLightDataV36 = {
   ambientSkyColor: ColorDefDataV36,
   fillColor: ColorDefDataV36,
   hemisphericalColor: ColorDefDataV36,
-  name: number
+  name: BigInt
 }
 
 export type ColorDefDataV36 = {
@@ -3897,17 +3897,17 @@ export type ColorDefDataV36 = {
 }
 
 export type FileNameRefDataV36 = {
-  name: number,
+  name: BigInt,
   fileName: string
 }
 
 export type ScriptDataV36 = {
-  name: number,
+  name: BigInt,
   byteCode: Array<number>
 }
 
 export type TextResourceDataV36 = {
-  name: number,
+  name: BigInt,
   index: number,
   voiceId: number,
   textEntry: Array<TextEntryDataV36>
@@ -3920,7 +3920,7 @@ export type TextEntryDataV36 = {
 
 export type SpeciesResourceDataV36 = {
   speciesId: Array<number>,
-  name: number,
-  modelId: number,
-  modelVariant: number
+  name: BigInt,
+  modelId: BigInt,
+  modelVariant: BigInt
 }

@@ -51,13 +51,13 @@ export type PackMapEditDirtyChunks = {
 }
 
 export type MapEditLayerItem = {
-  guid: number,
+  guid: BigInt,
   moduleId: number,
   layerFlags: Array<number>
 }
 
 export type MapEditSnapPoint = {
-  guid: number,
+  guid: BigInt,
   moduleId: number,
   flags: number,
   position: Array<number>,
@@ -92,8 +92,8 @@ export type PackMapEditSurfaceRoadNode = {
 
 export type MapEditMeasureSpan = {
   name: string,
-  substrateId0: number,
-  substrateId1: number,
+  substrateId0: BigInt,
+  substrateId1: BigInt,
   substrateModuleId0: number,
   substrateModuleId1: number,
   position0: Array<number>,
@@ -102,7 +102,7 @@ export type MapEditMeasureSpan = {
 }
 
 export type PackMapEditNavmeshGenPropMode = {
-  propId: number,
+  propId: BigInt,
   mode: number,
-  animSequence: number
+  animSequence: BigInt
 }

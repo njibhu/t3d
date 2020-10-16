@@ -6,16 +6,16 @@ export type ModelFileProperties = {
 }
 
 export type ModelFixedOffsetData = {
-  name: number,
-  parentBone: number,
+  name: BigInt,
+  parentBone: BigInt,
   translation: Array<number>
 }
 
 export type ModelPropertyData = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }

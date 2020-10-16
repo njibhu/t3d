@@ -87,7 +87,7 @@ export type SceneShapeV3 = {
 }
 
 export type SceneShapeSurfaceV3 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type SceneCollisionShapeV3 = {
@@ -121,7 +121,7 @@ export type SceneShapeV4 = {
 }
 
 export type SceneShapeSurfaceV4 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type SceneCollisionShapeV4 = {
@@ -148,7 +148,7 @@ export type SceneFilePhysicsV5 = {
 }
 
 export type SceneShapeSurfaceV5 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type SceneBoxShapeV5 = {
@@ -197,7 +197,7 @@ export type SceneFilePhysicsV6 = {
 }
 
 export type SceneShapeSurfaceV6 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type SceneBoxShapeV6 = {
@@ -306,5 +306,5 @@ export type SceneMeshShapeV8 = {
 }
 
 export type SceneSurfaceV8 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }

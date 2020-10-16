@@ -26,7 +26,7 @@ export type PackMapAudioRegion = {
   fadeBand: number,
   height: number,
   radius: number,
-  guid: number,
+  guid: BigInt,
   flags: number
 }
 

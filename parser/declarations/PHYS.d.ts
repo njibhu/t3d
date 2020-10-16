@@ -157,7 +157,7 @@ export type SceneFileGameV5 = {
 }
 
 export type ScenePathV5 = {
-  properties: Array<number>,
+  properties: Array<BigInt>,
   points: Array<ScenePathNodeV5>,
   closed: number
 }
@@ -192,12 +192,12 @@ export type PackMapPhysicsGeometryV4 = {
 }
 
 export type PackMapPhysicsObjectRefV4 = {
-  sequence: number,
+  sequence: BigInt,
   objectIndex: number
 }
 
 export type PackMapPhysicsModelPropV4 = {
-  token: number,
+  token: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -245,12 +245,12 @@ export type PackMapPhysicsGeometryV5 = {
 }
 
 export type PackMapPhysicsObjectRefV5 = {
-  sequence: number,
+  sequence: BigInt,
   objectIndex: number
 }
 
 export type PackMapPhysicsModelPropV5 = {
-  token: number,
+  token: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -298,7 +298,7 @@ export type SceneFileGameV6 = {
 }
 
 export type ScenePathV6 = {
-  properties: Array<number>,
+  properties: Array<BigInt>,
   points: Array<ScenePathNodeV6>,
   closed: number
 }
@@ -326,7 +326,7 @@ export type SceneEdgeV6 = {
 }
 
 export type SceneGameSurfaceV6 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type PackMapPhysicsGeometryV6 = {
@@ -336,12 +336,12 @@ export type PackMapPhysicsGeometryV6 = {
 }
 
 export type PackMapPhysicsObjectRefV6 = {
-  sequence: number,
+  sequence: BigInt,
   objectIndex: number
 }
 
 export type PackMapPhysicsModelPropV6 = {
-  token: number,
+  token: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -395,12 +395,12 @@ export type PackMapPhysicsGeometryV7 = {
 }
 
 export type PackMapPhysicsObjectRefV7 = {
-  sequence: number,
+  sequence: BigInt,
   objectIndex: number
 }
 
 export type PackMapPhysicsModelPropV7 = {
-  token: number,
+  token: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -455,12 +455,12 @@ export type PackMapPhysicsGeometryV8 = {
 }
 
 export type PackMapPhysicsObjectRefV8 = {
-  sequence: number,
+  sequence: BigInt,
   objectIndex: number
 }
 
 export type PackMapPhysicsModelPropV8 = {
-  token: number,
+  token: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -514,12 +514,12 @@ export type PackMapPhysicsGeometryV9 = {
 }
 
 export type PackMapPhysicsObjectRefV9 = {
-  sequence: number,
+  sequence: BigInt,
   objectIndex: number
 }
 
 export type PackMapPhysicsModelPropV9 = {
-  token: number,
+  token: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -574,12 +574,12 @@ export type PackMapPhysicsGeometryV10 = {
 }
 
 export type PackMapPhysicsObjectRefV10 = {
-  sequence: number,
+  sequence: BigInt,
   objectIndex: number
 }
 
 export type PackMapPhysicsModelPropV10 = {
-  token: number,
+  token: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,

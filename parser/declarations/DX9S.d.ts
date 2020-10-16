@@ -382,7 +382,7 @@ export type AmatDx9PassV9 = {
 }
 
 export type AmatDx9EffectV9 = {
-  token: number,
+  token: BigInt,
   renderStates: Array<number>,
   samplerIndex: Array<number>,
   pixelShader: number,
@@ -423,7 +423,7 @@ export type AmatDx9PassV10 = {
 }
 
 export type AmatDx9EffectV10 = {
-  token: number,
+  token: BigInt,
   renderStates: Array<number>,
   samplerIndex: Array<number>,
   pixelShader: number,
@@ -466,7 +466,7 @@ export type AmatDx9PassV11 = {
 }
 
 export type AmatDx9EffectV11 = {
-  token: number,
+  token: BigInt,
   renderStates: Array<number>,
   samplerIndex: Array<number>,
   pixelShader: number,

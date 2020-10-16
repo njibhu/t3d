@@ -108,7 +108,7 @@ export type PackMapDecalV5 = {
   constantValues: Array<Array<number>>,
   vertices: Array<PackMapDecalVertexV4>,
   indices: Array<number>,
-  propIds: Array<number>
+  propIds: Array<BigInt>
 }
 
 export type PackMapDecalVertexV4 = {
@@ -140,7 +140,7 @@ export type PackMapDecalV6 = {
   constantValues: Array<Array<number>>,
   vertices: Array<PackMapDecalVertexV5>,
   indices: Array<number>,
-  propIds: Array<number>,
+  propIds: Array<BigInt>,
   projection: number
 }
 
@@ -173,9 +173,9 @@ export type PackMapDecalV7 = {
   constantValues: Array<Array<number>>,
   vertices: Array<PackMapDecalVertexV6>,
   indices: Array<number>,
-  propIds: Array<number>,
+  propIds: Array<BigInt>,
   projection: number,
-  id: number
+  id: BigInt
 }
 
 export type PackMapDecalVertexV6 = {
@@ -207,10 +207,10 @@ export type PackMapDecalV8 = {
   constantValues: Array<Array<number>>,
   vertices: Array<PackMapDecalVertexV7>,
   indices: Array<number>,
-  propIds: Array<number>,
+  propIds: Array<BigInt>,
   projection: number,
-  surfaceId: number,
-  id: number
+  surfaceId: BigInt,
+  id: BigInt
 }
 
 export type PackMapDecalVertexV7 = {
@@ -242,10 +242,10 @@ export type PackMapDecalV9 = {
   constantValues: Array<Array<number>>,
   vertices: Array<PackMapDecalVertexV8>,
   indices: Array<number>,
-  propIds: Array<number>,
+  propIds: Array<BigInt>,
   projection: number,
-  surfaceId: number,
-  id: number
+  surfaceId: BigInt,
+  id: BigInt
 }
 
 export type PackMapDecalVertexV8 = {
@@ -281,10 +281,10 @@ export type PackMapDecalV10 = {
   constantValues: Array<Array<number>>,
   vertices: Array<PackMapDecalVertexV9>,
   indices: Array<number>,
-  propIds: Array<number>,
+  propIds: Array<BigInt>,
   projection: number,
-  surfaceId: number,
-  id: number
+  surfaceId: BigInt,
+  id: BigInt
 }
 
 export type PackMapDecalVertexV9 = {

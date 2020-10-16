@@ -24,7 +24,7 @@ export type ModelToolCloudV1 = {
 }
 
 export type ModelToolMotionV1 = {
-  sequence: number,
+  sequence: BigInt,
   keys: Array<number>,
   values: Array<Array<number>>
 }
@@ -43,18 +43,18 @@ export type ModelToolCloudV2 = {
 }
 
 export type ModelToolMotionV2 = {
-  sequence: number,
+  sequence: BigInt,
   keys: Array<number>,
   values: Array<Array<number>>
 }
 
 export type ModelToolBlitTextureV2 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
 export type ModelFileToolV3 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   cloudData: ModelToolCloudV3,
   motions: Array<ModelToolMotionV3>,
@@ -68,18 +68,18 @@ export type ModelToolCloudV3 = {
 }
 
 export type ModelToolMotionV3 = {
-  sequence: number,
+  sequence: BigInt,
   keys: Array<number>,
   values: Array<Array<number>>
 }
 
 export type ModelToolBlitTextureV3 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
 export type ModelFileToolV4 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   cloudData: ModelToolCloudV4,
   motions: Array<ModelToolMotionV4>,
@@ -94,13 +94,13 @@ export type ModelToolCloudV4 = {
 }
 
 export type ModelToolMotionV4 = {
-  sequence: number,
+  sequence: BigInt,
   keys: Array<number>,
   values: Array<Array<number>>
 }
 
 export type ModelToolBlitTextureV4 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -110,7 +110,7 @@ export type ModelToolStreakV4 = {
 }
 
 export type ModelFileToolV5 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV5,
@@ -125,13 +125,13 @@ export type ModelToolCloudV5 = {
 }
 
 export type ModelToolMotionV5 = {
-  sequence: number,
+  sequence: BigInt,
   keys: Array<number>,
   values: Array<Array<number>>
 }
 
 export type ModelToolBlitTextureV5 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -141,7 +141,7 @@ export type ModelToolStreakV5 = {
 }
 
 export type ModelFileToolV6 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV6,
@@ -155,7 +155,7 @@ export type ModelToolCloudV6 = {
 }
 
 export type ModelToolBlitTextureV6 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -165,7 +165,7 @@ export type ModelToolStreakV6 = {
 }
 
 export type ModelFileToolV7 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV7,
@@ -180,7 +180,7 @@ export type ModelToolCloudV7 = {
 }
 
 export type ModelToolBlitTextureV7 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -196,14 +196,14 @@ export type ModelToolLightningV7 = {
 }
 
 export type ModelFileToolV8 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV8,
   blitTextures: Array<ModelToolBlitTextureV8>,
   streakData: ModelToolStreakV8,
   lightningData: ModelToolLightningV8,
-  permutationTokens: Array<number>
+  permutationTokens: Array<BigInt>
 }
 
 export type ModelToolCloudV8 = {
@@ -212,7 +212,7 @@ export type ModelToolCloudV8 = {
 }
 
 export type ModelToolBlitTextureV8 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -228,14 +228,14 @@ export type ModelToolLightningV8 = {
 }
 
 export type ModelFileToolV9 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV9,
   blitTextures: Array<ModelToolBlitTextureV9>,
   streakData: ModelToolStreakV9,
   lightningData: ModelToolLightningV9,
-  permutationTokens: Array<number>,
+  permutationTokens: Array<BigInt>,
   properties: Array<ModelToolPropertyDataV9>
 }
 
@@ -245,7 +245,7 @@ export type ModelToolCloudV9 = {
 }
 
 export type ModelToolBlitTextureV9 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -261,23 +261,23 @@ export type ModelToolLightningV9 = {
 }
 
 export type ModelToolPropertyDataV9 = {
-  id: number,
+  id: BigInt,
   type: number,
   mergeIndex: number,
   time: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }
 
 export type ModelFileToolV10 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV10,
   blitTextures: Array<ModelToolBlitTextureV10>,
   streakData: ModelToolStreakV10,
   lightningData: ModelToolLightningV10,
-  permutationTokens: Array<number>
+  permutationTokens: Array<BigInt>
 }
 
 export type ModelToolCloudV10 = {
@@ -286,7 +286,7 @@ export type ModelToolCloudV10 = {
 }
 
 export type ModelToolBlitTextureV10 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -302,14 +302,14 @@ export type ModelToolLightningV10 = {
 }
 
 export type ModelFileToolV11 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV11,
   blitTextures: Array<ModelToolBlitTextureV11>,
   streakData: ModelToolStreakV11,
   lightningData: ModelToolLightningV11,
-  permutationTokens: Array<number>
+  permutationTokens: Array<BigInt>
 }
 
 export type ModelToolCloudV11 = {
@@ -318,7 +318,7 @@ export type ModelToolCloudV11 = {
 }
 
 export type ModelToolBlitTextureV11 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -334,14 +334,14 @@ export type ModelToolLightningV11 = {
 }
 
 export type ModelFileToolV12 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV12,
   blitTextures: Array<ModelToolBlitTextureV12>,
   streakData: ModelToolStreakV12,
   lightningData: ModelToolLightningV12,
-  permutationTokens: Array<number>,
+  permutationTokens: Array<BigInt>,
   highLodAnimations: Array<ModelToolAnimationV12>
 }
 
@@ -351,7 +351,7 @@ export type ModelToolCloudV12 = {
 }
 
 export type ModelToolBlitTextureV12 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -367,7 +367,7 @@ export type ModelToolLightningV12 = {
 }
 
 export type ModelToolAnimationV12 = {
-  name: number,
+  name: BigInt,
   filename: string,
   data: PackGrannyAnimationTypeV0
 }
@@ -377,14 +377,14 @@ export type PackGrannyAnimationTypeV0 = {
 }
 
 export type ModelFileToolV13 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV13,
   blitTextures: Array<ModelToolBlitTextureV13>,
   streakData: ModelToolStreakV13,
   lightningData: ModelToolLightningV13,
-  permutationTokens: Array<number>,
+  permutationTokens: Array<BigInt>,
   highLodAnimations: Array<ModelToolAnimationV13>
 }
 
@@ -394,7 +394,7 @@ export type ModelToolCloudV13 = {
 }
 
 export type ModelToolBlitTextureV13 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -410,20 +410,20 @@ export type ModelToolLightningV13 = {
 }
 
 export type ModelToolAnimationV13 = {
-  name: number,
+  name: BigInt,
   filename: string,
   data: PackGrannyAnimationTypeV0
 }
 
 export type ModelFileToolV14 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV14,
   blitTextures: Array<ModelToolBlitTextureV14>,
   streakData: ModelToolStreakV14,
   lightningData: ModelToolLightningV14,
-  permutationTokens: Array<number>,
+  permutationTokens: Array<BigInt>,
   highLodAnimations: Array<ModelToolAnimationV14>,
   compressionInfos: Array<ModelSequenceCompressionInfoV14>
 }
@@ -434,7 +434,7 @@ export type ModelToolCloudV14 = {
 }
 
 export type ModelToolBlitTextureV14 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -450,26 +450,26 @@ export type ModelToolLightningV14 = {
 }
 
 export type ModelToolAnimationV14 = {
-  name: number,
+  name: BigInt,
   filename: string,
   data: PackGrannyAnimationTypeV0
 }
 
 export type ModelSequenceCompressionInfoV14 = {
-  animToken: number,
+  animToken: BigInt,
   cmpGroup: string,
   cmpType: string
 }
 
 export type ModelFileToolV15 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV15,
   blitTextures: Array<ModelToolBlitTextureV15>,
   streakData: ModelToolStreakV15,
   lightningData: ModelToolLightningV15,
-  permutationTokens: Array<number>,
+  permutationTokens: Array<BigInt>,
   highLodAnimations: Array<ModelToolAnimationV15>,
   compressionInfos: Array<ModelSequenceCompressionInfoV15>,
   region: string
@@ -481,7 +481,7 @@ export type ModelToolCloudV15 = {
 }
 
 export type ModelToolBlitTextureV15 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -497,26 +497,26 @@ export type ModelToolLightningV15 = {
 }
 
 export type ModelToolAnimationV15 = {
-  name: number,
+  name: BigInt,
   filename: string,
   data: PackGrannyAnimationTypeV0
 }
 
 export type ModelSequenceCompressionInfoV15 = {
-  animToken: number,
+  animToken: BigInt,
   cmpGroup: string,
   cmpType: string
 }
 
 export type ModelFileToolV16 = {
-  modelType: number,
+  modelType: BigInt,
   materialNames: Array<string>,
   obstacleNames: Array<string>,
   cloudData: ModelToolCloudV16,
   blitTextures: Array<ModelToolBlitTextureV16>,
   streakData: ModelToolStreakV16,
   lightningData: ModelToolLightningV16,
-  permutationTokens: Array<number>,
+  permutationTokens: Array<BigInt>,
   highLodAnimations: Array<ModelToolAnimationV16>,
   compressionInfos: Array<ModelSequenceCompressionInfoV16>,
   region: string
@@ -528,7 +528,7 @@ export type ModelToolCloudV16 = {
 }
 
 export type ModelToolBlitTextureV16 = {
-  blitId: number,
+  blitId: BigInt,
   filename: string
 }
 
@@ -544,7 +544,7 @@ export type ModelToolLightningV16 = {
 }
 
 export type ModelToolAnimationV16 = {
-  name: number,
+  name: BigInt,
   filename: string,
   data: PackGrannyAnimationTypeV1
 }
@@ -555,7 +555,7 @@ export type PackGrannyAnimationTypeV1 = {
 }
 
 export type ModelSequenceCompressionInfoV16 = {
-  animToken: number,
+  animToken: BigInt,
   cmpGroup: string,
   cmpType: string
 }
