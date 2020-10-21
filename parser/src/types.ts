@@ -53,9 +53,12 @@ export const Uint64: DataType = {
   declarationType: "BigInt",
 };
 
-export const CString: DataType = {
-  baseType: BaseType.CString,
-  declarationType: "string",
+export function CString(length: number): DataType {
+  return {
+    baseType: BaseType.CString,
+    length,
+    declarationType: "string",
+  }
 };
 
 export function FixedArray(subType: DataType | string, length: number): DataType {

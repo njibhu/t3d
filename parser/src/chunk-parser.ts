@@ -105,9 +105,9 @@ export class ChunkParser implements Definition {
     };
   }
 
-  private CString(dv: DataView, pos: number): ParseFunctionReturn {
+  private CString(dv: DataView, pos: number, _subType: never, length: number): ParseFunctionReturn {
     const u8 = new Uint8Array(dv.buffer, pos);
-    const end = u8.findIndex((v) => v === 0);
+    const end = length || u8.findIndex((v) => v === 0);
 
     return {
       newPosition: pos + end,
