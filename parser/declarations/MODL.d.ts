@@ -20566,3 +20566,361 @@ export type ModelBoundingSphereV65 = {
   center: Array<number>,
   radius: number
 }
+
+export type ModelFileDataV66 = {
+  permutations: Array<ModelPermutationDataV66>,
+  cloudData: ModelCloudDataV66,
+  obstacles: Array<ModelObstacleDataV66>,
+  streakData: ModelStreakDataV66,
+  lightData: ModelLightDataV66,
+  clothData: Array<ModelClothDataV66>,
+  windData: ModelWindDataV66,
+  actionOffsetNames: Array<BigInt>,
+  actionOffsets: Array<Array<number>>,
+  lodOverride: Array<number>,
+  soundScript: string,
+  lightningData: ModelLightningDataV66,
+  softBodyData: Array<ModelSoftBodyDataV66>,
+  boneOffsetData: Array<ModelBoneOffsetDataV66>,
+  boundingSphere: ModelBoundingSphereV66
+}
+
+export type ModelPermutationDataV66 = {
+  token: BigInt,
+  materials: Array<ModelMaterialDataV66>
+}
+
+export type ModelMaterialDataV66 = {
+  token: BigInt,
+  materialId: number,
+  filename: string,
+  materialFlags: number,
+  sortOrder: number,
+  textures: Array<ModelTextureDataV66>,
+  constants: Array<ModelConstantDataV66>,
+  matConstLinks: Array<ModelMatConstLinkV66>,
+  uvTransLinks: Array<ModelUVTransLinkV66>,
+  texTransforms: Array<ModelMaterialTexTransformV66>,
+  texCoordCount: number,
+  sortLayer: number
+}
+
+export type ModelTextureDataV66 = {
+  filename: string,
+  textureFlags: number,
+  token: BigInt,
+  blitId: BigInt,
+  uvAnimId: number,
+  uvPSInputIndex: number
+}
+
+export type ModelConstantDataV66 = {
+  name: number,
+  value: Array<number>,
+  constantFlags: number
+}
+
+export type ModelMatConstLinkV66 = {
+  linkToken: BigInt,
+  constantToken: number
+}
+
+export type ModelUVTransLinkV66 = {
+  linkToken: BigInt,
+  uvAnimId: number,
+  type: number
+}
+
+export type ModelMaterialTexTransformV66 = {
+  flags: number,
+  uvIndex: number,
+  columns: number,
+  rows: number,
+  count: number,
+  fps: number,
+  scroll: Array<number>,
+  scrollFreq: Array<number>,
+  scale: Array<number>,
+  scaleFreq: Array<number>,
+  rotate: number
+}
+
+export type ModelCloudDataV66 = {
+  clouds: Array<ModelParticleCloudV66>,
+  emitters: Array<ModelParticleEmitterV66>
+}
+
+export type ModelParticleCloudV66 = {
+  acceleration: Array<number>,
+  bone: BigInt,
+  drag: number,
+  emitterIndices: Array<number>,
+  fvf: number,
+  flags: number,
+  materialIndex: number,
+  obstacleIndices: Array<number>,
+  velocity: Array<number>
+}
+
+export type ModelParticleEmitterV66 = {
+  acceleration: Array<Array<number>>,
+  accelerationDistRange: Array<number>,
+  accelerationDistSpeed: Array<number>,
+  affinity: number,
+  alignmentDir: Array<number>,
+  bone: BigInt,
+  colorBegin: Array<number>,
+  colorEnd: Array<number>,
+  colorPeriod: number,
+  colorFalloff: Array<number>,
+  drag: number,
+  emitterFlags: number,
+  offset: number,
+  opacityCurve: ModelParticleCurveV66,
+  opacityCurvePreset: number,
+  flags: number,
+  flipbook: ModelParticleFlipbookV66,
+  lifetime: Array<number>,
+  rotationChange: Array<number>,
+  rotationDrag: number,
+  rotationInitial: Array<number>,
+  scaleChange: Array<Array<number>>,
+  scaleInitial: Array<Array<number>>,
+  scaleCurve: ModelParticleCurveV66,
+  scaleCurvePreset: number,
+  velocity: Array<Array<number>>,
+  velocityDistRange: Array<number>,
+  velocityDistSpeed: Array<number>,
+  velocityInherit: Array<number>,
+  spawnGroupSize: Array<number>,
+  spawnPeriod: number,
+  spawnProbability: number,
+  spawnRadius: Array<number>,
+  spawnWindEmit: Array<number>,
+  spawnWindSpeed: Array<number>,
+  texCoordRect: Array<number>,
+  transform: ModelMatrix43V66,
+  windInfluence: number,
+  alignmentType: number,
+  spawnShape: number
+}
+
+export type ModelParticleCurveV66 = {
+  curveType: number,
+  keys: Array<Array<number>>
+}
+
+export type ModelParticleFlipbookV66 = {
+  columns: number,
+  count: number,
+  fps: number,
+  rows: number,
+  start: number
+}
+
+export type ModelMatrix43V66 = {
+  x: Array<number>,
+  y: Array<number>,
+  z: Array<number>
+}
+
+export type ModelObstacleDataV66 = {
+  affinity: number,
+  bone: BigInt,
+  type: number,
+  response: number,
+  flags: number,
+  dragCoef: number,
+  gravityCoef: number,
+  length: number,
+  width: number,
+  height: number,
+  radius: number,
+  transform: ModelMatrix43V66
+}
+
+export type ModelStreakDataV66 = {
+  streaks: Array<ModelStreakV66>,
+  anchors: Array<ModelStreakAnchorV66>
+}
+
+export type ModelStreakV66 = {
+  acceleration: Array<number>,
+  velocity: Array<number>,
+  anchorIndices: Array<number>,
+  bone: BigInt,
+  flags: number,
+  jitter: number,
+  materialIndex: number,
+  noise: number,
+  spawnDist: number,
+  texScale: number,
+  wind: number
+}
+
+export type ModelStreakAnchorV66 = {
+  bone: BigInt,
+  colorStart: number,
+  colorEnd: number,
+  falloff: number,
+  lifetime: number,
+  flags: number,
+  texV: number
+}
+
+export type ModelLightDataV66 = {
+  effectLights: Array<ModelEffectLightV66>
+}
+
+export type ModelEffectLightV66 = {
+  bone: BigInt,
+  color: Array<number>,
+  farDistance: number,
+  intensity: number,
+  nearDistance: number
+}
+
+export type ModelClothDataV66 = {
+  materialIndex: number,
+  drag: number,
+  gravity: number,
+  compressibility: number,
+  slack: number,
+  stretchiness: number,
+  weight: number,
+  wind: number,
+  mesh: PackVertexType,
+  indices: Array<number>,
+  groups: Array<ModelClothMeshGroupV66>,
+  groupBindings: Array<ModelClothGroupBindingV66>,
+  softLocks: Array<ModelClothSoftLockV66>,
+  lod0Constraints: Array<ModelClothConstraintV66>,
+  lod1Constraints: Array<ModelClothConstraintV66>,
+  lod1Indices: Array<number>,
+  barycentricCoords: Array<Array<number>>,
+  barycentricIndices: Array<number>,
+  obstacleIndices: Array<number>,
+  lockCount: number,
+  lockedNormals: Array<number>,
+  lockedTanegents: Array<number>,
+  lockedBitangents: Array<number>,
+  lod1VertexCount: number,
+  flags: number,
+  rigidness: number,
+  translateWeight: number,
+  visBone: BigInt
+}
+
+export type ModelClothMeshGroupV66 = {
+  weights: Array<ModelClothBoneWeightV66>
+}
+
+export type ModelClothBoneWeightV66 = {
+  token: BigInt,
+  weight: number
+}
+
+export type ModelClothGroupBindingV66 = {
+  strippedToken: BigInt,
+  boneName: string,
+  OBBMin: Array<number>,
+  OBBMax: Array<number>
+}
+
+export type ModelClothSoftLockV66 = {
+  weight: number,
+  vertIndex: number
+}
+
+export type ModelClothConstraintV66 = {
+  distance: number,
+  relationship: number,
+  vertIndexA: number,
+  vertIndexB: number
+}
+
+export type ModelWindDataV66 = {
+  effectWind: Array<ModelEffectWindV66>
+}
+
+export type ModelEffectWindV66 = {
+  bone: BigInt,
+  farDistance: number,
+  intensity: number,
+  nearDistance: number
+}
+
+export type ModelLightningDataV66 = {
+  systems: Array<ModelLightningSystemV66>,
+  bolts: Array<ModelLightningBoltV66>,
+  nodes: Array<ModelLightningNodeV66>
+}
+
+export type ModelLightningSystemV66 = {
+  bone: BigInt,
+  boltIndices: Array<number>,
+  flags: number,
+  fvf: number,
+  materialIndex: number
+}
+
+export type ModelLightningBoltV66 = {
+  bone: BigInt,
+  nodeIndices: Array<number>,
+  colorBegin: Array<number>,
+  colorEnd: Array<number>,
+  colorPeriod: number,
+  colorFalloff: Array<number>,
+  flags: number,
+  flipbook: ModelParticleFlipbookV66,
+  fps: number,
+  frequency: number,
+  groupMax: number,
+  groupMin: number,
+  probability: number,
+  lifetime: Array<number>,
+  numSegments: number,
+  opacity: Array<number>,
+  opacityPreset: number,
+  texOffset: number,
+  texRange: Array<number>,
+  texScale: number,
+  texSpeed: number,
+  thicknessPreset: number,
+  thicknessRange: Array<number>,
+  type: number,
+  variance: number,
+  variancePreset: number,
+  noise: number
+}
+
+export type ModelLightningNodeV66 = {
+  bone: BigInt,
+  childrenIndices: Array<number>,
+  flags: number,
+  probability: number,
+  radius: Array<number>,
+  shape: number,
+  updatePos: number
+}
+
+export type ModelSoftBodyDataV66 = {
+  materialIndex: number,
+  flags: number,
+  vertexFvf: number,
+  vertBytes: Array<number>,
+  indices: Array<number>,
+  bones: Array<BigInt>
+}
+
+export type ModelBoneOffsetDataV66 = {
+  bone: BigInt,
+  translation: Array<number>,
+  rotation: Array<number>,
+  boneInverseOffset: Array<Array<number>>
+}
+
+export type ModelBoundingSphereV66 = {
+  center: Array<number>,
+  radius: number
+}

@@ -15,7 +15,7 @@ export const V0 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV0: {
-      name: CString,
+      name: CString(),
       sortTri: Uint32,
       passes: DynArray("AmatDx9PassV0"),
       maxPsVersion: Uint16,
@@ -54,7 +54,7 @@ export const V1 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV1: {
-      name: CString,
+      name: CString(),
       sortTri: Uint32,
       passes: DynArray("AmatDx9PassV1"),
       maxPsVersion: Uint16,
@@ -96,7 +96,7 @@ export const V2 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV2: {
-      name: CString,
+      name: CString(),
       sortTri: Uint32,
       passes: DynArray("AmatDx9PassV2"),
       maxPsVersion: Uint16,
@@ -138,7 +138,7 @@ export const V3 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV3: {
-      name: CString,
+      name: CString(),
       sortTri: Uint32,
       passes: DynArray("AmatDx9PassV3"),
       maxPsVersion: Uint16,
@@ -180,7 +180,7 @@ export const V4 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV4: {
-      name: CString,
+      name: CString(),
       sortTri: Uint32,
       passes: DynArray("AmatDx9PassV4"),
       maxPsVersion: Uint16,
@@ -222,7 +222,7 @@ export const V5 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV5: {
-      name: CString,
+      name: CString(),
       sortTri: Uint32,
       passes: DynArray("AmatDx9PassV5"),
       maxPsVersion: Uint16,
@@ -264,7 +264,7 @@ export const V6 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV6: {
-      name: CString,
+      name: CString(),
       passes: DynArray("AmatDx9PassV6"),
       maxPsVersion: Uint16,
       maxVsVersion: Uint16
@@ -305,7 +305,7 @@ export const V7 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV7: {
-      name: CString,
+      name: CString(),
       passes: DynArray("AmatDx9PassV7"),
       maxPsVersion: Uint16,
       maxVsVersion: Uint16
@@ -346,7 +346,7 @@ export const V8 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV8: {
-      name: CString,
+      name: CString(),
       passes: DynArray("AmatDx9PassV8"),
       maxPsVersion: Uint16,
       maxVsVersion: Uint16
@@ -387,7 +387,7 @@ export const V9 = {
       constTokens: DynArray(Uint32)
     },
     AmatDx9TechniqueV9: {
-      name: CString,
+      name: CString(),
       passes: DynArray("AmatDx9PassV9"),
       maxPsVersion: Uint16,
       maxVsVersion: Uint16
@@ -430,7 +430,7 @@ export const V10 = {
       instructionCount: Uint16
     },
     AmatDx9TechniqueV10: {
-      name: CString,
+      name: CString(),
       passes: DynArray("AmatDx9PassV10"),
       maxPsVersion: Uint16,
       maxVsVersion: Uint16
@@ -474,7 +474,7 @@ export const V11 = {
       instructionCount: Uint16
     },
     AmatDx9TechniqueV11: {
-      name: CString,
+      name: CString(),
       passes: DynArray("AmatDx9PassV11"),
       maxPsVersion: Uint16,
       maxVsVersion: Uint16
