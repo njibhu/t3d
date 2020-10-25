@@ -90,7 +90,7 @@ export const anetTypes: {
   // 0x12
   [AType.WCharPtr]: () => "String16()",
   // 0x13
-  [AType.CharPtr]: () => "CString",
+  [AType.CharPtr]: () => "CString()",
   // 0x14
   [AType.CustomType]: (customSubType, subTypeName): string => (customSubType ? `'${subTypeName}'` : `${subTypeName}`),
   // 0x15

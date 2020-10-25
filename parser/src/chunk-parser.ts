@@ -101,11 +101,11 @@ export class ChunkParser implements Definition {
   private Uint64(dv: DataView, pos: number): ParseFunctionReturn {
     return {
       newPosition: pos + 8,
-      data: (BigInt(dv.getUint32(pos + 4, true)) << BigInt(32)) | BigInt(dv.getUint32(pos, true))
+      data: (BigInt(dv.getUint32(pos + 4, true)) << BigInt(32)) | BigInt(dv.getUint32(pos, true)),
     };
   }
 
-  private CString(dv: DataView, pos: number, _subType: never, length: number): ParseFunctionReturn {
+  private CString(dv: DataView, pos: number, _subType: DataType | string, length: number): ParseFunctionReturn {
     const u8 = new Uint8Array(dv.buffer, pos);
     const end = length || u8.findIndex((v) => v === 0);
 
