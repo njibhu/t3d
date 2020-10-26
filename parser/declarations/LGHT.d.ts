@@ -19,7 +19,7 @@ export type PackMapLight = {
 }
 
 export type PackMapLightgroups = {
-  guid: number,
+  guid: BigInt,
   lights: Array<PackMapLight>,
   curves: Array<PackMapCurve>,
   broadId: number
@@ -36,7 +36,7 @@ export type PackMapCurve = {
 }
 
 export type PackMapPointLightgroups = {
-  guid: number,
+  guid: BigInt,
   lights: Array<PackMapLight>,
   curves: Array<PackMapCurve>,
   broadId: number
@@ -56,7 +56,7 @@ export type PackMapPointLight = {
 }
 
 export type PackMapVolumeLight = {
-  guid: number,
+  guid: BigInt,
   position: Array<number>,
   extents: Array<number>,
   rotation: Array<number>,
@@ -90,7 +90,7 @@ export type PackMapLightsV14 = {
 }
 
 export type PackMapProtalLight = {
-  guid: number,
+  guid: BigInt,
   fadeCamera: number,
   fadeLight: number,
   lighten: number,
@@ -100,7 +100,7 @@ export type PackMapProtalLight = {
 }
 
 export type PackMapSpotLightgroups = {
-  guid: number,
+  guid: BigInt,
   lights: Array<PackMapSpotLight>,
   curves: Array<PackMapCurve>,
   broadId: number
@@ -116,7 +116,7 @@ export type PackMapLightsV15 = {
 }
 
 export type PackMapPortalLight = {
-  guid: number,
+  guid: BigInt,
   points: Array<Array<number>>,
   portalData: Array<PackMapPortalData>,
   broadId: number

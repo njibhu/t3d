@@ -5,6 +5,6 @@ export type PackAnimFallbacksV0 = {
 }
 
 export type PackAnimFallbackV0 = {
-  sourceAnim: number,
-  targetAnims: Array<number>
+  sourceAnim: BigInt,
+  targetAnims: Array<BigInt>
 }

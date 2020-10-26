@@ -5,7 +5,7 @@ export type PackEmoteAnimationsV0 = {
 }
 
 export type PackEmoteAnimationV0 = {
-  token: number,
+  token: BigInt,
   timings: Array<PackEmoteTimingV0>
 }
 
@@ -21,7 +21,7 @@ export type PackEmoteAnimationsV1 = {
 }
 
 export type PackEmoteAnimationV1 = {
-  token: number,
+  token: BigInt,
   timings: Array<PackEmoteTimingV1>
 }
 
@@ -38,7 +38,7 @@ export type PackEmoteAnimationsV2 = {
 }
 
 export type PackEmoteAnimationV2 = {
-  Token: number,
+  Token: BigInt,
   Timing: Array<PackEmoteTimingV2>
 }
 
@@ -56,7 +56,7 @@ export type PackEmoteAnimationsV3 = {
 }
 
 export type PackEmoteAnimationV3 = {
-  Token: number,
+  Token: BigInt,
   Timing: Array<PackEmoteTimingV3>
 }
 

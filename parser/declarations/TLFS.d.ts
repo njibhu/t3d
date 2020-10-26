@@ -6,6 +6,6 @@ export type PackMapToolFsV0 = {
 
 export type PackMapToolFsFileV0 = {
   filename: string,
-  time: number,
+  time: BigInt,
   dataPtr: Array<number>
 }

@@ -23,7 +23,7 @@ export type AmatGfxShaderConstant = {
 }
 
 export type AmatGfxSamplerConstant = {
-  token: number,
+  token: BigInt,
   stateIndex: number,
   textureIndex: number,
   textureSlot: number
@@ -43,8 +43,8 @@ export type AmatGfxPass = {
 }
 
 export type AmatGfxEffect = {
-  token: number,
-  renderState: number,
+  token: BigInt,
+  renderState: BigInt,
   shaderPassFlags: number,
   pixelShaderIndex: number,
   vertexShaderVariants: Array<AmatGfxVertexShaderVariant>

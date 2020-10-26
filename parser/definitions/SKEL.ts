@@ -14,20 +14,20 @@ export const V0 = {
       trackMasks: DynArray("ModelTrackMaskV62")
     },
     ModelGrannyModelV0: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelGrannySkeletonV0"),
       InitialPlacement: "ModelTransformData",
       MeshBindings: DynArray("ModelMeshBindingData"),
       ExtendedData: Pointer(Uint8)
     },
     ModelGrannySkeletonV0: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneData"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneData: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformData",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -105,20 +105,20 @@ export const V1 = {
       trackMasks: DynArray("ModelTrackMaskV63")
     },
     ModelGrannyModelV1: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelGrannySkeletonV1"),
       InitialPlacement: "ModelTransformData",
       MeshBindings: DynArray("ModelMeshBindingData"),
       ExtendedData: Pointer(Uint8)
     },
     ModelGrannySkeletonV1: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneData"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneData: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformData",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),

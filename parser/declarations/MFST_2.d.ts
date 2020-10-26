@@ -58,7 +58,7 @@ export type ContentMapModelV1 = {
   filename: string,
   flags: number,
   type: number,
-  permutation: number
+  permutation: BigInt
 }
 
 export type ContentPortalManifest = {
@@ -89,5 +89,5 @@ export type ContentMapModel = {
   filename: string,
   flags: number,
   type: number,
-  permutation: number
+  permutation: BigInt
 }

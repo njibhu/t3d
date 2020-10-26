@@ -28,7 +28,7 @@ export type PackAnimMachineActionVariantBlockV0 = {
 }
 
 export type PackAnimMachineActionVariantV0 = {
-  token: number,
+  token: BigInt,
   actionBlock: PackAnimMachineActionBlockV0
 }
 
@@ -40,12 +40,12 @@ export type PackAnimMachineTransitionV0 = {
 }
 
 export type PackAnimMachineTransitionVariantV0 = {
-  token: number,
+  token: BigInt,
   actionBlock: PackAnimMachineActionBlockV0
 }
 
 export type PackAnimMachineStateVariantV0 = {
-  token: number,
+  token: BigInt,
   actionBlock: PackAnimMachineActionBlockV0,
   actionVariantBlock: PackAnimMachineActionVariantBlockV0,
   transitions: Array<PackAnimMachineTransitionV0>
@@ -85,7 +85,7 @@ export type PackAnimMachineActionVariantBlockV1 = {
 }
 
 export type PackAnimMachineActionVariantV1 = {
-  token: number,
+  token: BigInt,
   actionBlock: PackAnimMachineActionBlockV1
 }
 
@@ -97,12 +97,12 @@ export type PackAnimMachineTransitionV1 = {
 }
 
 export type PackAnimMachineTransitionVariantV1 = {
-  token: number,
+  token: BigInt,
   actionBlock: PackAnimMachineActionBlockV1
 }
 
 export type PackAnimMachineStateVariantV1 = {
-  token: number,
+  token: BigInt,
   actionBlock: PackAnimMachineActionBlockV1,
   actionVariantBlock: PackAnimMachineActionVariantBlockV1,
   transitions: Array<PackAnimMachineTransitionV1>

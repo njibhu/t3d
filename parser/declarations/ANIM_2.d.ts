@@ -6,7 +6,7 @@ export type SceneFileAnimationV0 = {
 }
 
 export type SceneAnimationV0 = {
-  name: number,
+  name: BigInt,
   motion: SceneMotionV0,
   actionPoints: Array<SceneActionPointV0>
 }
@@ -22,13 +22,13 @@ export type SceneKeyframeV0 = {
 }
 
 export type SceneActionPointV0 = {
-  name: number,
+  name: BigInt,
   motion: SceneMotionV0
 }
 
 export type SceneAnimationImportV0 = {
   filename: string,
-  animNames: Array<number>
+  animNames: Array<BigInt>
 }
 
 export type SceneFileAnimationV1 = {
@@ -37,7 +37,7 @@ export type SceneFileAnimationV1 = {
 }
 
 export type SceneAnimationV1 = {
-  name: number,
+  name: BigInt,
   motion: SceneMotionV1,
   actionPoints: Array<SceneActionPointV1>,
   events: Array<SceneAnimationEventV1>
@@ -54,18 +54,18 @@ export type SceneKeyframeV1 = {
 }
 
 export type SceneActionPointV1 = {
-  name: number,
+  name: BigInt,
   motion: SceneMotionV1
 }
 
 export type SceneAnimationEventV1 = {
-  name: number,
+  name: BigInt,
   time: number
 }
 
 export type SceneAnimationImportV1 = {
   filename: string,
-  animNames: Array<number>
+  animNames: Array<BigInt>
 }
 
 export type SceneFileAnimationV2 = {
@@ -75,7 +75,7 @@ export type SceneFileAnimationV2 = {
 }
 
 export type SceneAnimationV2 = {
-  name: number,
+  name: BigInt,
   motion: SceneMotionV2,
   actionPoints: Array<SceneActionPointV2>,
   events: Array<SceneAnimationEventV2>
@@ -92,22 +92,22 @@ export type SceneKeyframeV2 = {
 }
 
 export type SceneActionPointV2 = {
-  name: number,
+  name: BigInt,
   motion: SceneMotionV2
 }
 
 export type SceneAnimationEventV2 = {
-  name: number,
+  name: BigInt,
   time: number
 }
 
 export type ScenePoseV2 = {
-  name: number,
+  name: BigInt,
   transforms: Array<SceneTransformV2>
 }
 
 export type SceneTransformV2 = {
-  name: number,
+  name: BigInt,
   translation: Array<number>,
   rotation: Array<number>
 }
@@ -119,5 +119,5 @@ export type SceneAnimationImportV2 = {
 }
 
 export type SceneImportSequenceV2 = {
-  name: number
+  name: BigInt
 }

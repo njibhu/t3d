@@ -5,10 +5,10 @@ interface Definition {
   name: string;
   version: number;
   definitions: {
-    [definition: string]: { [key: string]: BaseType };
+    [definition: string]: { [key: string]: DataType | string };
   };
   root: {
-    [key: string]: BaseType;
+    [key: string]: DataType | string;
   };
 }
 
@@ -17,12 +17,12 @@ interface ParseFunctionReturn {
   data: any;
 }
 
-class ChunkParser implements Definition {
-  public readonly chunkName;
-  public readonly name;
-  public readonly version;
-  public readonly definitions;
-  public readonly root;
+export class ChunkParser implements Definition {
+  public readonly chunkName: Definition["chunkName"];
+  public readonly name: Definition["name"];
+  public readonly version: Definition["version"];
+  public readonly definitions: Definition["definitions"];
+  public readonly root: Definition["root"];
 
   constructor(definition: Definition) {
     Object.assign(this, definition);
@@ -32,7 +32,14 @@ class ChunkParser implements Definition {
     let position = pos;
     const parsedObject = {};
     for (const key in this.root) {
-      let parsedResult: ParseFunctionReturn = this[this.root[key]](dv, position);
+      const value = this.root[key];
+      let parsedResult: ParseFunctionReturn;
+      if (typeof value === "string") {
+        parsedResult = this.parseType(dv, position, value);
+      } else {
+        const { baseType, subType, length } = value;
+        parsedResult = this[baseType](dv, position, subType, length);
+      }
       parsedObject[key] = parsedResult.data;
       position = parsedResult.newPosition;
     }
@@ -48,8 +55,16 @@ class ChunkParser implements Definition {
     let position = pos;
     const definition = this.definitions[typeDefinitionName];
     for (const key in definition) {
-      let parsedResult: ParseFunctionReturn = definition[key](dv, position);
+      const value = definition[key];
+      let parsedResult: ParseFunctionReturn;
+      if (typeof value === "string") {
+        parsedResult = this.parseType(dv, position, value);
+      } else {
+        const { baseType, subType, length } = value;
+        parsedResult = this[baseType](dv, position, subType, length);
+      }
       parsedObject[key] = parsedResult.data;
+
       position = parsedResult.newPosition;
     }
 
@@ -85,14 +100,14 @@ class ChunkParser implements Definition {
 
   private Uint64(dv: DataView, pos: number): ParseFunctionReturn {
     return {
-      newPosition: pos + 4,
-      data: dv.getUint32(pos, true) + 2 ** 32 * dv.getUint32(pos + 8, true),
+      newPosition: pos + 8,
+      data: (BigInt(dv.getUint32(pos + 4, true)) << BigInt(32)) | BigInt(dv.getUint32(pos, true)),
     };
   }
 
-  private CString(dv: DataView, pos: number): ParseFunctionReturn {
+  private CString(dv: DataView, pos: number, _subType: DataType | string, length: number): ParseFunctionReturn {
     const u8 = new Uint8Array(dv.buffer, pos);
-    const end = u8.findIndex((v) => v === 0);
+    const end = length || u8.findIndex((v) => v === 0);
 
     return {
       newPosition: pos + end,
@@ -101,29 +116,50 @@ class ChunkParser implements Definition {
   }
 
   private FixedArray(dv: DataView, pos: number, type: DataType | string, length: number): ParseFunctionReturn {
+    // Some types can be mapped directly from their buffer into the return type
+    if (typeof type != "string" && this._getOptimisedArrayConstructor(type.baseType)) {
+      return this.optimisedArray(dv, pos, type, length);
+    }
+
+    const data = [];
+    let newPosition = pos;
+    for (let itemIndex = 0; itemIndex < length; itemIndex++) {
+      const parsedItem =
+        typeof type === "string"
+          ? this.parseType(dv, newPosition, type)
+          : this[type.baseType](dv, newPosition, type.subType, type.length);
+      data.push(parsedItem.data);
+      newPosition = parsedItem.newPosition;
+    }
+
     return {
-      // TODO
-      newPosition: -1,
-      data: {},
+      newPosition,
+      data,
     };
   }
 
   private DynArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
-    let arrayLength = dv.getUint32(pos);
-    let arrayOffset = dv.getUint32(pos + 4);
+    let arrayLength = dv.getUint32(pos, true);
+    let arrayOffset = dv.getUint32(pos + 4, true);
+
     if (arrayOffset === 0) {
-      // 0 is the place of the offset itself, it cannot be the content of the array itself.
-      throw new Error("DynArray offset cannot be 0");
+      return {
+        newPosition: pos + 8,
+        data: [],
+      };
     }
     let arrayPtr = pos + 4 + arrayOffset;
 
-    return this.FixedArray(dv, arrayPtr, type, arrayLength);
+    return {
+      newPosition: pos + 8,
+      data: this.FixedArray(dv, arrayPtr, type, arrayLength).data,
+    };
   }
 
   private RefArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     let data = [];
-    let arrayLength = dv.getUint32(pos);
-    let arrayPtr = dv.getUint32(pos + 4) + pos;
+    let arrayLength = dv.getUint32(pos, true);
+    let arrayPtr = dv.getUint32(pos + 4, true) + pos;
     if (arrayLength === 0) {
       return {
         data,
@@ -131,7 +167,7 @@ class ChunkParser implements Definition {
       };
     }
 
-    const pointer = dv.getUint32(pos + 4) + pos + 4;
+    const pointer = dv.getUint32(pos + 4, true) + pos + 4;
     for (let index = 0; index < arrayLength; index++) {
       const offset = dv.getInt32(arrayPtr + 4 * index);
       if (offset !== 0) {
@@ -139,7 +175,7 @@ class ChunkParser implements Definition {
         if (typeof type === "string") {
           data.push(this.parseType(dv, newPosition, type).data);
         } else {
-          data.push(this[type.baseType](dv, newPosition, type, type.length).data);
+          data.push(this[type.baseType](dv, newPosition, type.subType, type.length).data);
         }
       }
     }
@@ -151,35 +187,68 @@ class ChunkParser implements Definition {
   }
 
   private Pointer(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
+    const offset = dv.getUint32(pos, true);
+    const parsedItem =
+      typeof type === "string"
+        ? this.parseType(dv, pos + offset, type)
+        : this[type.baseType](dv, pos + offset, type.subType, type.length);
+
     return {
-      // TODO
-      newPosition: -1,
-      data: {},
+      newPosition: parsedItem.newPosition,
+      data: parsedItem.data,
     };
   }
 
   private String16(dv: DataView, pos: number): ParseFunctionReturn {
-    return {
-      // TODO
-      newPosition: -1,
-      data: {},
-    };
-  }
+    let newPosition = pos;
+    let ptr = pos + dv.getUint32(pos, true);
+    newPosition += 4;
 
-  private Filename(dv: DataView, pos: number): ParseFunctionReturn {
+    let data = "";
+    let num;
+    while (ptr + 2 < dv.byteLength && (num = dv.getUint16(ptr)) !== 0) {
+      ptr += 2;
+      data += String.fromCharCode(num);
+    }
+
     return {
-      // TODO
-      newPosition: -1,
-      data: {},
+      newPosition,
+      data,
     };
   }
 
   private Fileref(dv: DataView, pos: number): ParseFunctionReturn {
-    return {
-      // TODO
-      newPosition: -1,
-      data: {},
-    };
+    return this.Filename(dv, pos);
+  }
+
+  private Filename(dv: DataView, pos: number): ParseFunctionReturn {
+    // This implementation is based on the old Utils.getFileNameReader() function
+    let newPosition = pos;
+    try {
+      let ptr = newPosition + dv.getUint32(newPosition, true);
+      newPosition += 4;
+
+      const m_lowPart = dv.getUint16(ptr);
+      ptr += 2;
+      const m_highPart = dv.getUint16(ptr);
+      ptr += 2;
+      const _m_terminator = dv.getUint16(ptr);
+      ptr += 2;
+
+      /// Getting the file name...
+      /// Both need to be >= than 256 (terminator is 0)
+      const ret = 0xff00 * (m_highPart - 0x100) + (m_lowPart - 0x100) + 1;
+
+      return {
+        newPosition,
+        data: ret > 0 ? ret : 0,
+      };
+    } catch (e) {
+      return {
+        newPosition,
+        data: -1,
+      };
+    }
   }
 
   private Unknown(dv: DataView, pos: number): ParseFunctionReturn {
@@ -187,10 +256,18 @@ class ChunkParser implements Definition {
   }
 
   /**
-   *      Parser utils
+   *      Parser utils & helpers
    **/
 
-  private _getOptimisedArrayConstructor(baseType): Function {
+  private optimisedArray(dv: DataView, pos: number, type: DataType, length: number): ParseFunctionReturn {
+    const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType);
+    return {
+      newPosition: pos + length * OptimisedArray.BYTES_PER_ELEMENT,
+      data: Array.from(new OptimisedArray(dv.buffer, pos, length)),
+    };
+  }
+
+  private _getOptimisedArrayConstructor(baseType: BaseType) {
     switch (baseType) {
       case BaseType.Float32:
         return Float32Array;
@@ -204,8 +281,8 @@ class ChunkParser implements Definition {
       case BaseType.Uint16:
         return Uint16Array;
 
-      case BaseType.Uint32:
-        return Uint32Array;
+      // case BaseType.Uint32:
+      //   return Uint32Array;
     }
   }
 }

@@ -7,5 +7,5 @@ export type TextPackPasswords = {
 
 export type TextPackPassword = {
   textId: number,
-  password: number
+  password: BigInt
 }

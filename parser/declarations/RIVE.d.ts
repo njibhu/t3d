@@ -5,7 +5,7 @@ export type PackMapRivers = {
 }
 
 export type MapRiver = {
-  guid: number,
+  guid: BigInt,
   name: string,
   properties: Array<PackMapRiverProperty>,
   points: Array<Array<number>>,
@@ -40,6 +40,6 @@ export type PackBroadphaseType = {
 
 export type PackMapRiverProperty = {
   type: number,
-  val: number,
+  val: BigInt,
   strVal: string
 }

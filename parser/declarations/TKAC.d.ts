@@ -7,5 +7,5 @@ export type KeyTableData = {
 export type KeyEntry = {
   assetType: number,
   assetId: number,
-  key: number
+  key: BigInt
 }

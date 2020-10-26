@@ -5,12 +5,12 @@ export type PackAnimSequencesV0 = {
 }
 
 export type PackAnimSequenceV0 = {
-  sequence: number,
+  sequence: BigInt,
   animationData: Array<PackAnimSequenceDataV0>
 }
 
 export type PackAnimSequenceDataV0 = {
-  token: number,
+  token: BigInt,
   flags: number,
   blendInTime: number,
   blendOutTime: number,

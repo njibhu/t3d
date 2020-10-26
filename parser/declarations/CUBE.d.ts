@@ -68,7 +68,7 @@ export type PackMapCubeMapSampleV3 = {
   filenameNightDefault: string,
   filenameDayScript: string,
   filenameNightScript: string,
-  envID: number
+  envID: BigInt
 }
 
 export type PackMapCubeMapParamsV3 = {

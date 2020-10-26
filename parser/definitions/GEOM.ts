@@ -15,8 +15,8 @@ export const V0 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString,
-      boneNames: DynArray(CString),
+      materialName: CString(),
+      boneNames: DynArray(CString()),
       geometry: Pointer("ModelMeshGeometryV0")
     },
     ModelMeshMorphTargetV65: {
@@ -70,7 +70,7 @@ export const V1 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString,
+      materialName: CString(),
       boneBindings: DynArray(Uint64),
       geometry: Pointer("ModelMeshGeometryV1")
     },

@@ -5,7 +5,7 @@ export type ModelFileRootMotionV0 = {
 }
 
 export type ModelRootMotionV0 = {
-  sequence: number,
+  sequence: BigInt,
   keys: Array<number>,
   values: Array<Array<number>>
 }
@@ -15,7 +15,7 @@ export type ModelFileRootMotionV1 = {
 }
 
 export type ModelRootMotionV1 = {
-  sequence: number,
+  sequence: BigInt,
   keys: Array<number>,
   posValues: Array<Array<number>>,
   quatValues: Array<Array<number>>

@@ -28,5 +28,5 @@ export type PackMapResourceMapNodeV1 = {
 export type PackMapResourceMapNodeItemV1 = {
   filename: string,
   type: number,
-  permutation: number
+  permutation: BigInt
 }

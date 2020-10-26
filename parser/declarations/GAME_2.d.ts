@@ -6,7 +6,7 @@ export type SceneFileGameV0 = {
 }
 
 export type ScenePathV0 = {
-  properties: Array<number>,
+  properties: Array<BigInt>,
   points: Array<ScenePathNodeV0>,
   closed: number
 }
@@ -37,7 +37,7 @@ export type SceneFileGameV1 = {
 }
 
 export type ScenePathV1 = {
-  properties: Array<number>,
+  properties: Array<BigInt>,
   points: Array<ScenePathNodeV1>,
   closed: number
 }
@@ -70,7 +70,7 @@ export type SceneFileGameV2 = {
 }
 
 export type ScenePathV2 = {
-  properties: Array<number>,
+  properties: Array<BigInt>,
   points: Array<ScenePathNodeV2>,
   closed: number
 }
@@ -111,7 +111,7 @@ export type SceneFileGameV3 = {
 }
 
 export type ScenePathV3 = {
-  properties: Array<number>,
+  properties: Array<BigInt>,
   points: Array<ScenePathNodeV3>,
   closed: number
 }
@@ -153,7 +153,7 @@ export type SceneFileGameV4 = {
 }
 
 export type ScenePathV4 = {
-  properties: Array<number>,
+  properties: Array<BigInt>,
   points: Array<ScenePathNodeV4>,
   closed: number
 }
@@ -195,7 +195,7 @@ export type SceneFileGameV5 = {
 }
 
 export type ScenePathV5 = {
-  properties: Array<number>,
+  properties: Array<BigInt>,
   points: Array<ScenePathNodeV5>,
   closed: number
 }
@@ -230,7 +230,7 @@ export type SceneFileGameV6 = {
 }
 
 export type ScenePathV6 = {
-  properties: Array<number>,
+  properties: Array<BigInt>,
   points: Array<ScenePathNodeV6>,
   closed: number
 }
@@ -258,5 +258,5 @@ export type SceneEdgeV6 = {
 }
 
 export type SceneGameSurfaceV6 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }

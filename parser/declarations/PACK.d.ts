@@ -9,6 +9,6 @@ export type MapPackage = {
 export type MapVariant = {
   file: string,
   name: string,
-  token: number,
+  token: BigInt,
   flags: number
 }

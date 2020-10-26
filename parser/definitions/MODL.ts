@@ -37,18 +37,18 @@ export const V0 = {
       animation: DynArray(Uint8)
     },
     ModelModelDataV0: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV0"),
       InitialPlacement: "ModelTransformDataV0",
       MeshBindings: DynArray("ModelMeshBindingDataV0")
     },
     ModelSkeletonDataV0: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV0"),
       LODType: Uint32
     },
     ModelBoneDataV0: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV0",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -119,18 +119,18 @@ export const V1 = {
       animation: DynArray(Uint8)
     },
     ModelModelDataV1: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV1"),
       InitialPlacement: "ModelTransformDataV1",
       MeshBindings: DynArray("ModelMeshBindingDataV1")
     },
     ModelSkeletonDataV1: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV1"),
       LODType: Uint32
     },
     ModelBoneDataV1: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV1",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -221,18 +221,18 @@ export const V2 = {
       animation: DynArray(Uint8)
     },
     ModelModelDataV2: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV2"),
       InitialPlacement: "ModelTransformDataV2",
       MeshBindings: DynArray("ModelMeshBindingDataV2")
     },
     ModelSkeletonDataV2: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV2"),
       LODType: Uint32
     },
     ModelBoneDataV2: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV2",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -380,18 +380,18 @@ export const V3 = {
       animation: DynArray(Uint8)
     },
     ModelModelDataV3: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV3"),
       InitialPlacement: "ModelTransformDataV3",
       MeshBindings: DynArray("ModelMeshBindingDataV3")
     },
     ModelSkeletonDataV3: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV3"),
       LODType: Uint32
     },
     ModelBoneDataV3: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV3",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -557,18 +557,18 @@ export const V4 = {
       keys: DynArray(Float32)
     },
     ModelModelDataV4: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV4"),
       InitialPlacement: "ModelTransformDataV4",
       MeshBindings: DynArray("ModelMeshBindingDataV4")
     },
     ModelSkeletonDataV4: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV4"),
       LODType: Uint32
     },
     ModelBoneDataV4: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV4",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -735,18 +735,18 @@ export const V5 = {
       keys: DynArray(Float32)
     },
     ModelModelDataV5: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV5"),
       InitialPlacement: "ModelTransformDataV5",
       MeshBindings: DynArray("ModelMeshBindingDataV5")
     },
     ModelSkeletonDataV5: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV5"),
       LODType: Uint32
     },
     ModelBoneDataV5: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV5",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -918,18 +918,18 @@ export const V6 = {
       sequenceTokens: DynArray(Uint64)
     },
     ModelModelDataV6: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV6"),
       InitialPlacement: "ModelTransformDataV6",
       MeshBindings: DynArray("ModelMeshBindingDataV6")
     },
     ModelSkeletonDataV6: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV6"),
       LODType: Uint32
     },
     ModelBoneDataV6: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV6",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -1105,19 +1105,19 @@ export const V7 = {
       sequenceTokens: DynArray(Uint64)
     },
     ModelModelDataV7: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV7"),
       InitialPlacement: "ModelTransformDataV7",
       MeshBindings: DynArray("ModelMeshBindingDataV7"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV7: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV7"),
       LODType: Uint32
     },
     ModelBoneDataV7: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV7",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -1278,19 +1278,19 @@ export const V8 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV8: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV8"),
       InitialPlacement: "ModelTransformDataV8",
       MeshBindings: DynArray("ModelMeshBindingDataV8"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV8: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV8"),
       LODType: Uint32
     },
     ModelBoneDataV8: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV8",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -1418,19 +1418,19 @@ export const V9 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV9: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV9"),
       InitialPlacement: "ModelTransformDataV9",
       MeshBindings: DynArray("ModelMeshBindingDataV9"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV9: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV9"),
       LODType: Uint32
     },
     ModelBoneDataV9: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV9",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -1558,19 +1558,19 @@ export const V10 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV10: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV10"),
       InitialPlacement: "ModelTransformDataV10",
       MeshBindings: DynArray("ModelMeshBindingDataV10"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV10: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV10"),
       LODType: Uint32
     },
     ModelBoneDataV10: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV10",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -1719,19 +1719,19 @@ export const V11 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV11: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV11"),
       InitialPlacement: "ModelTransformDataV11",
       MeshBindings: DynArray("ModelMeshBindingDataV11"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV11: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV11"),
       LODType: Uint32
     },
     ModelBoneDataV11: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV11",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -1893,19 +1893,19 @@ export const V12 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV12: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV12"),
       InitialPlacement: "ModelTransformDataV12",
       MeshBindings: DynArray("ModelMeshBindingDataV12"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV12: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV12"),
       LODType: Uint32
     },
     ModelBoneDataV12: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV12",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -2067,19 +2067,19 @@ export const V13 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV13: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV13"),
       InitialPlacement: "ModelTransformDataV13",
       MeshBindings: DynArray("ModelMeshBindingDataV13"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV13: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV13"),
       LODType: Uint32
     },
     ModelBoneDataV13: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV13",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -2243,19 +2243,19 @@ export const V14 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV14: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV14"),
       InitialPlacement: "ModelTransformDataV14",
       MeshBindings: DynArray("ModelMeshBindingDataV14"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV14: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV14"),
       LODType: Uint32
     },
     ModelBoneDataV14: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV14",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -2421,19 +2421,19 @@ export const V15 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV15: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV15"),
       InitialPlacement: "ModelTransformDataV15",
       MeshBindings: DynArray("ModelMeshBindingDataV15"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV15: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV15"),
       LODType: Uint32
     },
     ModelBoneDataV15: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV15",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -2610,19 +2610,19 @@ export const V16 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV16: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV16"),
       InitialPlacement: "ModelTransformDataV16",
       MeshBindings: DynArray("ModelMeshBindingDataV16"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV16: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV16"),
       LODType: Uint32
     },
     ModelBoneDataV16: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV16",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -2807,19 +2807,19 @@ export const V17 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV17: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV17"),
       InitialPlacement: "ModelTransformDataV17",
       MeshBindings: DynArray("ModelMeshBindingDataV17"),
       boneFlags: DynArray(Uint32)
     },
     ModelSkeletonDataV17: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV17"),
       LODType: Uint32
     },
     ModelBoneDataV17: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV17",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -3000,13 +3000,13 @@ export const V18 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV18: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV18"),
       InitialPlacement: "ModelTransformDataV18",
       MeshBindings: DynArray("ModelMeshBindingDataV18"),
@@ -3015,12 +3015,12 @@ export const V18 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV18: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV18"),
       LODType: Uint32
     },
     ModelBoneDataV18: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV18",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -3211,13 +3211,13 @@ export const V19 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV19: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV19"),
       InitialPlacement: "ModelTransformDataV19",
       MeshBindings: DynArray("ModelMeshBindingDataV19"),
@@ -3226,12 +3226,12 @@ export const V19 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV19: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV19"),
       LODType: Uint32
     },
     ModelBoneDataV19: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV19",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -3458,13 +3458,13 @@ export const V20 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV20: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV20"),
       InitialPlacement: "ModelTransformDataV20",
       MeshBindings: DynArray("ModelMeshBindingDataV20"),
@@ -3473,12 +3473,12 @@ export const V20 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV20: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV20"),
       LODType: Uint32
     },
     ModelBoneDataV20: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV20",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -3705,13 +3705,13 @@ export const V21 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV21: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV21"),
       InitialPlacement: "ModelTransformDataV21",
       MeshBindings: DynArray("ModelMeshBindingDataV21"),
@@ -3721,12 +3721,12 @@ export const V21 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV21: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV21"),
       LODType: Uint32
     },
     ModelBoneDataV21: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV21",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -3959,13 +3959,13 @@ export const V22 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV22: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV22"),
       InitialPlacement: "ModelTransformDataV22",
       MeshBindings: DynArray("ModelMeshBindingDataV22"),
@@ -3975,12 +3975,12 @@ export const V22 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV22: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV22"),
       LODType: Uint32
     },
     ModelBoneDataV22: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV22",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -4213,13 +4213,13 @@ export const V23 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV23: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV23"),
       InitialPlacement: "ModelTransformDataV23",
       MeshBindings: DynArray("ModelMeshBindingDataV23"),
@@ -4229,12 +4229,12 @@ export const V23 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV23: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV23"),
       LODType: Uint32
     },
     ModelBoneDataV23: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV23",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -4467,13 +4467,13 @@ export const V24 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV24: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV24"),
       InitialPlacement: "ModelTransformDataV24",
       MeshBindings: DynArray("ModelMeshBindingDataV24"),
@@ -4483,12 +4483,12 @@ export const V24 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV24: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV24"),
       LODType: Uint32
     },
     ModelBoneDataV24: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV24",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -4722,13 +4722,13 @@ export const V25 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV25: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV25"),
       InitialPlacement: "ModelTransformDataV25",
       MeshBindings: DynArray("ModelMeshBindingDataV25"),
@@ -4738,12 +4738,12 @@ export const V25 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV25: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV25"),
       LODType: Uint32
     },
     ModelBoneDataV25: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV25",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -4978,13 +4978,13 @@ export const V26 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV26: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV26"),
       InitialPlacement: "ModelTransformDataV26",
       MeshBindings: DynArray("ModelMeshBindingDataV26"),
@@ -4994,12 +4994,12 @@ export const V26 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV26: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV26"),
       LODType: Uint32
     },
     ModelBoneDataV26: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV26",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -5234,13 +5234,13 @@ export const V27 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV27: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV27"),
       InitialPlacement: "ModelTransformDataV27",
       MeshBindings: DynArray("ModelMeshBindingDataV27"),
@@ -5250,12 +5250,12 @@ export const V27 = {
       skeletonHash: DynArray(Uint8)
     },
     ModelSkeletonDataV27: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV27"),
       LODType: Uint32
     },
     ModelBoneDataV27: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV27",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -5492,13 +5492,13 @@ export const V28 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV28: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV28"),
       InitialPlacement: "ModelTransformDataV28",
       MeshBindings: DynArray("ModelMeshBindingDataV28"),
@@ -5510,12 +5510,12 @@ export const V28 = {
       radius: Float32
     },
     ModelSkeletonDataV28: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV28"),
       LODType: Uint32
     },
     ModelBoneDataV28: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV28",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -5763,13 +5763,13 @@ export const V29 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV29: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV29"),
       InitialPlacement: "ModelTransformDataV29",
       MeshBindings: DynArray("ModelMeshBindingDataV29"),
@@ -5781,12 +5781,12 @@ export const V29 = {
       radius: Float32
     },
     ModelSkeletonDataV29: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV29"),
       LODType: Uint32
     },
     ModelBoneDataV29: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV29",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -6039,13 +6039,13 @@ export const V30 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV30: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV30"),
       InitialPlacement: "ModelTransformDataV30",
       MeshBindings: DynArray("ModelMeshBindingDataV30"),
@@ -6057,12 +6057,12 @@ export const V30 = {
       radius: Float32
     },
     ModelSkeletonDataV30: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV30"),
       LODType: Uint32
     },
     ModelBoneDataV30: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV30",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -6316,13 +6316,13 @@ export const V31 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV31: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV31"),
       InitialPlacement: "ModelTransformDataV31",
       MeshBindings: DynArray("ModelMeshBindingDataV31"),
@@ -6334,12 +6334,12 @@ export const V31 = {
       radius: Float32
     },
     ModelSkeletonDataV31: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV31"),
       LODType: Uint32
     },
     ModelBoneDataV31: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV31",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -6594,13 +6594,13 @@ export const V32 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV32: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV32"),
       InitialPlacement: "ModelTransformDataV32",
       MeshBindings: DynArray("ModelMeshBindingDataV32"),
@@ -6612,12 +6612,12 @@ export const V32 = {
       radius: Float32
     },
     ModelSkeletonDataV32: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV32"),
       LODType: Uint32
     },
     ModelBoneDataV32: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV32",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -6915,13 +6915,13 @@ export const V33 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV33: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV33"),
       InitialPlacement: "ModelTransformDataV33",
       MeshBindings: DynArray("ModelMeshBindingDataV33"),
@@ -6933,12 +6933,12 @@ export const V33 = {
       radius: Float32
     },
     ModelSkeletonDataV33: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV33"),
       LODType: Uint32
     },
     ModelBoneDataV33: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV33",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -7260,13 +7260,13 @@ export const V34 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV34: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV34"),
       InitialPlacement: "ModelTransformDataV34",
       MeshBindings: DynArray("ModelMeshBindingDataV34"),
@@ -7278,12 +7278,12 @@ export const V34 = {
       radius: Float32
     },
     ModelSkeletonDataV34: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV34"),
       LODType: Uint32
     },
     ModelBoneDataV34: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV34",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -7601,13 +7601,13 @@ export const V35 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV35: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV35"),
       InitialPlacement: "ModelTransformDataV35",
       MeshBindings: DynArray("ModelMeshBindingDataV35"),
@@ -7619,12 +7619,12 @@ export const V35 = {
       radius: Float32
     },
     ModelSkeletonDataV35: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV35"),
       LODType: Uint32
     },
     ModelBoneDataV35: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV35",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -7945,13 +7945,13 @@ export const V36 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV36: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV36"),
       InitialPlacement: "ModelTransformDataV36",
       MeshBindings: DynArray("ModelMeshBindingDataV36"),
@@ -7963,12 +7963,12 @@ export const V36 = {
       radius: Float32
     },
     ModelSkeletonDataV36: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV36"),
       LODType: Uint32
     },
     ModelBoneDataV36: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV36",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -8296,13 +8296,13 @@ export const V37 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV37: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV37"),
       InitialPlacement: "ModelTransformDataV37",
       MeshBindings: DynArray("ModelMeshBindingDataV37"),
@@ -8313,12 +8313,12 @@ export const V37 = {
       radius: Float32
     },
     ModelSkeletonDataV37: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV37"),
       LODType: Uint32
     },
     ModelBoneDataV37: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV37",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -8646,13 +8646,13 @@ export const V38 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV38: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV38"),
       InitialPlacement: "ModelTransformDataV38",
       MeshBindings: DynArray("ModelMeshBindingDataV38"),
@@ -8663,12 +8663,12 @@ export const V38 = {
       radius: Float32
     },
     ModelSkeletonDataV38: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV38"),
       LODType: Uint32
     },
     ModelBoneDataV38: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV38",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -8996,13 +8996,13 @@ export const V39 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV39: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV39"),
       InitialPlacement: "ModelTransformDataV39",
       MeshBindings: DynArray("ModelMeshBindingDataV39"),
@@ -9013,12 +9013,12 @@ export const V39 = {
       radius: Float32
     },
     ModelSkeletonDataV39: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV39"),
       LODType: Uint32
     },
     ModelBoneDataV39: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV39",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -9347,13 +9347,13 @@ export const V40 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV40: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV40"),
       InitialPlacement: "ModelTransformDataV40",
       MeshBindings: DynArray("ModelMeshBindingDataV40"),
@@ -9364,12 +9364,12 @@ export const V40 = {
       radius: Float32
     },
     ModelSkeletonDataV40: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV40"),
       LODType: Uint32
     },
     ModelBoneDataV40: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV40",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -9701,13 +9701,13 @@ export const V41 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV41: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV41"),
       InitialPlacement: "ModelTransformDataV41",
       MeshBindings: DynArray("ModelMeshBindingDataV41"),
@@ -9718,12 +9718,12 @@ export const V41 = {
       radius: Float32
     },
     ModelSkeletonDataV41: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV41"),
       LODType: Uint32
     },
     ModelBoneDataV41: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV41",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -10064,13 +10064,13 @@ export const V42 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV42: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV42"),
       InitialPlacement: "ModelTransformDataV42",
       MeshBindings: DynArray("ModelMeshBindingDataV42"),
@@ -10081,12 +10081,12 @@ export const V42 = {
       radius: Float32
     },
     ModelSkeletonDataV42: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV42"),
       LODType: Uint32
     },
     ModelBoneDataV42: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV42",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -10428,13 +10428,13 @@ export const V43 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV43: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV43"),
       InitialPlacement: "ModelTransformDataV43",
       MeshBindings: DynArray("ModelMeshBindingDataV43"),
@@ -10446,13 +10446,13 @@ export const V43 = {
       radius: Float32
     },
     ModelSkeletonDataV43: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV43"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV43: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV43",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -10794,13 +10794,13 @@ export const V44 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV44: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV44"),
       InitialPlacement: "ModelTransformDataV44",
       MeshBindings: DynArray("ModelMeshBindingDataV44"),
@@ -10812,13 +10812,13 @@ export const V44 = {
       radius: Float32
     },
     ModelSkeletonDataV44: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV44"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV44: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV44",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -11170,13 +11170,13 @@ export const V45 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV45: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV45"),
       InitialPlacement: "ModelTransformDataV45",
       MeshBindings: DynArray("ModelMeshBindingDataV45"),
@@ -11188,13 +11188,13 @@ export const V45 = {
       radius: Float32
     },
     ModelSkeletonDataV45: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV45"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV45: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV45",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -11546,13 +11546,13 @@ export const V46 = {
       positions: DynArray(FixedArray(Float32, 3)),
       normalIndices: DynArray(Uint16),
       normals: DynArray(FixedArray(Float32, 3)),
-      meshName: CString
+      meshName: CString()
     },
     PackGrannyMeshType: {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV46: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV46"),
       InitialPlacement: "ModelTransformDataV46",
       MeshBindings: DynArray("ModelMeshBindingDataV46"),
@@ -11564,13 +11564,13 @@ export const V46 = {
       radius: Float32
     },
     ModelSkeletonDataV46: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV46"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV46: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV46",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -11930,7 +11930,7 @@ export const V47 = {
       mesh: DynArray(Uint8)
     },
     ModelModelDataV47: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV47"),
       InitialPlacement: "ModelTransformDataV47",
       MeshBindings: DynArray("ModelMeshBindingDataV47"),
@@ -11942,13 +11942,13 @@ export const V47 = {
       radius: Float32
     },
     ModelSkeletonDataV47: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV47"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV47: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV47",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -12314,7 +12314,7 @@ export const V48 = {
       sphereRadius: Float32
     },
     ModelModelDataV48: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV48"),
       InitialPlacement: "ModelTransformDataV48",
       MeshBindings: DynArray("ModelMeshBindingDataV48"),
@@ -12326,13 +12326,13 @@ export const V48 = {
       radius: Float32
     },
     ModelSkeletonDataV48: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV48"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV48: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV48",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -12698,7 +12698,7 @@ export const V49 = {
       sphereRadius: Float32
     },
     ModelModelDataV49: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV49"),
       InitialPlacement: "ModelTransformDataV49",
       MeshBindings: DynArray("ModelMeshBindingDataV49"),
@@ -12710,13 +12710,13 @@ export const V49 = {
       radius: Float32
     },
     ModelSkeletonDataV49: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV49"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV49: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV49",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -13087,7 +13087,7 @@ export const V50 = {
       sphereRadius: Float32
     },
     ModelModelDataV50: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV50"),
       InitialPlacement: "ModelTransformDataV50",
       MeshBindings: DynArray("ModelMeshBindingDataV50"),
@@ -13099,13 +13099,13 @@ export const V50 = {
       radius: Float32
     },
     ModelSkeletonDataV50: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV50"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV50: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV50",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -13461,7 +13461,7 @@ export const V51 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV51: {
       indices: DynArray(Uint16)
@@ -13484,7 +13484,7 @@ export const V51 = {
       sphereRadius: Float32
     },
     ModelModelDataV51: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV51"),
       InitialPlacement: "ModelTransformDataV51",
       MeshBindings: DynArray("ModelMeshBindingDataV51"),
@@ -13496,13 +13496,13 @@ export const V51 = {
       radius: Float32
     },
     ModelSkeletonDataV51: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV51"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV51: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV51",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -13862,7 +13862,7 @@ export const V52 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV52: {
       indices: DynArray(Uint16)
@@ -13885,7 +13885,7 @@ export const V52 = {
       sphereRadius: Float32
     },
     ModelModelDataV52: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV52"),
       InitialPlacement: "ModelTransformDataV52",
       MeshBindings: DynArray("ModelMeshBindingDataV52"),
@@ -13897,13 +13897,13 @@ export const V52 = {
       radius: Float32
     },
     ModelSkeletonDataV52: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV52"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV52: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV52",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -14271,7 +14271,7 @@ export const V53 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV53: {
       indices: DynArray(Uint16)
@@ -14294,7 +14294,7 @@ export const V53 = {
       sphereRadius: Float32
     },
     ModelModelDataV53: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV53"),
       InitialPlacement: "ModelTransformDataV53",
       MeshBindings: DynArray("ModelMeshBindingDataV53"),
@@ -14306,13 +14306,13 @@ export const V53 = {
       radius: Float32
     },
     ModelSkeletonDataV53: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV53"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8)
     },
     ModelBoneDataV53: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV53",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -14683,7 +14683,7 @@ export const V54 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV54: {
       indices: DynArray(Uint16)
@@ -14706,7 +14706,7 @@ export const V54 = {
       sphereRadius: Float32
     },
     ModelModelDataV54: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV54"),
       InitialPlacement: "ModelTransformDataV54",
       MeshBindings: DynArray("ModelMeshBindingDataV54"),
@@ -14718,14 +14718,14 @@ export const V54 = {
       radius: Float32
     },
     ModelSkeletonDataV54: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV54"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV54")
     },
     ModelBoneDataV54: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV54",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -15102,7 +15102,7 @@ export const V55 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV55: {
       indices: DynArray(Uint16)
@@ -15125,7 +15125,7 @@ export const V55 = {
       sphereRadius: Float32
     },
     ModelModelDataV55: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV55"),
       InitialPlacement: "ModelTransformDataV55",
       MeshBindings: DynArray("ModelMeshBindingDataV55"),
@@ -15137,14 +15137,14 @@ export const V55 = {
       radius: Float32
     },
     ModelSkeletonDataV55: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV55"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV55")
     },
     ModelBoneDataV55: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV55",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -15522,7 +15522,7 @@ export const V56 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV56: {
       indices: DynArray(Uint16)
@@ -15545,7 +15545,7 @@ export const V56 = {
       sphereRadius: Float32
     },
     ModelModelDataV56: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV56"),
       InitialPlacement: "ModelTransformDataV56",
       MeshBindings: DynArray("ModelMeshBindingDataV56"),
@@ -15557,14 +15557,14 @@ export const V56 = {
       radius: Float32
     },
     ModelSkeletonDataV56: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV56"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV56")
     },
     ModelBoneDataV56: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV56",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -15943,7 +15943,7 @@ export const V57 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV57: {
       indices: DynArray(Uint16)
@@ -15966,7 +15966,7 @@ export const V57 = {
       sphereRadius: Float32
     },
     ModelModelDataV57: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV57"),
       InitialPlacement: "ModelTransformDataV57",
       MeshBindings: DynArray("ModelMeshBindingDataV57"),
@@ -15978,14 +15978,14 @@ export const V57 = {
       radius: Float32
     },
     ModelSkeletonDataV57: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV57"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV57")
     },
     ModelBoneDataV57: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV57",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -16370,7 +16370,7 @@ export const V58 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV58: {
       indices: DynArray(Uint16)
@@ -16393,7 +16393,7 @@ export const V58 = {
       sphereRadius: Float32
     },
     ModelModelDataV58: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV58"),
       InitialPlacement: "ModelTransformDataV58",
       MeshBindings: DynArray("ModelMeshBindingDataV58"),
@@ -16405,14 +16405,14 @@ export const V58 = {
       radius: Float32
     },
     ModelSkeletonDataV58: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV58"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV58")
     },
     ModelBoneDataV58: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV58",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -16803,7 +16803,7 @@ export const V59 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV59: {
       indices: DynArray(Uint16)
@@ -16826,7 +16826,7 @@ export const V59 = {
       sphereRadius: Float32
     },
     ModelModelDataV59: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV59"),
       InitialPlacement: "ModelTransformDataV59",
       MeshBindings: DynArray("ModelMeshBindingDataV59"),
@@ -16838,14 +16838,14 @@ export const V59 = {
       radius: Float32
     },
     ModelSkeletonDataV59: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV59"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV59")
     },
     ModelBoneDataV59: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV59",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -17237,7 +17237,7 @@ export const V60 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV60: {
       indices: DynArray(Uint16)
@@ -17260,7 +17260,7 @@ export const V60 = {
       sphereRadius: Float32
     },
     ModelModelDataV60: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV60"),
       InitialPlacement: "ModelTransformDataV60",
       MeshBindings: DynArray("ModelMeshBindingDataV60"),
@@ -17272,14 +17272,14 @@ export const V60 = {
       radius: Float32
     },
     ModelSkeletonDataV60: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV60"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV60")
     },
     ModelBoneDataV60: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV60",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -17476,7 +17476,7 @@ export const V60 = {
     },
     ModelClothGroupBindingV60: {
       strippedToken: Uint64,
-      boneName: CString,
+      boneName: CString(),
       OBBMin: FixedArray(Float32, 3),
       OBBMax: FixedArray(Float32, 3)
     },
@@ -17678,7 +17678,7 @@ export const V61 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV61: {
       indices: DynArray(Uint16)
@@ -17701,7 +17701,7 @@ export const V61 = {
       sphereRadius: Float32
     },
     ModelModelDataV61: {
-      Name: CString,
+      Name: CString(),
       Skeleton: Pointer("ModelSkeletonDataV61"),
       InitialPlacement: "ModelTransformDataV61",
       MeshBindings: DynArray("ModelMeshBindingDataV61"),
@@ -17713,14 +17713,14 @@ export const V61 = {
       radius: Float32
     },
     ModelSkeletonDataV61: {
-      Name: CString,
+      Name: CString(),
       Bones: DynArray("ModelBoneDataV61"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV61")
     },
     ModelBoneDataV61: {
-      Name: CString,
+      Name: CString(),
       ParentIndex: Uint32,
       LocalTransform: "ModelTransformDataV61",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
@@ -17919,7 +17919,7 @@ export const V61 = {
     },
     ModelClothGroupBindingV61: {
       strippedToken: Uint64,
-      boneName: CString,
+      boneName: CString(),
       OBBMin: FixedArray(Float32, 3),
       OBBMax: FixedArray(Float32, 3)
     },
@@ -18131,7 +18131,7 @@ export const V62 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV62: {
       indices: DynArray(Uint16)
@@ -18318,7 +18318,7 @@ export const V62 = {
     },
     ModelClothGroupBindingV62: {
       strippedToken: Uint64,
-      boneName: CString,
+      boneName: CString(),
       OBBMin: FixedArray(Float32, 3),
       OBBMax: FixedArray(Float32, 3)
     },
@@ -18495,7 +18495,7 @@ export const V63 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV63: {
       indices: DynArray(Uint16)
@@ -18682,7 +18682,7 @@ export const V63 = {
     },
     ModelClothGroupBindingV63: {
       strippedToken: Uint64,
-      boneName: CString,
+      boneName: CString(),
       OBBMin: FixedArray(Float32, 3),
       OBBMax: FixedArray(Float32, 3)
     },
@@ -18863,7 +18863,7 @@ export const V64 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString
+      materialName: CString()
     },
     ModelMeshLodDataV64: {
       indices: DynArray(Uint16)
@@ -19051,7 +19051,7 @@ export const V64 = {
     },
     ModelClothGroupBindingV64: {
       strippedToken: Uint64,
-      boneName: CString,
+      boneName: CString(),
       OBBMin: FixedArray(Float32, 3),
       OBBMax: FixedArray(Float32, 3)
     },
@@ -19386,7 +19386,7 @@ export const V65 = {
     },
     ModelClothGroupBindingV65: {
       strippedToken: Uint64,
-      boneName: CString,
+      boneName: CString(),
       OBBMin: FixedArray(Float32, 3),
       OBBMax: FixedArray(Float32, 3)
     },
@@ -19497,5 +19497,340 @@ export const V65 = {
   }
 };
 
-export const latest = V65;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65];
+export const V66 = {
+  chunkName: "MODL",
+  name: "ModelFileDataV66",
+  version: 66,
+  definitions: {
+    ModelPermutationDataV66: {
+      token: Uint64,
+      materials: RefArray("ModelMaterialDataV66")
+    },
+    ModelMaterialDataV66: {
+      token: Uint64,
+      materialId: Uint32,
+      filename: Filename(),
+      materialFlags: Uint32,
+      sortOrder: Uint32,
+      textures: DynArray("ModelTextureDataV66"),
+      constants: DynArray("ModelConstantDataV66"),
+      matConstLinks: DynArray("ModelMatConstLinkV66"),
+      uvTransLinks: DynArray("ModelUVTransLinkV66"),
+      texTransforms: DynArray("ModelMaterialTexTransformV66"),
+      texCoordCount: Uint8,
+      sortLayer: Uint32
+    },
+    ModelTextureDataV66: {
+      filename: Filename(),
+      textureFlags: Uint32,
+      token: Uint64,
+      blitId: Uint64,
+      uvAnimId: Uint32,
+      uvPSInputIndex: Uint8
+    },
+    ModelConstantDataV66: {
+      name: Uint32,
+      value: FixedArray(Float32, 4),
+      constantFlags: Uint32
+    },
+    ModelMatConstLinkV66: {
+      linkToken: Uint64,
+      constantToken: Uint32
+    },
+    ModelUVTransLinkV66: {
+      linkToken: Uint64,
+      uvAnimId: Uint32,
+      type: Uint8
+    },
+    ModelMaterialTexTransformV66: {
+      flags: Uint32,
+      uvIndex: Uint8,
+      columns: Uint8,
+      rows: Uint8,
+      count: Uint16,
+      fps: Float32,
+      scroll: FixedArray(Float32, 2),
+      scrollFreq: FixedArray(Float32, 2),
+      scale: FixedArray(Float32, 2),
+      scaleFreq: FixedArray(Float32, 2),
+      rotate: Float32
+    },
+    ModelCloudDataV66: {
+      clouds: DynArray("ModelParticleCloudV66"),
+      emitters: DynArray("ModelParticleEmitterV66")
+    },
+    ModelParticleCloudV66: {
+      acceleration: FixedArray(Float32, 3),
+      bone: Uint64,
+      drag: Float32,
+      emitterIndices: DynArray(Uint32),
+      fvf: Uint32,
+      flags: Uint32,
+      materialIndex: Uint32,
+      obstacleIndices: DynArray(Uint32),
+      velocity: FixedArray(Float32, 3)
+    },
+    ModelParticleEmitterV66: {
+      acceleration: FixedArray(FixedArray(Float32, 2), 4),
+      accelerationDistRange: FixedArray(Float32, 2),
+      accelerationDistSpeed: FixedArray(Float32, 2),
+      affinity: Uint32,
+      alignmentDir: FixedArray(Float32, 3),
+      bone: Uint64,
+      colorBegin: FixedArray(Float32, 4),
+      colorEnd: FixedArray(Float32, 4),
+      colorPeriod: Float32,
+      colorFalloff: FixedArray(Float32, 2),
+      drag: Float32,
+      emitterFlags: Uint32,
+      offset: Float32,
+      opacityCurve: Pointer("ModelParticleCurveV66"),
+      opacityCurvePreset: Uint32,
+      flags: Uint32,
+      flipbook: Pointer("ModelParticleFlipbookV66"),
+      lifetime: FixedArray(Float32, 2),
+      rotationChange: FixedArray(Float32, 2),
+      rotationDrag: Float32,
+      rotationInitial: FixedArray(Float32, 2),
+      scaleChange: FixedArray(FixedArray(Float32, 2), 2),
+      scaleInitial: FixedArray(FixedArray(Float32, 2), 2),
+      scaleCurve: Pointer("ModelParticleCurveV66"),
+      scaleCurvePreset: Uint32,
+      velocity: FixedArray(FixedArray(Float32, 2), 4),
+      velocityDistRange: FixedArray(Float32, 2),
+      velocityDistSpeed: FixedArray(Float32, 2),
+      velocityInherit: FixedArray(Float32, 2),
+      spawnGroupSize: FixedArray(Float32, 2),
+      spawnPeriod: Float32,
+      spawnProbability: Float32,
+      spawnRadius: FixedArray(Float32, 2),
+      spawnWindEmit: FixedArray(Float32, 2),
+      spawnWindSpeed: FixedArray(Float32, 2),
+      texCoordRect: FixedArray(Float32, 4),
+      transform: Pointer("ModelMatrix43V66"),
+      windInfluence: Uint8,
+      alignmentType: Uint8,
+      spawnShape: Uint8
+    },
+    ModelParticleCurveV66: {
+      curveType: Uint8,
+      keys: DynArray(FixedArray(Float32, 2))
+    },
+    ModelParticleFlipbookV66: {
+      columns: Uint8,
+      count: Uint8,
+      fps: Float32,
+      rows: Uint8,
+      start: Uint8
+    },
+    ModelMatrix43V66: {
+      x: FixedArray(Float32, 4),
+      y: FixedArray(Float32, 4),
+      z: FixedArray(Float32, 4)
+    },
+    ModelObstacleDataV66: {
+      affinity: Uint32,
+      bone: Uint64,
+      type: Uint8,
+      response: Uint8,
+      flags: Uint32,
+      dragCoef: Float32,
+      gravityCoef: Float32,
+      length: Float32,
+      width: Float32,
+      height: Float32,
+      radius: Float32,
+      transform: Pointer("ModelMatrix43V66")
+    },
+    ModelStreakDataV66: {
+      streaks: DynArray("ModelStreakV66"),
+      anchors: DynArray("ModelStreakAnchorV66")
+    },
+    ModelStreakV66: {
+      acceleration: FixedArray(Float32, 3),
+      velocity: FixedArray(Float32, 3),
+      anchorIndices: DynArray(Uint32),
+      bone: Uint64,
+      flags: Uint32,
+      jitter: Float32,
+      materialIndex: Uint32,
+      noise: Float32,
+      spawnDist: Float32,
+      texScale: Float32,
+      wind: Float32
+    },
+    ModelStreakAnchorV66: {
+      bone: Uint64,
+      colorStart: Uint32,
+      colorEnd: Uint32,
+      falloff: Float32,
+      lifetime: Float32,
+      flags: Uint32,
+      texV: Float32
+    },
+    ModelLightDataV66: {
+      effectLights: DynArray("ModelEffectLightV66")
+    },
+    ModelEffectLightV66: {
+      bone: Uint64,
+      color: FixedArray(Uint8, 3),
+      farDistance: Float32,
+      intensity: Float32,
+      nearDistance: Float32
+    },
+    ModelClothDataV66: {
+      materialIndex: Uint32,
+      drag: Float32,
+      gravity: Float32,
+      compressibility: Float32,
+      slack: Float32,
+      stretchiness: Float32,
+      weight: Float32,
+      wind: Float32,
+      mesh: "PackVertexType",
+      indices: DynArray(Uint16),
+      groups: DynArray("ModelClothMeshGroupV66"),
+      groupBindings: DynArray("ModelClothGroupBindingV66"),
+      softLocks: DynArray("ModelClothSoftLockV66"),
+      lod0Constraints: DynArray("ModelClothConstraintV66"),
+      lod1Constraints: DynArray("ModelClothConstraintV66"),
+      lod1Indices: DynArray(Uint16),
+      barycentricCoords: DynArray(FixedArray(Float32, 3)),
+      barycentricIndices: DynArray(Uint16),
+      obstacleIndices: DynArray(Uint32),
+      lockCount: Uint16,
+      lockedNormals: DynArray(Uint32),
+      lockedTanegents: DynArray(Uint32),
+      lockedBitangents: DynArray(Uint32),
+      lod1VertexCount: Uint16,
+      flags: Uint8,
+      rigidness: Uint8,
+      translateWeight: Float32,
+      visBone: Uint64
+    },
+    PackVertexType: {
+      fvf: Uint32,
+      vertices: DynArray(Uint8)
+    },
+    ModelClothMeshGroupV66: {
+      weights: DynArray("ModelClothBoneWeightV66")
+    },
+    ModelClothBoneWeightV66: {
+      token: Uint64,
+      weight: Uint8
+    },
+    ModelClothGroupBindingV66: {
+      strippedToken: Uint64,
+      boneName: CString(),
+      OBBMin: FixedArray(Float32, 3),
+      OBBMax: FixedArray(Float32, 3)
+    },
+    ModelClothSoftLockV66: {
+      weight: Uint8,
+      vertIndex: Uint16
+    },
+    ModelClothConstraintV66: {
+      distance: Uint16,
+      relationship: Uint16,
+      vertIndexA: Uint16,
+      vertIndexB: Uint16
+    },
+    ModelWindDataV66: {
+      effectWind: DynArray("ModelEffectWindV66")
+    },
+    ModelEffectWindV66: {
+      bone: Uint64,
+      farDistance: Float32,
+      intensity: Float32,
+      nearDistance: Float32
+    },
+    ModelLightningDataV66: {
+      systems: DynArray("ModelLightningSystemV66"),
+      bolts: DynArray("ModelLightningBoltV66"),
+      nodes: DynArray("ModelLightningNodeV66")
+    },
+    ModelLightningSystemV66: {
+      bone: Uint64,
+      boltIndices: DynArray(Uint16),
+      flags: Uint32,
+      fvf: Uint32,
+      materialIndex: Uint32
+    },
+    ModelLightningBoltV66: {
+      bone: Uint64,
+      nodeIndices: DynArray(Uint16),
+      colorBegin: FixedArray(Uint32, 3),
+      colorEnd: FixedArray(Uint32, 3),
+      colorPeriod: Float32,
+      colorFalloff: FixedArray(Float32, 2),
+      flags: Uint32,
+      flipbook: Pointer("ModelParticleFlipbookV66"),
+      fps: Float32,
+      frequency: Float32,
+      groupMax: Uint32,
+      groupMin: Uint32,
+      probability: Float32,
+      lifetime: FixedArray(Float32, 2),
+      numSegments: Uint16,
+      opacity: FixedArray(Float32, 2),
+      opacityPreset: Uint8,
+      texOffset: Float32,
+      texRange: FixedArray(Float32, 2),
+      texScale: Float32,
+      texSpeed: Float32,
+      thicknessPreset: Uint8,
+      thicknessRange: FixedArray(Float32, 2),
+      type: Uint8,
+      variance: Float32,
+      variancePreset: Uint8,
+      noise: Float32
+    },
+    ModelLightningNodeV66: {
+      bone: Uint64,
+      childrenIndices: DynArray(Uint16),
+      flags: Uint32,
+      probability: Float32,
+      radius: FixedArray(Float32, 2),
+      shape: Uint8,
+      updatePos: Float32
+    },
+    ModelSoftBodyDataV66: {
+      materialIndex: Uint32,
+      flags: Uint32,
+      vertexFvf: Uint32,
+      vertBytes: DynArray(Uint8),
+      indices: DynArray(Uint16),
+      bones: DynArray(Uint64)
+    },
+    ModelBoneOffsetDataV66: {
+      bone: Uint64,
+      translation: FixedArray(Float32, 3),
+      rotation: FixedArray(Float32, 4),
+      boneInverseOffset: FixedArray(FixedArray(Float32, 4), 3)
+    },
+    ModelBoundingSphereV66: {
+      center: FixedArray(Float32, 3),
+      radius: Float32
+    }
+  },
+  root: {
+    permutations: DynArray("ModelPermutationDataV66"),
+    cloudData: Pointer("ModelCloudDataV66"),
+    obstacles: DynArray("ModelObstacleDataV66"),
+    streakData: Pointer("ModelStreakDataV66"),
+    lightData: Pointer("ModelLightDataV66"),
+    clothData: DynArray("ModelClothDataV66"),
+    windData: Pointer("ModelWindDataV66"),
+    actionOffsetNames: DynArray(Uint64),
+    actionOffsets: DynArray(FixedArray(Float32, 3)),
+    lodOverride: FixedArray(Float32, 2),
+    soundScript: Filename(),
+    lightningData: Pointer("ModelLightningDataV66"),
+    softBodyData: DynArray("ModelSoftBodyDataV66"),
+    boneOffsetData: DynArray("ModelBoneOffsetDataV66"),
+    boundingSphere: Pointer("ModelBoundingSphereV66")
+  }
+};
+
+export const latest = V66;
+export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66];

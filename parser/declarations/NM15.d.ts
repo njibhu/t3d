@@ -47,7 +47,7 @@ export type PackMapNavMeshChunkV2 = {
 }
 
 export type PackMapNavMeshMoverV2 = {
-  mapPropId: number,
+  mapPropId: BigInt,
   navMeshData: Array<number>,
   coarseGraphData: Array<number>,
   mediatorData: Array<number>
@@ -72,7 +72,7 @@ export type PackMapNavMeshChunkV3 = {
 
 export type PackMapNavMeshMoverV3 = {
   chunkIndex: number,
-  mapPropId: number,
+  mapPropId: BigInt,
   navMeshData: Array<number>,
   coarseGraphData: Array<number>,
   mediatorData: Array<number>

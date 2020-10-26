@@ -30,13 +30,13 @@ export type PackMapCollideGeometryV6 = {
 }
 
 export type PackMapCollideMeshRefV6 = {
-  sequence: number,
+  sequence: BigInt,
   meshIndex: number
 }
 
 export type PackMapCollideModelPropV6 = {
-  token: number,
-  sequence: number,
+  token: BigInt,
+  sequence: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -84,13 +84,13 @@ export type PackMapCollideGeometryV7 = {
 }
 
 export type PackMapCollideMeshRefV7 = {
-  sequence: number,
+  sequence: BigInt,
   meshIndex: number
 }
 
 export type PackMapCollideModelPropV7 = {
-  token: number,
-  sequence: number,
+  token: BigInt,
+  sequence: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -134,13 +134,13 @@ export type PackMapCollideGeometryV8 = {
 }
 
 export type PackMapCollideMeshRefV8 = {
-  sequence: number,
+  sequence: BigInt,
   meshIndex: number
 }
 
 export type PackMapCollideModelPropV8 = {
-  token: number,
-  sequence: number,
+  token: BigInt,
+  sequence: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -185,7 +185,7 @@ export type PackMapCollideGeometryV9 = {
 }
 
 export type PackMapCollideMeshRefV9 = {
-  sequence: number,
+  sequence: BigInt,
   meshIndex: number
 }
 
@@ -194,8 +194,8 @@ export type PackMapCollideModelObsV9 = {
 }
 
 export type PackMapCollideModelPropV9 = {
-  token: number,
-  sequence: number,
+  token: BigInt,
+  sequence: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -240,7 +240,7 @@ export type PackMapCollideGeometryV10 = {
 }
 
 export type PackMapCollideMeshRefV10 = {
-  sequence: number,
+  sequence: BigInt,
   meshIndex: number
 }
 
@@ -249,8 +249,8 @@ export type PackMapCollideModelObsV10 = {
 }
 
 export type PackMapCollideModelPropV10 = {
-  token: number,
-  sequence: number,
+  token: BigInt,
+  sequence: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -295,7 +295,7 @@ export type PackMapCollideGeometryV11 = {
 }
 
 export type PackMapCollideMeshRefV11 = {
-  sequence: number,
+  sequence: BigInt,
   meshIndex: number
 }
 
@@ -305,8 +305,8 @@ export type PackMapCollideModelObsV11 = {
 }
 
 export type PackMapCollideModelPropV11 = {
-  token: number,
-  sequence: number,
+  token: BigInt,
+  sequence: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -354,7 +354,7 @@ export type PackMapCollideGeometryV12 = {
 }
 
 export type PackMapCollideMeshRefV12 = {
-  sequence: number,
+  sequence: BigInt,
   meshIndex: number
 }
 
@@ -364,8 +364,8 @@ export type PackMapCollideModelObsV12 = {
 }
 
 export type PackMapCollideModelPropV12 = {
-  token: number,
-  sequence: number,
+  token: BigInt,
+  sequence: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -411,7 +411,7 @@ export type PackMapCollideBlockerV13 = {
 }
 
 export type PackMapCollideAnimationV13 = {
-  sequence: number,
+  sequence: BigInt,
   collisionIndices: Array<number>,
   blockerIndices: Array<number>
 }
@@ -427,8 +427,8 @@ export type PackMapCollideModelObsV13 = {
 }
 
 export type PackMapCollideModelPropV13 = {
-  token: number,
-  sequence: number,
+  token: BigInt,
+  sequence: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,
@@ -477,7 +477,7 @@ export type PackMapCollideNavMeshV14 = {
 }
 
 export type PackMapCollideAnimationV14 = {
-  sequence: number,
+  sequence: BigInt,
   collisionIndices: Array<number>,
   blockerIndices: Array<number>
 }
@@ -494,8 +494,8 @@ export type PackMapCollideModelObsV14 = {
 }
 
 export type PackMapCollideModelPropV14 = {
-  token: number,
-  sequence: number,
+  token: BigInt,
+  sequence: BigInt,
   scale: number,
   translate: Array<number>,
   rotate: Array<number>,

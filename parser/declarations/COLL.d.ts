@@ -9,14 +9,14 @@ export type ModelFileCollisionV0 = {
 }
 
 export type ModelCollisionMeshV0 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelCollisionCloudV0 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
@@ -33,7 +33,7 @@ export type ModelCollisionSphereV0 = {
 }
 
 export type ModelCollisionSurfaceV0 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelFileCollisionV1 = {
@@ -45,14 +45,14 @@ export type ModelFileCollisionV1 = {
 }
 
 export type ModelCollisionMeshV1 = {
-  animationSequences: Array<number>,
+  animationSequences: Array<BigInt>,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelCollisionCloudV1 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
@@ -69,7 +69,7 @@ export type ModelCollisionSphereV1 = {
 }
 
 export type ModelCollisionSurfaceV1 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelFileCollisionV8 = {
@@ -82,14 +82,14 @@ export type ModelFileCollisionV8 = {
 }
 
 export type ModelCollisionMeshV8 = {
-  animationSequences: Array<number>,
+  animationSequences: Array<BigInt>,
   vertices: Array<Array<number>>,
   indices: Array<number>,
   surfaces: Array<number>
 }
 
 export type ModelCollisionCloudV8 = {
-  animationSequence: number,
+  animationSequence: BigInt,
   points: Array<Array<number>>,
   surface: number
 }
@@ -113,7 +113,7 @@ export type ModelCollisionCapsuleV8 = {
 }
 
 export type ModelCollisionSurfaceV8 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelFileCollisionV9 = {
@@ -126,7 +126,7 @@ export type ModelFileCollisionV9 = {
 }
 
 export type ModelCollisionAnimationV9 = {
-  animation: number,
+  animation: BigInt,
   objects: Array<ModelCollisionAnimatedObjectV9>
 }
 
@@ -168,7 +168,7 @@ export type ModelCollisionCapsuleV9 = {
 }
 
 export type ModelCollisionSurfaceV9 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }
 
 export type ModelFileCollisionV10 = {
@@ -181,7 +181,7 @@ export type ModelFileCollisionV10 = {
 }
 
 export type ModelCollisionAnimationV10 = {
-  animation: number,
+  animation: BigInt,
   objects: Array<ModelCollisionAnimatedObjectV10>,
   targetPoints: Array<Array<number>>
 }
@@ -225,5 +225,5 @@ export type ModelCollisionCapsuleV10 = {
 }
 
 export type ModelCollisionSurfaceV10 = {
-  tokens: Array<number>
+  tokens: Array<BigInt>
 }

@@ -7,7 +7,7 @@ export type ModelFileExpansionV0 = {
 }
 
 export type ModelFileSnapPointV0 = {
-  bone: number
+  bone: BigInt
 }
 
 export type ModelExpansionEmitterV0 = {
@@ -22,7 +22,7 @@ export type ModelFileExpansionV1 = {
 }
 
 export type ModelFileSnapPointV1 = {
-  bone: number
+  bone: BigInt
 }
 
 export type ModelExpansionEmitterV1 = {
@@ -40,8 +40,8 @@ export type ModelFileExpansionV2 = {
 }
 
 export type ModelFileSnapPointV2 = {
-  bone: number,
-  shape: number
+  bone: BigInt,
+  shape: BigInt
 }
 
 export type ModelExpansionEmitterV2 = {
@@ -59,8 +59,8 @@ export type ModelFileExpansionV3 = {
 }
 
 export type ModelFileSnapPointV3 = {
-  bone: number,
-  shape: number,
+  bone: BigInt,
+  shape: BigInt,
   flags: number
 }
 

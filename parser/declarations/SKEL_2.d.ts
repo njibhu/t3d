@@ -123,7 +123,7 @@ export type SceneBoneV3 = {
   vertexB: Array<number>,
   radius: number,
   mass: number,
-  name: number
+  name: BigInt
 }
 
 export type SceneJointV3 = {

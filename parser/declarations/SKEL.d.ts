@@ -50,7 +50,7 @@ export type ModelMeshBindingData = {
 }
 
 export type ModelBoneConstraintV62 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -78,17 +78,17 @@ export type ModelBoneConstraintLinkV62 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type ModelBoneSymmetryV62 = {
-  boneLeft: number,
-  boneRight: number
+  boneLeft: BigInt,
+  boneRight: BigInt
 }
 
 export type ModelTrackMaskV62 = {
   data: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type PackGrannyTrackMaskType = {
@@ -126,7 +126,7 @@ export type ModelGrannySkeletonV1 = {
 }
 
 export type ModelBoneConstraintV63 = {
-  token: number,
+  token: BigInt,
   flags: number,
   twistOffset: number,
   animBlend: number,
@@ -154,7 +154,7 @@ export type ModelBoneConstraintLinkV63 = {
   angle: number,
   azimuth: number,
   distance: Array<number>,
-  token: number
+  token: BigInt
 }
 
 export type PackGrannyMirrorSpecType = {
@@ -163,7 +163,7 @@ export type PackGrannyMirrorSpecType = {
 
 export type ModelTrackMaskV63 = {
   data: PackGrannyTrackMaskType,
-  token: number
+  token: BigInt
 }
 
 export type ModelSkeletonOverridesV1 = {

@@ -9,7 +9,7 @@ export type PackMapZoneDefV12 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV12>,
-  timeStamp: number
+  timeStamp: BigInt
 }
 
 export type PackMapZoneLayerDefV12 = {
@@ -69,7 +69,7 @@ export type PackMapZoneDefV13 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV13>,
-  timeStamp: number
+  timeStamp: BigInt
 }
 
 export type PackMapZoneLayerDefV13 = {
@@ -130,7 +130,7 @@ export type PackMapZoneDefV14 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV14>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV2
 }
 
@@ -204,7 +204,7 @@ export type PackMapZoneDefV15 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV15>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV3
 }
 
@@ -281,7 +281,7 @@ export type PackMapZoneDefV16 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV16>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV4
 }
 
@@ -363,7 +363,7 @@ export type PackMapZoneDefV17 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV17>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV5
 }
 
@@ -441,7 +441,7 @@ export type PackMapZoneDefV18 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV18>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV6
 }
 
@@ -522,7 +522,7 @@ export type PackMapZoneDefV19 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV19>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV7
 }
 
@@ -603,7 +603,7 @@ export type PackMapZoneDefV20 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV20>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV8
 }
 
@@ -685,7 +685,7 @@ export type PackMapZoneDefV21 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV21>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV9
 }
 
@@ -768,7 +768,7 @@ export type PackMapZoneDefV22 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV22>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV10,
   reserved: string
 }
@@ -855,7 +855,7 @@ export type PackMapZoneDefV23 = {
   defFilename: string,
   token: number,
   layerDefArray: Array<PackMapZoneLayerDefV23>,
-  timeStamp: number,
+  timeStamp: BigInt,
   pageTable: PackMapZonePageTableV11,
   reserved: string
 }
@@ -887,7 +887,7 @@ export type PackMapZoneModelV23 = {
   flags: number,
   hslOffset: Array<number>,
   zOffsets: Array<number>,
-  permutation: number
+  permutation: BigInt
 }
 
 export type PackMapZonePageTableV11 = {

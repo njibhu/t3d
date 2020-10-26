@@ -24,7 +24,7 @@ export const V0 = {
   root: {
     description: String16(),
     flags: Uint32,
-    text: CString,
+    text: CString(),
     texCoordCount: Uint8,
     texTransformCount: Uint8,
     constants: DynArray("AmatToolConstantV0"),
@@ -56,7 +56,7 @@ export const V1 = {
   root: {
     description: String16(),
     flags: Uint32,
-    text: CString,
+    text: CString(),
     texCoordCount: Uint8,
     texTransformCount: Uint8,
     constants: DynArray("AmatToolConstantV1"),
@@ -88,7 +88,7 @@ export const V2 = {
   root: {
     description: String16(),
     flags: Uint32,
-    text: CString,
+    text: CString(),
     texCoordCount: Uint8,
     texTransformCount: Uint8,
     constants: DynArray("AmatToolConstant"),
