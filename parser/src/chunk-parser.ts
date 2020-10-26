@@ -263,7 +263,7 @@ export class ChunkParser implements Definition {
     const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType);
     return {
       newPosition: pos + length * OptimisedArray.BYTES_PER_ELEMENT,
-      data: new OptimisedArray(dv.buffer, pos, length),
+      data: Array.from(new OptimisedArray(dv.buffer, pos, length)),
     };
   }
 
