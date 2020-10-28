@@ -1,0 +1,50 @@
+body {
+  background: rgb(251, 241, 244); /*titanium white*/
+  font-family: sans-serif;
+}
+label,
+button {
+  display: block;
+}
+label span {
+  font-weight: bold;
+  display: inline-block;
+}
+input {
+  width: 200px;
+}
+.range {
+  width: 75px;
+}
+#log {
+  font-family: monospace;
+  font-size: 10px;
+  float: right;
+  width: 250px;
+  overflow: auto;
+}
+#keys {
+  font-family: monospace;
+  font-size: 10px;
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  overflow: auto;
+}
+.barFloat {
+  display: inline-block;
+  padding: 5px;
+}
+.btnfloat {
+  display: inline-block;
+  margin-right: 5px;
+}
+#topBar {
+  background-color: lightgray;
+}
+canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
