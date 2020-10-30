@@ -1,50 +1,74 @@
-body {
-  background: rgb(251, 241, 244); /*titanium white*/
+h1 h3 {
+  font-family: Times New Roman, serif;
+}
+
+p {
   font-family: sans-serif;
 }
-label,
-button {
-  display: block;
+
+h1 {
+  text-align: center;
 }
-label span {
-  font-weight: bold;
-  display: inline-block;
+
+body {
+  margin: 0;
+  background-color: #000;
+  background-image: url(static/Background1_2400_1200.jpg);
+  background-attachment: fixed;
+  background-size: cover;
 }
-input {
-  width: 200px;
-}
-.range {
-  width: 75px;
-}
-#log {
-  font-family: monospace;
-  font-size: 10px;
-  float: right;
-  width: 250px;
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   overflow: auto;
-}
-#keys {
-  font-family: monospace;
-  font-size: 10px;
-  position: fixed;
-  bottom: 0;
-  padding: 10px;
-  overflow: auto;
-}
-.barFloat {
-  display: inline-block;
-  padding: 5px;
-}
-.btnfloat {
-  display: inline-block;
-  margin-right: 5px;
-}
-#topBar {
-  background-color: lightgray;
-}
-canvas {
-  position: fixed;
-  left: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.95) 0%, rgba(230, 230, 230, 0.6) 100%);
+  margin: 0 auto;
+  position: relative;
   top: 0;
-  z-index: -1;
+  max-width: 700px;
+  box-shadow: 0px 0px 31px 2px rgba(0, 0, 0, 0.55);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#intro p {
+  line-height: 1.2;
+}
+
+#intro h3 {
+}
+
+#intro footer {
+  margin-top: auto;
+  border-collapse: collapse;
+}
+
+.filePicker {
+  margin: 0 auto 30px;
+}
+
+#filePickerButton {
+  box-shadow: inset 0px 1px 0px 0px #cf866c;
+  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  background-color: #d0451b;
+  border-radius: 3px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 18px;
+  padding: 18px 28px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #854629;
+}
+#filePickerButton:hover {
+  background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+  background-color: #bc3315;
+}
+#filePickerButton:active {
+  position: relative;
+  top: 1px;
 }

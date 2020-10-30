@@ -26,10 +26,13 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
   <body>
     <div id="intro">
       <h1>Welcome to T3D Explorer</h1>
-      <input id="filePicker" type="file" />
+      <div class="filePicker">
+        <input id="filePickerInput" type="file" hidden/>
+        <button id='filePickerButton'>Select a Guild Wars 2 .dat file</button>
+      </div>
       <main>
         <p>
-          <strong>This is a Guild Wars 2 fansite.</strong><br/>
+          <h3>This is a Guild Wars 2 fansite</h3>
           T3D Explorer lets you explore textured Guild Wars 2 map files in 3D, directly in your web browser.
           The purpose of this project is to allow a unique look into the amazing world of Guild Wars 2: Tyria.
           Some of the graphics are still missing such as animations, lighting, and various visual effects which
@@ -37,9 +40,9 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
       </p>
 
         <p>
-          <strong>Contacts</strong><br/>
+          <h3>Contacts</h3>
           This is a fork of the official Tyria3D, it is now two different things.
-          If you have questions don't hesitate to contact me !<br/>
+          If you have questions don't hesitate to contact me !
           <ul>
               <li>By mail: ev@njibhu.eu</li>
               <li>If you have a bug: submit an issue on <a href="https://github.com/njibhu/t3d/issues"><strong>Github!</strong></a></li>

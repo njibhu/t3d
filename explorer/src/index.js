@@ -18,8 +18,13 @@ let myLogger = {
 };
 
 const mapRenderer = new AppRenderer(myLogger);
+const explorerEnabled = false;
 
 $(document).ready(function () {
+  if (!explorerEnabled) {
+    return;
+  }
+
   /// Build TREE scene
   mapRenderer.init();
 

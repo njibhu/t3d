@@ -38,13 +38,14 @@ function copyStaticAssets() {
         `../node_modules/DataStream.js/DataStream.js`,
         `../library/build/T3D.js`,
         `../library/build/T3D.js.map`,
+        `./gw2-assets/Background1_2400_1200.jpg`,
       ])
       .pipe(gulp.dest("./dist/static")),
   ];
 }
 
 function Explorer() {
-  return [buildExample("index.js"), copyExampleAssets("index.html")];
+  return [buildExample("index.js"), copyExampleAssets("index.html"), copyExampleAssets("style.css")];
 }
 
 gulp.task("default", () => Promise.all([...copyStaticAssets(), ...Explorer()]));
