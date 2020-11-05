@@ -12,6 +12,9 @@ h1 {
 
 body {
   margin: 0;
+}
+
+.bg {
   background-color: #000;
   background-image: url(static/Background1_2400_1200.jpg);
   background-attachment: fixed;
