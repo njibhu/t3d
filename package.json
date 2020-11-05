@@ -8,6 +8,7 @@
   "scripts": {
     "lint": "lerna run --parallel lint",
     "format": "lerna run --parallel format",
+    "format:check": "lerna run --parallel format:check",
     "preversion": "git pull",
     "releaseMinor": "lerna version minor",
     "postinstall": "lerna exec npm install"
@@ -20,7 +21,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run format; npm run lint"
+      "pre-push": "npm run format:check && npm run lint"
     }
   }
 }
