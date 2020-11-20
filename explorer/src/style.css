@@ -1,9 +1,10 @@
-h1 h3 {
-  font-family: Times New Roman, serif;
+* {
+  font-family: sans-serif;
 }
 
-p {
-  font-family: sans-serif;
+h1,
+h3 {
+  font-family: Times New Roman, serif;
 }
 
 h1 {
@@ -38,9 +39,6 @@ body {
 
 #intro p {
   line-height: 1.2;
-}
-
-#intro h3 {
 }
 
 #intro footer {

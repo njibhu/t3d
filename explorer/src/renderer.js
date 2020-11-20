@@ -81,6 +81,7 @@ class AppRenderer {
       stencil: false,
       premultipliedAlpha: false,
     });
+    $(this.renderer.domElement).hide();
     document.body.appendChild(this.renderer.domElement);
     this.renderer.setSize(canvasWidth, canvasHeight);
     this.renderer.setClearColor(canvasClearColor);
