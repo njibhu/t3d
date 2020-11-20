@@ -83,6 +83,10 @@ function onLoadMapClick() {
   $("#fogRange").change((event) => {
     mapRenderer.setFog(event.target.valueAsNumber);
   });
+  $("#controllerReset").click(resetControls);
+  $("#controllerReset").removeAttr("disabled");
+
+  $("canvas").on("wheel", onMouseWheel);
 
   mapRenderer.loadMap($("#fileMapSelect").val());
 
@@ -93,6 +97,10 @@ function onLoadMapClick() {
     myLogger.log(arguments[0], arguments[0], arguments[1]);
     console.log(arguments[0], arguments[1]);
   };
+}
+
+function resetControls() {
+  mapRenderer.setupController();
 }
 
 /// Action when the load zone props button is clicked
@@ -135,4 +143,16 @@ function loadCollModels() {
     mapRenderer.toggleCollModels();
     $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Unload", "Load");
   }
+}
+
+function onMouseWheel(event) {
+  let newSpeed;
+  if (event.originalEvent.deltaY > 0) {
+    newSpeed = Math.min(mapRenderer.getMovementSpeed() + 100, 10000);
+  } else {
+    newSpeed = Math.max(mapRenderer.getMovementSpeed() - 100, 500);
+  }
+  mapRenderer.setMovementSpeed(newSpeed);
+  $("#mvntSpeedRange").val(newSpeed);
+  console.log(newSpeed);
 }

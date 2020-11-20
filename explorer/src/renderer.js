@@ -95,7 +95,7 @@ class AppRenderer {
       this.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     });
 
-    this._setupController();
+    this.setupController();
 
     /// Note: constant continous rendering from page load
     this._render();
@@ -178,6 +178,14 @@ class AppRenderer {
     }
   }
 
+  getMovementSpeed() {
+    if (this.controls) {
+      return this.controls.movementSpeed;
+    }
+
+    return 0;
+  }
+
   toggleZoneModels() {
     return this._toggleModels("zone");
   }
@@ -249,17 +257,19 @@ class AppRenderer {
     );
   }
 
-  _setupController() {
-    if (!this.controls) {
-      let controls = new THREE.FlyControls(this.camera, this.renderer.domElement);
-
-      controls.movementSpeed = Number($("#mvntSpeedRange").val()) | 1000;
-      controls.domElement = this.renderer.domElement;
-      controls.rollSpeed = Math.PI / 6;
-      controls.autoForward = false;
-      controls.dragToLook = true;
-      this.controls = controls;
+  setupController() {
+    if (this.controls) {
+      this.controls.dispose();
     }
+
+    let controls = new THREE.FlyControls(this.camera, this.renderer.domElement);
+
+    controls.movementSpeed = Number($("#mvntSpeedRange").val()) | 1000;
+    controls.domElement = this.renderer.domElement;
+    controls.rollSpeed = Math.PI / 6;
+    controls.autoForward = false;
+    controls.dragToLook = true;
+    this.controls = controls;
   }
 
   _render() {

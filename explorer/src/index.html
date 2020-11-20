@@ -42,14 +42,14 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
       }
       #log {
         font-family: monospace;
-        font-size: 10px;
+        font-size: 12px;
         float: right;
         width: 250px;
         overflow: auto;
       }
       #keys {
         font-family: monospace;
-        font-size: 10px;
+        font-size: 12px;
         position: fixed;
         bottom: 0;
         padding: 10px;
@@ -105,6 +105,7 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
           />
           <label class="btnfloat" for="fogRange">Fog:</label>
           <input class="range" type="range" id="fogRange" name="fogRange" min="0" max="50000" value="25000" disabled />
+          <button id="controllerReset" class="btnfloat" disabled>Unstuck Cam</button>
         </div>
       </div>
       <div id="log"></div>
