@@ -83,7 +83,7 @@ function onLoadMapClick() {
   $("#fogRange").change((event) => {
     mapRenderer.setFog(event.target.valueAsNumber);
   });
-  $("#controllerReset").click(resetControls);
+  $("#controllerReset").click(() => mapRenderer.setupController());
   $("#controllerReset").removeAttr("disabled");
 
   $("canvas").on("wheel", onMouseWheel);
@@ -97,10 +97,6 @@ function onLoadMapClick() {
     myLogger.log(arguments[0], arguments[0], arguments[1]);
     console.log(arguments[0], arguments[1]);
   };
-}
-
-function resetControls() {
-  mapRenderer.setupController();
 }
 
 /// Action when the load zone props button is clicked
