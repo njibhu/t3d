@@ -1,5 +1,5 @@
 <!--
-Copyright (C) 2018 Njibhu <https://github.com/njibhu>
+Copyright (C) 2020 Njibhu <https://github.com/njibhu>
 
 This file is part of the T3D Project.
 
@@ -18,102 +18,127 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
 !-->
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>T3D Explorer</title>
+    <link rel="stylesheet" href="https://d1h9a8s8eodvjz.cloudfront.net/fonts/menomonia/08-02-12/menomonia.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>T3D Explorer</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body class="bg">
-  <div id="intro">
-    <h1>Welcome to T3D Explorer</h1>
-    <div class="filePicker">
-      <input id="filePickerInput" type="file" hidden />
-      <button id='filePickerButton'>Select a Guild Wars 2 .dat file</button>
+  <body>
+    <div id="repo-link">
+      <a href="https://github.com/njibhu/t3d"><!-- TODO: github icon --></a>
     </div>
-    <main>
-      <h3>This is a Guild Wars 2 fansite</h3>
-      <p>
-      T3D Explorer lets you explore textured Guild Wars 2 map files in 3D, directly in your web browser.
-      The purpose of this project is to allow a unique look into Tyria - the amazing world of Guild Wars 2.
-      Some of the graphics are still missing such as animations, lighting, and various visual effects which
-      give Guild Wars 2 its immersive experience.
-      </p>
+    <!--
+      Roor app container
+    -->
+    <div id="explorer">
+      <!--
+        Intro UI (Presentation, copyright notice and select file)
+      -->
+      <div id="intro" class="center-float">
+        <h1>Welcome to T3D Explorer</h1>
+        <div class="filePicker">
+          <input id="filePickerInput" type="file" hidden />
+          <button id='filePickerButton'>Select a Guild Wars 2 .dat file</button>
+        </div>
+        <main>
+          <h3>This is a Guild Wars 2 fansite</h3>
+          <p>
+          T3D Explorer lets you explore textured Guild Wars 2 map files in 3D, directly in your web browser.
+          The purpose of this project is to allow a unique look into Tyria - the amazing world of Guild Wars 2.
+          Some of the graphics are still missing such as animations, lighting, and various visual effects which
+          give Guild Wars 2 its immersive experience.
+          </p>
+    
+          <h3>Contacts</h3>
+          <p>
+          T3D Explorer is part of the <a href="https://github.com/njibhu/t3d/">T3D project</a>. If you have questions don't
+          hesitate to contact me !
+          <ul>
+            <li>If you encounter a bug, submit an issue on <a
+                href="https://github.com/njibhu/t3d/issues"><strong>Github!</strong></a></li>
+            <li>Via email: ev@njibhu.eu</li>
+            <li>In-game: Aquila.4832</li>
+            <li>Via Reddit: /u/Njibhu_</li>
+          </ul>
+          </p>
+        </main>
+        <footer>
+          <p>
+            T3D is powered by:
+            <a href="http://threejs.org/" target="_blank">three.js</a>
+            <a href="https://jquery.com/" target="_blank">jQuery</a>
+            <a href="https://github.com/kig/DataStream.js" target="_blank">DataStream.js</a>
+          </p>
+    
+          <p>
+            ArenaNet copyright notice: © 2018 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo,
+            ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2,
+            and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other
+            trademarks are the property of their respective owners.
+          </p>
+        </footer>
+      </div>
+      
+      <!--
+        Map selector UI
+      -->
+      <div id="choose-map" class="center-float" hidden>
 
-      <h3>Contacts</h3>
-      <p>
-      T3D Explorer is part of the <a href="https://github.com/njibhu/t3d/">T3D project</a>. If you have questions don't
-      hesitate to contact me !
-      <ul>
-        <li>If you encounter a bug, submit an issue on <a
-            href="https://github.com/njibhu/t3d/issues"><strong>Github!</strong></a></li>
-        <li>Via email: ev@njibhu.eu</li>
-        <li>In-game: Aquila.4832</li>
-        <li>Via Reddit: /u/Njibhu_</li>
-      </ul>
-      </p>
-    </main>
-    <footer>
-      <p>
-        T3D is powered by:
-        <a href="http://threejs.org/" target="_blank">three.js</a>
-        <a href="https://jquery.com/" target="_blank">jQuery</a>
-        <a href="https://github.com/kig/DataStream.js" target="_blank">DataStream.js</a>
-      </p>
+      </div>
 
-      <p>
-        ArenaNet copyright notice: © 2018 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo,
-        ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2,
-        and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other
-        trademarks are the property of their respective owners.
-      </p>
-    </footer>
-  </div>
-  <div id="choosing-map" hidden></div>
-  <div id="3d-explorer" hidden>
-    <div id="uiContainer">
-      <div id="topBar">
-        <label class="barFloat">
-          <span>Load Gw2.dat:</span>
-          <input id="filePicker" type="file" />
-        </label>
+      <!--
+        Map loading progress bar
+      -->
+      <div id="loading-ui" class="center-float" hidden></div>
 
-        <label class="barFloat">
-          <span>Select Map:</span>
-          <select id="fileMapSelect" disabled></select>
-        </label>
+      <!--
+        Controls UI
+      -->
+      <div id="controls" hidden>
+        <div id="top-bar" class="top-nav">
+          <label class="barFloat">
+            <span>Load Gw2.dat:</span>
+            <input id="filePicker" type="file" />
+          </label>
 
-        <div class="barFloat">
-          <button id="loadMapBtn" class="btnfloat" disabled>Load map</button>
-          <button id="loadCollBtn" class="btnfloat" disabled>Load collisions</button>
-          <button id="loadPropsBtn" class="btnfloat" disabled>Load props</button>
-          <button id="loadZoneBtn" class="btnfloat" disabled>Load zone props</button>
-          <label class="btnfloat" for="mvntSpeedRange">Speed:</label>
-          <input class="range" type="range" id="mvntSpeedRange" name="mvntSpeedRange" min="500" max="10000" value="1000"
-            disabled />
-          <label class="btnfloat" for="fogRange">Fog:</label>
-          <input class="range" type="range" id="fogRange" name="fogRange" min="0" max="50000" value="25000" disabled />
+          <label class="barFloat">
+            <span>Select Map:</span>
+            <select id="fileMapSelect" disabled></select>
+          </label>
+
+          <div class="barFloat">
+            <button id="loadMapBtn" class="btnfloat" disabled>Load map</button>
+            <button id="loadCollBtn" class="btnfloat" disabled>Load collisions</button>
+            <button id="loadPropsBtn" class="btnfloat" disabled>Load props</button>
+            <button id="loadZoneBtn" class="btnfloat" disabled>Load zone props</button>
+            <label class="btnfloat" for="mvntSpeedRange">Speed:</label>
+            <input class="range" type="range" id="mvntSpeedRange" name="mvntSpeedRange" min="500" max="10000" value="1000"
+              disabled />
+            <label class="btnfloat" for="fogRange">Fog:</label>
+            <input class="range" type="range" id="fogRange" name="fogRange" min="0" max="50000" value="25000" disabled />
+          </div>
+        </div>
+        <div id="helper">
+          <p id="keys">Move: W/A/S/D - Tilt: Q/E - Up: R - Down: F - Look: Press mouse / Arrow keys</p>
         </div>
       </div>
-      <div id="log"></div>
-      <p id="keys">Move: W/A/S/D - Tilt: Q/E - Up: R - Down: F - Look: Press mouse / Arrow keys</p>
     </div>
-  </div>
 
-  <!--
-      Third parties
-    -->
-  <script src="static/jquery.js"></script>
-  <script src="static/DataStream.js"></script>
-  <script src="static/three.js"></script>
-  <script src="static/FlyControls.js"></script>
-  <script src="static/T3D.js"></script>
+    <!--
+        Third parties
+      -->
+    <script src="static/jquery.js"></script>
+    <script src="static/DataStream.js"></script>
+    <script src="static/three.js"></script>
+    <script src="static/FlyControls.js"></script>
+    <script src="static/T3D.js"></script>
 
-  <!--
-      App
-    -->
-  <script type="text/javascript" src="./index.js"></script>
-</body>
+    <!--
+        App
+      -->
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
 
 </html>
