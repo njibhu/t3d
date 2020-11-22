@@ -105,3 +105,12 @@ a:hover {
 #choose-map section span {
   color: #406681;
 }
+
+#loading-ui {
+  min-width: 400px;
+  padding-top: 20px;
+}
+
+#loading-ui h3 {
+  text-align: center;
+}

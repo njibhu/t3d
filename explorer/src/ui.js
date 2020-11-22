@@ -1,21 +1,27 @@
 class UI {
   constructor(appRenderer) {
     this.appRenderer = appRenderer;
+
+    this.showingProgress = false;
   }
 
   init() {
     this.appRenderer.setupScene();
 
-    T3D.Logger.logFunctions[T3D.Logger.TYPE_PROGRESS] = function () {
-      console.log(arguments[0], arguments[1]);
+    T3D.Logger.logFunctions[T3D.Logger.TYPE_PROGRESS] = (name, value) => {
+      console.log(name, value);
+      if (this.showingProgress) {
+        $("#loadingName").text(name);
+        $("#loadingValue").text(`${value}%`);
+      }
     };
 
     //Register actions on init page
     $("#filePickerInput").on("change", (event) => {
       let file = event.target.files[0];
-      this.appRenderer.createLocalReader(file, () => {
-        $("#intro").slideUp(() => {
-          $("#choose-map").show(() => this.onShowMapChooser());
+      $("#intro").slideUp(() => {
+        this.appRenderer.createLocalReader(file, () => {
+          $("#choose-map").fadeIn(50, () => this.onShowMapChooser());
         });
       });
     });
@@ -29,9 +35,14 @@ class UI {
       props: $("#loadProps").is(":checked"),
       collisions: $("#loadColl").is(":checked"),
     };
+    $("#choose-map").slideUp(() => {
+      this.showingProgress = true;
+      $("#loading-ui").fadeIn(50);
+    });
     this.appRenderer.loadMap(mapId, renderOptions, () => {
-      $("#choose-map").slideUp(() => {
-        $("canvas").show();
+      this.showingProgress = false;
+      $("#loading-ui").slideUp(() => {
+        $("canvas").fadeIn(50);
       });
     });
   }
