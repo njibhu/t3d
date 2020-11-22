@@ -36,11 +36,11 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
       <!--
         Intro UI (Presentation, copyright notice and select file)
       -->
-      <div id="intro">
+      <div id="intro" class="uiPanel">
         <h1>Welcome to T3D Explorer</h1>
         <div class="filePicker">
           <input id="filePickerInput" type="file" hidden />
-          <button id='filePickerButton'>Select a Guild Wars 2 .dat file</button>
+          <button id='filePickerButton' class="mainButton">Select a Guild Wars 2 .dat file</button>
         </div>
         <main>
           <h3>This is a Guild Wars 2 fansite</h3>
@@ -84,8 +84,50 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
       <!--
         Map selector UI
       -->
-      <div id="choose-map" hidden>
+      <div id="choose-map" class="uiPanel" hidden>
+        <section>
+          <h3>Select which map to load:</h3>
+          <label>
+            <p>Category</p>
+            <select id="categorySelect"></select>
+          </label>
+          <label>
+            <p>Map</p>
+            <select id="mapSelect"></select>
+          </label>
+        </section>
 
+        <section>
+          <h3>Select what to display on the map:</h3>
+          <label>
+            <span>Zone models</span>
+            <input type="checkbox" id="loadZone" />
+          </label>
+          <label>
+            <span>Props models</span>
+            <input type="checkbox" id="loadProps" />
+          </label>
+          <label>
+            <span>Visible collisions</span>
+            <input type="checkbox" id="loadColl" />
+          </label>
+        </section>
+        <section>
+          <p>
+            Enabling <span>Zone models</span> allows you to view trees, plants and various 'nature' models.
+          </p>
+          <p>
+            Enabling <span>Props models</span> allows you to view most of the 3d models in a map.
+          </p>
+          <p>
+            Enabling <span>Visible collisions</span> allows you to view all the collision data in a map.
+            The collision data has no textures but will give you a hint of how the map looks with actual 3d models.
+            Consider enabling only Visible collisions to reduce map loading times.
+          </p>
+        </section>
+        <footer>
+          <button id='mapLoadButton' class="mainButton">Explore</button>
+        </footer>
       </div>
 
       <!--

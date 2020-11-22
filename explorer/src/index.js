@@ -1,4 +1,5 @@
 const AppRenderer = require("./renderer");
+const { setupMapChooser } = require("./ui");
 
 function init() {
   const mapRenderer = new AppRenderer();
@@ -16,8 +17,15 @@ function init() {
 
 function onReaderCreated() {
   console.log("onReaderCreated");
-  $("#intro").hide();
-  $("#choosing-map").show();
+  $("#intro").slideUp(() => {
+    $("#choose-map").show(onShowMapChooser);
+  });
+}
+
+function onShowMapChooser() {
+  const mapFileList = global.mapRenderer.getMapList();
+  console.log(mapFileList);
+  setupMapChooser(mapFileList);
 }
 
 init();
