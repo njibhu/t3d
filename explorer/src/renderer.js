@@ -2,9 +2,7 @@ const CANVAS_CLEAR_COLOR = 0x342920;
 const FOG_LENGTH = 5000;
 
 class AppRenderer {
-  constructor(logger) {
-    this.logger = logger;
-
+  constructor() {
     this.localReader = null;
     this.renderersContext = null;
     this._threeContext = {};
@@ -20,7 +18,7 @@ class AppRenderer {
 
   /** PUBLIC methods */
   createLocalReader(file, callback) {
-    this.localReader = T3D.getLocalReader(file, callback, "./static/t3dworker.js", this.logger);
+    this.localReader = T3D.getLocalReader(file, callback, "./static/t3dworker.js");
   }
 
   getMapList() {
@@ -49,15 +47,9 @@ class AppRenderer {
       renderers.push({ renderClass: T3D.HavokRenderer, settings: { visible: true } });
     }
 
-    T3D.renderMapContentsAsync(
-      this.localReader,
-      this.loadedMapID,
-      renderers,
-      (context) => {
-        this._loadMapCallback(context, renderOptions, callback);
-      },
-      this.logger
-    );
+    T3D.renderMapContentsAsync(this.localReader, this.loadedMapID, renderers, (context) => {
+      this._loadMapCallback(context, renderOptions, callback);
+    });
   }
 
   setFogDistance(value) {

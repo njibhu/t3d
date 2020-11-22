@@ -1,31 +1,11 @@
 const AppRenderer = require("./renderer");
-const { setupMapChooser } = require("./ui");
+const UI = require("./ui");
 
-function init() {
-  const mapRenderer = new AppRenderer();
-  mapRenderer.setupScene();
+const appRenderer = new AppRenderer();
+const ui = new UI(appRenderer);
 
-  //Register actions on init page
-  $("#filePickerInput").on("change", function (evt) {
-    let file = evt.target.files[0];
-    mapRenderer.createLocalReader(file, onReaderCreated);
-  });
-  $("#filePickerButton").on("click", () => $("#filePickerInput").trigger("click"));
+ui.init();
 
-  global.mapRenderer = mapRenderer;
-}
-
-function onReaderCreated() {
-  console.log("onReaderCreated");
-  $("#intro").slideUp(() => {
-    $("#choose-map").show(onShowMapChooser);
-  });
-}
-
-function onShowMapChooser() {
-  const mapFileList = global.mapRenderer.getMapList();
-  console.log(mapFileList);
-  setupMapChooser(mapFileList);
-}
-
-init();
+// Allow user to access appRenderer
+// This is not used by the app itself
+global.appRenderer = appRenderer;
