@@ -39,7 +39,11 @@ function onMapLoadClick() {
   T3D.Logger.logFunctions[T3D.Logger.TYPE_PROGRESS] = function () {
     console.log(arguments[0], arguments[1]);
   };
-  global.mapRenderer.loadMap(mapId, renderOptions, () => {});
+  global.mapRenderer.loadMap(mapId, renderOptions, () => {
+    $("#choose-map").slideUp(() => {
+      $("canvas").show();
+    });
+  });
 }
 
 module.exports = {

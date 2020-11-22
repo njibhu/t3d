@@ -12,7 +12,7 @@ class AppRenderer {
 
     // Defaults
     this.fog = 25000;
-    this.movementSpeed = 1000;
+    this.movementSpeed = 10000;
     this.lightIntensity = 0.8;
     this.loadedMapID = undefined;
     this.controllerType = "fly";
@@ -40,13 +40,13 @@ class AppRenderer {
     ];
 
     if (renderOptions.zone) {
-      renderers.push({ renderClass: T3D.ZoneRenderer, settings: {} });
+      renderers.push({ renderClass: T3D.ZoneRenderer, settings: { visible: true } });
     }
     if (renderOptions.props) {
-      renderers.push({ renderClass: T3D.PropertiesRenderer, settings: {} });
+      renderers.push({ renderClass: T3D.PropertiesRenderer, settings: { visible: true } });
     }
     if (renderOptions.collisions) {
-      renderers.push({ renderClass: T3D.HavokRenderer, settings: {} });
+      renderers.push({ renderClass: T3D.HavokRenderer, settings: { visible: true } });
     }
 
     T3D.renderMapContentsAsync(
@@ -88,7 +88,7 @@ class AppRenderer {
     }
   }
 
-  setupController(controllerType) {
+  setupController(controllerType = "fly") {
     if (this._threeContext.controls) {
       this._threeContext.controls.dispose();
     }
@@ -109,7 +109,7 @@ class AppRenderer {
       this._threeContext.controls.movementSpeed = this.movementSpeed;
       this._threeContext.controls.rollSpeed = Math.PI / 6;
       this._threeContext.controls.autoForward = false;
-      this._threeContext.controls.dragToLook = false;
+      this._threeContext.controls.dragToLook = true;
     } else {
       throw new Error("Invalid controller type");
     }
@@ -125,8 +125,7 @@ class AppRenderer {
     this._mapMeshes = [];
   }
 
-  /** PRIVATE methods */
-  _setupScene() {
+  setupScene() {
     const { _threeContext: context } = this;
 
     context.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100000);
@@ -149,9 +148,12 @@ class AppRenderer {
     }
 
     context.scene.fog = new THREE.Fog(0xffffff, this.fog, this.fog + FOG_LENGTH);
+    context.camera.far = this.fog + FOG_LENGTH;
+    context.camera.updateProjectionMatrix();
 
     context.renderer = new THREE.WebGLRenderer({
       sortObjects: false,
+      logarithmicDepthBuffer: true,
       stencil: false,
       premultipliedAlpha: false,
       antialiasing: true,
@@ -172,6 +174,7 @@ class AppRenderer {
     this._render();
   }
 
+  /** PRIVATE methods */
   _render() {
     window.requestAnimationFrame(() => this._render());
     this._threeContext.controls.update(this._threeContext.clock.getDelta());
@@ -189,19 +192,19 @@ class AppRenderer {
     this._mapMeshes.push(water);
 
     if (renderOptions.zone) {
-      for (const zoneModel of T3D.getContextValue(this.context, T3D.ZoneRenderer, "meshes")) {
+      for (const zoneModel of T3D.getContextValue(context, T3D.ZoneRenderer, "meshes")) {
         this._threeContext.scene.add(zoneModel);
         this._mapMeshes.push(zoneModel);
       }
     }
     if (renderOptions.props) {
-      for (const propModel of T3D.getContextValue(this.context, T3D.PropertiesRenderer, "meshes")) {
+      for (const propModel of T3D.getContextValue(context, T3D.PropertiesRenderer, "meshes")) {
         this._threeContext.scene.add(propModel);
         this._mapMeshes.push(propModel);
       }
     }
     if (renderOptions.collisions) {
-      for (const collModel of T3D.getContextValue(this.context, T3D.HavokRenderer, "meshes")) {
+      for (const collModel of T3D.getContextValue(context, T3D.HavokRenderer, "meshes")) {
         this._threeContext.scene.add(collModel);
         this._mapMeshes.push(collModel);
       }
@@ -218,7 +221,7 @@ class AppRenderer {
       this._threeContext.camera.position.x = 0;
       this._threeContext.camera.position.y = bounds ? bounds.y2 : 0;
       this._threeContext.camera.position.z = 0;
-      this._threeContext.camera.position.rotation.x = (-90 * Math.PI) / 180;
+      this._threeContext.camera.rotation.x = (-90 * Math.PI) / 180;
     } else {
       this._threeContext.camera.position.x = 0;
       this._threeContext.camera.position.y = 0;

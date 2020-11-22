@@ -3,7 +3,7 @@ const { setupMapChooser } = require("./ui");
 
 function init() {
   const mapRenderer = new AppRenderer();
-  mapRenderer.init();
+  mapRenderer.setupScene();
 
   //Register actions on init page
   $("#filePickerInput").on("change", function (evt) {
