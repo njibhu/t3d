@@ -26,6 +26,20 @@ function setupMapChooser(mapFileList) {
   }
   genMapSelect();
   $("#categorySelect").on("change", genMapSelect);
+  $("#mapLoadButton").on("click", onMapLoadClick);
+}
+
+function onMapLoadClick() {
+  const mapId = $("#mapSelect").val();
+  const renderOptions = {
+    zone: $("#loadZone").is(":checked"),
+    props: $("#loadProps").is(":checked"),
+    collisions: $("#loadColl").is(":checked"),
+  };
+  T3D.Logger.logFunctions[T3D.Logger.TYPE_PROGRESS] = function () {
+    console.log(arguments[0], arguments[1]);
+  };
+  global.mapRenderer.loadMap(mapId, renderOptions, () => {});
 }
 
 module.exports = {
