@@ -180,15 +180,13 @@ class LocalReader {
       if (!(index in self._indexTable)) iterateList.push(index);
     }
 
-    // Helps us to know when we need to update the persistant store
-    // let updatePersistant = false;
-
     // Spawn the decompression tasks
     let taskArray = [];
     for (let i = 0; i < 1; i++) {
       taskArray[i] = Promise.resolve({ task: i });
     }
 
+    // Helps us to know when we need to update the persistant store
     let persistantNeedsUpdate = false;
 
     // Iterate through the array
@@ -244,6 +242,34 @@ class LocalReader {
   }
 
   /**
+   * Cheap version of the readFileList which will only scan files registered in the mapFileList
+   * This helps us being sure that we only return files that contain a mapc chunk when using
+   * the getMapList function
+   */
+  async readMapList() {
+    const fileList = MapFileList.maps.reduce((maps, category) => {
+      return maps.concat(category.maps.map((entry) => entry.fileName));
+    }, []);
+    const temporaryStore = [];
+
+    for (const fileName of fileList) {
+      const baseId = fileName.split(".data")[0];
+      if (this._indexTable[baseId]) {
+        const scanResult = await this._readFileType(baseId);
+        temporaryStore[baseId] = {
+          baseId: Number(baseId),
+          size: scanResult.size,
+          crc: scanResult.crc,
+          fileType: scanResult.fileType,
+        };
+      }
+    }
+
+    // Fill the store without saving it to disk
+    this._persistantData = temporaryStore;
+  }
+
+  /**
    * @typedef {Object} MapItem
    * @property {string} name
    * @property {string} category
@@ -254,58 +280,50 @@ class LocalReader {
    *   Returns a list of all the maps with their name and category.
    *   Uncategorized maps are available only if readFileList have been used before.
    *
-   * @returns {Array<MapItem>}
+   * @returns {Promise<Array<MapItem>>}
    */
-  getMapList() {
+  async getMapList() {
     let self = this;
     let mapArray = [];
-    // If the archive have been scanned for all its file we iterate through the results
-    if (this._persistantData) {
-      // Filter the maps out of all our files
-      let reversedIndex = this.getReverseIndex();
-      let maps = this._persistantData
-        .filter((file) => file.fileType === "PF_mapc")
-        .filter((id) => id.baseId === reversedIndex[self.getFileIndex(id.baseId)][0]);
+    // If the archive hasn't been completely scanned we do a partial scan for the map files.
+    // It should be fast
+    if (!this._persistantData) {
+      await this.readMapList();
+    }
 
-      for (let map of maps) {
-        let found = false;
-        // Try to see if we already have some informations on this map
-        for (let category of MapFileList.maps) {
-          let fileMap = category.maps.find((item) => Number(item.fileName.split(".data")[0]) === map.baseId);
-          if (fileMap) {
-            mapArray.push({
-              name: fileMap.name,
-              category: category.name,
-              baseId: map.baseId,
-            });
-            found = true;
-            break;
-          }
-        }
-        // If not we register it as Uncategorized
-        if (!found) {
+    // Filter the maps out of all our files
+    let reversedIndex = this.getReverseIndex();
+    let maps = this._persistantData
+      .filter((file) => file.fileType === "PF_mapc")
+      .filter((id) => id.baseId === reversedIndex[self.getFileIndex(id.baseId)][0]);
+
+    for (let map of maps) {
+      let found = false;
+      // Try to see if we already have some informations on this map
+      for (let category of MapFileList.maps) {
+        let fileMap = category.maps.find((item) => Number(item.fileName.split(".data")[0]) === map.baseId);
+        if (fileMap) {
           mapArray.push({
-            name: map.baseId.toString(),
-            category: "Uncategorized",
+            name: fileMap.name,
+            category: category.name,
             baseId: map.baseId,
           });
+          found = true;
+          break;
         }
       }
-    }
-    // If not then we check only known maps
-    else {
-      for (let category of MapFileList.maps) {
-        for (let mapEntry of category.maps) {
-          if (Number(mapEntry.fileName.split(".data")[0]) in this._indexTable) {
-            mapArray.push({
-              name: mapEntry.name,
-              category: category.name,
-              baseId: Number(mapEntry.fileName.split(".data")[0]),
-            });
-          }
-        }
+      // If not we register it as Uncategorized
+      if (!found) {
+        mapArray.push({
+          name: map.baseId.toString(),
+          category: "Uncategorized",
+          baseId: map.baseId,
+        });
       }
     }
+
+    mapArray.sort((a, b) => a.category.localeCompare(b.category));
+
     return mapArray;
   }
 

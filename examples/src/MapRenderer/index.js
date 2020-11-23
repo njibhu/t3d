@@ -87,7 +87,7 @@ $(document).ready(function () {
 });
 
 /// Callback for when the LocalReader has finished setting up!
-function onReaderCreated() {
+async function onReaderCreated() {
   $("#fileIdInput").removeAttr("disabled");
   $("#fileMapSelect").removeAttr("disabled");
   $("#loadMapBtn").removeAttr("disabled");
@@ -97,7 +97,7 @@ function onReaderCreated() {
   opt.innerHTML = ""; // whatever property it has
   $("#fileMapSelect").append(opt);
 
-  const mapFileList = mapRenderer.localReader.getMapList();
+  const mapFileList = await mapRenderer.localReader.getMapList();
   const categoryList = mapFileList.reduce((list, map) => {
     if (!list.includes(map.category)) {
       list.push(map.category);
