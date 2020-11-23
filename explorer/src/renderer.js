@@ -80,13 +80,17 @@ class AppRenderer {
     }
   }
 
+  takeScreenShot() {
+    console.log("TODO");
+  }
+
   setupController(controllerType = "fly") {
     if (this._threeContext.controls) {
       this._threeContext.controls.dispose();
     }
 
     if (controllerType === "orbital") {
-      this._threeContext.controls = new THREE.OrbitalControls(
+      this._threeContext.controls = new THREE.OrbitControls(
         this._threeContext.camera,
         this._threeContext.renderer.domElement
       );
