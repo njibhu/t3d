@@ -1,6 +1,6 @@
 {
   "name": "t3d-parser",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Parser for binary archives",
   "author": "Njibhu <manu@njibhu.eu>",
   "homepage": "https://github.com/njibhu/t3d#readme",

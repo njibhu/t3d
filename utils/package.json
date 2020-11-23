@@ -1,6 +1,6 @@
 {
   "name": "t3d-utils",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Utils to help generate definitions and parsing various useful files",
   "author": "Njibhu <manu@njibhu.eu>",
   "homepage": "https://github.com/njibhu/t3d#readme",
