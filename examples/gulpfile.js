@@ -51,8 +51,12 @@ function statics() {
   return [copyExampleAssets("index.html"), ...copyStaticAssets()];
 }
 
-function MapRenderer() {
-  return [buildExample("MapRenderer/index.js"), copyExampleAssets("MapRenderer/index.html")];
+function SimpleMapRenderer() {
+  return [buildExample("SimpleMapRenderer/index.js"), copyExampleAssets("SimpleMapRenderer/index.html")];
+}
+
+function MapExplorer() {
+  return [buildExample("MapExplorer/index.js"), copyExampleAssets("MapExplorer/index.html")];
 }
 
 function LocalReaderV2() {
@@ -72,13 +76,22 @@ function Tyria2D() {
 }
 
 gulp.task("default", () =>
-  Promise.all([...statics(), ...MapRenderer(), ...LocalReaderV2(), ...ModelRenderer(), ...Tyria2D(), ...MapScan()])
+  Promise.all([
+    ...statics(),
+    ...SimpleMapRenderer(),
+    ...MapExplorer(),
+    ...LocalReaderV2(),
+    ...ModelRenderer(),
+    ...Tyria2D(),
+    ...MapScan(),
+  ])
 );
 
 gulp.task("watch", () => {
   const delay = 500;
 
-  gulp.watch("src/MapRenderer/*", { delay }, Promise.all(MapRenderer()));
+  gulp.watch("src/SimpleMapRenderer/*", { delay }, Promise.all(SimpleMapRenderer()));
+  gulp.watch("src/MapExplorer/*", { delay }, Promise.all(MapExplorer()));
   gulp.watch("src/LocalReaderV2/*", { delay }, Promise.all(LocalReaderV2()));
   gulp.watch("src/ModelRenderer/*", { delay }, Promise.all(ModelRenderer()));
   gulp.watch("src/Tyria2D/*", { delay }, Promise.all(Tyria2D()));

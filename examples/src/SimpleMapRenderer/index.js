@@ -1,7 +1,3 @@
-$("#toggleHelper").click(function () {
-  highlightEnabled = !highlightEnabled;
-});
-
 /// This example is very inspired by the ModelRenderer example but updated
 /// using the latest version of the API. This global object for the app contains
 /// all the important data.
@@ -11,17 +7,7 @@ const cleanMapData = {
   terrain: {
     data: [],
   },
-  collision: {
-    enabled: false,
-    loaded: false,
-    data: [],
-  },
   props: {
-    enabled: false,
-    loaded: false,
-    data: [],
-  },
-  zone: {
     enabled: false,
     loaded: false,
     data: [],
@@ -41,18 +27,12 @@ const mapRenderer = {
   scene: null,
   camera: null,
   renderer: null,
-  raycaster: null,
   mouse: null,
   controls: null,
 
   /// Data:
   mapData: Object.assign({}, cleanMapData),
 };
-
-/// Highlight specific variables
-let highlightObject;
-let highlightHelper;
-let highlightEnabled = false;
 
 /// Extend Original Logger
 let myLogger = {
@@ -123,22 +103,11 @@ async function onReaderCreated() {
 
 /// The insterresting part!
 function onLoadMapClick() {
-  $("#loadCollBtn").click(loadCollModels);
-  $("#loadCollBtn").removeAttr("disabled");
-  $("#loadPropsBtn").click(loadPropModels);
-  $("#loadPropsBtn").removeAttr("disabled");
-  $("#loadZoneBtn").click(loadZoneModels);
-  $("#loadZoneBtn").removeAttr("disabled");
-
   // Clean previous render states
   mapRenderer.mapData = Object.assign({}, cleanMapData);
 
   /// Get selected file id
-  if ($("#fileMapSelect").val() && $("#fileMapSelect").val() !== "undefined") {
-    mapRenderer.mapData.id = $("#fileMapSelect").val();
-  } else {
-    mapRenderer.mapData.id = $("#fileIdInput").val();
-  }
+  mapRenderer.mapData.id = $("#fileIdInput").val();
 
   /// Renderer settings (see the documentation of each Renderer for details)
   let renderers = [
@@ -149,6 +118,12 @@ function onLoadMapClick() {
     {
       renderClass: T3D.TerrainRenderer,
       settings: {},
+    },
+    {
+      renderClass: T3D.PropertiesRenderer,
+      settings: {
+        visible: true,
+      },
     },
   ];
 
@@ -170,8 +145,6 @@ function onLoadMapClick() {
 /// Runs when the ModelRenderer is finshed
 function onRendererDone(context) {
   document.addEventListener("mousemove", onMouseMove, false);
-  document.addEventListener("mousedown", onMouseDown, false);
-
   cleanScene();
 
   /// Populate our context with the context returned
@@ -193,6 +166,12 @@ function onRendererDone(context) {
   mapRenderer.camera.position.x = 0;
   mapRenderer.camera.position.y = bounds ? bounds.y2 : 0;
   mapRenderer.camera.position.z = 0;
+
+  /// Add all the meshes from the prop renderer
+  for (const elem of T3D.getContextValue(context, T3D.PropertiesRenderer, "meshes")) {
+    mapRenderer.scene.add(elem);
+    mapRenderer.mapData.props.data.push(elem);
+  }
 }
 
 /// It's usually not needed to keep the mapFile independently but
@@ -204,71 +183,6 @@ function loadMapFile(fileId, callback) {
       let mapFile = new T3D.GW2File(ds, 0);
       callback(mapFile);
     });
-  }
-}
-
-/// Run a renderer manually and populates the data object
-function loadMeshes(rendererClass, outRendererData, callback) {
-  T3D.runRenderer(
-    rendererClass,
-    mapRenderer.localReader,
-    { visible: true, mapFile: mapRenderer.mapData.mapFile, showUnmaterialized: true },
-    mapRenderer.context,
-    function () {
-      outRendererData.data = T3D.getContextValue(mapRenderer.context, rendererClass, "meshes");
-      outRendererData.loaded = true;
-      callback();
-    }
-  );
-}
-
-function toggleMeshes(meshType, buttonId) {
-  let mapData = mapRenderer.mapData[meshType];
-  if (!mapData.enabled) {
-    for (const elem of mapData.data) {
-      mapRenderer.scene.add(elem);
-    }
-    mapData.enabled = true;
-    $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Load", "Unload");
-  } else {
-    for (const elem of mapData.data) {
-      mapRenderer.scene.remove(elem);
-    }
-    mapData.enabled = false;
-    $(buttonId)[0].innerHTML = $(buttonId)[0].innerHTML.replace("Unload", "Load");
-  }
-}
-
-/// Action when the load zone props button is clicked
-function loadZoneModels() {
-  if (!mapRenderer.mapData.zone.loaded) {
-    loadMeshes(T3D.ZoneRenderer, mapRenderer.mapData.zone, function () {
-      toggleMeshes("zone", "#loadZoneBtn");
-    });
-  } else {
-    toggleMeshes("zone", "#loadZoneBtn");
-  }
-}
-
-/// Action when the load props button is clicked
-function loadPropModels() {
-  if (!mapRenderer.mapData.props.loaded) {
-    loadMeshes(T3D.PropertiesRenderer, mapRenderer.mapData.props, function () {
-      toggleMeshes("props", "#loadPropsBtn");
-    });
-  } else {
-    toggleMeshes("props", "#loadPropsBtn");
-  }
-}
-
-/// Action when the load collisions button is clicked
-function loadCollModels() {
-  if (!mapRenderer.mapData.collision.loaded) {
-    loadMeshes(T3D.HavokRenderer, mapRenderer.mapData.collision, function () {
-      toggleMeshes("collision", "#loadCollBtn");
-    });
-  } else {
-    toggleMeshes("collision", "#loadCollBtn");
   }
 }
 
@@ -293,12 +207,6 @@ function onMouseMove(event) {
   mapRenderer.mouse.y = -((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 }
 
-function onMouseDown() {
-  if (highlightObject) {
-    console.log(highlightObject);
-  }
-}
-
 /// Basic THREE stuff, don't mind it
 function setupScene() {
   let canvasWidth = 800;
@@ -308,10 +216,7 @@ function setupScene() {
   let aspect = 1;
 
   mapRenderer.camera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 100000);
-
   mapRenderer.scene = new THREE.Scene();
-
-  mapRenderer.raycaster = new THREE.Raycaster();
   mapRenderer.mouse = new THREE.Vector2();
 
   /// This scene has one ambient light source and three directional lights
@@ -355,28 +260,5 @@ function setupController() {
 
 function render() {
   window.requestAnimationFrame(render);
-
-  //Use the raycaster
-  if (highlightEnabled) {
-    mapRenderer.raycaster.setFromCamera(mapRenderer.mouse, mapRenderer.camera);
-    let intersects = mapRenderer.raycaster.intersectObjects(mapRenderer.scene.children);
-    if (intersects.length > 0) {
-      if (highlightObject !== intersects[0].object) {
-        if (highlightHelper) {
-          mapRenderer.scene.remove(highlightHelper);
-        }
-        highlightObject = intersects[0].object;
-        highlightHelper = new THREE.BoxHelper(highlightObject);
-        mapRenderer.scene.add(highlightHelper);
-      }
-    } else {
-      highlightObject = null;
-      if (highlightHelper) {
-        mapRenderer.scene.remove(highlightHelper);
-      }
-      highlightHelper = null;
-    }
-  }
-
   mapRenderer.renderer.render(mapRenderer.scene, mapRenderer.camera);
 }
