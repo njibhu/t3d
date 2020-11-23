@@ -8,6 +8,7 @@ class UI {
     this.shouldUpdateUrl = false;
 
     this.urlUpdateInterval = setInterval(() => this.updateUrl(), 100);
+    this.lastUrlData = "";
   }
 
   init() {
@@ -85,7 +86,6 @@ class UI {
       props: this.autoLoad.loadProp === undefined ? true : this.autoLoad.loadProp,
       collisions: this.autoLoad.showHavok === undefined ? false : this.autoLoad.showHavok,
     };
-    console.log(renderOptions);
     this.showingProgress = true;
     $("#loading-ui").fadeIn();
     this.appRenderer.loadMap(mapId, renderOptions, () => {
@@ -109,7 +109,11 @@ class UI {
       this.showingProgress = true;
       $("#loading-ui").fadeIn();
     });
-    this.appRenderer.loadMap(mapId, renderOptions, () => this.onMapLoaded());
+    this.appRenderer.loadMap(mapId, renderOptions, () => {
+      // Reset the position of the camera if we already loaded a previous map
+      this.appRenderer.setupController();
+      this.onMapLoaded();
+    });
   }
 
   onMapLoaded() {
@@ -131,8 +135,8 @@ class UI {
       $("canvas").hide(0);
       $("#choose-map").fadeIn();
       this.appRenderer.cleanupMap();
-      this.shouldUpdateUrl = false;
       this.updateUrl(true);
+      this.shouldUpdateUrl = false;
     });
   }
 
@@ -212,14 +216,17 @@ class UI {
       if (shouldClear) {
         window.location.hash = "";
       } else {
-        window.location.hash = $.param(this.appRenderer.getUrlData());
+        const urlData = $.param(this.appRenderer.getUrlData());
+        if (this.lastUrlData !== urlData) {
+          window.location.hash = urlData;
+          this.lastUrlData = urlData;
+        }
       }
     }
   }
 
   checkAutoLoad() {
     const urlData = getParsedUrl();
-    console.log(urlData);
     if (urlData.map) {
       this.autoLoad = urlData;
     }
