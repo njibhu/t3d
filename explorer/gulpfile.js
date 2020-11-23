@@ -33,18 +33,22 @@ function copyStaticAssets() {
       .src([
         `../node_modules/three/build/three.js`,
         `../node_modules/three/examples/js/controls/FlyControls.js`,
+        `../node_modules/three/examples/js/controls/OrbitControls.js`,
         `../node_modules/three/examples/js/controls/PointerLockControls.js`,
         `../node_modules/jquery/dist/jquery.js`,
         `../node_modules/DataStream.js/DataStream.js`,
         `../library/build/T3D.js`,
         `../library/build/T3D.js.map`,
+        `./external-assets/gw2/Background1_2400_1200.jpg`,
+        `./external-assets/gw2/Background2_3840_2026.jpg`,
+        `./external-assets/github/GitHub-Mark-120px-plus.png`,
       ])
       .pipe(gulp.dest("./dist/static")),
   ];
 }
 
 function Explorer() {
-  return [buildExample("index.js"), copyExampleAssets("index.html")];
+  return [buildExample("index.js"), copyExampleAssets("index.html"), copyExampleAssets("style.css")];
 }
 
 gulp.task("default", () => Promise.all([...copyStaticAssets(), ...Explorer()]));

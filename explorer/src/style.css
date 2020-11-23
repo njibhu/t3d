@@ -1,0 +1,226 @@
+/* Globals */
+
+html,
+body,
+#explorer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+body,
+button,
+input,
+label {
+  font-family: "Menomonia", sans-serif;
+  color: #223144;
+}
+
+.background {
+  background-color: #000;
+  background-image: url(static/Background2_3840_2026.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* github link */
+#repoLink {
+  display: block;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  background-size: 60px;
+  background-image: url(static/GitHub-Mark-120px-plus.png);
+  opacity: 0.8;
+}
+
+/* links */
+a:link,
+a:visited,
+a:active {
+  color: #406681;
+}
+
+a:hover {
+  color: #5d92ba;
+}
+
+::selection {
+  color: white;
+  background: #406681;
+}
+
+.uiPanel {
+  overflow: auto;
+  margin: auto auto;
+  max-width: min(70vw, 700px);
+  padding-left: 20px;
+  padding-right: 20px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.95) 0%, rgba(230, 230, 230, 0.5) 100%);
+  box-shadow: 0px 0px 31px 2px rgba(255, 255, 255, 0.55);
+  border-radius: 10px;
+  padding-bottom: 21px;
+}
+
+.mainButton {
+  background: linear-gradient(to bottom, #5d92ba 5%, #223144 100%);
+  background-color: #5d92ba;
+  border-radius: 5px;
+  border: 1px solid #223144;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 23px;
+  padding: 14px 18px;
+  text-decoration: none;
+}
+.mainButton:hover {
+  background: linear-gradient(to bottom, #4d7a9a 5%, #1a2635 100%);
+}
+.mainButton:active {
+  position: relative;
+  top: 1px;
+}
+
+/* Intro */
+#intro h1 {
+  text-align: center;
+}
+
+#intro h3 {
+  margin: 10px 0 0 0;
+}
+
+#intro p {
+  line-height: 1.2;
+  margin: 5px 0;
+}
+
+#intro footer {
+  margin-top: auto;
+  border-collapse: collapse;
+}
+
+.filePicker {
+  width: max-content;
+  margin: 0 auto 30px;
+}
+
+/* Map choice */
+#choose-map {
+  text-align: center;
+}
+
+#selectInputs {
+  width: max-content;
+  margin: 0 auto;
+}
+
+#choose-map section span {
+  color: #406681;
+}
+
+#renderSection {
+  padding-bottom: 20px;
+}
+
+#renderSectionCheckboxes {
+  width: max-content;
+  margin: 0 auto;
+}
+
+#renderSectionCheckboxes input {
+  vertical-align: middle;
+}
+
+#renderSection label {
+  margin: 10px;
+}
+
+#choose-map p {
+  margin: 0.5em 0;
+}
+
+#choose-map footer {
+  width: max-content;
+  margin: 15px auto 0;
+}
+
+/* Loading */
+
+#loading-ui {
+  min-width: 400px;
+  padding-top: 20px;
+}
+
+#loading-ui h3 {
+  text-align: center;
+}
+
+/* Controls */
+#controls {
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+#topBar {
+  margin: 0 auto;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0 0 6px 6px;
+  height: max-content;
+  width: max-content;
+  pointer-events: auto;
+}
+
+.control {
+  display: inline-block;
+  margin: 5px 0;
+}
+
+#controls input {
+  vertical-align: middle;
+}
+
+canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+/* Helper */
+
+#helper p {
+  display: none;
+  font-size: 1.3em;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+#helper label {
+  margin-bottom: 10px;
+  font-size: 3em;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+#helper:hover label + p {
+  display: inline-block;
+}
+
+#helper {
+  pointer-events: all;
+  line-height: 6em;
+  color: darkslategray;
+  text-shadow: 1px 1px lightgray;
+  position: fixed;
+  bottom: 0;
+  padding-left: 1.3em;
+  overflow: auto;
+}
