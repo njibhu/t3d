@@ -20,6 +20,9 @@ class UI {
     this.setupIntro();
     this.setupMapChoice();
     this.setupMapExplorer();
+
+    this.appRenderer.setMovementSpeed(parseInt($("#mvntSpeedRange").val()));
+    this.appRenderer.setFogDistance(parseInt($("#fogRange").val(), 10));
   }
 
   /*
@@ -79,7 +82,6 @@ class UI {
     $("#loading-ui").slideUp(() => {
       $("canvas").fadeIn();
       $("#controls").fadeIn();
-      this.setupMapExplorer();
       $("#loadingName").text("Loading...");
       $("#loadingValue").text("");
     });

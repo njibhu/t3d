@@ -25,6 +25,19 @@ label {
   background-size: cover;
 }
 
+/* github link */
+#repoLink {
+  display: block;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  background-size: 60px;
+  background-image: url(static/GitHub-Mark-120px-plus.png);
+  opacity: 0.8;
+}
+
 /* links */
 a:link,
 a:visited,
@@ -179,6 +192,10 @@ a:hover {
   bottom: 0;
   padding-left: 1.3em;
   overflow: auto;
+}
+
+#controls input {
+  vertical-align: middle;
 }
 
 canvas {

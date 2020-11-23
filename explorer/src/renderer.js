@@ -81,7 +81,12 @@ class AppRenderer {
   }
 
   takeScreenShot() {
-    console.log("TODO");
+    const newWindow = window.open("", "");
+    newWindow.document.title = "T3D Explorer Screenshot";
+    const image = new Image();
+    this._threeContext.renderer.render(this._threeContext.scene, this._threeContext.camera);
+    image.src = this._threeContext.renderer.domElement.toDataURL();
+    newWindow.document.body.appendChild(image);
   }
 
   setupController(controllerType = "fly") {
