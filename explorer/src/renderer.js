@@ -25,6 +25,10 @@ class AppRenderer {
     return this.localReader.getMapList();
   }
 
+  scanArchiveForMaps() {
+    return this.localReader.readFileList();
+  }
+
   loadMap(mapId, renderOptions, callback) {
     if (this.loadedMapID) {
       this.cleanupMap();

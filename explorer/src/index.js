@@ -9,3 +9,4 @@ ui.init();
 // Allow user to access appRenderer
 // This is not used by the app itself
 global.appRenderer = appRenderer;
+global.ui = ui;

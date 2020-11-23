@@ -150,6 +150,11 @@ a:hover {
   margin: 15px auto 0;
 }
 
+#scanMapLink {
+  color: #406681;
+  text-decoration: underline;
+}
+
 /* Loading */
 
 #loading-ui {
