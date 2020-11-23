@@ -35,6 +35,7 @@ class UI {
   setupMapChoice() {
     $("#categorySelect").on("change", () => this.genMapSelect());
     $("#mapLoadButton").on("click", () => this.onMapLoadClick());
+    $("#scanMapLink").on("click", () => this.onScanMapClick());
   }
   setupMapExplorer() {
     $("#switchControllerType").on("click", () => {
@@ -92,6 +93,28 @@ class UI {
       $("canvas").hide(0);
       $("#choose-map").fadeIn();
       this.appRenderer.cleanupMap();
+    });
+  }
+
+  onFileScanDone() {
+    this.showingProgress = false;
+    $("#loading-ui").slideUp(() => {
+      $("#choose-map").fadeIn();
+      $("#loadingName").text("Loading...");
+      $("#loadingValue").text("");
+    });
+  }
+
+  onScanMapClick() {
+    $("#choose-map").slideUp(() => {
+      $("#loadingName").text("Scanning...");
+      this.showingProgress = true;
+      $("#loading-ui").fadeIn(async () => {
+        await this.appRenderer.scanArchiveForMaps();
+        this.mapFileList = await this.appRenderer.getMapList();
+        this.fillMapChoiceSelect();
+        this.onFileScanDone();
+      });
     });
   }
 
