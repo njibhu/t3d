@@ -4,6 +4,11 @@ class UI {
 
     this.showingProgress = false;
     this.mapFileList = [];
+    this.autoLoad = undefined;
+    this.shouldUpdateUrl = false;
+
+    this.urlUpdateInterval = setInterval(() => this.updateUrl(), 100);
+    this.lastUrlData = "";
   }
 
   init() {
@@ -23,8 +28,11 @@ class UI {
 
     this.appRenderer.setMovementSpeed(parseInt($("#mvntSpeedRange").val(), 10));
     this.appRenderer.setFogDistance(parseInt($("#fogRange").val(), 10));
+    this.appRenderer.renderHook = (data) => this.updateUrl(data);
 
     $("canvas").on("wheel", (event) => this.onMouseWheel(event));
+
+    this.checkAutoLoad();
   }
 
   /*
@@ -61,8 +69,32 @@ class UI {
     $("#intro").slideUp(() => {
       this.appRenderer.createLocalReader(file, async () => {
         this.mapFileList = await this.appRenderer.getMapList();
-        $("#choose-map").fadeIn(() => this.fillMapChoiceSelect());
+        this.fillMapChoiceSelect();
+        // User might enter an non-existant ID so we only trigger autoload if we find the map
+        if (this.autoLoad && this.mapFileList.find((i) => i.baseId === this.autoLoad.map)) {
+          return this.onAutoLoad();
+        }
+        $("#choose-map").fadeIn();
       });
+    });
+  }
+
+  onAutoLoad() {
+    const mapId = this.autoLoad.map;
+    const renderOptions = {
+      zone: this.autoLoad.loadZone === undefined ? false : this.autoLoad.loadZone,
+      props: this.autoLoad.loadProp === undefined ? true : this.autoLoad.loadProp,
+      collisions: this.autoLoad.showHavok === undefined ? false : this.autoLoad.showHavok,
+    };
+    this.showingProgress = true;
+    $("#loading-ui").fadeIn();
+    this.appRenderer.loadMap(mapId, renderOptions, () => {
+      this.appRenderer.setupController(this.autoLoad.cameraType || "fly");
+      this.appRenderer.move(this.autoLoad.x, this.autoLoad.y, this.autoLoad.z);
+      this.appRenderer.rotate(this.autoLoad.rx, this.autoLoad.ry, this.autoLoad.rz);
+      // Don't forget to cleanup autoLoad, if not it might break map choice UI
+      this.autoLoad = undefined;
+      this.onMapLoaded();
     });
   }
 
@@ -77,7 +109,11 @@ class UI {
       this.showingProgress = true;
       $("#loading-ui").fadeIn();
     });
-    this.appRenderer.loadMap(mapId, renderOptions, () => this.onMapLoaded());
+    this.appRenderer.loadMap(mapId, renderOptions, () => {
+      // Reset the position of the camera if we already loaded a previous map
+      this.appRenderer.setupController();
+      this.onMapLoaded();
+    });
   }
 
   onMapLoaded() {
@@ -91,6 +127,7 @@ class UI {
     // Sync the input ranges with their value in the appRenderer
     $("#fogRange").val(this.appRenderer.fog);
     $("#mvntSpeedRange").val(this.appRenderer.movementSpeed);
+    this.shouldUpdateUrl = true;
   }
 
   onBackToMapSelect() {
@@ -98,6 +135,8 @@ class UI {
       $("canvas").hide(0);
       $("#choose-map").fadeIn();
       this.appRenderer.cleanupMap();
+      this.updateUrl(true);
+      this.shouldUpdateUrl = false;
     });
   }
 
@@ -170,6 +209,69 @@ class UI {
       $("#categorySelect").append(opt);
     }
     this.genMapSelect();
+  }
+
+  updateUrl(shouldClear = false) {
+    if (this.shouldUpdateUrl) {
+      if (shouldClear) {
+        window.location.hash = "";
+      } else {
+        const urlData = $.param(this.appRenderer.getUrlData());
+        if (this.lastUrlData !== urlData) {
+          window.location.hash = urlData;
+          this.lastUrlData = urlData;
+        }
+      }
+    }
+  }
+
+  checkAutoLoad() {
+    const urlData = getParsedUrl();
+    if (urlData.map) {
+      this.autoLoad = urlData;
+    }
+  }
+}
+
+function getParsedUrl() {
+  const data = deparam(window.location.hash.slice(1));
+  data.map = data.map ? parseInt(data.map) : undefined;
+  data.x = data.x ? parseInt(data.x) : undefined;
+  data.y = data.y ? parseInt(data.y) : undefined;
+  data.z = data.z ? parseInt(data.z) : undefined;
+  data.rx = data.rx ? parseFloat(data.rx) : undefined;
+  data.ry = data.ry ? parseFloat(data.ry) : undefined;
+  data.rz = data.rz ? parseFloat(data.rz) : undefined;
+  data.loadZone = data.loadZone ? data.loadZone === "true" : undefined;
+  data.loadProp = data.loadProp ? data.loadProp === "true" : undefined;
+  data.showHavok = data.showHavok ? data.showHavok === "true" : undefined;
+  data.fog = data.fog ? parseInt(data.fog) : undefined;
+
+  // Backward compatibility with Tyria3DApp
+  if (data.pitch && data.yaw) {
+    const pitch = parseFloat(data.pitch);
+    const yaw = parseFloat(data.yaw);
+    // convert pitch yaw to xyz rotations:
+    data.rx = -Math.cos(yaw) * Math.cos(pitch);
+    data.ry = Math.sin(yaw) * Math.cos(pitch);
+    data.rz = -Math.sin(pitch);
+  }
+
+  return data;
+}
+
+function deparam(queryString) {
+  try {
+    const parameters = {};
+    const chunks = queryString.split("&");
+    for (const chunk of chunks) {
+      const [key, value] = chunk.split("=");
+      parameters[decodeURIComponent(key)] = decodeURIComponent(value);
+    }
+    return parameters;
+  } catch (error) {
+    console.error(error);
+    return {};
   }
 }
 

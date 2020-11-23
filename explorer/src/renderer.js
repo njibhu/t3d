@@ -3,10 +3,11 @@ const FOG_LENGTH = 5000;
 
 class AppRenderer {
   constructor() {
-    this.localReader = null;
-    this.renderersContext = null;
+    this.localReader = undefined;
     this._threeContext = {};
     this._mapMeshes = [];
+    this._mapContext = undefined;
+    this._renderOptions = undefined;
 
     // Defaults
     this.fog = 25000;
@@ -35,6 +36,7 @@ class AppRenderer {
     }
 
     this.loadedMapID = mapId;
+    this._renderOptions = renderOptions;
 
     const renderers = [
       { renderClass: T3D.EnvironmentRenderer, settings: {} },
@@ -72,6 +74,30 @@ class AppRenderer {
     this.movementSpeed = value;
     if (this._threeContext.controls) {
       this._threeContext.controls.movementSpeed = value;
+    }
+  }
+
+  move(x, y, z) {
+    if (x) {
+      this._threeContext.controls.object.position.x = x;
+    }
+    if (y) {
+      this._threeContext.controls.object.position.y = y;
+    }
+    if (z) {
+      this._threeContext.controls.object.position.z = z;
+    }
+  }
+
+  rotate(rx, ry, rz) {
+    if (rx) {
+      this._threeContext.controls.object.rotation.x = rx;
+    }
+    if (ry) {
+      this._threeContext.controls.object.rotation.y = ry;
+    }
+    if (rz) {
+      this._threeContext.controls.object.rotation.z = rz;
     }
   }
 
@@ -123,6 +149,8 @@ class AppRenderer {
   }
 
   cleanupMap() {
+    this._mapContext = undefined;
+    this._renderOptions = undefined;
     this.loadedMapID = undefined;
     for (const mesh of this._mapMeshes) {
       this._threeContext.scene.remove(mesh);
@@ -179,6 +207,26 @@ class AppRenderer {
     this._render();
   }
 
+  getUrlData() {
+    const controls = this._threeContext.controls;
+    const pos = controls.object.position;
+    const rot = controls.object.rotation;
+    return {
+      map: this.loadedMapID,
+      x: Math.round(pos.x * 1000) / 1000,
+      y: Math.round(pos.y * 1000) / 1000,
+      z: Math.round(pos.z * 1000) / 1000,
+      rx: Math.round(rot.x * 10000) / 10000,
+      ry: Math.round(rot.y * 10000) / 10000,
+      rz: Math.round(rot.z * 10000) / 10000,
+      cameraType: this.controllerType,
+      loadZone: !!this._renderOptions.zone,
+      loadProp: !!this._renderOptions.props,
+      showHavok: !!this._renderOptions.collisions,
+      fog: this.fog,
+    };
+  }
+
   /** PRIVATE methods */
   _render() {
     window.requestAnimationFrame(() => this._render());
@@ -187,6 +235,8 @@ class AppRenderer {
   }
 
   _loadMapCallback(context, renderOptions, externalCallback) {
+    this._mapContext = context;
+
     // Add all the data from the context to the threejs scene
     for (const tile of T3D.getContextValue(context, T3D.TerrainRenderer, "terrainTiles")) {
       this._threeContext.scene.add(tile);
