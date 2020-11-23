@@ -184,16 +184,6 @@ a:hover {
   margin: 5px 0;
 }
 
-#helper {
-  font-size: 1.3em;
-  color: darkslategray;
-  text-shadow: 1px 1px lightgray;
-  position: fixed;
-  bottom: 0;
-  padding-left: 1.3em;
-  overflow: auto;
-}
-
 #controls input {
   vertical-align: middle;
 }
@@ -202,4 +192,35 @@ canvas {
   position: fixed;
   left: 0;
   top: 0;
+}
+
+/* Helper */
+
+#helper p {
+  display: none;
+  font-size: 1.3em;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+#helper label {
+  margin-bottom: 10px;
+  font-size: 3em;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+#helper:hover label + p {
+  display: inline-block;
+}
+
+#helper {
+  pointer-events: all;
+  line-height: 6em;
+  color: darkslategray;
+  text-shadow: 1px 1px lightgray;
+  position: fixed;
+  bottom: 0;
+  padding-left: 1.3em;
+  overflow: auto;
 }
