@@ -85,36 +85,34 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
         Map selector UI
       -->
       <div id="choose-map" class="uiPanel" hidden>
-        <section>
+        <section id="mapSelectSection">
           <h3>Select which map to load:</h3>
-          <div>
+          <div id="selectInputs">
           <label>
-            <span>Category</span>
             <select id="categorySelect"></select>
           </label>
-        </div>
-        <div>
           <label>
-            <span>Map</span>
             <select id="mapSelect"></select>
           </label>
         </div>
         </section>
 
-        <section>
+        <section id="renderSection">
           <h3>Select what to display on the map:</h3>
-          <label>
-            <span>Zone models</span>
-            <input type="checkbox" id="loadZone" />
-          </label>
-          <label>
-            <span>Props models</span>
-            <input type="checkbox" id="loadProps" checked/>
-          </label>
-          <label>
-            <span>Visible collisions</span>
-            <input type="checkbox" id="loadColl" />
-          </label>
+          <div id="renderSectionCheckboxes">
+            <label>
+              <span>Zone models:</span>
+              <input type="checkbox" id="loadZone" />
+            </label>
+            <label>
+              <span>Props models:</span>
+              <input type="checkbox" id="loadProps" checked/>
+            </label>
+            <label>
+              <span>Visible collisions:</span>
+              <input type="checkbox" id="loadColl" />
+            </label>
+          </div>
         </section>
         <section>
           <p>

@@ -73,7 +73,7 @@ a:hover {
   top: 1px;
 }
 
-/* Intro & mapload */
+/* Intro */
 #intro h1 {
   text-align: center;
 }
@@ -97,7 +97,12 @@ a:hover {
   margin: 0 auto 30px;
 }
 
-#choose-map footer {
+/* Map choice */
+#choose-map {
+  text-align: center;
+}
+
+#selectInputs {
   width: max-content;
   margin: 0 auto;
 }
@@ -105,6 +110,34 @@ a:hover {
 #choose-map section span {
   color: #406681;
 }
+
+#renderSection {
+  padding-bottom: 20px;
+}
+
+#renderSectionCheckboxes {
+  width: max-content;
+  margin: 0 auto;
+}
+
+#renderSectionCheckboxes input {
+  vertical-align: middle;
+}
+
+#renderSection label {
+  margin: 10px;
+}
+
+#choose-map p {
+  margin: 0.5em 0;
+}
+
+#choose-map footer {
+  width: max-content;
+  margin: 15px auto 0;
+}
+
+/* Loading */
 
 #loading-ui {
   min-width: 400px;
