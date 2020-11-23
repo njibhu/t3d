@@ -10,7 +10,7 @@ async function onLoaded(localReader) {
   await localReader.readFileList();
 
   $(".logs").append("Sorting maps... <br>");
-  let maps = localReader.getMapList();
+  let maps = await localReader.getMapList();
   console.log(maps);
 
   $(".logs").append("Done <br>");
