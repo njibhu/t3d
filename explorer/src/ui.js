@@ -21,8 +21,10 @@ class UI {
     this.setupMapChoice();
     this.setupMapExplorer();
 
-    this.appRenderer.setMovementSpeed(parseInt($("#mvntSpeedRange").val()));
+    this.appRenderer.setMovementSpeed(parseInt($("#mvntSpeedRange").val(), 10));
     this.appRenderer.setFogDistance(parseInt($("#fogRange").val(), 10));
+
+    $("canvas").on("wheel", (event) => this.onMouseWheel(event));
   }
 
   /*
@@ -116,6 +118,16 @@ class UI {
         this.onFileScanDone();
       });
     });
+  }
+
+  onMouseWheel(event) {
+    const newSpeed =
+      event.originalEvent.deltaY < 0
+        ? Math.min(this.appRenderer.movementSpeed + 100, 10000)
+        : Math.max(this.appRenderer.movementSpeed - 100, 500);
+
+    this.appRenderer.setMovementSpeed(newSpeed);
+    $("#mvntSpeedRange").val(newSpeed);
   }
 
   /* UTILS */
