@@ -88,6 +88,9 @@ class UI {
       $("#loadingName").text("Loading...");
       $("#loadingValue").text("");
     });
+    // Sync the input ranges with their value in the appRenderer
+    $("#fogRange").val(this.appRenderer.fog);
+    $("#mvntSpeedRange").val(this.appRenderer.movementSpeed);
   }
 
   onBackToMapSelect() {

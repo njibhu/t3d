@@ -216,7 +216,13 @@ class AppRenderer {
     }
 
     // Move camera
-    this._resetCameraLocation(T3D.getContextValue(context, T3D.TerrainRenderer, "bounds"));
+    const bounds = T3D.getContextValue(context, T3D.TerrainRenderer, "bounds");
+    this._resetCameraLocation(bounds);
+
+    // If set fog is too small to see the map we increase it
+    if (this.fog < bounds.y2 * 1.5) {
+      this.setFogDistance(bounds.y2 * 2);
+    }
 
     return externalCallback();
   }
