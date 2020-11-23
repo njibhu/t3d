@@ -114,3 +114,42 @@ a:hover {
 #loading-ui h3 {
   text-align: center;
 }
+
+/* Controls */
+#controls {
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+#topBar {
+  margin: 0 auto;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0 0 6px 6px;
+  height: max-content;
+  width: max-content;
+  pointer-events: auto;
+}
+
+.control {
+  display: inline-block;
+  margin: 5px 0;
+}
+
+#helper {
+  font-size: 1.3em;
+  color: darkslategray;
+  text-shadow: 1px 1px lightgray;
+  position: fixed;
+  bottom: 0;
+  padding-left: 1.3em;
+  overflow: auto;
+}
+
+canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+}

@@ -43,6 +43,7 @@ class UI {
       this.showingProgress = false;
       $("#loading-ui").slideUp(() => {
         $("canvas").fadeIn(50);
+        $("#controls").fadeIn(50);
       });
     });
   }

@@ -109,7 +109,7 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
           </label>
           <label>
             <span>Props models</span>
-            <input type="checkbox" id="loadProps" />
+            <input type="checkbox" id="loadProps" checked/>
           </label>
           <label>
             <span>Visible collisions</span>
@@ -146,27 +146,23 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
         Controls UI
       -->
       <div id="controls" hidden>
-        <div id="top-bar" class="top-nav">
-          <label class="barFloat">
-            <span>Load Gw2.dat:</span>
-            <input id="filePicker" type="file" />
-          </label>
-
-          <label class="barFloat">
-            <span>Select Map:</span>
-            <select id="fileMapSelect" disabled></select>
-          </label>
-
+        <div id="topBar">
           <div class="barFloat">
-            <button id="loadMapBtn" class="btnfloat" disabled>Load map</button>
-            <button id="loadCollBtn" class="btnfloat" disabled>Load collisions</button>
-            <button id="loadPropsBtn" class="btnfloat" disabled>Load props</button>
-            <button id="loadZoneBtn" class="btnfloat" disabled>Load zone props</button>
-            <label class="btnfloat" for="mvntSpeedRange">Speed:</label>
-            <input class="range" type="range" id="mvntSpeedRange" name="mvntSpeedRange" min="500" max="10000" value="1000"
-              disabled />
-            <label class="btnfloat" for="fogRange">Fog:</label>
-            <input class="range" type="range" id="fogRange" name="fogRange" min="0" max="50000" value="25000" disabled />
+            <button id="goToMapSelectButton" class="control">Map selection</button>
+            <button id="switchControllerType" class="control">Switch camera</button>
+            <button id="takeScreenshot" class="control">Take screenshot</button>
+            <label class="control" for="mvntSpeedRange">
+              <span>Speed:</span>
+              <input class="range" type="range" id="mvntSpeedRange" name="mvntSpeedRange" min="500" max="10000" value="1000"/>
+            </label>
+            <label class="control" for="fogRange">
+              <span>Fog:</span>
+              <input class="range" type="range" id="fogRange" name="fogRange" min="0" max="100000" value="25000" />
+            </label>
+            <label class="control" for="lightIntensity">
+              <span>Light:</span>
+              <input class="range" type="range" id="lightIntensity" name="lightIntensity" min="0" max="2" value="0.8" />
+            </label>
           </div>
         </div>
         <div id="helper">
