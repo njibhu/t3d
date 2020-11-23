@@ -143,12 +143,11 @@ function loadCollModels() {
 
 function onMouseWheel(event) {
   let newSpeed;
-  if (event.originalEvent.deltaY > 0) {
+  if (event.originalEvent.deltaY < 0) {
     newSpeed = Math.min(mapRenderer.getMovementSpeed() + 100, 10000);
   } else {
     newSpeed = Math.max(mapRenderer.getMovementSpeed() - 100, 500);
   }
   mapRenderer.setMovementSpeed(newSpeed);
   $("#mvntSpeedRange").val(newSpeed);
-  console.log(newSpeed);
 }
