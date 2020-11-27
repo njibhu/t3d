@@ -110,7 +110,8 @@ class PropertiesRenderer extends DataRenderer {
 
         /// Mesh flags are 0 1 4
         /// For now, use flag 0 as the default level of detail
-        if (flags === 0) lodDist = 0;
+        //if (flags === 0) 
+        lodDist = 0;
 
         /// Create new empty mesh if needed
         if (needsClone) {

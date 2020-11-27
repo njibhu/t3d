@@ -123,6 +123,7 @@ function onLoadMapClick() {
       renderClass: T3D.PropertiesRenderer,
       settings: {
         visible: true,
+        showUnmaterialized: true
       },
     },
   ];
@@ -168,7 +169,8 @@ function onRendererDone(context) {
   mapRenderer.camera.position.z = 0;
 
   /// Add all the meshes from the prop renderer
-  for (const elem of T3D.getContextValue(context, T3D.PropertiesRenderer, "meshes")) {
+  const propsMeshes = T3D.getContextValue(context, T3D.PropertiesRenderer, "meshes");
+  for (const elem of propsMeshes) {
     mapRenderer.scene.add(elem);
     mapRenderer.mapData.props.data.push(elem);
   }
@@ -188,14 +190,14 @@ function loadMapFile(fileId, callback) {
 
 /// Wipes out the data
 function cleanScene() {
-  for (const type of ["terrain", "props", "zone", "collision"]) {
+  for (const type of ["terrain", "props"]) {
     for (const elem of mapRenderer.mapData[type].data) {
       mapRenderer.scene.remove(elem);
     }
     mapRenderer.mapData[type].data = [];
   }
 
-  for (const type of ["props", "zone", "collision"]) {
+  for (const type of ["props"]) {
     mapRenderer.mapData[type].loaded = false;
     mapRenderer.mapData[type].enabled = false;
   }

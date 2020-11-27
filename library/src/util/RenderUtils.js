@@ -313,9 +313,30 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
 
     /// Add mesh to returned Array
     meshes.push(finalMesh);
-  }); /// End rawMeshes forEach
+  }); /// End rawMeshes for Each
 
   return meshes;
+}
+
+/**
+ * Merge multiple meshes together
+ * @param {Array} meshes Three Meshes to be merged into a single mesh
+ * @returns {Mesh} Return a single Three mesh
+ */
+function mergeThreeMeshes(meshes) {
+  const meshMaterials = []
+  const mergedGeometry = new THREE.Geometry();
+  meshes.forEach((mesh, index) => {
+    meshMaterials.push(mesh.material)
+    // It's only possible to merge geometries of the same type
+    const meshGeometry = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
+    mergedGeometry.merge(meshGeometry, mesh.matrix, index);
+  });
+  const finalMesh = new THREE.Mesh(mergedGeometry, meshMaterials);
+  finalMesh.updateMatrix();
+  finalMesh.matrixAutoUpdate = false;
+
+  return finalMesh;
 }
 
 /**
@@ -600,4 +621,5 @@ module.exports = {
   loadMeshFromModelFile: loadMeshFromModelFile,
   getMeshesForFilename: getMeshesForFilename,
   getFilesUsedByModel: getFilesUsedByModel,
+  mergeThreeMeshes: mergeThreeMeshes
 };
