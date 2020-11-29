@@ -319,20 +319,25 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
 }
 
 /**
- * Merge multiple meshes together
+ * Merge multiple meshes together and return an instancedMesh for it
  * @param {Array} meshes Three Meshes to be merged into a single mesh
- * @returns {Mesh} Return a single Three mesh
+ * @param {Number} size Size of the instanced mesh
+ * @returns {Mesh} a Three instanced mesh
  */
-function mergeThreeMeshes(meshes) {
-  const meshMaterials = []
+function getInstancedMesh(meshes, size, filterFlags) {
+  const meshMaterials = [];
   const mergedGeometry = new THREE.Geometry();
   meshes.forEach((mesh, index) => {
-    meshMaterials.push(mesh.material)
+    // If filterFlags is set, we ignore any mesh without the correct flag
+    if (filterFlags !== undefined && mesh.flags !== filterFlags) {
+      return;
+    }
+    meshMaterials.push(mesh.material);
     // It's only possible to merge geometries of the same type
     const meshGeometry = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
     mergedGeometry.merge(meshGeometry, mesh.matrix, index);
   });
-  const finalMesh = new THREE.Mesh(mergedGeometry, meshMaterials);
+  const finalMesh = new THREE.InstancedMesh(mergedGeometry, meshMaterials, size);
   finalMesh.updateMatrix();
   finalMesh.matrixAutoUpdate = false;
 
@@ -621,5 +626,5 @@ module.exports = {
   loadMeshFromModelFile: loadMeshFromModelFile,
   getMeshesForFilename: getMeshesForFilename,
   getFilesUsedByModel: getFilesUsedByModel,
-  mergeThreeMeshes: mergeThreeMeshes
+  getInstancedMesh: getInstancedMesh,
 };

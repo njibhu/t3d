@@ -123,7 +123,7 @@ function onLoadMapClick() {
       renderClass: T3D.PropertiesRenderer,
       settings: {
         visible: true,
-        showUnmaterialized: true
+        showUnmaterialized: true,
       },
     },
   ];
