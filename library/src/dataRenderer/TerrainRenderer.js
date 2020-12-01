@@ -281,7 +281,7 @@ class TerrainRenderer extends DataRenderer {
       /// Flip the plane to fit wonky THREE js world axes
       let mS = new THREE.Matrix4().identity();
       mS.elements[5] = -1;
-      chunkGeo.applyMatrix(mS);
+      chunkGeo.applyMatrix4(mS);
 
       /// Compute face normals for lighting, not used when textured
       chunkGeo.computeFaceNormals();

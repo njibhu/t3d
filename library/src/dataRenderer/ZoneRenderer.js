@@ -198,11 +198,11 @@ class ZoneRenderer extends DataRenderer {
           meshGroups.forEach(function (meshGroup) {
             let mergedGeom = new THREE.BufferGeometry();
 
-            mergedGeom.addAttribute("position", new THREE.BufferAttribute(meshGroup.verts, 3));
-            // mergedGeom.addAttribute( 'index', new THREE.BufferAttribute( meshGroup.indices, 1) );
+            mergedGeom.setAttribute("position", new THREE.BufferAttribute(meshGroup.verts, 3));
+            // mergedGeom.setAttribute( 'index', new THREE.BufferAttribute( meshGroup.indices, 1) );
             mergedGeom.setIndex(new THREE.BufferAttribute(meshGroup.indices, 1));
-            mergedGeom.addAttribute("normal", new THREE.BufferAttribute(meshGroup.normals, 3));
-            mergedGeom.addAttribute("uv", new THREE.BufferAttribute(meshGroup.uvs, 2));
+            mergedGeom.setAttribute("normal", new THREE.BufferAttribute(meshGroup.normals, 3));
+            mergedGeom.setAttribute("uv", new THREE.BufferAttribute(meshGroup.uvs, 2));
 
             mergedGeom.buffersNeedUpdate = true;
 

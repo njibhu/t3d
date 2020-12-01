@@ -231,13 +231,13 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
     } // End each index aka "face"
 
     /// Add position, index and uv props to buffered geometry
-    geom.addAttribute("position", new THREE.BufferAttribute(vertices, 3));
-    // geom.addAttribute( 'index', new THREE.BufferAttribute( faces, 1) );
+    geom.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
+    // geom.setAttribute( 'index', new THREE.BufferAttribute( faces, 1) );
     geom.setIndex(new THREE.BufferAttribute(faces, 1));
 
     if (normals) {
       console.log("adding normals");
-      geom.addAttribute("normal", new THREE.BufferAttribute(normals, 3));
+      geom.setAttribute("normal", new THREE.BufferAttribute(normals, 3));
       geom.normalizeNormals();
       geom.normalsNeedUpdate = true;
     } else {
@@ -251,7 +251,7 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
         let uvName = "uv" + (uvIdx > 0 ? uvIdx + 1 : "");
 
         /// Set "custom" attribute uvN
-        geom.addAttribute(uvName, new THREE.BufferAttribute(uvs[uvIdx], 2));
+        geom.setAttribute(uvName, new THREE.BufferAttribute(uvs[uvIdx], 2));
 
         /// Flag for update
         geom.attributes[uvName].needsUpdate = true;
