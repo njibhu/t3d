@@ -12,6 +12,9 @@ const cleanMapData = {
     loaded: false,
     data: [],
   },
+  skybox: {
+    data: [],
+  },
 };
 
 const mapRenderer = {
@@ -157,6 +160,18 @@ function onRendererDone(context) {
     mapRenderer.mapData.terrain.data.push(elem);
   }
 
+  /// Skybox
+  for (const elem of T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyElements")) {
+    mapRenderer.scene.add(elem);
+    mapRenderer.mapData.skybox.data.push(elem);
+  }
+  const hazeHeightColor = T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeHeightColor");
+  if (hazeHeightColor) {
+    mapRenderer.renderer.setClearColor(
+      new THREE.Color(hazeHeightColor[0] / 255, hazeHeightColor[1] / 255, hazeHeightColor[2] / 255)
+    );
+  }
+
   /// Add the water level to the scene
   const water = T3D.getContextValue(context, T3D.TerrainRenderer, "water");
   mapRenderer.scene.add(water);
@@ -190,7 +205,7 @@ function loadMapFile(fileId, callback) {
 
 /// Wipes out the data
 function cleanScene() {
-  for (const type of ["terrain", "props"]) {
+  for (const type of ["terrain", "props", "skybox"]) {
     for (const elem of mapRenderer.mapData[type].data) {
       mapRenderer.scene.remove(elem);
     }

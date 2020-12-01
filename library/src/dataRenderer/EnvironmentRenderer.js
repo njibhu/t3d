@@ -85,6 +85,16 @@ class EnvironmentRenderer extends DataRenderer {
     }
   }
 
+  getHazeHeightColor(environmentChunkData) {
+    let hazes = environmentChunkData && environmentChunkData.dataGlobal.haze;
+
+    if (!hazes || hazes.length <= 0) {
+      return [153, 199, 206];
+    } else {
+      return hazes[0].heightColor;
+    }
+  }
+
   parseLights(environmentChunkData) {
     const self = this;
 
@@ -184,7 +194,7 @@ class EnvironmentRenderer extends DataRenderer {
     /// Grab sky texture.
     /// index 0 and 1 day
     /// index 2 and 3 evening
-    let skyModeTex = this.environmentChunkData && this.environmentChunkData.dataGlobal.skyModeTex[0];
+    let skyModeTex = environmentChunkData && environmentChunkData.dataGlobal.skyModeTex[0];
 
     /// Fallback skyboxfrom dat.
     if (!skyModeTex) {
@@ -211,7 +221,7 @@ class EnvironmentRenderer extends DataRenderer {
     materialArray[3] = new THREE.MeshBasicMaterial({ visible: false });
 
     /// Create skybox geometry
-    const boxSize = 1024;
+    const boxSize = boundSide * 2;
     const skyGeometry = new THREE.BoxGeometry(boxSize, boxSize / 2, boxSize); // Width Height Depth
 
     /// Ugly way of fixing UV maps for the skybox (I think)
@@ -276,6 +286,7 @@ class EnvironmentRenderer extends DataRenderer {
     const hazeColor = this.getHazeColor(environmentChunkData);
     const hazeColorAsInt = hazeColor[2] * 256 * 256 + hazeColor[1] * 256 + hazeColor[0];
     this.getOutput().hazeColor = hazeColor;
+    this.getOutput().hazeHeightColor = this.getHazeHeightColor(environmentChunkData);
 
     /// Add directional lights to output. Also write hasLight flag
     this.parseLights(environmentChunkData);
