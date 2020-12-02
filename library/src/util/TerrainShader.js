@@ -31,7 +31,8 @@ module.exports = {
       "uniform sampler2D texture3;",
       "uniform sampler2D texture4;",
 
-      THREE.ShaderChunk["logdepthbuf_pars_fragment"],
+      "#include <common>",
+      "#include <logdepthbuf_pars_fragment>",
 
       "varying vec2 vUv;",
       "varying vec3 vecNormal;",
@@ -84,7 +85,9 @@ module.exports = {
       ");",
       "color *= 0.5+tp2.r;",
       "gl_FragColor = vec4(color,1.0);",
-      THREE.ShaderChunk["logdepthbuf_fragment"],
+
+      "#include <logdepthbuf_fragment>",
+
       "}",
     ].join("\n");
   },
@@ -92,15 +95,19 @@ module.exports = {
     return [
       "varying vec2 vUv;",
       "varying vec3 vecNormal;",
-      THREE.ShaderChunk["logdepthbuf_pars_vertex"],
+
+      "#include <common>",
+      "#include <logdepthbuf_pars_vertex>",
+
       "void main()",
       "{",
-
       "vUv =  uv;",
       "vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );",
       "vecNormal = (modelMatrix * vec4(normal, 0.0)).xyz;",
       "gl_Position = projectionMatrix * mvPosition;",
-      THREE.ShaderChunk["logdepthbuf_vertex"],
+
+      "#include <logdepthbuf_vertex>",
+
       "}",
     ].join("\n");
   },
