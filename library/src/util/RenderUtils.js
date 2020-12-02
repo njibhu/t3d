@@ -313,9 +313,36 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
 
     /// Add mesh to returned Array
     meshes.push(finalMesh);
-  }); /// End rawMeshes forEach
+  }); /// End rawMeshes for Each
 
   return meshes;
+}
+
+/**
+ * Merge multiple meshes together and return an instancedMesh for it
+ * @param {Array} meshes Three Meshes to be merged into a single mesh
+ * @param {Number} size Size of the instanced mesh
+ * @param {Number} filterFlags When undefined, it will render all LODs. When using 0, only show most detailed LOD
+ * @returns {Mesh} a Three instanced mesh
+ */
+function getInstancedMesh(meshes, size, filterFlags = 0) {
+  const meshMaterials = [];
+  const mergedGeometry = new THREE.Geometry();
+  meshes.forEach((mesh, index) => {
+    // If filterFlags is set, we ignore any mesh without the correct flag
+    if (filterFlags !== undefined && mesh.flags !== filterFlags) {
+      return;
+    }
+    meshMaterials.push(mesh.material);
+    // It's only possible to merge geometries of the same type
+    const meshGeometry = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
+    mergedGeometry.merge(meshGeometry, mesh.matrix, index);
+  });
+  const finalMesh = new THREE.InstancedMesh(mergedGeometry, meshMaterials, size);
+  finalMesh.updateMatrix();
+  finalMesh.matrixAutoUpdate = false;
+
+  return finalMesh;
 }
 
 /**
@@ -600,4 +627,5 @@ module.exports = {
   loadMeshFromModelFile: loadMeshFromModelFile,
   getMeshesForFilename: getMeshesForFilename,
   getFilesUsedByModel: getFilesUsedByModel,
+  getInstancedMesh: getInstancedMesh,
 };
