@@ -57,7 +57,7 @@ class PropertiesRenderer extends DataRenderer {
   renderAsync(callback) {
     this.getOutput().meshes = [];
 
-    let propertiesChunkData = this.mapFile.getChunk("prp2").data;
+    const propertiesChunkData = this.mapFile.getChunk("prp2").data;
 
     if (!propertiesChunkData) {
       return callback();

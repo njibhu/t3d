@@ -35,11 +35,11 @@ const mapRenderer = {
 };
 
 /// Extend Original Logger
-let myLogger = {
+const myLogger = {
   lastMessageType: null,
   log: function () {
-    let htmlOutput = $("#log");
-    let str = Array.prototype.slice.call(arguments, 1).join(" ");
+    const htmlOutput = $("#log");
+    const str = Array.prototype.slice.call(arguments, 1).join(" ");
     if (arguments[1] === myLogger.lastMessageType) {
       $("#log p:last-of-type")[0].innerHTML = str;
     } else {
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
   /// Handle file pick
   $("#filePicker").change(function (evt) {
-    let file = evt.target.files[0];
+    const file = evt.target.files[0];
 
     mapRenderer.localReader = T3D.getLocalReader(file, onReaderCreated, "../static/t3dworker.js", myLogger);
   });
@@ -72,7 +72,7 @@ async function onReaderCreated() {
   $("#fileMapSelect").removeAttr("disabled");
   $("#loadMapBtn").removeAttr("disabled");
 
-  let opt = document.createElement("option");
+  const opt = document.createElement("option");
   opt.value = undefined;
   opt.innerHTML = ""; // whatever property it has
   $("#fileMapSelect").append(opt);
@@ -85,13 +85,13 @@ async function onReaderCreated() {
     return list;
   }, []);
   for (const category of categoryList) {
-    let opt = document.createElement("option");
+    const opt = document.createElement("option");
     opt.disabled = true;
     opt.innerHTML = category;
     $("#fileMapSelect").append(opt);
 
     for (const map of mapFileList.filter((m) => m.category === category)) {
-      let opt = document.createElement("option");
+      const opt = document.createElement("option");
       opt.value = map.baseId;
       opt.innerHTML = map.name; // whatever property it has
 
@@ -110,7 +110,7 @@ function onLoadMapClick() {
   mapRenderer.mapData.id = $("#fileIdInput").val();
 
   /// Renderer settings (see the documentation of each Renderer for details)
-  let renderers = [
+  const renderers = [
     {
       renderClass: T3D.EnvironmentRenderer,
       settings: {},
@@ -158,12 +158,12 @@ function onRendererDone(context) {
   }
 
   /// Add the water level to the scene
-  let water = T3D.getContextValue(context, T3D.TerrainRenderer, "water");
+  const water = T3D.getContextValue(context, T3D.TerrainRenderer, "water");
   mapRenderer.scene.add(water);
   mapRenderer.mapData.terrain.data.push(water);
 
   /// Move the camera initial place depending on the map bounds
-  let bounds = T3D.getContextValue(context, T3D.TerrainRenderer, "bounds");
+  const bounds = T3D.getContextValue(context, T3D.TerrainRenderer, "bounds");
   mapRenderer.camera.position.x = 0;
   mapRenderer.camera.position.y = bounds ? bounds.y2 : 0;
   mapRenderer.camera.position.z = 0;
@@ -181,8 +181,8 @@ function onRendererDone(context) {
 function loadMapFile(fileId, callback) {
   if (parseInt(fileId)) {
     mapRenderer.localReader.loadFile(fileId, function (arrayBuffer) {
-      let ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
-      let mapFile = new T3D.GW2File(ds, 0);
+      const ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
+      const mapFile = new T3D.GW2File(ds, 0);
       callback(mapFile);
     });
   }
@@ -204,36 +204,36 @@ function cleanScene() {
 }
 
 function onMouseMove(event) {
-  let canvasBounds = mapRenderer.renderer.domElement.getBoundingClientRect();
+  const canvasBounds = mapRenderer.renderer.domElement.getBoundingClientRect();
   mapRenderer.mouse.x = ((event.clientX - canvasBounds.left) / (canvasBounds.right - canvasBounds.left)) * 2 - 1;
   mapRenderer.mouse.y = -((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
 }
 
 /// Basic THREE stuff, don't mind it
 function setupScene() {
-  let canvasWidth = 800;
-  let canvasHeight = 800;
-  let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
-  let fov = 60;
-  let aspect = 1;
+  const canvasWidth = 800;
+  const canvasHeight = 800;
+  const canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
+  const fov = 60;
+  const aspect = 1;
 
   mapRenderer.camera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 100000);
   mapRenderer.scene = new THREE.Scene();
   mapRenderer.mouse = new THREE.Vector2();
 
   /// This scene has one ambient light source and three directional lights
-  let ambientLight = new THREE.AmbientLight(0x555555);
+  const ambientLight = new THREE.AmbientLight(0x555555);
   mapRenderer.scene.add(ambientLight);
 
-  let directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+  const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
   directionalLight1.position.set(0, 0, 1);
   mapRenderer.scene.add(directionalLight1);
 
-  let directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+  const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
   directionalLight2.position.set(1, 0, 0);
   mapRenderer.scene.add(directionalLight2);
 
-  let directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
+  const directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
   directionalLight3.position.set(0, 1, 0);
   mapRenderer.scene.add(directionalLight3);
 
@@ -254,7 +254,7 @@ function setupScene() {
 
 function setupController() {
   if (!mapRenderer.controls) {
-    let controls = new THREE.OrbitControls(mapRenderer.camera, mapRenderer.renderer.domElement);
+    const controls = new THREE.OrbitControls(mapRenderer.camera, mapRenderer.renderer.domElement);
     controls.enableZoom = true;
     mapRenderer.controls = controls;
   }

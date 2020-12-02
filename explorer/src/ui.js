@@ -65,7 +65,7 @@ class UI {
    * HANDLERS
    */
   onFileSelected(event) {
-    let file = event.target.files[0];
+    const file = event.target.files[0];
     $("#intro").slideUp(() => {
       this.appRenderer.createLocalReader(file, async () => {
         this.mapFileList = await this.appRenderer.getMapList();

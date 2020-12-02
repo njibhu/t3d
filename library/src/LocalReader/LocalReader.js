@@ -77,7 +77,7 @@ class LocalReader {
    * @returns {Promise}
    */
   async openArchive(file) {
-    let { metaTable, indexTable } = await ArchiveParser.readArchive(file);
+    const { metaTable, indexTable } = await ArchiveParser.readArchive(file);
     this._fileMetaTable = metaTable;
     this._indexTable = indexTable;
     this._file = file;
@@ -124,11 +124,11 @@ class LocalReader {
    */
   async readFile(mftId, isImage, raw, fileLength, extractLength) {
     //let buffer, dxtType, imageWidth, imageHeight;
-    let meta = this.getFileMeta(mftId);
+    const meta = this.getFileMeta(mftId);
     if (!meta) throw new Error("Unexistant file");
 
     // Slice up the data
-    let { ds, len } = await ArchiveParser.getFilePart(this._file, meta.offset, fileLength || meta.size);
+    const { ds, len } = await ArchiveParser.getFilePart(this._file, meta.offset, fileLength || meta.size);
 
     // If needed we decompress, if not we keep raw
     if (meta.compressed || raw !== false) {
@@ -159,14 +159,14 @@ class LocalReader {
    * @returns {Promise<Array<FileItem>>}
    */
   async readFileList(oldFileList) {
-    let self = this;
+    const self = this;
 
     let persistantList = oldFileList || [];
     let persistantId;
 
     // Load previously saved data
     if (this._persistantStore) {
-      let lastListing = await this._persistantStore.getLastListing(this._file.name);
+      const lastListing = await this._persistantStore.getLastListing(this._file.name);
       persistantList = lastListing.array;
       // If the last scan was not completed then we will just update it..
       if (!lastListing.complete) {
@@ -175,13 +175,13 @@ class LocalReader {
     }
 
     // Create a list of all the baseIds we need to inspect
-    let iterateList = Object.keys(self._indexTable).map((i) => Number(i));
-    for (let index in persistantList) {
+    const iterateList = Object.keys(self._indexTable).map((i) => Number(i));
+    for (const index in persistantList) {
       if (!(index in self._indexTable)) iterateList.push(index);
     }
 
     // Spawn the decompression tasks
-    let taskArray = [];
+    const taskArray = [];
     for (let i = 0; i < 1; i++) {
       taskArray[i] = Promise.resolve({ task: i });
     }
@@ -190,13 +190,13 @@ class LocalReader {
     let persistantNeedsUpdate = false;
 
     // Iterate through the array
-    for (let index in iterateList) {
-      let baseId = iterateList[index];
+    for (const index in iterateList) {
+      const baseId = iterateList[index];
 
       // First use a synchronous function to know if we need to scan the file
-      let result = this._needsScan(baseId, persistantList);
+      const result = this._needsScan(baseId, persistantList);
       if (result.scan === true) {
-        let taskId = (await Promise.race(taskArray)).task;
+        const taskId = (await Promise.race(taskArray)).task;
         taskArray[taskId] = this._readFileType(baseId).then((scanResult) => {
           // Put the result into our persistant storage
           persistantList[baseId] = {
@@ -283,8 +283,8 @@ class LocalReader {
    * @returns {Promise<Array<MapItem>>}
    */
   async getMapList() {
-    let self = this;
-    let mapArray = [];
+    const self = this;
+    const mapArray = [];
     // If the archive hasn't been completely scanned we do a partial scan for the map files.
     // It should be fast
     if (!this._persistantData) {
@@ -292,16 +292,16 @@ class LocalReader {
     }
 
     // Filter the maps out of all our files
-    let reversedIndex = this.getReverseIndex();
-    let maps = this._persistantData
+    const reversedIndex = this.getReverseIndex();
+    const maps = this._persistantData
       .filter((file) => file.fileType === "PF_mapc")
       .filter((id) => id.baseId === reversedIndex[self.getFileIndex(id.baseId)][0]);
 
-    for (let map of maps) {
+    for (const map of maps) {
       let found = false;
       // Try to see if we already have some informations on this map
-      for (let category of MapFileList.maps) {
-        let fileMap = category.maps.find((item) => Number(item.fileName.split(".data")[0]) === map.baseId);
+      for (const category of MapFileList.maps) {
+        const fileMap = category.maps.find((item) => Number(item.fileName.split(".data")[0]) === map.baseId);
         if (fileMap) {
           mapArray.push({
             name: fileMap.name,
@@ -343,12 +343,12 @@ class LocalReader {
    * @returns {Array<FileItem>}
    */
   getFileList() {
-    let typeList = this._persistantData ? this._persistantData.map((i) => i.fileType) : [];
-    let reverseBaseIdList = this.getReverseIndex();
+    const typeList = this._persistantData ? this._persistantData.map((i) => i.fileType) : [];
+    const reverseBaseIdList = this.getReverseIndex();
 
-    let fileList = this._fileMetaTable.map((meta, mftId) => {
-      let baseIds = reverseBaseIdList[mftId] ? reverseBaseIdList[mftId] : [];
-      let type = reverseBaseIdList[mftId] ? typeList[baseIds[0]] : "Non-Registered";
+    const fileList = this._fileMetaTable.map((meta, mftId) => {
+      const baseIds = reverseBaseIdList[mftId] ? reverseBaseIdList[mftId] : [];
+      const type = reverseBaseIdList[mftId] ? typeList[baseIds[0]] : "Non-Registered";
       return {
         mftId: mftId,
         baseIdList: baseIds,
@@ -397,7 +397,7 @@ class LocalReader {
    * @param  {boolean}   raw      If true, any infation is skipped and raw data is returned.
    */
   loadFile(baseId, callback, isImage, raw) {
-    let mftId = this.getFileIndex(baseId);
+    const mftId = this.getFileIndex(baseId);
     if (mftId <= 0) return callback(null);
     this.readFile(mftId, isImage, raw).then((result) => {
       if (result.buffer === undefined) return callback(null);
@@ -416,8 +416,8 @@ class LocalReader {
   _needsScan(baseId, persistantData) {
     if (baseId <= 0) return { change: "none", scan: false };
 
-    let mftId = this.getFileIndex(baseId);
-    let metaData = this.getFileMeta(mftId);
+    const mftId = this.getFileIndex(baseId);
+    const metaData = this.getFileMeta(mftId);
 
     // Nothing interesting
     if (metaData === undefined && !(baseId in persistantData)) {
@@ -450,14 +450,14 @@ class LocalReader {
   async _readFileType(baseId) {
     if (!this._fileTypeCache) this._fileTypeCache = [];
 
-    let mftId = this.getFileIndex(baseId);
-    let metaData = this.getFileMeta(mftId);
+    const mftId = this.getFileIndex(baseId);
+    const metaData = this.getFileMeta(mftId);
 
     let fileType;
     if (this._fileTypeCache[baseId] !== undefined) {
       fileType = this._fileTypeCache[baseId];
     } else {
-      let fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
+      const fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
       if (fileBuffer === undefined) return undefined;
       fileType = FileTypes.getFileType(new DataStream(fileBuffer));
     }

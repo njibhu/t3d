@@ -48,7 +48,7 @@ class DataReader {
    */
   inflate(ds, size, mftId, isImage, capLength) {
     return new Promise((resolve, reject) => {
-      let arrayBuffer = ds.buffer;
+      const arrayBuffer = ds.buffer;
 
       // If no capLength then inflate the whole file
       if (!capLength || capLength < 0) {
@@ -80,7 +80,7 @@ class DataReader {
       }
 
       // Add the load to the worker
-      let workerId = this._getBestWorkerIndex();
+      const workerId = this._getBestWorkerIndex();
       this._workerLoad[workerId] += 1;
       this._workerPool[workerId].postMessage([mftId, arrayBuffer, isImage === true, capLength]);
     });
@@ -88,9 +88,9 @@ class DataReader {
 
   // Initialization function for creating a new worker (thread)
   _startWorker(path) {
-    let self = this;
-    let worker = new Worker(path);
-    let selfWorkerId = this._workerPool.push(worker) - 1;
+    const self = this;
+    const worker = new Worker(path);
+    const selfWorkerId = this._workerPool.push(worker) - 1;
     if (this._workerLoad.push(0) !== selfWorkerId + 1) {
       throw new Error("WorkerLoad and WorkerPool don't have the same length");
     }
@@ -104,15 +104,15 @@ class DataReader {
       if (typeof message_event.data === "string") {
         T3D.Logger.log(T3D.Logger.TYPE_WARNING, "Inflater threw an error", message_event.data);
         mftId = message_event.data.split(":")[0];
-        for (let callback of self._inflateCallbacks[mftId]) {
+        for (const callback of self._inflateCallbacks[mftId]) {
           callback.reject();
         }
       } else {
         mftId = message_event.data[0];
         // On success
         if (self._inflateCallbacks[mftId]) {
-          for (let callback of self._inflateCallbacks[mftId]) {
-            let data = message_event.data;
+          for (const callback of self._inflateCallbacks[mftId]) {
+            const data = message_event.data;
             // Array buffer, dxtType, imageWidth, imageHeight
             callback.resolve({
               buffer: data[1],

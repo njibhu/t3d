@@ -22,7 +22,7 @@ const MaterialUtils = require("./MaterialUtils");
 const MathUtils = require("./MathUtils");
 
 // TODO: Remove this local cache!!
-let matFiles = {};
+const matFiles = {};
 
 /**
  * Object describing the meaning of the bits in fvf integers.
@@ -30,7 +30,7 @@ let matFiles = {};
  * @private
  * @type {Object}
  */
-let fvfFormat = {
+const fvfFormat = {
   Position: 0x00000001 /** < 12 bytes. Position as three 32-bit floats in the order x, y, z. */,
   Weights: 0x00000002 /** < 4 bytes. Contains bone weights. */,
   Group: 0x00000004 /** < 4 bytes. Related to bone weights. */,
@@ -65,15 +65,15 @@ let fvfFormat = {
  * @return {THREE.Mesh}      The generated mesh.
  */
 function renderRect(rect, yPos, material, dy) {
-  let dx = rect.x1 - rect.x2;
-  let dz = rect.y1 - rect.y2;
+  const dx = rect.x1 - rect.x2;
+  const dz = rect.y1 - rect.y2;
   if (!dy) dy = 1;
 
-  let cx = (rect.x1 + rect.x2) / 2;
-  let cz = (rect.y1 + rect.y2) / 2;
-  let cy = yPos;
+  const cx = (rect.x1 + rect.x2) / 2;
+  const cz = (rect.y1 + rect.y2) / 2;
+  const cy = yPos;
 
-  let geometry = new THREE.BoxGeometry(dx, dy, dz);
+  const geometry = new THREE.BoxGeometry(dx, dy, dz);
 
   material =
     material ||
@@ -81,7 +81,7 @@ function renderRect(rect, yPos, material, dy) {
       color: 0xff0000,
       wireframe: true,
     });
-  let plane = new THREE.Mesh(geometry, material);
+  const plane = new THREE.Mesh(geometry, material);
   plane.overdraw = true;
 
   plane.position.x = cx;
@@ -105,57 +105,57 @@ function renderRect(rect, yPos, material, dy) {
  * @return {Array} Each geometry in the model file represented by a textured THREE.Mesh object
  */
 function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, showUnmaterialed) {
-  let rawMeshes = chunk.data.meshes;
-  let meshes = [];
-  let mats = modelDataChunk.data.permutations[0].materials;
+  const rawMeshes = chunk.data.meshes;
+  const meshes = [];
+  const mats = modelDataChunk.data.permutations[0].materials;
 
   rawMeshes.forEach(function (rawMesh) {
-    let rawGeom = rawMesh.geometry;
-    let fvf = rawGeom.verts.mesh.fvf; // rawGeom.fvf;
+    const rawGeom = rawMesh.geometry;
+    const fvf = rawGeom.verts.mesh.fvf; // rawGeom.fvf;
 
-    let numVerts = rawGeom.verts.vertexCount; // rawGeom.vertexCount;
+    const numVerts = rawGeom.verts.vertexCount; // rawGeom.vertexCount;
 
-    let rawVerts = rawGeom.verts.mesh.vertices; // rawGeom.vertices
+    const rawVerts = rawGeom.verts.mesh.vertices; // rawGeom.vertices
 
-    let indices = rawGeom.indices.indices;
+    const indices = rawGeom.indices.indices;
 
-    let geom = new THREE.BufferGeometry();
+    const geom = new THREE.BufferGeometry();
 
-    let vertDS = new DataStream(rawVerts.buffer);
+    const vertDS = new DataStream(rawVerts.buffer);
 
     // Dirty step length for now:
-    let stride = rawVerts.length / numVerts;
+    const stride = rawVerts.length / numVerts;
 
     // Each vertex
     // DO UV as well
-    let vertices = new Float32Array(numVerts * 3);
+    const vertices = new Float32Array(numVerts * 3);
     // let tangents = null;
-    let normals = null;
-    let uvs = [];
+    const normals = null;
+    const uvs = [];
 
     /// Calculate the distance to the first pair of UV data from the
     /// start of the vertex entry
     ///
-    let distToNormals =
+    const distToNormals =
       !!(fvf & fvfFormat.Position) * 12 + !!(fvf & fvfFormat.Weights) * 4 + !!(fvf & fvfFormat.Group) * 4;
 
-    let distToTangent = distToNormals + !!(fvf & fvfFormat.Normal) * 12 + !!(fvf & fvfFormat.Color) * 4;
+    const distToTangent = distToNormals + !!(fvf & fvfFormat.Normal) * 12 + !!(fvf & fvfFormat.Color) * 4;
 
-    let distToBittangent = distToTangent + !!(fvf & fvfFormat.Tangent) * 12;
+    const distToBittangent = distToTangent + !!(fvf & fvfFormat.Tangent) * 12;
 
-    let distToTangentFrame = distToBittangent + !!(fvf & fvfFormat.Bitangent) * 12;
+    const distToTangentFrame = distToBittangent + !!(fvf & fvfFormat.Bitangent) * 12;
 
-    let distToUV = distToTangentFrame + !!(fvf & fvfFormat.TangentFrame) * 12;
+    const distToUV = distToTangentFrame + !!(fvf & fvfFormat.TangentFrame) * 12;
 
     /// Check if the UV is 32 bit float or 16 bit float.
-    let uv32Flag = (fvf & fvfFormat.UV32Mask) >> 8;
-    let uv16Flag = (fvf & fvfFormat.UV16Mask) >> 16;
-    let isUV32 = !!uv32Flag;
-    let hasUV = !!uv16Flag || !!uv32Flag;
+    const uv32Flag = (fvf & fvfFormat.UV32Mask) >> 8;
+    const uv16Flag = (fvf & fvfFormat.UV16Mask) >> 16;
+    const isUV32 = !!uv32Flag;
+    const hasUV = !!uv16Flag || !!uv32Flag;
 
     /// Popcount (count the number of binary 1's) in the UV flag
     /// to get the number of UV pairs used in this vertex format.
-    let masked = isUV32 ? uv32Flag : uv16Flag;
+    const masked = isUV32 ? uv32Flag : uv16Flag;
     let numUV = MathUtils.popcount(masked);
 
     numUV = Math.min(numUV, 1.0);
@@ -189,9 +189,9 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
 
       /// Read position data
       /// (we just hope all meshes has 32 bit position...)
-      let x = vertDS.readFloat32();
-      let z = vertDS.readFloat32();
-      let y = vertDS.readFloat32();
+      const x = vertDS.readFloat32();
+      const z = vertDS.readFloat32();
+      const y = vertDS.readFloat32();
 
       /// Write position data, transformed to Tyria3D coordinate system.
       vertices[i * 3 + 0] = x; // - c.x;
@@ -222,7 +222,7 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
     } /// End each vertex
 
     /// Each face descripbed in indices
-    let faces = new Uint16Array(indices.length);
+    const faces = new Uint16Array(indices.length);
     for (let i = 0; i < indices.length; i += 3) {
       // This is ONE face
       faces[i + 0] = indices[i + 2];
@@ -248,7 +248,7 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
     if (hasUV) {
       for (let uvIdx = 0; uvIdx < numUV; uvIdx++) {
         /// Names are "uv", "uv2", "uv3", ... , "uvN"
-        let uvName = "uv" + (uvIdx > 0 ? uvIdx + 1 : "");
+        const uvName = "uv" + (uvIdx > 0 ? uvIdx + 1 : "");
 
         /// Set "custom" attribute uvN
         geom.setAttribute(uvName, new THREE.BufferAttribute(uvs[uvIdx], 2));
@@ -267,8 +267,8 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
     /// DONE READING VERTEX DATA
 
     /// Get material used for this mesh
-    let matIdx = rawMesh.materialIndex;
-    let mat = mats[matIdx];
+    const matIdx = rawMesh.materialIndex;
+    const mat = mats[matIdx];
     let materialFile = null;
 
     if (mat && matFiles[mat.filename]) {
@@ -291,7 +291,7 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
     }
 
     /// Create the final mesh from the BufferedGeometry and MeshBasicMaterial
-    let finalMesh = new THREE.Mesh(geom, finalMaterial);
+    const finalMesh = new THREE.Mesh(geom, finalMaterial);
 
     /// Set material info on the returned mesh
     if (mat) {
@@ -367,7 +367,7 @@ function getInstancedMesh(meshes, size, filterFlags = 0) {
 
 function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures, showUnmaterialed, callback) {
   // Short handles prop attributes
-  let finalMeshes = [];
+  const finalMeshes = [];
 
   /// Load file
   localReader.loadFile(filename, function (inflatedData) {
@@ -376,23 +376,23 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
         throw "Could not find MFT entry for " + filename;
       }
 
-      let ds = new DataStream(inflatedData);
+      const ds = new DataStream(inflatedData);
 
-      let modelFile = new GW2File(ds, 0);
+      const modelFile = new GW2File(ds, 0);
 
       // MODL for materials -> textures
-      let modelDataChunk = modelFile.getChunk("modl");
+      const modelDataChunk = modelFile.getChunk("modl");
 
       // GEOM for geometry
-      let geometryDataChunk = modelFile.getChunk("geom");
+      const geometryDataChunk = modelFile.getChunk("geom");
 
       /// Hacky fix for not being able to adjust for position
-      let boundingSphere = modelDataChunk.data.boundingSphere;
-      let bsc = boundingSphere.center;
+      const boundingSphere = modelDataChunk.data.boundingSphere;
+      const bsc = boundingSphere.center;
       boundingSphere.radius += Math.sqrt(bsc[0] * bsc[0] + Math.sqrt(bsc[1] * bsc[1] + bsc[2] * bsc[2]));
 
       /// Load all material files
-      let allMats = modelDataChunk.data.permutations[0].materials;
+      const allMats = modelDataChunk.data.permutations[0].materials;
 
       //eslint-disable-next-line no-inner-declarations
       function loadMaterialIndex(mIdx, matCallback) {
@@ -401,7 +401,7 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
           return;
         }
 
-        let mat = allMats[mIdx];
+        const mat = allMats[mIdx];
 
         /// Skip if file is loaded
         if (matFiles[mat.filename]) {
@@ -411,8 +411,8 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
 
         localReader.loadFile(mat.filename, function (inflatedData) {
           if (inflatedData) {
-            let ds = new DataStream(inflatedData);
-            let materialFile = new GW2File(ds, 0);
+            const ds = new DataStream(inflatedData);
+            const materialFile = new GW2File(ds, 0);
             matFiles[mat.filename] = materialFile;
           }
 
@@ -422,12 +422,18 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
 
       loadMaterialIndex(0, function () {
         /// Create meshes
-        let meshes = renderGeomChunk(localReader, geometryDataChunk, modelDataChunk, sharedTextures, showUnmaterialed);
+        const meshes = renderGeomChunk(
+          localReader,
+          geometryDataChunk,
+          modelDataChunk,
+          sharedTextures,
+          showUnmaterialed
+        );
 
         // Build mesh group
         meshes.forEach(function (mesh) {
           /// Material flags
-          let knownflags = [
+          const knownflags = [
             /*
               1-5
               Has Tex?  IDK      Light?    Alpha?
@@ -482,7 +488,7 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
           // let alphaMask2 = 0x0100 + 0x0200
           // let alphaMask2b = 0x0200
 
-          let texMask = 0x8 + 0x0800;
+          const texMask = 0x8 + 0x0800;
 
           if (knownflags.indexOf(mesh.materialFlags) !== 11) {
             // return;
@@ -511,7 +517,7 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
       }); /// END LOAD MATERIALS CALLBACK
     } catch (e) {
       console.warn("Failed rendering model " + filename, e);
-      let mesh = new THREE.Mesh(new THREE.BoxGeometry(200, 2000, 200), new THREE.MeshNormalMaterial());
+      const mesh = new THREE.Mesh(new THREE.BoxGeometry(200, 2000, 200), new THREE.MeshNormalMaterial());
       mesh.flags = 4;
       mesh.materialFlags = 2056;
       mesh.lodOverride = [1000000, 1000000];
@@ -584,7 +590,7 @@ function getMeshesForFilename(filename, color, localReader, sharedMeshes, shared
  * @param  {Function} callback   First argument is list of used file IDs
  */
 function getFilesUsedByModel(filename, localReader, callback) {
-  let fileIds = [filename];
+  const fileIds = [filename];
 
   /// Load model file
   localReader.loadFile(filename, function (inflatedData) {
@@ -593,19 +599,19 @@ function getFilesUsedByModel(filename, localReader, callback) {
         throw "Could not find MFT entry for " + filename;
       }
 
-      let ds = new DataStream(inflatedData);
-      let modelFile = new GW2File(ds, 0);
+      const ds = new DataStream(inflatedData);
+      const modelFile = new GW2File(ds, 0);
 
       // MODL for materials -> textures
-      let modelDataChunk = modelFile.getChunk("modl");
+      const modelDataChunk = modelFile.getChunk("modl");
 
       /// Get materials used by model
-      let mats = modelDataChunk.data.permutations[0].materials;
+      const mats = modelDataChunk.data.permutations[0].materials;
 
       /// Add each material file AND referenced TEXTURES
       mats.forEach(function (mat) {
         /// Add material file id
-        let matFileName = mat.filename;
+        const matFileName = mat.filename;
         fileIds.push(matFileName);
 
         /// Add each texture file id

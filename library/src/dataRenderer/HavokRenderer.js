@@ -69,11 +69,11 @@ class HavokRenderer extends DataRenderer {
    * @return {*}            [description]
    */
   getCollisionsForAnimation(animation, collisions) {
-    let ret = [];
+    const ret = [];
 
     for (let i = 0; i < animation.collisionIndices.length; i++) {
-      let index = animation.collisionIndices[i];
-      let collision = collisions[index];
+      const index = animation.collisionIndices[i];
+      const collision = collisions[index];
       collision.index = index;
       ret.push(collision);
     }
@@ -96,19 +96,19 @@ class HavokRenderer extends DataRenderer {
     let i = offset;
 
     for (; i < offset + chunkSize && i < models.length; i++) {
-      let p = Math.round((i * 100) / models.length);
+      const p = Math.round((i * 100) / models.length);
       if (p !== this.lastP) {
         this.logger.log(T3D.Logger.TYPE_PROGRESS, "Loading Collision Models (" + title + ")", p);
         this.lastP = p;
       }
 
       /// Get animation object
-      let animation = this.animationFromGeomIndex(models[i].geometryIndex, this.geometries, this.animations);
+      const animation = this.animationFromGeomIndex(models[i].geometryIndex, this.geometries, this.animations);
 
-      let collisions = this.getCollisionsForAnimation(animation, this.havokChunkData.collisions);
+      const collisions = this.getCollisionsForAnimation(animation, this.havokChunkData.collisions);
 
       for (let j = 0; j < collisions.length; j++) {
-        let collision = collisions[j];
+        const collision = collisions[j];
         this.renderMesh(collision, models[i], mat);
       }
     }
@@ -133,7 +133,7 @@ class HavokRenderer extends DataRenderer {
    */
   animationFromGeomIndex(propGeomIndex, geometries, animations) {
     // geometries is just list of all geometries.animations[end] for now
-    let l = geometries[propGeomIndex].animations.length;
+    const l = geometries[propGeomIndex].animations.length;
 
     return animations[geometries[propGeomIndex].animations[l - 1]];
     // return animations[ geometries[propGeomIndex].animations[0] ];
@@ -148,12 +148,12 @@ class HavokRenderer extends DataRenderer {
    * @return {*}           [description]
    */
   renderMesh(collision, model, mat) {
-    let pos = model.translate;
-    let rot = model.rotate;
-    let scale = 32 * model.scale;
+    const pos = model.translate;
+    const rot = model.rotate;
+    const scale = 32 * model.scale;
 
     /// Generate mesh
-    let mesh = this.parseHavokMesh(collision, mat);
+    const mesh = this.parseHavokMesh(collision, mat);
 
     /// Position mesh
     /// "x","float32","z","float32","y","float32"
@@ -180,7 +180,7 @@ class HavokRenderer extends DataRenderer {
    * @return {*} [description]
    */
   seedRandom() {
-    let x = Math.sin(this.seed++) * 10000;
+    const x = Math.sin(this.seed++) * 10000;
     return x - Math.floor(x);
   }
 
@@ -192,23 +192,23 @@ class HavokRenderer extends DataRenderer {
    * @return {*}           [description]
    */
   parseHavokMesh(collision, mat) {
-    let index = collision.index;
+    const index = collision.index;
 
     if (!this.meshes[index]) {
-      let geom = new THREE.Geometry();
+      const geom = new THREE.Geometry();
 
       /// Pass vertices
       for (let i = 0; i < collision.vertices.length; i++) {
-        let v = collision.vertices[i];
+        const v = collision.vertices[i];
         // "x","float32","z","float32","y","float32"]
         geom.vertices.push(new THREE.Vector3(v[0], v[2], -v[1]));
       }
 
       /// Pass faces
       for (let i = 0; i < collision.indices.length; i += 3) {
-        let f1 = collision.indices[i];
-        let f2 = collision.indices[i + 1];
-        let f3 = collision.indices[i + 2];
+        const f1 = collision.indices[i];
+        const f2 = collision.indices[i + 1];
+        const f3 = collision.indices[i + 2];
 
         if (f1 <= collision.vertices.length && f2 <= collision.vertices.length && f3 <= collision.vertices.length) {
           geom.faces.push(new THREE.Face3(f1, f2, f3));
@@ -239,7 +239,7 @@ class HavokRenderer extends DataRenderer {
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
   renderAsync(callback) {
-    let self = this;
+    const self = this;
 
     // TODO:The design of this method pretty much requires one instance
     // of the class per parallel async render. Should probably fix this
@@ -259,9 +259,9 @@ class HavokRenderer extends DataRenderer {
 
     /// Grab model raw data from the chunk.
     /// Add missing scale value to obs models.
-    let propModels = this.havokChunkData.propModels;
-    let zoneModels = this.havokChunkData.zoneModels;
-    let obsModels = this.havokChunkData.obsModels;
+    const propModels = this.havokChunkData.propModels;
+    const zoneModels = this.havokChunkData.zoneModels;
+    const obsModels = this.havokChunkData.obsModels;
     obsModels.forEach(function (mdl) {
       mdl.scale = 1;
     });
@@ -272,10 +272,10 @@ class HavokRenderer extends DataRenderer {
     this.animations = this.havokChunkData.animations;
 
     /// Render "prop", "zone" and "obs" models in that order.
-    let renderZoneModelsCB = function () {
+    const renderZoneModelsCB = function () {
       self.renderModels(obsModels, "obs", callback);
     };
-    let renderPropModelsCB = function () {
+    const renderPropModelsCB = function () {
       self.renderModels(zoneModels, "zone", renderZoneModelsCB);
     };
     self.renderModels(propModels, "prop", renderPropModelsCB);

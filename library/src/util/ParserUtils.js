@@ -43,13 +43,13 @@ module.exports = {
     return function (ds, struct) {
       let ret = [];
       try {
-        let arr_len = ds.readUint32();
-        let offset = ds.readUint32();
+        const arr_len = ds.readUint32();
+        const offset = ds.readUint32();
         if (offset === 0) {
           return ret;
         }
-        let arr_ptr = ds.position - 4 + offset;
-        let pos = ds.position;
+        const arr_ptr = ds.position - 4 + offset;
+        const pos = ds.position;
 
         if (maxCount && arr_len > maxCount) {
           throw "Array length " + arr_len + " exceeded allowed maximum " + maxCount;
@@ -75,21 +75,21 @@ module.exports = {
    */
   getRefArrayReader: function (structDef) {
     return function (ds) {
-      let ret_arr = [];
+      const ret_arr = [];
 
       /// Read array of offsets
-      let arr_len = ds.readUint32();
-      let arr_ptr = ds.position + ds.readUint32();
+      const arr_len = ds.readUint32();
+      const arr_ptr = ds.position + ds.readUint32();
 
       if (arr_len === 0) {
         return ret_arr;
       }
 
-      let orgPos = ds.position;
+      const orgPos = ds.position;
 
       /// Go to pointer and read an array of offsets!
       ds.seek(arr_ptr);
-      let offsets = ds.readInt32Array(arr_len);
+      const offsets = ds.readInt32Array(arr_len);
 
       // p_data is after having read array
       // var pointer = p_data - 4;
@@ -97,14 +97,14 @@ module.exports = {
 
       // auto offset  = *reinterpret_cast<const int32*>(pointer);
       ds.seek(pointer);
-      let offset = ds.readUint32(); /// this should be the same as arr_ptr
+      const offset = ds.readUint32(); /// this should be the same as arr_ptr
 
       // pointer     += offset;
       pointer += offset;
 
       for (let i = 0; i < offsets.length; i++) {
         if (offsets[i] !== 0) {
-          let pos = pointer + i * 4 + offsets[i];
+          const pos = pointer + i * 4 + offsets[i];
           ds.seek(pos);
 
           try {
@@ -146,13 +146,13 @@ module.exports = {
    */
   getStringReader: function () {
     return function (ds /*, struct*/) {
-      let ptr = ds.position + ds.readUint32();
-      let pos = ds.position;
+      const ptr = ds.position + ds.readUint32();
+      const pos = ds.position;
 
       /// Go to pointer
       ds.seek(ptr);
 
-      let ret = ds.readCString();
+      const ret = ds.readCString();
 
       /// Go back to where we were
       ds.seek(pos);
@@ -168,8 +168,8 @@ module.exports = {
    */
   getString16Reader: function (stringOffset) {
     return function (ds /*, struct*/) {
-      let ptr = ds.position + ds.readUint32() + (stringOffset || 0);
-      let pos = ds.position;
+      const ptr = ds.position + ds.readUint32() + (stringOffset || 0);
+      const pos = ds.position;
 
       /// Go to pointer
       ds.seek(ptr);
@@ -197,19 +197,19 @@ module.exports = {
    */
   getPointerReader: function (structDef) {
     return function (ds /*, struct*/) {
-      let offset = ds.readUint32();
+      const offset = ds.readUint32();
 
       if (offset === 0) {
         return {};
       }
 
-      let ptr = ds.position - 4 + offset;
-      let pos = ds.position;
+      const ptr = ds.position - 4 + offset;
+      const pos = ds.position;
 
       /// Go to pointer
       ds.seek(ptr);
 
-      let ret = ds.readStruct(structDef);
+      const ret = ds.readStruct(structDef);
 
       /// Go back to where we were
       ds.seek(pos);
@@ -227,13 +227,13 @@ module.exports = {
     return function (ds /*, struct*/) {
       let pos;
       try {
-        let ptr = ds.position + ds.readUint32();
+        const ptr = ds.position + ds.readUint32();
         pos = ds.position;
 
         /// Go to pointer
         ds.seek(ptr);
 
-        let fileRef = ds.readStruct([
+        const fileRef = ds.readStruct([
           "m_lowPart",
           "uint16", // uint16 m_lowPart;
           "m_highPart",

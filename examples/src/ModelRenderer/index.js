@@ -11,9 +11,9 @@ let _renderer;
 let _models = [];
 
 /// Extend Original Logger
-let myLogger = {
+const myLogger = {
   log: function () {
-    let htmlOutput = $("#log");
+    const htmlOutput = $("#log");
     let i = 1;
     let str = "";
     while (i < arguments.length) {
@@ -31,7 +31,7 @@ $(document).ready(function () {
 
   /// Handle file pick
   $("#filePicker").change(function (evt) {
-    let file = evt.target.files[0];
+    const file = evt.target.files[0];
 
     _lr = T3D.getLocalReader(file, onReaderCreated, "../static/t3dworker.js", myLogger);
   });
@@ -49,20 +49,20 @@ function onReaderCreated() {
 /// The insterresting part!
 function onButtonClick() {
   /// Get selected file id
-  let fileId = $("#fileIdInput").val();
+  const fileId = $("#fileIdInput").val();
 
   /// Let's use the SingleModelRenderer. It renders 3D stuff!
-  let renderClass = T3D.SingleModelRenderer;
+  const renderClass = T3D.SingleModelRenderer;
 
   /// All renderers must have access to a LocalReader.
   /// The LocalReader is the object that allows us
   /// to read from the .dat
-  let localReader = _lr;
+  const localReader = _lr;
 
   /// The settings object is different for all renderers.
   /// Accourding to documentation the SingleModelRenderer requires
   /// the id of a file.
-  let settings = { id: fileId };
+  const settings = { id: fileId };
 
   /// This is the value object that renderers use to write output!
   /// If we ran multiple renderers that wanted to read output from
@@ -75,7 +75,7 @@ function onButtonClick() {
   /// The method to run when the renderer is done. Almost all
   /// renderers are asynchronous since there is a lot of file
   /// reading et cetera.
-  let callback = onRendererDone;
+  const callback = onRendererDone;
 
   /// Running a renderer takes 5 mandatory parameters! Phew!
   T3D.runRenderer(renderClass, localReader, settings, _context, callback);
@@ -90,17 +90,17 @@ function onRendererDone() {
 
   /// Now we want to take a look in the output object!
   /// The object we told the renderer to write to was _context
-  let readFromContext = _context;
+  const readFromContext = _context;
 
   /// The generator class we want output for is SingleModelRenderer
-  let readForClass = T3D.SingleModelRenderer;
+  const readForClass = T3D.SingleModelRenderer;
 
   /// The documentation says the generated outputs are:
   ///
   /// meshes : An array of THREE.Mesh objects visualizing this model file.
   ///
   /// Lets get that one!
-  let nameOfValue = "meshes";
+  const nameOfValue = "meshes";
 
   /// Let's go!
   _models = T3D.getContextValue(readFromContext, readForClass, nameOfValue);
@@ -129,31 +129,31 @@ function onRendererDone() {
 
 /// Basic THREE stuff, don't mind it
 function setupScene() {
-  let canvasWidth = 500;
-  let canvasHeight = 500;
-  let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
-  let fov = 60;
-  let aspect = 1;
-  let near = 0.1;
-  let far = 50000;
+  const canvasWidth = 500;
+  const canvasHeight = 500;
+  const canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
+  const fov = 60;
+  const aspect = 1;
+  const near = 0.1;
+  const far = 50000;
 
   _camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
   _scene = new THREE.Scene();
 
   /// This scene has one ambient light source and three directional lights
-  let ambientLight = new THREE.AmbientLight(0x555555);
+  const ambientLight = new THREE.AmbientLight(0x555555);
   _scene.add(ambientLight);
 
-  let directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+  const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
   directionalLight1.position.set(0, 0, 1);
   _scene.add(directionalLight1);
 
-  let directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+  const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
   directionalLight2.position.set(1, 0, 0);
   _scene.add(directionalLight2);
 
-  let directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
+  const directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
   directionalLight3.position.set(0, 1, 0);
   _scene.add(directionalLight3);
 
@@ -164,7 +164,7 @@ function setupScene() {
   _renderer.setClearColor(canvasClearColor);
 
   /// Add THREE orbit controls, for simple orbiting, panning and zooming
-  let orbit = new THREE.OrbitControls(_camera, _renderer.domElement);
+  const orbit = new THREE.OrbitControls(_camera, _renderer.domElement);
   orbit.enableZoom = true;
 
   /// Note: constant continous rendering from page load

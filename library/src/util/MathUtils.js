@@ -33,9 +33,9 @@ const base32Max = Math.pow(2, 32);
  * @return {Number} Float value
  */
 function f16(h) {
-  let s = (h & 0x8000) >> 15;
-  let e = (h & 0x7c00) >> 10;
-  let f = h & 0x03ff;
+  const s = (h & 0x8000) >> 15;
+  const e = (h & 0x7c00) >> 10;
+  const f = h & 0x03ff;
 
   if (e === 0) {
     return (s ? -1 : 1) * Math.pow(2, -14) * (f / Math.pow(2, 10));
@@ -55,9 +55,9 @@ function f16(h) {
  * @return {Number}      Number of binary ones in the data
  */
 function popcount(bits) {
-  let SK5 = 0x55555555;
-  let SK3 = 0x33333333;
-  let SKF0 = 0x0f0f0f0f;
+  const SK5 = 0x55555555;
+  const SK3 = 0x33333333;
+  const SKF0 = 0x0f0f0f0f;
   // let SKFF = 0xff00ff
 
   bits -= (bits >> 1) & SK5;
@@ -91,10 +91,10 @@ function arr32To64(arr) {
  * @return {Array}            Sorted and unique value.
  */
 function sort_unique(arr_in, comparator) {
-  let arr = Array.prototype.sort.call(arr_in, comparator);
+  const arr = Array.prototype.sort.call(arr_in, comparator);
 
-  let u = {};
-  let a = [];
+  const u = {};
+  const a = [];
   for (let i = 0, l = arr.length; i < l; ++i) {
     // eslint-disable-next-line no-prototype-builtins
     if (u.hasOwnProperty(arr[i])) {

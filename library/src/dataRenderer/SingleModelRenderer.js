@@ -47,15 +47,15 @@ class SingleModelRenderer extends DataRenderer {
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
   renderAsync(callback) {
-    let self = this;
+    const self = this;
 
     /// Get file id
-    let fileId = this.settings.id;
-    let showUnmaterialed = true;
+    const fileId = this.settings.id;
+    const showUnmaterialed = true;
 
     /// Load the model file
     let meshCache = {};
-    let textureCache = {};
+    const textureCache = {};
 
     /// Set up output array
     self.getOutput().meshes = [];

@@ -99,7 +99,7 @@ class DataRenderer {
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
   renderAsync(callback) {
-    let self = this;
+    const self = this;
 
     this.localReader.loadFile(this.settings.id, function (inflatedData) {
       /// Set fileId so callers can identify this VO
@@ -109,10 +109,10 @@ class DataRenderer {
       self.getOutput().rawData = inflatedData;
 
       /// Construct raw string
-      let uarr = new Uint8Array(inflatedData);
-      let rawStrings = [];
-      let chunksize = 0xffff;
-      let len = Math.min(uarr.length, 10000);
+      const uarr = new Uint8Array(inflatedData);
+      const rawStrings = [];
+      const chunksize = 0xffff;
+      const len = Math.min(uarr.length, 10000);
 
       // There is a maximum stack size. We cannot call String.fromCharCode with as many arguments as we want
       for (let i = 0; i * chunksize < len; i++) {
@@ -127,8 +127,8 @@ class DataRenderer {
 
       /// Check if this is an PF or ATEX file
       // Binareis are MZ
-      let ds = new DataStream(inflatedData);
-      let first4 = ds.readCString(4);
+      const ds = new DataStream(inflatedData);
+      const first4 = ds.readCString(4);
 
       /// Do special stuff for different fcc signatures
       ///
@@ -149,7 +149,7 @@ class DataRenderer {
           self.settings.id,
           function (inflatedData, dxtType, imageWidth, imageHeigth) {
             /// Create image using returned data.
-            let image = {
+            const image = {
               data: new Uint8Array(inflatedData),
               width: imageWidth,
               height: imageHeigth,

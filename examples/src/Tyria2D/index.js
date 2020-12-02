@@ -18,7 +18,7 @@ window.onload = () => {
     /*
         SET MAIN UP GRID
         */
-    let pstyle = "border: 1px solid #dfdfdf; padding: 0;";
+    const pstyle = "border: 1px solid #dfdfdf; padding: 0;";
     $("#layout").w2layout({
       name: "layout",
       panels: [
@@ -281,7 +281,7 @@ window.onload = () => {
         /// Store fileList globally
         _fileList = files;
 
-        let packNode = {
+        const packNode = {
           id: "packGroup",
           text: "Pack Files",
           img: "icon-folder",
@@ -289,7 +289,7 @@ window.onload = () => {
           nodes: [],
         };
 
-        let textureNode = {
+        const textureNode = {
           id: "textureGroup",
           text: "Texture files",
           img: "icon-folder",
@@ -297,7 +297,7 @@ window.onload = () => {
           nodes: [],
         };
 
-        let unsortedNode = {
+        const unsortedNode = {
           id: "unsortedGroup",
           text: "Unsorted",
           img: "icon-folder",
@@ -306,7 +306,7 @@ window.onload = () => {
         };
 
         /// Build sidebar nodes
-        for (let fileType in _fileList) {
+        for (const fileType in _fileList) {
           if (Object.getOwnPropertyNames(_fileList).includes(fileType)) {
             let node = { id: fileType, img: "icon-folder", group: false };
             //let isPack = false;
@@ -383,7 +383,7 @@ window.onload = () => {
   function showFileGroup(fileTypeFilter) {
     w2ui.grid.records = [];
 
-    let reverseTable = _lr.getReverseIndex();
+    const reverseTable = _lr.getReverseIndex();
 
     for (const fileType in _fileList) {
       /// Only show types we've asked for
@@ -406,13 +406,13 @@ window.onload = () => {
       }
 
       if (Object.keys(_fileList).includes(fileType)) {
-        let fileArr = _fileList[fileType];
+        const fileArr = _fileList[fileType];
         fileArr.forEach(
           function (mftIndex) {
-            let meta = _lr.getFileMeta(mftIndex);
+            const meta = _lr.getFileMeta(mftIndex);
 
-            let baseIds = reverseTable[mftIndex];
-            let fileSize = meta ? meta.size : "";
+            const baseIds = reverseTable[mftIndex];
+            const fileSize = meta ? meta.size : "";
 
             if (fileSize > 0 && mftIndex > 15) {
               w2ui["grid"].records.push({
@@ -434,9 +434,9 @@ window.onload = () => {
   }
 
   function viewFileByMFT(mftIdx) {
-    let reverseTable = _lr.getReverseIndex();
+    const reverseTable = _lr.getReverseIndex();
 
-    let baseId = reverseTable[mftIdx] ? reverseTable[mftIdx][0] : "";
+    const baseId = reverseTable[mftIdx] ? reverseTable[mftIdx][0] : "";
 
     viewFileByFileId(baseId);
   }
@@ -473,21 +473,21 @@ window.onload = () => {
 
   function onBasicRendererDone() {
     /// Read render output from _context VO
-    let fileId = (_fileId = T3D.getContextValue(_context, T3D.DataRenderer, "fileId"));
+    const fileId = (_fileId = T3D.getContextValue(_context, T3D.DataRenderer, "fileId"));
 
-    let rawData = T3D.getContextValue(_context, T3D.DataRenderer, "rawData");
+    const rawData = T3D.getContextValue(_context, T3D.DataRenderer, "rawData");
 
-    let raw = T3D.getContextValue(_context, T3D.DataRenderer, "rawString");
+    const raw = T3D.getContextValue(_context, T3D.DataRenderer, "rawString");
 
-    let packfile = T3D.getContextValue(_context, T3D.DataRenderer, "file");
+    const packfile = T3D.getContextValue(_context, T3D.DataRenderer, "file");
 
-    let image = T3D.getContextValue(_context, T3D.DataRenderer, "image");
+    const image = T3D.getContextValue(_context, T3D.DataRenderer, "image");
 
-    let fcc = raw.substring(0, 4);
+    const fcc = raw.substring(0, 4);
 
     /// Update main header to show filename
 
-    let fileName = fileId + (image || !packfile ? "." + fcc : "." + packfile.header.type);
+    const fileName = fileId + (image || !packfile ? "." + fcc : "." + packfile.header.type);
     $("#fileTitle").html(fileName);
 
     /// Update raw view and enable tab
@@ -495,7 +495,7 @@ window.onload = () => {
 
     $("#contextToolbar").append(
       $("<button>Download raw</button>").click(function () {
-        let blob = new Blob([rawData], { type: "octet/stream" });
+        const blob = new Blob([rawData], { type: "octet/stream" });
         saveData(blob, fileName + ".raw");
       })
     );
@@ -509,12 +509,12 @@ window.onload = () => {
       w2ui.fileTabs.click("tabTexture");
 
       /// Display bitmap on canvas
-      let canvas = $("<canvas>");
+      const canvas = $("<canvas>");
       canvas[0].width = image.width;
       canvas[0].height = image.height;
-      let ctx = canvas[0].getContext("2d");
-      let uica = new Uint8ClampedArray(image.data);
-      let imagedata = new ImageData(uica, image.width, image.height);
+      const ctx = canvas[0].getContext("2d");
+      const uica = new Uint8ClampedArray(image.data);
+      const imagedata = new ImageData(uica, image.width, image.height);
       ctx.putImageData(imagedata, 0, 0);
 
       $("#textureOutput").append(canvas);
@@ -534,7 +534,7 @@ window.onload = () => {
         renderFileModel(fileId);
       } else if (packfile.header.type === "ASND") {
         /// Get a chunk, this is really the job of a renderer but whatevs
-        let chunk = packfile.getChunk("ASND");
+        const chunk = packfile.getChunk("ASND");
 
         /// Enable and select sound tab
         w2ui.fileTabs.enable("tabSound");
@@ -547,13 +547,13 @@ window.onload = () => {
 
         /// Extract sound data
 
-        let soundUintArray = chunk.data.audioData;
+        const soundUintArray = chunk.data.audioData;
 
         $("#contextToolbar")
           .show()
           .append(
             $("<button>Download MP3</button>").click(function () {
-              let blob = new Blob([soundUintArray], { type: "octet/stream" });
+              const blob = new Blob([soundUintArray], { type: "octet/stream" });
               saveData(blob, fileName + ".mp3");
             })
           )
@@ -606,16 +606,16 @@ window.onload = () => {
 
   function displayPackFile() {
     //let fileId = T3D.getContextValue(_context, T3D.DataRenderer, "fileId");
-    let packfile = T3D.getContextValue(_context, T3D.DataRenderer, "file");
+    const packfile = T3D.getContextValue(_context, T3D.DataRenderer, "file");
 
     $("#packOutput").html("");
     $("#packOutput").append($("<h2>Chunks</h2>"));
 
     packfile.chunks.forEach(function (chunk) {
-      let field = $("<fieldset />");
-      let legend = $("<legend>" + chunk.header.type + "</legend>");
+      const field = $("<fieldset />");
+      const legend = $("<legend>" + chunk.header.type + "</legend>");
 
-      let logButton = $("<button>Log Chunk Data to Console</button>");
+      const logButton = $("<button>Log Chunk Data to Console</button>");
       logButton.click(function () {
         T3D.Logger.log(T3D.Logger.TYPE_MESSAGE, "Logging", chunk.header.type, "chunk");
         T3D.Logger.log(T3D.Logger.TYPE_MESSAGE, chunk.data);
@@ -640,7 +640,7 @@ window.onload = () => {
 
   function onRendererDoneString() {
     /// Read data from renderer
-    let strings = T3D.getContextValue(_context, T3D.StringRenderer, "strings", []);
+    const strings = T3D.getContextValue(_context, T3D.StringRenderer, "strings", []);
 
     w2ui.stringGrid.records = strings;
 
@@ -708,13 +708,13 @@ window.onload = () => {
   /// Exports current model as an .obj file with a .mtl refering .png textures.
   function exportScene() {
     /// Get last loaded fileId
-    let fileId = _fileId;
+    const fileId = _fileId;
 
     /// Run T3D hacked version of OBJExporter
-    let result = new THREE.OBJExporter().parse(_scene, fileId);
+    const result = new THREE.OBJExporter().parse(_scene, fileId);
 
     /// Result lists what file ids are used for textures.
-    let texIds = result.textureIds;
+    const texIds = result.textureIds;
 
     /// Set up very basic material file refering the texture pngs
     /// pngs are generated a few lines down.
@@ -740,48 +740,48 @@ window.onload = () => {
         texId,
         function (inflatedData, dxtType, imageWidth, imageHeigth) {
           /// Create js image using returned bitmap data.
-          let image = {
+          const image = {
             data: new Uint8Array(inflatedData),
             width: imageWidth,
             height: imageHeigth,
           };
 
           /// Need a canvas in order to draw
-          let canvas = $("<canvas />");
+          const canvas = $("<canvas />");
           $("body").append(canvas);
 
           canvas[0].width = image.width;
           canvas[0].height = image.height;
 
-          let ctx = canvas[0].getContext("2d");
+          const ctx = canvas[0].getContext("2d");
 
           /// Draw raw bitmap to canvas
-          let uica = new Uint8ClampedArray(image.data);
-          let imagedata = new ImageData(uica, image.width, image.height);
+          const uica = new Uint8ClampedArray(image.data);
+          const imagedata = new ImageData(uica, image.width, image.height);
           ctx.putImageData(imagedata, 0, 0);
 
           /// This is where shit gets stupid. Flipping raw bitmaps in js
           /// is apparently a pain. Basicly read current state pixel by pixel
           /// and write it back with flipped y-axis
-          let input = ctx.getImageData(0, 0, image.width, image.height);
+          const input = ctx.getImageData(0, 0, image.width, image.height);
 
           /// Create output image data buffer
-          let output = ctx.createImageData(image.width, image.height);
+          const output = ctx.createImageData(image.width, image.height);
 
           /// Get imagedata size
-          let w = input.width,
+          const w = input.width,
             h = input.height;
-          let inputData = input.data;
-          let outputData = output.data;
+          const inputData = input.data;
+          const outputData = output.data;
 
           /// Loop pixels
           for (let y = 1; y < h - 1; y += 1) {
             for (let x = 1; x < w - 1; x += 1) {
               /// Input linear coordinate
-              let i = (y * w + x) * 4;
+              const i = (y * w + x) * 4;
 
               /// Output linear coordinate
-              let flip = ((h - y) * w + x) * 4;
+              const flip = ((h - y) * w + x) * 4;
 
               /// Read and write RGBA
               /// TODO: Perhaps put alpha to 100%
@@ -808,12 +808,12 @@ window.onload = () => {
   }
 
   /// Utility for downloading files to client
-  let saveData = (function () {
-    let a = document.createElement("a");
+  const saveData = (function () {
+    const a = document.createElement("a");
     document.body.appendChild(a);
     a.style = "display: none";
     return function (blob, fileName) {
-      let url = window.URL.createObjectURL(blob);
+      const url = window.URL.createObjectURL(blob);
       a.href = url;
       a.download = fileName;
       a.click();
@@ -823,31 +823,31 @@ window.onload = () => {
 
   /// Setting up a scene, Tree.js standard stuff...
   function setupScene() {
-    let canvasWidth = $("#modelOutput").width();
-    let canvasHeight = $("#modelOutput").height();
-    let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
-    let fov = 60;
-    let aspect = 1;
-    let near = 0.1;
-    let far = 500000;
+    const canvasWidth = $("#modelOutput").width();
+    const canvasHeight = $("#modelOutput").height();
+    const canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
+    const fov = 60;
+    const aspect = 1;
+    const near = 0.1;
+    const far = 500000;
 
     _camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
     _scene = new THREE.Scene();
 
     /// This scene has one ambient light source and three directional lights
-    let ambientLight = new THREE.AmbientLight(0x555555);
+    const ambientLight = new THREE.AmbientLight(0x555555);
     _scene.add(ambientLight);
 
-    let directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight1.position.set(0, 0, 1);
     _scene.add(directionalLight1);
 
-    let directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight2.position.set(1, 0, 0);
     _scene.add(directionalLight2);
 
-    let directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
+    const directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight3.position.set(0, 1, 0);
     _scene.add(directionalLight3);
 
@@ -872,8 +872,8 @@ window.onload = () => {
   }
 
   function onCanvasResize() {
-    let sceneWidth = $("#modelOutput").width();
-    let sceneHeight = $("#modelOutput").height();
+    const sceneWidth = $("#modelOutput").width();
+    const sceneHeight = $("#modelOutput").height();
 
     if (!sceneHeight || !sceneWidth) return;
 

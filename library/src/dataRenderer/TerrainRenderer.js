@@ -49,7 +49,7 @@ class TerrainRenderer extends DataRenderer {
 
   drawWater(rect) {
     /// Add Water
-    let material = new THREE.MeshBasicMaterial({
+    const material = new THREE.MeshBasicMaterial({
       color: 0x5bb1e8,
       wireframe: false,
       opacity: 0.35,
@@ -65,36 +65,36 @@ class TerrainRenderer extends DataRenderer {
   }
 
   loadPagedImageCallback(callback, infaltedBuffer) {
-    let self = this;
+    const self = this;
 
     // Prep output array
     self.getOutput().terrainTiles = [];
 
-    let pimgDS = new DataStream(infaltedBuffer);
-    let pimgFile = new GW2File(pimgDS, 0);
-    let pimgTableDataChunk = pimgFile.getChunk("pgtb");
-    let pimgData = pimgTableDataChunk && pimgTableDataChunk.data;
+    const pimgDS = new DataStream(infaltedBuffer);
+    const pimgFile = new GW2File(pimgDS, 0);
+    const pimgTableDataChunk = pimgFile.getChunk("pgtb");
+    const pimgData = pimgTableDataChunk && pimgTableDataChunk.data;
 
     this.mapRect = null;
 
     /// Fetch chunks
-    let terrainData = this.mapFile.getChunk("trn").data;
-    let parameterData = this.mapFile.getChunk("parm").data;
+    const terrainData = this.mapFile.getChunk("trn").data;
+    const parameterData = this.mapFile.getChunk("parm").data;
 
     /// Read settings
-    let maxAnisotropy = this.settings.anisotropy ? this.settings.anisotropy : 1;
+    const maxAnisotropy = this.settings.anisotropy ? this.settings.anisotropy : 1;
 
     //let chunks = [];
-    let chunkW = 35;
+    const chunkW = 35;
 
     /// Calculate numChunksD_1 and _2
     this.parseNumChunks(terrainData);
 
-    let xChunks = terrainData.numChunksD_1;
-    let yChunks = terrainData.numChunksD_2;
+    const xChunks = terrainData.numChunksD_1;
+    const yChunks = terrainData.numChunksD_2;
 
-    let allMaterials = terrainData.materials.materials;
-    let allTextures = terrainData.materials.texFileArray;
+    const allMaterials = terrainData.materials.materials;
+    const allTextures = terrainData.materials.texFileArray;
 
     // Total map dx and dy
     /*
@@ -106,15 +106,15 @@ class TerrainRenderer extends DataRenderer {
     */
     // var dx = parameterData.rect.x2 - parameterData.rect.x1;
     // var dy = parameterData.rect.y2 - parameterData.rect.y1;
-    let dx = parameterData.rect[2] - parameterData.rect[0];
-    let dy = parameterData.rect[3] - parameterData.rect[1];
+    const dx = parameterData.rect[2] - parameterData.rect[0];
+    const dy = parameterData.rect[3] - parameterData.rect[1];
 
     // Each chunk dx and dy
-    let cdx = (dx / terrainData.numChunksD_1) * 1; //  35/33;
-    let cdy = (dy / terrainData.numChunksD_2) * 1; // 35/33;
+    const cdx = (dx / terrainData.numChunksD_1) * 1; //  35/33;
+    const cdy = (dy / terrainData.numChunksD_2) * 1; // 35/33;
     let n = 0;
-    let allMats = [];
-    let customMaterial = new THREE.MeshLambertMaterial({
+    const allMats = [];
+    const customMaterial = new THREE.MeshLambertMaterial({
       side: THREE.DoubleSide,
       color: 0x666666,
       flatShading: true,
@@ -122,19 +122,19 @@ class TerrainRenderer extends DataRenderer {
     //let texMats = {};
 
     /// Load textures from PIMG and inject as material maps (textures)
-    let chunkTextures = {};
+    const chunkTextures = {};
 
     /// Load textures
     if (pimgData) {
-      let strippedPages = pimgData.strippedPages;
+      const strippedPages = pimgData.strippedPages;
 
       /// Only use layer 0
       strippedPages.forEach(function (page) {
         /// Only load layer 0 and 1
         if (page.layer <= 1) {
-          let filename = page.filename;
+          const filename = page.filename;
           //let color = page.solidColor;
-          let coord = page.coord;
+          const coord = page.coord;
 
           let matName = coord[0] + "," + coord[1];
           if (page.layer === 1) matName += "-2";
@@ -142,7 +142,7 @@ class TerrainRenderer extends DataRenderer {
           /// Add texture to list, note that coord name is used, not actual file name
           if (!chunkTextures[matName]) {
             /// Load local texture, here we use file name!
-            let chunkTex = MaterialUtils.loadLocalTexture(self.localReader, filename);
+            const chunkTex = MaterialUtils.loadLocalTexture(self.localReader, filename);
 
             if (chunkTex) {
               /// Set repeat, antistropy and repeat Y
@@ -161,14 +161,14 @@ class TerrainRenderer extends DataRenderer {
     /// Render Each chunk
     /// We'll make this async in order for the screen to be able to update
 
-    let renderChunk = function (cx, cy) {
-      let chunkIndex = cy * xChunks + cx;
+    const renderChunk = function (cx, cy) {
+      const chunkIndex = cy * xChunks + cx;
 
-      let pageX = Math.floor(cx / 4);
-      let pageY = Math.floor(cy / 4);
+      const pageX = Math.floor(cx / 4);
+      const pageY = Math.floor(cy / 4);
 
       // TODO: Terrain texture LOD ?
-      let chunkTextureIndices = allMaterials[chunkIndex].loResMaterial.texIndexArray;
+      const chunkTextureIndices = allMaterials[chunkIndex].loResMaterial.texIndexArray;
       // let matFileName = allMaterials[chunkIndex].loResMaterial.materialFile;
       // let chunkTextureIndices = allMaterials[chunkIndex].hiResMaterial.texIndexArray;
       // let matFileName = allMaterials[chunkIndex].hiResMaterial.materialFile;
@@ -177,24 +177,24 @@ class TerrainRenderer extends DataRenderer {
       let mat = customMaterial;
 
       /// TODO: just tick invert y = false...?
-      let pageOffetX = (cx % 4) / 4.0;
-      let pageOffetY = 0.75 - (cy % 4) / 4.0;
+      const pageOffetX = (cx % 4) / 4.0;
+      const pageOffetY = 0.75 - (cy % 4) / 4.0;
 
       // offset 0 -> 0.75
 
       // Make sure we have shared textures
 
       /// Load and store all tiled textures
-      let fileNames = [];
+      const fileNames = [];
       for (let gi = 0; gi < chunkTextureIndices.length / 2; gi++) {
-        let textureFileName = allTextures[chunkTextureIndices[gi]].filename;
+        const textureFileName = allTextures[chunkTextureIndices[gi]].filename;
 
         fileNames.push(textureFileName);
 
         /// If the texture is not already loaded, read it from the .dat!
         if (!chunkTextures[textureFileName]) {
           /// Load local texture
-          let chunkTex = MaterialUtils.loadLocalTexture(self.localReader, textureFileName);
+          const chunkTex = MaterialUtils.loadLocalTexture(self.localReader, textureFileName);
 
           if (chunkTex) {
             /// Set repeat, antistropy and repeat Y
@@ -208,26 +208,26 @@ class TerrainRenderer extends DataRenderer {
       } /// End for each chunkTextureIndices
 
       /// Create Composite texture material, refering the shared textures
-      let pageTexName = pageX + "," + pageY;
-      let pageTexName2 = pageX + "," + pageY + "-2";
+      const pageTexName = pageX + "," + pageY;
+      const pageTexName2 = pageX + "," + pageY + "-2";
 
       /// TODO USe mapData (Chunk: env -> haze)
       // var fog = SceneUtils.getScene().fog;
-      let fog = {
+      const fog = {
         color: { r: 1, g: 1, b: 1 },
         near: 0,
         far: 0,
       };
 
       /// Get haze color from environment rednerer
-      let envOutput = self.getOutput(T3D.EnvironmentRenderer);
+      const envOutput = self.getOutput(T3D.EnvironmentRenderer);
       if (envOutput.hazeColor) {
         fog.color.r = envOutput.hazeColor[2] / 255.0;
         fog.color.g = envOutput.hazeColor[1] / 255.0;
         fog.color.b = envOutput.hazeColor[0] / 255.0;
       }
 
-      let uniforms = THREE.UniformsUtils.merge([THREE.UniformsLib["lights"]]);
+      const uniforms = THREE.UniformsUtils.merge([THREE.UniformsLib["lights"]]);
 
       /// TODO: READ FROM VO, don't default to hard coded scale
       uniforms.uvScale = { type: "v2", value: new THREE.Vector2(8.0, 8.0) };
@@ -260,7 +260,7 @@ class TerrainRenderer extends DataRenderer {
       allMats.push(mat);
 
       /// -1 for faces -> vertices , -2 for ignoring outer faces
-      let chunkGeo = new THREE.PlaneBufferGeometry(cdx, cdy, chunkW - 3, chunkW - 3);
+      const chunkGeo = new THREE.PlaneBufferGeometry(cdx, cdy, chunkW - 3, chunkW - 3);
 
       let cn = 0;
 
@@ -279,7 +279,7 @@ class TerrainRenderer extends DataRenderer {
       } // End each chunk vertex
 
       /// Flip the plane to fit wonky THREE js world axes
-      let mS = new THREE.Matrix4().identity();
+      const mS = new THREE.Matrix4().identity();
       mS.elements[5] = -1;
       chunkGeo.applyMatrix4(mS);
 
@@ -300,27 +300,27 @@ class TerrainRenderer extends DataRenderer {
       chunk.rotation.set(Math.PI / 2, 0, 0);
 
       /// Last term is the new one: -cdx*(2/35)
-      let globalOffsetX = parameterData.rect[0] + cdx / 2;
-      let chunkOffsetX = cx * cdx;
+      const globalOffsetX = parameterData.rect[0] + cdx / 2;
+      const chunkOffsetX = cx * cdx;
 
       chunk.position.x = globalOffsetX + chunkOffsetX;
 
       /// Adjust for odd / even number of chunks
       if (terrainData.numChunksD_2 % 2 === 0) {
         /// Last term is the new one: -cdx*(2/35)
-        let globalOffsetY = parameterData.rect[1] + cdy / 2 - 0; // -cdy*(1/35);
-        let chunkOffsetY = cy * cdy * 1; // 33/35;
+        const globalOffsetY = parameterData.rect[1] + cdy / 2 - 0; // -cdy*(1/35);
+        const chunkOffsetY = cy * cdy * 1; // 33/35;
 
         chunk.position.z = chunkOffsetY + globalOffsetY;
       } else {
-        let globalOffsetY = parameterData.rect[1] - cdy / 2 + 0; // cdy*(1/35);
-        let chunkOffsetY = cy * cdy * 1; // 33/35;
+        const globalOffsetY = parameterData.rect[1] - cdy / 2 + 0; // cdy*(1/35);
+        const chunkOffsetY = cy * cdy * 1; // 33/35;
 
         chunk.position.z = globalOffsetY + chunkOffsetY;
       }
 
-      let px = chunk.position.x;
-      let py = chunk.position.z;
+      const px = chunk.position.x;
+      const py = chunk.position.z;
 
       if (!self.mapRect) {
         self.mapRect = {
@@ -345,7 +345,7 @@ class TerrainRenderer extends DataRenderer {
       self.getOutput().terrainTiles.push(chunk);
     }; /// End render chunk function
 
-    let stepChunk = function (cx, cy) {
+    const stepChunk = function (cx, cy) {
       if (cx >= xChunks) {
         cx = 0;
         cy++;
@@ -363,7 +363,7 @@ class TerrainRenderer extends DataRenderer {
         return;
       }
 
-      let pct = Math.floor((100 * (cy * xChunks + cx)) / (xChunks * yChunks));
+      const pct = Math.floor((100 * (cy * xChunks + cx)) / (xChunks * yChunks));
 
       self.logger.log(T3D.Logger.TYPE_PROGRESS, "Loading Terrain", pct);
 
@@ -388,7 +388,7 @@ class TerrainRenderer extends DataRenderer {
    */
   renderAsync(callback) {
     /// Load all paged Images, requires inflation of other pack files!
-    let pagedImageId = this.mapFile.getChunk("trn").data.materials.pagedImage;
+    const pagedImageId = this.mapFile.getChunk("trn").data.materials.pagedImage;
     this.localReader.loadFile(pagedImageId, this.loadPagedImageCallback.bind(this, callback));
   }
 
@@ -399,13 +399,13 @@ class TerrainRenderer extends DataRenderer {
    * @return {*}            [description]
    */
   getFileIdsAsync(/* callback */) {
-    let terrainChunk = this.mapFile.getChunk("trn");
-    let pimgTableDataChunk = this.mapFile.getChunk("pimg");
-    let fileIds = [];
+    const terrainChunk = this.mapFile.getChunk("trn");
+    const pimgTableDataChunk = this.mapFile.getChunk("pimg");
+    const fileIds = [];
 
     /// ------------ SPLASH TEXTURES ------------
-    let pimgData = pimgTableDataChunk && pimgTableDataChunk.data;
-    let strippedPages = pimgData.strippedPages;
+    const pimgData = pimgTableDataChunk && pimgTableDataChunk.data;
+    const strippedPages = pimgData.strippedPages;
 
     /// Only use layer 0
     strippedPages.forEach(function (page) {
@@ -417,8 +417,8 @@ class TerrainRenderer extends DataRenderer {
     /// ------------ END SPLASH TEXTURES ------------
 
     /// ------------ TILED IMAGES ------------
-    let terrainData = terrainChunk.data;
-    let allTextures = terrainData.materials.texFileArray;
+    const terrainData = terrainChunk.data;
+    const allTextures = terrainData.materials.texFileArray;
     allTextures.forEach(function (texture) {
       if (texture.filename > 0) fileIds.push(texture.filename);
     });

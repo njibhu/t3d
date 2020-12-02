@@ -7,6 +7,7 @@
     "dev": "npx http-server dist",
     "build": "npx gulp",
     "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "format": "prettier --write 'src/**/*.js'",
     "format:check": "prettier --check 'src/**/*.js'"
   },
