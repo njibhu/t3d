@@ -18,16 +18,14 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
 /* INCLUDES */
-let LocalReader = require("./LocalReader/LocalReader");
+const LocalReader = require("./LocalReader/LocalReader");
 
 /* PRIVATE VARS */
-let _version = require("../package.json").version;
-let _settings = {
+const _version = require("../package.json").version;
+const _settings = {
   t3dtoolsWorker: "modules/t3dtools/t3dworker.js",
   concurrentTasks: typeof navigator !== "undefined" ? navigator.hardwareConcurrency : 1,
 };
-
-let T3D;
 
 /* PUBLIC PROPERTIES */
 
@@ -40,7 +38,7 @@ let T3D;
  * LocalReader instances that looks up and inflates files from the Guild Wars 2 .dat.
  * @module T3D
  */
-T3D = module.exports = {
+const T3D = (module.exports = {
   /**
    * The current library version. Used to make sure local storage caches are not
    * shared between different releases.
@@ -277,10 +275,10 @@ T3D = module.exports = {
    *                                 is fired.
    */
   getLocalReader: function (file, callback, t3dtoolsWorker) {
-    let path = t3dtoolsWorker || _settings.t3dtoolsWorker;
+    const path = t3dtoolsWorker || _settings.t3dtoolsWorker;
 
     // Create the instance and init the threads
-    let lrInstance = new LocalReader({
+    const lrInstance = new LocalReader({
       workerPath: path,
       workersNb: _settings.concurrentTasks,
     });
@@ -326,8 +324,8 @@ T3D = module.exports = {
    */
   getFileListAsync: function (localReader, callback) {
     localReader.readFileList().then((result) => {
-      let returnObj = {};
-      for (let fileEntry of result) {
+      const returnObj = {};
+      for (const fileEntry of result) {
         if (returnObj[fileEntry.fileType] === undefined) {
           returnObj[fileEntry.fileType] = [];
         }
@@ -379,8 +377,8 @@ T3D = module.exports = {
   */
   getMapListAsync: function (localReader, callback, searchAll) {
     function restoreOuput(array) {
-      let returnArray = [];
-      for (let elt of array) {
+      const returnArray = [];
+      for (const elt of array) {
         let category = returnArray.findIndex((i) => i.name === elt.category);
         if (category === -1) {
           category = returnArray.push({ name: elt.category, maps: [] }) - 1;
@@ -427,7 +425,7 @@ T3D = module.exports = {
    */
   renderMapContentsAsync: function (localReader, fileName, renderers, callback, logger) {
     /// VO for storing result from renderers
-    let context = {};
+    const context = {};
 
     let runAllRenderers;
 
@@ -436,10 +434,10 @@ T3D = module.exports = {
       /// File name is baseId, load using local reader.
       localReader.loadFile(fileName, function (arrayBuffer) {
         /// Set up datastream
-        let ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
+        const ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
 
         /// Initiate Map file object. Connect callback
-        let mapFile = new T3D.GW2File(ds, 0);
+        const mapFile = new T3D.GW2File(ds, 0);
 
         /// Populate VO by running the renderers
         runAllRenderers = function (i) {
@@ -467,7 +465,7 @@ T3D = module.exports = {
 
     /// Primitive error message...
     else {
-      let outputLogger = logger || T3D.Logger;
+      const outputLogger = logger || T3D.Logger;
       outputLogger.log(T3D.Logger.TYPE_ERROR, "Map id must be an integer!, was:", fileName);
     }
   },
@@ -488,7 +486,7 @@ T3D = module.exports = {
    *                                   method of the renderer.
    */
   runRenderer: function (renderClass, localReader, settings, context, cb) {
-    let r = new renderClass(localReader, settings, context, undefined, renderClass.rendererName);
+    const r = new renderClass(localReader, settings, context, undefined, renderClass.rendererName);
 
     r.renderAsync(cb);
   },
@@ -507,7 +505,7 @@ T3D = module.exports = {
    *                              otherwise defaultValue.
    */
   getContextValue: function (context, clazz, propName, defaultValue) {
-    let output = context[clazz.rendererName];
+    const output = context[clazz.rendererName];
     if (output) {
       return output[propName] ? output[propName] : defaultValue;
     }
@@ -523,8 +521,8 @@ T3D = module.exports = {
    */
   hasWebGL: function (return_context) {
     if (window.WebGLRenderingContext) {
-      let canvas = document.createElement("canvas");
-      let names = ["webgl", "experimental-webgl", "moz-webgl", "webkit-3d"];
+      const canvas = document.createElement("canvas");
+      const names = ["webgl", "experimental-webgl", "moz-webgl", "webkit-3d"];
       let context = false;
 
       for (let i = 0; i < 4; i++) {
@@ -553,7 +551,7 @@ T3D = module.exports = {
   },
 
   formats: require("./format/chunks/AllFormats"),
-};
+});
 
 /* PRIVATE METHODS */
 
@@ -601,7 +599,7 @@ function checkRequirements() {
  */
 // eslint-disable-next-line no-unused-vars
 function findDuplicateChunkDefs() {
-  let dups = {};
+  const dups = {};
   T3D.formats.forEach(function (f1) {
     T3D.formats.forEach(function (f2) {
       if (f2.name === f1.name && f2 !== f1) {

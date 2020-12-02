@@ -32,10 +32,10 @@ const MathUtils = require("../util/MathUtils");
  * @returns {Promise<{archiveHeader: ArchiveHeader, metaTable: MetaTable, indexTable: IndexTable}>}
  */
 async function readArchive(file) {
-  let archiveHeader = parseANDatHeader((await getFilePart(file, 0, 40)).ds);
-  let mftData = parseMFTTable((await getFilePart(file, archiveHeader.mftOffset, archiveHeader.mftSize)).ds);
-  let { ds, len } = await getFilePart(file, mftData.mftIndexOffset, mftData.mftIndexSize);
-  let indexTable = parseMFTIndex(ds, len);
+  const archiveHeader = parseANDatHeader((await getFilePart(file, 0, 40)).ds);
+  const mftData = parseMFTTable((await getFilePart(file, archiveHeader.mftOffset, archiveHeader.mftSize)).ds);
+  const { ds, len } = await getFilePart(file, mftData.mftIndexOffset, mftData.mftIndexSize);
+  const indexTable = parseMFTIndex(ds, len);
 
   return {
     archiveHeader: archiveHeader,
@@ -65,7 +65,7 @@ async function readArchive(file) {
  * @returns {ArchiveIndex} Returns undefined if the header couldn't be parsed
  */
 function parseANDatHeader(ds) {
-  let header = {};
+  const header = {};
 
   // Header parsing
   header.version = ds.readUint8();
@@ -106,7 +106,7 @@ function parseANDatHeader(ds) {
  */
 function parseMFTTable(ds) {
   // Parse the table header
-  let header = {};
+  const header = {};
   header.magic = ds.readString(4);
   ds.seek(ds.position + 8); // Skip uint64
   header.nbOfEntries = ds.readUint32();
@@ -121,11 +121,11 @@ function parseMFTTable(ds) {
   // Where we put all the parsed data
   // We don't pre-alloc anymore since not having the data aligned together procs too many
   // cache misses during a fullscan
-  let fullTable = [];
+  const fullTable = [];
 
   // Go through the table
   for (let i = 1; i < header.nbOfEntries; i++) {
-    let item = {};
+    const item = {};
     item["offset"] = MathUtils.arr32To64([ds.readUint32(), ds.readUint32()]);
     item["size"] = ds.readUint32();
     item["compressed"] = ds.readUint16();
@@ -161,14 +161,14 @@ function parseMFTTable(ds) {
  * @returns {IndexTable}
  */
 function parseMFTIndex(ds, size) {
-  let length = size / 8;
+  const length = size / 8;
 
-  let indexTable = [];
+  const indexTable = [];
 
   for (let i = 0; i < length; i++) {
     // Parse table
-    let id = ds.readUint32();
-    let mftIndex = ds.readUint32();
+    const id = ds.readUint32();
+    const mftIndex = ds.readUint32();
     // Store the values
     indexTable[id] = mftIndex;
   }
@@ -189,13 +189,13 @@ function parseMFTIndex(ds, size) {
  */
 function getFilePart(file, offset, length) {
   return new Promise((resolve, reject) => {
-    let reader = new FileReader();
+    const reader = new FileReader();
 
     reader.onerror = reject;
 
     reader.onload = function (fileEvent) {
-      let buffer = fileEvent.target.result;
-      let ds = new DataStream(buffer);
+      const buffer = fileEvent.target.result;
+      const ds = new DataStream(buffer);
       ds.endianness = DataStream.LITTLE_ENDIAN;
       // Pass data stream and data length to callback function
       resolve({ ds: ds, len: length });

@@ -74,15 +74,15 @@ function buildVS(numUv) {
  */
 function generateDataTexture(width, height, color) {
   // create a buffer with color data
-  let size = width * height;
-  let data = new Uint8Array(4 * size);
-  let r = Math.floor(color.r * 255);
-  let g = Math.floor(color.g * 255);
-  let b = Math.floor(color.b * 255);
-  let a = 255;
+  const size = width * height;
+  const data = new Uint8Array(4 * size);
+  const r = Math.floor(color.r * 255);
+  const g = Math.floor(color.g * 255);
+  const b = Math.floor(color.b * 255);
+  const a = 255;
 
   for (let i = 0; i < size; i++) {
-    let stride = i * 4;
+    const stride = i * 4;
 
     data[stride] = r;
     data[stride + 1] = g;
@@ -105,7 +105,7 @@ function generateDataTexture(width, height, color) {
  * @returns {string}
  */
 function buildPS(textures, numUv, alphaTest, lightMap) {
-  let t1uv = "vUv_" + (textures[0].uvIdx + 1);
+  const t1uv = "vUv_" + (textures[0].uvIdx + 1);
 
   let discard = "";
 
@@ -117,9 +117,9 @@ function buildPS(textures, numUv, alphaTest, lightMap) {
   let writeColor = "gl_FragColor = c1;\n";
 
   if (lightMap) {
-    let texIdx = 0;
+    const texIdx = 0;
     // var t2uv = "vUv_4";//+(3-textures[texIdx].uvIdx+1);
-    let t2uv = "vUv_1"; // + (textures[texIdx].uvIdx+1);
+    const t2uv = "vUv_1"; // + (textures[texIdx].uvIdx+1);
     // console.log("t2uv",t2uv);
 
     writeColor = "   vec4 c2 = texture2D( texture" + (texIdx + 1) + ", " + t2uv + " );\n" + "     gl_FragColor = c2;\n";
@@ -163,7 +163,7 @@ function buildPS(textures, numUv, alphaTest, lightMap) {
  */
 function getUVMat(textures, numUV, alphaTest) {
   let lightMap = false;
-  let uniforms = {};
+  const uniforms = {};
 
   textures.forEach(function (t, idx) {
     uniforms["texture" + idx] = { type: "t", value: t };
@@ -173,13 +173,13 @@ function getUVMat(textures, numUV, alphaTest) {
     lightMap = true;
   }
 
-  let attributes = {};
+  const attributes = {};
 
   for (let i = 2; i < numUV; i++) {
     attributes["uv" + (i + 1)] = { type: "v2", value: [] };
   }
 
-  let vs = buildVS(numUV);
+  const vs = buildVS(numUV);
 
   return new THREE.ShaderMaterial({
     uniforms: uniforms,
@@ -215,11 +215,11 @@ function getUVMat(textures, numUV, alphaTest) {
 function getMaterial(material, materialFile, localReader, sharedTextures) {
   if (!materialFile) return;
 
-  let dxChunk = materialFile.getChunk("dx9s");
+  const dxChunk = materialFile.getChunk("dx9s");
   let grChunk = materialFile.getChunk("grmt");
 
   /// Append all textures to the custom material
-  let finalTextures = [];
+  const finalTextures = [];
 
   // Some materials don't use textures..
   if (material && material.textures.length && dxChunk.data.techniques.length > 0) {
@@ -237,9 +237,9 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     /// 15 effects      Each effect has a pixel shader     HOW??
     /// 1 or 2 sampler indices                   USE ALL! (Multi material)
 
-    let effects = dxChunk.data.techniques[0].passes[0].effects;
+    const effects = dxChunk.data.techniques[0].passes[0].effects;
     // var effect = effects[10];
-    let effect = effects[0];
+    const effect = effects[0];
 
     //let shader = dxChunk.data.shaders[effect.pixelShader];
 
@@ -249,12 +249,12 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     }); */
     // var samplerIdx = effect.samplerIndex[0];
 
-    let samplerTextures = [];
+    const samplerTextures = [];
     let textureToken;
     let samplerTex;
     for (let i = 0; i < effect.samplerIndex.length; i++) {
-      let samplerIdx = effect.samplerIndex[i];
-      let sampler = dxChunk.data.samplers[samplerIdx];
+      const samplerIdx = effect.samplerIndex[i];
+      const sampler = dxChunk.data.samplers[samplerIdx];
 
       /// SHOULD NEVER HAPPEN, hide mesh!
       if (!sampler) continue; // return;
@@ -304,7 +304,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
       if (!texture) return;
 
       /// Set texture "URL"
-      let texURL = texture && texture.filename;
+      const texURL = texture && texture.filename;
 
       /// Load texture from RAM or local reader:
       finalTextures[idx] = getTexture(texURL, localReader, sharedTextures);
@@ -340,7 +340,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
         map: getTexture(ft.filename, localReader, sharedTextures),
       });
       if (nt) {
-        let normalMap = getTexture(nt.filename, localReader, sharedTextures);
+        const normalMap = getTexture(nt.filename, localReader, sharedTextures);
         normalMap.flipY = true;
         finalMaterial.normalMap = normalMap;
       }
@@ -368,9 +368,9 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
   /// disable for now in order for custom shaders not to fuck up
 
   if (material) {
-    let alphaMask0 = 0x0001; // + 0x0100 + 0x0200;
-    let alphaMask1 = 0x0010;
-    let alphaMask2 = 0x0100 + 0x0200;
+    const alphaMask0 = 0x0001; // + 0x0100 + 0x0200;
+    const alphaMask1 = 0x0010;
+    const alphaMask2 = 0x0100 + 0x0200;
     //let alphaMask2b = 0x0200;
 
     grChunk = materialFile.getChunk("grmt");
@@ -432,9 +432,9 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     //
     //     64(SAB)    0000 0000 0100 0000      clouds, sun iamge
 
-    let lightMask = 8;
+    const lightMask = 8;
 
-    let knownFileFlags = [16460, 16452, 16448, 8268, 3392, 2380, 2368, 332, 324, 320, 76, 68, 64];
+    const knownFileFlags = [16460, 16452, 16448, 8268, 3392, 2380, 2368, 332, 324, 320, 76, 68, 64];
 
     if (knownFileFlags.indexOf(grChunk.data.flags) < 0) {
       T3D.Logger.log(T3D.Logger.TYPE_WARNING, "unknown GR flag", grChunk.data.flags);
@@ -509,7 +509,7 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
 
   /// Temporary texture that will be returned by the function.
   /// Color is randomized in order to differentiate different textures during loading.
-  let texture = generateDataTexture(
+  const texture = generateDataTexture(
     1, // Width
     1, // Height
     new THREE.Color(defaultColor) // Color
@@ -538,7 +538,7 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
       }
 
       /// Create image using returned data.
-      let image = {
+      const image = {
         data: new Uint8Array(inflatedData),
         width: imageWidth,
         height: imageHeigth,

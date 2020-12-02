@@ -26,7 +26,7 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
  * @namespace
  * @static
  */
-let Logger = {};
+const Logger = {};
 
 /**
  * @readonly
@@ -85,7 +85,7 @@ Logger.log = function () {
   }
 
   /// Parse arguments to an actual array
-  let argArr = Logger.argsToArr(arguments);
+  const argArr = Logger.argsToArr(arguments);
 
   /// Default to message if just one argument was passed
   if (argArr.length === 1) {
@@ -93,15 +93,15 @@ Logger.log = function () {
   }
 
   /// Otherwise 1st arg is severity, log/warn/error
-  let severity = Math.max(0, Math.min(Logger.logFunctions.length, argArr.shift()));
-  let logFunc = Logger.logFunctions[severity];
+  const severity = Math.max(0, Math.min(Logger.logFunctions.length, argArr.shift()));
+  const logFunc = Logger.logFunctions[severity];
 
   /// Ouput the rest of the arguments
   logFunc.apply(this, argArr);
 };
 
 Logger.argsToArr = function (args) {
-  let argArr = new Array(args.length);
+  const argArr = new Array(args.length);
   for (let i = 0; i < argArr.length; ++i) {
     argArr[i] = args[i];
   }
@@ -121,13 +121,13 @@ Logger.logFunctions[Logger.TYPE_MESSAGE] = function () {
 };
 
 Logger.logFunctions[Logger.TYPE_PROGRESS] = function () {
-  let argArr = Logger.argsToArr(arguments);
+  const argArr = Logger.argsToArr(arguments);
   argArr.unshift("Progress: ");
   console.log.apply(console, argArr);
 };
 
 Logger.logFunctions[Logger.TYPE_DEBUG] = function () {
-  let argArr = Logger.argsToArr(arguments);
+  const argArr = Logger.argsToArr(arguments);
   console.debug.apply(console, argArr);
 };
 

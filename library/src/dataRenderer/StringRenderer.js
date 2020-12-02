@@ -49,13 +49,13 @@ class StringRenderer extends DataRenderer {
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
   renderAsync(callback) {
-    let self = this;
+    const self = this;
 
     /// Get file id
     // eslint-disable-next-line no-unused-vars
-    let fileId = this.settings.id;
+    const fileId = this.settings.id;
     // eslint-disable-next-line no-unused-vars
-    let showUnmaterialed = true;
+    const showUnmaterialed = true;
 
     /// Load the string file
 
@@ -63,26 +63,26 @@ class StringRenderer extends DataRenderer {
     this.getOutput().strings = [];
 
     this.localReader.loadFile(this.settings.id, function (inflatedData) {
-      let ds = new DataStream(inflatedData);
-      let end = ds.byteLength - 2;
+      const ds = new DataStream(inflatedData);
+      const end = ds.byteLength - 2;
 
       /// skip past fcc
       ds.seek(4);
 
-      let entryHeaderDef = ["size", "uint16", "decryptionOffset", "uint16", "bitsPerSymbol", "uint16"];
+      const entryHeaderDef = ["size", "uint16", "decryptionOffset", "uint16", "bitsPerSymbol", "uint16"];
 
       let entryIndex = 0;
 
       while (end - ds.position > 6) {
-        let entry = ds.readStruct(entryHeaderDef);
+        const entry = ds.readStruct(entryHeaderDef);
         entry.size -= 6;
 
         if (entry.size > 0) {
-          let isEncrypted = entry.decryptionOffset !== 0 || entry.bitsPerSymbol !== 0x10;
+          const isEncrypted = entry.decryptionOffset !== 0 || entry.bitsPerSymbol !== 0x10;
 
           /// UTF-16
           if (!isEncrypted) {
-            let value = ds.readUCS2String(entry.size / 2);
+            const value = ds.readUCS2String(entry.size / 2);
             self.getOutput().strings.push({
               value: value,
               recid: entryIndex,

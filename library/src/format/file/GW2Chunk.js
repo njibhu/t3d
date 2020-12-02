@@ -57,23 +57,23 @@ function genDuplicateSettings() {
   if (DUPLICATE_SETTINGS) return;
 
   function getRootName(definition) {
-    let a = new definition();
+    const a = new definition();
     return Object.keys(a).filter((v) => {
       return a[v] === a.__root && v !== "__root";
     })[0];
   }
 
   DUPLICATE_SETTINGS = {};
-  for (let setting of PACKTOCHUNK) {
-    let regex = new RegExp(`^${setting.root}(V[0-9]*)?$`);
-    let chunkDef = T3D.formats.filter((v) => {
+  for (const setting of PACKTOCHUNK) {
+    const regex = new RegExp(`^${setting.root}(V[0-9]*)?$`);
+    const chunkDef = T3D.formats.filter((v) => {
       return v.name === setting.chunk;
     });
 
-    for (let defsIdx in chunkDef) {
-      let defs = chunkDef[defsIdx].versions;
-      let lastVersion = defs[Object.keys(defs).pop()];
-      let rootName = getRootName(lastVersion);
+    for (const defsIdx in chunkDef) {
+      const defs = chunkDef[defsIdx].versions;
+      const lastVersion = defs[Object.keys(defs).pop()];
+      const rootName = getRootName(lastVersion);
       if (rootName.match(regex)) {
         if (!DUPLICATE_SETTINGS[setting.chunk]) {
           DUPLICATE_SETTINGS[setting.chunk] = [];
@@ -150,13 +150,13 @@ class GW2Chunk {
 
     /// If this chunk has multiple definitions
     /// get to know what def to use...
-    let fileTypes = DUPLICATE_SETTINGS[this.header.type];
+    const fileTypes = DUPLICATE_SETTINGS[this.header.type];
     if (fileTypes) {
       useNthIndex = -1;
 
       /// Check what file name entry matches this file name
       for (let i = 0; i < fileTypes.length && useNthIndex === -1; i++) {
-        let ft = fileTypes[i];
+        const ft = fileTypes[i];
 
         if (ft === fileType) {
           useNthIndex = i;
@@ -173,7 +173,7 @@ class GW2Chunk {
 
     let defsFound = 0;
     for (let i = 0; i < T3D.formats.length; i++) {
-      let f = T3D.formats[i];
+      const f = T3D.formats[i];
 
       /// Chunk name needs to match
       if (f.name === this.header.type) {
@@ -200,7 +200,7 @@ class GW2Chunk {
    * looking up the structure definition for this chunk.
    */
   loadData(fileType) {
-    let def = this.getDefinition(fileType);
+    const def = this.getDefinition(fileType);
 
     if (def) {
       this.ds.seek(this.addr + this.headerLength);

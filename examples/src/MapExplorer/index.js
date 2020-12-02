@@ -1,11 +1,11 @@
 const AppRenderer = require("./renderer");
 
 /// Extend Original Logger
-let myLogger = {
+const myLogger = {
   lastMessageType: null,
   log: function () {
-    let htmlOutput = $("#log");
-    let str = Array.prototype.slice.call(arguments, 1).join(" ");
+    const htmlOutput = $("#log");
+    const str = Array.prototype.slice.call(arguments, 1).join(" ");
     if (arguments[1] === myLogger.lastMessageType) {
       $("#log p:last-of-type")[0].innerHTML = str;
     } else {
@@ -25,7 +25,7 @@ $(document).ready(function () {
 
   /// Handle file pick
   $("#filePicker").change(function (evt) {
-    let file = evt.target.files[0];
+    const file = evt.target.files[0];
     // Disable button
     $("#filePicker").prop("disabled", true);
 
@@ -49,13 +49,13 @@ async function onReaderCreated() {
     return list;
   }, []);
   for (const category of categoryList) {
-    let opt = document.createElement("option");
+    const opt = document.createElement("option");
     opt.disabled = true;
     opt.innerHTML = category;
     $("#fileMapSelect").append(opt);
 
     for (const map of mapFileList.filter((m) => m.category === category)) {
-      let opt = document.createElement("option");
+      const opt = document.createElement("option");
       opt.value = map.baseId;
       opt.innerHTML = map.name; // whatever property it has
       if (map.baseId === 294938) {

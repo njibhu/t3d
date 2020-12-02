@@ -1,4 +1,4 @@
-let Utils = require("../../util/ParserUtils.js");
+const Utils = require("../../util/ParserUtils.js");
 
 module.exports = [
   /// ==================================================

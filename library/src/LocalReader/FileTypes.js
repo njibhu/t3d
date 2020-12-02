@@ -23,7 +23,7 @@ const GW2File = require("../format/file/GW2File.js");
  * @namespace FileTypes
  */
 
-let FileTypes = {};
+const FileTypes = {};
 
 /**
  * Parse the beginning of a file to find its type
@@ -33,7 +33,7 @@ let FileTypes = {};
  * @return {number}
  */
 FileTypes.getFileType = function (ds) {
-  let first4 = ds.readCString(4);
+  const first4 = ds.readCString(4);
 
   // Parse textures
   switch (first4) {
@@ -61,7 +61,7 @@ FileTypes.getFileType = function (ds) {
 
   // PackFiles
   if (first4.indexOf("PF") === 0) {
-    let file = new GW2File(ds, 0, true); /// true for "plz no load chunkz"
+    const file = new GW2File(ds, 0, true); /// true for "plz no load chunkz"
     return "PF_" + file.header.type;
   }
 

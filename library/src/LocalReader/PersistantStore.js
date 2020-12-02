@@ -40,12 +40,12 @@ class PersistantStore {
    * @returns {Promise<IDBDatabase>} Promise to the Database connection
    */
   _getConnection() {
-    let self = this;
+    const self = this;
     return new Promise((resolve, reject) => {
       if (self._dbConnection) resolve(self._dbConnection);
 
       // Let us open our database
-      let request = window.indexedDB.open("Tyria3DLibrary", DB_VERSION);
+      const request = window.indexedDB.open("Tyria3DLibrary", DB_VERSION);
 
       /// onblocked is fired when the db needs an upgrade but an older version is opened in another tab
       request.onblocked = () => {
@@ -58,8 +58,8 @@ class PersistantStore {
       /// fired when the database needs to be upgraded (or the first time)
       request.onupgradeneeded = (event) => {
         /** @type {IDBDatabase} */
-        let db = event.target.result;
-        let currentVersion = event.oldVersion;
+        const db = event.target.result;
+        const currentVersion = event.oldVersion;
 
         if (currentVersion < 2) {
           db.createObjectStore("listings", {
@@ -68,7 +68,7 @@ class PersistantStore {
         }
 
         if (currentVersion < 3) {
-          let storeListing = event.currentTarget.transaction.objectStore("listings");
+          const storeListing = event.currentTarget.transaction.objectStore("listings");
           storeListing.createIndex("filename", "filename", { unique: false });
         }
       };
@@ -97,12 +97,12 @@ class PersistantStore {
    * @returns {Promise<number>} On success, the number is the object key in the database
    */
   putListing(id, listing, fileName, isComplete) {
-    let self = this;
+    const self = this;
     return new Promise((resolve, reject) => {
       self._getConnection().then((db) => {
-        let store = db.transaction(["listings"], "readwrite").objectStore("listings");
+        const store = db.transaction(["listings"], "readwrite").objectStore("listings");
 
-        let request = id
+        const request = id
           ? store.put({ array: listing, filename: fileName, complete: isComplete }, id)
           : store.put({ array: listing, name: fileName });
 
@@ -126,13 +126,13 @@ class PersistantStore {
    *      key: the index of the last listing in the database
    */
   getLastListing(fileName) {
-    let self = this;
+    const self = this;
     return new Promise((resolve) => {
       self._getConnection().then((db) => {
-        let listingsStore = db.transaction(["listings"], "readonly").objectStore("listings").index("filename");
+        const listingsStore = db.transaction(["listings"], "readonly").objectStore("listings").index("filename");
 
         listingsStore.openCursor(IDBKeyRange.only(fileName), "prev").onsuccess = (event) => {
-          let cursor = event.target.result;
+          const cursor = event.target.result;
           if (!cursor) resolve({ array: [], key: undefined, complete: true });
           else {
             resolve({

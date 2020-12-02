@@ -50,7 +50,7 @@ class EnvironmentRenderer extends DataRenderer {
   }
 
   loadTextureWithFallback(targetMatIndices, materialArray, filename, fallbackFilename, hazeColorAsInt) {
-    let self = this;
+    const self = this;
 
     function writeMat(mat) {
       targetMatIndices.forEach(function (i) {
@@ -59,7 +59,7 @@ class EnvironmentRenderer extends DataRenderer {
     }
 
     function loadFallback() {
-      let mat = self.getMat(new THREE.TextureLoader().load(fallbackFilename));
+      const mat = self.getMat(new THREE.TextureLoader().load(fallbackFilename));
 
       writeMat(mat);
     }
@@ -68,7 +68,7 @@ class EnvironmentRenderer extends DataRenderer {
       setTimeout(loadFallback, 1);
     }
 
-    let mat = self.getMat(
+    const mat = self.getMat(
       MaterialUtils.loadLocalTexture(this.localReader, filename, null, hazeColorAsInt, errorCallback)
     );
 
@@ -76,7 +76,7 @@ class EnvironmentRenderer extends DataRenderer {
   }
 
   getHazeColor(environmentChunkData) {
-    let hazes = environmentChunkData && environmentChunkData.dataGlobal.haze;
+    const hazes = environmentChunkData && environmentChunkData.dataGlobal.haze;
 
     if (!hazes || hazes.length <= 0) {
       return [190, 160, 60];
@@ -86,12 +86,12 @@ class EnvironmentRenderer extends DataRenderer {
   }
 
   parseLights(environmentChunkData) {
-    let self = this;
+    const self = this;
 
     /// Set up output array
     self.getOutput().lights = [];
 
-    let lights = environmentChunkData
+    const lights = environmentChunkData
       ? environmentChunkData.dataGlobal.lighting
       : [
           {
@@ -116,13 +116,13 @@ class EnvironmentRenderer extends DataRenderer {
       light.lights.forEach(function (dirLightData /*, idx*/) {
         hasLight = true;
 
-        let color = new THREE.Color(
+        const color = new THREE.Color(
           dirLightData.color[2] / 255.0,
           dirLightData.color[1] / 255.0,
           dirLightData.color[0] / 255.0
         );
 
-        let directionalLight = new THREE.DirectionalLight(color.getHex(), dirLightData.intensity);
+        const directionalLight = new THREE.DirectionalLight(color.getHex(), dirLightData.intensity);
 
         directionalLight.position
           .set(-dirLightData.direction[0], dirLightData.direction[2], dirLightData.direction[1])
@@ -135,16 +135,16 @@ class EnvironmentRenderer extends DataRenderer {
 
       /// Add some random directional lighting if there was no, in order to se SOME depth on models
       if (!light.lights || light.lights.length === 0) {
-        let directions = [
+        const directions = [
           [0, 1, 0, 0.3],
           [1, 2, 1, 0.3],
           [-1, -2, -1, 0.3],
         ];
 
         directions.forEach(function (lightDir) {
-          let color = new THREE.Color(1, 1, 1);
-          let intensity = lightDir[3];
-          let directionalLight = new THREE.DirectionalLight(color.getHex(), intensity);
+          const color = new THREE.Color(1, 1, 1);
+          const intensity = lightDir[3];
+          const directionalLight = new THREE.DirectionalLight(color.getHex(), intensity);
 
           directionalLight.position.set(lightDir[0], lightDir[1], lightDir[2]).normalize();
 
@@ -158,7 +158,7 @@ class EnvironmentRenderer extends DataRenderer {
       /// Ambient light
       // light.backlightIntensity /= sumDirLightIntensity +light.backlightIntensity;
       // light.backlightIntensity = light.backlightIntensity;
-      let color = new THREE.Color(
+      const color = new THREE.Color(
         (light.backlightIntensity * (255.0 - light.backlightColor[2])) / 255.0,
         (light.backlightIntensity * (255.0 - light.backlightColor[1])) / 255.0,
         (light.backlightIntensity * (255.0 - light.backlightColor[0])) / 255.0
@@ -196,13 +196,13 @@ class EnvironmentRenderer extends DataRenderer {
     }
 
     /// Calculate bounds
-    let bounds = parameterChunkData.rect;
-    let mapW = Math.abs(bounds.x1 - bounds.x2);
-    let mapD = Math.abs(bounds.y1 - bounds.y2);
+    const bounds = parameterChunkData.rect;
+    const mapW = Math.abs(bounds.x1 - bounds.x2);
+    const mapD = Math.abs(bounds.y1 - bounds.y2);
     // eslint-disable-next-line no-unused-vars
-    let boundSide = Math.max(mapW, mapD);
+    const boundSide = Math.max(mapW, mapD);
 
-    let materialArray = [];
+    const materialArray = [];
 
     /// Load skybox textures, fallback to hosted png files.
     this.loadTextureWithFallback([1, 4], materialArray, skyModeTex.texPathNE + 1, "img/193068.png", hazeColorAsInt);
@@ -211,12 +211,12 @@ class EnvironmentRenderer extends DataRenderer {
     materialArray[3] = new THREE.MeshBasicMaterial({ visible: false });
 
     /// Create skybox geometry
-    let boxSize = 1024;
-    let skyGeometry = new THREE.BoxGeometry(boxSize, boxSize / 2, boxSize); // Width Height Depth
+    const boxSize = 1024;
+    const skyGeometry = new THREE.BoxGeometry(boxSize, boxSize / 2, boxSize); // Width Height Depth
 
     /// Ugly way of fixing UV maps for the skybox (I think)
     skyGeometry.faceVertexUvs[0].forEach(function (vecs, idx) {
-      let face = Math.floor(idx / 2);
+      const face = Math.floor(idx / 2);
 
       // PX NX
       // PY NY
@@ -247,7 +247,7 @@ class EnvironmentRenderer extends DataRenderer {
     skyGeometry.uvsNeedUpdate = true;
 
     /// Generate final skybox
-    let skyBox = new THREE.Mesh(skyGeometry, materialArray);
+    const skyBox = new THREE.Mesh(skyGeometry, materialArray);
 
     /// Put horizon in camera center
     skyBox.translateY(boxSize / 4);
@@ -269,12 +269,12 @@ class EnvironmentRenderer extends DataRenderer {
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
   renderAsync(callback) {
-    let environmentChunkData = this.mapFile.getChunk("env").data;
-    let parameterChunkData = this.mapFile.getChunk("parm").data;
+    const environmentChunkData = this.mapFile.getChunk("env").data;
+    const parameterChunkData = this.mapFile.getChunk("parm").data;
 
     /// Set renderer clear color from environment haze
-    let hazeColor = this.getHazeColor(environmentChunkData);
-    let hazeColorAsInt = hazeColor[2] * 256 * 256 + hazeColor[1] * 256 + hazeColor[0];
+    const hazeColor = this.getHazeColor(environmentChunkData);
+    const hazeColorAsInt = hazeColor[2] * 256 * 256 + hazeColor[1] * 256 + hazeColor[0];
     this.getOutput().hazeColor = hazeColor;
 
     /// Add directional lights to output. Also write hasLight flag

@@ -40,11 +40,11 @@ class AppRenderer {
 
   // Setup schene
   init() {
-    let canvasWidth = window.innerWidth;
-    let canvasHeight = window.innerHeight;
-    let canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
-    let fov = 60;
-    let aspect = canvasWidth / canvasHeight;
+    const canvasWidth = window.innerWidth;
+    const canvasHeight = window.innerHeight;
+    const canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
+    const fov = 60;
+    const aspect = canvasWidth / canvasHeight;
     const fogDistance = Number($("#fogRange").val());
 
     this.camera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 100000);
@@ -53,18 +53,18 @@ class AppRenderer {
 
     this.clock = new THREE.Clock();
     /// This scene has one ambient light source and three directional lights
-    let ambientLight = new THREE.AmbientLight(0x555555);
+    const ambientLight = new THREE.AmbientLight(0x555555);
     this.scene.add(ambientLight);
 
-    let directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight1.position.set(0, 0, 1);
     this.scene.add(directionalLight1);
 
-    let directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight2.position.set(1, 0, 0);
     this.scene.add(directionalLight2);
 
-    let directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
+    const directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight3.position.set(0, 1, 0);
     this.scene.add(directionalLight3);
 
@@ -119,7 +119,7 @@ class AppRenderer {
     this.mapData.id = mapId;
 
     /// Renderer settings (see the documentation of each Renderer for details)
-    let renderers = [
+    const renderers = [
       {
         renderClass: T3D.EnvironmentRenderer,
         settings: {},
@@ -143,7 +143,7 @@ class AppRenderer {
     // Cache mapFile for later use
     if (parseInt(this.mapData.id)) {
       this.localReader.loadFile(this.mapData.id, (arrayBuffer) => {
-        let ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
+        const ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
         this.mapData.mapFile = new T3D.GW2File(ds, 0);
       });
     }
@@ -262,7 +262,7 @@ class AppRenderer {
       this.controls.dispose();
     }
 
-    let controls = new THREE.FlyControls(this.camera, this.renderer.domElement);
+    const controls = new THREE.FlyControls(this.camera, this.renderer.domElement);
 
     controls.movementSpeed = Number($("#mvntSpeedRange").val()) | 1000;
     controls.domElement = this.renderer.domElement;
@@ -275,7 +275,7 @@ class AppRenderer {
   _render() {
     window.requestAnimationFrame(() => this._render());
 
-    let delta = this.clock.getDelta();
+    const delta = this.clock.getDelta();
     this.controls.update(delta);
 
     this.renderer.render(this.scene, this.camera);
@@ -311,12 +311,12 @@ class AppRenderer {
     }
 
     /// Add the water level to the scene
-    let water = T3D.getContextValue(context, T3D.TerrainRenderer, "water");
+    const water = T3D.getContextValue(context, T3D.TerrainRenderer, "water");
     this.scene.add(water);
     this.mapData.terrain.data.push(water);
 
     /// Move the camera initial place depending on the map bounds
-    let bounds = T3D.getContextValue(context, T3D.TerrainRenderer, "bounds");
+    const bounds = T3D.getContextValue(context, T3D.TerrainRenderer, "bounds");
     this.camera.position.x = 0;
     this.camera.position.y = bounds ? bounds.y2 : 0;
     this.camera.position.z = 0;
