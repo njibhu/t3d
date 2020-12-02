@@ -63,13 +63,12 @@ class PropertiesRenderer extends DataRenderer {
       return callback();
     }
 
-    let props = propertiesChunkData.propArray;
-    const animProps = propertiesChunkData.propAnimArray;
-    const instanceProps = propertiesChunkData.propInstanceArray;
-    const metaProps = propertiesChunkData.propMetaArray;
-
-    /// Concat all prop types
-    props = props.concat(animProps).concat(instanceProps).concat(metaProps);
+    // Get all different prop types
+    const props = []
+      .concat(propertiesChunkData.propArray)
+      .concat(propertiesChunkData.propAnimArray)
+      .concat(propertiesChunkData.propInstanceArray)
+      .concat(propertiesChunkData.propMetaArray);
 
     /// Build an object containing all the data we need for each prop
     this.models = props.reduce((models, prop) => {
@@ -87,7 +86,7 @@ class PropertiesRenderer extends DataRenderer {
     }, {});
     this.modelsList = Object.keys(this.models);
 
-    this.renderIndex(0, callback);
+    this.renderModel(0, callback);
   }
 
   getFileIdsAsync(callback) {
@@ -99,7 +98,12 @@ class PropertiesRenderer extends DataRenderer {
    * PRIVATE METHODS
    */
 
-  renderIndex(index, callback) {
+  /**
+   * To optimize the rendering on the GPU we render each model only once and use instances for
+   * any other place using the same model. This allows us to have a much lower amount of draw calls
+   * and usage of GPU memory compared to a naive approach having a mesh for each model.
+   */
+  renderModel(index, callback) {
     if (index >= this.modelsList.length) {
       this.meshCache = {};
       this.textureCache = {};
@@ -117,25 +121,32 @@ class PropertiesRenderer extends DataRenderer {
       this.meshCache,
       this.textureCache,
       this.showUnmaterialized,
-      (meshes, isCached, boundingSphere) => {
+      // We don't care about cached meshes since we know we only ask for each meshes once.
+      (meshes, _isCached, boundingSphere) => {
         if (meshes) {
-          this.addMeshesToSchene(modelName, meshes, boundingSphere);
+          this.placeModelOnScene(modelName, meshes, boundingSphere);
         }
 
-        this.renderIndex(index + 1, callback);
+        this.renderModel(index + 1, callback);
       }
     );
   }
 
-  addMeshesToSchene(modelName, meshes) {
+  /**
+   * Gets the meshes of a specific model, merge them together as an instanced mesh
+   * and place them in the scene where they are referenced by the props.
+   * @param {number} modelName The baseId of the model
+   * @param {*} meshes The 3d models of the model
+   */
+  placeModelOnScene(modelName, meshes) {
     const model = this.models[modelName];
-    const instancedMesh = RenderUtils.getInstancedMesh(meshes, model.size, 0);
+    const instancedMesh = RenderUtils.getInstancedMesh(meshes, model.size);
     let instancedIndex = 0;
     for (const prop of model.props) {
-      placeProp(instancedMesh, prop, instancedIndex);
+      instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(prop));
       instancedIndex += 1;
       for (const transform of prop.transforms || []) {
-        placeProp(instancedMesh, transform, instancedIndex);
+        instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(transform));
         instancedIndex += 1;
       }
     }
@@ -143,11 +154,12 @@ class PropertiesRenderer extends DataRenderer {
   }
 }
 
-function placeProp(instancedMesh, propData, instanceIndex) {
-  if (instanceIndex >= instancedMesh.count) {
-    throw new Error("InstancedMesh count is too small");
-  }
-  /// Set position, scale and rotation of the LOD object
+/**
+ * Return a Matrix4 for a given prop defining the Scale Rotation and Location of a model
+ * @param {Object} propData
+ * @returns {THREE.Matrix4}
+ */
+function getMatrixForProp(propData) {
   const matrix = new THREE.Matrix4();
   matrix.makeRotationFromEuler(
     new THREE.Euler(propData.rotation[0], -propData.rotation[2], -propData.rotation[1], "ZXY")
@@ -155,7 +167,7 @@ function placeProp(instancedMesh, propData, instanceIndex) {
   matrix.scale(new THREE.Vector3(propData.scale, propData.scale, propData.scale));
   matrix.setPosition(propData.position[0], -propData.position[2], -propData.position[1]);
 
-  instancedMesh.setMatrixAt(instanceIndex, matrix);
+  return matrix;
 }
 
 PropertiesRenderer.rendererName = "PropertiesRenderer";

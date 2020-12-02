@@ -322,9 +322,10 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
  * Merge multiple meshes together and return an instancedMesh for it
  * @param {Array} meshes Three Meshes to be merged into a single mesh
  * @param {Number} size Size of the instanced mesh
+ * @param {Number} filterFlags When undefined, it will render all LODs. When using 0, only show most detailed LOD
  * @returns {Mesh} a Three instanced mesh
  */
-function getInstancedMesh(meshes, size, filterFlags) {
+function getInstancedMesh(meshes, size, filterFlags = 0) {
   const meshMaterials = [];
   const mergedGeometry = new THREE.Geometry();
   meshes.forEach((mesh, index) => {
