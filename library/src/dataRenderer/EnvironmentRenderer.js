@@ -18,6 +18,7 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
 const MaterialUtils = require("../util/MaterialUtils");
+const SkyBoxUtils = require("../util/SkyBoxUtils");
 const DataRenderer = require("./DataRenderer");
 
 /**
@@ -254,8 +255,28 @@ class EnvironmentRenderer extends DataRenderer {
     // skyBox.translateY(-(boxSize / 8));
     // skyBox.translateY( -environmentChunk.data.dataGlobal.sky.verticalOffset );
 
+    const arr = [];
+    arr[0] = materialArray[4].map;
+    arr[1] = materialArray[5].map;
+    arr[2] = materialArray[2].map;
+    arr[3] = SkyBoxUtils.getGroundTexture(hazeColorAsInt);
+    arr[4] = materialArray[0].map;
+    arr[5] = materialArray[1].map;
+
+    const skyCubeTexture = new THREE.CubeTexture(
+      arr,
+      THREE.CubeReflectionMapping,
+      1024,
+      1024,
+      undefined,
+      undefined,
+      THREE.RGBAFormat
+    );
+    skyCubeTexture.needsUpdate = true;
+
     /// Write to output
     this.getOutput().skyBox = skyBox;
+    this.getOutput().skyCubeTexture = skyCubeTexture;
   }
 
   /**
