@@ -54,6 +54,8 @@ class HavokRenderer extends DataRenderer {
     let mat;
     if (this.settings && this.settings.visible) {
       mat = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
+    } else if (this.settings && this.settings.export) {
+      mat = new THREE.MeshBasicMaterial({ visible: true });
     } else {
       mat = new THREE.MeshBasicMaterial({ visible: false });
     }

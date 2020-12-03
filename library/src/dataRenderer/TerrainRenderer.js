@@ -250,11 +250,15 @@ class TerrainRenderer extends DataRenderer {
       uniforms.texture3 = { type: "t", value: chunkTextures[fileNames[2]] };
       uniforms.texture4 = { type: "t", value: chunkTextures[fileNames[3]] };
 
-      mat = new THREE.ShaderMaterial({
-        uniforms: uniforms,
-        fragmentShader: TerrainShader.getFragmentShader(),
-        vertexShader: TerrainShader.getVertexShader(),
-      });
+      if (self.settings && self.settings.export) {
+        mat = new THREE.MeshBasicMaterial({ visible: true });
+      } else {
+        mat = new THREE.ShaderMaterial({
+          uniforms: uniforms,
+          fragmentShader: TerrainShader.getFragmentShader(),
+          vertexShader: TerrainShader.getVertexShader(),
+        });
+      }
 
       /// Store referenceto each material
       allMats.push(mat);
@@ -285,7 +289,7 @@ class TerrainRenderer extends DataRenderer {
 
       /// Compute face normals for lighting, not used when textured
       chunkGeo.computeFaceNormals();
-      // chunkGeo.computeVertexNormals();
+      chunkGeo.computeVertexNormals();
 
       /// Build chunk mesh!
       let chunk;
