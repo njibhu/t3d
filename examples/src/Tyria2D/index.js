@@ -713,98 +713,9 @@ window.onload = () => {
     /// Run T3D hacked version of OBJExporter
     const result = new THREE.OBJExporter().parse(_scene, fileId);
 
-    /// Result lists what file ids are used for textures.
-    const texIds = result.textureIds;
-
-    /// Set up very basic material file refering the texture pngs
-    /// pngs are generated a few lines down.
-    let mtlSource = "";
-    texIds.forEach(function (texId) {
-      mtlSource +=
-        "newmtl tex_" + texId + "\n" + "  map_Ka tex_" + texId + ".png\n" + "  map_Kd tex_" + texId + ".png\n\n";
-    });
-
     /// Download obj
-    let blob = new Blob([result.obj], { type: "octet/stream" });
+    const blob = new Blob([result], { type: "octet/stream" });
     saveData(blob, "export." + fileId + ".obj");
-
-    /// Download mtl
-    blob = new Blob([mtlSource], { type: "octet/stream" });
-    saveData(blob, "export." + fileId + ".mtl");
-
-    /// Download texture pngs
-    texIds.forEach(function (texId) {
-      /// LocalReader will have to re-load the textures, don't want to fetch
-      /// then from the model data..
-      _lr.loadFile(
-        texId,
-        function (inflatedData, dxtType, imageWidth, imageHeigth) {
-          /// Create js image using returned bitmap data.
-          const image = {
-            data: new Uint8Array(inflatedData),
-            width: imageWidth,
-            height: imageHeigth,
-          };
-
-          /// Need a canvas in order to draw
-          const canvas = $("<canvas />");
-          $("body").append(canvas);
-
-          canvas[0].width = image.width;
-          canvas[0].height = image.height;
-
-          const ctx = canvas[0].getContext("2d");
-
-          /// Draw raw bitmap to canvas
-          const uica = new Uint8ClampedArray(image.data);
-          const imagedata = new ImageData(uica, image.width, image.height);
-          ctx.putImageData(imagedata, 0, 0);
-
-          /// This is where shit gets stupid. Flipping raw bitmaps in js
-          /// is apparently a pain. Basicly read current state pixel by pixel
-          /// and write it back with flipped y-axis
-          const input = ctx.getImageData(0, 0, image.width, image.height);
-
-          /// Create output image data buffer
-          const output = ctx.createImageData(image.width, image.height);
-
-          /// Get imagedata size
-          const w = input.width,
-            h = input.height;
-          const inputData = input.data;
-          const outputData = output.data;
-
-          /// Loop pixels
-          for (let y = 1; y < h - 1; y += 1) {
-            for (let x = 1; x < w - 1; x += 1) {
-              /// Input linear coordinate
-              const i = (y * w + x) * 4;
-
-              /// Output linear coordinate
-              const flip = ((h - y) * w + x) * 4;
-
-              /// Read and write RGBA
-              /// TODO: Perhaps put alpha to 100%
-              for (let c = 0; c < 4; c += 1) {
-                outputData[i + c] = inputData[flip + c];
-              }
-            }
-          }
-
-          /// Write back flipped data
-          ctx.putImageData(output, 0, 0);
-
-          /// Fetch canvas data as png and download.
-          canvas[0].toBlob(function (pngBlob) {
-            saveData(pngBlob, "tex_" + texId + ".png");
-          });
-
-          /// Remove canvas from DOM
-          canvas.remove();
-        },
-        true
-      );
-    });
   }
 
   /// Utility for downloading files to client
