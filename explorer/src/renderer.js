@@ -115,6 +115,10 @@ class AppRenderer {
     const newWindow = window.open("", "");
     newWindow.document.title = "T3D Explorer Screenshot";
     const image = new Image();
+
+    this._threeContext.renderer.clear(this._threeContext.renderer.getClearColor());
+    // Render first skyCamera
+    this._threeContext.renderer.render(this._threeContext.skyScene, this._threeContext.skyCamera);
     this._threeContext.renderer.render(this._threeContext.scene, this._threeContext.camera);
     image.src = this._threeContext.renderer.domElement.toDataURL();
     newWindow.document.body.appendChild(image);
@@ -156,6 +160,9 @@ class AppRenderer {
     for (const mesh of this._mapMeshes) {
       this._threeContext.scene.remove(mesh);
     }
+    for (const skyBox of this._threeContext.skyScene.children) {
+      this._threeContext.skyScene.remove(skyBox);
+    }
     this._mapMeshes = [];
   }
 
@@ -163,7 +170,9 @@ class AppRenderer {
     const { _threeContext: context } = this;
 
     context.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100000);
+    context.skyCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100000);
     context.scene = new THREE.Scene();
+    context.skyScene = new THREE.Scene();
     context.clock = new THREE.Clock();
 
     context.ambientLight = new THREE.AmbientLight(0x555555);
@@ -192,6 +201,7 @@ class AppRenderer {
       premultipliedAlpha: false,
       antialiasing: true,
     });
+    context.renderer.autoClear = false;
     context.renderer.setSize(window.innerWidth, window.innerHeight);
     $(context.renderer.domElement).hide();
     $("#explorer").append(context.renderer.domElement);
@@ -201,6 +211,8 @@ class AppRenderer {
       context.camera.aspect = window.innerWidth / window.innerHeight;
       context.camera.updateProjectionMatrix();
       context.renderer.setSize(window.innerWidth, window.innerHeight);
+      context.skyCamera.aspect = window.innerWidth / window.innerHeight;
+      context.skyCamera.updateProjectionMatrix();
     });
 
     this.setupController();
@@ -233,6 +245,13 @@ class AppRenderer {
     this.stats.update();
     window.requestAnimationFrame(() => this._render());
     this._threeContext.controls.update(this._threeContext.clock.getDelta());
+
+    this._threeContext.renderer.clear(this._threeContext.renderer.getClearColor());
+
+    // Render first skyCamera
+    this._threeContext.skyCamera.quaternion.copy(this._threeContext.camera.quaternion);
+    this._threeContext.renderer.render(this._threeContext.skyScene, this._threeContext.skyCamera);
+
     this._threeContext.renderer.render(this._threeContext.scene, this._threeContext.camera);
   }
 
@@ -247,6 +266,15 @@ class AppRenderer {
     const water = T3D.getContextValue(context, T3D.TerrainRenderer, "water");
     this._threeContext.scene.add(water);
     this._mapMeshes.push(water);
+
+    const skyBox = T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyBox");
+    this._threeContext.skyScene.add(skyBox);
+    const hazeColor = T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeColor");
+    if (hazeColor) {
+      this._threeContext.renderer.setClearColor(
+        new THREE.Color(hazeColor[2] / 255, hazeColor[1] / 255, hazeColor[0] / 255)
+      );
+    }
 
     if (renderOptions.zone) {
       for (const zoneModel of T3D.getContextValue(context, T3D.ZoneRenderer, "meshes")) {
