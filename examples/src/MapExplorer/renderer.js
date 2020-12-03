@@ -54,7 +54,6 @@ class AppRenderer {
     this.scene = new THREE.Scene();
     this.skyScene = new THREE.Scene();
     this.mouse = new THREE.Vector2();
-    this.skyCamera.updateProjectionMatrix();
 
     this.clock = new THREE.Clock();
     /// This scene has one ambient light source and three directional lights
@@ -86,6 +85,7 @@ class AppRenderer {
       stencil: false,
       premultipliedAlpha: false,
     });
+    this.renderer.autoClear = false;
     document.body.appendChild(this.renderer.domElement);
     this.renderer.setSize(canvasWidth, canvasHeight);
     this.renderer.setClearColor(canvasClearColor);
@@ -286,7 +286,8 @@ class AppRenderer {
     this.controls.update(delta);
 
     // Render first skyCamera
-    this.skyCamera.applyQuaternion(this.camera.quaternion);
+    this.skyCamera.quaternion.copy(this.camera.quaternion);
+    this.renderer.clear(this.renderer.getClearColor());
     this.renderer.render(this.skyScene, this.skyCamera);
 
     this.renderer.render(this.scene, this.camera);
@@ -308,7 +309,7 @@ class AppRenderer {
     }
   }
 
-  /// Runs when the ModelRenderer is finshed
+  /// Runs when the ModelRenderer is finished
   _onRendererDone(context) {
     this._cleanScene();
 
@@ -322,11 +323,8 @@ class AppRenderer {
     }
 
     /// Skybox
-    for (const elem of T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyElements")) {
-      //this.skyScene.add(elem);
-      this.scene.add(elem);
-      console.log(elem);
-    }
+    const skyBox = T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyBox");
+    this.skyScene.add(skyBox);
     const hazeColor = T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeColor");
     if (hazeColor) {
       this.renderer.setClearColor(new THREE.Color(hazeColor[2] / 255, hazeColor[1] / 255, hazeColor[0] / 255));
