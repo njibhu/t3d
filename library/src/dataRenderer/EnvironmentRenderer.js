@@ -179,7 +179,8 @@ class EnvironmentRenderer extends DataRenderer {
 
   parseSkybox(environmentChunkData, parameterChunkData, hazeColorAsInt) {
     /// set up output array
-    this.getOutput().skyElements = [];
+    this.getOutput().skyCubeTexture = null;
+    this.getOutput().skyBox = null;
 
     /// Grab sky texture.
     /// index 0 and 1 day
@@ -189,16 +190,16 @@ class EnvironmentRenderer extends DataRenderer {
     /// Fallback skyboxfrom dat.
     if (!skyModeTex) {
       skyModeTex = {
-        texPathNE: 1930687,
-        texPathSW: 193069,
-        texPathT: 193071,
+        texPathNE: 187554,
+        texPathSW: 187556,
+        texPathT: 187558,
       };
     }
 
     /// Calculate bounds
     const bounds = parameterChunkData.rect;
-    const mapW = Math.abs(bounds.x1 - bounds.x2);
-    const mapD = Math.abs(bounds.y1 - bounds.y2);
+    const mapW = Math.abs(bounds[0] - bounds[2]);
+    const mapD = Math.abs(bounds[1] - bounds[3]);
     // eslint-disable-next-line no-unused-vars
     const boundSide = Math.max(mapW, mapD);
 
@@ -211,11 +212,11 @@ class EnvironmentRenderer extends DataRenderer {
     materialArray[3] = new THREE.MeshBasicMaterial({ visible: false });
 
     /// Create skybox geometry
-    const boxSize = boundSide;
+    const boxSize = 1024; // boundSide * 2;
     const skyGeometry = new THREE.BoxGeometry(boxSize, boxSize / 2, boxSize); // Width Height Depth
 
     /// Ugly way of fixing UV maps for the skybox (I think)
-    skyGeometry.faceVertexUvs[0].forEach(function (vecs, idx) {
+    skyGeometry.faceVertexUvs[0].forEach((vecs, idx) => {
       const face = Math.floor(idx / 2);
 
       // PX NX
@@ -224,7 +225,7 @@ class EnvironmentRenderer extends DataRenderer {
 
       /// PX - WEST   NX - EAST
       if (face === 0 || face === 1) {
-        vecs.forEach(function (vec2) {
+        vecs.forEach((vec2) => {
           vec2.x = 1 - vec2.x;
           vec2.y /= 2.0;
           vec2.y += 0.5;
@@ -233,12 +234,12 @@ class EnvironmentRenderer extends DataRenderer {
 
       /// NZ - SOUTH   PZ - NORTH
       else if (face === 5 || face === 4) {
-        vecs.forEach(function (vec2) {
+        vecs.forEach((vec2) => {
           vec2.y /= -2.0;
           vec2.y += 0.5;
         });
       } else {
-        vecs.forEach(function (vec2) {
+        vecs.forEach((vec2) => {
           vec2.x = 1 - vec2.x;
         });
       }
@@ -250,11 +251,11 @@ class EnvironmentRenderer extends DataRenderer {
     const skyBox = new THREE.Mesh(skyGeometry, materialArray);
 
     /// Put horizon in camera center
-    skyBox.translateY(boxSize / 4);
+    // skyBox.translateY(-(boxSize / 8));
     // skyBox.translateY( -environmentChunk.data.dataGlobal.sky.verticalOffset );
 
     /// Write to output
-    this.getOutput().skyElements.push(skyBox);
+    this.getOutput().skyBox = skyBox;
   }
 
   /**
@@ -263,7 +264,7 @@ class EnvironmentRenderer extends DataRenderer {
    * - *hazeColor* Array of RGBA values describing the global haze color of the map.
    * - *lights* An array of THREE.DirectionalLight and  THREE.AmbientLight objects.
    * - *hasLight* Boolean is false if no directional lights were added to "lights".
-   * - *skyElements* A textured THREE.Mesh skybox.
+   * - *skyBox* A textured THREE.Mesh skybox.
    *
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.

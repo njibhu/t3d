@@ -38,9 +38,6 @@ $(document).ready(function () {
 
 /// Callback for when the LocalReader has finished setting up!
 async function onReaderCreated() {
-  $("#fileMapSelect").removeAttr("disabled");
-  $("#loadMapBtn").removeAttr("disabled");
-
   const mapFileList = await mapRenderer.getMapList();
   const categoryList = mapFileList.reduce((list, map) => {
     if (!list.includes(map.category)) {
@@ -66,6 +63,9 @@ async function onReaderCreated() {
       $("#fileMapSelect").append(opt);
     }
   }
+
+  $("#fileMapSelect").removeAttr("disabled");
+  $("#loadMapBtn").removeAttr("disabled");
 }
 
 /// The insterresting part!
