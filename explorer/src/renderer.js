@@ -141,6 +141,15 @@ class AppRenderer {
       this._threeContext.controls.rollSpeed = Math.PI / 6;
       this._threeContext.controls.autoForward = false;
       this._threeContext.controls.dragToLook = true;
+    } else if (controllerType === "fps") {
+      this._threeContext.controls = new THREE.FirstPersonControls(
+        this._threeContext.camera,
+        this._threeContext.renderer.domElement
+      );
+
+      this._threeContext.controls.movementSpeed = this.movementSpeed;
+      this._threeContext.controls.lookSpeed = 0.1;
+      this._threeContext.controls.activeLook = false;
     } else {
       throw new Error("Invalid controller type");
     }
@@ -201,6 +210,35 @@ class AppRenderer {
       context.camera.updateProjectionMatrix();
       context.renderer.setSize(window.innerWidth, window.innerHeight);
     });
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        switch (event.keyCode) {
+          case 27: // escape
+            if (this.controllerType === "fps") {
+              this._threeContext.controls.activeLook = false;
+            }
+            break;
+          case 13: // enter
+            if (this.controllerType === "fps") {
+              this._threeContext.controls.activeLook = true;
+            }
+            break;
+        }
+      },
+      false
+    );
+
+    document.addEventListener(
+      "click",
+      () => {
+        if (this.controllerType === "fps") {
+          this._threeContext.controls.activeLook = true;
+        }
+      },
+      false
+    );
 
     this.setupController();
 
