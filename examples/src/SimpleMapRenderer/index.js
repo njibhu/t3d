@@ -157,6 +157,12 @@ function onRendererDone(context) {
     mapRenderer.mapData.terrain.data.push(elem);
   }
 
+  /// Skybox
+  const hazeColor = T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeColor");
+  if (hazeColor) {
+    mapRenderer.renderer.setClearColor(new THREE.Color(hazeColor[2] / 255, hazeColor[1] / 255, hazeColor[0] / 255));
+  }
+
   /// Add the water level to the scene
   const water = T3D.getContextValue(context, T3D.TerrainRenderer, "water");
   mapRenderer.scene.add(water);

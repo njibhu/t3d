@@ -16,7 +16,9 @@ class AppRenderer {
 
     /// THREE js objects
     this.scene = null;
+    this.skyScene = null;
     this.camera = null;
+    this.skyCamera = null;
     this.renderer = null;
     this.clock = null;
     this.mouse = null;
@@ -48,7 +50,9 @@ class AppRenderer {
     const fogDistance = Number($("#fogRange").val());
 
     this.camera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 100000);
+    this.skyCamera = new THREE.PerspectiveCamera(fov, aspect, 0.1, 1000000);
     this.scene = new THREE.Scene();
+    this.skyScene = new THREE.Scene();
     this.mouse = new THREE.Vector2();
 
     this.clock = new THREE.Clock();
@@ -81,6 +85,7 @@ class AppRenderer {
       stencil: false,
       premultipliedAlpha: false,
     });
+    this.renderer.autoClear = false;
     document.body.appendChild(this.renderer.domElement);
     this.renderer.setSize(canvasWidth, canvasHeight);
     this.renderer.setClearColor(canvasClearColor);
@@ -91,6 +96,8 @@ class AppRenderer {
 
       this.camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
       this.camera.updateProjectionMatrix();
+      this.skyCamera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
+      this.skyCamera.updateProjectionMatrix();
 
       this.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     });
@@ -278,6 +285,11 @@ class AppRenderer {
     const delta = this.clock.getDelta();
     this.controls.update(delta);
 
+    // Render first skyCamera
+    this.skyCamera.quaternion.copy(this.camera.quaternion);
+    this.renderer.clear(this.renderer.getClearColor());
+    this.renderer.render(this.skyScene, this.skyCamera);
+
     this.renderer.render(this.scene, this.camera);
   }
 
@@ -297,7 +309,7 @@ class AppRenderer {
     }
   }
 
-  /// Runs when the ModelRenderer is finshed
+  /// Runs when the ModelRenderer is finished
   _onRendererDone(context) {
     this._cleanScene();
 
@@ -308,6 +320,14 @@ class AppRenderer {
     for (const elem of T3D.getContextValue(context, T3D.TerrainRenderer, "terrainTiles")) {
       this.scene.add(elem);
       this.mapData.terrain.data.push(elem);
+    }
+
+    /// Skybox
+    const skyBox = T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyBox");
+    this.skyScene.add(skyBox);
+    const hazeColor = T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeColor");
+    if (hazeColor) {
+      this.renderer.setClearColor(new THREE.Color(hazeColor[2] / 255, hazeColor[1] / 255, hazeColor[0] / 255));
     }
 
     /// Add the water level to the scene
