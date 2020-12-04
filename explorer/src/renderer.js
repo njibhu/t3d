@@ -16,6 +16,14 @@ class AppRenderer {
     this.lightIntensity = 0.5;
     this.loadedMapID = undefined;
     this.controllerType = "fly";
+
+    this.webGLRendererOptions = {
+      sortObjects: false,
+      logarithmicDepthBuffer: true,
+      stencil: false,
+      premultipliedAlpha: false,
+      antialiasing: true,
+    };
   }
 
   /** PUBLIC methods */
@@ -194,30 +202,37 @@ class AppRenderer {
     context.camera.far = this.fog + FOG_LENGTH;
     context.camera.updateProjectionMatrix();
 
-    context.renderer = new THREE.WebGLRenderer({
-      sortObjects: false,
-      logarithmicDepthBuffer: true,
-      stencil: false,
-      premultipliedAlpha: false,
-      antialiasing: true,
-    });
-    context.renderer.autoClear = false;
-    context.renderer.setSize(window.innerWidth, window.innerHeight);
-    $(context.renderer.domElement).hide();
-    $("#explorer").append(context.renderer.domElement);
-    context.renderer.setClearColor(CANVAS_CLEAR_COLOR);
+    this.setupWebGLRenderer(true);
+    this.setupController();
+    this._render();
+  }
 
-    context.resizeEvent = window.addEventListener("resize", () => {
+  onWindowResize() {
+    const { _threeContext: context } = this;
+    if (context.renderer && context.camera && context.skyCamera) {
       context.camera.aspect = window.innerWidth / window.innerHeight;
       context.camera.updateProjectionMatrix();
       context.renderer.setSize(window.innerWidth, window.innerHeight);
       context.skyCamera.aspect = window.innerWidth / window.innerHeight;
       context.skyCamera.updateProjectionMatrix();
-    });
+    }
+  }
 
-    this.setupController();
-
-    this._render();
+  // This function is safe to be called whenever the active webgl context is not rendering on screen
+  setupWebGLRenderer(hidden) {
+    const { _threeContext: context } = this;
+    const oldRenderer = context.renderer;
+    context.renderer = new THREE.WebGLRenderer(this.webGLRendererOptions);
+    context.renderer.autoClear = false;
+    context.renderer.setSize(window.innerWidth, window.innerHeight);
+    context.renderer.setClearColor(CANVAS_CLEAR_COLOR);
+    if (hidden) {
+      $(context.renderer.domElement).hide();
+    }
+    if (oldRenderer) {
+      $(oldRenderer.domElement).remove();
+    }
+    $("#explorer").append(context.renderer.domElement);
   }
 
   getUrlData() {
