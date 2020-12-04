@@ -59,12 +59,12 @@ string(CONCAT T3DWORKER_LINK_OPTIONS
 	" --post-js src/t3dlib_worker.js"
 )
 
-add_executable(t3dtools src/t3dtools.cc)
-target_sources(t3dtools PUBLIC src/3dcx.cc)
-target_link_libraries(t3dtools gw2DatTools gw2Formats libsquish)
-set_target_properties(t3dtools PROPERTIES LINK_FLAGS ${T3DTOOLS_LINK_OPTIONS})
+add_executable(t3dtools.js src/t3dtools.cc)
+target_sources(t3dtools.js PUBLIC src/3dcx.cc)
+target_link_libraries(t3dtools.js gw2DatTools gw2Formats libsquish)
+set_target_properties(t3dtools.js PROPERTIES LINK_FLAGS ${T3DTOOLS_LINK_OPTIONS})
 
-add_executable(t3dworker src/t3dtools.cc)
-target_sources(t3dworker PUBLIC src/3dcx.cc)
-target_link_libraries(t3dworker gw2DatTools gw2Formats libsquish)
-set_target_properties(t3dworker PROPERTIES LINK_FLAGS ${T3DWORKER_LINK_OPTIONS})
+add_executable(t3dworker.js src/t3dtools.cc)
+target_sources(t3dworker.js PUBLIC src/3dcx.cc)
+target_link_libraries(t3dworker.js gw2DatTools gw2Formats libsquish)
+set_target_properties(t3dworker.js PROPERTIES LINK_FLAGS ${T3DWORKER_LINK_OPTIONS})
