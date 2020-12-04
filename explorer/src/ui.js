@@ -59,6 +59,8 @@ class UI {
     $("#takeScreenshot").on("click", () => this.appRenderer.takeScreenShot());
     $("#mvntSpeedRange").on("change", (event) => this.appRenderer.setMovementSpeed(event.target.valueAsNumber));
     $("#fogRange").on("change", (event) => this.appRenderer.setFogDistance(event.target.valueAsNumber));
+
+    window.addEventListener("resize", () => this.appRenderer.onWindowResize());
   }
 
   /*
@@ -99,6 +101,14 @@ class UI {
   }
 
   onMapLoadClick() {
+    // Anti aliasing option can only be enabled when creating the webgl context
+    // So we update that first if needed
+    const aaEnabled = $("#enableAA").is(":checked");
+    if (this.appRenderer.webGLRendererOptions.antialiasing !== aaEnabled) {
+      this.appRenderer.webGLRendererOptions.antialiasing = aaEnabled;
+      this.appRenderer.setupWebGLRenderer(true);
+    }
+
     const mapId = $("#mapSelect").val();
     const renderOptions = {
       zone: $("#loadZone").is(":checked"),
