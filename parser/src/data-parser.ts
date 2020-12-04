@@ -1,9 +1,6 @@
 import { BaseType, DataType } from "./types";
 
 interface Definition {
-  chunkName: string;
-  name: string;
-  version: number;
   definitions: {
     [definition: string]: { [key: string]: DataType | string };
   };
@@ -17,10 +14,7 @@ interface ParseFunctionReturn {
   data: any;
 }
 
-export class ChunkParser implements Definition {
-  public readonly chunkName: Definition["chunkName"];
-  public readonly name: Definition["name"];
-  public readonly version: Definition["version"];
+export class DataParser implements Definition {
   public readonly definitions: Definition["definitions"];
   public readonly root: Definition["root"];
 
