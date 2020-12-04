@@ -56,7 +56,7 @@ string(CONCAT T3DTOOLS_LINK_OPTIONS
 
 string(CONCAT T3DWORKER_LINK_OPTIONS
 	${ALL_LINK_OPTIONS}
-	" --post-js src/t3dlib_worker.js"
+	" --post-js src/t3dlib_worker.js -s BINARYEN_ASYNC_COMPILATION=0"
 )
 
 add_executable(t3dtools.js src/t3dtools.cc)

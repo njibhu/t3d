@@ -1703,7 +1703,7 @@ function getBinary() {
     if (readBinary) {
       return readBinary(wasmBinaryFile);
     } else {
-      throw "both async and sync fetching of the wasm failed";
+      throw "sync fetching of the wasm failed: you can preload it to Module['wasmBinary'] manually, or emcc.py will do that for you when generating HTML (but not JS)";
     }
   }
   catch (err) {
@@ -1781,26 +1781,24 @@ function createWasm() {
   }
 
   // Prefer streaming instantiation if available.
-  function instantiateAsync() {
-    if (!wasmBinary &&
-        typeof WebAssembly.instantiateStreaming === 'function' &&
-        !isDataURI(wasmBinaryFile) &&
-        // Don't use streaming for file:// delivered objects in a webview, fetch them synchronously.
-        !isFileURI(wasmBinaryFile) &&
-        typeof fetch === 'function') {
-      return fetch(wasmBinaryFile, { credentials: 'same-origin' }).then(function (response) {
-        var result = WebAssembly.instantiateStreaming(response, info);
-        return result.then(receiveInstantiatedSource, function(reason) {
-            // We expect the most common failure cause to be a bad MIME type for the binary,
-            // in which case falling back to ArrayBuffer instantiation should work.
-            err('wasm streaming compile failed: ' + reason);
-            err('falling back to ArrayBuffer instantiation');
-            return instantiateArrayBuffer(receiveInstantiatedSource);
-          });
-      });
-    } else {
-      return instantiateArrayBuffer(receiveInstantiatedSource);
+  function instantiateSync() {
+    var instance;
+    var module;
+    var binary;
+    try {
+      binary = getBinary();
+      module = new WebAssembly.Module(binary);
+      instance = new WebAssembly.Instance(module, info);
+    } catch (e) {
+      var str = e.toString();
+      err('failed to compile wasm module: ' + str);
+      if (str.indexOf('imported Memory') >= 0 ||
+          str.indexOf('memory import') >= 0) {
+        err('Memory size incompatibility issues may be due to changing INITIAL_MEMORY at runtime to something too large. Use ALLOW_MEMORY_GROWTH to allow any size memory (and also make sure not to set INITIAL_MEMORY at runtime to something smaller than it was at compile time).');
+      }
+      throw e;
     }
+    receiveInstance(instance, module);
   }
   // User shell pages can write their own Module.instantiateWasm = function(imports, successCallback) callback
   // to manually instantiate the Wasm module themselves. This allows pages to run the instantiation parallel
@@ -1815,8 +1813,8 @@ function createWasm() {
     }
   }
 
-  instantiateAsync();
-  return {}; // no exports yet; we'll fill them in later
+  instantiateSync();
+  return Module['asm']; // exports were assigned here
 }
 
 // Globals used by JS i64 conversions
@@ -2567,64 +2565,58 @@ var asmLibraryArg = {
 };
 var asm = createWasm();
 /** @type {function(...*):?} */
-var ___wasm_call_ctors = Module["___wasm_call_ctors"] = createExportWrapper("__wasm_call_ctors");
+var ___wasm_call_ctors = Module["___wasm_call_ctors"] = createExportWrapper("__wasm_call_ctors", asm);
 
 /** @type {function(...*):?} */
-var _inflate = Module["_inflate"] = createExportWrapper("inflate");
+var _inflate = Module["_inflate"] = createExportWrapper("inflate", asm);
 
 /** @type {function(...*):?} */
-var _workImage = Module["_workImage"] = createExportWrapper("workImage");
+var _workImage = Module["_workImage"] = createExportWrapper("workImage", asm);
 
 /** @type {function(...*):?} */
-var _malloc = Module["_malloc"] = createExportWrapper("malloc");
+var _malloc = Module["_malloc"] = createExportWrapper("malloc", asm);
 
 /** @type {function(...*):?} */
-var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
+var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location", asm);
 
 /** @type {function(...*):?} */
-var _fflush = Module["_fflush"] = createExportWrapper("fflush");
+var _fflush = Module["_fflush"] = createExportWrapper("fflush", asm);
 
 /** @type {function(...*):?} */
-var stackSave = Module["stackSave"] = createExportWrapper("stackSave");
+var stackSave = Module["stackSave"] = createExportWrapper("stackSave", asm);
 
 /** @type {function(...*):?} */
-var stackRestore = Module["stackRestore"] = createExportWrapper("stackRestore");
+var stackRestore = Module["stackRestore"] = createExportWrapper("stackRestore", asm);
 
 /** @type {function(...*):?} */
-var stackAlloc = Module["stackAlloc"] = createExportWrapper("stackAlloc");
+var stackAlloc = Module["stackAlloc"] = createExportWrapper("stackAlloc", asm);
 
 /** @type {function(...*):?} */
-var _emscripten_stack_init = Module["_emscripten_stack_init"] = function() {
-  return (_emscripten_stack_init = Module["_emscripten_stack_init"] = Module["asm"]["emscripten_stack_init"]).apply(null, arguments);
-};
+var _emscripten_stack_init = Module["_emscripten_stack_init"] = asm["emscripten_stack_init"]
 
 /** @type {function(...*):?} */
-var _emscripten_stack_get_free = Module["_emscripten_stack_get_free"] = function() {
-  return (_emscripten_stack_get_free = Module["_emscripten_stack_get_free"] = Module["asm"]["emscripten_stack_get_free"]).apply(null, arguments);
-};
+var _emscripten_stack_get_free = Module["_emscripten_stack_get_free"] = asm["emscripten_stack_get_free"]
 
 /** @type {function(...*):?} */
-var _emscripten_stack_get_end = Module["_emscripten_stack_get_end"] = function() {
-  return (_emscripten_stack_get_end = Module["_emscripten_stack_get_end"] = Module["asm"]["emscripten_stack_get_end"]).apply(null, arguments);
-};
+var _emscripten_stack_get_end = Module["_emscripten_stack_get_end"] = asm["emscripten_stack_get_end"]
 
 /** @type {function(...*):?} */
-var _setThrew = Module["_setThrew"] = createExportWrapper("setThrew");
+var _setThrew = Module["_setThrew"] = createExportWrapper("setThrew", asm);
 
 /** @type {function(...*):?} */
-var _free = Module["_free"] = createExportWrapper("free");
+var _free = Module["_free"] = createExportWrapper("free", asm);
 
 /** @type {function(...*):?} */
-var dynCall_viijii = Module["dynCall_viijii"] = createExportWrapper("dynCall_viijii");
+var dynCall_viijii = Module["dynCall_viijii"] = createExportWrapper("dynCall_viijii", asm);
 
 /** @type {function(...*):?} */
-var dynCall_iiiiij = Module["dynCall_iiiiij"] = createExportWrapper("dynCall_iiiiij");
+var dynCall_iiiiij = Module["dynCall_iiiiij"] = createExportWrapper("dynCall_iiiiij", asm);
 
 /** @type {function(...*):?} */
-var dynCall_iiiiijj = Module["dynCall_iiiiijj"] = createExportWrapper("dynCall_iiiiijj");
+var dynCall_iiiiijj = Module["dynCall_iiiiijj"] = createExportWrapper("dynCall_iiiiijj", asm);
 
 /** @type {function(...*):?} */
-var dynCall_iiiiiijj = Module["dynCall_iiiiiijj"] = createExportWrapper("dynCall_iiiiiijj");
+var dynCall_iiiiiijj = Module["dynCall_iiiiiijj"] = createExportWrapper("dynCall_iiiiiijj", asm);
 
 
 
@@ -2960,35 +2952,36 @@ run();
 
 /**
  * Simulates the Nacl inflater of Tyria3DLibrary but as a webworker.
- * 
+ *
  * The data received is an array like so:
  *  * [handle, arrayBuffer, isImage, capLength]
  * and the data expected to be returned is:
  *  * A string for an error.
  *  * An array for a valid result looking like:
  *    [handle, buffer, dxtType, imgW, imgH]
- * 
+ *
  **/
-self.addEventListener('message', 
-    function(e) {
-        let handle = e.data[0];
-        let arrayBuffer = e.data[1];
-        let isImage = e.data[2];
-        let capLength = e.data[3];
-        let result;
-        let error = false;
+self.addEventListener(
+  "message",
+  function (e) {
+    let handle = e.data[0];
+    let arrayBuffer = e.data[1];
+    let isImage = e.data[2];
+    let capLength = e.data[3];
+    let result;
+    let error = false;
 
-        try {
-            result = Module.inflate(arrayBuffer, capLength, isImage);
-        } catch(err) {
-            error = true;
-            self.postMessage(`${handle}: ${err.toString()}`);
-        }
-        
-        if(!error){
-            self.postMessage([handle, result.data.buffer, result.dxtType, result.imgW, result.imgH]);
-        }
+    try {
+      result = Module.inflate(arrayBuffer, capLength, isImage);
+    } catch (err) {
+      error = true;
+      self.postMessage(`${handle}: ${err.toString()}`);
+    }
 
-    },
-false);
+    if (!error) {
+      self.postMessage([handle, result.data.buffer, result.dxtType, result.imgW, result.imgH]);
+    }
+  },
+  false
+);
 
