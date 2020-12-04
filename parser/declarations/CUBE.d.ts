@@ -78,3 +78,29 @@ export type PackMapCubeMapParamsV3 = {
   blurPasses: number,
   envVolume: string
 }
+
+export type PackMapCubeMapV4 = {
+  sampleArray: Array<PackMapCubeMapSampleV4>,
+  paramsArray: Array<PackMapCubeMapParamsV4>
+}
+
+export type PackMapCubeMapSampleV4 = {
+  position: Array<number>,
+  filenameDayDefault: string,
+  filenameNightDefault: string,
+  filenameDayScript: string,
+  filenameNightScript: string,
+  filenameDayDefaultHiRes: string,
+  filenameNightDefaultHiRes: string,
+  filenameDayScriptHiRes: string,
+  filenameNightScriptHiRes: string,
+  envID: BigInt
+}
+
+export type PackMapCubeMapParamsV4 = {
+  modulateColor: number,
+  brightness: number,
+  contrast: number,
+  blurPasses: number,
+  envVolume: string
+}
