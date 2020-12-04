@@ -35,6 +35,7 @@ function copyStaticAssets() {
         `../node_modules/three/examples/js/controls/FlyControls.js`,
         `../node_modules/three/examples/js/controls/OrbitControls.js`,
         `../node_modules/three/examples/js/controls/PointerLockControls.js`,
+        `../node_modules/three/examples/js/libs/stats.min.js`,
         `../node_modules/jquery/dist/jquery.js`,
         `../node_modules/DataStream.js/DataStream.js`,
         `../library/build/T3D.js`,
