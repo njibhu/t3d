@@ -60,15 +60,15 @@ class AppRenderer {
     const ambientLight = new THREE.AmbientLight(0x555555);
     this.scene.add(ambientLight);
 
-    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.5);
     directionalLight1.position.set(0, 0, 1);
     this.scene.add(directionalLight1);
 
-    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.5);
     directionalLight2.position.set(1, 0, 0);
     this.scene.add(directionalLight2);
 
-    const directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
+    const directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.5);
     directionalLight3.position.set(0, 1, 0);
     this.scene.add(directionalLight3);
 

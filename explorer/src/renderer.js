@@ -13,7 +13,7 @@ class AppRenderer {
     // Defaults
     this.fog = 25000;
     this.movementSpeed = 10000;
-    this.lightIntensity = 0.8;
+    this.lightIntensity = 0.5;
     this.loadedMapID = undefined;
     this.controllerType = "fly";
   }
