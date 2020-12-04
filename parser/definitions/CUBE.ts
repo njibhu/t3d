@@ -99,5 +99,36 @@ export const V3 = {
   }
 };
 
-export const latest = V3;
-export const definitionArray = [V0, V1, V2, V3];
+export const V4 = {
+  chunkName: "cube",
+  name: "PackMapCubeMapV4",
+  version: 4,
+  definitions: {
+    PackMapCubeMapSampleV4: {
+      position: FixedArray(Float32, 3),
+      filenameDayDefault: Filename(),
+      filenameNightDefault: Filename(),
+      filenameDayScript: Filename(),
+      filenameNightScript: Filename(),
+      filenameDayDefaultHiRes: Filename(),
+      filenameNightDefaultHiRes: Filename(),
+      filenameDayScriptHiRes: Filename(),
+      filenameNightScriptHiRes: Filename(),
+      envID: Uint64
+    },
+    PackMapCubeMapParamsV4: {
+      modulateColor: Uint32,
+      brightness: Float32,
+      contrast: Float32,
+      blurPasses: Uint32,
+      envVolume: String16()
+    }
+  },
+  root: {
+    sampleArray: DynArray("PackMapCubeMapSampleV4"),
+    paramsArray: DynArray("PackMapCubeMapParamsV4")
+  }
+};
+
+export const latest = V4;
+export const definitionArray = [V0, V1, V2, V3, V4];
