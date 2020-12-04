@@ -3,6 +3,7 @@ class UI {
     this.appRenderer = appRenderer;
 
     this.showingProgress = false;
+    this.archiveLoaded = false;
     this.mapFileList = [];
     this.autoLoad = undefined;
     this.shouldUpdateUrl = false;
@@ -19,6 +20,14 @@ class UI {
       if (this.showingProgress) {
         $("#loadingName").text(name);
         $("#loadingValue").text(`${value}%`);
+      }
+    };
+
+    T3D.Logger.logFunctions[T3D.Logger.TYPE_ERROR] = (error) => {
+      console.error(error);
+      // If we receive an error before the archive is loaded that means that parsing the archive failed
+      if (!this.archiveLoaded) {
+        $("#intro").fadeIn();
       }
     };
 
@@ -70,6 +79,7 @@ class UI {
     const file = event.target.files[0];
     $("#intro").slideUp(() => {
       this.appRenderer.createLocalReader(file, async () => {
+        this.archiveLoaded = true;
         this.mapFileList = await this.appRenderer.getMapList();
         this.fillMapChoiceSelect();
         // User might enter an non-existant ID so we only trigger autoload if we find the map

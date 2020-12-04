@@ -32,16 +32,21 @@ const MathUtils = require("../util/MathUtils");
  * @returns {Promise<{archiveHeader: ArchiveHeader, metaTable: MetaTable, indexTable: IndexTable}>}
  */
 async function readArchive(file) {
-  const archiveHeader = parseANDatHeader((await getFilePart(file, 0, 40)).ds);
-  const mftData = parseMFTTable((await getFilePart(file, archiveHeader.mftOffset, archiveHeader.mftSize)).ds);
-  const { ds, len } = await getFilePart(file, mftData.mftIndexOffset, mftData.mftIndexSize);
-  const indexTable = parseMFTIndex(ds, len);
+  try {
+    const archiveHeader = parseANDatHeader((await getFilePart(file, 0, 40)).ds);
+    const mftData = parseMFTTable((await getFilePart(file, archiveHeader.mftOffset, archiveHeader.mftSize)).ds);
+    const { ds, len } = await getFilePart(file, mftData.mftIndexOffset, mftData.mftIndexSize);
+    const indexTable = parseMFTIndex(ds, len);
 
-  return {
-    archiveHeader: archiveHeader,
-    metaTable: mftData.table,
-    indexTable: indexTable,
-  };
+    return {
+      archiveHeader: archiveHeader,
+      metaTable: mftData.table,
+      indexTable: indexTable,
+    };
+  } catch (error) {
+    T3D.Logger.log(T3D.Logger.TYPE_ERROR, "Couldn't parse archive");
+    throw error;
+  }
 }
 
 /**
