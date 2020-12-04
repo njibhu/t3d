@@ -2,12 +2,13 @@ const CANVAS_CLEAR_COLOR = 0x342920;
 const FOG_LENGTH = 5000;
 
 class AppRenderer {
-  constructor() {
+  constructor(stats) {
     this.localReader = undefined;
     this._threeContext = {};
     this._mapMeshes = [];
     this._mapContext = undefined;
     this._renderOptions = undefined;
+    this.stats = stats;
 
     // Defaults
     this.fog = 25000;
@@ -229,6 +230,7 @@ class AppRenderer {
 
   /** PRIVATE methods */
   _render() {
+    this.stats.update();
     window.requestAnimationFrame(() => this._render());
     this._threeContext.controls.update(this._threeContext.clock.getDelta());
     this._threeContext.renderer.render(this._threeContext.scene, this._threeContext.camera);
