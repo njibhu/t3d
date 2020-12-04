@@ -28,9 +28,10 @@ function buildExample(entryPoint) {
 
 function copyStaticAssets() {
   return [
-    gulp.src(`../t3dtools.js/t3dworker.js`).pipe(rename("t3dworker.js")).pipe(gulp.dest("./dist/static")),
     gulp
       .src([
+        `../t3dtools.js/t3dworker.js`,
+        `../t3dtools.js/t3dworker.wasm`,
         `../node_modules/three/build/three.js`,
         `../node_modules/three/examples/js/controls/FlyControls.js`,
         `../node_modules/three/examples/js/controls/OrbitControls.js`,

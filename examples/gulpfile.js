@@ -12,9 +12,10 @@ function copyExampleAssets(asset) {
 
 function copyStaticAssets() {
   return [
-    gulp.src(`../t3dtools.js/t3dworker.js`).pipe(rename("t3dworker.js")).pipe(gulp.dest("./dist/static")),
     gulp
       .src([
+        `../t3dtools.js/t3dworker.js`,
+        `../t3dtools.js/t3dworker.wasm`,
         `../node_modules/w2ui/w2ui-1.4.3.min.js`,
         `../node_modules/w2ui/w2ui-1.4.3.min.css`,
         `../node_modules/three/build/three.js`,
