@@ -88,9 +88,9 @@ export const anetTypes: {
   // 0x11
   [AType.QWord]: () => "Uint64",
   // 0x12
-  [AType.WCharPtr]: () => "String16()",
+  [AType.WCharPtr]: () => "RefString16()",
   // 0x13
-  [AType.CharPtr]: () => "CString()",
+  [AType.CharPtr]: () => "RefString()",
   // 0x14
   [AType.CustomType]: (customSubType, subTypeName): string => (customSubType ? `'${subTypeName}'` : `${subTypeName}`),
   // 0x15

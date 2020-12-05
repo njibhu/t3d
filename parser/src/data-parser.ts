@@ -1,5 +1,7 @@
 import { BaseType, DataType } from "./types";
 
+const DEBUG = true;
+
 interface Definition {
   definitions: {
     [definition: string]: { [key: string]: DataType | string };
@@ -29,9 +31,11 @@ export class DataParser implements Definition {
       const value = this.root[key];
       let parsedResult: ParseFunctionReturn;
       if (typeof value === "string") {
+        if (DEBUG) console.log(key, position, "(parseType)");
         parsedResult = this.parseType(dv, position, value);
       } else {
         const { baseType, subType, length } = value;
+        if (DEBUG) console.log(key, position, baseType, subType, length);
         parsedResult = this[baseType](dv, position, subType, length);
       }
       parsedObject[key] = parsedResult.data;
@@ -52,9 +56,11 @@ export class DataParser implements Definition {
       const value = definition[key];
       let parsedResult: ParseFunctionReturn;
       if (typeof value === "string") {
+        if (DEBUG) console.log(">", key, position, "(parseType)");
         parsedResult = this.parseType(dv, position, value);
       } else {
         const { baseType, subType, length } = value;
+        if (DEBUG) console.log(">", key, position, baseType, subType, length);
         parsedResult = this[baseType](dv, position, subType, length);
       }
       parsedObject[key] = parsedResult.data;
@@ -73,6 +79,7 @@ export class DataParser implements Definition {
    **/
 
   private Float32(dv: DataView, pos: number): ParseFunctionReturn {
+    if (DEBUG) console.debug("Float32", dv.getFloat32(pos, true));
     return { newPosition: pos + 4, data: dv.getFloat32(pos, true) };
   }
 
@@ -89,6 +96,7 @@ export class DataParser implements Definition {
   }
 
   private Uint32(dv: DataView, pos: number): ParseFunctionReturn {
+    if (DEBUG) console.debug("Uint32", dv.getUint32(pos, true));
     return { newPosition: pos + 4, data: dv.getUint32(pos, true) };
   }
 
@@ -103,9 +111,17 @@ export class DataParser implements Definition {
     const u8 = new Uint8Array(dv.buffer, pos);
     const end = length || u8.findIndex((v) => v === 0);
 
+    if (DEBUG) console.debug("CString", String.fromCharCode.apply(null, new Uint8Array(u8.slice(0, end))));
     return {
       newPosition: pos + end,
       data: String.fromCharCode.apply(null, new Uint8Array(u8.slice(0, end))),
+    };
+  }
+
+  private RefString(dv: DataView, pos: number): ParseFunctionReturn {
+    return {
+      newPosition: 0,
+      data: {},
     };
   }
 
@@ -135,6 +151,7 @@ export class DataParser implements Definition {
   private DynArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     let arrayLength = dv.getUint32(pos, true);
     let arrayOffset = dv.getUint32(pos + 4, true);
+    if (DEBUG) console.debug("DynArray", arrayLength, arrayOffset);
 
     if (arrayOffset === 0) {
       return {
@@ -163,7 +180,7 @@ export class DataParser implements Definition {
 
     const pointer = dv.getUint32(pos + 4, true) + pos + 4;
     for (let index = 0; index < arrayLength; index++) {
-      const offset = dv.getInt32(arrayPtr + 4 * index);
+      const offset = dv.getUint32(arrayPtr + 4 * index, true) + 4;
       if (offset !== 0) {
         let newPosition = pointer + index * 4 + offset;
         if (typeof type === "string") {
@@ -188,25 +205,25 @@ export class DataParser implements Definition {
         : this[type.baseType](dv, pos + offset, type.subType, type.length);
 
     return {
-      newPosition: parsedItem.newPosition,
+      newPosition: pos + 4,
       data: parsedItem.data,
     };
   }
 
-  private String16(dv: DataView, pos: number): ParseFunctionReturn {
+  private RefString16(dv: DataView, pos: number): ParseFunctionReturn {
     let newPosition = pos;
     let ptr = pos + dv.getUint32(pos, true);
     newPosition += 4;
 
     let data = "";
     let num;
-    while (ptr + 2 < dv.byteLength && (num = dv.getUint16(ptr)) !== 0) {
+    while (ptr + 2 < dv.byteLength && (num = dv.getUint16(ptr, true)) !== 0) {
       ptr += 2;
       data += String.fromCharCode(num);
     }
 
     return {
-      newPosition,
+      newPosition: pos + 4,
       data,
     };
   }
@@ -218,31 +235,31 @@ export class DataParser implements Definition {
   private Filename(dv: DataView, pos: number): ParseFunctionReturn {
     // This implementation is based on the old Utils.getFileNameReader() function
     let newPosition = pos;
-    try {
-      let ptr = newPosition + dv.getUint32(newPosition, true);
-      newPosition += 4;
+    //try {
+    let ptr = newPosition + dv.getUint32(newPosition, true);
+    newPosition += 4;
 
-      const m_lowPart = dv.getUint16(ptr);
-      ptr += 2;
-      const m_highPart = dv.getUint16(ptr);
-      ptr += 2;
-      const _m_terminator = dv.getUint16(ptr);
-      ptr += 2;
+    const m_lowPart = dv.getUint16(ptr, true);
+    ptr += 2;
+    const m_highPart = dv.getUint16(ptr, true);
+    ptr += 2;
+    const _m_terminator = dv.getUint16(ptr, true);
+    ptr += 2;
 
-      /// Getting the file name...
-      /// Both need to be >= than 256 (terminator is 0)
-      const ret = 0xff00 * (m_highPart - 0x100) + (m_lowPart - 0x100) + 1;
+    /// Getting the file name...
+    /// Both need to be >= than 256 (terminator is 0)
+    const ret = 0xff00 * (m_highPart - 0x100) + (m_lowPart - 0x100) + 1;
 
-      return {
-        newPosition,
-        data: ret > 0 ? ret : 0,
-      };
-    } catch (e) {
-      return {
-        newPosition,
-        data: -1,
-      };
-    }
+    return {
+      newPosition: pos + 4,
+      data: ret > 0 ? ret : 0,
+    };
+    // } catch (e) {
+    //   return {
+    //     newPosition,
+    //     data: -1,
+    //   };
+    // }
   }
 
   private Unknown(dv: DataView, pos: number): ParseFunctionReturn {
@@ -255,6 +272,7 @@ export class DataParser implements Definition {
 
   private optimisedArray(dv: DataView, pos: number, type: DataType, length: number): ParseFunctionReturn {
     const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType);
+    if (DEBUG) console.debug("OptimizedArray", Array.from(new OptimisedArray(dv.buffer, pos, length)));
     return {
       newPosition: pos + length * OptimisedArray.BYTES_PER_ELEMENT,
       data: Array.from(new OptimisedArray(dv.buffer, pos, length)),
