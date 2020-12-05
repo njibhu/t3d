@@ -1,4 +1,4 @@
-import { Filename, Uint32, Uint8, FixedArray, Float32, Uint64, DynArray, Pointer, String16, Uint16 } from "../src/types";
+import { Filename, Uint32, Uint8, FixedArray, Float32, Uint64, DynArray, Pointer, RefString16, Uint16 } from "../src/types";
 
 export const V11 = {
   chunkName: "zon2",
@@ -775,7 +775,7 @@ export const V21 = {
       layerDefArray: DynArray("PackMapZoneLayerDefV22"),
       timeStamp: Uint64,
       pageTable: Pointer("PackMapZonePageTableV10"),
-      reserved: String16()
+      reserved: RefString16()
     },
     PackMapZoneLayerDefV22: {
       type: Uint8,
@@ -795,7 +795,7 @@ export const V21 = {
       materialname: Filename(),
       modelArray: DynArray("PackMapZoneModelV22"),
       subModel: Pointer("PackMapZoneModelV22"),
-      reserved: String16()
+      reserved: RefString16()
     },
     PackMapZoneModelV22: {
       filename: Filename(),
@@ -813,7 +813,7 @@ export const V21 = {
       chunkCoord: FixedArray(Uint32, 2),
       seed: Uint8,
       paintFlags: DynArray(Uint32),
-      string: String16()
+      string: RefString16()
     },
     PackMapZoneV22: {
       zoneFlags: Uint32,
@@ -829,7 +829,7 @@ export const V21 = {
       offsetData: DynArray(Uint16),
       vertices: DynArray(FixedArray(Float32, 2)),
       broadId: Uint16,
-      reserved: String16()
+      reserved: RefString16()
     },
     PackMapZoneEncodingDataV22: {
       index: Uint16,
@@ -849,7 +849,7 @@ export const V21 = {
     zoneArray: DynArray("PackMapZoneV22"),
     broadPhase: "PackBroadphaseType",
     maxBroadId: Uint16,
-    string: String16()
+    string: RefString16()
   }
 };
 
@@ -864,7 +864,7 @@ export const V22 = {
       layerDefArray: DynArray("PackMapZoneLayerDefV23"),
       timeStamp: Uint64,
       pageTable: Pointer("PackMapZonePageTableV11"),
-      reserved: String16()
+      reserved: RefString16()
     },
     PackMapZoneLayerDefV23: {
       type: Uint8,
@@ -884,7 +884,7 @@ export const V22 = {
       materialname: Filename(),
       modelArray: DynArray("PackMapZoneModelV23"),
       subModel: Pointer("PackMapZoneModelV23"),
-      reserved: String16()
+      reserved: RefString16()
     },
     PackMapZoneModelV23: {
       filename: Filename(),
@@ -903,7 +903,7 @@ export const V22 = {
       chunkCoord: FixedArray(Uint32, 2),
       seed: Uint8,
       paintFlags: DynArray(Uint32),
-      string: String16()
+      string: RefString16()
     },
     PackMapZoneV23: {
       zoneFlags: Uint32,
@@ -919,7 +919,7 @@ export const V22 = {
       offsetData: DynArray(Uint16),
       vertices: DynArray(FixedArray(Float32, 2)),
       broadId: Uint16,
-      reserved: String16()
+      reserved: RefString16()
     },
     PackMapZoneEncodingDataV23: {
       index: Uint16,
@@ -939,7 +939,7 @@ export const V22 = {
     zoneArray: DynArray("PackMapZoneV23"),
     broadPhase: "PackBroadphaseType",
     maxBroadId: Uint16,
-    string: String16()
+    string: RefString16()
   }
 };
 

@@ -1,4 +1,4 @@
-import { Uint64, Uint32, DynArray, String16, FixedArray, Uint8, Uint16 } from "../src/types";
+import { Uint64, Uint32, DynArray, RefString16, FixedArray, Uint8, Uint16 } from "../src/types";
 
 export const V0 = {
   chunkName: "surf",
@@ -33,8 +33,8 @@ export const V1 = {
       flags: Uint32
     },
     MapSurfaceAttributeTool: {
-      name: String16(),
-      category: String16(),
+      name: RefString16(),
+      category: RefString16(),
       color: FixedArray(Uint8, 4)
     }
   },
@@ -55,8 +55,8 @@ export const V2 = {
       flags: Uint32
     },
     MapSurfaceAttributeTool: {
-      name: String16(),
-      category: String16(),
+      name: RefString16(),
+      category: RefString16(),
       color: FixedArray(Uint8, 4)
     },
     MapSurfaceTerrainOverride: {

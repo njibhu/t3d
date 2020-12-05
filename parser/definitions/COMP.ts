@@ -1,4 +1,4 @@
-import { Uint32, DynArray, String16, FixedArray, Uint8, Uint64, Float32, Fileref, Uint16, Filename } from "../src/types";
+import { Uint32, DynArray, RefString16, FixedArray, Uint8, Uint64, Float32, Fileref, Uint16, Filename } from "../src/types";
 
 export const V0 = {
   chunkName: "comp",
@@ -6,13 +6,13 @@ export const V0 = {
   version: 0,
   definitions: {
     PackCompositeBlitRectSetV0: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint32),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV0: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       ears: DynArray(Uint64),
       faces: DynArray(Uint64),
@@ -79,22 +79,22 @@ export const V1 = {
   version: 1,
   definitions: {
     PackCompositeBlitRectSetV1: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint32),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV1: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       ears: DynArray(Uint64),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV1"),
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV1"),
-      skinColorPalette: String16(),
+      skinColorPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV1")
@@ -156,22 +156,22 @@ export const V2 = {
   version: 2,
   definitions: {
     PackCompositeBlitRectSetV2: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint32),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV2: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       ears: DynArray(Uint64),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV2"),
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV2"),
-      skinColorPalette: String16(),
+      skinColorPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV2")
@@ -232,23 +232,23 @@ export const V3 = {
   version: 3,
   definitions: {
     PackCompositeBlitRectSetV3: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint32),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV3: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       beard: DynArray(Uint64),
       ears: DynArray(Uint64),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV3"),
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV3"),
-      skinColorPalette: String16(),
+      skinColorPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV3")
@@ -309,23 +309,23 @@ export const V4 = {
   version: 4,
   definitions: {
     PackCompositeBlitRectSetV4: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV4: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       beard: DynArray(Uint64),
       ears: DynArray(Uint64),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV4"),
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV4"),
-      skinColorPalette: String16(),
+      skinColorPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV4")
@@ -388,23 +388,23 @@ export const V5 = {
   version: 5,
   definitions: {
     PackCompositeBlitRectSetV5: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV5: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       beard: DynArray(Uint64),
       ears: DynArray(Uint64),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV5"),
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV5"),
-      skinColorPalette: String16(),
+      skinColorPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV5")
@@ -470,23 +470,23 @@ export const V6 = {
   version: 6,
   definitions: {
     PackCompositeBlitRectSetV6: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV6: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       beard: DynArray(Uint64),
       ears: DynArray(Uint64),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV6"),
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV6"),
-      skinColorPalette: String16(),
+      skinColorPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV6")
@@ -553,24 +553,24 @@ export const V7 = {
   version: 7,
   definitions: {
     PackCompositeBlitRectSetV7: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV7: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       beard: DynArray(Uint64),
       ears: DynArray(Uint64),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV7"),
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV7"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV7")
@@ -637,13 +637,13 @@ export const V8 = {
   version: 8,
   definitions: {
     PackCompositeBlitRectSetV8: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV8: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
@@ -651,11 +651,11 @@ export const V8 = {
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV8"),
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV8"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV8")
@@ -722,13 +722,13 @@ export const V9 = {
   version: 9,
   definitions: {
     PackCompositeBlitRectSetV9: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV9: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
@@ -736,11 +736,11 @@ export const V9 = {
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV9"),
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV9"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV9")
@@ -808,13 +808,13 @@ export const V10 = {
   version: 10,
   definitions: {
     PackCompositeBlitRectSetV10: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
     },
     PackCompositeRaceDataV10: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
@@ -823,11 +823,11 @@ export const V10 = {
       fileData: DynArray("PackCompositeFileDataV10"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV10"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV10")
@@ -895,7 +895,7 @@ export const V11 = {
   version: 11,
   definitions: {
     PackCompositeBlitRectSetV11: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
@@ -917,7 +917,7 @@ export const V11 = {
       translate: FixedArray(Float32, 3)
     },
     PackCompositeRaceDataV11: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
@@ -926,11 +926,11 @@ export const V11 = {
       fileData: DynArray("PackCompositeFileDataV11"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV11"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV11")
@@ -1000,7 +1000,7 @@ export const V12 = {
   version: 12,
   definitions: {
     PackCompositeBlitRectSetV12: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1028,7 +1028,7 @@ export const V12 = {
       name: Uint64
     },
     PackCompositeRaceDataV12: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
@@ -1040,18 +1040,18 @@ export const V12 = {
       fileData: DynArray("PackCompositeFileDataV12"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV12"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       skinStyleCount: Uint8,
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV12")
     },
     PackCompositeBoneScaleFileV12: {
-      fileName: String16()
+      fileName: RefString16()
     },
     PackCompositeFileDataV12: {
       name: Uint64,
@@ -1118,7 +1118,7 @@ export const V13 = {
   version: 13,
   definitions: {
     PackCompositeBlitRectSetV13: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1146,7 +1146,7 @@ export const V13 = {
       name: Uint64
     },
     PackCompositeRaceDataV13: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
@@ -1158,18 +1158,18 @@ export const V13 = {
       fileData: DynArray("PackCompositeFileDataV13"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV13"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       skinStyleCount: Uint8,
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV13")
     },
     PackCompositeBoneScaleFileV13: {
-      fileName: String16()
+      fileName: RefString16()
     },
     PackCompositeFileDataV13: {
       name: Uint64,
@@ -1237,7 +1237,7 @@ export const V14 = {
   version: 14,
   definitions: {
     PackCompositeBlitRectSetV14: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1265,31 +1265,31 @@ export const V14 = {
       value: Float32
     },
     PackCompositeRaceDataV14: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
       bodyBoneScales: DynArray("PackCompositeBoneScaleV14"),
       bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV14"),
       ears: DynArray(Uint64),
-      eyeColorPalette: String16(),
+      eyeColorPalette: RefString16(),
       faceBoneScales: DynArray("PackCompositeBoneScaleV14"),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV14"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV14"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       skinStyleCount: Uint8,
       type: Uint32,
       variantRefRace: Uint64,
       variants: DynArray("PackCompositeVariantV14")
     },
     PackCompositeBoneScaleFileV14: {
-      fileName: String16()
+      fileName: RefString16()
     },
     PackCompositeFileDataV14: {
       name: Uint64,
@@ -1358,7 +1358,7 @@ export const V15 = {
   version: 15,
   definitions: {
     PackCompositeBlitRectSetV15: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1386,24 +1386,24 @@ export const V15 = {
       value: Float32
     },
     PackCompositeRaceDataV15: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
       bodyBoneScales: DynArray("PackCompositeBoneScaleV15"),
       bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV15"),
       ears: DynArray(Uint64),
-      eyeColorPalette: String16(),
+      eyeColorPalette: RefString16(),
       faceBoneScales: DynArray("PackCompositeBoneScaleV15"),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV15"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Filename(),
       skinPatterns: DynArray("PackCompositeSkinPatternV15"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       skinStyleCount: Uint8,
       type: Uint32,
       variantRefRace: Uint64,
@@ -1411,7 +1411,7 @@ export const V15 = {
       animOverrides: DynArray("PackCompositeAnimOverrideV15")
     },
     PackCompositeBoneScaleFileV15: {
-      fileName: String16()
+      fileName: RefString16()
     },
     PackCompositeFileDataV15: {
       name: Uint64,
@@ -1484,7 +1484,7 @@ export const V16 = {
   version: 16,
   definitions: {
     PackCompositeBlitRectSetV16: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1512,24 +1512,24 @@ export const V16 = {
       value: Float32
     },
     PackCompositeRaceDataV16: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
       bodyBoneScales: DynArray("PackCompositeBoneScaleV16"),
       bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV16"),
       ears: DynArray(Uint64),
-      eyeColorPalette: String16(),
+      eyeColorPalette: RefString16(),
       faceBoneScales: DynArray("PackCompositeBoneScaleV16"),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV16"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Fileref(),
       skinPatterns: DynArray("PackCompositeSkinPatternV16"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       skinStyleCount: Uint8,
       type: Uint32,
       variantRefRace: Uint64,
@@ -1537,7 +1537,7 @@ export const V16 = {
       animOverrides: DynArray("PackCompositeAnimOverrideV16")
     },
     PackCompositeBoneScaleFileV16: {
-      fileName: String16()
+      fileName: RefString16()
     },
     PackCompositeFileDataV16: {
       name: Uint64,
@@ -1610,7 +1610,7 @@ export const V17 = {
   version: 17,
   definitions: {
     PackCompositeBlitRectSetV17: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1638,24 +1638,24 @@ export const V17 = {
       value: Float32
     },
     PackCompositeRaceDataV17: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
       bodyBoneScales: DynArray("PackCompositeBoneScaleV17"),
       bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV17"),
       ears: DynArray(Uint64),
-      eyeColorPalette: String16(),
+      eyeColorPalette: RefString16(),
       faceBoneScales: DynArray("PackCompositeBoneScaleV17"),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV17"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Fileref(),
       skinPatterns: DynArray("PackCompositeSkinPatternV17"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       skinStyles: DynArray("PackCompositeSkinStyleV17"),
       type: Uint32,
       variantRefRace: Uint64,
@@ -1663,7 +1663,7 @@ export const V17 = {
       animOverrides: DynArray("PackCompositeAnimOverrideV17")
     },
     PackCompositeBoneScaleFileV17: {
-      fileName: String16()
+      fileName: RefString16()
     },
     PackCompositeFileDataV17: {
       name: Uint64,
@@ -1742,7 +1742,7 @@ export const V18 = {
   version: 18,
   definitions: {
     PackCompositeBlitRectSetV18: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1770,24 +1770,24 @@ export const V18 = {
       value: Float32
     },
     PackCompositeRaceDataV18: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
       bodyBoneScales: DynArray("PackCompositeBoneScaleV18"),
       bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV18"),
       ears: DynArray(Uint64),
-      eyeColorPalette: String16(),
+      eyeColorPalette: RefString16(),
       faceBoneScales: DynArray("PackCompositeBoneScaleV18"),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV18"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Fileref(),
       skinPatterns: DynArray("PackCompositeSkinPatternV18"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       skinStyles: DynArray("PackCompositeSkinStyleV18"),
       type: Uint32,
       variantRefRace: Uint64,
@@ -1795,7 +1795,7 @@ export const V18 = {
       animOverrides: DynArray("PackCompositeAnimOverrideV18")
     },
     PackCompositeBoneScaleFileV18: {
-      fileName: String16()
+      fileName: RefString16()
     },
     PackCompositeFileDataV18: {
       name: Uint64,
@@ -1875,7 +1875,7 @@ export const V19 = {
   version: 19,
   definitions: {
     PackCompositeBlitRectSetV19: {
-      name: String16(),
+      name: RefString16(),
       size: FixedArray(Uint32, 2),
       rectIndex: DynArray(Uint8),
       rectArray: DynArray(FixedArray(Uint32, 4))
@@ -1903,24 +1903,24 @@ export const V19 = {
       value: Float32
     },
     PackCompositeRaceDataV19: {
-      name: String16(),
+      name: RefString16(),
       nameToken: Uint64,
       baseHeadToken: Uint64,
       beard: DynArray(Uint64),
       bodyBoneScales: DynArray("PackCompositeBoneScaleV19"),
       bodyBoneScaleFiles: DynArray("PackCompositeBoneScaleFileV19"),
       ears: DynArray(Uint64),
-      eyeColorPalette: String16(),
+      eyeColorPalette: RefString16(),
       faceBoneScales: DynArray("PackCompositeBoneScaleV19"),
       faces: DynArray(Uint64),
       fileData: DynArray("PackCompositeFileDataV19"),
       flags: Uint32,
       hairStyles: DynArray(Uint64),
-      hairColorPalette: String16(),
+      hairColorPalette: RefString16(),
       skeletonFile: Fileref(),
       skinPatterns: DynArray("PackCompositeSkinPatternV19"),
-      skinColorPalette: String16(),
-      skinPatternPalette: String16(),
+      skinColorPalette: RefString16(),
+      skinPatternPalette: RefString16(),
       skinStyles: DynArray("PackCompositeSkinStyleV19"),
       type: Uint32,
       variantRefRace: Uint64,
@@ -1928,7 +1928,7 @@ export const V19 = {
       animOverrides: DynArray("PackCompositeAnimOverrideV19")
     },
     PackCompositeBoneScaleFileV19: {
-      fileName: String16()
+      fileName: RefString16()
     },
     PackCompositeFileDataV19: {
       name: Uint64,

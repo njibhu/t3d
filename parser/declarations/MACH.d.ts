@@ -21,7 +21,9 @@ export type PackAnimMachineActionBlockV0 = {
   actions: Array<PackAnimMachineActionV0>
 }
 
-export type PackAnimMachineActionV0 = {}
+export type PackAnimMachineActionV0 = {
+  actionData: number
+}
 
 export type PackAnimMachineActionVariantBlockV0 = {
   actionVariants: Array<PackAnimMachineActionVariantV0>
@@ -78,7 +80,9 @@ export type PackAnimMachineActionBlockV1 = {
   actions: Array<PackAnimMachineActionV1>
 }
 
-export type PackAnimMachineActionV1 = {}
+export type PackAnimMachineActionV1 = {
+  actionData: number
+}
 
 export type PackAnimMachineActionVariantBlockV1 = {
   actionVariants: Array<PackAnimMachineActionVariantV1>

@@ -1,4 +1,4 @@
-import { Uint64, Uint8, Uint32, FixedArray, DynArray, Float32, String16 } from "../src/types";
+import { Uint64, Uint8, Uint32, FixedArray, DynArray, Float32, RefString16 } from "../src/types";
 
 export const V0 = {
   chunkName: "area",
@@ -87,7 +87,7 @@ export const V2 = {
       rotation: FixedArray(Float32, 3)
     },
     PackMapAreaToolV2: {
-      annotation: String16()
+      annotation: RefString16()
     }
   },
   root: {
@@ -126,7 +126,7 @@ export const V3 = {
       rotation: FixedArray(Float32, 3)
     },
     PackMapAreaToolV3: {
-      annotation: String16(),
+      annotation: RefString16(),
       renderOffset: Float32
     }
   },
@@ -166,7 +166,7 @@ export const V4 = {
       rotation: FixedArray(Float32, 3)
     },
     PackMapAreaToolV4: {
-      annotation: String16(),
+      annotation: RefString16(),
       renderOffset: Float32
     }
   },

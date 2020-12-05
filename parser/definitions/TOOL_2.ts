@@ -1,4 +1,4 @@
-import { Uint64, CString, DynArray, Pointer, Fileref, String16, Uint8, Uint32, Filename, Float32, FixedArray } from "../src/types";
+import { Uint64, RefString, DynArray, Pointer, Fileref, RefString16, Uint8, Uint32, Filename, Float32, FixedArray } from "../src/types";
 
 export const V0 = {
   chunkName: "TOOL",
@@ -6,13 +6,13 @@ export const V0 = {
   version: 0,
   definitions: {
     ModelToolCloudV0: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString()),
-      obstacleNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString()),
+      obstacleNames: DynArray(RefString())
     }
   },
   root: {
-    materialNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV0")
   }
 };
@@ -23,9 +23,9 @@ export const V1 = {
   version: 1,
   definitions: {
     ModelToolCloudV1: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString()),
-      obstacleNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString()),
+      obstacleNames: DynArray(RefString())
     },
     ModelToolMotionV1: {
       sequence: Uint64,
@@ -34,7 +34,7 @@ export const V1 = {
     }
   },
   root: {
-    materialNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV1"),
     motions: DynArray("ModelToolMotionV1")
   }
@@ -46,9 +46,9 @@ export const V2 = {
   version: 2,
   definitions: {
     ModelToolCloudV2: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString()),
-      obstacleNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString()),
+      obstacleNames: DynArray(RefString())
     },
     ModelToolMotionV2: {
       sequence: Uint64,
@@ -61,7 +61,7 @@ export const V2 = {
     }
   },
   root: {
-    materialNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV2"),
     motions: DynArray("ModelToolMotionV2"),
     blitTextures: DynArray("ModelToolBlitTextureV2")
@@ -74,9 +74,9 @@ export const V3 = {
   version: 3,
   definitions: {
     ModelToolCloudV3: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString()),
-      obstacleNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString()),
+      obstacleNames: DynArray(RefString())
     },
     ModelToolMotionV3: {
       sequence: Uint64,
@@ -90,7 +90,7 @@ export const V3 = {
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV3"),
     motions: DynArray("ModelToolMotionV3"),
     blitTextures: DynArray("ModelToolBlitTextureV3")
@@ -103,9 +103,9 @@ export const V4 = {
   version: 4,
   definitions: {
     ModelToolCloudV4: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString()),
-      obstacleNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString()),
+      obstacleNames: DynArray(RefString())
     },
     ModelToolMotionV4: {
       sequence: Uint64,
@@ -117,13 +117,13 @@ export const V4 = {
       filename: Filename()
     },
     ModelToolStreakV4: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV4"),
     motions: DynArray("ModelToolMotionV4"),
     blitTextures: DynArray("ModelToolBlitTextureV4"),
@@ -137,8 +137,8 @@ export const V5 = {
   version: 5,
   definitions: {
     ModelToolCloudV5: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolMotionV5: {
       sequence: Uint64,
@@ -150,14 +150,14 @@ export const V5 = {
       filename: Filename()
     },
     ModelToolStreakV5: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV5"),
     motions: DynArray("ModelToolMotionV5"),
     blitTextures: DynArray("ModelToolBlitTextureV5"),
@@ -171,22 +171,22 @@ export const V6 = {
   version: 6,
   definitions: {
     ModelToolCloudV6: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV6: {
       blitId: Uint64,
       filename: Filename()
     },
     ModelToolStreakV6: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV6"),
     blitTextures: DynArray("ModelToolBlitTextureV6"),
     streakData: Pointer("ModelToolStreakV6")
@@ -199,27 +199,27 @@ export const V7 = {
   version: 7,
   definitions: {
     ModelToolCloudV7: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV7: {
       blitId: Uint64,
       filename: Filename()
     },
     ModelToolStreakV7: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV7: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV7"),
     blitTextures: DynArray("ModelToolBlitTextureV7"),
     streakData: Pointer("ModelToolStreakV7"),
@@ -233,27 +233,27 @@ export const V8 = {
   version: 8,
   definitions: {
     ModelToolCloudV8: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV8: {
       blitId: Uint64,
       filename: Filename()
     },
     ModelToolStreakV8: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV8: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV8"),
     blitTextures: DynArray("ModelToolBlitTextureV8"),
     streakData: Pointer("ModelToolStreakV8"),
@@ -268,21 +268,21 @@ export const V9 = {
   version: 9,
   definitions: {
     ModelToolCloudV9: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV9: {
       blitId: Uint64,
       filename: Filename()
     },
     ModelToolStreakV9: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV9: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     },
     ModelToolPropertyDataV9: {
       id: Uint64,
@@ -295,8 +295,8 @@ export const V9 = {
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV9"),
     blitTextures: DynArray("ModelToolBlitTextureV9"),
     streakData: Pointer("ModelToolStreakV9"),
@@ -312,27 +312,27 @@ export const V10 = {
   version: 10,
   definitions: {
     ModelToolCloudV10: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV10: {
       blitId: Uint64,
       filename: Filename()
     },
     ModelToolStreakV10: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV10: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV10"),
     blitTextures: DynArray("ModelToolBlitTextureV10"),
     streakData: Pointer("ModelToolStreakV10"),
@@ -347,27 +347,27 @@ export const V11 = {
   version: 11,
   definitions: {
     ModelToolCloudV11: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV11: {
       blitId: Uint64,
       filename: Fileref()
     },
     ModelToolStreakV11: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV11: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV11"),
     blitTextures: DynArray("ModelToolBlitTextureV11"),
     streakData: Pointer("ModelToolStreakV11"),
@@ -382,25 +382,25 @@ export const V12 = {
   version: 12,
   definitions: {
     ModelToolCloudV12: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV12: {
       blitId: Uint64,
       filename: Fileref()
     },
     ModelToolStreakV12: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV12: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     },
     ModelToolAnimationV12: {
       name: Uint64,
-      filename: String16(),
+      filename: RefString16(),
       data: "PackGrannyAnimationTypeV0"
     },
     PackGrannyAnimationTypeV0: {
@@ -409,8 +409,8 @@ export const V12 = {
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV12"),
     blitTextures: DynArray("ModelToolBlitTextureV12"),
     streakData: Pointer("ModelToolStreakV12"),
@@ -426,25 +426,25 @@ export const V13 = {
   version: 13,
   definitions: {
     ModelToolCloudV13: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV13: {
       blitId: Uint64,
       filename: Fileref()
     },
     ModelToolStreakV13: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV13: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     },
     ModelToolAnimationV13: {
       name: Uint64,
-      filename: String16(),
+      filename: RefString16(),
       data: "PackGrannyAnimationTypeV0"
     },
     PackGrannyAnimationTypeV0: {
@@ -453,8 +453,8 @@ export const V13 = {
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV13"),
     blitTextures: DynArray("ModelToolBlitTextureV13"),
     streakData: Pointer("ModelToolStreakV13"),
@@ -470,25 +470,25 @@ export const V14 = {
   version: 14,
   definitions: {
     ModelToolCloudV14: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV14: {
       blitId: Uint64,
       filename: Fileref()
     },
     ModelToolStreakV14: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV14: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     },
     ModelToolAnimationV14: {
       name: Uint64,
-      filename: String16(),
+      filename: RefString16(),
       data: "PackGrannyAnimationTypeV0"
     },
     PackGrannyAnimationTypeV0: {
@@ -496,14 +496,14 @@ export const V14 = {
     },
     ModelSequenceCompressionInfoV14: {
       animToken: Uint64,
-      cmpGroup: String16(),
-      cmpType: String16()
+      cmpGroup: RefString16(),
+      cmpType: RefString16()
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV14"),
     blitTextures: DynArray("ModelToolBlitTextureV14"),
     streakData: Pointer("ModelToolStreakV14"),
@@ -520,25 +520,25 @@ export const V15 = {
   version: 15,
   definitions: {
     ModelToolCloudV15: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV15: {
       blitId: Uint64,
       filename: Fileref()
     },
     ModelToolStreakV15: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV15: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     },
     ModelToolAnimationV15: {
       name: Uint64,
-      filename: String16(),
+      filename: RefString16(),
       data: "PackGrannyAnimationTypeV0"
     },
     PackGrannyAnimationTypeV0: {
@@ -546,14 +546,14 @@ export const V15 = {
     },
     ModelSequenceCompressionInfoV15: {
       animToken: Uint64,
-      cmpGroup: String16(),
-      cmpType: String16()
+      cmpGroup: RefString16(),
+      cmpType: RefString16()
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV15"),
     blitTextures: DynArray("ModelToolBlitTextureV15"),
     streakData: Pointer("ModelToolStreakV15"),
@@ -561,7 +561,7 @@ export const V15 = {
     permutationTokens: DynArray(Uint64),
     highLodAnimations: DynArray("ModelToolAnimationV15"),
     compressionInfos: DynArray("ModelSequenceCompressionInfoV15"),
-    region: CString()
+    region: RefString()
   }
 };
 
@@ -571,25 +571,25 @@ export const V16 = {
   version: 16,
   definitions: {
     ModelToolCloudV16: {
-      cloudNames: DynArray(CString()),
-      emitterNames: DynArray(CString())
+      cloudNames: DynArray(RefString()),
+      emitterNames: DynArray(RefString())
     },
     ModelToolBlitTextureV16: {
       blitId: Uint64,
       filename: Fileref()
     },
     ModelToolStreakV16: {
-      streakNames: DynArray(CString()),
-      anchorNames: DynArray(CString())
+      streakNames: DynArray(RefString()),
+      anchorNames: DynArray(RefString())
     },
     ModelToolLightningV16: {
-      systemNames: DynArray(CString()),
-      boltNames: DynArray(CString()),
-      nodeNames: DynArray(CString())
+      systemNames: DynArray(RefString()),
+      boltNames: DynArray(RefString()),
+      nodeNames: DynArray(RefString())
     },
     ModelToolAnimationV16: {
       name: Uint64,
-      filename: String16(),
+      filename: RefString16(),
       data: "PackGrannyAnimationTypeV1"
     },
     PackGrannyAnimationTypeV1: {
@@ -598,14 +598,14 @@ export const V16 = {
     },
     ModelSequenceCompressionInfoV16: {
       animToken: Uint64,
-      cmpGroup: String16(),
-      cmpType: String16()
+      cmpGroup: RefString16(),
+      cmpType: RefString16()
     }
   },
   root: {
     modelType: Uint64,
-    materialNames: DynArray(CString()),
-    obstacleNames: DynArray(CString()),
+    materialNames: DynArray(RefString()),
+    obstacleNames: DynArray(RefString()),
     cloudData: Pointer("ModelToolCloudV16"),
     blitTextures: DynArray("ModelToolBlitTextureV16"),
     streakData: Pointer("ModelToolStreakV16"),
@@ -613,7 +613,7 @@ export const V16 = {
     permutationTokens: DynArray(Uint64),
     highLodAnimations: DynArray("ModelToolAnimationV16"),
     compressionInfos: DynArray("ModelSequenceCompressionInfoV16"),
-    region: CString()
+    region: RefString()
   }
 };
 

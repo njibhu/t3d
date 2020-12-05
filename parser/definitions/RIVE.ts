@@ -1,4 +1,4 @@
-import { Uint64, String16, Uint32, Filename, DynArray, FixedArray, Float32, Uint8 } from "../src/types";
+import { Uint64, RefString16, Uint32, Filename, DynArray, FixedArray, Float32, Uint8 } from "../src/types";
 
 export const V0 = {
   chunkName: "rive",
@@ -52,7 +52,7 @@ export const V1 = {
   definitions: {
     MapRiver: {
       guid: Uint64,
-      name: String16(),
+      name: RefString16(),
       xTiling: Float32,
       points: DynArray(FixedArray(Float32, 3)),
       reaches: DynArray("MapRiverReach")
@@ -99,7 +99,7 @@ export const V2 = {
   definitions: {
     MapRiver: {
       guid: Uint64,
-      name: String16(),
+      name: RefString16(),
       xTiling: Float32,
       points: DynArray(FixedArray(Float32, 3)),
       reaches: DynArray("MapRiverReach")
@@ -147,7 +147,7 @@ export const V3 = {
   definitions: {
     MapRiver: {
       guid: Uint64,
-      name: String16(),
+      name: RefString16(),
       xTiling: Float32,
       points: DynArray(FixedArray(Float32, 3)),
       reaches: DynArray("MapRiverReach"),
@@ -197,7 +197,7 @@ export const V4 = {
   definitions: {
     MapRiver: {
       guid: Uint64,
-      name: String16(),
+      name: RefString16(),
       xTiling: Float32,
       points: DynArray(FixedArray(Float32, 3)),
       reaches: DynArray("MapRiverReach"),
@@ -213,7 +213,7 @@ export const V4 = {
       fvf: Uint32,
       flags: Uint32,
       materials: DynArray("MapRiverMaterial"),
-      reserved: String16()
+      reserved: RefString16()
     },
     MapRiverMaterial: {
       materialFile: Filename(),
@@ -250,7 +250,7 @@ export const V5 = {
   definitions: {
     MapRiver: {
       guid: Uint64,
-      name: String16(),
+      name: RefString16(),
       properties: DynArray("PackMapRiverProperty"),
       points: DynArray(FixedArray(Float32, 3)),
       reaches: DynArray("MapRiverReach")

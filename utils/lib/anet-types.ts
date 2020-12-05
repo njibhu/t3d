@@ -109,8 +109,7 @@ export const anetTypes: {
   [AType.Fileref]: () => "Fileref()",
   // 0x1C
   [AType.Unknown28]: () => {
-    console.log("Found Unknown28, this chunk might break the parser");
-    return "Unknown";
+    return "Uint32";
   },
   // 0x1D
   [AType.CustomType2]: (customSubType, subTypeName): string => (customSubType ? `'${subTypeName}'` : `${subTypeName}`),

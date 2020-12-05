@@ -1,4 +1,4 @@
-import { Filename, String16, Uint64, Uint32, DynArray } from "../src/types";
+import { Filename, RefString16, Uint64, Uint32, DynArray } from "../src/types";
 
 export const V0 = {
   chunkName: "pack",
@@ -6,8 +6,8 @@ export const V0 = {
   version: 0,
   definitions: {
     MapVariant: {
-      file: String16(),
-      name: String16(),
+      file: RefString16(),
+      name: RefString16(),
       token: Uint64,
       flags: Uint32
     }

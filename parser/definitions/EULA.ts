@@ -1,4 +1,4 @@
-import { Uint8, String16, DynArray } from "../src/types";
+import { Uint8, RefString16, DynArray } from "../src/types";
 
 export const V0 = {
   chunkName: "eula",
@@ -7,7 +7,7 @@ export const V0 = {
   definitions: {
     PackEulaLanguageV0: {
       Language: Uint8,
-      Text: String16()
+      Text: RefString16()
     }
   },
   root: {

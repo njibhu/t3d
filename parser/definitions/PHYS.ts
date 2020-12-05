@@ -1,4 +1,4 @@
-import { FixedArray, Float32, Uint16, DynArray, Uint8, Pointer, String16, Uint64, Uint32, Fileref } from "../src/types";
+import { FixedArray, Float32, Uint16, DynArray, Uint8, Pointer, RefString16, Uint64, Uint32, Fileref } from "../src/types";
 
 export const V1 = {
   chunkName: "phys",
@@ -286,7 +286,7 @@ export const V5 = {
       triangles: DynArray(Uint32)
     },
     PackMapPhysicsGeometryV5: {
-      filePath: String16(),
+      filePath: RefString16(),
       quantizedExtents: Uint8,
       objRefArray: DynArray("PackMapPhysicsObjectRefV5")
     },
@@ -397,7 +397,7 @@ export const V6 = {
       tokens: DynArray(Uint64)
     },
     PackMapPhysicsGeometryV6: {
-      filePath: String16(),
+      filePath: RefString16(),
       quantizedExtents: Uint8,
       objRefArray: DynArray("PackMapPhysicsObjectRefV6")
     },
@@ -517,7 +517,7 @@ export const V7 = {
       tokens: DynArray(Uint64)
     },
     PackMapPhysicsGeometryV7: {
-      filePath: String16(),
+      filePath: RefString16(),
       quantizedExtents: Uint8,
       objRefArray: DynArray("PackMapPhysicsObjectRefV7")
     },
@@ -634,7 +634,7 @@ export const V8 = {
       tokens: DynArray(Uint64)
     },
     PackMapPhysicsGeometryV8: {
-      filePath: String16(),
+      filePath: RefString16(),
       quantizedExtents: Uint8,
       objRefArray: DynArray("PackMapPhysicsObjectRefV8")
     },
@@ -692,7 +692,7 @@ export const V9 = {
       moppCodeData: DynArray(Uint8)
     },
     PackMapPhysicsGeometryV9: {
-      filePath: String16(),
+      filePath: RefString16(),
       quantizedExtents: Uint8,
       objRefArray: DynArray("PackMapPhysicsObjectRefV9")
     },
@@ -750,7 +750,7 @@ export const V10 = {
       moppCodeData: DynArray(Uint8)
     },
     PackMapPhysicsGeometryV10: {
-      filePath: String16(),
+      filePath: RefString16(),
       quantizedExtents: Uint8,
       objRefArray: DynArray("PackMapPhysicsObjectRefV10"),
       surface: DynArray(Uint16)

@@ -1,4 +1,4 @@
-import { Uint64, FixedArray, Float32, Uint8, Uint32, DynArray, Uint16, Filename, Pointer, String16 } from "../src/types";
+import { Uint64, FixedArray, Float32, Uint8, Uint32, DynArray, Uint16, Filename, Pointer, RefString16 } from "../src/types";
 
 export const V1 = {
   chunkName: "lght",
@@ -279,7 +279,7 @@ export const V7 = {
       maxExt: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       images: DynArray("PackMapVolumeImage")
     },
     PackMapVolumeImage: {
@@ -346,7 +346,7 @@ export const V8 = {
       maxExt: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoint: FixedArray(Float32, 3),
       images: DynArray("PackMapVolumeImage")
     },
@@ -415,7 +415,7 @@ export const V9 = {
       rotation: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoint: FixedArray(Float32, 3),
       flags: Uint32,
       images: DynArray("PackMapVolumeImage")
@@ -485,7 +485,7 @@ export const V10 = {
       rotation: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoint: FixedArray(Float32, 3),
       flags: Uint32,
       images: DynArray("PackMapVolumeImage")
@@ -557,7 +557,7 @@ export const V11 = {
       rotation: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoint: FixedArray(Float32, 3),
       flags: Uint32,
       images: DynArray("PackMapVolumeImage"),
@@ -635,7 +635,7 @@ export const V12 = {
       rotation: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoint: FixedArray(Float32, 3),
       flags: Uint32,
       images: DynArray("PackMapVolumeImage"),
@@ -713,7 +713,7 @@ export const V13 = {
       rotation: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoints: DynArray(FixedArray(Float32, 3)),
       flags: Uint32,
       images: DynArray("PackMapVolumeImage"),
@@ -800,7 +800,7 @@ export const V14 = {
       rotation: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoints: DynArray(FixedArray(Float32, 3)),
       flags: Uint32,
       images: DynArray("PackMapVolumeImage"),
@@ -891,7 +891,7 @@ export const V15 = {
       rotation: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoints: DynArray(FixedArray(Float32, 3)),
       flags: Uint32,
       images: DynArray("PackMapVolumeImage"),
@@ -986,7 +986,7 @@ export const V16 = {
       rotation: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoints: DynArray(FixedArray(Float32, 3)),
       flags: Uint32,
       images: DynArray("PackMapVolumeImage"),
@@ -1082,7 +1082,7 @@ export const V17 = {
       rotation: FixedArray(Float32, 3),
       intensities: FixedArray(Float32, 2),
       pack: FixedArray(Float32, 4),
-      name: String16(),
+      name: RefString16(),
       floodPoints: DynArray(FixedArray(Float32, 3)),
       flags: Uint32,
       images: DynArray("PackMapVolumeImage"),
