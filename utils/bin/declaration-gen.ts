@@ -5,6 +5,7 @@
 
 import { promises as fs } from "fs";
 import * as path from "path";
+import { generateIndex } from "../lib/exports-list";
 
 type FieldsDefinition = { [key: string]: any };
 type FieldsDeclaration = { [key: string]: string };
@@ -24,6 +25,9 @@ async function run() {
 
   const declarationList = await fs.readdir(definitionPath);
   for (const definitionModule of declarationList) {
+    if (definitionModule === "index.ts") {
+      continue;
+    }
     console.log(definitionModule);
     const modulePath = path.resolve(definitionPath, definitionModule);
     if (!modulePath.endsWith(".ts")) throw new Error(`${modulePath} is not a typescript file`);
@@ -38,6 +42,8 @@ async function run() {
       path.resolve(destinationFolder, definitionModule.replace(".ts", ".d.ts")),
       toDeclarationFile(declarations)
     );
+
+    await await generateIndex(destinationFolder, ".d.ts");
   }
 }
 

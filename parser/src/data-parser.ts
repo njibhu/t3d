@@ -1,7 +1,7 @@
 import { BaseType, DataType } from "./types";
 
 interface Definition {
-  definitions: {
+  definitions?: {
     [definition: string]: { [key: string]: DataType | string };
   };
   root: {
