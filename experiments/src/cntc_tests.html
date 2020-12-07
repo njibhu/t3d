@@ -82,7 +82,7 @@
                   : mainChunk.content.length;
                 let contentSlice = mainChunk.content.slice(begin, end);
 
-                if (mainChunk.indexEntries[i].type == 25) {
+                if (mainChunk.indexEntries[i].type == 27) {
                   let itemId = parseId(contentSlice);
                   let guid = parseGuid(contentSlice);
                   items.push(itemId);
