@@ -6,7 +6,7 @@ const source = require("vinyl-source-stream");
 const buffer = require("vinyl-buffer");
 const rename = require("gulp-rename");
 
-function copyExampleAssets(asset) {
+function copyAssets(asset) {
   gulp.src(`./src/${asset}`).pipe(rename(asset)).pipe(gulp.dest("./dist/"));
 }
 
@@ -32,7 +32,7 @@ function copyStaticAssets() {
   ];
 }
 
-function buildExample(entryPoint) {
+function build(entryPoint) {
   const b = browserify({
     entries: [`./src/${entryPoint}`],
     debug: true,
@@ -48,41 +48,4 @@ function buildExample(entryPoint) {
     .pipe(gulp.dest("./dist"));
 }
 
-function statics() {
-  return [copyExampleAssets("index.html"), ...copyStaticAssets()];
-}
-
-function SimpleMapRenderer() {
-  return [buildExample("SimpleMapRenderer/index.js"), copyExampleAssets("SimpleMapRenderer/index.html")];
-}
-
-function MapExplorer() {
-  return [buildExample("MapExplorer/index.js"), copyExampleAssets("MapExplorer/index.html")];
-}
-
-function ModelRenderer() {
-  return [buildExample("ModelRenderer/index.js"), copyExampleAssets("ModelRenderer/index.html")];
-}
-
-function MapScan() {
-  return [buildExample("MapScan/index.js"), copyExampleAssets("MapScan/index.html")];
-}
-
-function Tyria2D() {
-  return [buildExample("Tyria2D/index.js"), copyExampleAssets("Tyria2D/index.html")];
-}
-
-gulp.task("default", () =>
-  Promise.all([...statics(), ...SimpleMapRenderer(), ...MapExplorer(), ...ModelRenderer(), ...Tyria2D(), ...MapScan()])
-);
-
-gulp.task("watch", () => {
-  const delay = 500;
-
-  gulp.watch("src/SimpleMapRenderer/*", { delay }, Promise.all(SimpleMapRenderer()));
-  gulp.watch("src/MapExplorer/*", { delay }, Promise.all(MapExplorer()));
-  gulp.watch("src/ModelRenderer/*", { delay }, Promise.all(ModelRenderer()));
-  gulp.watch("src/Tyria2D/*", { delay }, Promise.all(Tyria2D()));
-  gulp.watch("src/index.html", { delay }, Promise.all(statics()));
-  gulp.watch("../library/src/**/*", { delay }, gulp.series("default"));
-});
+gulp.task("default", () => Promise.all([copyStaticAssets(), copyAssets("index.html"), build("index.js")]));

@@ -20,7 +20,11 @@ The projects built on it are:
 
 Tyria3DApp was the legacy map viewer publicly available. Due to recent changes to the archive, it is no longer compatible with the current game files. Because of the increasing differences and incertainty about the ownership of the project it is now abandonned.
 
-### - Tyria2D (Part of the examples)
+### - T3D Explorer (new!)
+
+The explorer is a newly built version of the Tyria3DApp built on top of the current version of the library. The developement of the explorer will now focus on this version instead of the legacy Tyria3DApp.
+
+### - T3D Browser (previously Tyria2D)
 
 An archive browser with an integrated chunk parser for the file archive. Coming from the original release of the Tyria3DLibrary.
 
@@ -28,15 +32,11 @@ An archive browser with an integrated chunk parser for the file archive. Coming 
 
 A simple 3D model viewer for the file archive. Coming from the original release of the Tyria3DLibrary.
 
-### - Explorer (new!)
-
-The explorer is a newly built version of the Tyria3DApp built on top of the current version of the library. The developement of the explorer will now focus on this version instead of the legacy Tyria3DApp.
-
 ## Extra modules
 
 ### - t3dtools.js
 
-This project contains the `asm.js` port of the t3dtools originally written by Ahom.
+This project contains the `wasm` port of the t3dtools originally written by Ahom.
 
 ### - utils
 
@@ -48,11 +48,9 @@ This module contains a lot of utilities including the generators for the declara
 
 This repository contains experimental and non-working code. Some of it is imported while other is work in progress.
 
-The two current main focuses are:
+The current main focus is:
 
 - Finishing the new parser written in TypeScript and integrate it with the library. This will allow for much easier maintenance as the game continues to be updated.
-
-- Get the explorer as functional and well working as Tyria3DApp used to be.
 
 ---
 
@@ -65,5 +63,5 @@ Here are a few people which contributions have been critical to the existance of
 
 ## License
 
-All the code is under GPL 3 license with the exception of assets from ArenaNet's Guild Wars 2 Asset Kit. 
+All the code is under GPL 3 license with the exception of assets from ArenaNet's Guild Wars 2 Asset Kit.
 A COPYRIGHT file in the same folder of these assets contains the necessary copyright notice.

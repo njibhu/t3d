@@ -37,6 +37,13 @@ jobs:
           cp -r dist ../pages
           mv ../pages/dist ../pages/explorer
           popd
+      - name: Generate browser and copy to pages
+        run: |
+          pushd browser
+          npm run build
+          cp -r dist ../pages
+          mv ../pages/dist ../pages/browser
+          popd
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
