@@ -35,7 +35,7 @@ export class RDataParser {
     }
 
     const destAddr = this.rdataView.getAddress(currentAddress + 8);
-    return loopGuard != 0 && destAddr != -1 && this.rdataView.isAscii4(destAddr);
+    return loopGuard != 0 && destAddr != -1 && this.rdataView.isAscii3Or4(destAddr);
   }
 
   private isANStructTab(address: number, versions: number) {
@@ -67,24 +67,28 @@ export class RDataParser {
     const chunks: Array<Chunks> = [];
 
     for (let cursor = 0; cursor < this.rdataView.length; cursor += 4) {
-      if (this.rdataView.isAscii4(cursor)) {
-        const ascii = this.rdataView.getAscii4(cursor);
-        const structPtr = this.rdataView.getAddress(cursor + 8);
-        const versions = this.rdataView.getUint32(cursor + 4);
+      if (this.rdataView.isAscii3Or4(cursor)) {
+        try {
+          const ascii = this.rdataView.getAscii4(cursor);
+          const structPtr = this.rdataView.getAddress(cursor + 8);
+          const versions = this.rdataView.getUint32(cursor + 4);
 
-        if (versions > 0 && versions < 100) {
-          if (this.isANStructTab(structPtr, versions)) {
-            const currentChunk = {
-              name: ascii.replace(/\u0000/, ""),
-              versions: versions,
-              offset: structPtr,
-            };
+          if (versions > 0 && versions < 100) {
+            if (this.isANStructTab(structPtr, versions)) {
+              const currentChunk = {
+                name: ascii.replace(/\u0000/, ""),
+                versions: versions,
+                offset: structPtr,
+              };
 
-            // Chunks can be found multiple times, so we dedupe them
-            if (!chunks.find(c => c.offset === currentChunk.offset)) {
-              chunks.push(currentChunk);
+              // Chunks can be found multiple times, so we dedupe them
+              if (!chunks.find((c) => c.offset === currentChunk.offset)) {
+                chunks.push(currentChunk);
+              }
             }
           }
+        } catch (error) {
+          continue;
         }
       }
     }

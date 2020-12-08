@@ -76,6 +76,13 @@ const chunkMapping: { [key: string]: string } = {
   PackEmoteAnimationsV0: "ANIM_3",
   PackEulaV0: "EULA",
   ContentPortalManifestV0: "MFST_2",
+  PackMapEnvironmentV29: "ENV",
+  MapMission: "MSN",
+  MapObstacles: "OBS",
+  MapOcclusions: "OCC",
+  MapLegacy: "SND",
+  PackMapTerrainV10: "TRN",
+  MapExpansionProperties: "EXP",
 };
 
 // Check for duplicate chunks
