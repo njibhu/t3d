@@ -1,4 +1,4 @@
-import { Uint32, FixedArray, DynArray, RefString16, Uint64 } from "../src/types";
+import { Uint32, FixedArray, DynArray, Float32, RefString16, Uint64 } from "../src/types";
 
 export const V0 = {
   chunkName: "obs",

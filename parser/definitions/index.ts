@@ -69,7 +69,7 @@ export * as SHOR from "./SHOR";
 export * as SKEL from "./SKEL";
 export * as SKEL_2 from "./SKEL_2";
 export * as SND from "./SND";
-export * as SURF1 from "./SURF1";
+export * as SURF from "./SURF";
 export * as TKAC from "./TKAC";
 export * as TLFS from "./TLFS";
 export * as TOOL from "./TOOL";

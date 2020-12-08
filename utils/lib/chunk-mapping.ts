@@ -36,7 +36,7 @@ const chunkMapping: { [key: string]: string } = {
   PackMapShadowV0: "SHAD",
   PackMapShadowExtV1: "SHEX",
   MapShore: "SHOR",
-  MapSurfaces: "SURF1",
+  MapSurfaces: "SURF",
   PackMapZonesV12: "ZON2",
   MapTerrainImg: "TRNI",
   PackMapWaterV0: "WATR",
