@@ -264,7 +264,7 @@ window.onload = () => {
     });
 
     $("#filePickerPop").change(function (evt) {
-      _lr = T3D.getLocalReader(evt.target.files[0], onReaderCreated, "../static/t3dworker.js");
+      _lr = T3D.getLocalReader(evt.target.files[0], onReaderCreated, "./static/t3dworker.js");
     });
 
     /// Overwrite progress logger
