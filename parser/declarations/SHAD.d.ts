@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackMapShadowV0 = {
     shadowDims: Array<number>,
     tileDims: Array<number>,
@@ -16,7 +16,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.PackMapShadowV0;
+
+export namespace V1_N {
   export type PackMapShadowV1 = {
     shadowDims: Array<number>,
     tileDims: Array<number>,
@@ -37,3 +39,7 @@ export namespace V1 {
 
 }
 
+export type V1 = V1_N.PackMapShadowV1;
+
+export type V0_U = V0 | V1;
+export type V1_U = V1;

@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type ModelFileCollisionV0 = {
     meshes: Array<ModelCollisionMeshV0>,
     clouds: Array<ModelCollisionCloudV0>,
@@ -37,7 +37,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.ModelFileCollisionV0;
+
+export namespace V1_N {
   export type ModelFileCollisionV1 = {
     meshes: Array<ModelCollisionMeshV1>,
     clouds: Array<ModelCollisionCloudV1>,
@@ -76,7 +78,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.ModelFileCollisionV1;
+
+export namespace V2_N {
   export type ModelFileCollisionV8 = {
     meshes: Array<ModelCollisionMeshV8>,
     clouds: Array<ModelCollisionCloudV8>,
@@ -123,7 +127,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.ModelFileCollisionV8;
+
+export namespace V3_N {
   export type ModelFileCollisionV9 = {
     animations: Array<ModelCollisionAnimationV9>,
     meshes: Array<ModelCollisionMeshV9>,
@@ -181,7 +187,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.ModelFileCollisionV9;
+
+export namespace V4_N {
   export type ModelFileCollisionV10 = {
     animations: Array<ModelCollisionAnimationV10>,
     meshes: Array<ModelCollisionMeshV10>,
@@ -241,3 +249,10 @@ export namespace V4 {
 
 }
 
+export type V4 = V4_N.ModelFileCollisionV10;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4;
+export type V1_U = V1 | V2 | V3 | V4;
+export type V2_U = V2 | V3 | V4;
+export type V3_U = V3 | V4;
+export type V4_U = V4;

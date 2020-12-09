@@ -1,4 +1,4 @@
-export namespace V10 {
+export namespace V10_N {
   export type PackMapTerrainV10 = {
     dims: Array<number>,
     swapDistance: number,
@@ -57,7 +57,9 @@ export namespace V10 {
 
 }
 
-export namespace V11 {
+export type V10 = V10_N.PackMapTerrainV10;
+
+export namespace V11_N {
   export type PackMapTerrainV11 = {
     dims: Array<number>,
     swapDistance: number,
@@ -116,7 +118,9 @@ export namespace V11 {
 
 }
 
-export namespace V12 {
+export type V11 = V11_N.PackMapTerrainV11;
+
+export namespace V12_N {
   export type PackMapTerrainV12 = {
     dims: Array<number>,
     swapDistance: number,
@@ -175,7 +179,9 @@ export namespace V12 {
 
 }
 
-export namespace V13 {
+export type V12 = V12_N.PackMapTerrainV12;
+
+export namespace V13_N {
   export type PackMapTerrainV13 = {
     dims: Array<number>,
     swapDistance: number,
@@ -237,7 +243,9 @@ export namespace V13 {
 
 }
 
-export namespace V14 {
+export type V13 = V13_N.PackMapTerrainV13;
+
+export namespace V14_N {
   export type PackMapTerrainV14 = {
     dims: Array<number>,
     swapDistance: number,
@@ -299,3 +307,10 @@ export namespace V14 {
 
 }
 
+export type V14 = V14_N.PackMapTerrainV14;
+
+export type V10_U = V10 | V11 | V12 | V13 | V14;
+export type V11_U = V11 | V12 | V13 | V14;
+export type V12_U = V12 | V13 | V14;
+export type V13_U = V13 | V14;
+export type V14_U = V14;

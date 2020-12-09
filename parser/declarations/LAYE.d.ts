@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackMapLayers = {
     props: Array<PackMapLayerProp>,
     layers: Array<PackMapLayer>
@@ -16,3 +16,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.PackMapLayers;
+
+export type V0_U = V0;

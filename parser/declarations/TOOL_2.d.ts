@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type ModelFileToolV0 = {
     materialNames: Array<string>,
     cloudData: ModelToolCloudV0
@@ -12,7 +12,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.ModelFileToolV0;
+
+export namespace V1_N {
   export type ModelFileToolV1 = {
     materialNames: Array<string>,
     cloudData: ModelToolCloudV1,
@@ -33,7 +35,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.ModelFileToolV1;
+
+export namespace V2_N {
   export type ModelFileToolV2 = {
     materialNames: Array<string>,
     cloudData: ModelToolCloudV2,
@@ -60,7 +64,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.ModelFileToolV2;
+
+export namespace V3_N {
   export type ModelFileToolV3 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -88,7 +94,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.ModelFileToolV3;
+
+export namespace V4_N {
   export type ModelFileToolV4 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -122,7 +130,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.ModelFileToolV4;
+
+export namespace V5_N {
   export type ModelFileToolV5 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -156,7 +166,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.ModelFileToolV5;
+
+export namespace V6_N {
   export type ModelFileToolV6 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -183,7 +195,9 @@ export namespace V6 {
 
 }
 
-export namespace V7 {
+export type V6 = V6_N.ModelFileToolV6;
+
+export namespace V7_N {
   export type ModelFileToolV7 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -217,7 +231,9 @@ export namespace V7 {
 
 }
 
-export namespace V8 {
+export type V7 = V7_N.ModelFileToolV7;
+
+export namespace V8_N {
   export type ModelFileToolV8 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -252,7 +268,9 @@ export namespace V8 {
 
 }
 
-export namespace V9 {
+export type V8 = V8_N.ModelFileToolV8;
+
+export namespace V9_N {
   export type ModelFileToolV9 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -297,7 +315,9 @@ export namespace V9 {
 
 }
 
-export namespace V10 {
+export type V9 = V9_N.ModelFileToolV9;
+
+export namespace V10_N {
   export type ModelFileToolV10 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -332,7 +352,9 @@ export namespace V10 {
 
 }
 
-export namespace V11 {
+export type V10 = V10_N.ModelFileToolV10;
+
+export namespace V11_N {
   export type ModelFileToolV11 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -367,7 +389,9 @@ export namespace V11 {
 
 }
 
-export namespace V12 {
+export type V11 = V11_N.ModelFileToolV11;
+
+export namespace V12_N {
   export type ModelFileToolV12 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -413,7 +437,9 @@ export namespace V12 {
 
 }
 
-export namespace V13 {
+export type V12 = V12_N.ModelFileToolV12;
+
+export namespace V13_N {
   export type ModelFileToolV13 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -459,7 +485,9 @@ export namespace V13 {
 
 }
 
-export namespace V14 {
+export type V13 = V13_N.ModelFileToolV13;
+
+export namespace V14_N {
   export type ModelFileToolV14 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -512,7 +540,9 @@ export namespace V14 {
 
 }
 
-export namespace V15 {
+export type V14 = V14_N.ModelFileToolV14;
+
+export namespace V15_N {
   export type ModelFileToolV15 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -566,7 +596,9 @@ export namespace V15 {
 
 }
 
-export namespace V16 {
+export type V15 = V15_N.ModelFileToolV15;
+
+export namespace V16_N {
   export type ModelFileToolV16 = {
     modelType: BigInt,
     materialNames: Array<string>,
@@ -621,3 +653,22 @@ export namespace V16 {
 
 }
 
+export type V16 = V16_N.ModelFileToolV16;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16;
+export type V12_U = V12 | V13 | V14 | V15 | V16;
+export type V13_U = V13 | V14 | V15 | V16;
+export type V14_U = V14 | V15 | V16;
+export type V15_U = V15 | V16;
+export type V16_U = V16;

@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type SceneFileAnimationV0 = {
     animations: Array<SceneAnimationV0>,
     imports: Array<SceneAnimationImportV0>
@@ -32,7 +32,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.SceneFileAnimationV0;
+
+export namespace V1_N {
   export type SceneFileAnimationV1 = {
     animations: Array<SceneAnimationV1>,
     imports: Array<SceneAnimationImportV1>
@@ -72,7 +74,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.SceneFileAnimationV1;
+
+export namespace V2_N {
   export type SceneFileAnimationV2 = {
     animations: Array<SceneAnimationV2>,
     poses: Array<ScenePoseV2>,
@@ -129,3 +133,8 @@ export namespace V2 {
 
 }
 
+export type V2 = V2_N.SceneFileAnimationV2;
+
+export type V0_U = V0 | V1 | V2;
+export type V1_U = V1 | V2;
+export type V2_U = V2;

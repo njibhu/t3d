@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackMapNavMeshV0 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -16,7 +16,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.PackMapNavMeshV0;
+
+export namespace V1_N {
   export type PackMapNavMeshV1 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -34,7 +36,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.PackMapNavMeshV1;
+
+export namespace V2_N {
   export type PackMapNavMeshV2 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -60,7 +64,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.PackMapNavMeshV2;
+
+export namespace V3_N {
   export type PackMapNavMeshV3 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -88,3 +94,9 @@ export namespace V3 {
 
 }
 
+export type V3 = V3_N.PackMapNavMeshV3;
+
+export type V0_U = V0 | V1 | V2 | V3;
+export type V1_U = V1 | V2 | V3;
+export type V2_U = V2 | V3;
+export type V3_U = V3;

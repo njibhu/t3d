@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type MapExpansionProperties = {
     properties: Array<MapExpansionProperty>
   }
@@ -11,3 +11,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.MapExpansionProperties;
+
+export type V0_U = V0;

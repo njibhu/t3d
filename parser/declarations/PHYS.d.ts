@@ -1,4 +1,4 @@
-export namespace V1 {
+export namespace V1_N {
   export type PackMapPhysicsV1 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -26,7 +26,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.PackMapPhysicsV1;
+
+export namespace V2_N {
   export type PackMapPhysicsV2 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -62,7 +64,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.PackMapPhysicsV2;
+
+export namespace V3_N {
   export type PackMapPhysicsV3 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -105,7 +109,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.PackMapPhysicsV3;
+
+export namespace V4_N {
   export type PackMapPhysicsV4 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -226,7 +232,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.PackMapPhysicsV4;
+
+export namespace V5_N {
   export type PackMapPhysicsV5 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -347,7 +355,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.PackMapPhysicsV5;
+
+export namespace V6_N {
   export type PackMapPhysicsV6 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -472,7 +482,9 @@ export namespace V6 {
 
 }
 
-export namespace V7 {
+export type V6 = V6_N.PackMapPhysicsV6;
+
+export namespace V7_N {
   export type PackMapPhysicsV7 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -603,7 +615,9 @@ export namespace V7 {
 
 }
 
-export namespace V8 {
+export type V7 = V7_N.PackMapPhysicsV7;
+
+export namespace V8_N {
   export type PackMapPhysicsV8 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -735,7 +749,9 @@ export namespace V8 {
 
 }
 
-export namespace V9 {
+export type V8 = V8_N.PackMapPhysicsV8;
+
+export namespace V9_N {
   export type PackMapPhysicsV9 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -797,7 +813,9 @@ export namespace V9 {
 
 }
 
-export namespace V10 {
+export type V9 = V9_N.PackMapPhysicsV9;
+
+export namespace V10_N {
   export type PackMapPhysicsV10 = {
     boundsMin: Array<number>,
     boundsMax: Array<number>,
@@ -860,3 +878,15 @@ export namespace V10 {
 
 }
 
+export type V10 = V10_N.PackMapPhysicsV10;
+
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10;
+export type V6_U = V6 | V7 | V8 | V9 | V10;
+export type V7_U = V7 | V8 | V9 | V10;
+export type V8_U = V8 | V9 | V10;
+export type V9_U = V9 | V10;
+export type V10_U = V10;

@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackMapCoarseNavGraphV0 = {
     sections: Array<PackMapCoarseNavGraphSectionV0>
   }
@@ -35,3 +35,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.PackMapCoarseNavGraphV0;
+
+export type V0_U = V0;

@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackMapMetadata = {
     maps: Array<PackMapMetadataMap>
   }
@@ -10,3 +10,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.PackMapMetadata;
+
+export type V0_U = V0;

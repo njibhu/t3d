@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type ContentPortalManifestV0 = {
     mapArray: Array<ContentMapV0>
   }
@@ -31,7 +31,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.ContentPortalManifestV0;
+
+export namespace V1_N {
   export type ContentPortalManifestV1 = {
     mapArray: Array<ContentMapV1>
   }
@@ -65,7 +67,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.ContentPortalManifestV1;
+
+export namespace V2_N {
   export type ContentPortalManifest = {
     mapArray: Array<ContentMap>
   }
@@ -99,3 +103,8 @@ export namespace V2 {
 
 }
 
+export type V2 = V2_N.ContentPortalManifest;
+
+export type V0_U = V0 | V1 | V2;
+export type V1_U = V1 | V2;
+export type V2_U = V2;

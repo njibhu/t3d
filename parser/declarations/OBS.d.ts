@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type MapObstacles = {
     obstacles: Array<PackMapEditCollision>
   }
@@ -12,7 +12,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.MapObstacles;
+
+export namespace V1_N {
   export type MapObstacles = {
     obstacles: Array<PackMapEditCollision>
   }
@@ -27,7 +29,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.MapObstacles;
+
+export namespace V2_N {
   export type MapObstacles = {
     obstacles: Array<PackMapEditCollision>
   }
@@ -43,3 +47,8 @@ export namespace V2 {
 
 }
 
+export type V2 = V2_N.MapObstacles;
+
+export type V0_U = V0 | V1 | V2;
+export type V1_U = V1 | V2;
+export type V2_U = V2;

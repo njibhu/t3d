@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PagedImageTableDataV0 = {
     layers: Array<PagedImageLayerDataV0>,
     pages: Array<PagedImagePageDataV0>
@@ -21,7 +21,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.PagedImageTableDataV0;
+
+export namespace V1_N {
   export type PagedImageTableDataV1 = {
     layers: Array<PagedImageLayerDataV1>,
     pages: Array<PagedImagePageDataV1>
@@ -45,7 +47,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.PagedImageTableDataV1;
+
+export namespace V2_N {
   export type PagedImageTableDataV2 = {
     layers: Array<PagedImageLayerDataV2>,
     pages: Array<PagedImagePageDataV2>,
@@ -70,7 +74,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.PagedImageTableDataV2;
+
+export namespace V3_N {
   export type PagedImageTableDataV3 = {
     layers: Array<PagedImageLayerDataV3>,
     rawPages: Array<PagedImagePageDataV3>,
@@ -96,3 +102,9 @@ export namespace V3 {
 
 }
 
+export type V3 = V3_N.PagedImageTableDataV3;
+
+export type V0_U = V0 | V1 | V2 | V3;
+export type V1_U = V1 | V2 | V3;
+export type V2_U = V2 | V3;
+export type V3_U = V3;

@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type ModelFileProperties = {
     fixedOffsetData: Array<ModelFixedOffsetData>,
     properties: Array<ModelPropertyData>
@@ -21,3 +21,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.ModelFileProperties;
+
+export type V0_U = V0;

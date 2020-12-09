@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type SceneDataV0 = {
     sequence: Array<SequenceDataV0>,
     resources: ResourceDataV0
@@ -91,7 +91,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.SceneDataV0;
+
+export namespace V1_N {
   export type SceneDataV1 = {
     sequence: Array<SequenceDataV1>,
     resources: ResourceDataV1
@@ -190,7 +192,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.SceneDataV1;
+
+export namespace V2_N {
   export type SceneDataV2 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV2>,
@@ -290,7 +294,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.SceneDataV2;
+
+export namespace V3_N {
   export type SceneDataV3 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV3>,
@@ -390,7 +396,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.SceneDataV3;
+
+export namespace V4_N {
   export type SceneDataV4 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV4>,
@@ -491,7 +499,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.SceneDataV4;
+
+export namespace V5_N {
   export type SceneDataV5 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV5>,
@@ -592,7 +602,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.SceneDataV5;
+
+export namespace V6_N {
   export type SceneDataV6 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV6>,
@@ -693,7 +705,9 @@ export namespace V6 {
 
 }
 
-export namespace V7 {
+export type V6 = V6_N.SceneDataV6;
+
+export namespace V7_N {
   export type SceneDataV7 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV7>,
@@ -794,7 +808,9 @@ export namespace V7 {
 
 }
 
-export namespace V8 {
+export type V7 = V7_N.SceneDataV7;
+
+export namespace V8_N {
   export type SceneDataV8 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV8>,
@@ -901,7 +917,9 @@ export namespace V8 {
 
 }
 
-export namespace V9 {
+export type V8 = V8_N.SceneDataV8;
+
+export namespace V9_N {
   export type SceneDataV9 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV9>,
@@ -1009,7 +1027,9 @@ export namespace V9 {
 
 }
 
-export namespace V10 {
+export type V9 = V9_N.SceneDataV9;
+
+export namespace V10_N {
   export type SceneDataV10 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV10>,
@@ -1117,7 +1137,9 @@ export namespace V10 {
 
 }
 
-export namespace V11 {
+export type V10 = V10_N.SceneDataV10;
+
+export namespace V11_N {
   export type SceneDataV11 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV11>,
@@ -1225,7 +1247,9 @@ export namespace V11 {
 
 }
 
-export namespace V12 {
+export type V11 = V11_N.SceneDataV11;
+
+export namespace V12_N {
   export type SceneDataV12 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV12>,
@@ -1333,7 +1357,9 @@ export namespace V12 {
 
 }
 
-export namespace V13 {
+export type V12 = V12_N.SceneDataV12;
+
+export namespace V13_N {
   export type SceneDataV13 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV13>,
@@ -1441,7 +1467,9 @@ export namespace V13 {
 
 }
 
-export namespace V14 {
+export type V13 = V13_N.SceneDataV13;
+
+export namespace V14_N {
   export type SceneDataV14 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV14>,
@@ -1550,7 +1578,9 @@ export namespace V14 {
 
 }
 
-export namespace V15 {
+export type V14 = V14_N.SceneDataV14;
+
+export namespace V15_N {
   export type SceneDataV15 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV15>,
@@ -1660,7 +1690,9 @@ export namespace V15 {
 
 }
 
-export namespace V16 {
+export type V15 = V15_N.SceneDataV15;
+
+export namespace V16_N {
   export type SceneDataV16 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV16>,
@@ -1770,7 +1802,9 @@ export namespace V16 {
 
 }
 
-export namespace V17 {
+export type V16 = V16_N.SceneDataV16;
+
+export namespace V17_N {
   export type SceneDataV17 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV17>,
@@ -1880,7 +1914,9 @@ export namespace V17 {
 
 }
 
-export namespace V18 {
+export type V17 = V17_N.SceneDataV17;
+
+export namespace V18_N {
   export type SceneDataV18 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV18>,
@@ -1990,7 +2026,9 @@ export namespace V18 {
 
 }
 
-export namespace V19 {
+export type V18 = V18_N.SceneDataV18;
+
+export namespace V19_N {
   export type SceneDataV19 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV19>,
@@ -2100,7 +2138,9 @@ export namespace V19 {
 
 }
 
-export namespace V20 {
+export type V19 = V19_N.SceneDataV19;
+
+export namespace V20_N {
   export type SceneDataV20 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV20>,
@@ -2210,7 +2250,9 @@ export namespace V20 {
 
 }
 
-export namespace V21 {
+export type V20 = V20_N.SceneDataV20;
+
+export namespace V21_N {
   export type SceneDataV21 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV21>,
@@ -2321,7 +2363,9 @@ export namespace V21 {
 
 }
 
-export namespace V22 {
+export type V21 = V21_N.SceneDataV21;
+
+export namespace V22_N {
   export type SceneDataV22 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV22>,
@@ -2432,7 +2476,9 @@ export namespace V22 {
 
 }
 
-export namespace V23 {
+export type V22 = V22_N.SceneDataV22;
+
+export namespace V23_N {
   export type SceneDataV23 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV23>,
@@ -2544,7 +2590,9 @@ export namespace V23 {
 
 }
 
-export namespace V24 {
+export type V23 = V23_N.SceneDataV23;
+
+export namespace V24_N {
   export type SceneDataV24 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV24>,
@@ -2657,7 +2705,9 @@ export namespace V24 {
 
 }
 
-export namespace V25 {
+export type V24 = V24_N.SceneDataV24;
+
+export namespace V25_N {
   export type SceneDataV25 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV25>,
@@ -2770,7 +2820,9 @@ export namespace V25 {
 
 }
 
-export namespace V26 {
+export type V25 = V25_N.SceneDataV25;
+
+export namespace V26_N {
   export type SceneDataV26 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV26>,
@@ -2883,7 +2935,9 @@ export namespace V26 {
 
 }
 
-export namespace V27 {
+export type V26 = V26_N.SceneDataV26;
+
+export namespace V27_N {
   export type SceneDataV27 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV27>,
@@ -2996,7 +3050,9 @@ export namespace V27 {
 
 }
 
-export namespace V28 {
+export type V27 = V27_N.SceneDataV27;
+
+export namespace V28_N {
   export type SceneDataV28 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV28>,
@@ -3109,7 +3165,9 @@ export namespace V28 {
 
 }
 
-export namespace V29 {
+export type V28 = V28_N.SceneDataV28;
+
+export namespace V29_N {
   export type SceneDataV29 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV29>,
@@ -3223,7 +3281,9 @@ export namespace V29 {
 
 }
 
-export namespace V30 {
+export type V29 = V29_N.SceneDataV29;
+
+export namespace V30_N {
   export type SceneDataV30 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV30>,
@@ -3336,7 +3396,9 @@ export namespace V30 {
 
 }
 
-export namespace V31 {
+export type V30 = V30_N.SceneDataV30;
+
+export namespace V31_N {
   export type SceneDataV31 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV31>,
@@ -3449,7 +3511,9 @@ export namespace V31 {
 
 }
 
-export namespace V32 {
+export type V31 = V31_N.SceneDataV31;
+
+export namespace V32_N {
   export type SceneDataV32 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV32>,
@@ -3562,7 +3626,9 @@ export namespace V32 {
 
 }
 
-export namespace V33 {
+export type V32 = V32_N.SceneDataV32;
+
+export namespace V33_N {
   export type SceneDataV33 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV33>,
@@ -3675,7 +3741,9 @@ export namespace V33 {
 
 }
 
-export namespace V34 {
+export type V33 = V33_N.SceneDataV33;
+
+export namespace V34_N {
   export type SceneDataV34 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV34>,
@@ -3794,7 +3862,9 @@ export namespace V34 {
 
 }
 
-export namespace V35 {
+export type V34 = V34_N.SceneDataV34;
+
+export namespace V35_N {
   export type SceneDataV35 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV35>,
@@ -3914,7 +3984,9 @@ export namespace V35 {
 
 }
 
-export namespace V36 {
+export type V35 = V35_N.SceneDataV35;
+
+export namespace V36_N {
   export type SceneDataV36 = {
     startingSequence: BigInt,
     sequence: Array<SequenceDataV36>,
@@ -4034,3 +4106,42 @@ export namespace V36 {
 
 }
 
+export type V36 = V36_N.SceneDataV36;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V14_U = V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V15_U = V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V16_U = V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V17_U = V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V18_U = V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V19_U = V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V20_U = V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V21_U = V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V22_U = V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V23_U = V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V24_U = V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V25_U = V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V26_U = V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V27_U = V27 | V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V28_U = V28 | V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V29_U = V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V30_U = V30 | V31 | V32 | V33 | V34 | V35 | V36;
+export type V31_U = V31 | V32 | V33 | V34 | V35 | V36;
+export type V32_U = V32 | V33 | V34 | V35 | V36;
+export type V33_U = V33 | V34 | V35 | V36;
+export type V34_U = V34 | V35 | V36;
+export type V35_U = V35 | V36;
+export type V36_U = V36;

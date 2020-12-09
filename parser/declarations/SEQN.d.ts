@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackAnimSequencesV0 = {
     sequences: Array<PackAnimSequenceV0>
   }
@@ -50,3 +50,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.PackAnimSequencesV0;
+
+export type V0_U = V0;

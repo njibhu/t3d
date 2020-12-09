@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type ModelFileAnimationV0 = {
     animations: Array<ModelAnimationDataV8>,
     compoundAnimations: Array<ModelCompoundAnimationDataV0>,
@@ -43,7 +43,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.ModelFileAnimationV0;
+
+export namespace V1_N {
   export type ModelFileAnimationV1 = {
     animations: Array<ModelAnimationDataV9>,
     compoundAnimations: Array<ModelCompoundAnimationDataV1>,
@@ -90,7 +92,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.ModelFileAnimationV1;
+
+export namespace V2_N {
   export type ModelFileAnimationBankV2 = {
     animations: Array<ModelAnimationDataV10>,
     compoundAnimations: Array<ModelCompoundAnimationDataV2>,
@@ -138,7 +142,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.ModelFileAnimationBankV2;
+
+export namespace V3_N {
   export type ModelFileAnimationBankV3 = {
     animations: Array<ModelAnimationDataV11>,
     compoundAnimations: Array<ModelCompoundAnimationDataV3>,
@@ -192,7 +198,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.ModelFileAnimationBankV3;
+
+export namespace V4_N {
   export type ModelFileAnimationBankV4 = {
     animations: Array<ModelAnimationDataV12>,
     compoundAnimations: Array<ModelCompoundAnimationDataV4>,
@@ -247,7 +255,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.ModelFileAnimationBankV4;
+
+export namespace V5_N {
   export type ModelFileAnimationBankV5 = {
     animations: Array<ModelAnimationDataV13>,
     compoundAnimations: Array<ModelCompoundAnimationDataV5>,
@@ -302,7 +312,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.ModelFileAnimationBankV5;
+
+export namespace V6_N {
   export type ModelFileAnimationBankV6 = {
     animations: Array<ModelAnimationDataV14>,
     compoundAnimations: Array<ModelCompoundAnimationDataV6>,
@@ -370,7 +382,9 @@ export namespace V6 {
 
 }
 
-export namespace V7 {
+export type V6 = V6_N.ModelFileAnimationBankV6;
+
+export namespace V7_N {
   export type ModelFileAnimationBankV7 = {
     animations: Array<ModelAnimationDataV15>,
     compoundAnimations: Array<ModelCompoundAnimationDataV7>,
@@ -440,7 +454,9 @@ export namespace V7 {
 
 }
 
-export namespace V8 {
+export type V7 = V7_N.ModelFileAnimationBankV7;
+
+export namespace V8_N {
   export type ModelFileAnimationBankV8 = {
     animations: Array<ModelAnimationDataV16>,
     compoundAnimations: Array<ModelCompoundAnimationDataV8>,
@@ -512,7 +528,9 @@ export namespace V8 {
 
 }
 
-export namespace V9 {
+export type V8 = V8_N.ModelFileAnimationBankV8;
+
+export namespace V9_N {
   export type ModelFileAnimationBankV9 = {
     animations: Array<ModelAnimationDataV17>,
     compoundAnimations: Array<ModelCompoundAnimationDataV9>,
@@ -586,7 +604,9 @@ export namespace V9 {
 
 }
 
-export namespace V10 {
+export type V9 = V9_N.ModelFileAnimationBankV9;
+
+export namespace V10_N {
   export type ModelFileAnimationBankV10 = {
     animations: Array<ModelAnimationDataV18>,
     compoundAnimations: Array<ModelCompoundAnimationDataV10>,
@@ -668,7 +688,9 @@ export namespace V10 {
 
 }
 
-export namespace V11 {
+export type V10 = V10_N.ModelFileAnimationBankV10;
+
+export namespace V11_N {
   export type ModelFileAnimationBankV11 = {
     animations: Array<ModelAnimationDataV19>,
     compoundAnimations: Array<ModelCompoundAnimationDataV11>,
@@ -752,7 +774,9 @@ export namespace V11 {
 
 }
 
-export namespace V12 {
+export type V11 = V11_N.ModelFileAnimationBankV11;
+
+export namespace V12_N {
   export type ModelFileAnimationBankV12 = {
     animations: Array<ModelAnimationDataV20>,
     compoundAnimations: Array<ModelCompoundAnimationDataV12>,
@@ -844,7 +868,9 @@ export namespace V12 {
 
 }
 
-export namespace V13 {
+export type V12 = V12_N.ModelFileAnimationBankV12;
+
+export namespace V13_N {
   export type ModelFileAnimationBankV13 = {
     animations: Array<ModelAnimationDataV21>,
     compoundAnimations: Array<ModelCompoundAnimationDataV13>,
@@ -937,7 +963,9 @@ export namespace V13 {
 
 }
 
-export namespace V14 {
+export type V13 = V13_N.ModelFileAnimationBankV13;
+
+export namespace V14_N {
   export type ModelFileAnimationBankV14 = {
     animations: Array<ModelAnimationDataV22>,
     compoundAnimations: Array<ModelCompoundAnimationDataV14>,
@@ -1030,7 +1058,9 @@ export namespace V14 {
 
 }
 
-export namespace V15 {
+export type V14 = V14_N.ModelFileAnimationBankV14;
+
+export namespace V15_N {
   export type ModelFileAnimationBankV15 = {
     animations: Array<ModelAnimationDataV23>,
     compoundAnimations: Array<ModelCompoundAnimationDataV15>,
@@ -1129,7 +1159,9 @@ export namespace V15 {
 
 }
 
-export namespace V16 {
+export type V15 = V15_N.ModelFileAnimationBankV15;
+
+export namespace V16_N {
   export type ModelFileAnimationBankV16 = {
     animations: Array<ModelAnimationDataV24>,
     compoundAnimations: Array<ModelCompoundAnimationDataV16>,
@@ -1243,7 +1275,9 @@ export namespace V16 {
 
 }
 
-export namespace V17 {
+export type V16 = V16_N.ModelFileAnimationBankV16;
+
+export namespace V17_N {
   export type ModelFileAnimationBankV17 = {
     animations: Array<ModelAnimationDataV25>,
     compoundAnimations: Array<ModelCompoundAnimationDataV17>,
@@ -1362,7 +1396,9 @@ export namespace V17 {
 
 }
 
-export namespace V18 {
+export type V17 = V17_N.ModelFileAnimationBankV17;
+
+export namespace V18_N {
   export type ModelFileAnimationBankV18 = {
     animations: Array<ModelAnimationDataV26>,
     compoundAnimations: Array<ModelCompoundAnimationDataV18>,
@@ -1481,7 +1517,9 @@ export namespace V18 {
 
 }
 
-export namespace V19 {
+export type V18 = V18_N.ModelFileAnimationBankV18;
+
+export namespace V19_N {
   export type ModelFileAnimationBankV19 = {
     animations: Array<ModelAnimationDataV27>,
     compoundAnimations: Array<ModelCompoundAnimationDataV19>,
@@ -1601,7 +1639,9 @@ export namespace V19 {
 
 }
 
-export namespace V20 {
+export type V19 = V19_N.ModelFileAnimationBankV19;
+
+export namespace V20_N {
   export type ModelFileAnimationBankV20 = {
     animations: Array<ModelAnimationDataV28>,
     compoundAnimations: Array<ModelCompoundAnimationDataV20>,
@@ -1727,7 +1767,9 @@ export namespace V20 {
 
 }
 
-export namespace V21 {
+export type V20 = V20_N.ModelFileAnimationBankV20;
+
+export namespace V21_N {
   export type ModelFileAnimationBankV21 = {
     animations: Array<ModelAnimationDataV29>,
     compoundAnimations: Array<ModelCompoundAnimationDataV21>,
@@ -1859,7 +1901,9 @@ export namespace V21 {
 
 }
 
-export namespace V22 {
+export type V21 = V21_N.ModelFileAnimationBankV21;
+
+export namespace V22_N {
   export type ModelFileAnimationBankV22 = {
     animations: Array<ModelAnimationDataV30>,
     compoundAnimations: Array<ModelCompoundAnimationDataV22>,
@@ -1990,7 +2034,9 @@ export namespace V22 {
 
 }
 
-export namespace V23 {
+export type V22 = V22_N.ModelFileAnimationBankV22;
+
+export namespace V23_N {
   export type ModelFileAnimationBankV23 = {
     animations: Array<ModelAnimationDataV31>,
     compoundAnimations: Array<ModelCompoundAnimationDataV23>,
@@ -2121,7 +2167,9 @@ export namespace V23 {
 
 }
 
-export namespace V24 {
+export type V23 = V23_N.ModelFileAnimationBankV23;
+
+export namespace V24_N {
   export type ModelFileAnimationV24 = {
     bank: ModelFileAnimationBankV24,
     anim: PackGrannyAnimationTypeV0
@@ -2263,7 +2311,9 @@ export namespace V24 {
 
 }
 
-export namespace V25 {
+export type V24 = V24_N.ModelFileAnimationV24;
+
+export namespace V25_N {
   export type ModelFileAnimationV25 = {
     bank: ModelFileAnimationBankV25,
     anim: PackGrannyAnimationTypeV1
@@ -2406,3 +2456,31 @@ export namespace V25 {
 
 }
 
+export type V25 = V25_N.ModelFileAnimationV25;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V14_U = V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V15_U = V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V16_U = V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V17_U = V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V18_U = V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V19_U = V19 | V20 | V21 | V22 | V23 | V24 | V25;
+export type V20_U = V20 | V21 | V22 | V23 | V24 | V25;
+export type V21_U = V21 | V22 | V23 | V24 | V25;
+export type V22_U = V22 | V23 | V24 | V25;
+export type V23_U = V23 | V24 | V25;
+export type V24_U = V24 | V25;
+export type V25_U = V25;

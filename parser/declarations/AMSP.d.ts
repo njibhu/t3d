@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type ScriptFileDataV0 = {
     fadeInTime: number,
     flags: number,
@@ -118,7 +118,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.ScriptFileDataV0;
+
+export namespace V1_N {
   export type ScriptFileDataV1 = {
     audioSettings: AudioSettingsDataV1,
     fadeInTime: number,
@@ -271,7 +273,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.ScriptFileDataV1;
+
+export namespace V2_N {
   export type ScriptFileDataV2 = {
     musicCue: BigInt,
     audioSettings: AudioSettingsDataV2,
@@ -427,7 +431,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.ScriptFileDataV2;
+
+export namespace V3_N {
   export type ScriptFileDataV3 = {
     musicCue: BigInt,
     endCue: BigInt,
@@ -584,7 +590,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.ScriptFileDataV3;
+
+export namespace V4_N {
   export type ScriptFileDataV4 = {
     musicCue: BigInt,
     endCue: BigInt,
@@ -742,7 +750,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.ScriptFileDataV4;
+
+export namespace V5_N {
   export type ScriptFileDataV5 = {
     musicCue: BigInt,
     endCue: BigInt,
@@ -912,7 +922,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.ScriptFileDataV5;
+
+export namespace V6_N {
   export type ScriptFileDataV6 = {
     musicCue: BigInt,
     endCue: BigInt,
@@ -1090,7 +1102,9 @@ export namespace V6 {
 
 }
 
-export namespace V7 {
+export type V6 = V6_N.ScriptFileDataV6;
+
+export namespace V7_N {
   export type ScriptFileDataV7 = {
     musicCue: BigInt,
     endCue: BigInt,
@@ -1273,7 +1287,9 @@ export namespace V7 {
 
 }
 
-export namespace V8 {
+export type V7 = V7_N.ScriptFileDataV7;
+
+export namespace V8_N {
   export type ScriptFileDataV8 = {
     musicCue: BigInt,
     endCue: BigInt,
@@ -1478,7 +1494,9 @@ export namespace V8 {
 
 }
 
-export namespace V9 {
+export type V8 = V8_N.ScriptFileDataV8;
+
+export namespace V9_N {
   export type ScriptFileDataV9 = {
     musicCue: BigInt,
     endCue: BigInt,
@@ -1688,7 +1706,9 @@ export namespace V9 {
 
 }
 
-export namespace V10 {
+export type V9 = V9_N.ScriptFileDataV9;
+
+export namespace V10_N {
   export type ScriptFileDataV10 = {
     musicCue: BigInt,
     audioSettings: AudioSettingsDataV10,
@@ -1894,7 +1914,9 @@ export namespace V10 {
 
 }
 
-export namespace V11 {
+export type V10 = V10_N.ScriptFileDataV10;
+
+export namespace V11_N {
   export type ScriptFileDataV11 = {
     musicCue: BigInt,
     audioSettings: AudioSettingsDataV11,
@@ -2101,7 +2123,9 @@ export namespace V11 {
 
 }
 
-export namespace V12 {
+export type V11 = V11_N.ScriptFileDataV11;
+
+export namespace V12_N {
   export type ScriptFileDataV12 = {
     musicCue: BigInt,
     audioSettings: AudioSettingsDataV12,
@@ -2309,7 +2333,9 @@ export namespace V12 {
 
 }
 
-export namespace V13 {
+export type V12 = V12_N.ScriptFileDataV12;
+
+export namespace V13_N {
   export type ScriptFileDataV13 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -2518,7 +2544,9 @@ export namespace V13 {
 
 }
 
-export namespace V14 {
+export type V13 = V13_N.ScriptFileDataV13;
+
+export namespace V14_N {
   export type ScriptFileDataV14 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -2726,7 +2754,9 @@ export namespace V14 {
 
 }
 
-export namespace V15 {
+export type V14 = V14_N.ScriptFileDataV14;
+
+export namespace V15_N {
   export type ScriptFileDataV15 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -2935,7 +2965,9 @@ export namespace V15 {
 
 }
 
-export namespace V16 {
+export type V15 = V15_N.ScriptFileDataV15;
+
+export namespace V16_N {
   export type ScriptFileDataV16 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -3148,7 +3180,9 @@ export namespace V16 {
 
 }
 
-export namespace V17 {
+export type V16 = V16_N.ScriptFileDataV16;
+
+export namespace V17_N {
   export type ScriptFileDataV17 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -3364,7 +3398,9 @@ export namespace V17 {
 
 }
 
-export namespace V18 {
+export type V17 = V17_N.ScriptFileDataV17;
+
+export namespace V18_N {
   export type ScriptFileDataV18 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -3580,7 +3616,9 @@ export namespace V18 {
 
 }
 
-export namespace V19 {
+export type V18 = V18_N.ScriptFileDataV18;
+
+export namespace V19_N {
   export type ScriptFileDataV19 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -3797,7 +3835,9 @@ export namespace V19 {
 
 }
 
-export namespace V20 {
+export type V19 = V19_N.ScriptFileDataV19;
+
+export namespace V20_N {
   export type ScriptFileDataV20 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -4015,7 +4055,9 @@ export namespace V20 {
 
 }
 
-export namespace V21 {
+export type V20 = V20_N.ScriptFileDataV20;
+
+export namespace V21_N {
   export type ScriptFileDataV21 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -4259,7 +4301,9 @@ export namespace V21 {
 
 }
 
-export namespace V22 {
+export type V21 = V21_N.ScriptFileDataV21;
+
+export namespace V22_N {
   export type ScriptFileDataV22 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -4505,7 +4549,9 @@ export namespace V22 {
 
 }
 
-export namespace V23 {
+export type V22 = V22_N.ScriptFileDataV22;
+
+export namespace V23_N {
   export type ScriptFileDataV23 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -4752,7 +4798,9 @@ export namespace V23 {
 
 }
 
-export namespace V24 {
+export type V23 = V23_N.ScriptFileDataV23;
+
+export namespace V24_N {
   export type ScriptFileDataV24 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -5002,7 +5050,9 @@ export namespace V24 {
 
 }
 
-export namespace V25 {
+export type V24 = V24_N.ScriptFileDataV24;
+
+export namespace V25_N {
   export type ScriptFileDataV25 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -5262,7 +5312,9 @@ export namespace V25 {
 
 }
 
-export namespace V26 {
+export type V25 = V25_N.ScriptFileDataV25;
+
+export namespace V26_N {
   export type ScriptFileDataV26 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -5539,7 +5591,9 @@ export namespace V26 {
 
 }
 
-export namespace V27 {
+export type V26 = V26_N.ScriptFileDataV26;
+
+export namespace V27_N {
   export type ScriptFileDataV27 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -5826,7 +5880,9 @@ export namespace V27 {
 
 }
 
-export namespace V28 {
+export type V27 = V27_N.ScriptFileDataV27;
+
+export namespace V28_N {
   export type ScriptFileDataV28 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -6115,7 +6171,9 @@ export namespace V28 {
 
 }
 
-export namespace V29 {
+export type V28 = V28_N.ScriptFileDataV28;
+
+export namespace V29_N {
   export type ScriptFileDataV29 = {
     musicCue: BigInt,
     reverbOverride: BigInt,
@@ -6410,3 +6468,35 @@ export namespace V29 {
 
 }
 
+export type V29 = V29_N.ScriptFileDataV29;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V14_U = V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V15_U = V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V16_U = V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V17_U = V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V18_U = V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V19_U = V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V20_U = V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V21_U = V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V22_U = V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V23_U = V23 | V24 | V25 | V26 | V27 | V28 | V29;
+export type V24_U = V24 | V25 | V26 | V27 | V28 | V29;
+export type V25_U = V25 | V26 | V27 | V28 | V29;
+export type V26_U = V26 | V27 | V28 | V29;
+export type V27_U = V27 | V28 | V29;
+export type V28_U = V28 | V29;
+export type V29_U = V29;

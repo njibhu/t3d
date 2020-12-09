@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type AmatDx9MaterialV0 = {
     samplers: Array<AmatDx9SamplerV0>,
     shaders: Array<AmatDx9ShaderV0>,
@@ -37,7 +37,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.AmatDx9MaterialV0;
+
+export namespace V1_N {
   export type AmatDx9MaterialV1 = {
     samplers: Array<AmatDx9SamplerV1>,
     shaders: Array<AmatDx9ShaderV1>,
@@ -80,7 +82,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.AmatDx9MaterialV1;
+
+export namespace V2_N {
   export type AmatDx9MaterialV2 = {
     samplers: Array<AmatDx9SamplerV2>,
     shaders: Array<AmatDx9ShaderV2>,
@@ -123,7 +127,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.AmatDx9MaterialV2;
+
+export namespace V3_N {
   export type AmatDx9MaterialV3 = {
     samplers: Array<AmatDx9SamplerV3>,
     shaders: Array<AmatDx9ShaderV3>,
@@ -166,7 +172,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.AmatDx9MaterialV3;
+
+export namespace V4_N {
   export type AmatDx9MaterialV4 = {
     samplers: Array<AmatDx9SamplerV4>,
     shaders: Array<AmatDx9ShaderV4>,
@@ -209,7 +217,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.AmatDx9MaterialV4;
+
+export namespace V5_N {
   export type AmatDx9MaterialV5 = {
     samplers: Array<AmatDx9SamplerV5>,
     shaders: Array<AmatDx9ShaderV5>,
@@ -252,7 +262,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.AmatDx9MaterialV5;
+
+export namespace V6_N {
   export type AmatDx9MaterialV6 = {
     samplers: Array<AmatDx9SamplerV6>,
     shaders: Array<AmatDx9ShaderV6>,
@@ -294,7 +306,9 @@ export namespace V6 {
 
 }
 
-export namespace V7 {
+export type V6 = V6_N.AmatDx9MaterialV6;
+
+export namespace V7_N {
   export type AmatDx9MaterialV7 = {
     samplers: Array<AmatDx9SamplerV7>,
     shaders: Array<AmatDx9ShaderV7>,
@@ -336,7 +350,9 @@ export namespace V7 {
 
 }
 
-export namespace V8 {
+export type V7 = V7_N.AmatDx9MaterialV7;
+
+export namespace V8_N {
   export type AmatDx9MaterialV8 = {
     samplers: Array<AmatDx9SamplerV8>,
     shaders: Array<AmatDx9ShaderV8>,
@@ -378,7 +394,9 @@ export namespace V8 {
 
 }
 
-export namespace V9 {
+export type V8 = V8_N.AmatDx9MaterialV8;
+
+export namespace V9_N {
   export type AmatDx9MaterialV9 = {
     samplers: Array<AmatDx9SamplerV9>,
     shaders: Array<AmatDx9ShaderV9>,
@@ -421,7 +439,9 @@ export namespace V9 {
 
 }
 
-export namespace V10 {
+export type V9 = V9_N.AmatDx9MaterialV9;
+
+export namespace V10_N {
   export type AmatDx9MaterialV10 = {
     samplers: Array<AmatDx9SamplerV10>,
     shaders: Array<AmatDx9ShaderV10>,
@@ -465,7 +485,9 @@ export namespace V10 {
 
 }
 
-export namespace V11 {
+export type V10 = V10_N.AmatDx9MaterialV10;
+
+export namespace V11_N {
   export type AmatDx9MaterialV11 = {
     samplers: Array<AmatDx9SamplerV11>,
     shaders: Array<AmatDx9ShaderV11>,
@@ -510,3 +532,17 @@ export namespace V11 {
 
 }
 
+export type V11 = V11_N.AmatDx9MaterialV11;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11;
+export type V7_U = V7 | V8 | V9 | V10 | V11;
+export type V8_U = V8 | V9 | V10 | V11;
+export type V9_U = V9 | V10 | V11;
+export type V10_U = V10 | V11;
+export type V11_U = V11;

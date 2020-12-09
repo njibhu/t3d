@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type MapOcclusionTome = {
     enableTomeQueries: number,
     tome: Array<number>,
@@ -8,3 +8,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.MapOcclusionTome;
+
+export type V0_U = V0;

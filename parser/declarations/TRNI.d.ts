@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type MapTerrainImg = {
     tableData: PagedImageTableDataV0,
     pageData: PagedImageEmbeddedPagesDataV0
@@ -37,7 +37,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.MapTerrainImg;
+
+export namespace V1_N {
   export type MapTerrainImg = {
     tableData: PagedImageTableDataV1,
     pageData: PagedImageEmbeddedPagesDataV1
@@ -77,7 +79,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.MapTerrainImg;
+
+export namespace V2_N {
   export type MapTerrainImg = {
     tableData: PagedImageTableDataV2,
     pageData: PagedImageEmbeddedPagesDataV2
@@ -118,7 +122,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.MapTerrainImg;
+
+export namespace V3_N {
   export type MapTerrainImg = {
     tableData: PagedImageTableDataV3,
     pageData: PagedImageEmbeddedPagesDataV3
@@ -160,3 +166,9 @@ export namespace V3 {
 
 }
 
+export type V3 = V3_N.MapTerrainImg;
+
+export type V0_U = V0 | V1 | V2 | V3;
+export type V1_U = V1 | V2 | V3;
+export type V2_U = V2 | V3;
+export type V3_U = V3;

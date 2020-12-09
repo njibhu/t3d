@@ -1,4 +1,4 @@
-export namespace V11 {
+export namespace V11_N {
   export type PackMapZonesV12 = {
     zoneDefArray: Array<PackMapZoneDefV12>,
     zoneArray: Array<PackMapZoneV12>
@@ -61,7 +61,9 @@ export namespace V11 {
 
 }
 
-export namespace V12 {
+export type V11 = V11_N.PackMapZonesV12;
+
+export namespace V12_N {
   export type PackMapZonesV13 = {
     zoneDefArray: Array<PackMapZoneDefV13>,
     zoneArray: Array<PackMapZoneV13>
@@ -125,7 +127,9 @@ export namespace V12 {
 
 }
 
-export namespace V13 {
+export type V12 = V12_N.PackMapZonesV13;
+
+export namespace V13_N {
   export type PackMapZonesV14 = {
     zoneDefArray: Array<PackMapZoneDefV14>,
     zoneArray: Array<PackMapZoneV14>
@@ -202,7 +206,9 @@ export namespace V13 {
 
 }
 
-export namespace V14 {
+export type V13 = V13_N.PackMapZonesV14;
+
+export namespace V14_N {
   export type PackMapZonesV15 = {
     zoneDefArray: Array<PackMapZoneDefV15>,
     zoneArray: Array<PackMapZoneV15>
@@ -280,7 +286,9 @@ export namespace V14 {
 
 }
 
-export namespace V15 {
+export type V14 = V14_N.PackMapZonesV15;
+
+export namespace V15_N {
   export type PackMapZonesV16 = {
     zoneDefArray: Array<PackMapZoneDefV16>,
     zoneArray: Array<PackMapZoneV16>,
@@ -365,7 +373,9 @@ export namespace V15 {
 
 }
 
-export namespace V16 {
+export type V15 = V15_N.PackMapZonesV16;
+
+export namespace V16_N {
   export type PackMapZonesV17 = {
     zoneDefArray: Array<PackMapZoneDefV17>,
     zoneArray: Array<PackMapZoneV17>,
@@ -450,7 +460,9 @@ export namespace V16 {
 
 }
 
-export namespace V17 {
+export type V16 = V16_N.PackMapZonesV17;
+
+export namespace V17_N {
   export type PackMapZonesV18 = {
     zoneDefArray: Array<PackMapZoneDefV18>,
     zoneArray: Array<PackMapZoneV18>,
@@ -538,7 +550,9 @@ export namespace V17 {
 
 }
 
-export namespace V18 {
+export type V17 = V17_N.PackMapZonesV18;
+
+export namespace V18_N {
   export type PackMapZonesV19 = {
     zoneDefArray: Array<PackMapZoneDefV19>,
     zoneArray: Array<PackMapZoneV19>,
@@ -626,7 +640,9 @@ export namespace V18 {
 
 }
 
-export namespace V19 {
+export type V18 = V18_N.PackMapZonesV19;
+
+export namespace V19_N {
   export type PackMapZonesV20 = {
     zoneDefArray: Array<PackMapZoneDefV20>,
     zoneArray: Array<PackMapZoneV20>,
@@ -715,7 +731,9 @@ export namespace V19 {
 
 }
 
-export namespace V20 {
+export type V19 = V19_N.PackMapZonesV20;
+
+export namespace V20_N {
   export type PackMapZonesV21 = {
     zoneDefArray: Array<PackMapZoneDefV21>,
     zoneArray: Array<PackMapZoneV21>,
@@ -804,7 +822,9 @@ export namespace V20 {
 
 }
 
-export namespace V21 {
+export type V20 = V20_N.PackMapZonesV21;
+
+export namespace V21_N {
   export type PackMapZonesV22 = {
     zoneDefArray: Array<PackMapZoneDefV22>,
     zoneArray: Array<PackMapZoneV22>,
@@ -898,7 +918,9 @@ export namespace V21 {
 
 }
 
-export namespace V22 {
+export type V21 = V21_N.PackMapZonesV22;
+
+export namespace V22_N {
   export type PackMapZonesV23 = {
     zoneDefArray: Array<PackMapZoneDefV23>,
     zoneArray: Array<PackMapZoneV23>,
@@ -993,3 +1015,17 @@ export namespace V22 {
 
 }
 
+export type V22 = V22_N.PackMapZonesV23;
+
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22;
+export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22;
+export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22;
+export type V14_U = V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22;
+export type V15_U = V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22;
+export type V16_U = V16 | V17 | V18 | V19 | V20 | V21 | V22;
+export type V17_U = V17 | V18 | V19 | V20 | V21 | V22;
+export type V18_U = V18 | V19 | V20 | V21 | V22;
+export type V19_U = V19 | V20 | V21 | V22;
+export type V20_U = V20 | V21 | V22;
+export type V21_U = V21 | V22;
+export type V22_U = V22;

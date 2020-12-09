@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackContent = {
     flags: number,
     typeInfos: Array<PackContentTypeInfo>,
@@ -60,3 +60,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.PackContent;
+
+export type V0_U = V0;

@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackAssetManifestV0 = {
     buildId: number,
     records: Array<PackAssetManifestRecordV0>
@@ -12,7 +12,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.PackAssetManifestV0;
+
+export namespace V1_N {
   export type PackAssetManifestV1 = {
     buildId: number,
     records: Array<PackAssetManifestRecordV1>,
@@ -32,7 +34,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.PackAssetManifestV1;
+
+export namespace V2_N {
   export type PackAssetManifestV2 = {
     buildId: number,
     records: Array<PackAssetManifestRecordV2>,
@@ -53,7 +57,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.PackAssetManifestV2;
+
+export namespace V3_N {
   export type PackAssetManifestV3 = {
     buildId: number,
     records: Array<PackAssetManifestRecordV3>,
@@ -80,7 +86,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.PackAssetManifestV3;
+
+export namespace V4_N {
   export type PackAssetManifestV4 = {
     buildId: number,
     records: Array<PackAssetManifestRecordV4>,
@@ -120,7 +128,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.PackAssetManifestV4;
+
+export namespace V5_N {
   export type PackAssetManifestV5 = {
     buildId: number,
     records: Array<PackAssetManifestRecordV5>,
@@ -153,7 +163,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.PackAssetManifestV5;
+
+export namespace V6_N {
   export type PackAssetManifest = {
     buildId: number,
     totalRecordSize: BigInt,
@@ -187,3 +199,12 @@ export namespace V6 {
 
 }
 
+export type V6 = V6_N.PackAssetManifest;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6;
+export type V2_U = V2 | V3 | V4 | V5 | V6;
+export type V3_U = V3 | V4 | V5 | V6;
+export type V4_U = V4 | V5 | V6;
+export type V5_U = V5 | V6;
+export type V6_U = V6;

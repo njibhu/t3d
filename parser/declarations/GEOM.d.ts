@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type ModelFileGeometryV0 = {
     meshes: Array<ModelMeshDataV65>
   }
@@ -57,7 +57,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.ModelFileGeometryV0;
+
+export namespace V1_N {
   export type ModelFileGeometryV1 = {
     meshes: Array<ModelMeshDataV66>
   }
@@ -117,3 +119,7 @@ export namespace V1 {
 
 }
 
+export type V1 = V1_N.ModelFileGeometryV1;
+
+export type V0_U = V0 | V1;
+export type V1_U = V1;

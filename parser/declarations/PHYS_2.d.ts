@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type SceneFilePhysicsV0 = {
     shapeData: Array<number>,
     shapes: Array<SceneShapeV0>,
@@ -20,7 +20,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.SceneFilePhysicsV0;
+
+export namespace V1_N {
   export type SceneFilePhysicsV1 = {
     shapeData: Array<number>,
     shapes: Array<SceneShapeV1>,
@@ -47,7 +49,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.SceneFilePhysicsV1;
+
+export namespace V2_N {
   export type SceneFilePhysicsV2 = {
     shapeData: Array<number>,
     shapes: Array<SceneShapeV2>,
@@ -79,7 +83,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.SceneFilePhysicsV2;
+
+export namespace V3_N {
   export type SceneFilePhysicsV3 = {
     shapeData: Array<number>,
     shapes: Array<SceneShapeV3>,
@@ -117,7 +123,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.SceneFilePhysicsV3;
+
+export namespace V4_N {
   export type SceneFilePhysicsV4 = {
     shapeData: Array<number>,
     shapes: Array<SceneShapeV4>,
@@ -150,7 +158,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.SceneFilePhysicsV4;
+
+export namespace V5_N {
   export type SceneFilePhysicsV5 = {
     surfaces: Array<SceneShapeSurfaceV5>,
     boxes: Array<SceneBoxShapeV5>,
@@ -201,7 +211,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.SceneFilePhysicsV5;
+
+export namespace V6_N {
   export type SceneFilePhysicsV6 = {
     surfaces: Array<SceneShapeSurfaceV6>,
     boxes: Array<SceneBoxShapeV6>,
@@ -260,7 +272,9 @@ export namespace V6 {
 
 }
 
-export namespace V7 {
+export type V6 = V6_N.SceneFilePhysicsV6;
+
+export namespace V7_N {
   export type SceneFilePhysicsV7 = {
     boxes: Array<SceneBoxShapeV7>,
     spheres: Array<SceneSphereShapeV7>,
@@ -294,7 +308,9 @@ export namespace V7 {
 
 }
 
-export namespace V8 {
+export type V7 = V7_N.SceneFilePhysicsV7;
+
+export namespace V8_N {
   export type SceneFilePhysicsV8 = {
     boxes: Array<SceneBoxShapeV8>,
     spheres: Array<SceneSphereShapeV8>,
@@ -334,3 +350,14 @@ export namespace V8 {
 
 }
 
+export type V8 = V8_N.SceneFilePhysicsV8;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8;
+export type V4_U = V4 | V5 | V6 | V7 | V8;
+export type V5_U = V5 | V6 | V7 | V8;
+export type V6_U = V6 | V7 | V8;
+export type V7_U = V7 | V8;
+export type V8_U = V8;

@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackAnimMachinesV0 = {
     machines: Array<PackAnimMachineV0>,
     models: Array<PackAnimModelV0>
@@ -60,7 +60,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.PackAnimMachinesV0;
+
+export namespace V1_N {
   export type PackAnimMachinesV1 = {
     machines: Array<PackAnimMachineV1>,
     models: Array<PackAnimModelV1>
@@ -123,3 +125,7 @@ export namespace V1 {
 
 }
 
+export type V1 = V1_N.PackAnimMachinesV1;
+
+export type V0_U = V0 | V1;
+export type V1_U = V1;

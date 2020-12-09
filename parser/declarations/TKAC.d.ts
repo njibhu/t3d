@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type KeyTableData = {
     keyEntryArr: Array<KeyEntry>
   }
@@ -11,3 +11,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.KeyTableData;
+
+export type V0_U = V0;

@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackEulaV0 = {
     Language: Array<PackEulaLanguageV0>,
     Version: number
@@ -11,3 +11,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.PackEulaV0;
+
+export type V0_U = V0;

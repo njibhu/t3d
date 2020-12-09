@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackAnimConfigV0 = {
     aimIKConfigs: Array<PackAnimAimIKConfigV0>,
     chainGroups: Array<PackAnimIKChainGroupV0>
@@ -48,3 +48,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.PackAnimConfigV0;
+
+export type V0_U = V0;

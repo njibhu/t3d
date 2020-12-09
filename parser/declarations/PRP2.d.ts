@@ -1,4 +1,4 @@
-export namespace V3 {
+export namespace V3_N {
   export type PackMapPropV3 = {
     propArray: Array<PackMapPropObjV3>,
     propAnimArray: Array<PackMapPropObjAnimSeqV3>,
@@ -35,7 +35,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.PackMapPropV3;
+
+export namespace V4_N {
   export type PackMapPropV4 = {
     propArray: Array<PackMapPropObjV4>,
     propAnimArray: Array<PackMapPropObjAnimSeqV4>,
@@ -74,7 +76,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.PackMapPropV4;
+
+export namespace V5_N {
   export type PackMapPropV5 = {
     propArray: Array<PackMapPropObjV5>,
     propAnimArray: Array<PackMapPropObjAnimSeqV5>,
@@ -117,7 +121,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.PackMapPropV5;
+
+export namespace V6_N {
   export type PackMapPropV6 = {
     propArray: Array<PackMapPropObjV6>,
     propAnimArray: Array<PackMapPropObjAnimSeqV6>,
@@ -160,7 +166,9 @@ export namespace V6 {
 
 }
 
-export namespace V7 {
+export type V6 = V6_N.PackMapPropV6;
+
+export namespace V7_N {
   export type PackMapPropV7 = {
     propArray: Array<PackMapPropObjV7>,
     propAnimArray: Array<PackMapPropObjAnimSeqV7>,
@@ -205,7 +213,9 @@ export namespace V7 {
 
 }
 
-export namespace V8 {
+export type V7 = V7_N.PackMapPropV7;
+
+export namespace V8_N {
   export type PackMapPropV8 = {
     propArray: Array<PackMapPropObjV8>,
     propAnimArray: Array<PackMapPropObjAnimSeqV8>,
@@ -252,7 +262,9 @@ export namespace V8 {
 
 }
 
-export namespace V9 {
+export type V8 = V8_N.PackMapPropV8;
+
+export namespace V9_N {
   export type PackMapPropV9 = {
     propArray: Array<PackMapPropObjV9>,
     propAnimArray: Array<PackMapPropObjAnimSeqV9>,
@@ -299,7 +311,9 @@ export namespace V9 {
 
 }
 
-export namespace V10 {
+export type V9 = V9_N.PackMapPropV9;
+
+export namespace V10_N {
   export type PackMapPropV10 = {
     propArray: Array<PackMapPropObjV10>,
     propAnimArray: Array<PackMapPropObjAnimSeqV10>,
@@ -346,7 +360,9 @@ export namespace V10 {
 
 }
 
-export namespace V11 {
+export type V10 = V10_N.PackMapPropV10;
+
+export namespace V11_N {
   export type PackMapPropV11 = {
     propArray: Array<PackMapPropObjV11>,
     propAnimArray: Array<PackMapPropObjAnimSeqV11>,
@@ -401,7 +417,9 @@ export namespace V11 {
 
 }
 
-export namespace V12 {
+export type V11 = V11_N.PackMapPropV11;
+
+export namespace V12_N {
   export type PackMapPropV12 = {
     propArray: Array<PackMapPropObjV12>,
     propAnimArray: Array<PackMapPropObjAnimSeqV12>,
@@ -484,7 +502,9 @@ export namespace V12 {
 
 }
 
-export namespace V13 {
+export type V12 = V12_N.PackMapPropV12;
+
+export namespace V13_N {
   export type PackMapPropV13 = {
     propArray: Array<PackMapPropObjV13>,
     propAnimArray: Array<PackMapPropObjAnimSeqV13>,
@@ -569,7 +589,9 @@ export namespace V13 {
 
 }
 
-export namespace V14 {
+export type V13 = V13_N.PackMapPropV13;
+
+export namespace V14_N {
   export type PackMapPropV14 = {
     propArray: Array<PackMapPropObjV14>,
     propAnimArray: Array<PackMapPropObjAnimSeqV14>,
@@ -657,7 +679,9 @@ export namespace V14 {
 
 }
 
-export namespace V15 {
+export type V14 = V14_N.PackMapPropV14;
+
+export namespace V15_N {
   export type PackMapPropV15 = {
     propArray: Array<PackMapPropObjV15>,
     propAnimArray: Array<PackMapPropObjAnimSeqV15>,
@@ -774,7 +798,9 @@ export namespace V15 {
 
 }
 
-export namespace V16 {
+export type V15 = V15_N.PackMapPropV15;
+
+export namespace V16_N {
   export type PackMapPropV16 = {
     propArray: Array<PackMapPropObjV16>,
     propAnimArray: Array<PackMapPropObjAnimSeqV16>,
@@ -895,7 +921,9 @@ export namespace V16 {
 
 }
 
-export namespace V17 {
+export type V16 = V16_N.PackMapPropV16;
+
+export namespace V17_N {
   export type PackMapPropV17 = {
     propArray: Array<PackMapPropObjV17>,
     propAnimArray: Array<PackMapPropObjAnimSeqV17>,
@@ -1016,7 +1044,9 @@ export namespace V17 {
 
 }
 
-export namespace V18 {
+export type V17 = V17_N.PackMapPropV17;
+
+export namespace V18_N {
   export type PackMapPropV18 = {
     propArray: Array<PackMapPropObjV18>,
     propAnimArray: Array<PackMapPropObjAnimSeqV18>,
@@ -1141,7 +1171,9 @@ export namespace V18 {
 
 }
 
-export namespace V19 {
+export type V18 = V18_N.PackMapPropV18;
+
+export namespace V19_N {
   export type PackMapPropV19 = {
     propArray: Array<PackMapPropObjV19>,
     propAnimArray: Array<PackMapPropObjAnimSeqV19>,
@@ -1274,7 +1306,9 @@ export namespace V19 {
 
 }
 
-export namespace V20 {
+export type V19 = V19_N.PackMapPropV19;
+
+export namespace V20_N {
   export type PackMapPropV20 = {
     propArray: Array<PackMapPropObjV20>,
     propAnimArray: Array<PackMapPropObjAnimSeqV20>,
@@ -1409,7 +1443,9 @@ export namespace V20 {
 
 }
 
-export namespace V21 {
+export type V20 = V20_N.PackMapPropV20;
+
+export namespace V21_N {
   export type PackMapPropV21 = {
     propArray: Array<PackMapPropObjV21>,
     propAnimArray: Array<PackMapPropObjAnimSeqV21>,
@@ -1549,3 +1585,24 @@ export namespace V21 {
 
 }
 
+export type V21 = V21_N.PackMapPropV21;
+
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V14_U = V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V15_U = V15 | V16 | V17 | V18 | V19 | V20 | V21;
+export type V16_U = V16 | V17 | V18 | V19 | V20 | V21;
+export type V17_U = V17 | V18 | V19 | V20 | V21;
+export type V18_U = V18 | V19 | V20 | V21;
+export type V19_U = V19 | V20 | V21;
+export type V20_U = V20 | V21;
+export type V21_U = V21;

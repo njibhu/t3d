@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackMapAreasV0 = {
     areas: Array<PackMapAreaV0>,
     portals: Array<PackMapPortalV0>
@@ -19,7 +19,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.PackMapAreasV0;
+
+export namespace V1_N {
   export type PackMapAreasV1 = {
     areas: Array<PackMapAreaV1>
   }
@@ -53,7 +55,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.PackMapAreasV1;
+
+export namespace V2_N {
   export type PackMapAreasV2 = {
     areas: Array<PackMapAreaV2>,
     areaTools: Array<PackMapAreaToolV2>
@@ -93,7 +97,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.PackMapAreasV2;
+
+export namespace V3_N {
   export type PackMapAreasV3 = {
     areas: Array<PackMapAreaV3>,
     areaTools: Array<PackMapAreaToolV3>
@@ -134,7 +140,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.PackMapAreasV3;
+
+export namespace V4_N {
   export type PackMapAreasV4 = {
     areas: Array<PackMapAreaV4>,
     areaTools: Array<PackMapAreaToolV4>
@@ -175,3 +183,10 @@ export namespace V4 {
 
 }
 
+export type V4 = V4_N.PackMapAreasV4;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4;
+export type V1_U = V1 | V2 | V3 | V4;
+export type V2_U = V2 | V3 | V4;
+export type V3_U = V3 | V4;
+export type V4_U = V4;

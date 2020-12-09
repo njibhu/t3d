@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type MapPackage = {
     baseFile: string,
     variants: Array<MapVariant>,
@@ -14,3 +14,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.MapPackage;
+
+export type V0_U = V0;

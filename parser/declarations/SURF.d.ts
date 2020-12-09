@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type MapSurfaces = {
     chunkData: Array<MapSurfaceChunk>,
     typeData: Array<BigInt>
@@ -18,7 +18,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.MapSurfaces;
+
+export namespace V1_N {
   export type MapSurfaces = {
     attributeData: Array<MapSurfaceAttribute>,
     toolData: Array<MapSurfaceAttributeTool>
@@ -38,7 +40,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.MapSurfaces;
+
+export namespace V2_N {
   export type MapSurfaces = {
     attributeData: Array<MapSurfaceAttribute>,
     toolData: Array<MapSurfaceAttributeTool>,
@@ -75,3 +79,8 @@ export namespace V2 {
 
 }
 
+export type V2 = V2_N.MapSurfaces;
+
+export type V0_U = V0 | V1 | V2;
+export type V1_U = V1 | V2;
+export type V2_U = V2;

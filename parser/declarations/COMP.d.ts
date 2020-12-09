@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type PackCompositeV0 = {
     blitRects: Array<PackCompositeBlitRectSetV0>,
     raceSexData: Array<PackCompositeRaceDataV0>
@@ -74,7 +74,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.PackCompositeV0;
+
+export namespace V1_N {
   export type PackCompositeV1 = {
     blitRects: Array<PackCompositeBlitRectSetV1>,
     raceSexData: Array<PackCompositeRaceDataV1>
@@ -154,7 +156,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.PackCompositeV1;
+
+export namespace V2_N {
   export type PackCompositeV2 = {
     blitRects: Array<PackCompositeBlitRectSetV2>,
     raceSexData: Array<PackCompositeRaceDataV2>
@@ -233,7 +237,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.PackCompositeV2;
+
+export namespace V3_N {
   export type PackCompositeV3 = {
     blitRects: Array<PackCompositeBlitRectSetV3>,
     raceSexData: Array<PackCompositeRaceDataV3>
@@ -313,7 +319,9 @@ export namespace V3 {
 
 }
 
-export namespace V4 {
+export type V3 = V3_N.PackCompositeV3;
+
+export namespace V4_N {
   export type PackCompositeV4 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV4>,
@@ -395,7 +403,9 @@ export namespace V4 {
 
 }
 
-export namespace V5 {
+export type V4 = V4_N.PackCompositeV4;
+
+export namespace V5_N {
   export type PackCompositeV5 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV5>,
@@ -480,7 +490,9 @@ export namespace V5 {
 
 }
 
-export namespace V6 {
+export type V5 = V5_N.PackCompositeV5;
+
+export namespace V6_N {
   export type PackCompositeV6 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV6>,
@@ -566,7 +578,9 @@ export namespace V6 {
 
 }
 
-export namespace V7 {
+export type V6 = V6_N.PackCompositeV6;
+
+export namespace V7_N {
   export type PackCompositeV7 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV7>,
@@ -653,7 +667,9 @@ export namespace V7 {
 
 }
 
-export namespace V8 {
+export type V7 = V7_N.PackCompositeV7;
+
+export namespace V8_N {
   export type PackCompositeV8 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV8>,
@@ -741,7 +757,9 @@ export namespace V8 {
 
 }
 
-export namespace V9 {
+export type V8 = V8_N.PackCompositeV8;
+
+export namespace V9_N {
   export type PackCompositeV9 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV9>,
@@ -830,7 +848,9 @@ export namespace V9 {
 
 }
 
-export namespace V10 {
+export type V9 = V9_N.PackCompositeV9;
+
+export namespace V10_N {
   export type PackCompositeV10 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV10>,
@@ -920,7 +940,9 @@ export namespace V10 {
 
 }
 
-export namespace V11 {
+export type V10 = V10_N.PackCompositeV10;
+
+export namespace V11_N {
   export type PackCompositeV11 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV11>,
@@ -1031,7 +1053,9 @@ export namespace V11 {
 
 }
 
-export namespace V12 {
+export type V11 = V11_N.PackCompositeV11;
+
+export namespace V12_N {
   export type PackCompositeV12 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV12>,
@@ -1157,7 +1181,9 @@ export namespace V12 {
 
 }
 
-export namespace V13 {
+export type V12 = V12_N.PackCompositeV12;
+
+export namespace V13_N {
   export type PackCompositeV13 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV13>,
@@ -1284,7 +1310,9 @@ export namespace V13 {
 
 }
 
-export namespace V14 {
+export type V13 = V13_N.PackCompositeV13;
+
+export namespace V14_N {
   export type PackCompositeV14 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV14>,
@@ -1413,7 +1441,9 @@ export namespace V14 {
 
 }
 
-export namespace V15 {
+export type V14 = V14_N.PackCompositeV14;
+
+export namespace V15_N {
   export type PackCompositeV15 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV15>,
@@ -1548,7 +1578,9 @@ export namespace V15 {
 
 }
 
-export namespace V16 {
+export type V15 = V15_N.PackCompositeV15;
+
+export namespace V16_N {
   export type PackCompositeV16 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV16>,
@@ -1683,7 +1715,9 @@ export namespace V16 {
 
 }
 
-export namespace V17 {
+export type V16 = V16_N.PackCompositeV16;
+
+export namespace V17_N {
   export type PackCompositeV17 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV17>,
@@ -1825,7 +1859,9 @@ export namespace V17 {
 
 }
 
-export namespace V18 {
+export type V17 = V17_N.PackCompositeV17;
+
+export namespace V18_N {
   export type PackCompositeV18 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV18>,
@@ -1968,7 +2004,9 @@ export namespace V18 {
 
 }
 
-export namespace V19 {
+export type V18 = V18_N.PackCompositeV18;
+
+export namespace V19_N {
   export type PackCompositeV19 = {
     armorColorIds: Array<number>,
     blitRects: Array<PackCompositeBlitRectSetV19>,
@@ -2112,3 +2150,25 @@ export namespace V19 {
 
 }
 
+export type V19 = V19_N.PackCompositeV19;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V14_U = V14 | V15 | V16 | V17 | V18 | V19;
+export type V15_U = V15 | V16 | V17 | V18 | V19;
+export type V16_U = V16 | V17 | V18 | V19;
+export type V17_U = V17 | V18 | V19;
+export type V18_U = V18 | V19;
+export type V19_U = V19;

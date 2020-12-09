@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type SceneFileSkeletonV0 = {
     bones: Array<SceneBoneV0>,
     joints: Array<SceneJointV0>,
@@ -34,7 +34,9 @@ export namespace V0 {
 
 }
 
-export namespace V1 {
+export type V0 = V0_N.SceneFileSkeletonV0;
+
+export namespace V1_N {
   export type SceneFileSkeletonV1 = {
     bones: Array<SceneBoneV1>,
     joints: Array<SceneJointV1>,
@@ -80,7 +82,9 @@ export namespace V1 {
 
 }
 
-export namespace V2 {
+export type V1 = V1_N.SceneFileSkeletonV1;
+
+export namespace V2_N {
   export type SceneFileSkeletonV2 = {
     bones: Array<SceneBoneV2>,
     joints: Array<SceneJointV2>,
@@ -118,7 +122,9 @@ export namespace V2 {
 
 }
 
-export namespace V3 {
+export type V2 = V2_N.SceneFileSkeletonV2;
+
+export namespace V3_N {
   export type SceneFileSkeletonV3 = {
     bones: Array<SceneBoneV3>,
     joints: Array<SceneJointV3>,
@@ -157,3 +163,9 @@ export namespace V3 {
 
 }
 
+export type V3 = V3_N.SceneFileSkeletonV3;
+
+export type V0_U = V0 | V1 | V2 | V3;
+export type V1_U = V1 | V2 | V3;
+export type V2_U = V2 | V3;
+export type V3_U = V3;

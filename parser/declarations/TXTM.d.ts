@@ -1,4 +1,4 @@
-export namespace V0 {
+export namespace V0_N {
   export type TextPackManifest = {
     stringsPerFile: number,
     languages: Array<TextPackLanguage>
@@ -10,3 +10,6 @@ export namespace V0 {
 
 }
 
+export type V0 = V0_N.TextPackManifest;
+
+export type V0_U = V0;
