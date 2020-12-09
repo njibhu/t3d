@@ -16,6 +16,7 @@ interface DefinitionModule {
     [struct: string]: FieldsDefinition;
   };
   root: FieldsDefinition;
+  version: string;
 }
 
 async function run() {
@@ -35,7 +36,7 @@ async function run() {
     const module: DefinitionModule[] = require(modulePath).definitionArray;
     let declarations: any = {};
     for (const version of module) {
-      declarations = { ...declarations, ...parseVersion(version) };
+      declarations[version.version] = parseVersion(version);
     }
 
     await fs.writeFile(
@@ -72,10 +73,13 @@ function definitionToDeclaration(definition: FieldsDefinition): FieldsDeclaratio
 
 function toDeclarationFile(data: any) {
   let fileContent = "";
-  for (const [type, value] of Object.entries(data)) {
-    fileContent += `
-
-export type ${type} = ${JSON.stringify(value, null, 2).replace(/"/g, "")}`;
+  for (const [version, definitions] of Object.entries(data)) {
+    fileContent += `export namespace V${version} {\n`;
+    for (const [type, value] of Object.entries(definitions as any)) {
+      fileContent += `  export type ${type} = ${JSON.stringify(value, null, 4).replace(/"/g, "")}\n\n`;
+      fileContent = fileContent.slice(0, -3) + "  }\n\n";
+    }
+    fileContent += "}\n\n";
   }
 
   return fileContent;
