@@ -1,4 +1,4 @@
-import { Uint32, String16, DynArray } from "../src/types";
+import { Uint32, RefString16, DynArray } from "../src/types";
 
 export const V0 = {
   chunkName: "ARMF",
@@ -28,7 +28,7 @@ export const V1 = {
       fileId: Uint32,
       size: Uint32,
       flags: Uint32,
-      name: String16()
+      name: RefString16()
     },
     PackAssetExtraFile: {
       baseId: Uint32,

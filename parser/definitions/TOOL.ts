@@ -1,4 +1,4 @@
-import { String16, Uint32, Uint8, DynArray, FixedArray, Float32, CString } from "../src/types";
+import { RefString16, Uint32, Uint8, DynArray, FixedArray, Float32, RefString } from "../src/types";
 
 export const V0 = {
   chunkName: "TOOL",
@@ -7,24 +7,24 @@ export const V0 = {
   definitions: {
     AmatToolConstantV0: {
       token: Uint32,
-      displayName: String16(),
+      displayName: RefString16(),
       defaultValue: FixedArray(Float32, 4),
       flags: Uint32,
       minValue: FixedArray(Float32, 4),
       maxValue: FixedArray(Float32, 4)
     },
     AmatToolTextureV0: {
-      texName: String16(),
-      texDefaultFile: String16(),
+      texName: RefString16(),
+      texDefaultFile: RefString16(),
       flags: Uint32,
       texGen: DynArray(Uint32),
       texTransform: DynArray(Uint32)
     }
   },
   root: {
-    description: String16(),
+    description: RefString16(),
     flags: Uint32,
-    text: CString(),
+    text: RefString(),
     texCoordCount: Uint8,
     texTransformCount: Uint8,
     constants: DynArray("AmatToolConstantV0"),
@@ -39,24 +39,24 @@ export const V1 = {
   definitions: {
     AmatToolConstantV1: {
       token: Uint32,
-      displayName: String16(),
+      displayName: RefString16(),
       defaultValue: FixedArray(Float32, 4),
       flags: Uint32,
       minValue: FixedArray(Float32, 4),
       maxValue: FixedArray(Float32, 4)
     },
     AmatToolTextureV1: {
-      texName: String16(),
-      texDefaultFile: String16(),
+      texName: RefString16(),
+      texDefaultFile: RefString16(),
       flags: Uint32,
       texGen: DynArray(Uint32),
       texTransform: DynArray(Uint32)
     }
   },
   root: {
-    description: String16(),
+    description: RefString16(),
     flags: Uint32,
-    text: CString(),
+    text: RefString(),
     texCoordCount: Uint8,
     texTransformCount: Uint8,
     constants: DynArray("AmatToolConstantV1"),
@@ -71,24 +71,24 @@ export const V2 = {
   definitions: {
     AmatToolConstant: {
       token: Uint32,
-      displayName: String16(),
+      displayName: RefString16(),
       defaultValue: FixedArray(Float32, 4),
       flags: Uint32,
       minValue: FixedArray(Float32, 4),
       maxValue: FixedArray(Float32, 4)
     },
     AmatToolTexture: {
-      texName: String16(),
-      texDefaultFile: String16(),
+      texName: RefString16(),
+      texDefaultFile: RefString16(),
       flags: Uint32,
       texGen: DynArray(Uint32),
       texTransform: DynArray(Uint32)
     }
   },
   root: {
-    description: String16(),
+    description: RefString16(),
     flags: Uint32,
-    text: CString(),
+    text: RefString(),
     texCoordCount: Uint8,
     texTransformCount: Uint8,
     constants: DynArray("AmatToolConstant"),
@@ -103,21 +103,21 @@ export const V3 = {
   definitions: {
     AmatToolConstant: {
       token: Uint32,
-      displayName: String16(),
+      displayName: RefString16(),
       defaultValue: FixedArray(Float32, 4),
       flags: Uint32,
       minValue: FixedArray(Float32, 4),
       maxValue: FixedArray(Float32, 4)
     },
     AmatToolTexture: {
-      texName: String16(),
-      texDefaultFile: String16(),
+      texName: RefString16(),
+      texDefaultFile: RefString16(),
       flags: Uint32,
       texGen: DynArray(Uint32)
     }
   },
   root: {
-    description: String16(),
+    description: RefString16(),
     flags: Uint32,
     texCoordCount: Uint8,
     texTransformCount: Uint8,

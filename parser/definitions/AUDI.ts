@@ -1,4 +1,4 @@
-import { Filename, Uint32, Float32, FixedArray, DynArray, Uint64, String16 } from "../src/types";
+import { Filename, Uint32, Float32, FixedArray, DynArray, Uint64, RefString16 } from "../src/types";
 
 export const V0 = {
   chunkName: "audi",
@@ -225,7 +225,7 @@ export const V7 = {
       flags: Uint32
     },
     PackMapAudioRegionTool: {
-      annotation: String16()
+      annotation: RefString16()
     }
   },
   root: {
@@ -263,7 +263,7 @@ export const V8 = {
       flags: Uint32
     },
     PackMapAudioRegionTool: {
-      annotation: String16()
+      annotation: RefString16()
     },
     PackMapAudioDep: {
       dependency: Filename(),

@@ -36,7 +36,7 @@ const chunkMapping: { [key: string]: string } = {
   PackMapShadowV0: "SHAD",
   PackMapShadowExtV1: "SHEX",
   MapShore: "SHOR",
-  MapSurfaces: "SURF1",
+  MapSurfaces: "SURF",
   PackMapZonesV12: "ZON2",
   MapTerrainImg: "TRNI",
   PackMapWaterV0: "WATR",
@@ -76,6 +76,13 @@ const chunkMapping: { [key: string]: string } = {
   PackEmoteAnimationsV0: "ANIM_3",
   PackEulaV0: "EULA",
   ContentPortalManifestV0: "MFST_2",
+  PackMapEnvironmentV29: "ENV",
+  MapMission: "MSN",
+  MapObstacles: "OBS",
+  MapOcclusions: "OCC",
+  MapLegacy: "SND",
+  PackMapTerrainV10: "TRN",
+  MapExpansionProperties: "EXP",
 };
 
 // Check for duplicate chunks

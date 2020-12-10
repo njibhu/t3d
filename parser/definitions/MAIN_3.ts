@@ -1,4 +1,4 @@
-import { String16, Fileref, Float32, DynArray } from "../src/types";
+import { RefString16, Fileref, Float32, DynArray } from "../src/types";
 
 export const V0 = {
   chunkName: "main",
@@ -22,7 +22,7 @@ export const V1 = {
   version: 1,
   definitions: {
     CollideModelManifestFile: {
-      modelFileStr: String16(),
+      modelFileStr: RefString16(),
       modelFile: Fileref(),
       collisionFile: Fileref(),
       scales: DynArray(Float32)

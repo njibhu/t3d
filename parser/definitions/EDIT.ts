@@ -1,4 +1,4 @@
-import { Uint8, DynArray, String16, Uint32, Uint64, FixedArray, Float32 } from "../src/types";
+import { Uint8, DynArray, RefString16, Uint32, Uint64, FixedArray, Float32 } from "../src/types";
 
 export const V3 = {
   chunkName: "edit",
@@ -18,7 +18,7 @@ export const V3 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2))
     },
@@ -26,7 +26,7 @@ export const V3 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     }
   },
   root: {
@@ -57,7 +57,7 @@ export const V4 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2))
     },
@@ -65,7 +65,7 @@ export const V4 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     }
   },
   root: {
@@ -96,7 +96,7 @@ export const V5 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2))
     },
@@ -108,7 +108,7 @@ export const V5 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     }
   },
   root: {
@@ -140,7 +140,7 @@ export const V6 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2))
     },
@@ -152,7 +152,7 @@ export const V6 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     }
   },
   root: {
@@ -179,7 +179,7 @@ export const V7 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -192,7 +192,7 @@ export const V7 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     }
   },
   root: {
@@ -212,13 +212,13 @@ export const V8 = {
     MapEditLayers: {
       layerPropCount: FixedArray(Uint32, 31),
       layerStates: FixedArray(Uint8, 31),
-      layerNames: FixedArray(String16(), 31)
+      layerNames: FixedArray(RefString16(), 31)
     },
     PackMapEditAnnotations: {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -231,7 +231,7 @@ export const V8 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     }
   },
   root: {
@@ -251,13 +251,13 @@ export const V9 = {
     MapEditLayers: {
       layerPropCount: FixedArray(Uint32, 31),
       layerStates: FixedArray(Uint8, 31),
-      layerNames: FixedArray(String16(), 31)
+      layerNames: FixedArray(RefString16(), 31)
     },
     PackMapEditAnnotations: {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -270,7 +270,7 @@ export const V9 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     }
   },
   root: {
@@ -279,7 +279,7 @@ export const V9 = {
     dirtyChunks: DynArray("PackMapEditDirtyChunks"),
     camLocations: DynArray("MapEditCamLocations"),
     floodPoints: DynArray("PackMapEditDirtyChunks"),
-    mapHome: String16(),
+    mapHome: RefString16(),
     homeSave: Uint8
   }
 };
@@ -292,13 +292,13 @@ export const V10 = {
     MapEditLayers: {
       layerPropCount: FixedArray(Uint32, 31),
       layerStates: FixedArray(Uint8, 31),
-      layerNames: FixedArray(String16(), 31)
+      layerNames: FixedArray(RefString16(), 31)
     },
     PackMapEditAnnotations: {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -311,7 +311,7 @@ export const V10 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     }
   },
   root: {
@@ -320,9 +320,9 @@ export const V10 = {
     dirtyChunks: DynArray("PackMapEditDirtyChunks"),
     camLocations: DynArray("MapEditCamLocations"),
     floodPoints: DynArray("PackMapEditDirtyChunks"),
-    mapHome: String16(),
+    mapHome: RefString16(),
     homeSave: Uint8,
-    reserved: String16()
+    reserved: RefString16()
   }
 };
 
@@ -333,7 +333,7 @@ export const V11 = {
   definitions: {
     MapEditLayers: {
       layerStates: FixedArray(Uint8, 31),
-      layerNames: FixedArray(String16(), 31),
+      layerNames: FixedArray(RefString16(), 31),
       items: DynArray("MapEditLayerItem")
     },
     MapEditLayerItem: {
@@ -345,7 +345,7 @@ export const V11 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -358,7 +358,7 @@ export const V11 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     },
     MapEditSnapPoint: {
       guid: Uint64,
@@ -376,9 +376,9 @@ export const V11 = {
     camLocations: DynArray("MapEditCamLocations"),
     floodPoints: DynArray("PackMapEditDirtyChunks"),
     snapPoints: DynArray("MapEditSnapPoint"),
-    mapHome: String16(),
+    mapHome: RefString16(),
     homeSave: Uint8,
-    reserved: String16()
+    reserved: RefString16()
   }
 };
 
@@ -389,7 +389,7 @@ export const V12 = {
   definitions: {
     MapEditLayers: {
       layerStates: FixedArray(Uint8, 31),
-      layerNames: FixedArray(String16(), 31),
+      layerNames: FixedArray(RefString16(), 31),
       items: DynArray("MapEditLayerItem")
     },
     MapEditLayerItem: {
@@ -401,7 +401,7 @@ export const V12 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -414,7 +414,7 @@ export const V12 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     },
     MapEditSnapPoint: {
       guid: Uint64,
@@ -432,9 +432,9 @@ export const V12 = {
     camLocations: DynArray("MapEditCamLocations"),
     floodPoints: DynArray("PackMapEditDirtyChunks"),
     snapPoints: DynArray("MapEditSnapPoint"),
-    mapHome: String16(),
+    mapHome: RefString16(),
     homeSave: Uint8,
-    reserved: String16()
+    reserved: RefString16()
   }
 };
 
@@ -445,7 +445,7 @@ export const V13 = {
   definitions: {
     MapEditLayers: {
       layerStates: DynArray(Uint8),
-      layerNames: DynArray(String16()),
+      layerNames: DynArray(RefString16()),
       layerIds: DynArray(Uint32),
       items: DynArray("MapEditLayerItem")
     },
@@ -458,7 +458,7 @@ export const V13 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -471,7 +471,7 @@ export const V13 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     },
     MapEditSnapPoint: {
       guid: Uint64,
@@ -489,9 +489,9 @@ export const V13 = {
     camLocations: DynArray("MapEditCamLocations"),
     floodPoints: DynArray("PackMapEditDirtyChunks"),
     snapPoints: DynArray("MapEditSnapPoint"),
-    mapHome: String16(),
+    mapHome: RefString16(),
     homeSave: Uint8,
-    reserved: String16()
+    reserved: RefString16()
   }
 };
 
@@ -502,7 +502,7 @@ export const V14 = {
   definitions: {
     MapEditLayers: {
       layerStates: DynArray(Uint8),
-      layerNames: DynArray(String16()),
+      layerNames: DynArray(RefString16()),
       layerIds: DynArray(Uint32),
       items: DynArray("MapEditLayerItem")
     },
@@ -515,7 +515,7 @@ export const V14 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -528,7 +528,7 @@ export const V14 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     },
     PackMapEditNavMeshData: {
       floodPoints: DynArray("PackMapEditDirtyChunks"),
@@ -536,13 +536,13 @@ export const V14 = {
       surfaceRoads: DynArray("PackMapEditSurfaceRoad")
     },
     PackMapEditSurfacePoly: {
-      name: String16(),
+      name: RefString16(),
       surfaceType: Uint32,
       vertices: DynArray(FixedArray(Float32, 2)),
       range: FixedArray(Float32, 2)
     },
     PackMapEditSurfaceRoad: {
-      name: String16(),
+      name: RefString16(),
       surfaceType: Uint32,
       nodes: DynArray("PackMapEditSurfaceRoadNode")
     },
@@ -566,9 +566,9 @@ export const V14 = {
     camLocations: DynArray("MapEditCamLocations"),
     navMeshData: "PackMapEditNavMeshData",
     snapPoints: DynArray("MapEditSnapPoint"),
-    mapHome: String16(),
+    mapHome: RefString16(),
     homeSave: Uint8,
-    reserved: String16()
+    reserved: RefString16()
   }
 };
 
@@ -579,7 +579,7 @@ export const V15 = {
   definitions: {
     MapEditLayers: {
       layerStates: DynArray(Uint8),
-      layerNames: DynArray(String16()),
+      layerNames: DynArray(RefString16()),
       layerIds: DynArray(Uint32),
       items: DynArray("MapEditLayerItem")
     },
@@ -592,7 +592,7 @@ export const V15 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -605,7 +605,7 @@ export const V15 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     },
     PackMapEditNavMeshData: {
       floodPoints: DynArray("PackMapEditDirtyChunks"),
@@ -613,13 +613,13 @@ export const V15 = {
       surfaceRoads: DynArray("PackMapEditSurfaceRoad")
     },
     PackMapEditSurfacePoly: {
-      name: String16(),
+      name: RefString16(),
       surfaceType: Uint32,
       vertices: DynArray(FixedArray(Float32, 2)),
       range: FixedArray(Float32, 2)
     },
     PackMapEditSurfaceRoad: {
-      name: String16(),
+      name: RefString16(),
       surfaceType: Uint32,
       nodes: DynArray("PackMapEditSurfaceRoadNode")
     },
@@ -636,7 +636,7 @@ export const V15 = {
       scale: Float32
     },
     MapEditMeasureSpan: {
-      name: String16(),
+      name: RefString16(),
       substrateId0: Uint64,
       substrateId1: Uint64,
       substrateModuleId0: Uint32,
@@ -654,9 +654,9 @@ export const V15 = {
     navMeshData: "PackMapEditNavMeshData",
     snapPoints: DynArray("MapEditSnapPoint"),
     measureSpans: DynArray("MapEditMeasureSpan"),
-    mapHome: String16(),
+    mapHome: RefString16(),
     homeSave: Uint8,
-    reserved: String16()
+    reserved: RefString16()
   }
 };
 
@@ -667,7 +667,7 @@ export const V16 = {
   definitions: {
     MapEditLayers: {
       layerStates: DynArray(Uint8),
-      layerNames: DynArray(String16()),
+      layerNames: DynArray(RefString16()),
       layerIds: DynArray(Uint32),
       items: DynArray("MapEditLayerItem")
     },
@@ -680,7 +680,7 @@ export const V16 = {
       annotations: DynArray("PackMapEditAnnotation")
     },
     PackMapEditAnnotation: {
-      name: String16(),
+      name: RefString16(),
       flags: Uint32,
       anchors: DynArray(FixedArray(Float32, 2)),
       zRange: FixedArray(Float32, 2)
@@ -693,7 +693,7 @@ export const V16 = {
       attack: Float32,
       rotation: Float32,
       position: FixedArray(Float32, 3),
-      name: String16()
+      name: RefString16()
     },
     PackMapEditNavMeshData: {
       floodPoints: DynArray("PackMapEditDirtyChunks"),
@@ -702,13 +702,13 @@ export const V16 = {
       propModesForGeneration: DynArray("PackMapEditNavmeshGenPropMode")
     },
     PackMapEditSurfacePoly: {
-      name: String16(),
+      name: RefString16(),
       surfaceType: Uint32,
       vertices: DynArray(FixedArray(Float32, 2)),
       range: FixedArray(Float32, 2)
     },
     PackMapEditSurfaceRoad: {
-      name: String16(),
+      name: RefString16(),
       surfaceType: Uint32,
       nodes: DynArray("PackMapEditSurfaceRoadNode")
     },
@@ -730,7 +730,7 @@ export const V16 = {
       scale: Float32
     },
     MapEditMeasureSpan: {
-      name: String16(),
+      name: RefString16(),
       substrateId0: Uint64,
       substrateId1: Uint64,
       substrateModuleId0: Uint32,
@@ -748,9 +748,9 @@ export const V16 = {
     navMeshData: "PackMapEditNavMeshData",
     snapPoints: DynArray("MapEditSnapPoint"),
     measureSpans: DynArray("MapEditMeasureSpan"),
-    mapHome: String16(),
+    mapHome: RefString16(),
     homeSave: Uint8,
-    reserved: String16()
+    reserved: RefString16()
   }
 };
 

@@ -1,4 +1,4 @@
-import { Uint32, Uint8, DynArray, String16, Fileref } from "../src/types";
+import { Uint32, Uint8, DynArray, RefString16, Fileref } from "../src/types";
 
 export const V0 = {
   chunkName: "Main",
@@ -13,7 +13,7 @@ export const V0 = {
       trackReferences: Uint8
     },
     PackContentNamespace: {
-      name: String16(),
+      name: RefString16(),
       domain: Uint32,
       parentIndex: Uint32
     },
@@ -53,7 +53,7 @@ export const V0 = {
     fileIndices: DynArray("PackContentFileIndexFixup"),
     stringIndices: DynArray("PackContentStringIndexFixup"),
     trackedReferences: DynArray("PackContentTrackedReference"),
-    strings: DynArray(String16()),
+    strings: DynArray(RefString16()),
     content: DynArray(Uint8)
   }
 };

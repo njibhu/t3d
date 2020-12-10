@@ -1,4 +1,4 @@
-import { String16, Uint32, Uint8, DynArray } from "../src/types";
+import { RefString16, Uint32, Uint8, DynArray } from "../src/types";
 
 export const V0 = {
   chunkName: "GR2S",
@@ -20,7 +20,7 @@ export const V1 = {
   version: 1,
   definitions: {
     ModelGr2DataV1: {
-      filename: String16(),
+      filename: RefString16(),
       flags: Uint32,
       data: DynArray(Uint8)
     }
@@ -36,7 +36,7 @@ export const V2 = {
   version: 2,
   definitions: {
     ModelGr2DataV2: {
-      filename: String16(),
+      filename: RefString16(),
       flags: Uint32,
       data: DynArray(Uint8)
     }
@@ -52,7 +52,7 @@ export const V3 = {
   version: 3,
   definitions: {
     ModelGr2DataV3: {
-      filename: String16(),
+      filename: RefString16(),
       flags: Uint32,
       data: DynArray(Uint8)
     }
@@ -68,7 +68,7 @@ export const V4 = {
   version: 4,
   definitions: {
     ModelGr2DataV4: {
-      filename: String16(),
+      filename: RefString16(),
       flags: Uint32,
       data: DynArray(Uint8)
     }

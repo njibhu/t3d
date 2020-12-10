@@ -5,12 +5,13 @@ export enum BaseType {
   Uint16 = "Uint16",
   Uint32 = "Uint32",
   Uint64 = "Uint64",
+  RefString = "RefString",
   CString = "CString",
   FixedArray = "FixedArray",
   DynArray = "DynArray",
   RefArray = "RefArray",
   Pointer = "Pointer",
-  String16 = "String16",
+  RefString16 = "RefString16",
   Filename = "Filename",
   Fileref = "Fileref",
   Unknown = "Unknown",
@@ -61,6 +62,13 @@ export function CString(length?: number): DataType {
   };
 }
 
+export function RefString(): DataType {
+  return {
+    baseType: BaseType.RefString,
+    declarationType: "string",
+  };
+}
+
 export function FixedArray(subType: DataType | string, length: number): DataType {
   return {
     baseType: BaseType.FixedArray,
@@ -94,9 +102,9 @@ export function Pointer(subType: DataType | string): DataType {
   };
 }
 
-export function String16(): DataType {
+export function RefString16(): DataType {
   return {
-    baseType: BaseType.String16,
+    baseType: BaseType.RefString16,
     declarationType: "string",
   };
 }

@@ -98,6 +98,10 @@ export class StructTabParser {
           if (match) {
             this.typesSet.add(match[0]);
           }
+          const deepMatch = /\(([a-zA-Z0-9]*)/.exec(memberDefinition?.name || "");
+          if (deepMatch && deepMatch[1] !== "") {
+            this.typesSet.add(deepMatch[1]);
+          }
         }
       }
     }

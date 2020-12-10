@@ -3,6 +3,7 @@ import { R2Pipe } from "r2pipe-promise";
 import { RDataParser } from "../lib/rdata-parsing";
 import { StructTabParser } from "../lib/struct-parsing";
 import { getNameForChunk } from "../lib/chunk-mapping";
+import { generateIndex } from "../lib/exports-list";
 import { writeFileSync } from "fs";
 
 async function run() {
@@ -60,6 +61,8 @@ ${currentChunk
 export const latest = V${currentChunk.slice(-1)[0].version};
 export const definitionArray = [${currentChunk.map((c) => `V${c.version}`).join(", ")}];`
       );
+
+      await generateIndex(destinationFolder);
     }
   }
 

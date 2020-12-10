@@ -5,6 +5,7 @@
 
 import { promises as fs } from "fs";
 import * as path from "path";
+import { generateIndex } from "../lib/exports-list";
 
 type FieldsDefinition = { [key: string]: any };
 type FieldsDeclaration = { [key: string]: string };
@@ -15,6 +16,7 @@ interface DefinitionModule {
     [struct: string]: FieldsDefinition;
   };
   root: FieldsDefinition;
+  version: string;
 }
 
 async function run() {
@@ -24,21 +26,26 @@ async function run() {
 
   const declarationList = await fs.readdir(definitionPath);
   for (const definitionModule of declarationList) {
+    if (definitionModule === "index.ts") {
+      continue;
+    }
     console.log(definitionModule);
     const modulePath = path.resolve(definitionPath, definitionModule);
     if (!modulePath.endsWith(".ts")) throw new Error(`${modulePath} is not a typescript file`);
 
     const module: DefinitionModule[] = require(modulePath).definitionArray;
-    let declarations: any = {};
+    let declarations: any[] = [];
     for (const version of module) {
-      declarations = { ...declarations, ...parseVersion(version) };
+      declarations.push({ version: version.version, definitions: parseVersion(version), root: version.name });
     }
 
-    await fs.writeFile(
-      path.resolve(destinationFolder, definitionModule.replace(".ts", ".d.ts")),
-      toDeclarationFile(declarations)
-    );
+    let declarationContent = toDeclarationFile(declarations);
+    declarationContent += genVersionUnions(module);
+
+    await fs.writeFile(path.resolve(destinationFolder, definitionModule.replace(".ts", ".d.ts")), declarationContent);
   }
+
+  await generateIndex(destinationFolder, ".d.ts");
 }
 
 function parseVersion(version: DefinitionModule): { [type: string]: FieldsDeclaration } {
@@ -64,12 +71,29 @@ function definitionToDeclaration(definition: FieldsDefinition): FieldsDeclaratio
   return declaration;
 }
 
+function genVersionUnions(versions: any[]): string {
+  let content = "";
+  for (const version of versions) {
+    const index = versions.indexOf(version);
+    content += `export type V${version.version}_U = ${versions
+      .slice(index)
+      .map((i) => `V${i.version}`)
+      .join(" | ")};\n`;
+  }
+
+  return content;
+}
+
 function toDeclarationFile(data: any) {
   let fileContent = "";
-  for (const [type, value] of Object.entries(data)) {
-    fileContent += `
-
-export type ${type} = ${JSON.stringify(value, null, 2).replace(/"/g, "")}`;
+  for (const { version, definitions, root } of data) {
+    fileContent += `export namespace V${version}_N {\n`;
+    for (const [type, value] of Object.entries(definitions as any)) {
+      fileContent += `  export type ${type} = ${JSON.stringify(value, null, 4).replace(/"/g, "")}\n\n`;
+      fileContent = fileContent.slice(0, -3) + "  }\n\n";
+    }
+    fileContent += "}\n\n";
+    fileContent += `export type V${version} = V${version}_N.${root};\n\n`;
   }
 
   return fileContent;

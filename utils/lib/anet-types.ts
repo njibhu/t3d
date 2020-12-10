@@ -88,9 +88,9 @@ export const anetTypes: {
   // 0x11
   [AType.QWord]: () => "Uint64",
   // 0x12
-  [AType.WCharPtr]: () => "String16()",
+  [AType.WCharPtr]: () => "RefString16()",
   // 0x13
-  [AType.CharPtr]: () => "CString()",
+  [AType.CharPtr]: () => "RefString()",
   // 0x14
   [AType.CustomType]: (customSubType, subTypeName): string => (customSubType ? `'${subTypeName}'` : `${subTypeName}`),
   // 0x15
@@ -109,8 +109,7 @@ export const anetTypes: {
   [AType.Fileref]: () => "Fileref()",
   // 0x1C
   [AType.Unknown28]: () => {
-    console.log("Found Unknown28, this chunk might break the parser");
-    return "Unknown";
+    return "Uint32";
   },
   // 0x1D
   [AType.CustomType2]: (customSubType, subTypeName): string => (customSubType ? `'${subTypeName}'` : `${subTypeName}`),

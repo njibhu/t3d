@@ -1,4 +1,4 @@
-import { Uint64, Filename, String16, Float32, Uint32, Uint8, DynArray, FixedArray, Pointer, Fileref } from "../src/types";
+import { Uint64, Filename, RefString16, Float32, Uint32, Uint8, DynArray, FixedArray, Pointer, Fileref } from "../src/types";
 
 export const V0 = {
   chunkName: "CSCN",
@@ -7,8 +7,8 @@ export const V0 = {
   definitions: {
     SequenceDataV0: {
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       name: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV0")
@@ -75,7 +75,7 @@ export const V0 = {
       textEntry: DynArray("TextEntryDataV0")
     },
     TextEntryDataV0: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -92,8 +92,8 @@ export const V1 = {
   definitions: {
     SequenceDataV1: {
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       name: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV1")
@@ -165,7 +165,7 @@ export const V1 = {
       textEntry: DynArray("TextEntryDataV1")
     },
     TextEntryDataV1: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -182,8 +182,8 @@ export const V2 = {
   definitions: {
     SequenceDataV2: {
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       name: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV2")
@@ -255,7 +255,7 @@ export const V2 = {
       textEntry: DynArray("TextEntryDataV2")
     },
     TextEntryDataV2: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -273,8 +273,8 @@ export const V3 = {
   definitions: {
     SequenceDataV3: {
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       name: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV3")
@@ -346,7 +346,7 @@ export const V3 = {
       textEntry: DynArray("TextEntryDataV3")
     },
     TextEntryDataV3: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -364,8 +364,8 @@ export const V4 = {
   definitions: {
     SequenceDataV4: {
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       name: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV4")
@@ -438,7 +438,7 @@ export const V4 = {
       textEntry: DynArray("TextEntryDataV4")
     },
     TextEntryDataV4: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -456,8 +456,8 @@ export const V5 = {
   definitions: {
     SequenceDataV5: {
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       name: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV5")
@@ -530,7 +530,7 @@ export const V5 = {
       textEntry: DynArray("TextEntryDataV5")
     },
     TextEntryDataV5: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -550,8 +550,8 @@ export const V6 = {
       name: Uint64,
       length: Float32,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       trackGroup: DynArray("TrackGroupDataV6")
     },
     TrackGroupDataV6: {
@@ -622,7 +622,7 @@ export const V6 = {
       textEntry: DynArray("TextEntryDataV6")
     },
     TextEntryDataV6: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -642,8 +642,8 @@ export const V7 = {
       name: Uint64,
       length: Float32,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       trackGroup: DynArray("TrackGroupDataV7")
     },
     TrackGroupDataV7: {
@@ -714,7 +714,7 @@ export const V7 = {
       textEntry: DynArray("TextEntryDataV7")
     },
     TextEntryDataV7: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -734,8 +734,8 @@ export const V8 = {
       name: Uint64,
       length: Float32,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       trackGroup: DynArray("TrackGroupDataV8")
     },
     TrackGroupDataV8: {
@@ -811,7 +811,7 @@ export const V8 = {
       textEntry: DynArray("TextEntryDataV8")
     },
     TextEntryDataV8: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -831,8 +831,8 @@ export const V9 = {
       name: Uint64,
       length: Float32,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       trackGroup: DynArray("TrackGroupDataV9")
     },
     TrackGroupDataV9: {
@@ -909,7 +909,7 @@ export const V9 = {
       textEntry: DynArray("TextEntryDataV9")
     },
     TextEntryDataV9: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -929,8 +929,8 @@ export const V10 = {
       name: Uint64,
       length: Float32,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       trackGroup: DynArray("TrackGroupDataV10")
     },
     TrackGroupDataV10: {
@@ -1007,7 +1007,7 @@ export const V10 = {
       textEntry: DynArray("TextEntryDataV10")
     },
     TextEntryDataV10: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1027,8 +1027,8 @@ export const V11 = {
       name: Uint64,
       length: Float32,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       trackGroup: DynArray("TrackGroupDataV11")
     },
     TrackGroupDataV11: {
@@ -1105,7 +1105,7 @@ export const V11 = {
       textEntry: DynArray("TextEntryDataV11")
     },
     TextEntryDataV11: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1124,8 +1124,8 @@ export const V12 = {
     SequenceDataV12: {
       name: Uint64,
       environmentMap: Fileref(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV12")
     },
@@ -1203,7 +1203,7 @@ export const V12 = {
       textEntry: DynArray("TextEntryDataV12")
     },
     TextEntryDataV12: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1222,8 +1222,8 @@ export const V13 = {
     SequenceDataV13: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV13")
     },
@@ -1301,7 +1301,7 @@ export const V13 = {
       textEntry: DynArray("TextEntryDataV13")
     },
     TextEntryDataV13: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1320,8 +1320,8 @@ export const V14 = {
     SequenceDataV14: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV14")
     },
@@ -1400,7 +1400,7 @@ export const V14 = {
       textEntry: DynArray("TextEntryDataV14")
     },
     TextEntryDataV14: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1419,8 +1419,8 @@ export const V15 = {
     SequenceDataV15: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       updateScript: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV15")
@@ -1500,7 +1500,7 @@ export const V15 = {
       textEntry: DynArray("TextEntryDataV15")
     },
     TextEntryDataV15: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1519,8 +1519,8 @@ export const V16 = {
     SequenceDataV16: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       updateScript: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV16")
@@ -1600,7 +1600,7 @@ export const V16 = {
       textEntry: DynArray("TextEntryDataV16")
     },
     TextEntryDataV16: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1619,8 +1619,8 @@ export const V17 = {
     SequenceDataV17: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       updateScript: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV17")
@@ -1700,7 +1700,7 @@ export const V17 = {
       textEntry: DynArray("TextEntryDataV17")
     },
     TextEntryDataV17: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1719,8 +1719,8 @@ export const V18 = {
     SequenceDataV18: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       updateScript: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV18")
@@ -1800,7 +1800,7 @@ export const V18 = {
       textEntry: DynArray("TextEntryDataV18")
     },
     TextEntryDataV18: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1819,8 +1819,8 @@ export const V19 = {
     SequenceDataV19: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       updateScript: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV19")
@@ -1900,7 +1900,7 @@ export const V19 = {
       textEntry: DynArray("TextEntryDataV19")
     },
     TextEntryDataV19: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -1919,8 +1919,8 @@ export const V20 = {
     SequenceDataV20: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       updateScript: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV20")
@@ -2000,7 +2000,7 @@ export const V20 = {
       textEntry: DynArray("TextEntryDataV20")
     },
     TextEntryDataV20: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2019,8 +2019,8 @@ export const V21 = {
     SequenceDataV21: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       updateScript: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV21")
@@ -2100,7 +2100,7 @@ export const V21 = {
       textEntry: DynArray("TextEntryDataV21")
     },
     TextEntryDataV21: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2120,8 +2120,8 @@ export const V22 = {
     SequenceDataV22: {
       name: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       updateScript: Uint64,
       length: Float32,
       trackGroup: DynArray("TrackGroupDataV22")
@@ -2201,7 +2201,7 @@ export const V22 = {
       textEntry: DynArray("TextEntryDataV22")
     },
     TextEntryDataV22: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2222,8 +2222,8 @@ export const V23 = {
       name: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV23")
@@ -2303,7 +2303,7 @@ export const V23 = {
       textEntry: DynArray("TextEntryDataV23")
     },
     TextEntryDataV23: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2325,8 +2325,8 @@ export const V24 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV24")
@@ -2406,7 +2406,7 @@ export const V24 = {
       textEntry: DynArray("TextEntryDataV24")
     },
     TextEntryDataV24: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2428,8 +2428,8 @@ export const V25 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV25")
@@ -2509,7 +2509,7 @@ export const V25 = {
       textEntry: DynArray("TextEntryDataV25")
     },
     TextEntryDataV25: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2531,8 +2531,8 @@ export const V26 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV26")
@@ -2612,7 +2612,7 @@ export const V26 = {
       textEntry: DynArray("TextEntryDataV26")
     },
     TextEntryDataV26: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2634,8 +2634,8 @@ export const V27 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV27")
@@ -2715,7 +2715,7 @@ export const V27 = {
       textEntry: DynArray("TextEntryDataV27")
     },
     TextEntryDataV27: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2737,8 +2737,8 @@ export const V28 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV28")
@@ -2818,7 +2818,7 @@ export const V28 = {
       textEntry: DynArray("TextEntryDataV28")
     },
     TextEntryDataV28: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2840,8 +2840,8 @@ export const V29 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV29")
@@ -2922,7 +2922,7 @@ export const V29 = {
       textEntry: DynArray("TextEntryDataV29")
     },
     TextEntryDataV29: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -2944,8 +2944,8 @@ export const V30 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV30")
@@ -3025,7 +3025,7 @@ export const V30 = {
       textEntry: DynArray("TextEntryDataV30")
     },
     TextEntryDataV30: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -3047,8 +3047,8 @@ export const V31 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV31")
@@ -3128,7 +3128,7 @@ export const V31 = {
       textEntry: DynArray("TextEntryDataV31")
     },
     TextEntryDataV31: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -3150,8 +3150,8 @@ export const V32 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV32")
@@ -3231,7 +3231,7 @@ export const V32 = {
       textEntry: DynArray("TextEntryDataV32")
     },
     TextEntryDataV32: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -3253,8 +3253,8 @@ export const V33 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV33")
@@ -3334,7 +3334,7 @@ export const V33 = {
       textEntry: DynArray("TextEntryDataV33")
     },
     TextEntryDataV33: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     }
   },
@@ -3356,8 +3356,8 @@ export const V34 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV34")
@@ -3437,7 +3437,7 @@ export const V34 = {
       textEntry: DynArray("TextEntryDataV34")
     },
     TextEntryDataV34: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     },
     SpeciesResourceDataV34: {
@@ -3464,8 +3464,8 @@ export const V35 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV35")
@@ -3545,7 +3545,7 @@ export const V35 = {
       textEntry: DynArray("TextEntryDataV35")
     },
     TextEntryDataV35: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     },
     SpeciesResourceDataV35: {
@@ -3573,8 +3573,8 @@ export const V36 = {
       playScript: Uint64,
       updateScript: Uint64,
       environmentMap: Filename(),
-      map: String16(),
-      clientMap: String16(),
+      map: RefString16(),
+      clientMap: RefString16(),
       length: Float32,
       flags: Uint32,
       trackGroup: DynArray("TrackGroupDataV36")
@@ -3654,7 +3654,7 @@ export const V36 = {
       textEntry: DynArray("TextEntryDataV36")
     },
     TextEntryDataV36: {
-      text: String16(),
+      text: RefString16(),
       language: Uint8
     },
     SpeciesResourceDataV36: {

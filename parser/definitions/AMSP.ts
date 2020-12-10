@@ -1,4 +1,4 @@
-import { Uint64, Float32, Uint32, DynArray, Pointer, Uint8, Filename, String16, FixedArray } from "../src/types";
+import { Uint64, Float32, Uint32, DynArray, Pointer, Uint8, Filename, RefString16, FixedArray } from "../src/types";
 
 export const V0 = {
   chunkName: "AMSP",
@@ -5854,7 +5854,7 @@ export const V29 = {
     },
     MusicExternalDataV29: {
       name: Uint64,
-      externalPlaylist: String16()
+      externalPlaylist: RefString16()
     },
     HandlerDataV29: {
       name: Uint64,

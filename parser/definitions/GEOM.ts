@@ -1,4 +1,4 @@
-import { Uint64, Uint16, FixedArray, Float32, DynArray, Uint32, CString, Uint8, Pointer, RefArray } from "../src/types";
+import { Uint64, Uint16, FixedArray, Float32, DynArray, Uint32, RefString, Uint8, Pointer, RefArray } from "../src/types";
 
 export const V0 = {
   chunkName: "GEOM",
@@ -15,8 +15,8 @@ export const V0 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString(),
-      boneNames: DynArray(CString()),
+      materialName: RefString(),
+      boneNames: DynArray(RefString()),
       geometry: Pointer("ModelMeshGeometryV0")
     },
     ModelMeshMorphTargetV65: {
@@ -70,7 +70,7 @@ export const V1 = {
       maxBound: FixedArray(Float32, 3),
       bounds: DynArray("GrBoundData"),
       materialIndex: Uint32,
-      materialName: CString(),
+      materialName: RefString(),
       boneBindings: DynArray(Uint64),
       geometry: Pointer("ModelMeshGeometryV1")
     },

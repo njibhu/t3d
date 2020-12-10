@@ -1,4 +1,4 @@
-import { FixedArray, Float32, Filename, Uint64, DynArray, Uint32, String16, Uint8 } from "../src/types";
+import { FixedArray, Float32, Filename, Uint64, DynArray, Uint32, RefString16, Uint8 } from "../src/types";
 
 export const V0 = {
   chunkName: "cube",
@@ -90,7 +90,7 @@ export const V3 = {
       brightness: Float32,
       contrast: Float32,
       blurPasses: Uint32,
-      envVolume: String16()
+      envVolume: RefString16()
     }
   },
   root: {
@@ -121,7 +121,7 @@ export const V4 = {
       brightness: Float32,
       contrast: Float32,
       blurPasses: Uint32,
-      envVolume: String16()
+      envVolume: RefString16()
     }
   },
   root: {

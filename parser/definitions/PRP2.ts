@@ -1,4 +1,4 @@
-import { Filename, DynArray, Uint32, FixedArray, Float32, Uint64, Uint8, Uint16, String16 } from "../src/types";
+import { Filename, DynArray, Uint32, FixedArray, Float32, Uint64, Uint8, Uint16, RefString16 } from "../src/types";
 
 export const V3 = {
   chunkName: "prp2",
@@ -1517,7 +1517,7 @@ export const V21 = {
     propToolArray: DynArray("PackMapPropObjToolV21"),
     propMetaArray: DynArray("PackMapPropObjMetaV21"),
     propVolumeArray: DynArray("PackMapPropObjVolumeV21"),
-    reserved: String16(),
+    reserved: RefString16(),
     broadPhase: "PackBroadphaseType",
     nextBroadId: Uint32
   }

@@ -1,4 +1,4 @@
-import { String16, Unknown, DynArray, Pointer, Uint64, Fileref, Uint32, FixedArray, Uint8 } from "../src/types";
+import { RefString16, Uint32, DynArray, Pointer, Uint64, Fileref, FixedArray, Uint8 } from "../src/types";
 
 export const V0 = {
   chunkName: "mach",
@@ -9,7 +9,7 @@ export const V0 = {
       states: DynArray("PackAnimMachineStateV0")
     },
     PackAnimMachineStateV0: {
-      name: String16(),
+      name: RefString16(),
       actionBlock: Pointer("PackAnimMachineActionBlockV0"),
       actionVariantBlock: Pointer("PackAnimMachineActionVariantBlockV0"),
       transitions: DynArray("PackAnimMachineTransitionV0"),
@@ -19,7 +19,7 @@ export const V0 = {
       actions: DynArray("PackAnimMachineActionV0")
     },
     PackAnimMachineActionV0: {
-      actionData: Unknown
+      actionData: Uint32
     },
     PackAnimMachineActionVariantBlockV0: {
       actionVariants: DynArray("PackAnimMachineActionVariantV0")
@@ -29,8 +29,8 @@ export const V0 = {
       actionBlock: Pointer("PackAnimMachineActionBlockV0")
     },
     PackAnimMachineTransitionV0: {
-      name: String16(),
-      targetStateName: String16(),
+      name: RefString16(),
+      targetStateName: RefString16(),
       actionBlock: Pointer("PackAnimMachineActionBlockV0"),
       variants: DynArray("PackAnimMachineTransitionVariantV0")
     },
@@ -46,7 +46,7 @@ export const V0 = {
     },
     PackAnimModelV0: {
       modelFileId: Fileref(),
-      modelFileRaw: String16(),
+      modelFileRaw: RefString16(),
       machineIndex: Uint32
     }
   },
@@ -65,7 +65,7 @@ export const V1 = {
       states: DynArray("PackAnimMachineStateV1")
     },
     PackAnimMachineStateV1: {
-      name: String16(),
+      name: RefString16(),
       actionBlock: Pointer("PackAnimMachineActionBlockV1"),
       actionVariantBlock: Pointer("PackAnimMachineActionVariantBlockV1"),
       transitions: DynArray("PackAnimMachineTransitionV1"),
@@ -75,7 +75,7 @@ export const V1 = {
       actions: DynArray("PackAnimMachineActionV1")
     },
     PackAnimMachineActionV1: {
-      actionData: Unknown
+      actionData: Uint32
     },
     PackAnimMachineActionVariantBlockV1: {
       actionVariants: DynArray("PackAnimMachineActionVariantV1")
@@ -85,8 +85,8 @@ export const V1 = {
       actionBlock: Pointer("PackAnimMachineActionBlockV1")
     },
     PackAnimMachineTransitionV1: {
-      name: String16(),
-      targetStateName: String16(),
+      name: RefString16(),
+      targetStateName: RefString16(),
       actionBlock: Pointer("PackAnimMachineActionBlockV1"),
       variants: DynArray("PackAnimMachineTransitionVariantV1")
     },
@@ -102,7 +102,7 @@ export const V1 = {
     },
     PackAnimModelV1: {
       modelFileId: Fileref(),
-      modelFileRaw: String16(),
+      modelFileRaw: RefString16(),
       machineIndex: Uint32,
       listeners: FixedArray(Uint8, 16)
     }

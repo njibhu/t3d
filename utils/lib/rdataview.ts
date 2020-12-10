@@ -45,8 +45,17 @@ export class RDataView {
     );
   }
 
-  public isAscii4(address: number): boolean {
-    return ![0, 1, 2, 3].map(i => this.isAscii(address + i)).includes(false);
+  // Unused, chunks can also be 3 ascii characters
+  // public isAscii4(address: number): boolean {
+  //   return ![0, 1, 2, 3].map((i) => this.isAscii(address + i)).includes(false);
+  // }
+
+  public isAscii3Or4(address: number): boolean {
+    const lastCharVal = this.getUint8(address + 3);
+    return (
+      (![0, 1, 2].map((i) => this.isAscii(address + i)).includes(false) && this.isAscii(address + 3) === true) ||
+      lastCharVal === 0
+    );
   }
 
   public getAscii(address: number): string {
@@ -54,7 +63,7 @@ export class RDataView {
   }
 
   public getAscii4(address: number): string {
-    return [0, 1, 2, 3].map(i => String.fromCharCode(this.getUint8(address + i))).join("");
+    return [0, 1, 2, 3].map((i) => String.fromCharCode(this.getUint8(address + i))).join("");
   }
 
   /**
