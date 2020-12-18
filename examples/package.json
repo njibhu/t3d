@@ -23,5 +23,12 @@
     "prettier": "^2.1.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "file-api": "^0.10.4",
+    "node-blob": "0.0.2",
+    "source-map-support": "^0.5.19",
+    "vblob": "^1.0.2",
+    "web-worker": "^1.0.0"
   }
 }

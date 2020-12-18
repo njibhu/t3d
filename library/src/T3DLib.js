@@ -274,13 +274,14 @@ const T3D = (module.exports = {
    *                                 will not be fully initialized until the callback
    *                                 is fired.
    */
-  getLocalReader: function (file, callback, t3dtoolsWorker) {
+  getLocalReader: function (file, callback, t3dtoolsWorker, noIndexedDB) {
     const path = t3dtoolsWorker || _settings.t3dtoolsWorker;
 
     // Create the instance and init the threads
     const lrInstance = new LocalReader({
       workerPath: path,
       workersNb: _settings.concurrentTasks,
+      noIndexedDB,
     });
 
     /// Callback with the lrInstance

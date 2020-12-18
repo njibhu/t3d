@@ -17,6 +17,7 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
+const DataStream = require("../../../examples/dist/static/DataStream");
 const MathUtils = require("../util/MathUtils");
 
 /**
@@ -193,6 +194,9 @@ function parseMFTIndex(ds, size) {
  * @returns {Promise<{ds: DataStream, len: number}>}
  */
 function getFilePart(file, offset, length) {
+  if (global.fs) {
+    return nodeGetFilePart(file, offset, length);
+  }
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
 
@@ -209,6 +213,15 @@ function getFilePart(file, offset, length) {
     // Slicing a File is just reducing the scope of the ArrayBuffer, but doesn't load anything in memory.
     reader.readAsArrayBuffer(file.slice(offset, offset + length));
   });
+}
+
+async function nodeGetFilePart(file, offset, length) {
+  const fd = global.fs.openSync(file.filePath);
+  const buffer = Buffer.alloc(length);
+  const readLen = fs.readSync(fd, buffer, 0, length, offset);
+  const ds = new DataStream(buffer);
+  ds.endianness = DataStream.LITTLE_ENDIAN;
+  return { ds, len: readLen };
 }
 
 module.exports = {
