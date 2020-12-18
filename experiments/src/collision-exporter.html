@@ -1,0 +1,83 @@
+<!--
+Copyright (C) Njibhu <https://github.com/njibhu>
+
+This file is part of the T3D Project.
+
+T3D Project is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+T3D Project is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
+!-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Map collisions GLTF export</title>
+    <style type="text/css">
+      body {
+        background: rgb(251, 241, 244); /*titanium white*/
+        font-family: sans-serif;
+      }
+      label,
+      button {
+        display: block;
+        margin: 30px 5px;
+      }
+      label span {
+        font-weight: bold;
+        width: 250px;
+        display: inline-block;
+      }
+      input {
+        width: 200px;
+      }
+      #log {
+        font-family: monospace;
+        font-size: 10px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 250px;
+        bottom: 0;
+        overflow: auto;
+      }
+      .btnfloat {
+        display: inline-block;
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Maps Collisions GLTF exporter</h1>
+    <label>
+      <span>Load a Guild Wars 2 dat File</span>
+      <input id="filePicker" type="file" />
+    </label>
+
+    <label>
+      <span>Select Map File Id</span>
+      <input id="fileIdInput" type="number" value="294938" disabled />
+    </label>
+
+    <div>
+      <button id="loadMapBtn" class="btnfloat" disabled>Load map and export</button>
+    </div>
+
+    <div id="log"></div>
+    <script src="./static/jquery.js"></script>
+    <script src="./static/DataStream.js"></script>
+    <script src="./static/three.js"></script>
+    <script src="./static/OrbitControls.js"></script>
+    <script src="./static/GLTFExporter.js"></script>
+    <script src="./static/T3D.js"></script>
+    <script type="text/javascript" src="./js/collision-exporter.js"></script>
+  </body>
+</html>
