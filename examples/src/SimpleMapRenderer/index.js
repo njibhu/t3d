@@ -64,7 +64,6 @@ $(document).ready(function () {
 
   /// Handle button click
   $("#loadMapBtn").click(onLoadMapClick);
-  $("#exportBtn").click(onExportBtn);
 });
 
 /// Callback for when the LocalReader has finished setting up!
@@ -118,14 +117,13 @@ function onLoadMapClick() {
     },
     {
       renderClass: T3D.TerrainRenderer,
-      settings: {
-        export: true,
-      },
+      settings: {},
     },
     {
-      renderClass: T3D.HavokRenderer,
+      renderClass: T3D.PropertiesRenderer,
       settings: {
-        export: true,
+        visible: true,
+        showUnmaterialized: true,
       },
     },
   ];
@@ -145,26 +143,8 @@ function onLoadMapClick() {
   });
 }
 
-function onExportBtn() {
-  const exporter = new THREE.GLTFExporter();
-  exporter.parse(mapRenderer.scene, (gltf) => {
-    console.log("hi", Object.keys(gltf));
-    const blob = new Blob([JSON.stringify(gltf)], { type: "text/plain" });
-    const filename = mapRenderer.mapData.id + ".gltf";
-
-    const link = document.createElement("a");
-    link.style.display = "none";
-    document.body.appendChild(link);
-
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    link.click();
-  });
-}
-
 /// Runs when the ModelRenderer is finshed
 function onRendererDone(context) {
-  $("#exportBtn").removeAttr("disabled");
   document.addEventListener("mousemove", onMouseMove, false);
   cleanScene();
 
@@ -185,7 +165,7 @@ function onRendererDone(context) {
 
   /// Add the water level to the scene
   const water = T3D.getContextValue(context, T3D.TerrainRenderer, "water");
-  //mapRenderer.scene.add(water);
+  mapRenderer.scene.add(water);
   mapRenderer.mapData.terrain.data.push(water);
 
   /// Move the camera initial place depending on the map bounds
@@ -195,7 +175,7 @@ function onRendererDone(context) {
   mapRenderer.camera.position.z = 0;
 
   /// Add all the meshes from the prop renderer
-  const propsMeshes = T3D.getContextValue(context, T3D.HavokRenderer, "meshes");
+  const propsMeshes = T3D.getContextValue(context, T3D.PropertiesRenderer, "meshes");
   for (const elem of propsMeshes) {
     mapRenderer.scene.add(elem);
     mapRenderer.mapData.props.data.push(elem);
