@@ -194,8 +194,14 @@ function parseMFTIndex(ds, size) {
  * @returns {Promise<{ds: DataStream, len: number}>}
  */
 function getFilePart(file, offset, length) {
-  if (global.fs) {
-    return nodeGetFilePart(file, offset, length);
+  // Node compatibility workaround
+  if (process && global.fs) {
+    const fd = global.fs.openSync(file);
+    const buffer = Buffer.alloc(length);
+    const readLen = fs.readSync(fd, buffer, 0, length, offset);
+    const ds = new DataStream(buffer);
+    ds.endianness = DataStream.LITTLE_ENDIAN;
+    return { ds, len: readLen };
   }
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -213,15 +219,6 @@ function getFilePart(file, offset, length) {
     // Slicing a File is just reducing the scope of the ArrayBuffer, but doesn't load anything in memory.
     reader.readAsArrayBuffer(file.slice(offset, offset + length));
   });
-}
-
-async function nodeGetFilePart(file, offset, length) {
-  const fd = global.fs.openSync(file.filePath);
-  const buffer = Buffer.alloc(length);
-  const readLen = fs.readSync(fd, buffer, 0, length, offset);
-  const ds = new DataStream(buffer);
-  ds.endianness = DataStream.LITTLE_ENDIAN;
-  return { ds, len: readLen };
 }
 
 module.exports = {

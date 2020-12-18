@@ -1,4 +1,10 @@
-var DataStream = require("../../dist/static/DataStream");
+/**
+ * cli example:
+ * - node ./src/node/generateGLTF.js "path/to/Gw2.dat" "outputPath" mapId
+ * (186397 - snowden drifts)
+ */
+
+const DataStream = require("../../dist/static/DataStream");
 global.DataStream = DataStream;
 
 const { Blob, FileReader } = require("vblob");
@@ -7,11 +13,11 @@ global.FileReader = FileReader;
 global.window = {};
 global.window.FileReader = FileReader;
 
-var THREE = require("../../dist/static/three");
+let THREE = require("../../dist/static/three");
 global.THREE = THREE;
 require("../../dist/static/GLTFExporter");
 
-var Worker = require("web-worker");
+const Worker = require("web-worker");
 global.Worker = Worker;
 
 const fs = require("fs");
@@ -20,16 +26,23 @@ global.fs = fs;
 let T3D = require("../../../library/src/T3DLib");
 global.T3D = T3D;
 
+if (process.argv.length < 4) {
+  console.log("Missing arguments. Expected: filePath, outputFolder, mapId");
+  process.exit(1);
+}
+
 const filePath = process.argv[2];
-const archive = { filePath };
-archive.filePath = filePath;
+const outputFolder = process.argv[3];
+const mapId = Number.parseInt(process.argv[4]);
+if (isNaN(mapId) || mapId < 0) {
+  console.log("The mapId is not valid");
+  process.exit(1);
+}
 
 T3D.getLocalReader(
-  archive,
+  filePath,
   async (lr) => {
     console.log("Loaded!");
-    const mapFileList = await lr.getMapList();
-    console.log(mapFileList[0]);
     const renderers = [
       {
         renderClass: T3D.EnvironmentRenderer,
@@ -48,7 +61,7 @@ T3D.getLocalReader(
         },
       },
     ];
-    T3D.renderMapContentsAsync(lr, mapFileList[0].baseId, renderers, (context) => {
+    T3D.renderMapContentsAsync(lr, mapId, renderers, (context) => {
       console.log("Map loaded !");
       const scene = new THREE.Scene();
       for (const elem of T3D.getContextValue(context, T3D.TerrainRenderer, "terrainTiles")) {
@@ -58,14 +71,13 @@ T3D.getLocalReader(
         scene.add(elem);
       }
 
+      console.log("Scene loaded !");
+
       const exporter = new THREE.GLTFExporter();
       exporter.parse(scene, (gltf) => {
-        console.log("Youpi!");
-        console.log(JSON.stringify(gltf).length);
+        fs.writeFileSync(`${outputFolder}/${mapId}.gltf`, JSON.stringify(gltf));
         process.exit(0);
       });
-
-      console.log("Scene loaded !");
     });
   },
   "./dist/static/t3dworker.js",
