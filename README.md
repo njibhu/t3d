@@ -5,6 +5,7 @@ This is the new home of the Tyria3D project.
 ### Come and try it here:
 
 - [Explorer](https://njibhu.github.io/t3d/explorer/index.html)
+- [Archive Browser](https://njibhu.github.io/t3d/browser/index.html)
 - [T3D Examples](https://njibhu.github.io/t3d/examples/index.html)
 
 ## What is T3D ? Wasn't there a Tyria3DLibrary ?
