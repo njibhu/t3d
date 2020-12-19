@@ -195,10 +195,10 @@ function parseMFTIndex(ds, size) {
  */
 function getFilePart(file, offset, length) {
   // Node compatibility workaround
-  if (process && global.fs) {
+  if (global.process && global.fs) {
     const fd = global.fs.openSync(file);
-    const buffer = Buffer.alloc(length);
-    const readLen = fs.readSync(fd, buffer, 0, length, offset);
+    const buffer = global.Buffer.alloc(length);
+    const readLen = global.fs.readSync(fd, buffer, 0, length, offset);
     const ds = new DataStream(buffer);
     ds.endianness = DataStream.LITTLE_ENDIAN;
     return { ds, len: readLen };

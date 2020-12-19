@@ -13,7 +13,7 @@ global.FileReader = FileReader;
 global.window = {};
 global.window.FileReader = FileReader;
 
-let THREE = require("../../dist/static/three");
+const THREE = require("../../dist/static/three");
 global.THREE = THREE;
 require("../../dist/static/GLTFExporter");
 
@@ -23,7 +23,7 @@ global.Worker = Worker;
 const fs = require("fs");
 global.fs = fs;
 
-let T3D = require("../../../library/src/T3DLib");
+const T3D = require("../../../library/src/T3DLib");
 global.T3D = T3D;
 
 if (process.argv.length < 4) {
