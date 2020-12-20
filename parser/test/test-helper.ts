@@ -34,10 +34,5 @@ export function transformSnapshot(input: any): any {
 }
 
 export function toArrayBuffer(buf: Buffer): ArrayBuffer {
-  var ab = new ArrayBuffer(buf.length);
-  var view = new Uint8Array(ab);
-  for (var i = 0; i < buf.length; ++i) {
-    view[i] = buf[i];
-  }
-  return ab;
+  return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
 }
