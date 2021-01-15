@@ -17,7 +17,6 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const DataStream = require("../../../examples/dist/static/DataStream");
 const MathUtils = require("../util/MathUtils");
 
 /**
