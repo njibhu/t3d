@@ -280,6 +280,7 @@ class AppRenderer {
   }
 
   _render() {
+    global.stats.update();
     window.requestAnimationFrame(() => this._render());
 
     const delta = this.clock.getDelta();

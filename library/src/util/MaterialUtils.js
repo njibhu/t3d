@@ -434,7 +434,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
 
     const lightMask = 8;
 
-    const knownFileFlags = [16460, 16452, 16448, 8268, 3392, 2380, 2368, 332, 324, 320, 76, 68, 64];
+    const knownFileFlags = [24652, 16460, 16452, 16448, 8268, 3392, 2380, 2368, 332, 324, 320, 76, 68, 64];
 
     if (knownFileFlags.indexOf(grChunk.data.flags) < 0) {
       T3D.Logger.log(T3D.Logger.TYPE_WARNING, "unknown GR flag", grChunk.data.flags);

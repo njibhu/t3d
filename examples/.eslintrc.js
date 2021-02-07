@@ -14,6 +14,7 @@ module.exports = {
     $: "readonly",
     w2ui: "readonly",
     w2popup: "readonly",
+    Stats: "readonly",
   },
   parserOptions: {
     ecmaVersion: 2018,
