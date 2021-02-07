@@ -193,6 +193,15 @@ function parseMFTIndex(ds, size) {
  * @returns {Promise<{ds: DataStream, len: number}>}
  */
 function getFilePart(file, offset, length) {
+  // Node compatibility workaround
+  if (global.process && global.fs) {
+    const fd = global.fs.openSync(file);
+    const buffer = global.Buffer.alloc(length);
+    const readLen = global.fs.readSync(fd, buffer, 0, length, offset);
+    const ds = new DataStream(buffer);
+    ds.endianness = DataStream.LITTLE_ENDIAN;
+    return { ds, len: readLen };
+  }
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
 

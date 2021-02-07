@@ -116,7 +116,7 @@ class HavokRenderer extends DataRenderer {
     }
 
     if (i < models.length) {
-      window.setTimeout(
+      setTimeout(
         this.parseAllModels.bind(this, models, mat, title, chunkSize, offset + chunkSize, callback),
         10 /* time in ms to next call */
       );
