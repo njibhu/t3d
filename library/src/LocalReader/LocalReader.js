@@ -139,6 +139,7 @@ class LocalReader {
           data = result;
         })
         .catch(() => {
+          console.log(`Could not extract ${mftId} (image: ${isImage})`);
           data = {
             buffer: undefined,
             dxtType: undefined,

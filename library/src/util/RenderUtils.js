@@ -104,7 +104,7 @@ function renderRect(rect, yPos, material, dy) {
  *
  * @return {Array} Each geometry in the model file represented by a textured THREE.Mesh object
  */
-function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, showUnmaterialed) {
+function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, showUnmaterialed, modlId = undefined) {
   const rawMeshes = chunk.data.meshes;
   const meshes = [];
   const mats = modelDataChunk.data.permutations[0].materials;
@@ -265,6 +265,7 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
     geom.buffersNeedUpdate = true;
 
     /// DONE READING VERTEX DATA
+    geom.name = modlId;
 
     /// Get material used for this mesh
     const matIdx = rawMesh.materialIndex;
@@ -311,6 +312,7 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
     finalMesh.flags = rawMesh.flags;
     finalMesh.numUV = numUV;
 
+    finalMesh.userData = { modlId };
     /// Add mesh to returned Array
     meshes.push(finalMesh);
   }); /// End rawMeshes for Each
@@ -325,7 +327,7 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
  * @param {Number} filterFlags When undefined, it will render all LODs. When using 0, only show most detailed LOD
  * @returns {Mesh} a Three instanced mesh
  */
-function getInstancedMesh(meshes, size, filterFlags = 0) {
+function getInstancedMesh(meshes, size, filterFlags = 0, modelName) {
   const meshMaterials = [];
   const mergedGeometry = new THREE.Geometry();
   meshes.forEach((mesh, index) => {
@@ -333,11 +335,16 @@ function getInstancedMesh(meshes, size, filterFlags = 0) {
     if (filterFlags !== undefined && mesh.flags !== filterFlags) {
       return;
     }
+    if (mesh.material === undefined) {
+      console.log("Material is undefined");
+    }
     meshMaterials.push(mesh.material);
     // It's only possible to merge geometries of the same type
     const meshGeometry = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
     mergedGeometry.merge(meshGeometry, mesh.matrix, index);
+    meshGeometry.name = modelName;
   });
+
   const finalMesh = new THREE.InstancedMesh(mergedGeometry, meshMaterials, size);
   finalMesh.updateMatrix();
   finalMesh.matrixAutoUpdate = false;
@@ -421,13 +428,18 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
       }
 
       loadMaterialIndex(0, function () {
+        if (filename === "78877" || filename === "76653" || filename === "74595") {
+          return callback(finalMeshes, boundingSphere);
+        }
+
         /// Create meshes
         const meshes = renderGeomChunk(
           localReader,
           geometryDataChunk,
           modelDataChunk,
           sharedTextures,
-          showUnmaterialed
+          showUnmaterialed,
+          filename
         );
 
         // Build mesh group

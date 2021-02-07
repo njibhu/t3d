@@ -140,7 +140,7 @@ class PropertiesRenderer extends DataRenderer {
    */
   placeModelOnScene(modelName, meshes) {
     const model = this.models[modelName];
-    const instancedMesh = RenderUtils.getInstancedMesh(meshes, model.size);
+    const instancedMesh = RenderUtils.getInstancedMesh(meshes, model.size, 0, modelName);
     let instancedIndex = 0;
     for (const prop of model.props) {
       instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(prop));
