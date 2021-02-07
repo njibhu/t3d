@@ -19,6 +19,7 @@ function copyStaticAssets() {
         `../node_modules/w2ui/w2ui-1.4.3.min.js`,
         `../node_modules/w2ui/w2ui-1.4.3.min.css`,
         `../node_modules/three/build/three.js`,
+        `../node_modules/three/examples/js/libs/stats.min.js`,
         `../node_modules/three/examples/js/controls/FlyControls.js`,
         `../node_modules/three/examples/js/controls/PointerLockControls.js`,
         `../node_modules/three/examples/js/controls/OrbitControls.js`,

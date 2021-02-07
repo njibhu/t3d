@@ -1,5 +1,11 @@
 const AppRenderer = require("./renderer");
 
+const stats = new Stats();
+$("body").append(stats.domElement);
+$(stats.domElement).hide();
+stats.toggle = () => $(stats.domElement).toggle();
+global.stats = stats;
+
 /// Extend Original Logger
 const myLogger = {
   lastMessageType: null,
