@@ -16,7 +16,7 @@
   "dependencies": {
     "DataStream.js": "github:kig/DataStream.js",
     "jquery": "^3.5.0",
-    "three": "^0.123.0",
+    "three": "^0.125.0",
     "w2ui": "^1.4.3"
   },
   "husky": {
