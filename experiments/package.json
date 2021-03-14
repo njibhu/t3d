@@ -25,6 +25,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "pngjs": "^6.0.0",
     "source-map-support": "^0.5.19",
     "vblob": "^1.0.2",
     "web-worker": "^1.0.0"
