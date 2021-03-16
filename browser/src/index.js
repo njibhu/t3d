@@ -502,6 +502,8 @@ window.onload = () => {
 
     $("#rawOutput").append($("<div>").text(raw));
 
+    const ui8aRawData = new Uint8Array(rawData);
+
     /// Texture file
     if (image) {
       /// Select texture tab
@@ -517,6 +519,31 @@ window.onload = () => {
       const imagedata = new ImageData(uica, image.width, image.height);
       ctx.putImageData(imagedata, 0, 0);
 
+      $("#textureOutput").append(canvas);
+    }
+
+    // PNG texture
+    else if (
+      ui8aRawData.length > 4 &&
+      ui8aRawData[0] === 137 &&
+      ui8aRawData[1] === 80 && // P
+      ui8aRawData[2] === 78 && // N
+      ui8aRawData[3] === 71 // G
+    ) {
+      /// Select texture tab
+      w2ui.fileTabs.enable("tabTexture");
+      w2ui.fileTabs.click("tabTexture");
+
+      const canvas = $("<canvas>");
+      const pngBlob = new Blob([rawData], { type: "image/png" });
+      const url = URL.createObjectURL(pngBlob);
+      const img = new Image();
+      img.onload = function () {
+        const ctx = canvas[0].getContext("2d");
+        ctx.drawImage(this, 0, 0);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
       $("#textureOutput").append(canvas);
     }
 
