@@ -200,6 +200,7 @@ function getFilePart(file, offset, length) {
     const readLen = global.fs.readSync(fd, buffer, 0, length, offset);
     const ds = new DataStream(buffer);
     ds.endianness = DataStream.LITTLE_ENDIAN;
+    global.fs.closeSync(fd);
     return { ds, len: readLen };
   }
   return new Promise((resolve, reject) => {
