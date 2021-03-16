@@ -225,9 +225,10 @@ module.exports = {
         { fileName: "2366776.data", name: "(E5C2) Dragon Response Mission: Fields of Ruin" },
         { fileName: "2364032.data", name: "(E5C2) Dragon Response Mission: Thunderhead Peaks" },
         { fileName: "2365787.data", name: "(E5C2) Dragon Response Mission: Snowden Drifts" },
-        { fileName: "2366368.data", name: "(E5C?) Fireheart Rise" },
-        { fileName: "2367211.data", name: "(E5C?) Bloodtide Coast" },
-        { fileName: "2369398.data", name: "(E5C?) Caledon Forest" },
+        { fileName: "2366368.data", name: "(E5C3) Dragon Response Mission: Fireheart Rise" },
+        { fileName: "2367211.data", name: "(E5C3) Dragon Response Mission: Bloodtide Coast" },
+        { fileName: "2369398.data", name: "(E5C3) Dragon Response Mission: Caledon Forest" },
+        { fileName: "2414140.data", name: "(E5C3) Draconis Mons (Wildfire instance)" },
       ],
     },
     {
