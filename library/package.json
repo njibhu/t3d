@@ -10,7 +10,9 @@
     "format:check": "prettier --check 'src/**/*.js'"
   },
   "dependencies": {
-    "DataStream.js": "github:kig/DataStream.js"
+    "DataStream.js": "github:kig/DataStream.js",
+    "vblob": "^1.0.2",
+    "web-worker": "^1.0.0"
   },
   "devDependencies": {
     "browserify": "^16.5.1",
