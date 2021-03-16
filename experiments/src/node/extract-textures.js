@@ -15,6 +15,7 @@ if (process.argv.length < 3) {
 
 const filePath = process.argv[2];
 const outputFolder = process.argv[3];
+mkdir(outputFolder);
 
 T3D.getLocalReader(
   filePath,
@@ -22,6 +23,35 @@ T3D.getLocalReader(
     console.log("Loaded!");
     console.log("Scanning archive");
     const fileList = await localReader.readFileList();
+
+    // PNG files
+    mkdir(`${outputFolder}/png`);
+    const pngFileArray = fileList.filter((file) => file.fileType === "TEXTURE_PNG");
+    for (const pngFile of pngFileArray) {
+      console.log("PNG", pngFile.baseIdList[0]);
+      try {
+        const pngFileContent = await localReader.readFile(pngFile.mftId);
+        fs.writeFileSync(`${outputFolder}/png/${pngFile.baseIdList[0]}.png`, Buffer.from(pngFileContent.buffer));
+      } catch (_err) {
+        continue;
+      }
+    }
+
+    // DDS files
+    mkdir(`${outputFolder}/dds`);
+    const ddsFileArray = fileList.filter((file) => file.fileType === "TEXTURE_DDS");
+    for (const ddsFile of ddsFileArray) {
+      console.log("DDS", ddsFile.baseIdList[0]);
+      try {
+        const ddsFileContent = await localReader.readFile(ddsFile.mftId);
+        fs.writeFileSync(`${outputFolder}/dds/${ddsFile.baseIdList[0]}.dds`, Buffer.from(ddsFileContent.buffer));
+      } catch (_err) {
+        continue;
+      }
+    }
+
+    // Arenanet Textures
+    mkdir(`${outputFolder}/AnetTextures`);
     const textureFileArray = fileList.filter(
       (file) =>
         file.fileType === "TEXTURE_ATEP" ||
@@ -33,13 +63,13 @@ T3D.getLocalReader(
     );
 
     for (const textureFile of textureFileArray) {
-      console.log(textureFile.baseIdList[0]);
+      console.log(textureFile.fileType, textureFile.baseIdList[0]);
 
       const image = await localReader.readFile(textureFile.mftId, true);
       const uica = new Uint8ClampedArray(new Uint8Array(image.buffer));
       const img_png = new PNG({ width: image.imageWidth, height: image.imageHeight });
       img_png.data = Buffer.from(uica);
-      img_png.pack().pipe(fs.createWriteStream(`${outputFolder}/${textureFile.baseIdList[0]}.png`));
+      img_png.pack().pipe(fs.createWriteStream(`${outputFolder}/AnetTextures/${textureFile.baseIdList[0]}.png`));
     }
     setTimeout(() => {
       process.exit();
@@ -48,3 +78,11 @@ T3D.getLocalReader(
   "./dist/static/t3dworker.js",
   false
 );
+
+function mkdir(folderName) {
+  try {
+    fs.mkdirSync(folderName);
+  } catch (_err) {
+    return;
+  }
+}
