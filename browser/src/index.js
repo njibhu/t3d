@@ -539,12 +539,57 @@ window.onload = () => {
       const url = URL.createObjectURL(pngBlob);
       const img = new Image();
       img.onload = function () {
+        canvas[0].width = img.width;
+        canvas[0].height = img.height;
         const ctx = canvas[0].getContext("2d");
         ctx.drawImage(this, 0, 0);
         URL.revokeObjectURL(url);
       };
       img.src = url;
       $("#textureOutput").append(canvas);
+      $("#contextToolbar")
+        .show()
+        .append(
+          $("<button>Download Image</button>").click(function () {
+            const blob = new Blob([rawData], { type: "octet/stream" });
+            saveData(blob, fileId + ".png");
+          })
+        );
+    }
+
+    // RIFF texture
+    else if (
+      ui8aRawData.length > 4 &&
+      ui8aRawData[0] === 82 && // R
+      ui8aRawData[1] === 73 && // I
+      ui8aRawData[2] === 70 && // F
+      ui8aRawData[3] === 70 // F
+    ) {
+      /// Select texture tab
+      w2ui.fileTabs.enable("tabTexture");
+      w2ui.fileTabs.click("tabTexture");
+
+      const canvas = $("<canvas>");
+      const riffBlob = new Blob([rawData], { type: "image/webp" });
+      const url = URL.createObjectURL(riffBlob);
+      const img = new Image();
+      img.onload = function () {
+        canvas[0].width = img.width;
+        canvas[0].height = img.height;
+        const ctx = canvas[0].getContext("2d");
+        ctx.drawImage(this, 0, 0);
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+      $("#textureOutput").append(canvas);
+      $("#contextToolbar")
+        .show()
+        .append(
+          $("<button>Download Image</button>").click(function () {
+            const blob = new Blob([rawData], { type: "octet/stream" });
+            saveData(blob, fileId + ".riff");
+          })
+        );
     }
 
     /// PF Pack file
