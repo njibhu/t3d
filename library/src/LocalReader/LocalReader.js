@@ -131,7 +131,7 @@ class LocalReader {
     const { ds, len } = await ArchiveParser.getFilePart(this._file, meta.offset, fileLength || meta.size);
 
     // If needed we decompress, if not we keep raw
-    if (meta.compressed || raw !== false) {
+    if (raw || meta.compressed) {
       let data;
       await this._dataReader
         .inflate(ds, len, mftId, isImage, extractLength || 0)
