@@ -726,11 +726,18 @@ window.onload = () => {
   }
 
   function renderFileModel(fileId) {
+    const packfile = T3D.getContextValue(_context, T3D.DataRenderer, "file");
+    const hasModel = packfile.chunks.find((chunk) => chunk.header.type === "MODL");
+
     /// Make sure output is clean
     _context = {};
 
-    /// Run single renderer
-    T3D.runRenderer(T3D.SingleModelRenderer, _lr, { id: fileId }, _context, onRendererDoneModel);
+    if (hasModel) {
+      /// Run single renderer
+      T3D.runRenderer(T3D.SingleModelRenderer, _lr, { id: fileId }, _context, onRendererDoneModel);
+    } else {
+      w2ui.fileTabs.click("tabPF");
+    }
   }
 
   function onRendererDoneModel() {
