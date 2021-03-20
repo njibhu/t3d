@@ -69,23 +69,28 @@ class HeadViewer extends Viewer {
         },
         {
           recid: 2,
-          type: "File size",
-          value: raw.byteLength,
-        },
-        {
-          recid: 3,
-          type: "File head",
-          value: first4,
-        },
-        {
-          recid: 4,
           type: "MFT Index",
           value: mftId,
         },
         {
-          recid: 6,
+          recid: 3,
+          type: "Full size",
+          value: raw.byteLength,
+        },
+        {
+          recid: 4,
+          type: "Raw Size",
+          value: fileMeta.size,
+        },
+        {
+          recid: 5,
           type: "Compressed flag",
           value: fileMeta.compressed,
+        },
+        {
+          recid: 6,
+          type: "File head",
+          value: first4,
         },
         {
           recid: 7,
@@ -96,11 +101,6 @@ class HeadViewer extends Viewer {
           recid: 8,
           type: "Offset",
           value: fileMeta.offset,
-        },
-        {
-          recid: 9,
-          type: "Size",
-          value: fileMeta.size,
         },
       ];
       w2ui["Overview"].render($("#headGrid"));

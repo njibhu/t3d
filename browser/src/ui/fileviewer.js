@@ -83,6 +83,7 @@ function onBasicRendererDone() {
   //Show the filename
   //Todo: implement fileType
   const fileName = `${fileId}`;
+  $("#fileTitle")[0].textContent = fileName;
 
   //Iterate through the renderers to know who can show and who
   let override;
