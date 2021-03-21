@@ -74,8 +74,14 @@ FileTypes.getFileType = function (ds) {
   // Raw asnd chunk (without pack file)
   if (first4.indexOf("asnd") === 0) return "CHUNK_ASND";
 
-  // TODO: parse all datastream and if all bytes are valid unicode symbols then
-  // return TEXT_UNKNOWN;
+  //parse all datastream and if all bytes are valid unicode symbols then
+  const decoder = new TextDecoder();
+  ds.seek(-4);
+  const text = decoder.decode(ds.buffer);
+  // eslint-disable-next-line no-control-regex
+  if (text.match(/^[\x00-\xFF]*$/)) {
+    return "TEXT_UNKNOWN";
+  }
 
   // Unknown
   return "UNKNOWN";

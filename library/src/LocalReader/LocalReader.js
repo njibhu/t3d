@@ -457,7 +457,7 @@ class LocalReader {
     if (this._fileTypeCache[baseId] !== undefined) {
       fileType = this._fileTypeCache[baseId];
     } else {
-      const fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
+      const fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 128)).buffer;
       if (fileBuffer === undefined) return undefined;
       fileType = FileTypes.getFileType(new DataStream(fileBuffer));
     }
