@@ -229,6 +229,8 @@ module.exports = {
         { fileName: "2367211.data", name: "(E5C3) Dragon Response Mission: Bloodtide Coast" },
         { fileName: "2369398.data", name: "(E5C3) Dragon Response Mission: Caledon Forest" },
         { fileName: "2414140.data", name: "(E5C3) Draconis Mons (Wildfire instance)" },
+        { fileName: "2434582.data", name: "(E5C4) Dragonstorm" },
+        { fileName: "2434675.data", name: "(E5C4) Champion's End" },
       ],
     },
     {
