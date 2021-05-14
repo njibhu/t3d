@@ -59,7 +59,7 @@ module.exports = {
         { fileName: "1796999.data", name: "(City) Lion's Arch [MapValleyArchKiel]" },
         { fileName: "1869665.data", name: "(City) Lion's Arch [MapValleyArchKielHalloween]" },
         { fileName: "1968576.data", name: "(City) Lion's Arch" },
-        { fileName: "1019669.data", name: "(Instance) Old Lion's Arch [Lion's Arch]" },
+        { fileName: "1019669.data", name: "(Instance) Old Lion's Arch <Lion's Arch>" },
         { fileName: "287870.data", name: "(35-45) Harathi Hinterlands" },
         { fileName: "286945.data", name: "(45-55) Bloodtide Coast" },
         { fileName: "295005.data", name: "(Instance) Chantry of Secrets" },
@@ -81,7 +81,7 @@ module.exports = {
         { fileName: "275155.data", name: "(40-50) Dredgehaunt Cliffs" },
         { fileName: "278717.data", name: "(50-60) Timberline Falls" },
         { fileName: "846866.data", name: "(50-60) Timberline Falls" },
-        { fileName: "1018612.data", name: "(Instance) Forging the Pact [Timberline Falls]" },
+        { fileName: "1018612.data", name: "(Instance) Forging the Pact <Timberline Falls>" },
         { fileName: "276252.data", name: "(70-80) Frostgorge Sound" },
         { fileName: "295282.data", name: "(Instance) Eye of the North" }
       ]
@@ -97,6 +97,7 @@ module.exports = {
         { fileName: "195149.data", name: "(1-15) Caledon Forest" },
         { fileName: "195493.data", name: "(1-15) Metrica Province" },
         { fileName: "293307.data", name: "(15-25) Brisban Wildlands" },
+        { fileName: "295962.data", name: "(Instance) A Light in the Darkness <The Grove, Cursed Shore>" },
         { fileName: "292254.data", name: "(55-65) Sparkfly Fen" },
         { fileName: "291064.data", name: "(60-70) Mount Maelstrom" }
       ]
@@ -105,20 +106,19 @@ module.exports = {
       name: "Ruins of Orr",
       maps: [
         { fileName: "284829.data", name: "(70-75) Straits of Devastation" },
-        { fileName: "295179.data", name: "(Instance) Temple of the Forgotten God" },
+        { fileName: "295179.data", name: "(Instance) Temple of the Forgotten God <Straits of Devastation>" },
         { fileName: "285089.data", name: "(75-80) Malchor's Leap" },
-        { fileName: "285634.data", name: "(80) Cursed Shore" },
-        { fileName: "295962.data", name: "(Instance) A Light in the Darkness [Cursed Shore]" }
+        { fileName: "285634.data", name: "(80) Cursed Shore" }
       ]
     },
     {
       name: "Scarlet's War (LW1)",
       maps: [
         { fileName: "520479.data", name: "(LW1-E0) Southsun Cove" },
-        { fileName: "568778.data", name: "(LW1-E3) Cragstead" },
+        { fileName: "568778.data", name: "(LW1-E3) Cragstead <Wayfarer Foothills, Diessa Plateau>" },
         { fileName: "580061.data", name: "(LW1-E4) Molten Facility" },
         { fileName: "595722.data", name: "(LW1-E8) Aetherblade Retreat" },
-        { fileName: "672138.data", name: "(LW1-E13) The Nightmare Unveiled" },
+        { fileName: "672138.data", name: "(LW1-E13) The Nightmare Unveiled <Kessex Hills>" },
         { fileName: "679089.data", name: "(LW1-E13) Tower of Nightmares" }
       ]
     },
@@ -129,8 +129,8 @@ module.exports = {
         { fileName: "861770.data", name: "(LW2-E1) Dry Top [MapDryTopE2]" },
         { fileName: "909361.data", name: "LW2-E5) The Silverwastes [MapSandCastle]" },
         { fileName: "996202.data", name: "(LW2-E5) The Silverwastes [MapSandcastleToFleet]" },
-        { fileName: "908730.data", name: "(LW2-E5-C4) Hidden Arcana" },
-        { fileName: "922320.data", name: "(LW2-E7-C2) Meeting the Asura [Metrica Province]" }
+        { fileName: "908730.data", name: "(LW2-E5-C4) Hidden Arcana <Lornar's Pass>" },
+        { fileName: "922320.data", name: "(LW2-E7-C2) Meeting the Asura <Metrica Province>" }
       ]
     },
     {
@@ -151,7 +151,7 @@ module.exports = {
         { fileName: "1498578.data", name: "(LW3-E2) Ember Bay" },
         { fileName: "1605211.data", name: "(LW3-E3) Bitterfrost Frontier" },
         { fileName: "1646520.data", name: "(LW3-E4) Lake Doric" },
-        { fileName: "1645474.data", name: "(LW3-E4-C6) Beetlestone Manor [Caudecus's Manor]" },
+        { fileName: "1645474.data", name: "(LW3-E4-C6) Beetlestone Manor <Caudecus's Manor>" },
         { fileName: "1682493.data", name: "(LW3-E5) Draconis Mons" },
         { fileName: "1682763.data", name: "(LW3-E5-C5) Heart of the Volcano" },
         { fileName: "1734839.data", name: "(LW3-E6-C1) White Mantle Hideout" },
@@ -166,7 +166,7 @@ module.exports = {
         { fileName: "1833034.data", name: "(PoF-Z2) Desert Highlands" },
         { fileName: "1840368.data", name: "(PoF-C07) Facing the Truth: The Sanctum" },
         { fileName: "1840103.data", name: "(PoF-Z3) Elon Riverlands" },
-        { fileName: "1833726.data", name: "(PoF-C08) The Way Forward, (PoF-C09) The Departing [Elon Riverlands]" },
+        { fileName: "1833726.data", name: "(PoF-C08, PoF-C09) The Way Forward, The Departing <Elon Riverlands>" },
         { fileName: "1842533.data", name: "(PoF-Z4) The Desolation" },
         { fileName: "1839188.data", name: "(PoF-Z5) Domain of Vabbi" }
       ]
@@ -174,27 +174,27 @@ module.exports = {
     {
       name: "Living World Season 4 (LW4)",
       maps: [
-        { fileName: "1903523.data", name: "(LW4-E1-C1) Eye of the Brandstorm [Crystal Oasis]" },
+        { fileName: "1903523.data", name: "(LW4-E1-C1) Eye of the Brandstorm <Crystal Oasis>" },
         { fileName: "1902235.data", name: "(LW4-E1) Domain of Istan" },
         { fileName: "1901428.data", name: "(LW4-E1-C6) Fahranur, the First City" },
-        { fileName: "1954984.data", name: "(LW4-E2-C1) Tracking the Scientist [Desert Highlands]" },
-        { fileName: "1955224.data", name: "(LW4-E2-C2) The Test Subject [Sandswept Isles]" },
+        { fileName: "1954984.data", name: "(LW4-E2-C1) Tracking the Scientist <Desert Highlands>" },
+        { fileName: "1955224.data", name: "(LW4-E2-C2) The Test Subject <Sandswept Isles>" },
         { fileName: "1957526.data", name: "(LW4-E2) Sandswept Isles" },
-        { fileName: "1955471.data", name: "(LW4-E2-C5) The Charge [Sandswept Isles]" },
-        { fileName: "1955642.data", name: "(LW4-E2-C5) ??? [Divinity's Reach]" },
-        { fileName: "1955915.data", name: "(LW4-E2-C5) ??? [Mount Maelstrom]" },
-        { fileName: "1956140.data", name: "(LW4-E2-C5) ??? [Frostgorge Sound]" },
+        { fileName: "1955471.data", name: "(LW4-E2-C5) The Charge <Sandswept Isles>" },
+        { fileName: "1955642.data", name: "(LW4-E2-C5) ??? <Divinity's Reach>" },
+        { fileName: "1955915.data", name: "(LW4-E2-C5) ??? <Mount Maelstrom>" },
+        { fileName: "1956140.data", name: "(LW4-E2-C5) ??? <Frostgorge Sound>" },
         { fileName: "1956245.data", name: "(LW4-E2-C5) ERROR: SIGNAL LOST" },
-        { fileName: "2005467.data", name: "(LW4-E3C1) Seized [Crystal Oasis]" },
+        { fileName: "2005467.data", name: "(LW4-E3C1) Seized <Crystal Oasis>" },
         { fileName: "2004704.data", name: "(LW4-E3) Domain of Kourna" },
         { fileName: "2044320.data", name: "(LW4-E4) Jahai Bluffs" },
         { fileName: "2044502.data", name: "(LW4-E4-C5) Storm Tracking" },
-        { fileName: "2093791.data", name: "(LW4-E5-C1) Scion & Champion" },
+        { fileName: "2093791.data", name: "(LW4-E5-C1) Scion & Champion <Lornar's Pass>" },
         { fileName: "2092435.data", name: "(LW4-E5) Thunderhead Peaks" },
-        { fileName: "2092812.data", name: "(LW4-E5-C3) The Crystal Blooms" },
-        { fileName: "2093450.data", name: "(LW4-E5-C5) The Crystal Dragon" },
+        { fileName: "2092812.data", name: "(LW4-E5-C3) The Crystal Blooms <Thunderhead Peaks>" },
+        { fileName: "2093450.data", name: "(LW4-E5-C5) The Crystal Dragon <Thunderhead Peaks>" },
         { fileName: "2124612.data", name: "(LW4-E5+) Mists Rift" },
-        { fileName: "2146312.data", name: "(LW4-E6-C1) The End" },
+        { fileName: "2146312.data", name: "(LW4-E6-C1) The End <Thunderhead Peaks>" },
         { fileName: "2146346.data", name: "(LW4-E6-C1) Dragonflight" },
         { fileName: "2146125.data", name: "(LW4-E6) Dragonfall" },
         { fileName: "2146510.data", name: "(LW4-E6-C5) Descent" },
@@ -205,7 +205,7 @@ module.exports = {
       name: "The Icebrood Saga (LW5)",
       maps: [
         { fileName: "2203371.data", name: "(LW5-E0) Grothmar Valley" },
-        { fileName: "2204239.data", name: "(LW5-E0-C3) Bad Blood [Grothmar Valley]" },
+        { fileName: "2204239.data", name: "(LW5-E0-C3) Bad Blood <Grothmar Valley>" },
         { fileName: "2251232.data", name: "(LW5-E1, LW5-E2) Bjora Marches" },
         { fileName: "2224355.data", name: "(LW5-E1-SM2) Voice of the Fallen and Claw of the Fallen" },
         { fileName: "2224381.data", name: "(LW5-E1-SM3) Fraenir of Jormag" },
@@ -217,8 +217,8 @@ module.exports = {
         { fileName: "2273128.data", name: "(LW5-VotP-C2) Darkrime Delves" },
         { fileName: "2298865.data", name: "(LW5-E3) Drizzlewood Coast" },
         { fileName: "2318029.data", name: "(LW5-E3, LW5-E4) Drizzlewood Coast" },
-        { fileName: "2299088.data", name: "(LW5-E3-SM7) Cold War [Drizzlewood Coast]" },
-        { fileName: "2369582.data", name: "(LW5-E5-C01) Primordus Rising [Rata Sum]" },
+        { fileName: "2299088.data", name: "(LW5-E3-SM7) Cold War <Drizzlewood Coast>" },
+        { fileName: "2369582.data", name: "(LW5-E5-C01) Primordus Rising <Rata Sum>" },
         { fileName: "2370614.data", name: "(LW5-E5-DRM01) Metrica Province" },
         { fileName: "2370017.data", name: "(LW5-E5-DRM02) Brisban Wildlands" },
         { fileName: "2369116.data", name: "(LW5-E5-DRM03) Gendarran Fields" },
@@ -227,11 +227,11 @@ module.exports = {
         { fileName: "2368400.data", name: "(LW5-E5-DRM06) Lake Doric" },
         { fileName: "2365787.data", name: "(LW5-E5-DRM07) Snowden Drifts" },
         { fileName: "2369398.data", name: "(LW5-E5-DRM08) Caledon Forest" },
-        { fileName: "2414140.data", name: "(LW5-E5-C07) Wildfire [Heart of the Volcano]" },
+        { fileName: "2414140.data", name: "(LW5-E5-C07) Wildfire <Heart of the Volcano>" },
         { fileName: "2367211.data", name: "(LW5-E5-DRM09) Bloodtide Coast" },
         { fileName: "2366368.data", name: "(LW5-E5-DRM10) Fireheart Rise" },
         { fileName: "2434582.data", name: "(LW5-E5) Dragonstorm" },
-        { fileName: "2434675.data", name: "(LW5-E5-C11) Champion's End [Dragonstorm]" }
+        { fileName: "2434675.data", name: "(LW5-E5-C11) Champion's End <Dragonstorm>" }
       ]
     },
     {
@@ -253,19 +253,19 @@ module.exports = {
     {
       name: "Fractals of the Mists (FotM)",
       maps: [
+        { fileName: "1733961.data", name: "(Lounge) Mistlock Sanctuary" },
         { fileName: "1498016.data", name: "(FotM00) Mistlock Observatory" },
         { fileName: "519839.data", name: "(FotM01-FotM09) Fractals of the Mists" },
         { fileName: "2187042.data", name: "(FotM01-FotM09) Aquatic Ruins" },
         { fileName: "1426653.data", name: "(FotM01-FotM09) Cliffside" },
         { fileName: "1472382.data", name: "(FotM01-FotM09) Snowblind" },
         { fileName: "1472406.data", name: "(FotM01-FotM09) Swampland" },
-        { fileName: "1498798.data", name: "(FotM10-FotM14) Aetherblade Retreat" },
-        { fileName: "1905739.data", name: "(FotM10-FotM14) Molten Furnace" },
+        { fileName: "1498798.data", name: "(FotM10-FotM14) Aetherblade, Captain Mai Trin Boss <Aetherblade Retreat>" },
+        { fileName: "1905739.data", name: "(FotM10-FotM14) Molten Furnace, Molten Boss <Molten Facility>" },
         { fileName: "697450.data", name: "(FotM10-FotM14) Thaumanova Reactor" },
         { fileName: "1472361.data", name: "(FotM15) Chaos" },
         { fileName: "1605344.data", name: "(FotM16) Nightmare" },
         { fileName: "1733857.data", name: "(FotM17) Shattered Observatory" },
-        { fileName: "1733961.data", name: "(Lounge) Mistlock Sanctuary" },
         { fileName: "1905889.data", name: "(FotM18) Twilight Oasis" },
         { fileName: "2005713.data", name: "(FotM19) Deepstone" },
         { fileName: "2094098.data", name: "(FotM20) Siren's Reef" },
@@ -335,7 +335,8 @@ module.exports = {
     },
     {
       name: "World vs. World (MW, EotM)",
-      maps: [
+      maps: [      
+        { fileName: "2113077.data", name: "(Lounge) Armistice Bastion" },
         { fileName: "131235.data", name: "(MW) Eternal Battlegrounds" },
         { fileName: "195806.data", name: "(MW) Eternal Battlegrounds [MapWvWCenter]" },
         { fileName: "1798709.data", name: "(MW) Eternal Battlegrounds [MapWvWCenterGliding]" },
@@ -345,12 +346,11 @@ module.exports = {
         { fileName: "641501.data", name: "(MW) Alpine Borderlands" },
         { fileName: "1799855.data", name: "(MW) Alpine Borderlands" },
         { fileName: "1918037.data", name: "(MW) Alpine Borderlands" },
-        { fileName: "736241.data", name: "(EotM) Edge of the Mists" },
         { fileName: "1427803.data", name: "(MW) Desert Borderlands [MapWvWDesertHomeUpdate]" },
         { fileName: "1647236.data", name: "(MW) Desert Borderlands [MapWvWDesertHomeUpdateMIDrework]" },
         { fileName: "1799442.data", name: "(MW) Desert Borderlands [MapWvWDesertHome4]" },
         { fileName: "2112733.data", name: "(MW) Desert Borderlands [MapWvWDesertHome]" },
-        { fileName: "2113077.data", name: "(Lounge) Armistice Bastion" }
+        { fileName: "736241.data", name: "(EotM) Edge of the Mists" }
       ]
     },
     {
@@ -366,14 +366,14 @@ module.exports = {
         { fileName: "529945.data", name: "(WD) Winter Wonderland" },
         { fileName: "2076921.data", name: "(WD) Secret Lair of the Snowmen" },
         { fileName: "595582.data", name: "(LNY) Dragon Ball Arena" },
-        { fileName: "569756.data", name: "(SAB) Hub" },
+        { fileName: "569756.data", name: "(SAB) Super Adventure Box" },
         { fileName: "636133.data", name: "(SAB) Hub" },
         { fileName: "635555.data", name: "(SAB) World 1" },
         { fileName: "635960.data", name: "(SAB) World 2" },
         { fileName: "606255.data", name: "(FotFW) Labyrinthine Cliffs" },
         { fileName: "605983.data", name: "(FotFW) Sanctum Sprint" },
         { fileName: "617120.data", name: "(FotFW) Aspect Arena" },
-        { fileName: "622681.data", name: "(FotFW) The Crown Pavilion" },
+        { fileName: "622681.data", name: "(FotFW) The Crown Pavilion <Divinity's Reach>" },
         { fileName: "606030.data", name: "(Other) Basket Brawl" }
       ]
     },
@@ -389,6 +389,8 @@ module.exports = {
         { fileName: "875614.data", name: "(((Unknown Mists Platforms)))" },
         { fileName: "969964.data", name: "Verdant Brink (PAX 2015 Demo) [MapRootsAfterShip]" },
         { fileName: "1255516.data", name: "Guild Coliseum [MapGuildColiseum]" },
+        { fileName: "1255634.data", name: "(((Unknown Town)))" },
+        { fileName: "1282201.data", name: "(((WvW)))" },
         { fileName: "1498193.data", name: "Conquest Prototype [MapPvPConquestTemp]" },
         { fileName: "1513556.data", name: "Competitive PvP Infection 2 (Valley) [MapPvPInfection2]" },
         { fileName: "1513607.data", name: "Conquest Vine [MapPvPConquestTest_01]" },
