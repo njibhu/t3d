@@ -20,7 +20,7 @@ const FILE_HEAD = {
   },
 };
 
-interface ChunkHead {
+export interface ChunkHead {
   type: string;
   chunkDataSize: number;
   chunkVersion: number;
