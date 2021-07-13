@@ -130,7 +130,8 @@ module.exports = {
         { fileName: "580061.data", name: "(LW1.E4) Molten Facility [MapFlameFrost]" },
         { fileName: "595722.data", name: "(LW1.E8) Aetherblade Retreat [MapValleyArchDungeon]" },
         { fileName: "672138.data", name: "(LW1.E13.1) The Nightmare Unveiled <Kessex Hills> [MapValleyWildernessKraitTowerInstance]" },
-        { fileName: "679089.data", name: "(LW1.E14) Tower of Nightmares [MapValleyWildernessKraitTowerInterior]" }
+        { fileName: "679089.data", name: "(LW1.E14) Tower of Nightmares [MapValleyWildernessKraitTowerInterior]" },
+        { fileName: "2469960.data", name: "(LW1.E16) Lornar's Pass [MapAlpineSlopeMarionette]" }
       ]
     },
     {
