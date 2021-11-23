@@ -16,6 +16,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
+var T3D: any;
+var DataStream: any = globalThis.DataStream;
 
 const ArchiveParser = require("./ArchiveParser");
 const PersistantStore = require("./PersistantStore");
@@ -23,46 +25,55 @@ const DataReader = require("./DataReader");
 const MapFileList = require("../MapFileList");
 const FileTypes = require("./FileTypes");
 
+interface LocalReaderSettings {
+  noIndexedDB?: boolean; // Do not use indexedDB (persistant storage, default is true)
+  workerPath: String; // workerPath: the path to the t3dtools worker script file.
+  workersNb: number; // amount of threads spawned for decompression.
+}
+
+interface FileItem {
+  mftId: number;
+  baseIdList: number[];
+  size: number;
+  crc: number;
+  fileType: string;
+}
+
+/**
+ *   "Meta" informations to deal with files in the archive.
+ */
+interface FileMetaData {
+  offset: number;
+  size: number;
+  compressed: number;
+  crc: number;
+}
+
 /**
  * A statefull class that handles reading and inflating data from a local GW2 dat file.
- *
- * @param {{workerPath: String, workersNb: number, noIndexedDB: boolean}} settings
- *   * workerPath: the path to the t3dtools worker script file.
- *   * workersNb: amount of threads spawned for decompression.
- *   * noIndexedDB: Do not use indexedDB (persistant storage, default is true)
  */
 class LocalReader {
-  constructor(settings) {
+  _settings: LocalReaderSettings;
+  _dataReader: typeof DataReader;
+  _persistantStore: typeof PersistantStore;
+  _file: File;
+  _indexTable: Array<number>;
+  _fileMetaTable: Array<{ offset: number; size: number; compressed: number; crc: number }>;
+  _persistantData: Array<{
+    baseId: number;
+    size: number;
+    crc: number;
+    fileType: string;
+  }>;
+  _fileTypeCache: any;
+
+  constructor(settings: LocalReaderSettings) {
     this._settings = settings;
 
-    /**
-     * @private
-     * @type {DataReader}
-     */
     this._dataReader = new DataReader(settings);
-
-    /**
-     * @private
-     * @type {PersistantStore}
-     */
     this._persistantStore;
-
-    /**
-     * @private
-     * @type {File}
-     */
     this._file = undefined;
-
-    /**
-     * @private
-     * @type {Array<number>}
-     */
     this._indexTable = [];
-
-    /**
-     * @private
-     * @type {Array<{offset: number, size: number, compressed: number, crc: number}>}
-     */
     this._fileMetaTable = [];
 
     if (settings.noIndexedDB !== false) {
@@ -72,11 +83,8 @@ class LocalReader {
 
   /**
    *   Asynchronously loads the archive by parsing its file index and header.
-   *
-   * @param {File} file
-   * @returns {Promise}
    */
-  async openArchive(file) {
+  async openArchive(file: File): Promise<void> {
     const { metaTable, indexTable } = await ArchiveParser.readArchive(file);
     this._fileMetaTable = metaTable;
     this._indexTable = indexTable;
@@ -85,44 +93,33 @@ class LocalReader {
 
   /**
    *   Gets MFT index by baseId
-   *
-   * @param  {Number} baseId   A base Id
-   * @return {Number}          MFT index
    */
-  getFileIndex(baseId) {
+  getFileIndex(baseId: number): number /* MFT index */ {
     return this._indexTable[baseId];
   }
 
   /**
-   *   "Meta" informations to deal with files in the archive.
-   * @typedef     {Object}    FileMetaData
-   * @property    {number}    offset
-   * @property    {number}    size
-   * @property    {number}    compressed
-   * @property    {number}    crc
-   */
-
-  /**
    *   Returns the metadata of a file stored in the archive
-   *
-   * @param {number} mftId Mft index of the file
-   * @returns {FileMetaData} Metadata informations
    */
-  getFileMeta(mftId) {
+  getFileMeta(mftId: number): FileMetaData {
     return this._fileMetaTable[mftId];
   }
 
   /**
    *   Fetch a file and uncompress it if needed / required.
-   *
-   * @param {number} mftId File's archive ID
-   * @param {boolean} [isImage] Try to read the data as a Dxt texture.
-   * @param {boolean} [raw] Force no decompression.
-   * @param {number} [fileLength] Slice the uncompressed file.
-   * @param {number} [extractLength] Slice the decompression.
-   * @returns {Promise<{buffer: ArrayBuffer, dxtType: number|undefined, imageWidth: number|undefined, imageHeight: number|undefined}>}
    */
-  async readFile(mftId, isImage, raw, fileLength, extractLength) {
+  async readFile(
+    mftId: number,
+    isImage?: boolean,
+    raw?: boolean,
+    fileLength?: number,
+    extractLength?: number
+  ): Promise<{
+    buffer: ArrayBuffer;
+    dxtType?: number;
+    imageWidth?: number;
+    imageHeight?: number;
+  }> {
     //let buffer, dxtType, imageWidth, imageHeight;
     const meta = this.getFileMeta(mftId);
     if (!meta) throw new Error("Unexistant file");
@@ -153,12 +150,11 @@ class LocalReader {
   /**
    *   Scans asynchronously the types of all the files listed in the archive.
    *   Uses persistant store to cache and speed up a rescan.
-   *
-   * @param {Array<{baseId: number, size: number, crc: number, fileType: string}>|undefined} oldFileList
-   *   Way for platform not supporting indexDB to provide their own persistant storage.
-   * @returns {Promise<Array<FileItem>>}
    */
-  async readFileList(oldFileList) {
+  async readFileList(
+    // This is a way for platforms not supporting indexDB to provide their own persistant storage.
+    oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>
+  ): Promise<Array<FileItem>> {
     const self = this;
 
     let persistantList = oldFileList || [];
@@ -177,7 +173,7 @@ class LocalReader {
     // Create a list of all the baseIds we need to inspect
     const iterateList = Object.keys(self._indexTable).map((i) => Number(i));
     for (const index in persistantList) {
-      if (!(index in self._indexTable)) iterateList.push(index);
+      if (!(index in self._indexTable)) iterateList.push(index as any);
     }
 
     // Spawn the decompression tasks
@@ -217,9 +213,13 @@ class LocalReader {
       if (result.change !== "none") persistantNeedsUpdate = true;
 
       // Tasks to do only every %
-      if (index % Math.floor(iterateList.length / 100) === 0) {
+      if (((index as unknown) as number) % Math.floor(iterateList.length / 100) === 0) {
         // Print progress
-        T3D.Logger.log(T3D.Logger.TYPE_PROGRESS, "Finding types", index / Math.floor(iterateList.length / 100));
+        T3D.Logger.log(
+          T3D.Logger.TYPE_PROGRESS,
+          "Finding types",
+          ((index as unknown) as number) / Math.floor(iterateList.length / 100)
+        );
 
         // Update the persistant storage if needed
         if (self._persistantStore && persistantNeedsUpdate) {
@@ -246,7 +246,7 @@ class LocalReader {
    * This helps us being sure that we only return files that contain a mapc chunk when using
    * the getMapList function
    */
-  async readMapList() {
+  async readMapList(): Promise<void> {
     const fileList = MapFileList.maps.reduce((maps, category) => {
       return maps.concat(category.maps.map((entry) => entry.fileName));
     }, []);
@@ -270,19 +270,10 @@ class LocalReader {
   }
 
   /**
-   * @typedef {Object} MapItem
-   * @property {string} name
-   * @property {string} category
-   * @property {number} baseId
-   */
-
-  /**
    *   Returns a list of all the maps with their name and category.
    *   Uncategorized maps are available only if readFileList have been used before.
-   *
-   * @returns {Promise<Array<MapItem>>}
    */
-  async getMapList() {
+  async getMapList(): Promise<Array<{ name: string; category: string; baseId: number }>> {
     const self = this;
     const mapArray = [];
     // If the archive hasn't been completely scanned we do a partial scan for the map files.
@@ -328,21 +319,10 @@ class LocalReader {
   }
 
   /**
-   * @typedef {Object} FileItem
-   * @property {number} mftId
-   * @property {Array<number>} baseIdList
-   * @property {number} size
-   * @property {number} crc
-   * @property {string} fileType
-   **/
-
-  /**
    *   Return the meta table with extra information such as an array of baseIds and the file types.
    *   The filetype is available only if readFileList have been used before of course.
-   *
-   * @returns {Array<FileItem>}
    */
-  getFileList() {
+  getFileList(): Array<FileItem> {
     const typeList = this._persistantData ? this._persistantData.map((i) => i.fileType) : [];
     const reverseBaseIdList = this.getReverseIndex();
 
@@ -382,21 +362,14 @@ class LocalReader {
 
   /**
    * Reads data from a file in the dat.
-   *
-   * @param  {Number}   baseId   Base or File id of the texture to load
-   * @param  {Function} callback Fires when the inflater has read the data.
-   *
-   * The passed arguments are
-   * -ArrayBuffer raw data
-   * -Number DXT Type if applicable
-   * -Number image width if applicable
-   * -Number image height if applicable
-   *
-   *
-   * @param  {boolean}  isImage
-   * @param  {boolean}   raw      If true, any infation is skipped and raw data is returned.
+   * If `raw` is true, any infation is skipped and raw data is returned.
    */
-  loadFile(baseId, callback, isImage, raw) {
+  loadFile(
+    baseId: number,
+    callback: (rawData?: ArrayBuffer, dxtType?: number, width?: number, height?: number) => void,
+    isImage: boolean,
+    raw: boolean
+  ) {
     const mftId = this.getFileIndex(baseId);
     if (mftId <= 0) return callback(null);
     this.readFile(mftId, isImage, raw).then((result) => {
@@ -406,14 +379,10 @@ class LocalReader {
   }
 
   // Private
-
-  /**
-   * @private
-   * @param {number} baseId
-   * @param {Array<{baseId: number, crc: number, size: number, fileType: string}>} persistantData
-   * @returns {{scan: boolean, change: string }}
-   */
-  _needsScan(baseId, persistantData) {
+  _needsScan(
+    baseId: number,
+    persistantData: Array<{ baseId: number; crc: number; size: number; fileType: string }>
+  ): { scan: boolean; change: string } {
     if (baseId <= 0) return { change: "none", scan: false };
 
     const mftId = this.getFileIndex(baseId);
@@ -441,13 +410,7 @@ class LocalReader {
     }
   }
 
-  /**
-   * @private
-   * @param {number} baseId
-   * @param {Array<{baseId: number, crc: number, size: number, fileType: string}>} persistantData
-   * @returns {Promise<{fileType: string, crc: number, size: number}>}
-   */
-  async _readFileType(baseId) {
+  async _readFileType(baseId: number): Promise<{ fileType: string; crc: number; size: number }> {
     if (!this._fileTypeCache) this._fileTypeCache = [];
 
     const mftId = this.getFileIndex(baseId);

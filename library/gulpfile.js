@@ -10,13 +10,16 @@ const log = require("gulplog");
 const uglifyjs = require("uglify-es");
 const composer = require("gulp-uglify/composer");
 const uglify = composer(uglifyjs, console);
+const tsify = require("tsify");
 
-gulp.task("T3D", function() {
+gulp.task("T3D", function () {
   // set up the browserify instance on a task basis
-  let b = browserify({
+  const b = browserify({
     entries: "./src/T3DLib.js",
     debug: true,
     standalone: "T3D",
+  }).plugin(tsify, {
+    allowJs: true,
   });
 
   return (
@@ -33,14 +36,14 @@ gulp.task("T3D", function() {
   );
 });
 
-gulp.task("copy", function() {
+gulp.task("copy", function () {
   return gulp
     .src([`./build/T3D.js`, `./build/T3D.js.map`])
-  .pipe(gulp.dest("../examples/dist/static"))
-  .pipe(gulp.dest("../explorer/dist/static"));
+    .pipe(gulp.dest("../examples/dist/static"))
+    .pipe(gulp.dest("../explorer/dist/static"));
 });
 
-gulp.task("watch", function() {
+gulp.task("watch", function () {
   gulp.watch(["src/**/*.js"], gulp.series("T3D"));
 });
 

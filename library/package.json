@@ -22,6 +22,8 @@
     "gulp-uglify": "^3.0.2",
     "gulplog": "^1.0.0",
     "prettier": "^2.1.2",
+    "tsify": "^5.0.4",
+    "typescript": "^4.5.2",
     "uglify-es": "^3.3.9",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
