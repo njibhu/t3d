@@ -117,6 +117,7 @@ module.exports = {
       maps: [
         { fileName: "520479.data", name: "Southsun Cove" },
         { fileName: "679089.data", name: "Tower of Nightmares" },
+        { fileName: "2469960.data", name: "Twisted Marionette" },
       ],
     },
     {
@@ -234,11 +235,31 @@ module.exports = {
       ],
     },
     {
-      name: "13. Seasonal Activities",
+      name: "13. End of Dragons (Beware, spoilers)",
+      maps: [
+        { fileName: "2639738", name: "Uncategorized: 2639738" },
+        { fileName: "2639795", name: "Uncategorized: 2639795" },
+        { fileName: "2640407", name: "Uncategorized: 2640407" },
+        { fileName: "2641850", name: "Uncategorized: 2641850" },
+        { fileName: "2642769", name: "Uncategorized: 2642769" },
+        { fileName: "2644196", name: "Uncategorized: 2644196" },
+        { fileName: "2644298", name: "Uncategorized: 2644298" },
+        { fileName: "2645519", name: "Uncategorized: 2645519" },
+        { fileName: "2645805", name: "Uncategorized: 2645805" },
+        { fileName: "2646104", name: "Uncategorized: 2646104" },
+        { fileName: "2647516", name: "Uncategorized: 2647516" },
+        { fileName: "2648082", name: "Uncategorized: 2648082" },
+        { fileName: "2649061", name: "Uncategorized: 2649061" },
+        { fileName: "2649141", name: "Uncategorized: 2649141" },
+      ],
+    },
+    {
+      name: "14. Seasonal Activities",
       maps: [
         { fileName: "506592.data", name: "Ascent to Madness" },
         { fileName: "506670.data", name: "Mad King's Labyrinth (Past)" },
         { fileName: "662436.data", name: "Mad King's Labyrinth (Present)" },
+        { fileName: "2499169.data", name: "Mad King's Labyrinth" },
         { fileName: "506739.data", name: "Mad King's Clock Tower" },
         { fileName: "622681.data", name: "The Crown Pavilion" },
         { fileName: "569756.data", name: "SAB Hub (0)" },
@@ -253,14 +274,14 @@ module.exports = {
       ],
     },
     {
-      name: "14. Activites",
+      name: "15. Activites",
       maps: [
         { fileName: "605983.data", name: "Sanctum Sprint" },
         { fileName: "606030.data", name: "Basket Brawl" },
       ],
     },
     {
-      name: "15. Dungeons",
+      name: "16. Dungeons",
       maps: [
         { fileName: "126840.data", name: "Ascalonian Catacombs (0)" },
         { fileName: "189364.data", name: "Ascalonian Catacombs (1)" },
@@ -278,7 +299,7 @@ module.exports = {
       ],
     },
     {
-      name: "16. Fractals",
+      name: "17. Fractals",
       maps: [
         { fileName: "519839.data", name: "Fractals of the Mists" },
         { fileName: "697450.data", name: "Thaumanova Reactor" },
@@ -300,7 +321,7 @@ module.exports = {
       ],
     },
     {
-      name: "17. Raid",
+      name: "18. Raid",
       maps: [
         { fileName: "1151420.data", name: "(W1) Spirit Vale" },
         { fileName: "1383309.data", name: "(W2) Salvation Pass" },
@@ -313,7 +334,7 @@ module.exports = {
       ],
     },
     {
-      name: "18. Strike Missions",
+      name: "19. Strike Missions",
       maps: [
         {
           fileName: "2224355.data",
@@ -329,7 +350,7 @@ module.exports = {
       ],
     },
     {
-      name: "19. Structured PvP",
+      name: "20. Structured PvP",
       maps: [
         { fileName: "871093.data", name: "Original Stronghold" },
         { fileName: "870987.data", name: "Battle of Champion's Dusk (0)" },
@@ -366,7 +387,7 @@ module.exports = {
       ],
     },
     {
-      name: "20. World vs World",
+      name: "21. World vs World",
       maps: [
         { fileName: "131235.data", name: "Eternal Battlegrounds (0)" },
         { fileName: "195806.data", name: "Eternal Battlegrounds (1)" },
@@ -384,7 +405,7 @@ module.exports = {
       ],
     },
     {
-      name: "19. Guild Halls",
+      name: "22. Guild Halls",
       maps: [
         { fileName: "1255378.data", name: "Gilded Hollow" },
         { fileName: "1256064.data", name: "Lost Precipice" },
@@ -392,7 +413,7 @@ module.exports = {
       ],
     },
     {
-      name: "21. Concept and not released",
+      name: "23. Concept and not released",
       maps: [
         { fileName: "122695.data", name: "Empty Plane" },
         { fileName: "184799.data", name: "Empty Plane v1" },
