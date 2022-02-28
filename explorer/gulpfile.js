@@ -43,6 +43,7 @@ function copyStaticAssets() {
         `../library/build/T3D.js.map`,
         `./external-assets/gw2/Background1_2400_1200.jpg`,
         `./external-assets/gw2/Background2_3840_2026.jpg`,
+        `./external-assets/gw2/Background3_4096x2027.jpg`,
         `./external-assets/github/GitHub-Mark-120px-plus.png`,
       ])
       .pipe(gulp.dest("./dist/static")),
