@@ -25,9 +25,6 @@ const mapMap = {
       maps: [
         { fileName: "128151.data", name: "(City) Divinity's Reach" },
         { fileName: "191265.data", name: "(City) Divinity's Reach [MapValleyDivinity]" },
-        { fileName: "705746.data", name: "(City) Divinity's Reach [MapWintersDayValleyDivinity2013]" },
-        { fileName: "1625212.data", name: "(City) Divinity's Reach [MapValleyDivinityLNY]" },
-        { fileName: "1917775.data", name: "(City) Divinity's Reach [MapValleyDivinityholiday]" },
         { fileName: "1968748.data", name: "(City) Divinity's Reach" },
         { fileName: "129524.data", name: "(1-15) Queensdale" },
         { fileName: "192711.data", name: "(1-15) Queensdale [MapValleyHill]" },
@@ -38,11 +35,11 @@ const mapMap = {
         { fileName: "289176.data", name: "(25-35) Gendarran Fields, Vigil Headquarters [MapValleySettlement]" },
         { fileName: "191000.data", name: "(City) Lion's Arch [MapValleyArch]" },
         { fileName: "1796999.data", name: "(City) Lion's Arch [MapValleyArchKiel]" },
-        { fileName: "1869665.data", name: "(City) Lion's Arch [MapValleyArchKielHalloween]" },
         { fileName: "1968576.data", name: "(City) Lion's Arch" },
         { fileName: "287870.data", name: "(35-45) Harathi Hinterlands [MapValleyHeadland]" },
         { fileName: "286945.data", name: "(45-55) Bloodtide Coast [MapValleyCoast]" },
-        { fileName: "295005.data", name: "(45-55) Chantry of Secrets [MapValleyWhisper]" }
+        { fileName: "295005.data", name: "(45-55) Chantry of Secrets [MapValleyWhisper]" },
+        { fileName: "520479.data", name: "(80) Southsun Cove, Crab Toss, Southsun Survival [MapEventValleyLost]" }
       ]
     },
     {
@@ -51,7 +48,6 @@ const mapMap = {
         { fileName: "132434.data", name: "(City) Hoelbrak, Keg Brawl" },
         { fileName: "197122.data", name: "(City) Hoelbrak, Keg Brawl [MapAlpineHall]" },
         { fileName: "1966018.data", name: "(City) Hoelbrak, Keg Brawl" },
-        { fileName: "2164993.data", name: "(City) Hoelbrak, Keg Brawl [MapAlpineHallDragonBash]" },
         { fileName: "125199.data", name: "(1-15) Wayfarer Foothills" },
         { fileName: "187611.data", name: "(1-15) Wayfarer Foothills [MapAlpineSnowline]" },
         { fileName: "124093.data", name: "(15-25) Snowden Drifts" },
@@ -68,7 +64,6 @@ const mapMap = {
       name: "Tarnished Coast [Wetland]",
       maps: [
         { fileName: "198272.data", name: "(City) Rata Sum [MapWetlandComplex]" },
-        { fileName: "1666365.data", name: "(City) Rata Sum [MapWetlandComplexSAB]" },
         { fileName: "1968896.data", name: "(City) Rata Sum" },
         { fileName: "198076.data", name: "(City) The Grove [MapWetlandGrove]" },
         { fileName: "1969341.data", name: "(City) The Grove" },
@@ -114,27 +109,21 @@ const mapMap = {
       ]
     },
     {
-      name: "(LW1) Living World Season 1: Scarlet's War",
+      name: "(LW1) Living World Season 1: Scarlet's War - (SM) Strike Missions",
       maps: [
         { fileName: "2771534.data", name: "(Lounge) Memory of Old Lion's Arch <Old Lion's Arch> [MapValleyArchProbed]" },
-        { fileName: "520479.data", name: "(LW1.TLS, LW1.E5) Southsun Cove, Crab Toss, Southsun Survival [MapEventValleyLost]" },
-        { fileName: "568778.data", name: "(LW1.E3) Cragstead <Wayfarer Foothills, Diessa Plateau> [MapAlpineEnclave]" },
-        { fileName: "580061.data", name: "(LW1.E4) Molten Furnace [MapFlameFrost]" },
-        { fileName: "2690992.data", name: "(LW1.E7) Memorials on the Pyre, The Scene of the Crime <Old Lion's Arch> [MapValleyArchDragon]" },
-        { fileName: "595582.data", name: "(LW1.E7) Dragon Ball Arena [MapDragonBall]" },
-        { fileName: "595722.data", name: "(LW1.E8) Aetherblade Retreat [MapValleyArchDungeon]" },
-        { fileName: "606255.data", name: "(LW1.BotFW) Labyrinthine Cliffs [MapEvenKiteCity]" },
-        { fileName: "605983.data", name: "(LW1.BotFW) Sanctum Sprint [MapEvenTriathlonKiteCity]" },
-        { fileName: "617120.data", name: "(LW1.E9) Aspect Arena [MapEvenPVPKiteCity]" },
-        { fileName: "622681.data", name: "(LW1.E10) The Crown Pavilion <Divinity's Reach> [MapJubileeArena]" },
-        { fileName: "2711089.data", name: "(LW1.E10) Scarlet's Playhouse <The Crown Pavilion> [MapJubileeArena-2]" },
-        { fileName: "672138.data", name: "(LW1.E13) The Nightmare Unveiled <Kessex Hills> [MapValleyWildernessKraitTowerInstance]" },
-        { fileName: "679089.data", name: "(LW1.E14) The Tower of Nightmares [MapValleyWildernessKraitTowerInterior]" },
-        { fileName: "2469960.data", name: "(LW1.E16) The Twisted Marionette <Lornar's Pass> [MapAlpineSlopeMarionette]" },
-        { fileName: "2770873.data", name: "(LW1.E18) The Battle For Lion's Arch <Old Lion's Arch> [MapValleyArch2]" },
-        { fileName: "2773298.data", name: "(LW1.E18) North Evacuation Camp <Gendarran Fields> [MapValleySettlementFeb2014]" },
-        { fileName: "2771205.data", name: "(LW1.E20) Lion's Arch: Honored Guests <Old Lion's Arch> [MapValleyArch3]" },
-        { fileName: "2771205.data", name: "(SM) Old Lion's Court <The Battle For Lion's Arch> [MapValleyArch2Strike]" }
+        { fileName: "568778.data", name: "(LW1.E1) Cragstead <Wayfarer Foothills, Diessa Plateau> [MapAlpineEnclave]" },
+        { fileName: "580061.data", name: "(LW1.E1) Molten Furnace [MapFlameFrost]" },
+        { fileName: "2690992.data", name: "(LW1.E2) Memorials on the Pyre, The Scene of the Crime <Old Lion's Arch> [MapValleyArchDragon]" },
+        { fileName: "595722.data", name: "(LW1.E2) Aetherblade Retreat [MapValleyArchDungeon]" },
+        { fileName: "2711089.data", name: "(LW1.E3) Scarlet's Playhouse <The Crown Pavilion> [MapJubileeArena-2]" },
+        { fileName: "672138.data", name: "(LW1.E4) The Nightmare Unveiled <Kessex Hills> [MapValleyWildernessKraitTowerInstance]" },
+        { fileName: "679089.data", name: "(LW1.E4) The Tower of Nightmares [MapValleyWildernessKraitTowerInterior]" },
+        { fileName: "2469960.data", name: "(LW1.E5) The Twisted Marionette <Lornar's Pass> [MapAlpineSlopeMarionette]" },
+        { fileName: "2770873.data", name: "(LW1.E5) The Battle For Lion's Arch <Old Lion's Arch> [MapValleyArch2]" },
+        { fileName: "2773298.data", name: "(LW1.E5) North Evacuation Camp <Gendarran Fields> [MapValleySettlementFeb2014]" },
+        { fileName: "814803.data", name: "(LW1.E5) Lion's Arch: Honored Guests <Old Lion's Arch> [MapValleyArch3]" },
+        { fileName: "2771205.data", name: "(SM.1) Old Lion's Court <The Battle For Lion's Arch> [MapValleyArch2Strike]" }
       ]
     },
     {
@@ -371,8 +360,41 @@ const mapMap = {
       ]
     },
     {
+      name: "(LNY) Lunar New Year",
+      maps: [
+        { fileName: "1625212.data", name: "(City) Divinity's Reach <Divinity's Reach> [MapValleyDivinityLNY]" },
+        { fileName: "595582.data", name: "(LNY) Dragon Ball Arena [MapDragonBall]" }
+      ]
+    },
+    {
+      name: "(SAB) Super Adventure Festival - Super Adventure Box [SAB]",
+      maps: [
+        { fileName: "1666365.data", name: "(City) Rata Sum <Rata Sum> [MapWetlandComplexSAB]" },
+        { fileName: "569756.data", name: "(SAB) Super Adventure Box" },
+        { fileName: "636133.data", name: "(Lobby) Hub [MapSABHub]" },
+        { fileName: "635555.data", name: "(SAB.1) World 1 [MapSABWorld1]" },
+        { fileName: "635960.data", name: "(SAB.2) World 2 [MapSABWorld2]" }
+      ]
+    },
+    {
+      name: "(DB) Dragon Bash",
+      maps: [
+        { fileName: "2164993.data", name: "(City) Hoelbrak <Hoelbrak> [MapAlpineHallDragonBash]" }
+      ]
+    },
+    {
+      name: "(FotFW) Festival of the Four Winds",
+      maps: [
+        { fileName: "606255.data", name: "(FotFW) Labyrinthine Cliffs [MapEvenKiteCity]" },
+        { fileName: "605983.data", name: "(FotFW) Sanctum Sprint [MapEvenTriathlonKiteCity]" },
+        { fileName: "617120.data", name: "(FotFW) Aspect Arena [MapEvenPVPKiteCity]" },
+        { fileName: "622681.data", name: "(FotFW) The Crown Pavilion <Divinity's Reach> [MapJubileeArena]" }
+      ]
+    },
+    {
       name: "(HW) Halloween - Mad King's Realm [MadKing]",
       maps: [
+        { fileName: "1869665.data", name: "(City) Lion's Arch <Lion's Arch> [MapValleyArchKielHalloween]" },
         { fileName: "506670.data", name: "(HW) Mad King's Labyrinth, Lunatic Inquisition [MapMadKingMaze]" },
         { fileName: "662436.data", name: "(HW) Mad King's Labyrinth, Lunatic Inquisition [MapMadKingMaze2013]" },
         { fileName: "2499169.data", name: "(HW) Mad King's Labyrinth, Lunatic Inquisition [MapMadKingMaze2021]" },
@@ -384,19 +406,12 @@ const mapMap = {
     {
       name: "(WD) Wintersday - Wintersday Celebration [Wintersday]",
       maps: [
+        { fileName: "705746.data", name: "(City) Divinity's Reach <Divinity's Reach> [MapWintersDayValleyDivinity2013]" },
+        { fileName: "1917775.data", name: "(City) Divinity's Reach <Divinity's Reach> [MapValleyDivinityholiday]" },
         { fileName: "529718.data", name: "(WD) Bell Choir Ensemble, Snowball Mayhem [MapWintersdaySnowGlobe]" },
         { fileName: "529896.data", name: "(WD) Tixx's Infinirarium, Toypocalypse [MapWintersdayAirship]" },
         { fileName: "529945.data", name: "(WD) Winter Wonderland [MapWintersdayFrostyland]" },
         { fileName: "2076921.data", name: "(WD) Secret Lair of the Snowmen [MapFrozenTyrant]" }
-      ]
-    },
-    {
-      name: "(SAB) Super Adventure Festival - Super Adventure Box [SAB]",
-      maps: [
-        { fileName: "569756.data", name: "(SAB) Super Adventure Box" },
-        { fileName: "636133.data", name: "(Lobby) Hub [MapSABHub]" },
-        { fileName: "635555.data", name: "(SAB.1) World 1 [MapSABWorld1]" },
-        { fileName: "635960.data", name: "(SAB.2) World 2 [MapSABWorld2]" }
       ]
     },
     {
