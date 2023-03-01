@@ -252,7 +252,8 @@ const mapMap = {
         { fileName: "2642769.data", name: "(SM.2) Xunlai Jade Junkyard <The Echovald Wilds> [MapCanthaEchovaldStrikeMissions]" },
         { fileName: "2646104.data", name: "(SM.3) Kaineng Overlook <New Kaineng City> [MapCanthaKainengMinSecStrike]" },
         { fileName: "2644196.data", name: "(Z.4) Dragon's End [MapCanthaJadeSea]" },
-        { fileName: "2702043.data", name: "(SM.4) Harvest Temple <Dragon's End> [MapCanthaJadeSeaStrikeMission]" }
+        { fileName: "2702043.data", name: "(SM.4) Harvest Temple <Dragon's End> [MapCanthaJadeSeaStrikeMission]" },
+        { fileName: "3012212.data", name: "(Z.5) Gyala Delve [MapCanthaDeep]" }
       ]
     },
     {
