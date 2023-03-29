@@ -374,7 +374,8 @@ const mapMap = {
         { fileName: "569756.data", name: "(SAB) Super Adventure Box" },
         { fileName: "636133.data", name: "(Lobby) Hub [MapSABHub]" },
         { fileName: "635555.data", name: "(SAB.1) World 1 [MapSABWorld1]" },
-        { fileName: "635960.data", name: "(SAB.2) World 2 [MapSABWorld2]" }
+        { fileName: "635960.data", name: "(SAB.2) World 2 [MapSABWorld2]" },
+        { fileName: "3024941.data", name: "(SAB.3) World 3 [MapSABWorld3-0]" }
       ]
     },
     {
