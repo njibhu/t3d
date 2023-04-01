@@ -251,6 +251,8 @@ module.exports = {
         { fileName: "2648082", name: "Uncategorized: 2648082" },
         { fileName: "2649061", name: "Uncategorized: 2649061" },
         { fileName: "2649141", name: "Uncategorized: 2649141" },
+        { fileName: "3012212.data", name: "Gyala Delve" },
+
       ],
     },
     {
@@ -266,6 +268,7 @@ module.exports = {
         { fileName: "636133.data", name: "SAB Hub (1)" },
         { fileName: "635555.data", name: "SAB World 1" },
         { fileName: "635960.data", name: "SAB World 2" },
+        { fileName: "3024941.data", name: "TEST ZONE (World 3)" },
         { fileName: "606255.data", name: "Zephyr Sanctum" },
         { fileName: "529896.data", name: "Tixx's Infinirarium" },
         { fileName: "529945.data", name: "Winter Wonderland" },
