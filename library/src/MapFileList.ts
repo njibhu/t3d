@@ -94,7 +94,7 @@ const mapMap = {
       ]
     },
     {
-      name: "Core - Dungeons",
+      name: "Core - Dungeon",
       maps: [
         { fileName: "126840.data", name: "(30-35) Ascalonian Catacombs" },
         { fileName: "189364.data", name: "(30-35) Ascalonian Catacombs [MapRegrownCatacomb]" },
@@ -256,6 +256,17 @@ const mapMap = {
         { fileName: "3012212.data", name: "(Z.5) Gyala Delve [MapCanthaDeep]" },
         { fileName: "3043972.data", name: "(Z.5) Gyala Delve [MapCanthaDeepQR2]" },
         { fileName: "3100947.data", name: "(X3.18) Forward <Seitung Province> [MapCanthaShingJeaExpac4AureneInstance]" }
+      ]
+    },
+    {
+      name: "(X4) Guild Wars 2: Secrets of the Obscure - (Z) Zone, (SM) Strike Mission - Skies of Tyria [Sky]",
+      maps: [
+        { fileName: "3134712.data", name: "(X4.1) Commander without a Cause: Gendarran Fields <Gendarran Fields> [MapValleySettlementExpac4StealthMission]" },
+        { fileName: "3134778.data", name: "(Z.1) Skywatch Archipelago [MapSkyRise]" },
+        { fileName: "3135285.data", name: "(SM.1) Cosmic Observatory <Skywatch Archipelago> [MapSkyRiseStrikeObservatory]" },
+        { fileName: "3135660.data", name: "(Lobby) The Wizard's Tower [MapSkyTower]" },
+        { fileName: "3135805.data", name: "(Z.2) Amnytas [MapSkySpire]" },
+        { fileName: "3136072.data", name: "(SM.2) Temple of Febe [MapCerusArena]" }
       ]
     },
     {
