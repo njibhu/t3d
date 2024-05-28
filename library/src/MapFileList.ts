@@ -138,7 +138,7 @@ const mapMap = {
       ]
     },
     {
-      name: "(X1) Guild Wars 2: Heart of Thorns - (Z) Zone - Maguuma Jungle [Jungle]",
+      name: "(X1) Guild Wars 2: Heart of Thorns (HoT) - (Z) Zone - Maguuma Jungle [Jungle]",
       maps: [
         { fileName: "969663.data", name: "(Z.1) Verdant Brink [MapJungleFleet]" },
         { fileName: "1263739.data", name: "(Z.2) Auric Basin [MapJungleGold]" },
@@ -164,13 +164,13 @@ const mapMap = {
       ]
     },
     {
-      name: "(X2) Guild Wars 2: Path of Fire - (Z) Zone - Crystal Desert [Desert]",
+      name: "(X2) Guild Wars 2: Path of Fire (PoF) - (Z) Zone - Crystal Desert [Desert]",
       maps: [
         { fileName: "1794574.data", name: "(Z.1) Crystal Oasis [MapDesertOasis]" },
         { fileName: "1833034.data", name: "(Z.2) Desert Highlands [MapDesertHighlands]" },
-        { fileName: "1840368.data", name: "(X2.7, PoF.OS) Facing the Truth: The Sanctum, The Dark Library [MapDesertSanctum]" },
+        { fileName: "1840368.data", name: "(X2.7, X2.OS) Facing the Truth: The Sanctum, The Dark Library [MapDesertSanctum]" },
         { fileName: "1840103.data", name: "(Z.3) Elon Riverlands [MapDesertRiver]" },
-        { fileName: "1833726.data", name: "(X2.8, PoF.9) The Way Forward, The Departing <Elon Riverlands> [MapDesertMists]" },
+        { fileName: "1833726.data", name: "(X2.8, X2.9) The Way Forward, The Departing <Elon Riverlands> [MapDesertMists]" },
         { fileName: "1842533.data", name: "(Z.4) The Desolation [MapDesertTorment]" },
         { fileName: "1839188.data", name: "(Z.5) Domain of Vabbi [MapDesertPalace]" }
       ]
@@ -206,7 +206,7 @@ const mapMap = {
       ]
     },
     {
-      name: "(LW5) Living World Season 5: The Icebrood Saga - (SM) Strike Mission, (DRM) Dragon Response Missions",
+      name: "(LW5) Living World Season 5: The Icebrood Saga (IBS) - (SM) Strike Mission, (DRM) Dragon Response Missions",
       maps: [
         { fileName: "2203371.data", name: "(LW5.E0, SM.1) Grothmar Valley, Shiverpeaks Pass [MapRegrownBlood]" },
         { fileName: "2251232.data", name: "(LW5.E1, LW5.E2) Bjora Marches [MapBjoraMarchesCombined]" },
@@ -238,7 +238,7 @@ const mapMap = {
       ]
     },
     {
-      name: "(X3) Guild Wars 2: End of Dragons - (Z) Zone, (SM) Strike Mission - Cantha [Cantha]",
+      name: "(X3) Guild Wars 2: End of Dragons (EoD) - (Z) Zone, (SM) Strike Mission - Cantha [Cantha]",
       maps: [
         { fileName: "2669133.data", name: "(Lounge) Thousand Seas Pavilion [MapMTXLounge]" },
         { fileName: "2639738.data", name: "(X3.1) Old Friends <Lornar's Pass> [MapAlpineSlopeX03]" },
@@ -259,14 +259,18 @@ const mapMap = {
       ]
     },
     {
-      name: "(X4) Guild Wars 2: Secrets of the Obscure - (Z) Zone, (SM) Strike Mission - Skies of Tyria [Sky]",
+      name: "(X4) Guild Wars 2: Secrets of the Obscure (SotO) - (Z) Zone, (SM) Strike Mission - Skies of Tyria [Sky]",
       maps: [
         { fileName: "3134712.data", name: "(X4.1) Commander without a Cause: Gendarran Fields <Gendarran Fields> [MapValleySettlementExpac4StealthMission]" },
         { fileName: "3134778.data", name: "(Z.1) Skywatch Archipelago [MapSkyRise]" },
         { fileName: "3135285.data", name: "(SM.1) Cosmic Observatory <Skywatch Archipelago> [MapSkyRiseStrikeObservatory]" },
         { fileName: "3135660.data", name: "(Lobby) The Wizard's Tower [MapSkyTower]" },
         { fileName: "3135805.data", name: "(Z.2) Amnytas [MapSkySpire]" },
-        { fileName: "3136072.data", name: "(SM.2) Temple of Febe [MapCerusArena]" }
+        { fileName: "3136072.data", name: "(SM.2) Temple of Febe [MapCerusArena]" },
+        { fileName: "3193573.data", name: "(?) Convergences [MapBountyIslands]" },
+        { fileName: "3194054.data", name: "(Z.3) Inner Nayos [MapDream]" },
+        { fileName: "3264516.data", name: "(Z.3) Inner Nayos [MapDream2]" },
+        { fileName: "3316196.data", name: "(Z.3) Inner Nayos [MapDream3]" }
       ]
     },
     {
@@ -298,7 +302,8 @@ const mapMap = {
         { fileName: "2005713.data", name: "(FotM.19) Deepstone [MapInfiniteLabyrinth]" },
         { fileName: "2094098.data", name: "(FotM.20) Siren's Reef [MapInfiniteCove]" },
         { fileName: "2333932.data", name: "(FotM.21) Sunqua Peak [MapFractalElementalIslands]" },
-        { fileName: "3100195.data", name: "(FotM.22) Silent Surf [MapLuxonFractal]" }
+        { fileName: "3100195.data", name: "(FotM.22) Silent Surf [MapLuxonFractal]" },
+        { fileName: "3317434.data", name: "(FotM.23) Lonely Tower [MapSkyRiseFractalEparch]" }
       ]
     },
     {
@@ -315,7 +320,7 @@ const mapMap = {
       ]
     },
     {
-      name: "Competitive - Player vs. Player - (CQ) Conquest, (MB) Murderball, (SH) Stronghold, (TDM) Team Deathmatch",
+      name: "Competitive - Player vs. Player (PvP) - (CQ) Conquest, (MB) Murderball, (SH) Stronghold, (TDM) Team Deathmatch",
       maps: [
         { fileName: "132570.data", name: "(Lobby) Heart of the Mists" },
         { fileName: "197249.data", name: "(Lobby) Heart of the Mists [MapPvPLobby]" },
@@ -345,8 +350,8 @@ const mapMap = {
         { fileName: "2065760.data", name: "(CQ.10) Djinn's Dominion [Mapdesertconq]" },
         { fileName: "2128938.data", name: "(CQ.10) Djinn's Dominion [MapDesertConqWallMid]" },
         { fileName: "2175965.data", name: "(CQ.10) Djinn's Dominion [MapDesertConqWallMid2]" },
-        { fileName: "791564.data", name: "(MB.1, TDM.2) Courtyard [MapDMCourtyard]" },
-        { fileName: "1713054.data", name: "(MB.1, TDM.2) Courtyard [MapDMCourtyard2]" },
+        { fileName: "791564.data", name: "(MB, TDM.2) Courtyard [MapDMCourtyard]" },
+        { fileName: "1713054.data", name: "(MB, TDM.2) Courtyard [MapDMCourtyard2]" },
         { fileName: "870987.data", name: "(SH) Battle of Champion's Dusk [MapPvPStrongholdCity]" },
         { fileName: "871093.data", name: "(SH) Battle of Champion's Dusk [MapPvPStrongholdCityMercs]" },
         { fileName: "1712986.data", name: "(TDM.1) Hall of the Mists [MapHallway2v2]" },
@@ -355,7 +360,7 @@ const mapMap = {
       ]
     },
     {
-      name: "Competitive - World vs. World - (MW) Mist War, (EotM) Edge of the Mists",
+      name: "Competitive - World vs. World (WvW) - (MW) Mist War, (EotM) Edge of the Mists",
       maps: [      
         { fileName: "2113077.data", name: "(Lounge) Armistice Bastion [MapWvwLounge]" },
         { fileName: "131235.data", name: "(MW) Eternal Battlegrounds, Obsidian Sanctum" },
@@ -389,7 +394,8 @@ const mapMap = {
         { fileName: "636133.data", name: "(Lobby) Hub [MapSABHub]" },
         { fileName: "635555.data", name: "(SAB.1) World 1 [MapSABWorld1]" },
         { fileName: "635960.data", name: "(SAB.2) World 2 [MapSABWorld2]" },
-        { fileName: "3024941.data", name: "(SAB.3) World 3 [MapSABWorld3-0]" }
+        { fileName: "3024941.data", name: "(SAB.3) World 3 [MapSABWorld3-0]" },
+        { fileName: "3281398.data", name: "(SAB.3) World 3 [MapSABWorld3-1]" }
       ]
     },
     {
