@@ -1,4 +1,4 @@
-import { FixedArray, Float32, Uint16, DynArray, Uint8, Uint64, Uint32 } from "../src/types";
+import { FixedArray, Float32, Uint32, Uint16, DynArray, Uint8, Uint64, RefString16 } from "../src/types";
 
 export const V6 = {
   chunkName: "havk",
@@ -507,5 +507,142 @@ export const V14 = {
   }
 };
 
-export const latest = V14;
-export const definitionArray = [V6, V7, V8, V9, V10, V11, V12, V13, V14];
+export const V15 = {
+  chunkName: "havk",
+  name: "PackMapCollideV15",
+  version: 15,
+  definitions: {
+    PackMapCollideCollisionV15: {
+      indices: DynArray(Uint16),
+      vertices: DynArray(FixedArray(Float32, 3)),
+      surfaces: DynArray(Uint16),
+      moppCodeData: "PackMoppType"
+    },
+    PackMoppType: {
+      moppData: DynArray(Uint8)
+    },
+    PackMapCollideBlockerV15: {
+      vertices: DynArray(FixedArray(Float32, 3))
+    },
+    PackMapCollideAnimationV15: {
+      sequence: Uint64,
+      collisionIndices: DynArray(Uint32),
+      blockerIndices: DynArray(Uint32)
+    },
+    PackMapCollideGeometryV15: {
+      quantizedExtents: Uint8,
+      animations: DynArray(Uint32),
+      navMeshIndex: Uint16
+    },
+    PackMapCollideModelObsV15: {
+      translate: FixedArray(Float32, 3),
+      geometryIndex: Uint32
+    },
+    PackMapCollideModelPropV15: {
+      token: Uint64,
+      sequence: Uint64,
+      scale: Float32,
+      translate: FixedArray(Float32, 3),
+      rotate: FixedArray(Float32, 3),
+      geometryIndex: Uint32
+    },
+    PackMapCollideModelZoneV15: {
+      scale: Float32,
+      translate: FixedArray(Float32, 3),
+      rotate: FixedArray(Float32, 3),
+      geometryIndex: Uint32
+    },
+    PackMapCollideWaterVolumeV15: {
+      guid: Uint64,
+      flags: Uint32,
+      verticalRange: FixedArray(Float32, 2),
+      vertices: DynArray(FixedArray(Float32, 2))
+    }
+  },
+  root: {
+    boundsMin: FixedArray(Float32, 3),
+    boundsMax: FixedArray(Float32, 3),
+    flags: Uint32,
+    waterSurfaceZ: Float32,
+    collisions: DynArray("PackMapCollideCollisionV15"),
+    blockers: DynArray("PackMapCollideBlockerV15"),
+    animations: DynArray("PackMapCollideAnimationV15"),
+    geometries: DynArray("PackMapCollideGeometryV15"),
+    obsModels: DynArray("PackMapCollideModelObsV15"),
+    propModels: DynArray("PackMapCollideModelPropV15"),
+    zoneModels: DynArray("PackMapCollideModelZoneV15"),
+    waterVolumes: DynArray("PackMapCollideWaterVolumeV15")
+  }
+};
+
+export const V16 = {
+  chunkName: "havk",
+  name: "PackMapCollideV16",
+  version: 16,
+  definitions: {
+    PackMapCollideCollisionV16: {
+      indices: DynArray(Uint16),
+      vertices: DynArray(FixedArray(Float32, 3)),
+      surfaces: DynArray(Uint16),
+      moppCodeData: "PackMoppType"
+    },
+    PackMoppType: {
+      moppData: DynArray(Uint8)
+    },
+    PackMapCollideBlockerV16: {
+      vertices: DynArray(FixedArray(Float32, 3))
+    },
+    PackMapCollideAnimationV16: {
+      sequence: Uint64,
+      collisionIndices: DynArray(Uint32),
+      blockerIndices: DynArray(Uint32)
+    },
+    PackMapCollideGeometryV16: {
+      quantizedExtents: Uint8,
+      animations: DynArray(Uint32),
+      navMeshIndex: Uint16
+    },
+    PackMapCollideModelObsV16: {
+      translate: FixedArray(Float32, 3),
+      geometryIndex: Uint32
+    },
+    PackMapCollideModelPropV16: {
+      token: Uint64,
+      sequence: Uint64,
+      scale: Float32,
+      translate: FixedArray(Float32, 3),
+      rotate: FixedArray(Float32, 3),
+      geometryIndex: Uint32
+    },
+    PackMapCollideModelZoneV16: {
+      scale: Float32,
+      translate: FixedArray(Float32, 3),
+      rotate: FixedArray(Float32, 3),
+      geometryIndex: Uint32
+    },
+    PackMapCollideWaterVolumeV16: {
+      guid: Uint64,
+      name: RefString16(),
+      flags: Uint32,
+      verticalRange: FixedArray(Float32, 2),
+      vertices: DynArray(FixedArray(Float32, 2))
+    }
+  },
+  root: {
+    boundsMin: FixedArray(Float32, 3),
+    boundsMax: FixedArray(Float32, 3),
+    flags: Uint32,
+    waterSurfaceZ: Float32,
+    collisions: DynArray("PackMapCollideCollisionV16"),
+    blockers: DynArray("PackMapCollideBlockerV16"),
+    animations: DynArray("PackMapCollideAnimationV16"),
+    geometries: DynArray("PackMapCollideGeometryV16"),
+    obsModels: DynArray("PackMapCollideModelObsV16"),
+    propModels: DynArray("PackMapCollideModelPropV16"),
+    zoneModels: DynArray("PackMapCollideModelZoneV16"),
+    waterVolumes: DynArray("PackMapCollideWaterVolumeV16")
+  }
+};
+
+export const latest = V16;
+export const definitionArray = [V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16];

@@ -6470,33 +6470,956 @@ export namespace V29_N {
 
 export type V29 = V29_N.ScriptFileDataV29;
 
-export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V14_U = V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V15_U = V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V16_U = V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V17_U = V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V18_U = V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V19_U = V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V20_U = V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V21_U = V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V22_U = V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V23_U = V23 | V24 | V25 | V26 | V27 | V28 | V29;
-export type V24_U = V24 | V25 | V26 | V27 | V28 | V29;
-export type V25_U = V25 | V26 | V27 | V28 | V29;
-export type V26_U = V26 | V27 | V28 | V29;
-export type V27_U = V27 | V28 | V29;
-export type V28_U = V28 | V29;
-export type V29_U = V29;
+export namespace V30_N {
+  export type ScriptFileDataV30 = {
+    musicCue: BigInt,
+    reverbOverride: BigInt,
+    snapshot: BigInt,
+    audioSettings: AudioSettingsDataV30,
+    handler: Array<HandlerDataV30>,
+    metaSound: Array<MetaSoundDataV30>,
+    scriptRef: Array<ScriptRefDataV30>,
+    triggerKey: Array<TriggerKeyDataV30>,
+    property: Array<PropertyDataV30>,
+    flags: number,
+    soundPoolCount: number,
+    fadeInTime: number,
+    soundPoolDelay: number,
+    volume: number,
+    musicCuePriority: number,
+    musicMutePriority: number,
+    soundPoolMode: number
+  }
+
+  export type AudioSettingsDataV30 = {
+    defaultSnapshot: BigInt,
+    effectsBuss: BigInt,
+    distanceScale: number,
+    dopplerScale: number,
+    echoLevel: number,
+    focusTransition: number,
+    memoryPool: number,
+    reverbLevel: number,
+    minChannelsLQ: number,
+    maxChannelsLQ: number,
+    buss: Array<BussDataV30>,
+    category: Array<CategoryDataV30>,
+    material: Array<MaterialDataV30>,
+    musicCondition: Array<MusicConditionDataV30>,
+    musicPlaylist: Array<MusicPlaylistDataV30>,
+    property: Array<PropertyDataV30>,
+    reverb: Array<ReverbDataV30>,
+    scriptRef: Array<ScriptRefDataV30>,
+    snapshot: Array<SnapshotDataV30>,
+    bankIndexFileName: string,
+    bankScriptFileName: string,
+    musicScriptFileName: string,
+    musicExternal: Array<MusicExternalDataV30>
+  }
+
+  export type BussDataV30 = {
+    name: BigInt,
+    output: BigInt,
+    flags: number,
+    normalizeFadeTime: number,
+    normalizeThreshold: number,
+    normalizeMaxAmp: number,
+    compressorThreshold: number,
+    compressorAttack: number,
+    compressorRelease: number,
+    compressorGainMakeup: number,
+    dynamicData: BussDynamicDataV30
+  }
+
+  export type BussDynamicDataV30 = {
+    name: BigInt,
+    flags: number,
+    volume: number,
+    dsp: Array<DspDataV30>
+  }
+
+  export type DspDataV30 = {
+    type: number,
+    flags: number,
+    property: Array<number>
+  }
+
+  export type CategoryDataV30 = {
+    name: BigInt,
+    volumeGroupName: BigInt,
+    outputBussName: BigInt,
+    attenuation: AttenuationDataV30,
+    dynamicData: CategoryDynamicDataV30,
+    focusReserve: number,
+    muteFadeTime: number,
+    flags: number,
+    maxAudible: number,
+    maxAudibleBehavior: number,
+    priority: number
+  }
+
+  export type AttenuationDataV30 = {
+    doppler: number,
+    lowPass: DynamicParamDataV30,
+    highPass: DynamicParamDataV30,
+    pan3D: DynamicParamDataV30,
+    reverb: DynamicParamDataV30,
+    spread3D: DynamicParamDataV30,
+    volumeA: DynamicParamDataV30,
+    volumeB: DynamicParamDataV30,
+    lfe: DynamicParamDataV30
+  }
+
+  export type DynamicParamDataV30 = {
+    envelopeData: EnvelopeDataV30,
+    randomParamData: RandomParamDataV30,
+    value: number,
+    type: number
+  }
+
+  export type EnvelopeDataV30 = {
+    inputOffset: number,
+    inputOffsetProperty: BigInt,
+    inputParameter: BigInt,
+    inputScale: number,
+    inputScaleProperty: BigInt,
+    inputType: number,
+    outputOffset: number,
+    outputOffsetProperty: BigInt,
+    outputScale: number,
+    outputScaleProperty: BigInt,
+    envelopePoint: Array<EnvelopePointDataV30>
+  }
+
+  export type EnvelopePointDataV30 = {
+    offset: number,
+    value: number
+  }
+
+  export type RandomParamDataV30 = {
+    time: RangeDataV30,
+    value: RangeDataV30
+  }
+
+  export type RangeDataV30 = {
+    max: number,
+    min: number
+  }
+
+  export type CategoryDynamicDataV30 = {
+    name: BigInt,
+    volume: number,
+    nonFocusGain: number,
+    lowPass: number,
+    highPass: number,
+    reverbDirect: number,
+    reverbRoom: number,
+    flags: number,
+    minAudible: number,
+    maxAudibleLQ: number,
+    maxAudibleHG: number
+  }
+
+  export type MaterialDataV30 = {
+    name: BigInt,
+    flags: number,
+    absorptionLF: number,
+    absorptionMF: number,
+    absorptionHF: number,
+    occlusion: number
+  }
+
+  export type MusicConditionDataV30 = {
+    name: BigInt,
+    flags: number,
+    byteCode: Array<number>
+  }
+
+  export type MusicPlaylistDataV30 = {
+    category: BigInt,
+    name: BigInt,
+    primaryPlaylistId: BigInt,
+    secondaryPlaylistId: BigInt,
+    fileName: Array<FileNameDataV30>,
+    fadeInTime: number,
+    fadeOutTime: number,
+    flags: number,
+    initialSilence: RangeDataV30,
+    intervalSilence: RangeDataV30,
+    maxPlayLength: RangeDataV30,
+    volume: DynamicParamDataV30,
+    fileIterateMode: number
+  }
+
+  export type FileNameDataV30 = {
+    condition: BigInt,
+    language: BigInt,
+    volume: number,
+    weight: number,
+    fileName: string,
+    audioType: number,
+    noteBase: number,
+    noteMin: number,
+    noteMax: number
+  }
+
+  export type PropertyDataV30 = {
+    name: BigInt,
+    tokenValue: BigInt,
+    floatValue: number
+  }
+
+  export type ReverbDataV30 = {
+    name: BigInt,
+    flags: number,
+    room: number,
+    roomHF: number,
+    roomLF: number,
+    decayTime: number,
+    decayHFRatio: number,
+    reflections: number,
+    reflectionsDelay: number,
+    reverb: number,
+    reverbDelay: number,
+    referenceHF: number,
+    referenceLF: number,
+    diffusion: number,
+    density: number,
+    echoDelay: number,
+    echoDecayRatio: number,
+    echoWetMix: number,
+    echoDryMix: number
+  }
+
+  export type ScriptRefDataV30 = {
+    name: BigInt,
+    fileName: string
+  }
+
+  export type SnapshotDataV30 = {
+    name: BigInt,
+    blendInTime: number,
+    blendOutTime: number,
+    flags: number,
+    buss: Array<BussDynamicDataV30>,
+    category: Array<CategoryDynamicDataV30>,
+    priority: number
+  }
+
+  export type MusicExternalDataV30 = {
+    name: BigInt,
+    externalPlaylist: string
+  }
+
+  export type HandlerDataV30 = {
+    name: BigInt,
+    flags: number,
+    byteCode: Array<number>
+  }
+
+  export type MetaSoundDataV30 = {
+    category: BigInt,
+    endCue: BigInt,
+    name: BigInt,
+    offsetBone: BigInt,
+    playlistId: BigInt,
+    dsp: Array<DspDataV30>,
+    attenuation: AttenuationDataV30,
+    fileName: Array<FileNameDataV30>,
+    channelFadeIn: number,
+    channelFadeOut: number,
+    endCueOffset: number,
+    fadeInTime: number,
+    fadeOutTime: number,
+    positionOffset: Array<number>,
+    channelMax: number,
+    flags: number,
+    loopCount: number,
+    depth: DynamicParamDataV30,
+    pan: DynamicParamDataV30,
+    pitch: DynamicParamDataV30,
+    pitchMS: DynamicParamDataV30,
+    volume: DynamicParamDataV30,
+    volumeMS: DynamicParamDataV30,
+    initialDelay: RangeDataV30,
+    playLength: RangeDataV30,
+    positionOffsetAngle: RangeDataV30,
+    positionRange: RangeDataV30,
+    repeatCount: RangeDataV30,
+    repeatTime: RangeDataV30,
+    replayDelay: RangeDataV30,
+    startTimeOffset: RangeDataV30,
+    channelMode: number,
+    channelPriority: number,
+    fileIterateMode: number,
+    loopMode: number,
+    musicPriority: number,
+    playbackMode: number,
+    positionMode: number,
+    repeatTimeFrom: number
+  }
+
+  export type TriggerKeyDataV30 = {
+    name: BigInt,
+    triggerMarker: Array<TriggerMarkerDataV30>
+  }
+
+  export type TriggerMarkerDataV30 = {
+    cue: BigInt,
+    end: BigInt,
+    time: number,
+    type: number
+  }
+
+}
+
+export type V30 = V30_N.ScriptFileDataV30;
+
+export namespace V31_N {
+  export type ScriptFileDataV31 = {
+    musicCue: BigInt,
+    reverbOverride: BigInt,
+    snapshot: BigInt,
+    audioSettings: AudioSettingsDataV31,
+    handler: Array<HandlerDataV31>,
+    metaSound: Array<MetaSoundDataV31>,
+    scriptRef: Array<ScriptRefDataV31>,
+    triggerKey: Array<TriggerKeyDataV31>,
+    property: Array<PropertyDataV31>,
+    flags: number,
+    soundPoolCount: number,
+    fadeInTime: number,
+    soundPoolDelay: number,
+    volume: number,
+    musicCuePriority: number,
+    musicMutePriority: number,
+    soundPoolMode: number
+  }
+
+  export type AudioSettingsDataV31 = {
+    defaultSnapshot: BigInt,
+    effectsBuss: BigInt,
+    distanceScale: number,
+    dopplerScale: number,
+    echoLevel: number,
+    focusTransition: number,
+    memoryPool: number,
+    reverbLevel: number,
+    minChannelsLQ: number,
+    maxChannelsLQ: number,
+    buss: Array<BussDataV31>,
+    category: Array<CategoryDataV31>,
+    material: Array<MaterialDataV31>,
+    musicCondition: Array<MusicConditionDataV31>,
+    musicPlaylist: Array<MusicPlaylistDataV31>,
+    property: Array<PropertyDataV31>,
+    reverb: Array<ReverbDataV31>,
+    scriptRef: Array<ScriptRefDataV31>,
+    snapshot: Array<SnapshotDataV31>,
+    bankIndexFileName: string,
+    bankScriptFileName: string,
+    musicScriptFileName: string,
+    musicExternal: Array<MusicExternalDataV31>
+  }
+
+  export type BussDataV31 = {
+    name: BigInt,
+    output: BigInt,
+    flags: number,
+    normalizeFadeTime: number,
+    normalizeThreshold: number,
+    normalizeMaxAmp: number,
+    compressorThreshold: number,
+    compressorAttack: number,
+    compressorRelease: number,
+    compressorGainMakeup: number,
+    dynamicData: BussDynamicDataV31
+  }
+
+  export type BussDynamicDataV31 = {
+    name: BigInt,
+    flags: number,
+    volume: number,
+    dsp: Array<DspDataV31>
+  }
+
+  export type DspDataV31 = {
+    type: number,
+    flags: number,
+    property: Array<number>
+  }
+
+  export type CategoryDataV31 = {
+    name: BigInt,
+    volumeGroupName: BigInt,
+    outputBussName: BigInt,
+    attenuation: AttenuationDataV31,
+    dynamicData: CategoryDynamicDataV31,
+    focusReserve: number,
+    muteFadeTime: number,
+    flags: number,
+    maxAudible: number,
+    maxAudibleBehavior: number,
+    priority: number
+  }
+
+  export type AttenuationDataV31 = {
+    doppler: number,
+    lowPass: DynamicParamDataV31,
+    highPass: DynamicParamDataV31,
+    pan3D: DynamicParamDataV31,
+    reverb: DynamicParamDataV31,
+    spread3D: DynamicParamDataV31,
+    volumeA: DynamicParamDataV31,
+    volumeB: DynamicParamDataV31,
+    lfe: DynamicParamDataV31
+  }
+
+  export type DynamicParamDataV31 = {
+    envelopeData: EnvelopeDataV31,
+    randomParamData: RandomParamDataV31,
+    value: number,
+    type: number
+  }
+
+  export type EnvelopeDataV31 = {
+    inputOffset: number,
+    inputOffsetProperty: BigInt,
+    inputParameter: BigInt,
+    inputScale: number,
+    inputScaleProperty: BigInt,
+    inputType: number,
+    outputOffset: number,
+    outputOffsetProperty: BigInt,
+    outputScale: number,
+    outputScaleProperty: BigInt,
+    envelopePoint: Array<EnvelopePointDataV31>
+  }
+
+  export type EnvelopePointDataV31 = {
+    offset: number,
+    value: number
+  }
+
+  export type RandomParamDataV31 = {
+    time: RangeDataV31,
+    value: RangeDataV31
+  }
+
+  export type RangeDataV31 = {
+    max: number,
+    min: number
+  }
+
+  export type CategoryDynamicDataV31 = {
+    name: BigInt,
+    volume: number,
+    nonFocusGain: number,
+    lowPass: number,
+    highPass: number,
+    reverbDirect: number,
+    reverbRoom: number,
+    flags: number,
+    minAudible: number,
+    maxAudibleLQ: number,
+    maxAudibleHG: number
+  }
+
+  export type MaterialDataV31 = {
+    name: BigInt,
+    flags: number,
+    absorptionLF: number,
+    absorptionMF: number,
+    absorptionHF: number,
+    occlusion: number
+  }
+
+  export type MusicConditionDataV31 = {
+    name: BigInt,
+    flags: number,
+    byteCode: Array<number>
+  }
+
+  export type MusicPlaylistDataV31 = {
+    category: BigInt,
+    name: BigInt,
+    primaryPlaylistId: BigInt,
+    secondaryPlaylistId: BigInt,
+    fileName: Array<FileNameDataV31>,
+    fadeInTime: number,
+    fadeOutTime: number,
+    flags: number,
+    initialSilence: RangeDataV31,
+    intervalSilence: RangeDataV31,
+    maxPlayLength: RangeDataV31,
+    volume: DynamicParamDataV31,
+    fileIterateMode: number
+  }
+
+  export type FileNameDataV31 = {
+    condition: BigInt,
+    language: BigInt,
+    volume: number,
+    weight: number,
+    fileName: string,
+    audioType: number,
+    noteBase: number,
+    noteMin: number,
+    noteMax: number
+  }
+
+  export type PropertyDataV31 = {
+    name: BigInt,
+    tokenValue: BigInt,
+    floatValue: number
+  }
+
+  export type ReverbDataV31 = {
+    name: BigInt,
+    flags: number,
+    room: number,
+    roomHF: number,
+    roomLF: number,
+    decayTime: number,
+    decayHFRatio: number,
+    reflections: number,
+    reflectionsDelay: number,
+    reverb: number,
+    reverbDelay: number,
+    referenceHF: number,
+    referenceLF: number,
+    diffusion: number,
+    density: number,
+    echoDelay: number,
+    echoDecayRatio: number,
+    echoWetMix: number,
+    echoDryMix: number
+  }
+
+  export type ScriptRefDataV31 = {
+    name: BigInt,
+    fileName: string
+  }
+
+  export type SnapshotDataV31 = {
+    name: BigInt,
+    blendInTime: number,
+    blendOutTime: number,
+    flags: number,
+    buss: Array<BussDynamicDataV31>,
+    category: Array<CategoryDynamicDataV31>,
+    priority: number
+  }
+
+  export type MusicExternalDataV31 = {
+    name: BigInt,
+    externalPlaylist: string
+  }
+
+  export type HandlerDataV31 = {
+    name: BigInt,
+    flags: number,
+    byteCode: Array<number>
+  }
+
+  export type MetaSoundDataV31 = {
+    category: BigInt,
+    endCue: BigInt,
+    name: BigInt,
+    offsetBone: BigInt,
+    playlistId: BigInt,
+    dsp: Array<DspDataV31>,
+    attenuation: AttenuationDataV31,
+    fileName: Array<FileNameDataV31>,
+    channelFadeIn: number,
+    channelFadeOut: number,
+    endCueOffset: number,
+    fadeInTime: number,
+    fadeOutTime: number,
+    modelScaleSizeFactor: number,
+    positionOffset: Array<number>,
+    channelMax: number,
+    flags: number,
+    loopCount: number,
+    depth: DynamicParamDataV31,
+    pan: DynamicParamDataV31,
+    pitch: DynamicParamDataV31,
+    pitchMS: DynamicParamDataV31,
+    volume: DynamicParamDataV31,
+    volumeMS: DynamicParamDataV31,
+    initialDelay: RangeDataV31,
+    playLength: RangeDataV31,
+    positionOffsetAngle: RangeDataV31,
+    positionRange: RangeDataV31,
+    repeatCount: RangeDataV31,
+    repeatTime: RangeDataV31,
+    replayDelay: RangeDataV31,
+    startTimeOffset: RangeDataV31,
+    channelMode: number,
+    channelPriority: number,
+    fileIterateMode: number,
+    loopMode: number,
+    musicPriority: number,
+    playbackMode: number,
+    positionMode: number,
+    repeatTimeFrom: number
+  }
+
+  export type TriggerKeyDataV31 = {
+    name: BigInt,
+    triggerMarker: Array<TriggerMarkerDataV31>
+  }
+
+  export type TriggerMarkerDataV31 = {
+    cue: BigInt,
+    end: BigInt,
+    time: number,
+    type: number
+  }
+
+}
+
+export type V31 = V31_N.ScriptFileDataV31;
+
+export namespace V32_N {
+  export type ScriptFileDataV32 = {
+    musicCue: BigInt,
+    reverbOverride: BigInt,
+    snapshot: BigInt,
+    audioSettings: AudioSettingsDataV31,
+    handler: Array<HandlerDataV31>,
+    metaSound: Array<MetaSoundDataV31>,
+    scriptRef: Array<ScriptRefDataV31>,
+    triggerKey: Array<TriggerKeyDataV31>,
+    property: Array<PropertyDataV31>,
+    flags: number,
+    soundPoolCount: number,
+    fadeInTime: number,
+    soundPoolDelay: number,
+    volume: number,
+    musicCuePriority: number,
+    musicMutePriority: number,
+    soundPoolMode: number,
+    interpolation: number,
+    radialLimit: number,
+    scaleBucketRange: RangeDataV31
+  }
+
+  export type AudioSettingsDataV31 = {
+    defaultSnapshot: BigInt,
+    effectsBuss: BigInt,
+    distanceScale: number,
+    dopplerScale: number,
+    echoLevel: number,
+    focusTransition: number,
+    memoryPool: number,
+    reverbLevel: number,
+    minChannelsLQ: number,
+    maxChannelsLQ: number,
+    buss: Array<BussDataV31>,
+    category: Array<CategoryDataV31>,
+    material: Array<MaterialDataV31>,
+    musicCondition: Array<MusicConditionDataV31>,
+    musicPlaylist: Array<MusicPlaylistDataV31>,
+    property: Array<PropertyDataV31>,
+    reverb: Array<ReverbDataV31>,
+    scriptRef: Array<ScriptRefDataV31>,
+    snapshot: Array<SnapshotDataV31>,
+    bankIndexFileName: string,
+    bankScriptFileName: string,
+    musicScriptFileName: string,
+    musicExternal: Array<MusicExternalDataV31>
+  }
+
+  export type BussDataV31 = {
+    name: BigInt,
+    output: BigInt,
+    flags: number,
+    normalizeFadeTime: number,
+    normalizeThreshold: number,
+    normalizeMaxAmp: number,
+    compressorThreshold: number,
+    compressorAttack: number,
+    compressorRelease: number,
+    compressorGainMakeup: number,
+    dynamicData: BussDynamicDataV31
+  }
+
+  export type BussDynamicDataV31 = {
+    name: BigInt,
+    flags: number,
+    volume: number,
+    dsp: Array<DspDataV31>
+  }
+
+  export type DspDataV31 = {
+    type: number,
+    flags: number,
+    property: Array<number>
+  }
+
+  export type CategoryDataV31 = {
+    name: BigInt,
+    volumeGroupName: BigInt,
+    outputBussName: BigInt,
+    attenuation: AttenuationDataV31,
+    dynamicData: CategoryDynamicDataV31,
+    focusReserve: number,
+    muteFadeTime: number,
+    flags: number,
+    maxAudible: number,
+    maxAudibleBehavior: number,
+    priority: number
+  }
+
+  export type AttenuationDataV31 = {
+    doppler: number,
+    lowPass: DynamicParamDataV31,
+    highPass: DynamicParamDataV31,
+    pan3D: DynamicParamDataV31,
+    reverb: DynamicParamDataV31,
+    spread3D: DynamicParamDataV31,
+    volumeA: DynamicParamDataV31,
+    volumeB: DynamicParamDataV31,
+    lfe: DynamicParamDataV31
+  }
+
+  export type DynamicParamDataV31 = {
+    envelopeData: EnvelopeDataV31,
+    randomParamData: RandomParamDataV31,
+    value: number,
+    type: number
+  }
+
+  export type EnvelopeDataV31 = {
+    inputOffset: number,
+    inputOffsetProperty: BigInt,
+    inputParameter: BigInt,
+    inputScale: number,
+    inputScaleProperty: BigInt,
+    inputType: number,
+    outputOffset: number,
+    outputOffsetProperty: BigInt,
+    outputScale: number,
+    outputScaleProperty: BigInt,
+    envelopePoint: Array<EnvelopePointDataV31>
+  }
+
+  export type EnvelopePointDataV31 = {
+    offset: number,
+    value: number
+  }
+
+  export type RandomParamDataV31 = {
+    time: RangeDataV31,
+    value: RangeDataV31
+  }
+
+  export type RangeDataV31 = {
+    max: number,
+    min: number
+  }
+
+  export type CategoryDynamicDataV31 = {
+    name: BigInt,
+    volume: number,
+    nonFocusGain: number,
+    lowPass: number,
+    highPass: number,
+    reverbDirect: number,
+    reverbRoom: number,
+    flags: number,
+    minAudible: number,
+    maxAudibleLQ: number,
+    maxAudibleHG: number
+  }
+
+  export type MaterialDataV31 = {
+    name: BigInt,
+    flags: number,
+    absorptionLF: number,
+    absorptionMF: number,
+    absorptionHF: number,
+    occlusion: number
+  }
+
+  export type MusicConditionDataV31 = {
+    name: BigInt,
+    flags: number,
+    byteCode: Array<number>
+  }
+
+  export type MusicPlaylistDataV31 = {
+    category: BigInt,
+    name: BigInt,
+    primaryPlaylistId: BigInt,
+    secondaryPlaylistId: BigInt,
+    fileName: Array<FileNameDataV31>,
+    fadeInTime: number,
+    fadeOutTime: number,
+    flags: number,
+    initialSilence: RangeDataV31,
+    intervalSilence: RangeDataV31,
+    maxPlayLength: RangeDataV31,
+    volume: DynamicParamDataV31,
+    fileIterateMode: number
+  }
+
+  export type FileNameDataV31 = {
+    condition: BigInt,
+    language: BigInt,
+    volume: number,
+    weight: number,
+    fileName: string,
+    audioType: number,
+    noteBase: number,
+    noteMin: number,
+    noteMax: number
+  }
+
+  export type PropertyDataV31 = {
+    name: BigInt,
+    tokenValue: BigInt,
+    floatValue: number
+  }
+
+  export type ReverbDataV31 = {
+    name: BigInt,
+    flags: number,
+    room: number,
+    roomHF: number,
+    roomLF: number,
+    decayTime: number,
+    decayHFRatio: number,
+    reflections: number,
+    reflectionsDelay: number,
+    reverb: number,
+    reverbDelay: number,
+    referenceHF: number,
+    referenceLF: number,
+    diffusion: number,
+    density: number,
+    echoDelay: number,
+    echoDecayRatio: number,
+    echoWetMix: number,
+    echoDryMix: number
+  }
+
+  export type ScriptRefDataV31 = {
+    name: BigInt,
+    fileName: string
+  }
+
+  export type SnapshotDataV31 = {
+    name: BigInt,
+    blendInTime: number,
+    blendOutTime: number,
+    flags: number,
+    buss: Array<BussDynamicDataV31>,
+    category: Array<CategoryDynamicDataV31>,
+    priority: number
+  }
+
+  export type MusicExternalDataV31 = {
+    name: BigInt,
+    externalPlaylist: string
+  }
+
+  export type HandlerDataV31 = {
+    name: BigInt,
+    flags: number,
+    byteCode: Array<number>
+  }
+
+  export type MetaSoundDataV31 = {
+    category: BigInt,
+    endCue: BigInt,
+    name: BigInt,
+    offsetBone: BigInt,
+    playlistId: BigInt,
+    dsp: Array<DspDataV31>,
+    attenuation: AttenuationDataV31,
+    fileName: Array<FileNameDataV31>,
+    channelFadeIn: number,
+    channelFadeOut: number,
+    endCueOffset: number,
+    fadeInTime: number,
+    fadeOutTime: number,
+    modelScaleSizeFactor: number,
+    positionOffset: Array<number>,
+    channelMax: number,
+    flags: number,
+    loopCount: number,
+    depth: DynamicParamDataV31,
+    pan: DynamicParamDataV31,
+    pitch: DynamicParamDataV31,
+    pitchMS: DynamicParamDataV31,
+    volume: DynamicParamDataV31,
+    volumeMS: DynamicParamDataV31,
+    initialDelay: RangeDataV31,
+    playLength: RangeDataV31,
+    positionOffsetAngle: RangeDataV31,
+    positionRange: RangeDataV31,
+    repeatCount: RangeDataV31,
+    repeatTime: RangeDataV31,
+    replayDelay: RangeDataV31,
+    startTimeOffset: RangeDataV31,
+    channelMode: number,
+    channelPriority: number,
+    fileIterateMode: number,
+    loopMode: number,
+    musicPriority: number,
+    playbackMode: number,
+    positionMode: number,
+    repeatTimeFrom: number
+  }
+
+  export type TriggerKeyDataV31 = {
+    name: BigInt,
+    triggerMarker: Array<TriggerMarkerDataV31>
+  }
+
+  export type TriggerMarkerDataV31 = {
+    cue: BigInt,
+    end: BigInt,
+    time: number,
+    type: number
+  }
+
+}
+
+export type V32 = V32_N.ScriptFileDataV32;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V14_U = V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V15_U = V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V16_U = V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V17_U = V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V18_U = V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V19_U = V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V20_U = V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V21_U = V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V22_U = V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V23_U = V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V24_U = V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V25_U = V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V26_U = V26 | V27 | V28 | V29 | V30 | V31 | V32;
+export type V27_U = V27 | V28 | V29 | V30 | V31 | V32;
+export type V28_U = V28 | V29 | V30 | V31 | V32;
+export type V29_U = V29 | V30 | V31 | V32;
+export type V30_U = V30 | V31 | V32;
+export type V31_U = V31 | V32;
+export type V32_U = V32;

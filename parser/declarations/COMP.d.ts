@@ -2007,33 +2007,33 @@ export namespace V18_N {
 export type V18 = V18_N.PackCompositeV18;
 
 export namespace V19_N {
-  export type PackCompositeV19 = {
+  export type PackCompositeV20 = {
     armorColorIds: Array<number>,
-    blitRects: Array<PackCompositeBlitRectSetV19>,
-    boneScales: Array<PackCompositeBoneScaleV19>,
-    raceSexData: Array<PackCompositeRaceDataV19>,
+    blitRects: Array<PackCompositeBlitRectSetV20>,
+    boneScales: Array<PackCompositeBoneScaleV20>,
+    raceSexData: Array<PackCompositeRaceDataV20>,
     configVersion: number
   }
 
-  export type PackCompositeBlitRectSetV19 = {
+  export type PackCompositeBlitRectSetV20 = {
     name: string,
     size: Array<number>,
     rectIndex: Array<number>,
     rectArray: Array<Array<number>>
   }
 
-  export type PackCompositeBoneScaleV19 = {
-    BodyRegion: Array<PackCompositeBoneScaleRegionV19>,
-    MorphWeight: Array<PackCompositeMorphWeightV19>
+  export type PackCompositeBoneScaleV20 = {
+    BodyRegion: Array<PackCompositeBoneScaleRegionV20>,
+    MorphWeight: Array<PackCompositeMorphWeightV20>
   }
 
-  export type PackCompositeBoneScaleRegionV19 = {
+  export type PackCompositeBoneScaleRegionV20 = {
     name: BigInt,
     value: number,
-    Bone: Array<PackCompositeBoneScaleParamV19>
+    Bone: Array<PackCompositeBoneScaleParamV20>
   }
 
-  export type PackCompositeBoneScaleParamV19 = {
+  export type PackCompositeBoneScaleParamV20 = {
     name: BigInt,
     flags: number,
     max: number,
@@ -2043,42 +2043,42 @@ export namespace V19_N {
     translate: Array<number>
   }
 
-  export type PackCompositeMorphWeightV19 = {
+  export type PackCompositeMorphWeightV20 = {
     name: BigInt,
     value: number
   }
 
-  export type PackCompositeRaceDataV19 = {
+  export type PackCompositeRaceDataV20 = {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
     beard: Array<BigInt>,
-    bodyBoneScales: Array<PackCompositeBoneScaleV19>,
-    bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV19>,
+    bodyBoneScales: Array<PackCompositeBoneScaleV20>,
+    bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV20>,
     ears: Array<BigInt>,
     eyeColorPalette: string,
-    faceBoneScales: Array<PackCompositeBoneScaleV19>,
+    faceBoneScales: Array<PackCompositeBoneScaleV20>,
     faces: Array<BigInt>,
-    fileData: Array<PackCompositeFileDataV19>,
+    fileData: Array<PackCompositeFileDataV20>,
     flags: number,
     hairStyles: Array<BigInt>,
     hairColorPalette: string,
     skeletonFile: string,
-    skinPatterns: Array<PackCompositeSkinPatternV19>,
+    skinPatterns: Array<PackCompositeSkinPatternV20>,
     skinColorPalette: string,
     skinPatternPalette: string,
-    skinStyles: Array<PackCompositeSkinStyleV19>,
+    skinStyles: Array<PackCompositeSkinStyleV20>,
     type: number,
     variantRefRace: BigInt,
-    variants: Array<PackCompositeVariantV19>,
-    animOverrides: Array<PackCompositeAnimOverrideV19>
+    variants: Array<PackCompositeVariantV20>,
+    animOverrides: Array<PackCompositeAnimOverrideV20>
   }
 
-  export type PackCompositeBoneScaleFileV19 = {
+  export type PackCompositeBoneScaleFileV20 = {
     fileName: string
   }
 
-  export type PackCompositeFileDataV19 = {
+  export type PackCompositeFileDataV20 = {
     name: BigInt,
     type: number,
     flags: number,
@@ -2098,7 +2098,7 @@ export namespace V19_N {
     blitRectIndex: number
   }
 
-  export type PackCompositeSkinPatternV19 = {
+  export type PackCompositeSkinPatternV20 = {
     chest: string,
     face: string,
     feet: string,
@@ -2107,35 +2107,35 @@ export namespace V19_N {
     ears: string
   }
 
-  export type PackCompositeSkinStyleV19 = {
+  export type PackCompositeSkinStyleV20 = {
     chest: BigInt,
     feet: BigInt,
     hands: BigInt,
     legs: BigInt
   }
 
-  export type PackCompositeVariantV19 = {
+  export type PackCompositeVariantV20 = {
     token: BigInt,
     boneScaleIndex: number,
-    components: Array<PackCompositeVariantComponentV19>,
-    eyeColor: PackCompositeColorV19,
-    hairColor: PackCompositeColorV19,
-    hairColor2: PackCompositeColorV19,
-    patternColor: PackCompositeColorV19,
-    skinColor: PackCompositeColorV19,
+    components: Array<PackCompositeVariantComponentV20>,
+    eyeColor: PackCompositeColorV20,
+    hairColor: PackCompositeColorV20,
+    hairColor2: PackCompositeColorV20,
+    patternColor: PackCompositeColorV20,
+    skinColor: PackCompositeColorV20,
     skinIndex: number,
     skinStyle: number
   }
 
-  export type PackCompositeVariantComponentV19 = {
+  export type PackCompositeVariantComponentV20 = {
     nameToken: BigInt,
-    color0: PackCompositeColorV19,
-    color1: PackCompositeColorV19,
-    color2: PackCompositeColorV19,
-    color3: PackCompositeColorV19
+    color0: PackCompositeColorV20,
+    color1: PackCompositeColorV20,
+    color2: PackCompositeColorV20,
+    color3: PackCompositeColorV20
   }
 
-  export type PackCompositeColorV19 = {
+  export type PackCompositeColorV20 = {
     brightness: number,
     contrast: number,
     hue: number,
@@ -2143,14 +2143,14 @@ export namespace V19_N {
     lightness: number
   }
 
-  export type PackCompositeAnimOverrideV19 = {
+  export type PackCompositeAnimOverrideV20 = {
     animRole: BigInt,
     filepath: string
   }
 
 }
 
-export type V19 = V19_N.PackCompositeV19;
+export type V19 = V19_N.PackCompositeV20;
 
 export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
 export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;

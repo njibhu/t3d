@@ -5934,5 +5934,856 @@ export const V29 = {
   }
 };
 
-export const latest = V29;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29];
+export const V30 = {
+  chunkName: "AMSP",
+  name: "ScriptFileDataV30",
+  version: 30,
+  definitions: {
+    AudioSettingsDataV30: {
+      defaultSnapshot: Uint64,
+      effectsBuss: Uint64,
+      distanceScale: Float32,
+      dopplerScale: Float32,
+      echoLevel: Float32,
+      focusTransition: Float32,
+      memoryPool: Float32,
+      reverbLevel: Float32,
+      minChannelsLQ: Uint32,
+      maxChannelsLQ: Uint32,
+      buss: DynArray("BussDataV30"),
+      category: DynArray("CategoryDataV30"),
+      material: DynArray("MaterialDataV30"),
+      musicCondition: DynArray("MusicConditionDataV30"),
+      musicPlaylist: DynArray("MusicPlaylistDataV30"),
+      property: DynArray("PropertyDataV30"),
+      reverb: DynArray("ReverbDataV30"),
+      scriptRef: DynArray("ScriptRefDataV30"),
+      snapshot: DynArray("SnapshotDataV30"),
+      bankIndexFileName: Filename(),
+      bankScriptFileName: Filename(),
+      musicScriptFileName: Filename(),
+      musicExternal: DynArray("MusicExternalDataV30")
+    },
+    BussDataV30: {
+      name: Uint64,
+      output: Uint64,
+      flags: Uint32,
+      normalizeFadeTime: Float32,
+      normalizeThreshold: Float32,
+      normalizeMaxAmp: Float32,
+      compressorThreshold: Float32,
+      compressorAttack: Float32,
+      compressorRelease: Float32,
+      compressorGainMakeup: Float32,
+      dynamicData: Pointer("BussDynamicDataV30")
+    },
+    BussDynamicDataV30: {
+      name: Uint64,
+      flags: Uint32,
+      volume: Float32,
+      dsp: DynArray("DspDataV30")
+    },
+    DspDataV30: {
+      type: Uint32,
+      flags: Uint32,
+      property: DynArray(Float32)
+    },
+    CategoryDataV30: {
+      name: Uint64,
+      volumeGroupName: Uint64,
+      outputBussName: Uint64,
+      attenuation: Pointer("AttenuationDataV30"),
+      dynamicData: Pointer("CategoryDynamicDataV30"),
+      focusReserve: Float32,
+      muteFadeTime: Float32,
+      flags: Uint32,
+      maxAudible: Uint32,
+      maxAudibleBehavior: Uint8,
+      priority: Uint8
+    },
+    AttenuationDataV30: {
+      doppler: Float32,
+      lowPass: "DynamicParamDataV30",
+      highPass: "DynamicParamDataV30",
+      pan3D: "DynamicParamDataV30",
+      reverb: "DynamicParamDataV30",
+      spread3D: "DynamicParamDataV30",
+      volumeA: "DynamicParamDataV30",
+      volumeB: "DynamicParamDataV30",
+      lfe: "DynamicParamDataV30"
+    },
+    DynamicParamDataV30: {
+      envelopeData: Pointer("EnvelopeDataV30"),
+      randomParamData: Pointer("RandomParamDataV30"),
+      value: Float32,
+      type: Uint8
+    },
+    EnvelopeDataV30: {
+      inputOffset: Float32,
+      inputOffsetProperty: Uint64,
+      inputParameter: Uint64,
+      inputScale: Float32,
+      inputScaleProperty: Uint64,
+      inputType: Uint8,
+      outputOffset: Float32,
+      outputOffsetProperty: Uint64,
+      outputScale: Float32,
+      outputScaleProperty: Uint64,
+      envelopePoint: DynArray("EnvelopePointDataV30")
+    },
+    EnvelopePointDataV30: {
+      offset: Float32,
+      value: Float32
+    },
+    RandomParamDataV30: {
+      time: "RangeDataV30",
+      value: "RangeDataV30"
+    },
+    RangeDataV30: {
+      max: Float32,
+      min: Uint8
+    },
+    CategoryDynamicDataV30: {
+      name: Uint64,
+      volume: Float32,
+      nonFocusGain: Float32,
+      lowPass: Float32,
+      highPass: Float32,
+      reverbDirect: Float32,
+      reverbRoom: Float32,
+      flags: Uint32,
+      minAudible: Uint32,
+      maxAudibleLQ: Uint32,
+      maxAudibleHG: Uint32
+    },
+    MaterialDataV30: {
+      name: Uint64,
+      flags: Uint32,
+      absorptionLF: Float32,
+      absorptionMF: Float32,
+      absorptionHF: Float32,
+      occlusion: Float32
+    },
+    MusicConditionDataV30: {
+      name: Uint64,
+      flags: Uint32,
+      byteCode: DynArray(Uint8)
+    },
+    MusicPlaylistDataV30: {
+      category: Uint64,
+      name: Uint64,
+      primaryPlaylistId: Uint64,
+      secondaryPlaylistId: Uint64,
+      fileName: DynArray("FileNameDataV30"),
+      fadeInTime: Float32,
+      fadeOutTime: Float32,
+      flags: Uint32,
+      initialSilence: "RangeDataV30",
+      intervalSilence: "RangeDataV30",
+      maxPlayLength: "RangeDataV30",
+      volume: "DynamicParamDataV30",
+      fileIterateMode: Uint8
+    },
+    FileNameDataV30: {
+      condition: Uint64,
+      language: Uint64,
+      volume: Float32,
+      weight: Float32,
+      fileName: Filename(),
+      audioType: Uint8,
+      noteBase: Uint8,
+      noteMin: Uint8,
+      noteMax: Uint8
+    },
+    PropertyDataV30: {
+      name: Uint64,
+      tokenValue: Uint64,
+      floatValue: Float32
+    },
+    ReverbDataV30: {
+      name: Uint64,
+      flags: Uint32,
+      room: Float32,
+      roomHF: Float32,
+      roomLF: Float32,
+      decayTime: Float32,
+      decayHFRatio: Float32,
+      reflections: Float32,
+      reflectionsDelay: Float32,
+      reverb: Float32,
+      reverbDelay: Float32,
+      referenceHF: Float32,
+      referenceLF: Float32,
+      diffusion: Float32,
+      density: Float32,
+      echoDelay: Float32,
+      echoDecayRatio: Float32,
+      echoWetMix: Float32,
+      echoDryMix: Float32
+    },
+    ScriptRefDataV30: {
+      name: Uint64,
+      fileName: Filename()
+    },
+    SnapshotDataV30: {
+      name: Uint64,
+      blendInTime: Float32,
+      blendOutTime: Float32,
+      flags: Uint32,
+      buss: DynArray("BussDynamicDataV30"),
+      category: DynArray("CategoryDynamicDataV30"),
+      priority: Uint8
+    },
+    MusicExternalDataV30: {
+      name: Uint64,
+      externalPlaylist: RefString16()
+    },
+    HandlerDataV30: {
+      name: Uint64,
+      flags: Uint32,
+      byteCode: DynArray(Uint8)
+    },
+    MetaSoundDataV30: {
+      category: Uint64,
+      endCue: Uint64,
+      name: Uint64,
+      offsetBone: Uint64,
+      playlistId: Uint64,
+      dsp: DynArray("DspDataV30"),
+      attenuation: Pointer("AttenuationDataV30"),
+      fileName: DynArray("FileNameDataV30"),
+      channelFadeIn: Float32,
+      channelFadeOut: Float32,
+      endCueOffset: Float32,
+      fadeInTime: Float32,
+      fadeOutTime: Float32,
+      positionOffset: FixedArray(Float32, 3),
+      channelMax: Uint32,
+      flags: Uint32,
+      loopCount: Uint32,
+      depth: "DynamicParamDataV30",
+      pan: "DynamicParamDataV30",
+      pitch: "DynamicParamDataV30",
+      pitchMS: "DynamicParamDataV30",
+      volume: "DynamicParamDataV30",
+      volumeMS: "DynamicParamDataV30",
+      initialDelay: "RangeDataV30",
+      playLength: "RangeDataV30",
+      positionOffsetAngle: "RangeDataV30",
+      positionRange: "RangeDataV30",
+      repeatCount: "RangeDataV30",
+      repeatTime: "RangeDataV30",
+      replayDelay: "RangeDataV30",
+      startTimeOffset: "RangeDataV30",
+      channelMode: Uint8,
+      channelPriority: Uint8,
+      fileIterateMode: Uint8,
+      loopMode: Uint8,
+      musicPriority: Uint8,
+      playbackMode: Uint8,
+      positionMode: Uint8,
+      repeatTimeFrom: Uint8
+    },
+    TriggerKeyDataV30: {
+      name: Uint64,
+      triggerMarker: DynArray("TriggerMarkerDataV30")
+    },
+    TriggerMarkerDataV30: {
+      cue: Uint64,
+      end: Uint64,
+      time: Float32,
+      type: Uint8
+    }
+  },
+  root: {
+    musicCue: Uint64,
+    reverbOverride: Uint64,
+    snapshot: Uint64,
+    audioSettings: Pointer("AudioSettingsDataV30"),
+    handler: DynArray("HandlerDataV30"),
+    metaSound: DynArray("MetaSoundDataV30"),
+    scriptRef: DynArray("ScriptRefDataV30"),
+    triggerKey: DynArray("TriggerKeyDataV30"),
+    property: DynArray("PropertyDataV30"),
+    flags: Uint32,
+    soundPoolCount: Uint32,
+    fadeInTime: Float32,
+    soundPoolDelay: Float32,
+    volume: Float32,
+    musicCuePriority: Uint8,
+    musicMutePriority: Uint8,
+    soundPoolMode: Uint8
+  }
+};
+
+export const V31 = {
+  chunkName: "AMSP",
+  name: "ScriptFileDataV31",
+  version: 31,
+  definitions: {
+    AudioSettingsDataV31: {
+      defaultSnapshot: Uint64,
+      effectsBuss: Uint64,
+      distanceScale: Float32,
+      dopplerScale: Float32,
+      echoLevel: Float32,
+      focusTransition: Float32,
+      memoryPool: Float32,
+      reverbLevel: Float32,
+      minChannelsLQ: Uint32,
+      maxChannelsLQ: Uint32,
+      buss: DynArray("BussDataV31"),
+      category: DynArray("CategoryDataV31"),
+      material: DynArray("MaterialDataV31"),
+      musicCondition: DynArray("MusicConditionDataV31"),
+      musicPlaylist: DynArray("MusicPlaylistDataV31"),
+      property: DynArray("PropertyDataV31"),
+      reverb: DynArray("ReverbDataV31"),
+      scriptRef: DynArray("ScriptRefDataV31"),
+      snapshot: DynArray("SnapshotDataV31"),
+      bankIndexFileName: Filename(),
+      bankScriptFileName: Filename(),
+      musicScriptFileName: Filename(),
+      musicExternal: DynArray("MusicExternalDataV31")
+    },
+    BussDataV31: {
+      name: Uint64,
+      output: Uint64,
+      flags: Uint32,
+      normalizeFadeTime: Float32,
+      normalizeThreshold: Float32,
+      normalizeMaxAmp: Float32,
+      compressorThreshold: Float32,
+      compressorAttack: Float32,
+      compressorRelease: Float32,
+      compressorGainMakeup: Float32,
+      dynamicData: Pointer("BussDynamicDataV31")
+    },
+    BussDynamicDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      volume: Float32,
+      dsp: DynArray("DspDataV31")
+    },
+    DspDataV31: {
+      type: Uint32,
+      flags: Uint32,
+      property: DynArray(Float32)
+    },
+    CategoryDataV31: {
+      name: Uint64,
+      volumeGroupName: Uint64,
+      outputBussName: Uint64,
+      attenuation: Pointer("AttenuationDataV31"),
+      dynamicData: Pointer("CategoryDynamicDataV31"),
+      focusReserve: Float32,
+      muteFadeTime: Float32,
+      flags: Uint32,
+      maxAudible: Uint32,
+      maxAudibleBehavior: Uint8,
+      priority: Uint8
+    },
+    AttenuationDataV31: {
+      doppler: Float32,
+      lowPass: "DynamicParamDataV31",
+      highPass: "DynamicParamDataV31",
+      pan3D: "DynamicParamDataV31",
+      reverb: "DynamicParamDataV31",
+      spread3D: "DynamicParamDataV31",
+      volumeA: "DynamicParamDataV31",
+      volumeB: "DynamicParamDataV31",
+      lfe: "DynamicParamDataV31"
+    },
+    DynamicParamDataV31: {
+      envelopeData: Pointer("EnvelopeDataV31"),
+      randomParamData: Pointer("RandomParamDataV31"),
+      value: Float32,
+      type: Uint8
+    },
+    EnvelopeDataV31: {
+      inputOffset: Float32,
+      inputOffsetProperty: Uint64,
+      inputParameter: Uint64,
+      inputScale: Float32,
+      inputScaleProperty: Uint64,
+      inputType: Uint8,
+      outputOffset: Float32,
+      outputOffsetProperty: Uint64,
+      outputScale: Float32,
+      outputScaleProperty: Uint64,
+      envelopePoint: DynArray("EnvelopePointDataV31")
+    },
+    EnvelopePointDataV31: {
+      offset: Float32,
+      value: Float32
+    },
+    RandomParamDataV31: {
+      time: "RangeDataV31",
+      value: "RangeDataV31"
+    },
+    RangeDataV31: {
+      max: Float32,
+      min: Uint8
+    },
+    CategoryDynamicDataV31: {
+      name: Uint64,
+      volume: Float32,
+      nonFocusGain: Float32,
+      lowPass: Float32,
+      highPass: Float32,
+      reverbDirect: Float32,
+      reverbRoom: Float32,
+      flags: Uint32,
+      minAudible: Uint32,
+      maxAudibleLQ: Uint32,
+      maxAudibleHG: Uint32
+    },
+    MaterialDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      absorptionLF: Float32,
+      absorptionMF: Float32,
+      absorptionHF: Float32,
+      occlusion: Float32
+    },
+    MusicConditionDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      byteCode: DynArray(Uint8)
+    },
+    MusicPlaylistDataV31: {
+      category: Uint64,
+      name: Uint64,
+      primaryPlaylistId: Uint64,
+      secondaryPlaylistId: Uint64,
+      fileName: DynArray("FileNameDataV31"),
+      fadeInTime: Float32,
+      fadeOutTime: Float32,
+      flags: Uint32,
+      initialSilence: "RangeDataV31",
+      intervalSilence: "RangeDataV31",
+      maxPlayLength: "RangeDataV31",
+      volume: "DynamicParamDataV31",
+      fileIterateMode: Uint8
+    },
+    FileNameDataV31: {
+      condition: Uint64,
+      language: Uint64,
+      volume: Float32,
+      weight: Float32,
+      fileName: Filename(),
+      audioType: Uint8,
+      noteBase: Uint8,
+      noteMin: Uint8,
+      noteMax: Uint8
+    },
+    PropertyDataV31: {
+      name: Uint64,
+      tokenValue: Uint64,
+      floatValue: Float32
+    },
+    ReverbDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      room: Float32,
+      roomHF: Float32,
+      roomLF: Float32,
+      decayTime: Float32,
+      decayHFRatio: Float32,
+      reflections: Float32,
+      reflectionsDelay: Float32,
+      reverb: Float32,
+      reverbDelay: Float32,
+      referenceHF: Float32,
+      referenceLF: Float32,
+      diffusion: Float32,
+      density: Float32,
+      echoDelay: Float32,
+      echoDecayRatio: Float32,
+      echoWetMix: Float32,
+      echoDryMix: Float32
+    },
+    ScriptRefDataV31: {
+      name: Uint64,
+      fileName: Filename()
+    },
+    SnapshotDataV31: {
+      name: Uint64,
+      blendInTime: Float32,
+      blendOutTime: Float32,
+      flags: Uint32,
+      buss: DynArray("BussDynamicDataV31"),
+      category: DynArray("CategoryDynamicDataV31"),
+      priority: Uint8
+    },
+    MusicExternalDataV31: {
+      name: Uint64,
+      externalPlaylist: RefString16()
+    },
+    HandlerDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      byteCode: DynArray(Uint8)
+    },
+    MetaSoundDataV31: {
+      category: Uint64,
+      endCue: Uint64,
+      name: Uint64,
+      offsetBone: Uint64,
+      playlistId: Uint64,
+      dsp: DynArray("DspDataV31"),
+      attenuation: Pointer("AttenuationDataV31"),
+      fileName: DynArray("FileNameDataV31"),
+      channelFadeIn: Float32,
+      channelFadeOut: Float32,
+      endCueOffset: Float32,
+      fadeInTime: Float32,
+      fadeOutTime: Float32,
+      modelScaleSizeFactor: Float32,
+      positionOffset: FixedArray(Float32, 3),
+      channelMax: Uint32,
+      flags: Uint32,
+      loopCount: Uint32,
+      depth: "DynamicParamDataV31",
+      pan: "DynamicParamDataV31",
+      pitch: "DynamicParamDataV31",
+      pitchMS: "DynamicParamDataV31",
+      volume: "DynamicParamDataV31",
+      volumeMS: "DynamicParamDataV31",
+      initialDelay: "RangeDataV31",
+      playLength: "RangeDataV31",
+      positionOffsetAngle: "RangeDataV31",
+      positionRange: "RangeDataV31",
+      repeatCount: "RangeDataV31",
+      repeatTime: "RangeDataV31",
+      replayDelay: "RangeDataV31",
+      startTimeOffset: "RangeDataV31",
+      channelMode: Uint8,
+      channelPriority: Uint8,
+      fileIterateMode: Uint8,
+      loopMode: Uint8,
+      musicPriority: Uint8,
+      playbackMode: Uint8,
+      positionMode: Uint8,
+      repeatTimeFrom: Uint8
+    },
+    TriggerKeyDataV31: {
+      name: Uint64,
+      triggerMarker: DynArray("TriggerMarkerDataV31")
+    },
+    TriggerMarkerDataV31: {
+      cue: Uint64,
+      end: Uint64,
+      time: Float32,
+      type: Uint8
+    }
+  },
+  root: {
+    musicCue: Uint64,
+    reverbOverride: Uint64,
+    snapshot: Uint64,
+    audioSettings: Pointer("AudioSettingsDataV31"),
+    handler: DynArray("HandlerDataV31"),
+    metaSound: DynArray("MetaSoundDataV31"),
+    scriptRef: DynArray("ScriptRefDataV31"),
+    triggerKey: DynArray("TriggerKeyDataV31"),
+    property: DynArray("PropertyDataV31"),
+    flags: Uint32,
+    soundPoolCount: Uint32,
+    fadeInTime: Float32,
+    soundPoolDelay: Float32,
+    volume: Float32,
+    musicCuePriority: Uint8,
+    musicMutePriority: Uint8,
+    soundPoolMode: Uint8
+  }
+};
+
+export const V32 = {
+  chunkName: "AMSP",
+  name: "ScriptFileDataV32",
+  version: 32,
+  definitions: {
+    AudioSettingsDataV31: {
+      defaultSnapshot: Uint64,
+      effectsBuss: Uint64,
+      distanceScale: Float32,
+      dopplerScale: Float32,
+      echoLevel: Float32,
+      focusTransition: Float32,
+      memoryPool: Float32,
+      reverbLevel: Float32,
+      minChannelsLQ: Uint32,
+      maxChannelsLQ: Uint32,
+      buss: DynArray("BussDataV31"),
+      category: DynArray("CategoryDataV31"),
+      material: DynArray("MaterialDataV31"),
+      musicCondition: DynArray("MusicConditionDataV31"),
+      musicPlaylist: DynArray("MusicPlaylistDataV31"),
+      property: DynArray("PropertyDataV31"),
+      reverb: DynArray("ReverbDataV31"),
+      scriptRef: DynArray("ScriptRefDataV31"),
+      snapshot: DynArray("SnapshotDataV31"),
+      bankIndexFileName: Filename(),
+      bankScriptFileName: Filename(),
+      musicScriptFileName: Filename(),
+      musicExternal: DynArray("MusicExternalDataV31")
+    },
+    BussDataV31: {
+      name: Uint64,
+      output: Uint64,
+      flags: Uint32,
+      normalizeFadeTime: Float32,
+      normalizeThreshold: Float32,
+      normalizeMaxAmp: Float32,
+      compressorThreshold: Float32,
+      compressorAttack: Float32,
+      compressorRelease: Float32,
+      compressorGainMakeup: Float32,
+      dynamicData: Pointer("BussDynamicDataV31")
+    },
+    BussDynamicDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      volume: Float32,
+      dsp: DynArray("DspDataV31")
+    },
+    DspDataV31: {
+      type: Uint32,
+      flags: Uint32,
+      property: DynArray(Float32)
+    },
+    CategoryDataV31: {
+      name: Uint64,
+      volumeGroupName: Uint64,
+      outputBussName: Uint64,
+      attenuation: Pointer("AttenuationDataV31"),
+      dynamicData: Pointer("CategoryDynamicDataV31"),
+      focusReserve: Float32,
+      muteFadeTime: Float32,
+      flags: Uint32,
+      maxAudible: Uint32,
+      maxAudibleBehavior: Uint8,
+      priority: Uint8
+    },
+    AttenuationDataV31: {
+      doppler: Float32,
+      lowPass: "DynamicParamDataV31",
+      highPass: "DynamicParamDataV31",
+      pan3D: "DynamicParamDataV31",
+      reverb: "DynamicParamDataV31",
+      spread3D: "DynamicParamDataV31",
+      volumeA: "DynamicParamDataV31",
+      volumeB: "DynamicParamDataV31",
+      lfe: "DynamicParamDataV31"
+    },
+    DynamicParamDataV31: {
+      envelopeData: Pointer("EnvelopeDataV31"),
+      randomParamData: Pointer("RandomParamDataV31"),
+      value: Float32,
+      type: Uint8
+    },
+    EnvelopeDataV31: {
+      inputOffset: Float32,
+      inputOffsetProperty: Uint64,
+      inputParameter: Uint64,
+      inputScale: Float32,
+      inputScaleProperty: Uint64,
+      inputType: Uint8,
+      outputOffset: Float32,
+      outputOffsetProperty: Uint64,
+      outputScale: Float32,
+      outputScaleProperty: Uint64,
+      envelopePoint: DynArray("EnvelopePointDataV31")
+    },
+    EnvelopePointDataV31: {
+      offset: Float32,
+      value: Float32
+    },
+    RandomParamDataV31: {
+      time: "RangeDataV31",
+      value: "RangeDataV31"
+    },
+    RangeDataV31: {
+      max: Float32,
+      min: Uint8
+    },
+    CategoryDynamicDataV31: {
+      name: Uint64,
+      volume: Float32,
+      nonFocusGain: Float32,
+      lowPass: Float32,
+      highPass: Float32,
+      reverbDirect: Float32,
+      reverbRoom: Float32,
+      flags: Uint32,
+      minAudible: Uint32,
+      maxAudibleLQ: Uint32,
+      maxAudibleHG: Uint32
+    },
+    MaterialDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      absorptionLF: Float32,
+      absorptionMF: Float32,
+      absorptionHF: Float32,
+      occlusion: Float32
+    },
+    MusicConditionDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      byteCode: DynArray(Uint8)
+    },
+    MusicPlaylistDataV31: {
+      category: Uint64,
+      name: Uint64,
+      primaryPlaylistId: Uint64,
+      secondaryPlaylistId: Uint64,
+      fileName: DynArray("FileNameDataV31"),
+      fadeInTime: Float32,
+      fadeOutTime: Float32,
+      flags: Uint32,
+      initialSilence: "RangeDataV31",
+      intervalSilence: "RangeDataV31",
+      maxPlayLength: "RangeDataV31",
+      volume: "DynamicParamDataV31",
+      fileIterateMode: Uint8
+    },
+    FileNameDataV31: {
+      condition: Uint64,
+      language: Uint64,
+      volume: Float32,
+      weight: Float32,
+      fileName: Filename(),
+      audioType: Uint8,
+      noteBase: Uint8,
+      noteMin: Uint8,
+      noteMax: Uint8
+    },
+    PropertyDataV31: {
+      name: Uint64,
+      tokenValue: Uint64,
+      floatValue: Float32
+    },
+    ReverbDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      room: Float32,
+      roomHF: Float32,
+      roomLF: Float32,
+      decayTime: Float32,
+      decayHFRatio: Float32,
+      reflections: Float32,
+      reflectionsDelay: Float32,
+      reverb: Float32,
+      reverbDelay: Float32,
+      referenceHF: Float32,
+      referenceLF: Float32,
+      diffusion: Float32,
+      density: Float32,
+      echoDelay: Float32,
+      echoDecayRatio: Float32,
+      echoWetMix: Float32,
+      echoDryMix: Float32
+    },
+    ScriptRefDataV31: {
+      name: Uint64,
+      fileName: Filename()
+    },
+    SnapshotDataV31: {
+      name: Uint64,
+      blendInTime: Float32,
+      blendOutTime: Float32,
+      flags: Uint32,
+      buss: DynArray("BussDynamicDataV31"),
+      category: DynArray("CategoryDynamicDataV31"),
+      priority: Uint8
+    },
+    MusicExternalDataV31: {
+      name: Uint64,
+      externalPlaylist: RefString16()
+    },
+    HandlerDataV31: {
+      name: Uint64,
+      flags: Uint32,
+      byteCode: DynArray(Uint8)
+    },
+    MetaSoundDataV31: {
+      category: Uint64,
+      endCue: Uint64,
+      name: Uint64,
+      offsetBone: Uint64,
+      playlistId: Uint64,
+      dsp: DynArray("DspDataV31"),
+      attenuation: Pointer("AttenuationDataV31"),
+      fileName: DynArray("FileNameDataV31"),
+      channelFadeIn: Float32,
+      channelFadeOut: Float32,
+      endCueOffset: Float32,
+      fadeInTime: Float32,
+      fadeOutTime: Float32,
+      modelScaleSizeFactor: Float32,
+      positionOffset: FixedArray(Float32, 3),
+      channelMax: Uint32,
+      flags: Uint32,
+      loopCount: Uint32,
+      depth: "DynamicParamDataV31",
+      pan: "DynamicParamDataV31",
+      pitch: "DynamicParamDataV31",
+      pitchMS: "DynamicParamDataV31",
+      volume: "DynamicParamDataV31",
+      volumeMS: "DynamicParamDataV31",
+      initialDelay: "RangeDataV31",
+      playLength: "RangeDataV31",
+      positionOffsetAngle: "RangeDataV31",
+      positionRange: "RangeDataV31",
+      repeatCount: "RangeDataV31",
+      repeatTime: "RangeDataV31",
+      replayDelay: "RangeDataV31",
+      startTimeOffset: "RangeDataV31",
+      channelMode: Uint8,
+      channelPriority: Uint8,
+      fileIterateMode: Uint8,
+      loopMode: Uint8,
+      musicPriority: Uint8,
+      playbackMode: Uint8,
+      positionMode: Uint8,
+      repeatTimeFrom: Uint8
+    },
+    TriggerKeyDataV31: {
+      name: Uint64,
+      triggerMarker: DynArray("TriggerMarkerDataV31")
+    },
+    TriggerMarkerDataV31: {
+      cue: Uint64,
+      end: Uint64,
+      time: Float32,
+      type: Uint8
+    }
+  },
+  root: {
+    musicCue: Uint64,
+    reverbOverride: Uint64,
+    snapshot: Uint64,
+    audioSettings: Pointer("AudioSettingsDataV31"),
+    handler: DynArray("HandlerDataV31"),
+    metaSound: DynArray("MetaSoundDataV31"),
+    scriptRef: DynArray("ScriptRefDataV31"),
+    triggerKey: DynArray("TriggerKeyDataV31"),
+    property: DynArray("PropertyDataV31"),
+    flags: Uint32,
+    soundPoolCount: Uint32,
+    fadeInTime: Float32,
+    soundPoolDelay: Float32,
+    volume: Float32,
+    musicCuePriority: Uint8,
+    musicMutePriority: Uint8,
+    soundPoolMode: Uint8,
+    interpolation: Uint8,
+    radialLimit: Float32,
+    scaleBucketRange: "RangeDataV31"
+  }
+};
+
+export const latest = V32;
+export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32];

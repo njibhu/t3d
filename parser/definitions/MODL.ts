@@ -19832,5 +19832,1061 @@ export const V66 = {
   }
 };
 
-export const latest = V66;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66];
+export const V67 = {
+  chunkName: "MODL",
+  name: "ModelFileDataV67",
+  version: 67,
+  definitions: {
+    ModelPermutationDataV66: {
+      token: Uint64,
+      materials: RefArray("ModelMaterialDataV66")
+    },
+    ModelMaterialDataV66: {
+      token: Uint64,
+      materialId: Uint32,
+      filename: Filename(),
+      materialFlags: Uint32,
+      sortOrder: Uint32,
+      textures: DynArray("ModelTextureDataV66"),
+      constants: DynArray("ModelConstantDataV66"),
+      matConstLinks: DynArray("ModelMatConstLinkV66"),
+      uvTransLinks: DynArray("ModelUVTransLinkV66"),
+      texTransforms: DynArray("ModelMaterialTexTransformV66"),
+      texCoordCount: Uint8,
+      sortLayer: Uint32
+    },
+    ModelTextureDataV66: {
+      filename: Filename(),
+      textureFlags: Uint32,
+      token: Uint64,
+      blitId: Uint64,
+      uvAnimId: Uint32,
+      uvPSInputIndex: Uint8
+    },
+    ModelConstantDataV66: {
+      name: Uint32,
+      value: FixedArray(Float32, 4),
+      constantFlags: Uint32
+    },
+    ModelMatConstLinkV66: {
+      linkToken: Uint64,
+      constantToken: Uint32
+    },
+    ModelUVTransLinkV66: {
+      linkToken: Uint64,
+      uvAnimId: Uint32,
+      type: Uint8
+    },
+    ModelMaterialTexTransformV66: {
+      flags: Uint32,
+      uvIndex: Uint8,
+      columns: Uint8,
+      rows: Uint8,
+      count: Uint16,
+      fps: Float32,
+      scroll: FixedArray(Float32, 2),
+      scrollFreq: FixedArray(Float32, 2),
+      scale: FixedArray(Float32, 2),
+      scaleFreq: FixedArray(Float32, 2),
+      rotate: Float32
+    },
+    ModelCloudDataV67: {
+      clouds: DynArray("ModelParticleCloudV66"),
+      emitters: DynArray("ModelParticleEmitterV67")
+    },
+    ModelParticleCloudV66: {
+      acceleration: FixedArray(Float32, 3),
+      bone: Uint64,
+      drag: Float32,
+      emitterIndices: DynArray(Uint32),
+      fvf: Uint32,
+      flags: Uint32,
+      materialIndex: Uint32,
+      obstacleIndices: DynArray(Uint32),
+      velocity: FixedArray(Float32, 3)
+    },
+    ModelParticleEmitterV67: {
+      acceleration: FixedArray(FixedArray(Float32, 2), 4),
+      accelerationDistRange: FixedArray(Float32, 2),
+      accelerationDistSpeed: FixedArray(Float32, 2),
+      affinity: Uint32,
+      bone: Uint64,
+      colorBegin: FixedArray(Float32, 4),
+      colorEnd: FixedArray(Float32, 4),
+      colorPeriod: Float32,
+      colorFalloff: FixedArray(Float32, 2),
+      emitterFlags: Uint32,
+      offset: Float32,
+      opacityCurve: Pointer("ModelParticleCurveV66"),
+      opacityCurvePreset: Uint32,
+      flags: Uint32,
+      lifetime: FixedArray(Float32, 2),
+      scaleCurve: Pointer("ModelParticleCurveV66"),
+      scaleCurvePreset: Uint32,
+      velocity: FixedArray(FixedArray(Float32, 2), 4),
+      velocityDistRange: FixedArray(Float32, 2),
+      velocityDistSpeed: FixedArray(Float32, 2),
+      velocityInherit: FixedArray(Float32, 2),
+      spawnGroupSize: FixedArray(Float32, 2),
+      spawnPeriod: Float32,
+      spawnProbability: Float32,
+      spawnRadius: FixedArray(Float32, 2),
+      spawnWindEmit: FixedArray(Float32, 2),
+      spawnWindSpeed: FixedArray(Float32, 2),
+      transform: Pointer("ModelMatrix43V66"),
+      windInfluence: Uint8,
+      spawnShape: Uint8,
+      planeEmitterSettings: Pointer("PlaneEmitterSettingsV67"),
+      meshEmitterSettings: Pointer("MeshEmitterSettingsV67")
+    },
+    ModelParticleCurveV66: {
+      curveType: Uint8,
+      keys: DynArray(FixedArray(Float32, 2))
+    },
+    ModelMatrix43V66: {
+      x: FixedArray(Float32, 4),
+      y: FixedArray(Float32, 4),
+      z: FixedArray(Float32, 4)
+    },
+    PlaneEmitterSettingsV67: {
+      alignmentDir: FixedArray(Float32, 3),
+      alignmentType: Uint8,
+      drag: Float32,
+      flipbook: Pointer("ModelParticleFlipbookV66"),
+      rotationChange: FixedArray(Float32, 2),
+      rotationDrag: Float32,
+      rotationInitial: FixedArray(Float32, 2),
+      scaleChange: FixedArray(FixedArray(Float32, 2), 2),
+      scaleInitial: FixedArray(FixedArray(Float32, 2), 2),
+      texCoordRect: FixedArray(Float32, 4)
+    },
+    ModelParticleFlipbookV66: {
+      columns: Uint8,
+      count: Uint8,
+      fps: Float32,
+      rows: Uint8,
+      start: Uint8
+    },
+    MeshEmitterSettingsV67: {
+      alignment: Uint32,
+      bankThreshold: Float32,
+      bankScale: Float32,
+      drag: FixedArray(FixedArray(Float32, 2), 3),
+      filename: Filename(),
+      obstacleRadius: Float32,
+      rotationMin: FixedArray(Float32, 3),
+      rotationMax: FixedArray(Float32, 3),
+      rotationSpace: Uint32,
+      scaleChange: FixedArray(FixedArray(Float32, 2), 3),
+      scaleInitial: FixedArray(FixedArray(Float32, 2), 3),
+      spinMin: FixedArray(Float32, 3),
+      spinMax: FixedArray(Float32, 3)
+    },
+    ModelObstacleDataV66: {
+      affinity: Uint32,
+      bone: Uint64,
+      type: Uint8,
+      response: Uint8,
+      flags: Uint32,
+      dragCoef: Float32,
+      gravityCoef: Float32,
+      length: Float32,
+      width: Float32,
+      height: Float32,
+      radius: Float32,
+      transform: Pointer("ModelMatrix43V66")
+    },
+    ModelStreakDataV66: {
+      streaks: DynArray("ModelStreakV66"),
+      anchors: DynArray("ModelStreakAnchorV66")
+    },
+    ModelStreakV66: {
+      acceleration: FixedArray(Float32, 3),
+      velocity: FixedArray(Float32, 3),
+      anchorIndices: DynArray(Uint32),
+      bone: Uint64,
+      flags: Uint32,
+      jitter: Float32,
+      materialIndex: Uint32,
+      noise: Float32,
+      spawnDist: Float32,
+      texScale: Float32,
+      wind: Float32
+    },
+    ModelStreakAnchorV66: {
+      bone: Uint64,
+      colorStart: Uint32,
+      colorEnd: Uint32,
+      falloff: Float32,
+      lifetime: Float32,
+      flags: Uint32,
+      texV: Float32
+    },
+    ModelLightDataV66: {
+      effectLights: DynArray("ModelEffectLightV66")
+    },
+    ModelEffectLightV66: {
+      bone: Uint64,
+      color: FixedArray(Uint8, 3),
+      farDistance: Float32,
+      intensity: Float32,
+      nearDistance: Float32
+    },
+    ModelClothDataV66: {
+      materialIndex: Uint32,
+      drag: Float32,
+      gravity: Float32,
+      compressibility: Float32,
+      slack: Float32,
+      stretchiness: Float32,
+      weight: Float32,
+      wind: Float32,
+      mesh: "PackVertexType",
+      indices: DynArray(Uint16),
+      groups: DynArray("ModelClothMeshGroupV66"),
+      groupBindings: DynArray("ModelClothGroupBindingV66"),
+      softLocks: DynArray("ModelClothSoftLockV66"),
+      lod0Constraints: DynArray("ModelClothConstraintV66"),
+      lod1Constraints: DynArray("ModelClothConstraintV66"),
+      lod1Indices: DynArray(Uint16),
+      barycentricCoords: DynArray(FixedArray(Float32, 3)),
+      barycentricIndices: DynArray(Uint16),
+      obstacleIndices: DynArray(Uint32),
+      lockCount: Uint16,
+      lockedNormals: DynArray(Uint32),
+      lockedTanegents: DynArray(Uint32),
+      lockedBitangents: DynArray(Uint32),
+      lod1VertexCount: Uint16,
+      flags: Uint8,
+      rigidness: Uint8,
+      translateWeight: Float32,
+      visBone: Uint64
+    },
+    PackVertexType: {
+      fvf: Uint32,
+      vertices: DynArray(Uint8)
+    },
+    ModelClothMeshGroupV66: {
+      weights: DynArray("ModelClothBoneWeightV66")
+    },
+    ModelClothBoneWeightV66: {
+      token: Uint64,
+      weight: Uint8
+    },
+    ModelClothGroupBindingV66: {
+      strippedToken: Uint64,
+      boneName: RefString(),
+      OBBMin: FixedArray(Float32, 3),
+      OBBMax: FixedArray(Float32, 3)
+    },
+    ModelClothSoftLockV66: {
+      weight: Uint8,
+      vertIndex: Uint16
+    },
+    ModelClothConstraintV66: {
+      distance: Uint16,
+      relationship: Uint16,
+      vertIndexA: Uint16,
+      vertIndexB: Uint16
+    },
+    ModelWindDataV66: {
+      effectWind: DynArray("ModelEffectWindV66")
+    },
+    ModelEffectWindV66: {
+      bone: Uint64,
+      farDistance: Float32,
+      intensity: Float32,
+      nearDistance: Float32
+    },
+    ModelLightningDataV66: {
+      systems: DynArray("ModelLightningSystemV66"),
+      bolts: DynArray("ModelLightningBoltV66"),
+      nodes: DynArray("ModelLightningNodeV66")
+    },
+    ModelLightningSystemV66: {
+      bone: Uint64,
+      boltIndices: DynArray(Uint16),
+      flags: Uint32,
+      fvf: Uint32,
+      materialIndex: Uint32
+    },
+    ModelLightningBoltV66: {
+      bone: Uint64,
+      nodeIndices: DynArray(Uint16),
+      colorBegin: FixedArray(Uint32, 3),
+      colorEnd: FixedArray(Uint32, 3),
+      colorPeriod: Float32,
+      colorFalloff: FixedArray(Float32, 2),
+      flags: Uint32,
+      flipbook: Pointer("ModelParticleFlipbookV66"),
+      fps: Float32,
+      frequency: Float32,
+      groupMax: Uint32,
+      groupMin: Uint32,
+      probability: Float32,
+      lifetime: FixedArray(Float32, 2),
+      numSegments: Uint16,
+      opacity: FixedArray(Float32, 2),
+      opacityPreset: Uint8,
+      texOffset: Float32,
+      texRange: FixedArray(Float32, 2),
+      texScale: Float32,
+      texSpeed: Float32,
+      thicknessPreset: Uint8,
+      thicknessRange: FixedArray(Float32, 2),
+      type: Uint8,
+      variance: Float32,
+      variancePreset: Uint8,
+      noise: Float32
+    },
+    ModelLightningNodeV66: {
+      bone: Uint64,
+      childrenIndices: DynArray(Uint16),
+      flags: Uint32,
+      probability: Float32,
+      radius: FixedArray(Float32, 2),
+      shape: Uint8,
+      updatePos: Float32
+    },
+    ModelSoftBodyDataV66: {
+      materialIndex: Uint32,
+      flags: Uint32,
+      vertexFvf: Uint32,
+      vertBytes: DynArray(Uint8),
+      indices: DynArray(Uint16),
+      bones: DynArray(Uint64)
+    },
+    ModelBoneOffsetDataV66: {
+      bone: Uint64,
+      translation: FixedArray(Float32, 3),
+      rotation: FixedArray(Float32, 4),
+      boneInverseOffset: FixedArray(FixedArray(Float32, 4), 3)
+    },
+    ModelBoundingSphereV66: {
+      center: FixedArray(Float32, 3),
+      radius: Float32
+    }
+  },
+  root: {
+    permutations: DynArray("ModelPermutationDataV66"),
+    cloudData: Pointer("ModelCloudDataV67"),
+    obstacles: DynArray("ModelObstacleDataV66"),
+    streakData: Pointer("ModelStreakDataV66"),
+    lightData: Pointer("ModelLightDataV66"),
+    clothData: DynArray("ModelClothDataV66"),
+    windData: Pointer("ModelWindDataV66"),
+    actionOffsetNames: DynArray(Uint64),
+    actionOffsets: DynArray(FixedArray(Float32, 3)),
+    lodOverride: FixedArray(Float32, 2),
+    soundScript: Filename(),
+    lightningData: Pointer("ModelLightningDataV66"),
+    softBodyData: DynArray("ModelSoftBodyDataV66"),
+    boneOffsetData: DynArray("ModelBoneOffsetDataV66"),
+    boundingSphere: Pointer("ModelBoundingSphereV66")
+  }
+};
+
+export const V68 = {
+  chunkName: "MODL",
+  name: "ModelFileDataV68",
+  version: 68,
+  definitions: {
+    ModelPermutationDataV66: {
+      token: Uint64,
+      materials: RefArray("ModelMaterialDataV66")
+    },
+    ModelMaterialDataV66: {
+      token: Uint64,
+      materialId: Uint32,
+      filename: Filename(),
+      materialFlags: Uint32,
+      sortOrder: Uint32,
+      textures: DynArray("ModelTextureDataV66"),
+      constants: DynArray("ModelConstantDataV66"),
+      matConstLinks: DynArray("ModelMatConstLinkV66"),
+      uvTransLinks: DynArray("ModelUVTransLinkV66"),
+      texTransforms: DynArray("ModelMaterialTexTransformV66"),
+      texCoordCount: Uint8,
+      sortLayer: Uint32
+    },
+    ModelTextureDataV66: {
+      filename: Filename(),
+      textureFlags: Uint32,
+      token: Uint64,
+      blitId: Uint64,
+      uvAnimId: Uint32,
+      uvPSInputIndex: Uint8
+    },
+    ModelConstantDataV66: {
+      name: Uint32,
+      value: FixedArray(Float32, 4),
+      constantFlags: Uint32
+    },
+    ModelMatConstLinkV66: {
+      linkToken: Uint64,
+      constantToken: Uint32
+    },
+    ModelUVTransLinkV66: {
+      linkToken: Uint64,
+      uvAnimId: Uint32,
+      type: Uint8
+    },
+    ModelMaterialTexTransformV66: {
+      flags: Uint32,
+      uvIndex: Uint8,
+      columns: Uint8,
+      rows: Uint8,
+      count: Uint16,
+      fps: Float32,
+      scroll: FixedArray(Float32, 2),
+      scrollFreq: FixedArray(Float32, 2),
+      scale: FixedArray(Float32, 2),
+      scaleFreq: FixedArray(Float32, 2),
+      rotate: Float32
+    },
+    ModelCloudDataV68: {
+      clouds: DynArray("ModelParticleCloudV66"),
+      emitters: DynArray("ModelParticleEmitterV68")
+    },
+    ModelParticleCloudV66: {
+      acceleration: FixedArray(Float32, 3),
+      bone: Uint64,
+      drag: Float32,
+      emitterIndices: DynArray(Uint32),
+      fvf: Uint32,
+      flags: Uint32,
+      materialIndex: Uint32,
+      obstacleIndices: DynArray(Uint32),
+      velocity: FixedArray(Float32, 3)
+    },
+    ModelParticleEmitterV68: {
+      acceleration: FixedArray(FixedArray(Float32, 2), 4),
+      accelerationDistRange: FixedArray(Float32, 2),
+      accelerationDistSpeed: FixedArray(Float32, 2),
+      affinity: Uint32,
+      bone: Uint64,
+      colorBegin: FixedArray(Float32, 4),
+      colorEnd: FixedArray(Float32, 4),
+      colorPeriod: Float32,
+      colorFalloff: FixedArray(Float32, 2),
+      emitterFlags: Uint32,
+      offset: Float32,
+      opacityCurve: Pointer("ModelParticleCurveV66"),
+      opacityCurvePreset: Uint32,
+      flags: Uint32,
+      lifetime: FixedArray(Float32, 2),
+      scaleCurve: Pointer("ModelParticleCurveV66"),
+      scaleCurvePreset: Uint32,
+      velocity: FixedArray(FixedArray(Float32, 2), 4),
+      velocityDistRange: FixedArray(Float32, 2),
+      velocityDistSpeed: FixedArray(Float32, 2),
+      velocityInherit: FixedArray(Float32, 2),
+      spawnGroupSize: FixedArray(Float32, 2),
+      spawnPeriod: Float32,
+      spawnProbability: Float32,
+      spawnRadius: FixedArray(Float32, 2),
+      spawnWindEmit: FixedArray(Float32, 2),
+      spawnWindSpeed: FixedArray(Float32, 2),
+      transform: Pointer("ModelMatrix43V66"),
+      windInfluence: Uint8,
+      spawnShape: Uint8,
+      planeEmitterSettings: Pointer("PlaneEmitterSettingsV67"),
+      meshEmitterSettings: Pointer("MeshEmitterSettingsV68")
+    },
+    ModelParticleCurveV66: {
+      curveType: Uint8,
+      keys: DynArray(FixedArray(Float32, 2))
+    },
+    ModelMatrix43V66: {
+      x: FixedArray(Float32, 4),
+      y: FixedArray(Float32, 4),
+      z: FixedArray(Float32, 4)
+    },
+    PlaneEmitterSettingsV67: {
+      alignmentDir: FixedArray(Float32, 3),
+      alignmentType: Uint8,
+      drag: Float32,
+      flipbook: Pointer("ModelParticleFlipbookV66"),
+      rotationChange: FixedArray(Float32, 2),
+      rotationDrag: Float32,
+      rotationInitial: FixedArray(Float32, 2),
+      scaleChange: FixedArray(FixedArray(Float32, 2), 2),
+      scaleInitial: FixedArray(FixedArray(Float32, 2), 2),
+      texCoordRect: FixedArray(Float32, 4)
+    },
+    ModelParticleFlipbookV66: {
+      columns: Uint8,
+      count: Uint8,
+      fps: Float32,
+      rows: Uint8,
+      start: Uint8
+    },
+    MeshEmitterSettingsV68: {
+      alignment: Uint32,
+      bankThreshold: Float32,
+      bankScale: Float32,
+      drag: FixedArray(FixedArray(Float32, 2), 3),
+      filename: Filename(),
+      obstacleRadius: Float32,
+      rotation: FixedArray(FixedArray(Float32, 2), 3),
+      rotationSpace: Uint32,
+      scaleChange: FixedArray(FixedArray(Float32, 2), 3),
+      scaleInitial: FixedArray(FixedArray(Float32, 2), 3),
+      spin: FixedArray(FixedArray(Float32, 2), 3)
+    },
+    ModelObstacleDataV66: {
+      affinity: Uint32,
+      bone: Uint64,
+      type: Uint8,
+      response: Uint8,
+      flags: Uint32,
+      dragCoef: Float32,
+      gravityCoef: Float32,
+      length: Float32,
+      width: Float32,
+      height: Float32,
+      radius: Float32,
+      transform: Pointer("ModelMatrix43V66")
+    },
+    ModelStreakDataV66: {
+      streaks: DynArray("ModelStreakV66"),
+      anchors: DynArray("ModelStreakAnchorV66")
+    },
+    ModelStreakV66: {
+      acceleration: FixedArray(Float32, 3),
+      velocity: FixedArray(Float32, 3),
+      anchorIndices: DynArray(Uint32),
+      bone: Uint64,
+      flags: Uint32,
+      jitter: Float32,
+      materialIndex: Uint32,
+      noise: Float32,
+      spawnDist: Float32,
+      texScale: Float32,
+      wind: Float32
+    },
+    ModelStreakAnchorV66: {
+      bone: Uint64,
+      colorStart: Uint32,
+      colorEnd: Uint32,
+      falloff: Float32,
+      lifetime: Float32,
+      flags: Uint32,
+      texV: Float32
+    },
+    ModelLightDataV66: {
+      effectLights: DynArray("ModelEffectLightV66")
+    },
+    ModelEffectLightV66: {
+      bone: Uint64,
+      color: FixedArray(Uint8, 3),
+      farDistance: Float32,
+      intensity: Float32,
+      nearDistance: Float32
+    },
+    ModelClothDataV66: {
+      materialIndex: Uint32,
+      drag: Float32,
+      gravity: Float32,
+      compressibility: Float32,
+      slack: Float32,
+      stretchiness: Float32,
+      weight: Float32,
+      wind: Float32,
+      mesh: "PackVertexType",
+      indices: DynArray(Uint16),
+      groups: DynArray("ModelClothMeshGroupV66"),
+      groupBindings: DynArray("ModelClothGroupBindingV66"),
+      softLocks: DynArray("ModelClothSoftLockV66"),
+      lod0Constraints: DynArray("ModelClothConstraintV66"),
+      lod1Constraints: DynArray("ModelClothConstraintV66"),
+      lod1Indices: DynArray(Uint16),
+      barycentricCoords: DynArray(FixedArray(Float32, 3)),
+      barycentricIndices: DynArray(Uint16),
+      obstacleIndices: DynArray(Uint32),
+      lockCount: Uint16,
+      lockedNormals: DynArray(Uint32),
+      lockedTanegents: DynArray(Uint32),
+      lockedBitangents: DynArray(Uint32),
+      lod1VertexCount: Uint16,
+      flags: Uint8,
+      rigidness: Uint8,
+      translateWeight: Float32,
+      visBone: Uint64
+    },
+    PackVertexType: {
+      fvf: Uint32,
+      vertices: DynArray(Uint8)
+    },
+    ModelClothMeshGroupV66: {
+      weights: DynArray("ModelClothBoneWeightV66")
+    },
+    ModelClothBoneWeightV66: {
+      token: Uint64,
+      weight: Uint8
+    },
+    ModelClothGroupBindingV66: {
+      strippedToken: Uint64,
+      boneName: RefString(),
+      OBBMin: FixedArray(Float32, 3),
+      OBBMax: FixedArray(Float32, 3)
+    },
+    ModelClothSoftLockV66: {
+      weight: Uint8,
+      vertIndex: Uint16
+    },
+    ModelClothConstraintV66: {
+      distance: Uint16,
+      relationship: Uint16,
+      vertIndexA: Uint16,
+      vertIndexB: Uint16
+    },
+    ModelWindDataV66: {
+      effectWind: DynArray("ModelEffectWindV66")
+    },
+    ModelEffectWindV66: {
+      bone: Uint64,
+      farDistance: Float32,
+      intensity: Float32,
+      nearDistance: Float32
+    },
+    ModelLightningDataV66: {
+      systems: DynArray("ModelLightningSystemV66"),
+      bolts: DynArray("ModelLightningBoltV66"),
+      nodes: DynArray("ModelLightningNodeV66")
+    },
+    ModelLightningSystemV66: {
+      bone: Uint64,
+      boltIndices: DynArray(Uint16),
+      flags: Uint32,
+      fvf: Uint32,
+      materialIndex: Uint32
+    },
+    ModelLightningBoltV66: {
+      bone: Uint64,
+      nodeIndices: DynArray(Uint16),
+      colorBegin: FixedArray(Uint32, 3),
+      colorEnd: FixedArray(Uint32, 3),
+      colorPeriod: Float32,
+      colorFalloff: FixedArray(Float32, 2),
+      flags: Uint32,
+      flipbook: Pointer("ModelParticleFlipbookV66"),
+      fps: Float32,
+      frequency: Float32,
+      groupMax: Uint32,
+      groupMin: Uint32,
+      probability: Float32,
+      lifetime: FixedArray(Float32, 2),
+      numSegments: Uint16,
+      opacity: FixedArray(Float32, 2),
+      opacityPreset: Uint8,
+      texOffset: Float32,
+      texRange: FixedArray(Float32, 2),
+      texScale: Float32,
+      texSpeed: Float32,
+      thicknessPreset: Uint8,
+      thicknessRange: FixedArray(Float32, 2),
+      type: Uint8,
+      variance: Float32,
+      variancePreset: Uint8,
+      noise: Float32
+    },
+    ModelLightningNodeV66: {
+      bone: Uint64,
+      childrenIndices: DynArray(Uint16),
+      flags: Uint32,
+      probability: Float32,
+      radius: FixedArray(Float32, 2),
+      shape: Uint8,
+      updatePos: Float32
+    },
+    ModelSoftBodyDataV66: {
+      materialIndex: Uint32,
+      flags: Uint32,
+      vertexFvf: Uint32,
+      vertBytes: DynArray(Uint8),
+      indices: DynArray(Uint16),
+      bones: DynArray(Uint64)
+    },
+    ModelBoneOffsetDataV66: {
+      bone: Uint64,
+      translation: FixedArray(Float32, 3),
+      rotation: FixedArray(Float32, 4),
+      boneInverseOffset: FixedArray(FixedArray(Float32, 4), 3)
+    },
+    ModelBoundingSphereV66: {
+      center: FixedArray(Float32, 3),
+      radius: Float32
+    }
+  },
+  root: {
+    permutations: DynArray("ModelPermutationDataV66"),
+    cloudData: Pointer("ModelCloudDataV68"),
+    obstacles: DynArray("ModelObstacleDataV66"),
+    streakData: Pointer("ModelStreakDataV66"),
+    lightData: Pointer("ModelLightDataV66"),
+    clothData: DynArray("ModelClothDataV66"),
+    windData: Pointer("ModelWindDataV66"),
+    actionOffsetNames: DynArray(Uint64),
+    actionOffsets: DynArray(FixedArray(Float32, 3)),
+    lodOverride: FixedArray(Float32, 2),
+    soundScript: Filename(),
+    lightningData: Pointer("ModelLightningDataV66"),
+    softBodyData: DynArray("ModelSoftBodyDataV66"),
+    boneOffsetData: DynArray("ModelBoneOffsetDataV66"),
+    boundingSphere: Pointer("ModelBoundingSphereV66")
+  }
+};
+
+export const V69 = {
+  chunkName: "MODL",
+  name: "ModelFileDataV69",
+  version: 69,
+  definitions: {
+    ModelPermutationDataV66: {
+      token: Uint64,
+      materials: RefArray("ModelMaterialDataV66")
+    },
+    ModelMaterialDataV66: {
+      token: Uint64,
+      materialId: Uint32,
+      filename: Filename(),
+      materialFlags: Uint32,
+      sortOrder: Uint32,
+      textures: DynArray("ModelTextureDataV66"),
+      constants: DynArray("ModelConstantDataV66"),
+      matConstLinks: DynArray("ModelMatConstLinkV66"),
+      uvTransLinks: DynArray("ModelUVTransLinkV66"),
+      texTransforms: DynArray("ModelMaterialTexTransformV66"),
+      texCoordCount: Uint8,
+      sortLayer: Uint32
+    },
+    ModelTextureDataV66: {
+      filename: Filename(),
+      textureFlags: Uint32,
+      token: Uint64,
+      blitId: Uint64,
+      uvAnimId: Uint32,
+      uvPSInputIndex: Uint8
+    },
+    ModelConstantDataV66: {
+      name: Uint32,
+      value: FixedArray(Float32, 4),
+      constantFlags: Uint32
+    },
+    ModelMatConstLinkV66: {
+      linkToken: Uint64,
+      constantToken: Uint32
+    },
+    ModelUVTransLinkV66: {
+      linkToken: Uint64,
+      uvAnimId: Uint32,
+      type: Uint8
+    },
+    ModelMaterialTexTransformV66: {
+      flags: Uint32,
+      uvIndex: Uint8,
+      columns: Uint8,
+      rows: Uint8,
+      count: Uint16,
+      fps: Float32,
+      scroll: FixedArray(Float32, 2),
+      scrollFreq: FixedArray(Float32, 2),
+      scale: FixedArray(Float32, 2),
+      scaleFreq: FixedArray(Float32, 2),
+      rotate: Float32
+    },
+    ModelCloudDataV69: {
+      clouds: DynArray("ModelParticleCloudV66"),
+      emitters: DynArray("ModelParticleEmitterV69")
+    },
+    ModelParticleCloudV66: {
+      acceleration: FixedArray(Float32, 3),
+      bone: Uint64,
+      drag: Float32,
+      emitterIndices: DynArray(Uint32),
+      fvf: Uint32,
+      flags: Uint32,
+      materialIndex: Uint32,
+      obstacleIndices: DynArray(Uint32),
+      velocity: FixedArray(Float32, 3)
+    },
+    ModelParticleEmitterV69: {
+      acceleration: FixedArray(FixedArray(Float32, 2), 4),
+      accelerationDistRange: FixedArray(Float32, 2),
+      accelerationDistSpeed: FixedArray(Float32, 2),
+      affinity: Uint32,
+      bone: Uint64,
+      colorBegin: FixedArray(Float32, 4),
+      colorEnd: FixedArray(Float32, 4),
+      colorPeriod: Float32,
+      colorFalloff: FixedArray(Float32, 2),
+      emitterFlags: Uint32,
+      offset: Float32,
+      opacityCurve: Pointer("ModelParticleCurveV66"),
+      opacityCurvePreset: Uint32,
+      flags: Uint32,
+      lifetime: FixedArray(Float32, 2),
+      scaleCurve: Pointer("ModelParticleCurveV66"),
+      scaleCurvePreset: Uint32,
+      drag: Float32,
+      velocity: FixedArray(FixedArray(Float32, 2), 4),
+      velocityDistRange: FixedArray(Float32, 2),
+      velocityDistSpeed: FixedArray(Float32, 2),
+      velocityInherit: FixedArray(Float32, 2),
+      spawnGroupSize: FixedArray(Float32, 2),
+      spawnPeriod: Float32,
+      spawnProbability: Float32,
+      spawnRadius: FixedArray(Float32, 2),
+      spawnWindEmit: FixedArray(Float32, 2),
+      spawnWindSpeed: FixedArray(Float32, 2),
+      transform: Pointer("ModelMatrix43V66"),
+      windInfluence: Uint8,
+      spawnShape: Uint8,
+      planeEmitterSettings: Pointer("PlaneEmitterSettingsV69"),
+      meshEmitterSettings: Pointer("MeshEmitterSettingsV69")
+    },
+    ModelParticleCurveV66: {
+      curveType: Uint8,
+      keys: DynArray(FixedArray(Float32, 2))
+    },
+    ModelMatrix43V66: {
+      x: FixedArray(Float32, 4),
+      y: FixedArray(Float32, 4),
+      z: FixedArray(Float32, 4)
+    },
+    PlaneEmitterSettingsV69: {
+      alignmentDir: FixedArray(Float32, 3),
+      alignmentType: Uint8,
+      flipbook: Pointer("ModelParticleFlipbookV66"),
+      rotationChange: FixedArray(Float32, 2),
+      rotationDrag: Float32,
+      rotationInitial: FixedArray(Float32, 2),
+      scaleChange: FixedArray(FixedArray(Float32, 2), 2),
+      scaleInitial: FixedArray(FixedArray(Float32, 2), 2),
+      texCoordRect: FixedArray(Float32, 4)
+    },
+    ModelParticleFlipbookV66: {
+      columns: Uint8,
+      count: Uint8,
+      fps: Float32,
+      rows: Uint8,
+      start: Uint8
+    },
+    MeshEmitterSettingsV69: {
+      alignment: Uint32,
+      bankThreshold: Float32,
+      bankScale: Float32,
+      filename: Filename(),
+      obstacleRadius: Float32,
+      rotation: FixedArray(FixedArray(Float32, 2), 3),
+      scaleChange: FixedArray(FixedArray(Float32, 2), 3),
+      scaleInitial: FixedArray(FixedArray(Float32, 2), 3),
+      spin: FixedArray(FixedArray(Float32, 2), 3)
+    },
+    ModelObstacleDataV66: {
+      affinity: Uint32,
+      bone: Uint64,
+      type: Uint8,
+      response: Uint8,
+      flags: Uint32,
+      dragCoef: Float32,
+      gravityCoef: Float32,
+      length: Float32,
+      width: Float32,
+      height: Float32,
+      radius: Float32,
+      transform: Pointer("ModelMatrix43V66")
+    },
+    ModelStreakDataV66: {
+      streaks: DynArray("ModelStreakV66"),
+      anchors: DynArray("ModelStreakAnchorV66")
+    },
+    ModelStreakV66: {
+      acceleration: FixedArray(Float32, 3),
+      velocity: FixedArray(Float32, 3),
+      anchorIndices: DynArray(Uint32),
+      bone: Uint64,
+      flags: Uint32,
+      jitter: Float32,
+      materialIndex: Uint32,
+      noise: Float32,
+      spawnDist: Float32,
+      texScale: Float32,
+      wind: Float32
+    },
+    ModelStreakAnchorV66: {
+      bone: Uint64,
+      colorStart: Uint32,
+      colorEnd: Uint32,
+      falloff: Float32,
+      lifetime: Float32,
+      flags: Uint32,
+      texV: Float32
+    },
+    ModelLightDataV66: {
+      effectLights: DynArray("ModelEffectLightV66")
+    },
+    ModelEffectLightV66: {
+      bone: Uint64,
+      color: FixedArray(Uint8, 3),
+      farDistance: Float32,
+      intensity: Float32,
+      nearDistance: Float32
+    },
+    ModelClothDataV66: {
+      materialIndex: Uint32,
+      drag: Float32,
+      gravity: Float32,
+      compressibility: Float32,
+      slack: Float32,
+      stretchiness: Float32,
+      weight: Float32,
+      wind: Float32,
+      mesh: "PackVertexType",
+      indices: DynArray(Uint16),
+      groups: DynArray("ModelClothMeshGroupV66"),
+      groupBindings: DynArray("ModelClothGroupBindingV66"),
+      softLocks: DynArray("ModelClothSoftLockV66"),
+      lod0Constraints: DynArray("ModelClothConstraintV66"),
+      lod1Constraints: DynArray("ModelClothConstraintV66"),
+      lod1Indices: DynArray(Uint16),
+      barycentricCoords: DynArray(FixedArray(Float32, 3)),
+      barycentricIndices: DynArray(Uint16),
+      obstacleIndices: DynArray(Uint32),
+      lockCount: Uint16,
+      lockedNormals: DynArray(Uint32),
+      lockedTanegents: DynArray(Uint32),
+      lockedBitangents: DynArray(Uint32),
+      lod1VertexCount: Uint16,
+      flags: Uint8,
+      rigidness: Uint8,
+      translateWeight: Float32,
+      visBone: Uint64
+    },
+    PackVertexType: {
+      fvf: Uint32,
+      vertices: DynArray(Uint8)
+    },
+    ModelClothMeshGroupV66: {
+      weights: DynArray("ModelClothBoneWeightV66")
+    },
+    ModelClothBoneWeightV66: {
+      token: Uint64,
+      weight: Uint8
+    },
+    ModelClothGroupBindingV66: {
+      strippedToken: Uint64,
+      boneName: RefString(),
+      OBBMin: FixedArray(Float32, 3),
+      OBBMax: FixedArray(Float32, 3)
+    },
+    ModelClothSoftLockV66: {
+      weight: Uint8,
+      vertIndex: Uint16
+    },
+    ModelClothConstraintV66: {
+      distance: Uint16,
+      relationship: Uint16,
+      vertIndexA: Uint16,
+      vertIndexB: Uint16
+    },
+    ModelWindDataV66: {
+      effectWind: DynArray("ModelEffectWindV66")
+    },
+    ModelEffectWindV66: {
+      bone: Uint64,
+      farDistance: Float32,
+      intensity: Float32,
+      nearDistance: Float32
+    },
+    ModelLightningDataV66: {
+      systems: DynArray("ModelLightningSystemV66"),
+      bolts: DynArray("ModelLightningBoltV66"),
+      nodes: DynArray("ModelLightningNodeV66")
+    },
+    ModelLightningSystemV66: {
+      bone: Uint64,
+      boltIndices: DynArray(Uint16),
+      flags: Uint32,
+      fvf: Uint32,
+      materialIndex: Uint32
+    },
+    ModelLightningBoltV66: {
+      bone: Uint64,
+      nodeIndices: DynArray(Uint16),
+      colorBegin: FixedArray(Uint32, 3),
+      colorEnd: FixedArray(Uint32, 3),
+      colorPeriod: Float32,
+      colorFalloff: FixedArray(Float32, 2),
+      flags: Uint32,
+      flipbook: Pointer("ModelParticleFlipbookV66"),
+      fps: Float32,
+      frequency: Float32,
+      groupMax: Uint32,
+      groupMin: Uint32,
+      probability: Float32,
+      lifetime: FixedArray(Float32, 2),
+      numSegments: Uint16,
+      opacity: FixedArray(Float32, 2),
+      opacityPreset: Uint8,
+      texOffset: Float32,
+      texRange: FixedArray(Float32, 2),
+      texScale: Float32,
+      texSpeed: Float32,
+      thicknessPreset: Uint8,
+      thicknessRange: FixedArray(Float32, 2),
+      type: Uint8,
+      variance: Float32,
+      variancePreset: Uint8,
+      noise: Float32
+    },
+    ModelLightningNodeV66: {
+      bone: Uint64,
+      childrenIndices: DynArray(Uint16),
+      flags: Uint32,
+      probability: Float32,
+      radius: FixedArray(Float32, 2),
+      shape: Uint8,
+      updatePos: Float32
+    },
+    ModelSoftBodyDataV66: {
+      materialIndex: Uint32,
+      flags: Uint32,
+      vertexFvf: Uint32,
+      vertBytes: DynArray(Uint8),
+      indices: DynArray(Uint16),
+      bones: DynArray(Uint64)
+    },
+    ModelBoneOffsetDataV66: {
+      bone: Uint64,
+      translation: FixedArray(Float32, 3),
+      rotation: FixedArray(Float32, 4),
+      boneInverseOffset: FixedArray(FixedArray(Float32, 4), 3)
+    },
+    ModelBoundingSphereV66: {
+      center: FixedArray(Float32, 3),
+      radius: Float32
+    }
+  },
+  root: {
+    permutations: DynArray("ModelPermutationDataV66"),
+    cloudData: Pointer("ModelCloudDataV69"),
+    obstacles: DynArray("ModelObstacleDataV66"),
+    streakData: Pointer("ModelStreakDataV66"),
+    lightData: Pointer("ModelLightDataV66"),
+    clothData: DynArray("ModelClothDataV66"),
+    windData: Pointer("ModelWindDataV66"),
+    actionOffsetNames: DynArray(Uint64),
+    actionOffsets: DynArray(FixedArray(Float32, 3)),
+    lodOverride: FixedArray(Float32, 2),
+    soundScript: Filename(),
+    lightningData: Pointer("ModelLightningDataV66"),
+    softBodyData: DynArray("ModelSoftBodyDataV66"),
+    boneOffsetData: DynArray("ModelBoneOffsetDataV66"),
+    boundingSphere: Pointer("ModelBoundingSphereV66")
+  }
+};
+
+export const latest = V69;
+export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66, V67, V68, V69];

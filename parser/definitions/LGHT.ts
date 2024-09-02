@@ -1108,5 +1108,222 @@ export const V17 = {
   }
 };
 
-export const latest = V17;
-export const definitionArray = [V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17];
+export const V18 = {
+  chunkName: "lght",
+  name: "PackMapLights",
+  version: 18,
+  definitions: {
+    PackMapPointLightgroups: {
+      guid: Uint64,
+      lights: DynArray("PackMapLight"),
+      curves: DynArray("PackMapCurve"),
+      broadId: Uint16
+    },
+    PackMapLight: {
+      position: FixedArray(Float32, 3),
+      color: FixedArray(Uint8, 3),
+      intensity: Float32,
+      nearDistance: Float32,
+      farDistance: Float32,
+      flags: Uint32
+    },
+    PackMapCurve: {
+      gust: Float32,
+      gustFreq: Float32,
+      noise: Float32,
+      phase: Float32,
+      offset: Float32,
+      amplitude: Float32,
+      curveType: Uint32
+    },
+    PackMapPortalLight: {
+      guid: Uint64,
+      points: DynArray(FixedArray(Float32, 3)),
+      portalData: DynArray("PackMapPortalData"),
+      broadId: Uint16
+    },
+    PackMapPortalData: {
+      fadeCamera: Float32,
+      fadeLight: Float32,
+      lighten: Float32,
+      darken: Float32
+    },
+    PackMapSpotLightgroups: {
+      guid: Uint64,
+      lights: DynArray("PackMapSpotLight"),
+      curves: DynArray("PackMapCurve"),
+      broadId: Uint16
+    },
+    PackMapSpotLight: {
+      position: FixedArray(Float32, 3),
+      color: FixedArray(Uint8, 3),
+      intensity: Float32,
+      nearDistance: Float32,
+      farDistance: Float32,
+      flags: Uint32,
+      direction: FixedArray(Float32, 3),
+      upDirection: FixedArray(Float32, 3),
+      innerAngle: Float32,
+      outerAngle: Float32,
+      textureName: Filename(),
+      shadowData: Pointer("PackMapSpotShadow"),
+      lodData: FixedArray("PackMapSpotLod", 2)
+    },
+    PackMapSpotShadow: {
+      shadowFilename: Filename()
+    },
+    PackMapSpotLod: {
+      distance: Float32,
+      flags: Uint32,
+      lightFlags: Uint32,
+      color: FixedArray(Uint8, 3),
+      intensity: Float32,
+      nearDist: Float32,
+      farDist: Float32,
+      innerAngle: Float32,
+      outerAngle: Float32
+    },
+    PackMapVolumeLight: {
+      guid: Uint64,
+      position: FixedArray(Float32, 3),
+      extents: FixedArray(Float32, 3),
+      rotation: FixedArray(Float32, 3),
+      intensities: FixedArray(Float32, 2),
+      pack: FixedArray(Float32, 4),
+      name: RefString16(),
+      floodPoints: DynArray(FixedArray(Float32, 3)),
+      flags: Uint32,
+      images: DynArray("PackMapVolumeImage"),
+      broadId: Uint16
+    },
+    PackMapVolumeImage: {
+      filename: Filename(),
+      dims: FixedArray(Uint32, 2),
+      format: Uint32,
+      image: DynArray(Uint8)
+    },
+    PackBroadphaseType: {
+      broadphaseData: DynArray(Uint8)
+    }
+  },
+  root: {
+    pointLights: DynArray("PackMapPointLightgroups"),
+    portalLights: DynArray("PackMapPortalLight"),
+    spotLights: DynArray("PackMapSpotLightgroups"),
+    volumeLights: DynArray("PackMapVolumeLight"),
+    broadPhase: "PackBroadphaseType",
+    maxBroadId: Uint16
+  }
+};
+
+export const V19 = {
+  chunkName: "lght",
+  name: "PackMapLights",
+  version: 19,
+  definitions: {
+    PackMapPointLightgroups: {
+      guid: Uint64,
+      lights: DynArray("PackMapLight"),
+      curves: DynArray("PackMapCurve"),
+      broadId: Uint16
+    },
+    PackMapLight: {
+      position: FixedArray(Float32, 3),
+      color: FixedArray(Uint8, 3),
+      intensity: Float32,
+      nearDistance: Float32,
+      farDistance: Float32,
+      flags: Uint32
+    },
+    PackMapCurve: {
+      gust: Float32,
+      gustFreq: Float32,
+      noise: Float32,
+      phase: Float32,
+      offset: Float32,
+      amplitude: Float32,
+      curveType: Uint32
+    },
+    PackMapPortalLight: {
+      guid: Uint64,
+      points: DynArray(FixedArray(Float32, 3)),
+      portalData: DynArray("PackMapPortalData"),
+      broadId: Uint16
+    },
+    PackMapPortalData: {
+      fadeCamera: Float32,
+      fadeLight: Float32,
+      lighten: Float32,
+      darken: Float32
+    },
+    PackMapSpotLightgroups: {
+      guid: Uint64,
+      lights: DynArray("PackMapSpotLight"),
+      curves: DynArray("PackMapCurve"),
+      broadId: Uint16
+    },
+    PackMapSpotLight: {
+      position: FixedArray(Float32, 3),
+      color: FixedArray(Uint8, 3),
+      intensity: Float32,
+      nearDistance: Float32,
+      farDistance: Float32,
+      flags: Uint32,
+      direction: FixedArray(Float32, 3),
+      upDirection: FixedArray(Float32, 3),
+      innerAngle: Float32,
+      outerAngle: Float32,
+      textureName: Filename(),
+      shadowData: Pointer("PackMapSpotShadow"),
+      lodData: FixedArray("PackMapSpotLod", 2)
+    },
+    PackMapSpotShadow: {
+      shadowFilename: Filename()
+    },
+    PackMapSpotLod: {
+      distance: Float32,
+      flags: Uint32,
+      lightFlags: Uint32,
+      color: FixedArray(Uint8, 3),
+      intensity: Float32,
+      nearDist: Float32,
+      farDist: Float32,
+      innerAngle: Float32,
+      outerAngle: Float32
+    },
+    PackMapVolumeLight: {
+      guid: Uint64,
+      position: FixedArray(Float32, 3),
+      extents: FixedArray(Float32, 3),
+      rotation: FixedArray(Float32, 3),
+      intensities: FixedArray(Float32, 2),
+      pack: FixedArray(Float32, 4),
+      name: RefString16(),
+      floodPoints: DynArray(FixedArray(Float32, 3)),
+      flags: Uint32,
+      images: DynArray("PackMapVolumeImage"),
+      broadId: Uint16
+    },
+    PackMapVolumeImage: {
+      filename: Filename(),
+      dims: FixedArray(Uint32, 2),
+      format: Uint32,
+      image: DynArray(Uint8)
+    },
+    PackBroadphaseType: {
+      broadphaseData: DynArray(Uint8)
+    }
+  },
+  root: {
+    pointLights: DynArray("PackMapPointLightgroups"),
+    portalLights: DynArray("PackMapPortalLight"),
+    spotLights: DynArray("PackMapSpotLightgroups"),
+    volumeLights: DynArray("PackMapVolumeLight"),
+    broadPhase: "PackBroadphaseType",
+    maxBroadId: Uint16,
+    maxLightVsConstants: Uint32
+  }
+};
+
+export const latest = V19;
+export const definitionArray = [V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19];

@@ -552,12 +552,165 @@ export namespace V14_N {
 
 export type V14 = V14_N.PackMapCollideV14;
 
-export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14;
-export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14;
-export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14;
-export type V9_U = V9 | V10 | V11 | V12 | V13 | V14;
-export type V10_U = V10 | V11 | V12 | V13 | V14;
-export type V11_U = V11 | V12 | V13 | V14;
-export type V12_U = V12 | V13 | V14;
-export type V13_U = V13 | V14;
-export type V14_U = V14;
+export namespace V15_N {
+  export type PackMapCollideV15 = {
+    boundsMin: Array<number>,
+    boundsMax: Array<number>,
+    flags: number,
+    waterSurfaceZ: number,
+    collisions: Array<PackMapCollideCollisionV15>,
+    blockers: Array<PackMapCollideBlockerV15>,
+    animations: Array<PackMapCollideAnimationV15>,
+    geometries: Array<PackMapCollideGeometryV15>,
+    obsModels: Array<PackMapCollideModelObsV15>,
+    propModels: Array<PackMapCollideModelPropV15>,
+    zoneModels: Array<PackMapCollideModelZoneV15>,
+    waterVolumes: Array<PackMapCollideWaterVolumeV15>
+  }
+
+  export type PackMapCollideCollisionV15 = {
+    indices: Array<number>,
+    vertices: Array<Array<number>>,
+    surfaces: Array<number>,
+    moppCodeData: PackMoppType
+  }
+
+  export type PackMoppType = {
+    moppData: Array<number>
+  }
+
+  export type PackMapCollideBlockerV15 = {
+    vertices: Array<Array<number>>
+  }
+
+  export type PackMapCollideAnimationV15 = {
+    sequence: BigInt,
+    collisionIndices: Array<number>,
+    blockerIndices: Array<number>
+  }
+
+  export type PackMapCollideGeometryV15 = {
+    quantizedExtents: number,
+    animations: Array<number>,
+    navMeshIndex: number
+  }
+
+  export type PackMapCollideModelObsV15 = {
+    translate: Array<number>,
+    geometryIndex: number
+  }
+
+  export type PackMapCollideModelPropV15 = {
+    token: BigInt,
+    sequence: BigInt,
+    scale: number,
+    translate: Array<number>,
+    rotate: Array<number>,
+    geometryIndex: number
+  }
+
+  export type PackMapCollideModelZoneV15 = {
+    scale: number,
+    translate: Array<number>,
+    rotate: Array<number>,
+    geometryIndex: number
+  }
+
+  export type PackMapCollideWaterVolumeV15 = {
+    guid: BigInt,
+    flags: number,
+    verticalRange: Array<number>,
+    vertices: Array<Array<number>>
+  }
+
+}
+
+export type V15 = V15_N.PackMapCollideV15;
+
+export namespace V16_N {
+  export type PackMapCollideV16 = {
+    boundsMin: Array<number>,
+    boundsMax: Array<number>,
+    flags: number,
+    waterSurfaceZ: number,
+    collisions: Array<PackMapCollideCollisionV16>,
+    blockers: Array<PackMapCollideBlockerV16>,
+    animations: Array<PackMapCollideAnimationV16>,
+    geometries: Array<PackMapCollideGeometryV16>,
+    obsModels: Array<PackMapCollideModelObsV16>,
+    propModels: Array<PackMapCollideModelPropV16>,
+    zoneModels: Array<PackMapCollideModelZoneV16>,
+    waterVolumes: Array<PackMapCollideWaterVolumeV16>
+  }
+
+  export type PackMapCollideCollisionV16 = {
+    indices: Array<number>,
+    vertices: Array<Array<number>>,
+    surfaces: Array<number>,
+    moppCodeData: PackMoppType
+  }
+
+  export type PackMoppType = {
+    moppData: Array<number>
+  }
+
+  export type PackMapCollideBlockerV16 = {
+    vertices: Array<Array<number>>
+  }
+
+  export type PackMapCollideAnimationV16 = {
+    sequence: BigInt,
+    collisionIndices: Array<number>,
+    blockerIndices: Array<number>
+  }
+
+  export type PackMapCollideGeometryV16 = {
+    quantizedExtents: number,
+    animations: Array<number>,
+    navMeshIndex: number
+  }
+
+  export type PackMapCollideModelObsV16 = {
+    translate: Array<number>,
+    geometryIndex: number
+  }
+
+  export type PackMapCollideModelPropV16 = {
+    token: BigInt,
+    sequence: BigInt,
+    scale: number,
+    translate: Array<number>,
+    rotate: Array<number>,
+    geometryIndex: number
+  }
+
+  export type PackMapCollideModelZoneV16 = {
+    scale: number,
+    translate: Array<number>,
+    rotate: Array<number>,
+    geometryIndex: number
+  }
+
+  export type PackMapCollideWaterVolumeV16 = {
+    guid: BigInt,
+    name: string,
+    flags: number,
+    verticalRange: Array<number>,
+    vertices: Array<Array<number>>
+  }
+
+}
+
+export type V16 = V16_N.PackMapCollideV16;
+
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16;
+export type V12_U = V12 | V13 | V14 | V15 | V16;
+export type V13_U = V13 | V14 | V15 | V16;
+export type V14_U = V14 | V15 | V16;
+export type V15_U = V15 | V16;
+export type V16_U = V16;

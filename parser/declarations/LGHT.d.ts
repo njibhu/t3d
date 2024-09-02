@@ -1186,20 +1186,259 @@ export namespace V17_N {
 
 export type V17 = V17_N.PackMapLights;
 
-export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17;
-export type V12_U = V12 | V13 | V14 | V15 | V16 | V17;
-export type V13_U = V13 | V14 | V15 | V16 | V17;
-export type V14_U = V14 | V15 | V16 | V17;
-export type V15_U = V15 | V16 | V17;
-export type V16_U = V16 | V17;
-export type V17_U = V17;
+export namespace V18_N {
+  export type PackMapLights = {
+    pointLights: Array<PackMapPointLightgroups>,
+    portalLights: Array<PackMapPortalLight>,
+    spotLights: Array<PackMapSpotLightgroups>,
+    volumeLights: Array<PackMapVolumeLight>,
+    broadPhase: PackBroadphaseType,
+    maxBroadId: number
+  }
+
+  export type PackMapPointLightgroups = {
+    guid: BigInt,
+    lights: Array<PackMapLight>,
+    curves: Array<PackMapCurve>,
+    broadId: number
+  }
+
+  export type PackMapLight = {
+    position: Array<number>,
+    color: Array<number>,
+    intensity: number,
+    nearDistance: number,
+    farDistance: number,
+    flags: number
+  }
+
+  export type PackMapCurve = {
+    gust: number,
+    gustFreq: number,
+    noise: number,
+    phase: number,
+    offset: number,
+    amplitude: number,
+    curveType: number
+  }
+
+  export type PackMapPortalLight = {
+    guid: BigInt,
+    points: Array<Array<number>>,
+    portalData: Array<PackMapPortalData>,
+    broadId: number
+  }
+
+  export type PackMapPortalData = {
+    fadeCamera: number,
+    fadeLight: number,
+    lighten: number,
+    darken: number
+  }
+
+  export type PackMapSpotLightgroups = {
+    guid: BigInt,
+    lights: Array<PackMapSpotLight>,
+    curves: Array<PackMapCurve>,
+    broadId: number
+  }
+
+  export type PackMapSpotLight = {
+    position: Array<number>,
+    color: Array<number>,
+    intensity: number,
+    nearDistance: number,
+    farDistance: number,
+    flags: number,
+    direction: Array<number>,
+    upDirection: Array<number>,
+    innerAngle: number,
+    outerAngle: number,
+    textureName: string,
+    shadowData: PackMapSpotShadow,
+    lodData: Array<PackMapSpotLod>
+  }
+
+  export type PackMapSpotShadow = {
+    shadowFilename: string
+  }
+
+  export type PackMapSpotLod = {
+    distance: number,
+    flags: number,
+    lightFlags: number,
+    color: Array<number>,
+    intensity: number,
+    nearDist: number,
+    farDist: number,
+    innerAngle: number,
+    outerAngle: number
+  }
+
+  export type PackMapVolumeLight = {
+    guid: BigInt,
+    position: Array<number>,
+    extents: Array<number>,
+    rotation: Array<number>,
+    intensities: Array<number>,
+    pack: Array<number>,
+    name: string,
+    floodPoints: Array<Array<number>>,
+    flags: number,
+    images: Array<PackMapVolumeImage>,
+    broadId: number
+  }
+
+  export type PackMapVolumeImage = {
+    filename: string,
+    dims: Array<number>,
+    format: number,
+    image: Array<number>
+  }
+
+  export type PackBroadphaseType = {
+    broadphaseData: Array<number>
+  }
+
+}
+
+export type V18 = V18_N.PackMapLights;
+
+export namespace V19_N {
+  export type PackMapLights = {
+    pointLights: Array<PackMapPointLightgroups>,
+    portalLights: Array<PackMapPortalLight>,
+    spotLights: Array<PackMapSpotLightgroups>,
+    volumeLights: Array<PackMapVolumeLight>,
+    broadPhase: PackBroadphaseType,
+    maxBroadId: number,
+    maxLightVsConstants: number
+  }
+
+  export type PackMapPointLightgroups = {
+    guid: BigInt,
+    lights: Array<PackMapLight>,
+    curves: Array<PackMapCurve>,
+    broadId: number
+  }
+
+  export type PackMapLight = {
+    position: Array<number>,
+    color: Array<number>,
+    intensity: number,
+    nearDistance: number,
+    farDistance: number,
+    flags: number
+  }
+
+  export type PackMapCurve = {
+    gust: number,
+    gustFreq: number,
+    noise: number,
+    phase: number,
+    offset: number,
+    amplitude: number,
+    curveType: number
+  }
+
+  export type PackMapPortalLight = {
+    guid: BigInt,
+    points: Array<Array<number>>,
+    portalData: Array<PackMapPortalData>,
+    broadId: number
+  }
+
+  export type PackMapPortalData = {
+    fadeCamera: number,
+    fadeLight: number,
+    lighten: number,
+    darken: number
+  }
+
+  export type PackMapSpotLightgroups = {
+    guid: BigInt,
+    lights: Array<PackMapSpotLight>,
+    curves: Array<PackMapCurve>,
+    broadId: number
+  }
+
+  export type PackMapSpotLight = {
+    position: Array<number>,
+    color: Array<number>,
+    intensity: number,
+    nearDistance: number,
+    farDistance: number,
+    flags: number,
+    direction: Array<number>,
+    upDirection: Array<number>,
+    innerAngle: number,
+    outerAngle: number,
+    textureName: string,
+    shadowData: PackMapSpotShadow,
+    lodData: Array<PackMapSpotLod>
+  }
+
+  export type PackMapSpotShadow = {
+    shadowFilename: string
+  }
+
+  export type PackMapSpotLod = {
+    distance: number,
+    flags: number,
+    lightFlags: number,
+    color: Array<number>,
+    intensity: number,
+    nearDist: number,
+    farDist: number,
+    innerAngle: number,
+    outerAngle: number
+  }
+
+  export type PackMapVolumeLight = {
+    guid: BigInt,
+    position: Array<number>,
+    extents: Array<number>,
+    rotation: Array<number>,
+    intensities: Array<number>,
+    pack: Array<number>,
+    name: string,
+    floodPoints: Array<Array<number>>,
+    flags: number,
+    images: Array<PackMapVolumeImage>,
+    broadId: number
+  }
+
+  export type PackMapVolumeImage = {
+    filename: string,
+    dims: Array<number>,
+    format: number,
+    image: Array<number>
+  }
+
+  export type PackBroadphaseType = {
+    broadphaseData: Array<number>
+  }
+
+}
+
+export type V19 = V19_N.PackMapLights;
+
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19;
+export type V14_U = V14 | V15 | V16 | V17 | V18 | V19;
+export type V15_U = V15 | V16 | V17 | V18 | V19;
+export type V16_U = V16 | V17 | V18 | V19;
+export type V17_U = V17 | V18 | V19;
+export type V18_U = V18 | V19;
+export type V19_U = V19;
