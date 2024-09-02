@@ -10,7 +10,6 @@ export * as BGFX from "./BGFX";
 export * as BIDX from "./BIDX";
 export * as BKCK from "./BKCK";
 export * as BLOC from "./BLOC";
-export * as CDHS from "./CDHS";
 export * as CG15 from "./CG15";
 export * as CNFG from "./CNFG";
 export * as COLL from "./COLL";

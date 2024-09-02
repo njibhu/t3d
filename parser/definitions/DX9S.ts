@@ -1,6 +1,6 @@
 import { Uint32, DynArray, Uint16, RefString, Uint64, RefArray, FixedArray } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV0",
   version: 0,
@@ -39,7 +39,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV1",
   version: 1,
@@ -81,7 +81,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV2",
   version: 2,
@@ -123,7 +123,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV3",
   version: 3,
@@ -165,7 +165,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV4",
   version: 4,
@@ -207,7 +207,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV5",
   version: 5,
@@ -249,7 +249,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV6",
   version: 6,
@@ -290,7 +290,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV7",
   version: 7,
@@ -331,7 +331,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV8",
   version: 8,
@@ -372,7 +372,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV9",
   version: 9,
@@ -414,7 +414,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV10",
   version: 10,
@@ -457,7 +457,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "DX9S",
   name: "AmatDx9MaterialV11",
   version: 11,
@@ -502,4 +502,5 @@ export const V11 = {
 };
 
 export const latest = V11;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11];
+export const definitions = { V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11 };
+export const definitionArray = Object.values(definitions);

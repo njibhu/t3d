@@ -1,6 +1,6 @@
 import { FixedArray, Float32, Uint32, Filename, Uint64, DynArray } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "reso",
   name: "PackMapResourceMapV0",
   version: 0,
@@ -20,7 +20,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "reso",
   name: "PackMapResourceMapV1",
   version: 1,
@@ -42,4 +42,5 @@ export const V1 = {
 };
 
 export const latest = V1;
-export const definitionArray = [V0, V1];
+export const definitions = { V0, V1 };
+export const definitionArray = Object.values(definitions);

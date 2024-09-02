@@ -1,6 +1,6 @@
 import { Filename, DynArray, Uint32, FixedArray, Float32, Uint64, Uint8, Uint16, RefString16 } from "../src/types";
 
-export const V3 = {
+const V3 = {
   chunkName: "prp2",
   name: "PackMapPropV3",
   version: 3,
@@ -38,7 +38,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "prp2",
   name: "PackMapPropV4",
   version: 4,
@@ -78,7 +78,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "prp2",
   name: "PackMapPropV5",
   version: 5,
@@ -122,7 +122,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "prp2",
   name: "PackMapPropV6",
   version: 6,
@@ -166,7 +166,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "prp2",
   name: "PackMapPropV7",
   version: 7,
@@ -212,7 +212,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "prp2",
   name: "PackMapPropV8",
   version: 8,
@@ -260,7 +260,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "prp2",
   name: "PackMapPropV9",
   version: 9,
@@ -308,7 +308,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "prp2",
   name: "PackMapPropV10",
   version: 10,
@@ -356,7 +356,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "prp2",
   name: "PackMapPropV11",
   version: 11,
@@ -411,7 +411,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "prp2",
   name: "PackMapPropV12",
   version: 12,
@@ -492,7 +492,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "prp2",
   name: "PackMapPropV13",
   version: 13,
@@ -575,7 +575,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "prp2",
   name: "PackMapPropV14",
   version: 14,
@@ -661,7 +661,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "prp2",
   name: "PackMapPropV15",
   version: 15,
@@ -774,7 +774,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "prp2",
   name: "PackMapPropV16",
   version: 16,
@@ -891,7 +891,7 @@ export const V16 = {
   }
 };
 
-export const V17 = {
+const V17 = {
   chunkName: "prp2",
   name: "PackMapPropV17",
   version: 17,
@@ -1008,7 +1008,7 @@ export const V17 = {
   }
 };
 
-export const V18 = {
+const V18 = {
   chunkName: "prp2",
   name: "PackMapPropV18",
   version: 18,
@@ -1129,7 +1129,7 @@ export const V18 = {
   }
 };
 
-export const V19 = {
+const V19 = {
   chunkName: "prp2",
   name: "PackMapPropV19",
   version: 19,
@@ -1258,7 +1258,7 @@ export const V19 = {
   }
 };
 
-export const V20 = {
+const V20 = {
   chunkName: "prp2",
   name: "PackMapPropV20",
   version: 20,
@@ -1388,7 +1388,7 @@ export const V20 = {
   }
 };
 
-export const V21 = {
+const V21 = {
   chunkName: "prp2",
   name: "PackMapPropV21",
   version: 21,
@@ -1524,4 +1524,5 @@ export const V21 = {
 };
 
 export const latest = V21;
-export const definitionArray = [V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21];
+export const definitions = { V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21 };
+export const definitionArray = Object.values(definitions);

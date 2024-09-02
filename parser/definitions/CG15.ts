@@ -1,6 +1,6 @@
 import { Uint32, FixedArray, Float32, DynArray } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "cg15",
   name: "PackMapCoarseNavGraphV0",
   version: 0,
@@ -37,4 +37,5 @@ export const V0 = {
 };
 
 export const latest = V0;
-export const definitionArray = [V0];
+export const definitions = { V0 };
+export const definitionArray = Object.values(definitions);

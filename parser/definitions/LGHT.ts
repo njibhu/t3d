@@ -1,6 +1,6 @@
 import { Uint64, FixedArray, Float32, Uint8, Uint32, DynArray, Uint16, Filename, Pointer, RefString16 } from "../src/types";
 
-export const V1 = {
+const V1 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 1,
@@ -21,7 +21,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 2,
@@ -46,7 +46,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 3,
@@ -79,7 +79,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 4,
@@ -112,7 +112,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 5,
@@ -163,7 +163,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 6,
@@ -229,7 +229,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 7,
@@ -296,7 +296,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 8,
@@ -364,7 +364,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 9,
@@ -434,7 +434,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 10,
@@ -504,7 +504,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 11,
@@ -582,7 +582,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 12,
@@ -660,7 +660,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 13,
@@ -738,7 +738,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "lght",
   name: "PackMapLightsV14",
   version: 14,
@@ -826,7 +826,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "lght",
   name: "PackMapLightsV15",
   version: 15,
@@ -917,7 +917,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 16,
@@ -1012,7 +1012,7 @@ export const V16 = {
   }
 };
 
-export const V17 = {
+const V17 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 17,
@@ -1108,7 +1108,7 @@ export const V17 = {
   }
 };
 
-export const V18 = {
+const V18 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 18,
@@ -1216,7 +1216,7 @@ export const V18 = {
   }
 };
 
-export const V19 = {
+const V19 = {
   chunkName: "lght",
   name: "PackMapLights",
   version: 19,
@@ -1326,4 +1326,5 @@ export const V19 = {
 };
 
 export const latest = V19;
-export const definitionArray = [V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19];
+export const definitions = { V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19 };
+export const definitionArray = Object.values(definitions);

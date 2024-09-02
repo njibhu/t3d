@@ -1,6 +1,6 @@
 import { RefString, Uint32, FixedArray, Float32, Uint8, Pointer, DynArray, Uint64, Uint16, Filename } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "SKEL",
   name: "ModelFileSkeletonV0",
   version: 0,
@@ -91,7 +91,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "SKEL",
   name: "ModelFileSkeletonV1",
   version: 1,
@@ -186,4 +186,5 @@ export const V1 = {
 };
 
 export const latest = V1;
-export const definitionArray = [V0, V1];
+export const definitions = { V0, V1 };
+export const definitionArray = Object.values(definitions);

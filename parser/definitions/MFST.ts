@@ -1,6 +1,6 @@
 import { Uint32, Uint64, DynArray, Uint8 } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "MFST",
   name: "PackAssetManifestV0",
   version: 0,
@@ -17,7 +17,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "MFST",
   name: "PackAssetManifestV1",
   version: 1,
@@ -39,7 +39,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "MFST",
   name: "PackAssetManifestV2",
   version: 2,
@@ -62,7 +62,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "MFST",
   name: "PackAssetManifestV3",
   version: 3,
@@ -90,7 +90,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "MFST",
   name: "PackAssetManifestV4",
   version: 4,
@@ -129,7 +129,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "MFST",
   name: "PackAssetManifestV5",
   version: 5,
@@ -162,7 +162,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "MFST",
   name: "PackAssetManifest",
   version: 6,
@@ -197,4 +197,5 @@ export const V6 = {
 };
 
 export const latest = V6;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6];
+export const definitions = { V0, V1, V2, V3, V4, V5, V6 };
+export const definitionArray = Object.values(definitions);

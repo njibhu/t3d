@@ -1,6 +1,6 @@
 import { FixedArray, Uint8, Float32, RefArray, DynArray, Filename, Uint32, RefString16, Pointer, Uint16, Uint64 } from "../src/types";
 
-export const V29 = {
+const V29 = {
   chunkName: "env",
   name: "PackMapEnvironmentV29",
   version: 29,
@@ -173,7 +173,7 @@ export const V29 = {
   }
 };
 
-export const V30 = {
+const V30 = {
   chunkName: "env",
   name: "PackMapEnvironmentV30",
   version: 30,
@@ -347,7 +347,7 @@ export const V30 = {
   }
 };
 
-export const V31 = {
+const V31 = {
   chunkName: "env",
   name: "PackMapEnvironmentV31",
   version: 31,
@@ -525,7 +525,7 @@ export const V31 = {
   }
 };
 
-export const V32 = {
+const V32 = {
   chunkName: "env",
   name: "PackMapEnvironmentV32",
   version: 32,
@@ -702,7 +702,7 @@ export const V32 = {
   }
 };
 
-export const V33 = {
+const V33 = {
   chunkName: "env",
   name: "PackMapEnvironmentV33",
   version: 33,
@@ -881,7 +881,7 @@ export const V33 = {
   }
 };
 
-export const V34 = {
+const V34 = {
   chunkName: "env",
   name: "PackMapEnvironmentV34",
   version: 34,
@@ -1062,7 +1062,7 @@ export const V34 = {
   }
 };
 
-export const V35 = {
+const V35 = {
   chunkName: "env",
   name: "PackMapEnvironmentV35",
   version: 35,
@@ -1253,7 +1253,7 @@ export const V35 = {
   }
 };
 
-export const V36 = {
+const V36 = {
   chunkName: "env",
   name: "PackMapEnvironmentV36",
   version: 36,
@@ -1445,7 +1445,7 @@ export const V36 = {
   }
 };
 
-export const V37 = {
+const V37 = {
   chunkName: "env",
   name: "PackMapEnvironmentV37",
   version: 37,
@@ -1638,7 +1638,7 @@ export const V37 = {
   }
 };
 
-export const V38 = {
+const V38 = {
   chunkName: "env",
   name: "PackMapEnvironmentV38",
   version: 38,
@@ -1833,7 +1833,7 @@ export const V38 = {
   }
 };
 
-export const V39 = {
+const V39 = {
   chunkName: "env",
   name: "PackMapEnvironmentV39",
   version: 39,
@@ -2039,7 +2039,7 @@ export const V39 = {
   }
 };
 
-export const V40 = {
+const V40 = {
   chunkName: "env",
   name: "PackMapEnvironmentV40",
   version: 40,
@@ -2246,7 +2246,7 @@ export const V40 = {
   }
 };
 
-export const V41 = {
+const V41 = {
   chunkName: "env",
   name: "PackMapEnvironmentV41",
   version: 41,
@@ -2455,7 +2455,7 @@ export const V41 = {
   }
 };
 
-export const V42 = {
+const V42 = {
   chunkName: "env",
   name: "PackMapEnvironmentV42",
   version: 42,
@@ -2665,7 +2665,7 @@ export const V42 = {
   }
 };
 
-export const V43 = {
+const V43 = {
   chunkName: "env",
   name: "PackMapEnvironmentV43",
   version: 43,
@@ -2880,7 +2880,7 @@ export const V43 = {
   }
 };
 
-export const V44 = {
+const V44 = {
   chunkName: "env",
   name: "PackMapEnvironmentV44",
   version: 44,
@@ -3102,7 +3102,7 @@ export const V44 = {
   }
 };
 
-export const V45 = {
+const V45 = {
   chunkName: "env",
   name: "PackMapEnvironmentV45",
   version: 45,
@@ -3324,7 +3324,7 @@ export const V45 = {
   }
 };
 
-export const V46 = {
+const V46 = {
   chunkName: "env",
   name: "PackMapEnvironmentV46",
   version: 46,
@@ -3546,7 +3546,7 @@ export const V46 = {
   }
 };
 
-export const V47 = {
+const V47 = {
   chunkName: "env",
   name: "PackMapEnvironmentV47",
   version: 47,
@@ -3768,7 +3768,7 @@ export const V47 = {
   }
 };
 
-export const V48 = {
+const V48 = {
   chunkName: "env",
   name: "PackMapEnvironmentV48",
   version: 48,
@@ -3992,7 +3992,7 @@ export const V48 = {
   }
 };
 
-export const V49 = {
+const V49 = {
   chunkName: "env",
   name: "PackMapEnvironmentV49",
   version: 49,
@@ -4219,7 +4219,7 @@ export const V49 = {
   }
 };
 
-export const V50 = {
+const V50 = {
   chunkName: "env",
   name: "PackMapEnvironmentV50",
   version: 50,
@@ -4447,7 +4447,7 @@ export const V50 = {
   }
 };
 
-export const V51 = {
+const V51 = {
   chunkName: "env",
   name: "PackMapEnvironmentV51",
   version: 51,
@@ -4677,7 +4677,7 @@ export const V51 = {
   }
 };
 
-export const V52 = {
+const V52 = {
   chunkName: "env",
   name: "PackMapEnvironmentV52",
   version: 52,
@@ -4910,7 +4910,7 @@ export const V52 = {
   }
 };
 
-export const V53 = {
+const V53 = {
   chunkName: "env",
   name: "PackMapEnvironmentV53",
   version: 53,
@@ -5144,7 +5144,7 @@ export const V53 = {
   }
 };
 
-export const V54 = {
+const V54 = {
   chunkName: "env",
   name: "PackMapEnvironmentV54",
   version: 54,
@@ -5378,7 +5378,7 @@ export const V54 = {
   }
 };
 
-export const V55 = {
+const V55 = {
   chunkName: "env",
   name: "PackMapEnvironmentV55",
   version: 55,
@@ -5630,7 +5630,7 @@ export const V55 = {
   }
 };
 
-export const V56 = {
+const V56 = {
   chunkName: "env",
   name: "PackMapEnvironmentV56",
   version: 56,
@@ -5886,7 +5886,7 @@ export const V56 = {
   }
 };
 
-export const V57 = {
+const V57 = {
   chunkName: "env",
   name: "PackMapEnvironmentV57",
   version: 57,
@@ -6143,7 +6143,7 @@ export const V57 = {
   }
 };
 
-export const V58 = {
+const V58 = {
   chunkName: "env",
   name: "PackMapEnvironmentV58",
   version: 58,
@@ -6401,7 +6401,7 @@ export const V58 = {
   }
 };
 
-export const V59 = {
+const V59 = {
   chunkName: "env",
   name: "PackMapEnvironmentV59",
   version: 59,
@@ -6659,7 +6659,7 @@ export const V59 = {
   }
 };
 
-export const V60 = {
+const V60 = {
   chunkName: "env",
   name: "PackMapEnvironmentV60",
   version: 60,
@@ -6918,7 +6918,7 @@ export const V60 = {
   }
 };
 
-export const V61 = {
+const V61 = {
   chunkName: "env",
   name: "PackMapEnvironmentV61",
   version: 61,
@@ -7178,7 +7178,7 @@ export const V61 = {
   }
 };
 
-export const V62 = {
+const V62 = {
   chunkName: "env",
   name: "PackMapEnvironmentV62",
   version: 62,
@@ -7439,7 +7439,7 @@ export const V62 = {
   }
 };
 
-export const V63 = {
+const V63 = {
   chunkName: "env",
   name: "PackMapEnvironmentV63",
   version: 63,
@@ -7705,7 +7705,7 @@ export const V63 = {
   }
 };
 
-export const V64 = {
+const V64 = {
   chunkName: "env",
   name: "PackMapEnvironmentV64",
   version: 64,
@@ -7973,7 +7973,7 @@ export const V64 = {
   }
 };
 
-export const V65 = {
+const V65 = {
   chunkName: "env",
   name: "PackMapEnvironmentV65",
   version: 65,
@@ -8242,7 +8242,7 @@ export const V65 = {
   }
 };
 
-export const V66 = {
+const V66 = {
   chunkName: "env",
   name: "PackMapEnvironmentV66",
   version: 66,
@@ -8515,7 +8515,7 @@ export const V66 = {
   }
 };
 
-export const V67 = {
+const V67 = {
   chunkName: "env",
   name: "PackMapEnvironmentV67",
   version: 67,
@@ -8789,7 +8789,7 @@ export const V67 = {
   }
 };
 
-export const V68 = {
+const V68 = {
   chunkName: "env",
   name: "PackMapEnvironmentV68",
   version: 68,
@@ -9064,7 +9064,7 @@ export const V68 = {
   }
 };
 
-export const V69 = {
+const V69 = {
   chunkName: "env",
   name: "PackMapEnvironmentV69",
   version: 69,
@@ -9338,7 +9338,7 @@ export const V69 = {
   }
 };
 
-export const V70 = {
+const V70 = {
   chunkName: "env",
   name: "PackMapEnvironmentV70",
   version: 70,
@@ -9612,7 +9612,7 @@ export const V70 = {
   }
 };
 
-export const V71 = {
+const V71 = {
   chunkName: "env",
   name: "PackMapEnvironmentV71",
   version: 71,
@@ -9888,7 +9888,7 @@ export const V71 = {
   }
 };
 
-export const V72 = {
+const V72 = {
   chunkName: "env",
   name: "PackMapEnvironmentV72",
   version: 72,
@@ -10166,7 +10166,7 @@ export const V72 = {
   }
 };
 
-export const V73 = {
+const V73 = {
   chunkName: "env",
   name: "PackMapEnvironmentV73",
   version: 73,
@@ -10447,7 +10447,7 @@ export const V73 = {
   }
 };
 
-export const V74 = {
+const V74 = {
   chunkName: "env",
   name: "PackMapEnvironmentV74",
   version: 74,
@@ -10733,7 +10733,7 @@ export const V74 = {
   }
 };
 
-export const V75 = {
+const V75 = {
   chunkName: "env",
   name: "PackMapEnvironmentV75",
   version: 75,
@@ -11112,7 +11112,7 @@ export const V75 = {
   }
 };
 
-export const V76 = {
+const V76 = {
   chunkName: "env",
   name: "PackMapEnvironmentV76",
   version: 76,
@@ -11500,7 +11500,7 @@ export const V76 = {
   }
 };
 
-export const V77 = {
+const V77 = {
   chunkName: "env",
   name: "PackMapEnvironmentV77",
   version: 77,
@@ -11916,4 +11916,5 @@ export const V77 = {
 };
 
 export const latest = V77;
-export const definitionArray = [V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66, V67, V68, V69, V70, V71, V72, V73, V74, V75, V76, V77];
+export const definitions = { V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66, V67, V68, V69, V70, V71, V72, V73, V74, V75, V76, V77 };
+export const definitionArray = Object.values(definitions);

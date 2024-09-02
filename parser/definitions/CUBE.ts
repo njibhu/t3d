@@ -1,6 +1,6 @@
 import { FixedArray, Float32, Filename, Uint64, DynArray, Uint32, RefString16, Uint8 } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "cube",
   name: "PackMapCubeMapV0",
   version: 0,
@@ -23,7 +23,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "cube",
   name: "PackMapCubeMapV1",
   version: 1,
@@ -47,7 +47,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "cube",
   name: "PackMapCubeMapV2",
   version: 2,
@@ -72,7 +72,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "cube",
   name: "PackMapCubeMapV3",
   version: 3,
@@ -99,7 +99,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "cube",
   name: "PackMapCubeMapV4",
   version: 4,
@@ -131,4 +131,5 @@ export const V4 = {
 };
 
 export const latest = V4;
-export const definitionArray = [V0, V1, V2, V3, V4];
+export const definitions = { V0, V1, V2, V3, V4 };
+export const definitionArray = Object.values(definitions);

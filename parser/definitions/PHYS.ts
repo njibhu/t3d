@@ -1,6 +1,6 @@
 import { FixedArray, Float32, Uint16, DynArray, Uint8, Pointer, RefString16, Uint64, Uint32, Fileref } from "../src/types";
 
-export const V1 = {
+const V1 = {
   chunkName: "phys",
   name: "PackMapPhysicsV1",
   version: 1,
@@ -29,7 +29,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "phys",
   name: "PackMapPhysicsV2",
   version: 2,
@@ -65,7 +65,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "phys",
   name: "PackMapPhysicsV3",
   version: 3,
@@ -107,7 +107,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "phys",
   name: "PackMapPhysicsV4",
   version: 4,
@@ -215,7 +215,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "phys",
   name: "PackMapPhysicsV5",
   version: 5,
@@ -323,7 +323,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "phys",
   name: "PackMapPhysicsV6",
   version: 6,
@@ -434,7 +434,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "phys",
   name: "PackMapPhysicsV7",
   version: 7,
@@ -550,7 +550,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "phys",
   name: "PackMapPhysicsV8",
   version: 8,
@@ -667,7 +667,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "phys",
   name: "PackMapPhysicsV9",
   version: 9,
@@ -725,7 +725,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "phys",
   name: "PackMapPhysicsV10",
   version: 10,
@@ -785,4 +785,5 @@ export const V10 = {
 };
 
 export const latest = V10;
-export const definitionArray = [V1, V2, V3, V4, V5, V6, V7, V8, V9, V10];
+export const definitions = { V1, V2, V3, V4, V5, V6, V7, V8, V9, V10 };
+export const definitionArray = Object.values(definitions);

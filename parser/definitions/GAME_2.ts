@@ -1,6 +1,6 @@
 import { Uint64, DynArray, FixedArray, Float32, Uint32, Uint8, Uint16 } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "GAME",
   name: "SceneFileGameV0",
   version: 0,
@@ -34,7 +34,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "GAME",
   name: "SceneFileGameV1",
   version: 1,
@@ -69,7 +69,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "GAME",
   name: "SceneFileGameV2",
   version: 2,
@@ -112,7 +112,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "GAME",
   name: "SceneFileGameV3",
   version: 3,
@@ -156,7 +156,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "GAME",
   name: "SceneFileGameV4",
   version: 4,
@@ -201,7 +201,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "GAME",
   name: "SceneFileGameV5",
   version: 5,
@@ -238,7 +238,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "GAME",
   name: "SceneFileGameV6",
   version: 6,
@@ -279,4 +279,5 @@ export const V6 = {
 };
 
 export const latest = V6;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6];
+export const definitions = { V0, V1, V2, V3, V4, V5, V6 };
+export const definitionArray = Object.values(definitions);

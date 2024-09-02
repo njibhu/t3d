@@ -1,6 +1,6 @@
 import { Uint64, Filename, RefString16, Float32, Uint32, Uint8, DynArray, FixedArray, Pointer, Fileref } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "CSCN",
   name: "SceneDataV0",
   version: 0,
@@ -85,7 +85,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "CSCN",
   name: "SceneDataV1",
   version: 1,
@@ -175,7 +175,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "CSCN",
   name: "SceneDataV2",
   version: 2,
@@ -266,7 +266,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "CSCN",
   name: "SceneDataV3",
   version: 3,
@@ -357,7 +357,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "CSCN",
   name: "SceneDataV4",
   version: 4,
@@ -449,7 +449,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "CSCN",
   name: "SceneDataV5",
   version: 5,
@@ -541,7 +541,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "CSCN",
   name: "SceneDataV6",
   version: 6,
@@ -633,7 +633,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "CSCN",
   name: "SceneDataV7",
   version: 7,
@@ -725,7 +725,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "CSCN",
   name: "SceneDataV8",
   version: 8,
@@ -822,7 +822,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "CSCN",
   name: "SceneDataV9",
   version: 9,
@@ -920,7 +920,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "CSCN",
   name: "SceneDataV10",
   version: 10,
@@ -1018,7 +1018,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "CSCN",
   name: "SceneDataV11",
   version: 11,
@@ -1116,7 +1116,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "CSCN",
   name: "SceneDataV12",
   version: 12,
@@ -1214,7 +1214,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "CSCN",
   name: "SceneDataV13",
   version: 13,
@@ -1312,7 +1312,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "CSCN",
   name: "SceneDataV14",
   version: 14,
@@ -1411,7 +1411,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "CSCN",
   name: "SceneDataV15",
   version: 15,
@@ -1511,7 +1511,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "CSCN",
   name: "SceneDataV16",
   version: 16,
@@ -1611,7 +1611,7 @@ export const V16 = {
   }
 };
 
-export const V17 = {
+const V17 = {
   chunkName: "CSCN",
   name: "SceneDataV17",
   version: 17,
@@ -1711,7 +1711,7 @@ export const V17 = {
   }
 };
 
-export const V18 = {
+const V18 = {
   chunkName: "CSCN",
   name: "SceneDataV18",
   version: 18,
@@ -1811,7 +1811,7 @@ export const V18 = {
   }
 };
 
-export const V19 = {
+const V19 = {
   chunkName: "CSCN",
   name: "SceneDataV19",
   version: 19,
@@ -1911,7 +1911,7 @@ export const V19 = {
   }
 };
 
-export const V20 = {
+const V20 = {
   chunkName: "CSCN",
   name: "SceneDataV20",
   version: 20,
@@ -2011,7 +2011,7 @@ export const V20 = {
   }
 };
 
-export const V21 = {
+const V21 = {
   chunkName: "CSCN",
   name: "SceneDataV21",
   version: 21,
@@ -2112,7 +2112,7 @@ export const V21 = {
   }
 };
 
-export const V22 = {
+const V22 = {
   chunkName: "CSCN",
   name: "SceneDataV22",
   version: 22,
@@ -2213,7 +2213,7 @@ export const V22 = {
   }
 };
 
-export const V23 = {
+const V23 = {
   chunkName: "CSCN",
   name: "SceneDataV23",
   version: 23,
@@ -2315,7 +2315,7 @@ export const V23 = {
   }
 };
 
-export const V24 = {
+const V24 = {
   chunkName: "CSCN",
   name: "SceneDataV24",
   version: 24,
@@ -2418,7 +2418,7 @@ export const V24 = {
   }
 };
 
-export const V25 = {
+const V25 = {
   chunkName: "CSCN",
   name: "SceneDataV25",
   version: 25,
@@ -2521,7 +2521,7 @@ export const V25 = {
   }
 };
 
-export const V26 = {
+const V26 = {
   chunkName: "CSCN",
   name: "SceneDataV26",
   version: 26,
@@ -2624,7 +2624,7 @@ export const V26 = {
   }
 };
 
-export const V27 = {
+const V27 = {
   chunkName: "CSCN",
   name: "SceneDataV27",
   version: 27,
@@ -2727,7 +2727,7 @@ export const V27 = {
   }
 };
 
-export const V28 = {
+const V28 = {
   chunkName: "CSCN",
   name: "SceneDataV28",
   version: 28,
@@ -2830,7 +2830,7 @@ export const V28 = {
   }
 };
 
-export const V29 = {
+const V29 = {
   chunkName: "CSCN",
   name: "SceneDataV29",
   version: 29,
@@ -2934,7 +2934,7 @@ export const V29 = {
   }
 };
 
-export const V30 = {
+const V30 = {
   chunkName: "CSCN",
   name: "SceneDataV30",
   version: 30,
@@ -3037,7 +3037,7 @@ export const V30 = {
   }
 };
 
-export const V31 = {
+const V31 = {
   chunkName: "CSCN",
   name: "SceneDataV31",
   version: 31,
@@ -3140,7 +3140,7 @@ export const V31 = {
   }
 };
 
-export const V32 = {
+const V32 = {
   chunkName: "CSCN",
   name: "SceneDataV32",
   version: 32,
@@ -3243,7 +3243,7 @@ export const V32 = {
   }
 };
 
-export const V33 = {
+const V33 = {
   chunkName: "CSCN",
   name: "SceneDataV33",
   version: 33,
@@ -3346,7 +3346,7 @@ export const V33 = {
   }
 };
 
-export const V34 = {
+const V34 = {
   chunkName: "CSCN",
   name: "SceneDataV34",
   version: 34,
@@ -3454,7 +3454,7 @@ export const V34 = {
   }
 };
 
-export const V35 = {
+const V35 = {
   chunkName: "CSCN",
   name: "SceneDataV35",
   version: 35,
@@ -3563,7 +3563,7 @@ export const V35 = {
   }
 };
 
-export const V36 = {
+const V36 = {
   chunkName: "CSCN",
   name: "SceneDataV36",
   version: 36,
@@ -3673,4 +3673,5 @@ export const V36 = {
 };
 
 export const latest = V36;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32, V33, V34, V35, V36];
+export const definitions = { V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32, V33, V34, V35, V36 };
+export const definitionArray = Object.values(definitions);
