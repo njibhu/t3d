@@ -2,8 +2,8 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "husky": "^4.3.0",
-    "lerna": "^3.18.4"
+    "husky": "4.3.0",
+    "lerna": "3.18.4"
   },
   "scripts": {
     "lint": "lerna run --parallel lint",
@@ -15,9 +15,9 @@
   },
   "dependencies": {
     "DataStream.js": "github:kig/DataStream.js",
-    "jquery": "^3.5.0",
-    "three": "^0.123.0",
-    "w2ui": "^1.4.3"
+    "jquery": "3.5.0",
+    "three": "0.123.0",
+    "w2ui": "1.4.3"
   },
   "husky": {
     "hooks": {
