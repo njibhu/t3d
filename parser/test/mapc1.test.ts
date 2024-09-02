@@ -58,12 +58,12 @@ test("matches for TRN", function () {
   expect(test.data).toMatchObject(mapc1Result);
 });
 
-test.skip("matches for ENV", function () {
+test("matches for ENV", function () {
   const mapc1Result = transformSnapshot(mapcSnapshots.ENV);
   const envChunk = allChunks.find((c) => c.chunkHeader.type === "env");
   const def = ENV.definitions[`V${envChunk!.chunkHeader.chunkVersion}` as keyof typeof ENV["definitions"]];
   const parser = new DataParser(def);
-  parser.DEBUG = true;
+  parser.FIX_NEGATIVE_ZERO = true;
   const test = parser.parse(dv, envChunk!.chunkPosition + envChunk!.chunkHeader.chunkHeaderSize);
   expect(test.data).toMatchObject(mapc1Result);
 });

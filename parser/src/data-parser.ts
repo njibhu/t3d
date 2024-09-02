@@ -18,10 +18,12 @@ export class DataParser implements Definition {
   public readonly definitions: Definition["definitions"];
   public readonly root: Definition["root"];
   public DEBUG: boolean;
+  public FIX_NEGATIVE_ZERO: boolean;
 
   constructor(definition: Definition) {
     Object.assign(this, definition);
     this.DEBUG = false;
+    this.FIX_NEGATIVE_ZERO = false;
   }
 
   public parse(dv: DataView, pos: number): ParseFunctionReturn {
@@ -79,8 +81,12 @@ export class DataParser implements Definition {
    **/
 
   private Float32(dv: DataView, pos: number): ParseFunctionReturn {
-    if (this.DEBUG) console.debug("Float32", dv.getFloat32(pos, true));
-    return { newPosition: pos + 4, data: dv.getFloat32(pos, true) };
+    let data = dv.getFloat32(pos, true);
+    if(this.FIX_NEGATIVE_ZERO && isZeroNegative(data)){
+      data = 0;
+    }
+    if (this.DEBUG) console.debug("Float32", data);
+    return { newPosition: pos + 4, data };
   }
 
   private Float64(dv: DataView, pos: number): ParseFunctionReturn {
@@ -101,10 +107,10 @@ export class DataParser implements Definition {
   }
 
   private Uint64(dv: DataView, pos: number): ParseFunctionReturn {
-    if (this.DEBUG) console.debug("Uint64", dv.getUint32(pos, true), dv.getUint32(pos + 4, true));
+    if (this.DEBUG) console.debug("Uint64", dv.getBigUint64(pos, true));
     return {
       newPosition: pos + 8,
-      data: (BigInt(dv.getUint32(pos + 4, true)) << BigInt(32)) | BigInt(dv.getUint32(pos, true)),
+      data: dv.getBigUint64(pos, true),
     };
   }
 
@@ -226,6 +232,13 @@ export class DataParser implements Definition {
 
   private Pointer(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     const offset = dv.getUint32(pos, true);
+    if (offset === 0) {
+      return {
+        newPosition: pos + 4,
+        data: {},
+      };
+    }
+
     const parsedItem =
       typeof type === "string"
         ? this.parseType(dv, pos + offset, type)
@@ -297,10 +310,19 @@ export class DataParser implements Definition {
 
   private optimisedArray(dv: DataView, pos: number, type: DataType, length: number): ParseFunctionReturn {
     const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType, pos);
-    if (this.DEBUG) console.debug("OptimizedArray", Array.from(new OptimisedArray!(dv.buffer, pos, length)));
+    const data = Array.from(new OptimisedArray!(dv.buffer, pos, length));
+    if (this.DEBUG) console.debug("OptimizedArray", data);
+    if(this.FIX_NEGATIVE_ZERO){
+      for (let i = 0; i < data.length; i++) {
+        if(isZeroNegative(data[i])){
+          data[i] = 0;
+        }
+      }
+    }
+
     return {
       newPosition: pos + length * OptimisedArray!.BYTES_PER_ELEMENT,
-      data: Array.from(new OptimisedArray!(dv.buffer, pos, length)),
+      data,
     };
   }
 
@@ -319,4 +341,10 @@ export class DataParser implements Definition {
       return Uint32Array;
     }
   }
+}
+
+function isZeroNegative(zero: number) {
+  const isZero = zero === 0;
+  const isNegative = 1 / zero === -Infinity;
+  return isNegative && isZero;
 }
