@@ -137,7 +137,7 @@ export class DataParser implements Definition {
 
   private FixedArray(dv: DataView, pos: number, type: DataType | string, length: number): ParseFunctionReturn {
     // Some types can be mapped directly from their buffer into the return type
-    if (typeof type != "string" && this._getOptimisedArrayConstructor(type.baseType)) {
+    if (typeof type != "string" && this._getOptimisedArrayConstructor(type.baseType, pos)) {
       return this.optimisedArray(dv, pos, type, length);
     }
 
@@ -178,35 +178,50 @@ export class DataParser implements Definition {
   }
 
   private RefArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
-    let data: any = [];
-    let arrayLength = dv.getUint32(pos, true);
-    let arrayPtr = dv.getUint32(pos + 4, true) + pos + 4;
-    if (this.DEBUG) console.debug("RefArray", "arrayPtr", (pos + 4).toString(16), arrayPtr.toString(16));
-    if (arrayLength === 0) {
-      return {
-        data,
-        newPosition: pos + 8,
-      };
+    let offset = pos;
+    const ret_arr: any = [];
+
+    // Read array length
+    const arr_len = dv.getUint32(offset, true);
+    offset += 4;
+
+    // Read pointer to array data
+    const arr_ptr_offset = dv.getUint32(offset, true);
+    const arr_ptr = offset + arr_ptr_offset;
+    offset += 4;
+
+    if (arr_len === 0) {
+      return { newPosition: offset, data: ret_arr };
     }
 
-    const pointer = dv.getUint32(pos + 4, true) + pos + 4;
-    for (let index = 0; index < arrayLength; index++) {
-      const offset = dv.getUint32(arrayPtr + 4 * index, true);
-      if (offset !== 0) {
-        if (this.DEBUG) console.debug("RefArray", "offset", offset.toString(16));
-        let newPosition = pointer + index * 4 + offset;
+     // Save original position to return later
+     const orgPos = offset;
+
+     // Go to pointer and read array of offsets
+     let curr_pos = arr_ptr;
+     const offsets = new Int32Array(arr_len);
+     for (let i = 0; i < arr_len; i++) {
+         offsets[i] = dv.getInt32(curr_pos + i * 4, true);
+     }
+
+    // Set pointer to read structures
+    let pointer = orgPos - 4;
+    const base_offset = dv.getUint32(pointer, true);
+    pointer += base_offset;
+
+    for (let i = 0; i < offsets.length; i++) {
+      if (offsets[i] !== 0) {
+        const struct_pos = pointer + i * 4 + offsets[i];
         if (typeof type === "string") {
-          data.push(this.parseType(dv, newPosition, type).data);
+          ret_arr.push(this.parseType(dv, struct_pos, type).data);
         } else {
-          data.push(this[type.baseType](dv, newPosition, type.subType!, type.length!).data);
+          ret_arr.push(this[type.baseType](dv, struct_pos, type.subType!, type.length!).data);
         }
       }
     }
 
-    return {
-      newPosition: pos + 8,
-      data,
-    };
+    return { newPosition: orgPos, data: ret_arr };
+
   }
 
   private Pointer(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
@@ -242,34 +257,34 @@ export class DataParser implements Definition {
     return this.Filename(dv, pos);
   }
 
-  private Filename(dv: DataView, pos: number): ParseFunctionReturn {
+  private Filename(dv: DataView, orgPos: number): ParseFunctionReturn {
     // This implementation is based on the old Utils.getFileNameReader() function
-    let newPosition = pos;
-    //try {
-    let ptr = newPosition + dv.getUint32(newPosition, true);
-    newPosition += 4;
+    let pos = orgPos;
+    try {
+      let ptr = pos + dv.getUint32(pos, true);
+      if(this.DEBUG) { console.log(ptr.toString(16)); }
 
-    const m_lowPart = dv.getUint16(ptr, true);
-    ptr += 2;
-    const m_highPart = dv.getUint16(ptr, true);
-    ptr += 2;
-    const _m_terminator = dv.getUint16(ptr, true);
-    ptr += 2;
+      const m_lowPart = dv.getUint16(ptr, true);
+      ptr += 2;
+      const m_highPart = dv.getUint16(ptr, true);
+      ptr += 2;
+      const _m_terminator = dv.getUint16(ptr, true);
+      ptr += 2;
 
-    /// Getting the file name...
-    /// Both need to be >= than 256 (terminator is 0)
-    const ret = 0xff00 * (m_highPart - 0x100) + (m_lowPart - 0x100) + 1;
+      /// Getting the file name...
+      /// Both need to be >= than 256 (terminator is 0)
+      const ret = 0xff00 * (m_highPart - 0x100) + (m_lowPart - 0x100) + 1;
 
-    return {
-      newPosition: pos + 4,
-      data: ret > 0 ? ret : 0,
-    };
-    // } catch (e) {
-    //   return {
-    //     newPosition,
-    //     data: -1,
-    //   };
-    // }
+      return {
+        newPosition: orgPos + 4,
+        data: ret > 0 ? ret : 0,
+      };
+    } catch (e) {
+      return {
+        newPosition: orgPos + 4,
+        data: -1,
+      };
+    }
   }
 
   private Unknown(dv: DataView, pos: number): ParseFunctionReturn {
@@ -281,7 +296,7 @@ export class DataParser implements Definition {
    **/
 
   private optimisedArray(dv: DataView, pos: number, type: DataType, length: number): ParseFunctionReturn {
-    const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType);
+    const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType, pos);
     if (this.DEBUG) console.debug("OptimizedArray", Array.from(new OptimisedArray!(dv.buffer, pos, length)));
     return {
       newPosition: pos + length * OptimisedArray!.BYTES_PER_ELEMENT,
@@ -289,22 +304,19 @@ export class DataParser implements Definition {
     };
   }
 
-  private _getOptimisedArrayConstructor(baseType: BaseType) {
-    switch (baseType) {
-      case BaseType.Float32:
-        return Float32Array;
+  private _getOptimisedArrayConstructor(baseType: BaseType, position: number) {
+    if(baseType === BaseType.Float32 && position % 4 === 0){
+      return Float32Array;
+    }
+    if(baseType === BaseType.Float64 && position % 8 === 0){
+      return Float64Array;
+    }
 
-      case BaseType.Float64:
-        return Float64Array;
-
-      case BaseType.Uint8:
-        return Uint8Array;
-
-      case BaseType.Uint16:
-        return Uint16Array;
-
-      // case BaseType.Uint32:
-      //   return Uint32Array;
+    if(baseType === BaseType.Uint16 && position % 2 === 0){
+      return Uint16Array;
+    }
+    if(baseType === BaseType.Uint32 && position % 4 === 0){
+      return Uint32Array;
     }
   }
 }
