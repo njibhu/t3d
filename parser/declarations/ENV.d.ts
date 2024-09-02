@@ -12041,50 +12041,932 @@ export namespace V75_N {
 
 export type V75 = V75_N.PackMapEnvironmentV75;
 
-export type V29_U = V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V30_U = V30 | V31 | V32 | V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V31_U = V31 | V32 | V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V32_U = V32 | V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V33_U = V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V34_U = V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V35_U = V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V36_U = V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V37_U = V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V38_U = V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V39_U = V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V40_U = V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V41_U = V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V42_U = V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V43_U = V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V44_U = V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V45_U = V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V46_U = V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V47_U = V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V48_U = V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V49_U = V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V50_U = V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V51_U = V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V52_U = V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V53_U = V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V54_U = V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V55_U = V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V56_U = V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V57_U = V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V58_U = V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V59_U = V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V60_U = V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V61_U = V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V62_U = V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V63_U = V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V64_U = V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V65_U = V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V66_U = V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V67_U = V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V68_U = V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V69_U = V69 | V70 | V71 | V72 | V73 | V74 | V75;
-export type V70_U = V70 | V71 | V72 | V73 | V74 | V75;
-export type V71_U = V71 | V72 | V73 | V74 | V75;
-export type V72_U = V72 | V73 | V74 | V75;
-export type V73_U = V73 | V74 | V75;
-export type V74_U = V74 | V75;
-export type V75_U = V75;
+export namespace V76_N {
+  export type PackMapEnvironmentV76 = {
+    dataLocalArray: Array<PackMapEnvDataLocalV76>,
+    dataGlobal: PackMapEnvDataGlobalV76
+  }
+
+  export type PackMapEnvDataLocalV76 = {
+    lighting: Array<PackMapEnvDataLightingV76>,
+    lightingCharGroups: Array<PackMapEnvDataLightingCharGroupV47>,
+    clouds: PackMapEnvDataCloudsV76,
+    coloredLightRings: Array<PackMapEnvDataColoredLightRingsV47>,
+    effect: Array<PackMapEnvDataEffectV76>,
+    haze: Array<PackMapEnvDataHazeV76>,
+    particleFields: Array<PackMapEnvDataPFieldV76>,
+    particleFieldCutouts: Array<PackMapEnvDataPFieldCutoutV47>,
+    sky: PackMapEnvDataSkyV76,
+    skyCards: PackMapEnvDataSkyCardsV76,
+    spawns: PackMapEnvDataSpawnGroupsV47,
+    water: Array<PackMapEnvDataWaterV76>,
+    wind: Array<PackMapEnvDataWindV76>,
+    audio: Array<PackMapEnvDataAudioV47>,
+    name: string,
+    nightMods: Array<number>,
+    bindTarget: BigInt,
+    flags: number,
+    ext: PackMapEnvDataBaseExV47,
+    type: number,
+    guid: BigInt,
+    shapeArray: Array<PackMapEnvDataShapeV47>
+  }
+
+  export type PackMapEnvDataLightingV76 = {
+    lights: Array<PackMapEnvDataLightV76>,
+    shadowInfluence: number,
+    backlightColor: Array<number>,
+    backlightIntensity: number
+  }
+
+  export type PackMapEnvDataLightV76 = {
+    color: Array<number>,
+    intensity: number,
+    direction: Array<number>
+  }
+
+  export type PackMapEnvDataLightingCharGroupV47 = {
+    lightingChar: Array<PackMapEnvDataLightingCharV47>
+  }
+
+  export type PackMapEnvDataLightingCharV47 = {
+    sunScale: number,
+    saturation: number,
+    sunFill: number,
+    ambScale: number,
+    ambFill: number,
+    flags: number
+  }
+
+  export type PackMapEnvDataCloudsV76 = {
+    layers: Array<PackMapEnvDataLayerV76>
+  }
+
+  export type PackMapEnvDataLayerV76 = {
+    altitude: number,
+    cutOut: number,
+    depth: number,
+    extent: number,
+    scale: number,
+    texture: string,
+    attributes: Array<PackMapEnvDataLayerAttributesV76>,
+    name: string,
+    reserved: number
+  }
+
+  export type PackMapEnvDataLayerAttributesV76 = {
+    brightness: number,
+    density: number,
+    haze: number,
+    lightIntensity: number,
+    velocity: Array<number>,
+    fadeWidth: number,
+    fadeEnd: number,
+    reserved: number
+  }
+
+  export type PackMapEnvDataColoredLightRingsV47 = {
+    range: Array<number>,
+    distances: Array<number>,
+    lightColors: Array<Array<number>>,
+    shadowColors: Array<Array<number>>
+  }
+
+  export type PackMapEnvDataEffectV76 = {
+    glow: Array<number>,
+    tintColor: Array<number>,
+    tintTargetColor: Array<number>,
+    saturation: number,
+    tintAmount: number,
+    tintFocus: number,
+    glowLevel: Array<number>,
+    glowAmplify: number,
+    focalDepth: number,
+    focalRange: number,
+    ssaoAmount: number,
+    ssaoBrighten: number,
+    ssaoContrast: number,
+    ssaoSunScale: number,
+    flags: number,
+    clutTexturePath: string,
+    ext: PackMapEnvDataEffectExV47
+  }
+
+  export type PackMapEnvDataEffectExV47 = {
+    dummy: number
+  }
+
+  export type PackMapEnvDataHazeV76 = {
+    nearColor: Array<number>,
+    farColor: Array<number>,
+    distRange: Array<number>,
+    heightColor: Array<number>,
+    heightRange: Array<number>,
+    depthCue: number,
+    sunDirRange: Array<number>
+  }
+
+  export type PackMapEnvDataPFieldV76 = {
+    altitude: number,
+    angle: Array<number>,
+    clusterCount: number,
+    clustering: Array<number>,
+    depth: number,
+    deviation: number,
+    deviationSpeed: Array<number>,
+    extent: number,
+    fade: number,
+    fieldDirection: Array<number>,
+    flags: number,
+    lifetime: Array<number>,
+    opacity: Array<number>,
+    particleCount: number,
+    period: Array<number>,
+    rotation: Array<number>,
+    scaleX: Array<number>,
+    scaleY: Array<number>,
+    seed: number,
+    speed: Array<number>,
+    texColRow: Array<number>,
+    texFPS: number,
+    texPath: string,
+    type: number,
+    name: string,
+    reserved: number
+  }
+
+  export type PackMapEnvDataPFieldCutoutV47 = {
+    name: string,
+    x: Array<number>,
+    y: Array<number>,
+    z: Array<number>
+  }
+
+  export type PackMapEnvDataSkyV76 = {
+    flags: number,
+    dayBrightness: number,
+    dayHazeBottom: number,
+    dayHazeDensity: number,
+    dayHazeFalloff: number,
+    dayLightIntensity: number,
+    dayStarDensity: number,
+    nightBrightness: number,
+    nightHazeBottom: number,
+    nightHazeDensity: number,
+    nightHazeFalloff: number,
+    nightLightIntensity: number,
+    nightStarDensity: number,
+    verticalOffset: number
+  }
+
+  export type PackMapEnvDataSkyCardsV76 = {
+    cards: Array<PackMapEnvDataSkyCardV76>
+  }
+
+  export type PackMapEnvDataSkyCardV76 = {
+    day: PackMapEnvDataSkyCardAttributesV76,
+    night: PackMapEnvDataSkyCardAttributesV76,
+    flags: number,
+    name: string,
+    location: Array<number>,
+    material: PackMapEnvDataSkyCardMaterialV47,
+    ext: PackMapEnvDataSkyCardExV47
+  }
+
+  export type PackMapEnvDataSkyCardAttributesV76 = {
+    azimuth: number,
+    density: number,
+    hazeDensity: number,
+    latitude: number,
+    lightIntensity: number,
+    minHaze: number,
+    scale: Array<number>,
+    speed: number,
+    texture: string,
+    textureUV: Array<number>,
+    brightness: number,
+    lensFlare: PackMapEnvLensFlareV47,
+    ext: PackMapEnvDataSkyCardAttributesExV47
+  }
+
+  export type PackMapEnvLensFlareV47 = {
+    atoms: Array<PackMapEnvLensFlareAtomV47>,
+    textures: Array<PackMapEnvLensFlareTextureV47>,
+    material: string,
+    fadeBand: Array<number>,
+    reverseFadeBand: Array<number>,
+    opacityCoeff: number,
+    flags: number,
+    constants: Array<PackMapEnvDataShaderConstantV47>
+  }
+
+  export type PackMapEnvLensFlareAtomV47 = {
+    rows: number,
+    columns: number,
+    start: number,
+    fps: number,
+    color: Array<number>,
+    offset: Array<number>,
+    scale: Array<number>,
+    baseRotation: number,
+    cameraRotation: number,
+    flags: number
+  }
+
+  export type PackMapEnvLensFlareTextureV47 = {
+    texture: string
+  }
+
+  export type PackMapEnvDataShaderConstantV47 = {
+    token: number,
+    value: Array<number>
+  }
+
+  export type PackMapEnvDataSkyCardAttributesExV47 = {
+    dummy: number
+  }
+
+  export type PackMapEnvDataSkyCardMaterialV47 = {
+    filename: string,
+    constants: Array<PackMapEnvDataShaderConstantV47>,
+    textures: Array<PackMapEnvDataShaderTextureV47>,
+    textureAnimation: PackEnvDataSkyCardAnimationV47,
+    flipbook: PackMapEnvDataSkycardFlipbookV47
+  }
+
+  export type PackMapEnvDataShaderTextureV47 = {
+    filename: string,
+    textureUV: Array<number>
+  }
+
+  export type PackEnvDataSkyCardAnimationV47 = {
+    textureAnimTranslation: Array<number>,
+    textureAnimScaleRangeX: Array<number>,
+    textureAnimScaleRangeY: Array<number>,
+    textureAnimScaleSpeed: Array<number>,
+    textureAnimRotation: number,
+    texCoords: number
+  }
+
+  export type PackMapEnvDataSkycardFlipbookV47 = {
+    rows: number,
+    columns: number,
+    start: number,
+    count: number,
+    fps: number
+  }
+
+  export type PackMapEnvDataSkyCardExV47 = {
+    dummy: number
+  }
+
+  export type PackMapEnvDataSpawnGroupsV47 = {
+    spawnGroups: Array<PackMapEnvDataSpawnListV47>,
+    targets: Array<BigInt>
+  }
+
+  export type PackMapEnvDataSpawnListV47 = {
+    spawns: Array<PackMapEnvDataSpawnModelDataV47>
+  }
+
+  export type PackMapEnvDataSpawnModelDataV47 = {
+    spawnRange: Array<number>,
+    lifeSpan: Array<number>,
+    scaleRange: Array<number>,
+    heightRange: Array<number>,
+    rotXRange: Array<number>,
+    rotYRange: Array<number>,
+    rotZRange: Array<number>,
+    probability: number,
+    delay: number,
+    flags: number,
+    animSequence: BigInt,
+    modelFile: string,
+    maxConcurrent: number
+  }
+
+  export type PackMapEnvDataWaterV76 = {
+    waterFlags: number,
+    animAmplitude: number,
+    animChoppiness: number,
+    animWind: Array<number>,
+    bumpAmount: number,
+    bumpAngle0: number,
+    bumpAngle1: number,
+    bumpScale0: number,
+    bumpScale1: number,
+    bumpSpeed0: number,
+    bumpSpeed1: number,
+    bumpTile0: number,
+    bumpTile1: number,
+    patternAngle: number,
+    patternTile: number,
+    patternSpeed: number,
+    patternEdge: number,
+    surfaceShallowColor: Array<number>,
+    surfaceDeepColor: Array<number>,
+    patternColor: Array<number>,
+    surfaceFresnel: number,
+    distortAmount: number,
+    depthAttenuation: number,
+    materialFilename: string,
+    textureFilenames: Array<string>,
+    constantTokens: Array<number>,
+    constantValues: Array<Array<number>>,
+    foamSpawn: number,
+    foamDissolve: number,
+    foamDepthAttenuation: number,
+    foamColor0: Array<number>,
+    foamColor1: Array<number>
+  }
+
+  export type PackMapEnvDataWindV76 = {
+    azimuth: number,
+    elevation: number,
+    noise: number,
+    speed: number,
+    gust: number,
+    gustFreq: number,
+    gustSpeed: number
+  }
+
+  export type PackMapEnvDataAudioV47 = {
+    token: BigInt
+  }
+
+  export type PackMapEnvDataBaseExV47 = {
+    ext2: PackMapEnvDataBaseEx2V47,
+    brightTime: number,
+    dimTime: number,
+    darkCoeff: number,
+    darkExp: number,
+    darkMin: number,
+    darkMax: number,
+    brightMin: number,
+    brightMax: number,
+    brightScale: number,
+    darkScale: number,
+    waterReflectionParams: Array<number>
+  }
+
+  export type PackMapEnvDataBaseEx2V47 = {
+    dummy: number
+  }
+
+  export type PackMapEnvDataShapeV47 = {
+    center: Array<number>,
+    height: number,
+    fadeHorizInner: number,
+    fadeHorizOuter: number,
+    fadeVertical: number,
+    vertexArray: Array<Array<number>>,
+    shapeType: number
+  }
+
+  export type PackMapEnvDataGlobalV76 = {
+    lighting: Array<PackMapEnvDataLightingV76>,
+    lightingCharGroups: Array<PackMapEnvDataLightingCharGroupV47>,
+    clouds: PackMapEnvDataCloudsV76,
+    coloredLightRings: Array<PackMapEnvDataColoredLightRingsV47>,
+    effect: Array<PackMapEnvDataEffectV76>,
+    haze: Array<PackMapEnvDataHazeV76>,
+    particleFields: Array<PackMapEnvDataPFieldV76>,
+    particleFieldCutouts: Array<PackMapEnvDataPFieldCutoutV47>,
+    sky: PackMapEnvDataSkyV76,
+    skyCards: PackMapEnvDataSkyCardsV76,
+    spawns: PackMapEnvDataSpawnGroupsV47,
+    water: Array<PackMapEnvDataWaterV76>,
+    wind: Array<PackMapEnvDataWindV76>,
+    audio: Array<PackMapEnvDataAudioV47>,
+    name: string,
+    nightMods: Array<number>,
+    bindTarget: BigInt,
+    flags: number,
+    ext: PackMapEnvDataBaseExV47,
+    skyModeTex: Array<PackMapEnvDataSkyModeTexV76>,
+    starFile: string,
+    skyModeCubeTex: Array<PackMapEnvDataSkyModeCubeTexV47>
+  }
+
+  export type PackMapEnvDataSkyModeTexV76 = {
+    texPathNE: string,
+    texPathSW: string,
+    texPathT: string
+  }
+
+  export type PackMapEnvDataSkyModeCubeTexV47 = {
+    texPathE: string,
+    texPathW: string,
+    texPathN: string,
+    texPathS: string,
+    texPathB: string,
+    texPathT: string
+  }
+
+}
+
+export type V76 = V76_N.PackMapEnvironmentV76;
+
+export namespace V77_N {
+  export type PackMapEnvironmentV77 = {
+    dataLocalArray: Array<PackMapEnvDataLocalV76>,
+    dataGlobal: PackMapEnvDataGlobalV76,
+    dataOverrideArray: Array<PackMapEnvDataOverrideV77>
+  }
+
+  export type PackMapEnvDataLocalV76 = {
+    lighting: Array<PackMapEnvDataLightingV76>,
+    lightingCharGroups: Array<PackMapEnvDataLightingCharGroupV47>,
+    clouds: PackMapEnvDataCloudsV76,
+    coloredLightRings: Array<PackMapEnvDataColoredLightRingsV47>,
+    effect: Array<PackMapEnvDataEffectV76>,
+    haze: Array<PackMapEnvDataHazeV76>,
+    particleFields: Array<PackMapEnvDataPFieldV76>,
+    particleFieldCutouts: Array<PackMapEnvDataPFieldCutoutV47>,
+    sky: PackMapEnvDataSkyV76,
+    skyCards: PackMapEnvDataSkyCardsV76,
+    spawns: PackMapEnvDataSpawnGroupsV47,
+    water: Array<PackMapEnvDataWaterV76>,
+    wind: Array<PackMapEnvDataWindV76>,
+    audio: Array<PackMapEnvDataAudioV47>,
+    name: string,
+    nightMods: Array<number>,
+    bindTarget: BigInt,
+    flags: number,
+    ext: PackMapEnvDataBaseExV47,
+    type: number,
+    guid: BigInt,
+    shapeArray: Array<PackMapEnvDataShapeV47>
+  }
+
+  export type PackMapEnvDataLightingV76 = {
+    lights: Array<PackMapEnvDataLightV76>,
+    shadowInfluence: number,
+    backlightColor: Array<number>,
+    backlightIntensity: number
+  }
+
+  export type PackMapEnvDataLightV76 = {
+    color: Array<number>,
+    intensity: number,
+    direction: Array<number>
+  }
+
+  export type PackMapEnvDataLightingCharGroupV47 = {
+    lightingChar: Array<PackMapEnvDataLightingCharV47>
+  }
+
+  export type PackMapEnvDataLightingCharV47 = {
+    sunScale: number,
+    saturation: number,
+    sunFill: number,
+    ambScale: number,
+    ambFill: number,
+    flags: number
+  }
+
+  export type PackMapEnvDataCloudsV76 = {
+    layers: Array<PackMapEnvDataLayerV76>
+  }
+
+  export type PackMapEnvDataLayerV76 = {
+    altitude: number,
+    cutOut: number,
+    depth: number,
+    extent: number,
+    scale: number,
+    texture: string,
+    attributes: Array<PackMapEnvDataLayerAttributesV76>,
+    name: string,
+    reserved: number
+  }
+
+  export type PackMapEnvDataLayerAttributesV76 = {
+    brightness: number,
+    density: number,
+    haze: number,
+    lightIntensity: number,
+    velocity: Array<number>,
+    fadeWidth: number,
+    fadeEnd: number,
+    reserved: number
+  }
+
+  export type PackMapEnvDataColoredLightRingsV47 = {
+    range: Array<number>,
+    distances: Array<number>,
+    lightColors: Array<Array<number>>,
+    shadowColors: Array<Array<number>>
+  }
+
+  export type PackMapEnvDataEffectV76 = {
+    glow: Array<number>,
+    tintColor: Array<number>,
+    tintTargetColor: Array<number>,
+    saturation: number,
+    tintAmount: number,
+    tintFocus: number,
+    glowLevel: Array<number>,
+    glowAmplify: number,
+    focalDepth: number,
+    focalRange: number,
+    ssaoAmount: number,
+    ssaoBrighten: number,
+    ssaoContrast: number,
+    ssaoSunScale: number,
+    flags: number,
+    clutTexturePath: string,
+    ext: PackMapEnvDataEffectExV47
+  }
+
+  export type PackMapEnvDataEffectExV47 = {
+    dummy: number
+  }
+
+  export type PackMapEnvDataHazeV76 = {
+    nearColor: Array<number>,
+    farColor: Array<number>,
+    distRange: Array<number>,
+    heightColor: Array<number>,
+    heightRange: Array<number>,
+    depthCue: number,
+    sunDirRange: Array<number>
+  }
+
+  export type PackMapEnvDataPFieldV76 = {
+    altitude: number,
+    angle: Array<number>,
+    clusterCount: number,
+    clustering: Array<number>,
+    depth: number,
+    deviation: number,
+    deviationSpeed: Array<number>,
+    extent: number,
+    fade: number,
+    fieldDirection: Array<number>,
+    flags: number,
+    lifetime: Array<number>,
+    opacity: Array<number>,
+    particleCount: number,
+    period: Array<number>,
+    rotation: Array<number>,
+    scaleX: Array<number>,
+    scaleY: Array<number>,
+    seed: number,
+    speed: Array<number>,
+    texColRow: Array<number>,
+    texFPS: number,
+    texPath: string,
+    type: number,
+    name: string,
+    reserved: number
+  }
+
+  export type PackMapEnvDataPFieldCutoutV47 = {
+    name: string,
+    x: Array<number>,
+    y: Array<number>,
+    z: Array<number>
+  }
+
+  export type PackMapEnvDataSkyV76 = {
+    flags: number,
+    dayBrightness: number,
+    dayHazeBottom: number,
+    dayHazeDensity: number,
+    dayHazeFalloff: number,
+    dayLightIntensity: number,
+    dayStarDensity: number,
+    nightBrightness: number,
+    nightHazeBottom: number,
+    nightHazeDensity: number,
+    nightHazeFalloff: number,
+    nightLightIntensity: number,
+    nightStarDensity: number,
+    verticalOffset: number
+  }
+
+  export type PackMapEnvDataSkyCardsV76 = {
+    cards: Array<PackMapEnvDataSkyCardV76>
+  }
+
+  export type PackMapEnvDataSkyCardV76 = {
+    day: PackMapEnvDataSkyCardAttributesV76,
+    night: PackMapEnvDataSkyCardAttributesV76,
+    flags: number,
+    name: string,
+    location: Array<number>,
+    material: PackMapEnvDataSkyCardMaterialV47,
+    ext: PackMapEnvDataSkyCardExV47
+  }
+
+  export type PackMapEnvDataSkyCardAttributesV76 = {
+    azimuth: number,
+    density: number,
+    hazeDensity: number,
+    latitude: number,
+    lightIntensity: number,
+    minHaze: number,
+    scale: Array<number>,
+    speed: number,
+    texture: string,
+    textureUV: Array<number>,
+    brightness: number,
+    lensFlare: PackMapEnvLensFlareV47,
+    ext: PackMapEnvDataSkyCardAttributesExV47
+  }
+
+  export type PackMapEnvLensFlareV47 = {
+    atoms: Array<PackMapEnvLensFlareAtomV47>,
+    textures: Array<PackMapEnvLensFlareTextureV47>,
+    material: string,
+    fadeBand: Array<number>,
+    reverseFadeBand: Array<number>,
+    opacityCoeff: number,
+    flags: number,
+    constants: Array<PackMapEnvDataShaderConstantV47>
+  }
+
+  export type PackMapEnvLensFlareAtomV47 = {
+    rows: number,
+    columns: number,
+    start: number,
+    fps: number,
+    color: Array<number>,
+    offset: Array<number>,
+    scale: Array<number>,
+    baseRotation: number,
+    cameraRotation: number,
+    flags: number
+  }
+
+  export type PackMapEnvLensFlareTextureV47 = {
+    texture: string
+  }
+
+  export type PackMapEnvDataShaderConstantV47 = {
+    token: number,
+    value: Array<number>
+  }
+
+  export type PackMapEnvDataSkyCardAttributesExV47 = {
+    dummy: number
+  }
+
+  export type PackMapEnvDataSkyCardMaterialV47 = {
+    filename: string,
+    constants: Array<PackMapEnvDataShaderConstantV47>,
+    textures: Array<PackMapEnvDataShaderTextureV47>,
+    textureAnimation: PackEnvDataSkyCardAnimationV47,
+    flipbook: PackMapEnvDataSkycardFlipbookV47
+  }
+
+  export type PackMapEnvDataShaderTextureV47 = {
+    filename: string,
+    textureUV: Array<number>
+  }
+
+  export type PackEnvDataSkyCardAnimationV47 = {
+    textureAnimTranslation: Array<number>,
+    textureAnimScaleRangeX: Array<number>,
+    textureAnimScaleRangeY: Array<number>,
+    textureAnimScaleSpeed: Array<number>,
+    textureAnimRotation: number,
+    texCoords: number
+  }
+
+  export type PackMapEnvDataSkycardFlipbookV47 = {
+    rows: number,
+    columns: number,
+    start: number,
+    count: number,
+    fps: number
+  }
+
+  export type PackMapEnvDataSkyCardExV47 = {
+    dummy: number
+  }
+
+  export type PackMapEnvDataSpawnGroupsV47 = {
+    spawnGroups: Array<PackMapEnvDataSpawnListV47>,
+    targets: Array<BigInt>
+  }
+
+  export type PackMapEnvDataSpawnListV47 = {
+    spawns: Array<PackMapEnvDataSpawnModelDataV47>
+  }
+
+  export type PackMapEnvDataSpawnModelDataV47 = {
+    spawnRange: Array<number>,
+    lifeSpan: Array<number>,
+    scaleRange: Array<number>,
+    heightRange: Array<number>,
+    rotXRange: Array<number>,
+    rotYRange: Array<number>,
+    rotZRange: Array<number>,
+    probability: number,
+    delay: number,
+    flags: number,
+    animSequence: BigInt,
+    modelFile: string,
+    maxConcurrent: number
+  }
+
+  export type PackMapEnvDataWaterV76 = {
+    waterFlags: number,
+    animAmplitude: number,
+    animChoppiness: number,
+    animWind: Array<number>,
+    bumpAmount: number,
+    bumpAngle0: number,
+    bumpAngle1: number,
+    bumpScale0: number,
+    bumpScale1: number,
+    bumpSpeed0: number,
+    bumpSpeed1: number,
+    bumpTile0: number,
+    bumpTile1: number,
+    patternAngle: number,
+    patternTile: number,
+    patternSpeed: number,
+    patternEdge: number,
+    surfaceShallowColor: Array<number>,
+    surfaceDeepColor: Array<number>,
+    patternColor: Array<number>,
+    surfaceFresnel: number,
+    distortAmount: number,
+    depthAttenuation: number,
+    materialFilename: string,
+    textureFilenames: Array<string>,
+    constantTokens: Array<number>,
+    constantValues: Array<Array<number>>,
+    foamSpawn: number,
+    foamDissolve: number,
+    foamDepthAttenuation: number,
+    foamColor0: Array<number>,
+    foamColor1: Array<number>
+  }
+
+  export type PackMapEnvDataWindV76 = {
+    azimuth: number,
+    elevation: number,
+    noise: number,
+    speed: number,
+    gust: number,
+    gustFreq: number,
+    gustSpeed: number
+  }
+
+  export type PackMapEnvDataAudioV47 = {
+    token: BigInt
+  }
+
+  export type PackMapEnvDataBaseExV47 = {
+    ext2: PackMapEnvDataBaseEx2V47,
+    brightTime: number,
+    dimTime: number,
+    darkCoeff: number,
+    darkExp: number,
+    darkMin: number,
+    darkMax: number,
+    brightMin: number,
+    brightMax: number,
+    brightScale: number,
+    darkScale: number,
+    waterReflectionParams: Array<number>
+  }
+
+  export type PackMapEnvDataBaseEx2V47 = {
+    dummy: number
+  }
+
+  export type PackMapEnvDataShapeV47 = {
+    center: Array<number>,
+    height: number,
+    fadeHorizInner: number,
+    fadeHorizOuter: number,
+    fadeVertical: number,
+    vertexArray: Array<Array<number>>,
+    shapeType: number
+  }
+
+  export type PackMapEnvDataGlobalV76 = {
+    lighting: Array<PackMapEnvDataLightingV76>,
+    lightingCharGroups: Array<PackMapEnvDataLightingCharGroupV47>,
+    clouds: PackMapEnvDataCloudsV76,
+    coloredLightRings: Array<PackMapEnvDataColoredLightRingsV47>,
+    effect: Array<PackMapEnvDataEffectV76>,
+    haze: Array<PackMapEnvDataHazeV76>,
+    particleFields: Array<PackMapEnvDataPFieldV76>,
+    particleFieldCutouts: Array<PackMapEnvDataPFieldCutoutV47>,
+    sky: PackMapEnvDataSkyV76,
+    skyCards: PackMapEnvDataSkyCardsV76,
+    spawns: PackMapEnvDataSpawnGroupsV47,
+    water: Array<PackMapEnvDataWaterV76>,
+    wind: Array<PackMapEnvDataWindV76>,
+    audio: Array<PackMapEnvDataAudioV47>,
+    name: string,
+    nightMods: Array<number>,
+    bindTarget: BigInt,
+    flags: number,
+    ext: PackMapEnvDataBaseExV47,
+    skyModeTex: Array<PackMapEnvDataSkyModeTexV76>,
+    starFile: string,
+    skyModeCubeTex: Array<PackMapEnvDataSkyModeCubeTexV47>
+  }
+
+  export type PackMapEnvDataSkyModeTexV76 = {
+    texPathNE: string,
+    texPathSW: string,
+    texPathT: string
+  }
+
+  export type PackMapEnvDataSkyModeCubeTexV47 = {
+    texPathE: string,
+    texPathW: string,
+    texPathN: string,
+    texPathS: string,
+    texPathB: string,
+    texPathT: string
+  }
+
+  export type PackMapEnvDataOverrideV77 = {
+    lighting: Array<PackMapEnvDataLightingV76>,
+    lightingCharGroups: Array<PackMapEnvDataLightingCharGroupV47>,
+    clouds: PackMapEnvDataCloudsV76,
+    coloredLightRings: Array<PackMapEnvDataColoredLightRingsV47>,
+    effect: Array<PackMapEnvDataEffectV76>,
+    haze: Array<PackMapEnvDataHazeV76>,
+    particleFields: Array<PackMapEnvDataPFieldV76>,
+    particleFieldCutouts: Array<PackMapEnvDataPFieldCutoutV47>,
+    sky: PackMapEnvDataSkyV76,
+    skyCards: PackMapEnvDataSkyCardsV76,
+    spawns: PackMapEnvDataSpawnGroupsV47,
+    water: Array<PackMapEnvDataWaterV76>,
+    wind: Array<PackMapEnvDataWindV76>,
+    audio: Array<PackMapEnvDataAudioV47>,
+    name: string,
+    nightMods: Array<number>,
+    bindTarget: BigInt,
+    flags: number,
+    ext: PackMapEnvDataBaseExV47,
+    skyModeTex: Array<PackMapEnvDataSkyModeTexV76>,
+    starFile: string,
+    skyModeCubeTex: Array<PackMapEnvDataSkyModeCubeTexV47>,
+    token: BigInt,
+    guid: BigInt
+  }
+
+}
+
+export type V77 = V77_N.PackMapEnvironmentV77;
+
+export type V29_U = V29 | V30 | V31 | V32 | V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V30_U = V30 | V31 | V32 | V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V31_U = V31 | V32 | V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V32_U = V32 | V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V33_U = V33 | V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V34_U = V34 | V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V35_U = V35 | V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V36_U = V36 | V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V37_U = V37 | V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V38_U = V38 | V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V39_U = V39 | V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V40_U = V40 | V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V41_U = V41 | V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V42_U = V42 | V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V43_U = V43 | V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V44_U = V44 | V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V45_U = V45 | V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V46_U = V46 | V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V47_U = V47 | V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V48_U = V48 | V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V49_U = V49 | V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V50_U = V50 | V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V51_U = V51 | V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V52_U = V52 | V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V53_U = V53 | V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V54_U = V54 | V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V55_U = V55 | V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V56_U = V56 | V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V57_U = V57 | V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V58_U = V58 | V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V59_U = V59 | V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V60_U = V60 | V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V61_U = V61 | V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V62_U = V62 | V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V63_U = V63 | V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V64_U = V64 | V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V65_U = V65 | V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V66_U = V66 | V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V67_U = V67 | V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V68_U = V68 | V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V69_U = V69 | V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V70_U = V70 | V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V71_U = V71 | V72 | V73 | V74 | V75 | V76 | V77;
+export type V72_U = V72 | V73 | V74 | V75 | V76 | V77;
+export type V73_U = V73 | V74 | V75 | V76 | V77;
+export type V74_U = V74 | V75 | V76 | V77;
+export type V75_U = V75 | V76 | V77;
+export type V76_U = V76 | V77;
+export type V77_U = V77;

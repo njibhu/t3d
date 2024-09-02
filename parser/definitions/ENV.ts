@@ -11112,5 +11112,808 @@ export const V75 = {
   }
 };
 
-export const latest = V75;
-export const definitionArray = [V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66, V67, V68, V69, V70, V71, V72, V73, V74, V75];
+export const V76 = {
+  chunkName: "env",
+  name: "PackMapEnvironmentV76",
+  version: 76,
+  definitions: {
+    PackMapEnvDataLocalV76: {
+      lighting: DynArray("PackMapEnvDataLightingV76"),
+      lightingCharGroups: DynArray("PackMapEnvDataLightingCharGroupV47"),
+      clouds: Pointer("PackMapEnvDataCloudsV76"),
+      coloredLightRings: RefArray("PackMapEnvDataColoredLightRingsV47"),
+      effect: RefArray("PackMapEnvDataEffectV76"),
+      haze: RefArray("PackMapEnvDataHazeV76"),
+      particleFields: RefArray("PackMapEnvDataPFieldV76"),
+      particleFieldCutouts: DynArray("PackMapEnvDataPFieldCutoutV47"),
+      sky: Pointer("PackMapEnvDataSkyV76"),
+      skyCards: Pointer("PackMapEnvDataSkyCardsV76"),
+      spawns: Pointer("PackMapEnvDataSpawnGroupsV47"),
+      water: RefArray("PackMapEnvDataWaterV76"),
+      wind: RefArray("PackMapEnvDataWindV76"),
+      audio: RefArray("PackMapEnvDataAudioV47"),
+      name: RefString16(),
+      nightMods: DynArray(Uint8),
+      bindTarget: Uint64,
+      flags: Uint32,
+      ext: Pointer("PackMapEnvDataBaseExV47"),
+      type: Uint8,
+      guid: Uint64,
+      shapeArray: DynArray("PackMapEnvDataShapeV47")
+    },
+    PackMapEnvDataLightingV76: {
+      lights: RefArray("PackMapEnvDataLightV76"),
+      shadowInfluence: Float32,
+      backlightColor: FixedArray(Uint8, 3),
+      backlightIntensity: Float32
+    },
+    PackMapEnvDataLightV76: {
+      color: FixedArray(Uint8, 3),
+      intensity: Float32,
+      direction: FixedArray(Float32, 3)
+    },
+    PackMapEnvDataLightingCharGroupV47: {
+      lightingChar: DynArray("PackMapEnvDataLightingCharV47")
+    },
+    PackMapEnvDataLightingCharV47: {
+      sunScale: Float32,
+      saturation: Float32,
+      sunFill: Float32,
+      ambScale: Float32,
+      ambFill: Float32,
+      flags: Uint8
+    },
+    PackMapEnvDataCloudsV76: {
+      layers: DynArray("PackMapEnvDataLayerV76")
+    },
+    PackMapEnvDataLayerV76: {
+      altitude: Float32,
+      cutOut: Float32,
+      depth: Float32,
+      extent: Float32,
+      scale: Float32,
+      texture: Filename(),
+      attributes: DynArray("PackMapEnvDataLayerAttributesV76"),
+      name: RefString16(),
+      reserved: Uint32
+    },
+    PackMapEnvDataLayerAttributesV76: {
+      brightness: Float32,
+      density: Float32,
+      haze: Float32,
+      lightIntensity: Float32,
+      velocity: FixedArray(Float32, 2),
+      fadeWidth: Float32,
+      fadeEnd: Float32,
+      reserved: Uint32
+    },
+    PackMapEnvDataColoredLightRingsV47: {
+      range: FixedArray(Float32, 2),
+      distances: FixedArray(Float32, 6),
+      lightColors: FixedArray(FixedArray(Uint8, 4), 6),
+      shadowColors: FixedArray(FixedArray(Uint8, 4), 6)
+    },
+    PackMapEnvDataEffectV76: {
+      glow: FixedArray(Uint8, 4),
+      tintColor: FixedArray(Uint8, 4),
+      tintTargetColor: FixedArray(Uint8, 4),
+      saturation: Float32,
+      tintAmount: Float32,
+      tintFocus: Float32,
+      glowLevel: FixedArray(Uint8, 4),
+      glowAmplify: Float32,
+      focalDepth: Float32,
+      focalRange: Float32,
+      ssaoAmount: Float32,
+      ssaoBrighten: Float32,
+      ssaoContrast: Float32,
+      ssaoSunScale: Float32,
+      flags: Uint32,
+      clutTexturePath: Filename(),
+      ext: Pointer("PackMapEnvDataEffectExV47")
+    },
+    PackMapEnvDataEffectExV47: {
+      dummy: Uint32
+    },
+    PackMapEnvDataHazeV76: {
+      nearColor: FixedArray(Uint8, 4),
+      farColor: FixedArray(Uint8, 4),
+      distRange: FixedArray(Float32, 2),
+      heightColor: FixedArray(Uint8, 4),
+      heightRange: FixedArray(Float32, 2),
+      depthCue: Float32,
+      sunDirRange: FixedArray(Float32, 2)
+    },
+    PackMapEnvDataPFieldV76: {
+      altitude: Float32,
+      angle: FixedArray(Float32, 2),
+      clusterCount: Uint16,
+      clustering: FixedArray(Float32, 2),
+      depth: Float32,
+      deviation: Float32,
+      deviationSpeed: FixedArray(Float32, 2),
+      extent: Uint16,
+      fade: Float32,
+      fieldDirection: FixedArray(Float32, 3),
+      flags: Uint16,
+      lifetime: FixedArray(Float32, 2),
+      opacity: FixedArray(Float32, 2),
+      particleCount: Uint16,
+      period: FixedArray(Float32, 2),
+      rotation: FixedArray(Float32, 2),
+      scaleX: FixedArray(Float32, 2),
+      scaleY: FixedArray(Float32, 2),
+      seed: Uint32,
+      speed: FixedArray(Float32, 2),
+      texColRow: FixedArray(Uint32, 2),
+      texFPS: Float32,
+      texPath: Filename(),
+      type: Uint8,
+      name: RefString16(),
+      reserved: Uint32
+    },
+    PackMapEnvDataPFieldCutoutV47: {
+      name: RefString16(),
+      x: FixedArray(Float32, 4),
+      y: FixedArray(Float32, 4),
+      z: FixedArray(Float32, 4)
+    },
+    PackMapEnvDataSkyV76: {
+      flags: Uint8,
+      dayBrightness: Float32,
+      dayHazeBottom: Float32,
+      dayHazeDensity: Float32,
+      dayHazeFalloff: Float32,
+      dayLightIntensity: Float32,
+      dayStarDensity: Float32,
+      nightBrightness: Float32,
+      nightHazeBottom: Float32,
+      nightHazeDensity: Float32,
+      nightHazeFalloff: Float32,
+      nightLightIntensity: Float32,
+      nightStarDensity: Float32,
+      verticalOffset: Float32
+    },
+    PackMapEnvDataSkyCardsV76: {
+      cards: DynArray("PackMapEnvDataSkyCardV76")
+    },
+    PackMapEnvDataSkyCardV76: {
+      day: "PackMapEnvDataSkyCardAttributesV76",
+      night: "PackMapEnvDataSkyCardAttributesV76",
+      flags: Uint32,
+      name: RefString16(),
+      location: FixedArray(Float32, 3),
+      material: Pointer("PackMapEnvDataSkyCardMaterialV47"),
+      ext: Pointer("PackMapEnvDataSkyCardExV47")
+    },
+    PackMapEnvDataSkyCardAttributesV76: {
+      azimuth: Float32,
+      density: Float32,
+      hazeDensity: Float32,
+      latitude: Float32,
+      lightIntensity: Float32,
+      minHaze: Float32,
+      scale: FixedArray(Float32, 2),
+      speed: Float32,
+      texture: Filename(),
+      textureUV: FixedArray(Float32, 4),
+      brightness: Float32,
+      lensFlare: Pointer("PackMapEnvLensFlareV47"),
+      ext: Pointer("PackMapEnvDataSkyCardAttributesExV47")
+    },
+    PackMapEnvLensFlareV47: {
+      atoms: DynArray("PackMapEnvLensFlareAtomV47"),
+      textures: DynArray("PackMapEnvLensFlareTextureV47"),
+      material: Filename(),
+      fadeBand: FixedArray(Float32, 2),
+      reverseFadeBand: FixedArray(Float32, 2),
+      opacityCoeff: Float32,
+      flags: Uint8,
+      constants: DynArray("PackMapEnvDataShaderConstantV47")
+    },
+    PackMapEnvLensFlareAtomV47: {
+      rows: Uint32,
+      columns: Uint32,
+      start: Uint32,
+      fps: Float32,
+      color: FixedArray(Uint8, 4),
+      offset: FixedArray(Float32, 2),
+      scale: FixedArray(Float32, 2),
+      baseRotation: Float32,
+      cameraRotation: Float32,
+      flags: Uint8
+    },
+    PackMapEnvLensFlareTextureV47: {
+      texture: Filename()
+    },
+    PackMapEnvDataShaderConstantV47: {
+      token: Uint32,
+      value: FixedArray(Float32, 4)
+    },
+    PackMapEnvDataSkyCardAttributesExV47: {
+      dummy: Uint32
+    },
+    PackMapEnvDataSkyCardMaterialV47: {
+      filename: Filename(),
+      constants: DynArray("PackMapEnvDataShaderConstantV47"),
+      textures: DynArray("PackMapEnvDataShaderTextureV47"),
+      textureAnimation: "PackEnvDataSkyCardAnimationV47",
+      flipbook: "PackMapEnvDataSkycardFlipbookV47"
+    },
+    PackMapEnvDataShaderTextureV47: {
+      filename: Filename(),
+      textureUV: FixedArray(Float32, 4)
+    },
+    PackEnvDataSkyCardAnimationV47: {
+      textureAnimTranslation: FixedArray(Float32, 2),
+      textureAnimScaleRangeX: FixedArray(Float32, 2),
+      textureAnimScaleRangeY: FixedArray(Float32, 2),
+      textureAnimScaleSpeed: FixedArray(Float32, 2),
+      textureAnimRotation: Float32,
+      texCoords: Uint32
+    },
+    PackMapEnvDataSkycardFlipbookV47: {
+      rows: Uint32,
+      columns: Uint32,
+      start: Uint32,
+      count: Uint32,
+      fps: Float32
+    },
+    PackMapEnvDataSkyCardExV47: {
+      dummy: Uint32
+    },
+    PackMapEnvDataSpawnGroupsV47: {
+      spawnGroups: DynArray("PackMapEnvDataSpawnListV47"),
+      targets: DynArray(Uint64)
+    },
+    PackMapEnvDataSpawnListV47: {
+      spawns: DynArray("PackMapEnvDataSpawnModelDataV47")
+    },
+    PackMapEnvDataSpawnModelDataV47: {
+      spawnRange: FixedArray(Uint32, 2),
+      lifeSpan: FixedArray(Uint32, 2),
+      scaleRange: FixedArray(Float32, 2),
+      heightRange: FixedArray(Float32, 2),
+      rotXRange: FixedArray(Float32, 2),
+      rotYRange: FixedArray(Float32, 2),
+      rotZRange: FixedArray(Float32, 2),
+      probability: Float32,
+      delay: Float32,
+      flags: Uint32,
+      animSequence: Uint64,
+      modelFile: Filename(),
+      maxConcurrent: Uint16
+    },
+    PackMapEnvDataWaterV76: {
+      waterFlags: Uint32,
+      animAmplitude: Float32,
+      animChoppiness: Float32,
+      animWind: FixedArray(Float32, 2),
+      bumpAmount: Float32,
+      bumpAngle0: Float32,
+      bumpAngle1: Float32,
+      bumpScale0: Float32,
+      bumpScale1: Float32,
+      bumpSpeed0: Float32,
+      bumpSpeed1: Float32,
+      bumpTile0: Float32,
+      bumpTile1: Float32,
+      patternAngle: Float32,
+      patternTile: Float32,
+      patternSpeed: Float32,
+      patternEdge: Float32,
+      surfaceShallowColor: FixedArray(Uint8, 4),
+      surfaceDeepColor: FixedArray(Uint8, 4),
+      patternColor: FixedArray(Uint8, 4),
+      surfaceFresnel: Float32,
+      distortAmount: Float32,
+      depthAttenuation: Float32,
+      materialFilename: Filename(),
+      textureFilenames: DynArray(Filename()),
+      constantTokens: DynArray(Uint32),
+      constantValues: DynArray(FixedArray(Float32, 4)),
+      foamSpawn: Float32,
+      foamDissolve: Float32,
+      foamDepthAttenuation: Float32,
+      foamColor0: FixedArray(Uint8, 4),
+      foamColor1: FixedArray(Uint8, 4)
+    },
+    PackMapEnvDataWindV76: {
+      azimuth: Uint8,
+      elevation: Uint8,
+      noise: Uint8,
+      speed: Uint8,
+      gust: Uint8,
+      gustFreq: Uint8,
+      gustSpeed: Uint8
+    },
+    PackMapEnvDataAudioV47: {
+      token: Uint64
+    },
+    PackMapEnvDataBaseExV47: {
+      ext2: Pointer("PackMapEnvDataBaseEx2V47"),
+      brightTime: Float32,
+      dimTime: Float32,
+      darkCoeff: Float32,
+      darkExp: Float32,
+      darkMin: Float32,
+      darkMax: Float32,
+      brightMin: Float32,
+      brightMax: Float32,
+      brightScale: Float32,
+      darkScale: Float32,
+      waterReflectionParams: FixedArray(Float32, 4)
+    },
+    PackMapEnvDataBaseEx2V47: {
+      dummy: Uint32
+    },
+    PackMapEnvDataShapeV47: {
+      center: FixedArray(Float32, 3),
+      height: Float32,
+      fadeHorizInner: Float32,
+      fadeHorizOuter: Float32,
+      fadeVertical: Float32,
+      vertexArray: DynArray(FixedArray(Float32, 2)),
+      shapeType: Uint8
+    },
+    PackMapEnvDataGlobalV76: {
+      lighting: DynArray("PackMapEnvDataLightingV76"),
+      lightingCharGroups: DynArray("PackMapEnvDataLightingCharGroupV47"),
+      clouds: Pointer("PackMapEnvDataCloudsV76"),
+      coloredLightRings: RefArray("PackMapEnvDataColoredLightRingsV47"),
+      effect: RefArray("PackMapEnvDataEffectV76"),
+      haze: RefArray("PackMapEnvDataHazeV76"),
+      particleFields: RefArray("PackMapEnvDataPFieldV76"),
+      particleFieldCutouts: DynArray("PackMapEnvDataPFieldCutoutV47"),
+      sky: Pointer("PackMapEnvDataSkyV76"),
+      skyCards: Pointer("PackMapEnvDataSkyCardsV76"),
+      spawns: Pointer("PackMapEnvDataSpawnGroupsV47"),
+      water: RefArray("PackMapEnvDataWaterV76"),
+      wind: RefArray("PackMapEnvDataWindV76"),
+      audio: RefArray("PackMapEnvDataAudioV47"),
+      name: RefString16(),
+      nightMods: DynArray(Uint8),
+      bindTarget: Uint64,
+      flags: Uint32,
+      ext: Pointer("PackMapEnvDataBaseExV47"),
+      skyModeTex: DynArray("PackMapEnvDataSkyModeTexV76"),
+      starFile: Filename(),
+      skyModeCubeTex: DynArray("PackMapEnvDataSkyModeCubeTexV47")
+    },
+    PackMapEnvDataSkyModeTexV76: {
+      texPathNE: Filename(),
+      texPathSW: Filename(),
+      texPathT: Filename()
+    },
+    PackMapEnvDataSkyModeCubeTexV47: {
+      texPathE: Filename(),
+      texPathW: Filename(),
+      texPathN: Filename(),
+      texPathS: Filename(),
+      texPathB: Filename(),
+      texPathT: Filename()
+    }
+  },
+  root: {
+    dataLocalArray: DynArray("PackMapEnvDataLocalV76"),
+    dataGlobal: Pointer("PackMapEnvDataGlobalV76")
+  }
+};
+
+export const V77 = {
+  chunkName: "env",
+  name: "PackMapEnvironmentV77",
+  version: 77,
+  definitions: {
+    PackMapEnvDataLocalV76: {
+      lighting: DynArray("PackMapEnvDataLightingV76"),
+      lightingCharGroups: DynArray("PackMapEnvDataLightingCharGroupV47"),
+      clouds: Pointer("PackMapEnvDataCloudsV76"),
+      coloredLightRings: RefArray("PackMapEnvDataColoredLightRingsV47"),
+      effect: RefArray("PackMapEnvDataEffectV76"),
+      haze: RefArray("PackMapEnvDataHazeV76"),
+      particleFields: RefArray("PackMapEnvDataPFieldV76"),
+      particleFieldCutouts: DynArray("PackMapEnvDataPFieldCutoutV47"),
+      sky: Pointer("PackMapEnvDataSkyV76"),
+      skyCards: Pointer("PackMapEnvDataSkyCardsV76"),
+      spawns: Pointer("PackMapEnvDataSpawnGroupsV47"),
+      water: RefArray("PackMapEnvDataWaterV76"),
+      wind: RefArray("PackMapEnvDataWindV76"),
+      audio: RefArray("PackMapEnvDataAudioV47"),
+      name: RefString16(),
+      nightMods: DynArray(Uint8),
+      bindTarget: Uint64,
+      flags: Uint32,
+      ext: Pointer("PackMapEnvDataBaseExV47"),
+      type: Uint8,
+      guid: Uint64,
+      shapeArray: DynArray("PackMapEnvDataShapeV47")
+    },
+    PackMapEnvDataLightingV76: {
+      lights: RefArray("PackMapEnvDataLightV76"),
+      shadowInfluence: Float32,
+      backlightColor: FixedArray(Uint8, 3),
+      backlightIntensity: Float32
+    },
+    PackMapEnvDataLightV76: {
+      color: FixedArray(Uint8, 3),
+      intensity: Float32,
+      direction: FixedArray(Float32, 3)
+    },
+    PackMapEnvDataLightingCharGroupV47: {
+      lightingChar: DynArray("PackMapEnvDataLightingCharV47")
+    },
+    PackMapEnvDataLightingCharV47: {
+      sunScale: Float32,
+      saturation: Float32,
+      sunFill: Float32,
+      ambScale: Float32,
+      ambFill: Float32,
+      flags: Uint8
+    },
+    PackMapEnvDataCloudsV76: {
+      layers: DynArray("PackMapEnvDataLayerV76")
+    },
+    PackMapEnvDataLayerV76: {
+      altitude: Float32,
+      cutOut: Float32,
+      depth: Float32,
+      extent: Float32,
+      scale: Float32,
+      texture: Filename(),
+      attributes: DynArray("PackMapEnvDataLayerAttributesV76"),
+      name: RefString16(),
+      reserved: Uint32
+    },
+    PackMapEnvDataLayerAttributesV76: {
+      brightness: Float32,
+      density: Float32,
+      haze: Float32,
+      lightIntensity: Float32,
+      velocity: FixedArray(Float32, 2),
+      fadeWidth: Float32,
+      fadeEnd: Float32,
+      reserved: Uint32
+    },
+    PackMapEnvDataColoredLightRingsV47: {
+      range: FixedArray(Float32, 2),
+      distances: FixedArray(Float32, 6),
+      lightColors: FixedArray(FixedArray(Uint8, 4), 6),
+      shadowColors: FixedArray(FixedArray(Uint8, 4), 6)
+    },
+    PackMapEnvDataEffectV76: {
+      glow: FixedArray(Uint8, 4),
+      tintColor: FixedArray(Uint8, 4),
+      tintTargetColor: FixedArray(Uint8, 4),
+      saturation: Float32,
+      tintAmount: Float32,
+      tintFocus: Float32,
+      glowLevel: FixedArray(Uint8, 4),
+      glowAmplify: Float32,
+      focalDepth: Float32,
+      focalRange: Float32,
+      ssaoAmount: Float32,
+      ssaoBrighten: Float32,
+      ssaoContrast: Float32,
+      ssaoSunScale: Float32,
+      flags: Uint32,
+      clutTexturePath: Filename(),
+      ext: Pointer("PackMapEnvDataEffectExV47")
+    },
+    PackMapEnvDataEffectExV47: {
+      dummy: Uint32
+    },
+    PackMapEnvDataHazeV76: {
+      nearColor: FixedArray(Uint8, 4),
+      farColor: FixedArray(Uint8, 4),
+      distRange: FixedArray(Float32, 2),
+      heightColor: FixedArray(Uint8, 4),
+      heightRange: FixedArray(Float32, 2),
+      depthCue: Float32,
+      sunDirRange: FixedArray(Float32, 2)
+    },
+    PackMapEnvDataPFieldV76: {
+      altitude: Float32,
+      angle: FixedArray(Float32, 2),
+      clusterCount: Uint16,
+      clustering: FixedArray(Float32, 2),
+      depth: Float32,
+      deviation: Float32,
+      deviationSpeed: FixedArray(Float32, 2),
+      extent: Uint16,
+      fade: Float32,
+      fieldDirection: FixedArray(Float32, 3),
+      flags: Uint16,
+      lifetime: FixedArray(Float32, 2),
+      opacity: FixedArray(Float32, 2),
+      particleCount: Uint16,
+      period: FixedArray(Float32, 2),
+      rotation: FixedArray(Float32, 2),
+      scaleX: FixedArray(Float32, 2),
+      scaleY: FixedArray(Float32, 2),
+      seed: Uint32,
+      speed: FixedArray(Float32, 2),
+      texColRow: FixedArray(Uint32, 2),
+      texFPS: Float32,
+      texPath: Filename(),
+      type: Uint8,
+      name: RefString16(),
+      reserved: Uint32
+    },
+    PackMapEnvDataPFieldCutoutV47: {
+      name: RefString16(),
+      x: FixedArray(Float32, 4),
+      y: FixedArray(Float32, 4),
+      z: FixedArray(Float32, 4)
+    },
+    PackMapEnvDataSkyV76: {
+      flags: Uint8,
+      dayBrightness: Float32,
+      dayHazeBottom: Float32,
+      dayHazeDensity: Float32,
+      dayHazeFalloff: Float32,
+      dayLightIntensity: Float32,
+      dayStarDensity: Float32,
+      nightBrightness: Float32,
+      nightHazeBottom: Float32,
+      nightHazeDensity: Float32,
+      nightHazeFalloff: Float32,
+      nightLightIntensity: Float32,
+      nightStarDensity: Float32,
+      verticalOffset: Float32
+    },
+    PackMapEnvDataSkyCardsV76: {
+      cards: DynArray("PackMapEnvDataSkyCardV76")
+    },
+    PackMapEnvDataSkyCardV76: {
+      day: "PackMapEnvDataSkyCardAttributesV76",
+      night: "PackMapEnvDataSkyCardAttributesV76",
+      flags: Uint32,
+      name: RefString16(),
+      location: FixedArray(Float32, 3),
+      material: Pointer("PackMapEnvDataSkyCardMaterialV47"),
+      ext: Pointer("PackMapEnvDataSkyCardExV47")
+    },
+    PackMapEnvDataSkyCardAttributesV76: {
+      azimuth: Float32,
+      density: Float32,
+      hazeDensity: Float32,
+      latitude: Float32,
+      lightIntensity: Float32,
+      minHaze: Float32,
+      scale: FixedArray(Float32, 2),
+      speed: Float32,
+      texture: Filename(),
+      textureUV: FixedArray(Float32, 4),
+      brightness: Float32,
+      lensFlare: Pointer("PackMapEnvLensFlareV47"),
+      ext: Pointer("PackMapEnvDataSkyCardAttributesExV47")
+    },
+    PackMapEnvLensFlareV47: {
+      atoms: DynArray("PackMapEnvLensFlareAtomV47"),
+      textures: DynArray("PackMapEnvLensFlareTextureV47"),
+      material: Filename(),
+      fadeBand: FixedArray(Float32, 2),
+      reverseFadeBand: FixedArray(Float32, 2),
+      opacityCoeff: Float32,
+      flags: Uint8,
+      constants: DynArray("PackMapEnvDataShaderConstantV47")
+    },
+    PackMapEnvLensFlareAtomV47: {
+      rows: Uint32,
+      columns: Uint32,
+      start: Uint32,
+      fps: Float32,
+      color: FixedArray(Uint8, 4),
+      offset: FixedArray(Float32, 2),
+      scale: FixedArray(Float32, 2),
+      baseRotation: Float32,
+      cameraRotation: Float32,
+      flags: Uint8
+    },
+    PackMapEnvLensFlareTextureV47: {
+      texture: Filename()
+    },
+    PackMapEnvDataShaderConstantV47: {
+      token: Uint32,
+      value: FixedArray(Float32, 4)
+    },
+    PackMapEnvDataSkyCardAttributesExV47: {
+      dummy: Uint32
+    },
+    PackMapEnvDataSkyCardMaterialV47: {
+      filename: Filename(),
+      constants: DynArray("PackMapEnvDataShaderConstantV47"),
+      textures: DynArray("PackMapEnvDataShaderTextureV47"),
+      textureAnimation: "PackEnvDataSkyCardAnimationV47",
+      flipbook: "PackMapEnvDataSkycardFlipbookV47"
+    },
+    PackMapEnvDataShaderTextureV47: {
+      filename: Filename(),
+      textureUV: FixedArray(Float32, 4)
+    },
+    PackEnvDataSkyCardAnimationV47: {
+      textureAnimTranslation: FixedArray(Float32, 2),
+      textureAnimScaleRangeX: FixedArray(Float32, 2),
+      textureAnimScaleRangeY: FixedArray(Float32, 2),
+      textureAnimScaleSpeed: FixedArray(Float32, 2),
+      textureAnimRotation: Float32,
+      texCoords: Uint32
+    },
+    PackMapEnvDataSkycardFlipbookV47: {
+      rows: Uint32,
+      columns: Uint32,
+      start: Uint32,
+      count: Uint32,
+      fps: Float32
+    },
+    PackMapEnvDataSkyCardExV47: {
+      dummy: Uint32
+    },
+    PackMapEnvDataSpawnGroupsV47: {
+      spawnGroups: DynArray("PackMapEnvDataSpawnListV47"),
+      targets: DynArray(Uint64)
+    },
+    PackMapEnvDataSpawnListV47: {
+      spawns: DynArray("PackMapEnvDataSpawnModelDataV47")
+    },
+    PackMapEnvDataSpawnModelDataV47: {
+      spawnRange: FixedArray(Uint32, 2),
+      lifeSpan: FixedArray(Uint32, 2),
+      scaleRange: FixedArray(Float32, 2),
+      heightRange: FixedArray(Float32, 2),
+      rotXRange: FixedArray(Float32, 2),
+      rotYRange: FixedArray(Float32, 2),
+      rotZRange: FixedArray(Float32, 2),
+      probability: Float32,
+      delay: Float32,
+      flags: Uint32,
+      animSequence: Uint64,
+      modelFile: Filename(),
+      maxConcurrent: Uint16
+    },
+    PackMapEnvDataWaterV76: {
+      waterFlags: Uint32,
+      animAmplitude: Float32,
+      animChoppiness: Float32,
+      animWind: FixedArray(Float32, 2),
+      bumpAmount: Float32,
+      bumpAngle0: Float32,
+      bumpAngle1: Float32,
+      bumpScale0: Float32,
+      bumpScale1: Float32,
+      bumpSpeed0: Float32,
+      bumpSpeed1: Float32,
+      bumpTile0: Float32,
+      bumpTile1: Float32,
+      patternAngle: Float32,
+      patternTile: Float32,
+      patternSpeed: Float32,
+      patternEdge: Float32,
+      surfaceShallowColor: FixedArray(Uint8, 4),
+      surfaceDeepColor: FixedArray(Uint8, 4),
+      patternColor: FixedArray(Uint8, 4),
+      surfaceFresnel: Float32,
+      distortAmount: Float32,
+      depthAttenuation: Float32,
+      materialFilename: Filename(),
+      textureFilenames: DynArray(Filename()),
+      constantTokens: DynArray(Uint32),
+      constantValues: DynArray(FixedArray(Float32, 4)),
+      foamSpawn: Float32,
+      foamDissolve: Float32,
+      foamDepthAttenuation: Float32,
+      foamColor0: FixedArray(Uint8, 4),
+      foamColor1: FixedArray(Uint8, 4)
+    },
+    PackMapEnvDataWindV76: {
+      azimuth: Uint8,
+      elevation: Uint8,
+      noise: Uint8,
+      speed: Uint8,
+      gust: Uint8,
+      gustFreq: Uint8,
+      gustSpeed: Uint8
+    },
+    PackMapEnvDataAudioV47: {
+      token: Uint64
+    },
+    PackMapEnvDataBaseExV47: {
+      ext2: Pointer("PackMapEnvDataBaseEx2V47"),
+      brightTime: Float32,
+      dimTime: Float32,
+      darkCoeff: Float32,
+      darkExp: Float32,
+      darkMin: Float32,
+      darkMax: Float32,
+      brightMin: Float32,
+      brightMax: Float32,
+      brightScale: Float32,
+      darkScale: Float32,
+      waterReflectionParams: FixedArray(Float32, 4)
+    },
+    PackMapEnvDataBaseEx2V47: {
+      dummy: Uint32
+    },
+    PackMapEnvDataShapeV47: {
+      center: FixedArray(Float32, 3),
+      height: Float32,
+      fadeHorizInner: Float32,
+      fadeHorizOuter: Float32,
+      fadeVertical: Float32,
+      vertexArray: DynArray(FixedArray(Float32, 2)),
+      shapeType: Uint8
+    },
+    PackMapEnvDataGlobalV76: {
+      lighting: DynArray("PackMapEnvDataLightingV76"),
+      lightingCharGroups: DynArray("PackMapEnvDataLightingCharGroupV47"),
+      clouds: Pointer("PackMapEnvDataCloudsV76"),
+      coloredLightRings: RefArray("PackMapEnvDataColoredLightRingsV47"),
+      effect: RefArray("PackMapEnvDataEffectV76"),
+      haze: RefArray("PackMapEnvDataHazeV76"),
+      particleFields: RefArray("PackMapEnvDataPFieldV76"),
+      particleFieldCutouts: DynArray("PackMapEnvDataPFieldCutoutV47"),
+      sky: Pointer("PackMapEnvDataSkyV76"),
+      skyCards: Pointer("PackMapEnvDataSkyCardsV76"),
+      spawns: Pointer("PackMapEnvDataSpawnGroupsV47"),
+      water: RefArray("PackMapEnvDataWaterV76"),
+      wind: RefArray("PackMapEnvDataWindV76"),
+      audio: RefArray("PackMapEnvDataAudioV47"),
+      name: RefString16(),
+      nightMods: DynArray(Uint8),
+      bindTarget: Uint64,
+      flags: Uint32,
+      ext: Pointer("PackMapEnvDataBaseExV47"),
+      skyModeTex: DynArray("PackMapEnvDataSkyModeTexV76"),
+      starFile: Filename(),
+      skyModeCubeTex: DynArray("PackMapEnvDataSkyModeCubeTexV47")
+    },
+    PackMapEnvDataSkyModeTexV76: {
+      texPathNE: Filename(),
+      texPathSW: Filename(),
+      texPathT: Filename()
+    },
+    PackMapEnvDataSkyModeCubeTexV47: {
+      texPathE: Filename(),
+      texPathW: Filename(),
+      texPathN: Filename(),
+      texPathS: Filename(),
+      texPathB: Filename(),
+      texPathT: Filename()
+    },
+    PackMapEnvDataOverrideV77: {
+      lighting: DynArray("PackMapEnvDataLightingV76"),
+      lightingCharGroups: DynArray("PackMapEnvDataLightingCharGroupV47"),
+      clouds: Pointer("PackMapEnvDataCloudsV76"),
+      coloredLightRings: RefArray("PackMapEnvDataColoredLightRingsV47"),
+      effect: RefArray("PackMapEnvDataEffectV76"),
+      haze: RefArray("PackMapEnvDataHazeV76"),
+      particleFields: RefArray("PackMapEnvDataPFieldV76"),
+      particleFieldCutouts: DynArray("PackMapEnvDataPFieldCutoutV47"),
+      sky: Pointer("PackMapEnvDataSkyV76"),
+      skyCards: Pointer("PackMapEnvDataSkyCardsV76"),
+      spawns: Pointer("PackMapEnvDataSpawnGroupsV47"),
+      water: RefArray("PackMapEnvDataWaterV76"),
+      wind: RefArray("PackMapEnvDataWindV76"),
+      audio: RefArray("PackMapEnvDataAudioV47"),
+      name: RefString16(),
+      nightMods: DynArray(Uint8),
+      bindTarget: Uint64,
+      flags: Uint32,
+      ext: Pointer("PackMapEnvDataBaseExV47"),
+      skyModeTex: DynArray("PackMapEnvDataSkyModeTexV76"),
+      starFile: Filename(),
+      skyModeCubeTex: DynArray("PackMapEnvDataSkyModeCubeTexV47"),
+      token: Uint64,
+      guid: Uint64
+    }
+  },
+  root: {
+    dataLocalArray: DynArray("PackMapEnvDataLocalV76"),
+    dataGlobal: Pointer("PackMapEnvDataGlobalV76"),
+    dataOverrideArray: DynArray("PackMapEnvDataOverrideV77")
+  }
+};
+
+export const latest = V77;
+export const definitionArray = [V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66, V67, V68, V69, V70, V71, V72, V73, V74, V75, V76, V77];
