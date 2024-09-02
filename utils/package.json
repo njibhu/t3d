@@ -17,9 +17,9 @@
     "declarations": "ts-node ./bin/declaration-gen.ts ../parser/definitions ../parser/declarations"
   },
   "dependencies": {
-    "@types/node": "^12.12.17",
-    "r2pipe-promise": "^1.6.0",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.3"
+    "@types/node": "12.12.17",
+    "r2pipe-promise": "1.6.0",
+    "ts-node": "8.5.4",
+    "typescript": "3.7.3"
   }
 }
