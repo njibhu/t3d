@@ -26,7 +26,7 @@ export class DataParser implements Definition {
 
   public parse(dv: DataView, pos: number): ParseFunctionReturn {
     let position = pos;
-    const parsedObject = {};
+    const parsedObject: any = {};
     for (const key in this.root) {
       const value = this.root[key];
       let parsedResult: ParseFunctionReturn;
@@ -36,7 +36,7 @@ export class DataParser implements Definition {
       } else {
         const { baseType, subType, length } = value;
         if (this.DEBUG) console.log(key, position.toString(16), baseType, subType, length);
-        parsedResult = this[baseType](dv, position, subType, length);
+        parsedResult = this[baseType](dv, position, subType!, length!);
       }
       parsedObject[key] = parsedResult.data;
       position = parsedResult.newPosition;
@@ -49,9 +49,9 @@ export class DataParser implements Definition {
   }
 
   public parseType(dv: DataView, pos: number, typeDefinitionName: string): ParseFunctionReturn {
-    const parsedObject = {};
+    const parsedObject: any = {};
     let position = pos;
-    const definition = this.definitions[typeDefinitionName];
+    const definition = this.definitions![typeDefinitionName];
     for (const key in definition) {
       const value = definition[key];
       let parsedResult: ParseFunctionReturn;
@@ -61,7 +61,7 @@ export class DataParser implements Definition {
       } else {
         const { baseType, subType, length } = value;
         if (this.DEBUG) console.log(">", key, position.toString(16), baseType, subType, length);
-        parsedResult = this[baseType](dv, position, subType, length);
+        parsedResult = this[baseType](dv, position, subType!, length!);
       }
       parsedObject[key] = parsedResult.data;
 
@@ -147,7 +147,7 @@ export class DataParser implements Definition {
       const parsedItem =
         typeof type === "string"
           ? this.parseType(dv, newPosition, type)
-          : this[type.baseType](dv, newPosition, type.subType, type.length);
+          : this[type.baseType](dv, newPosition, type.subType!, type.length!);
       data.push(parsedItem.data);
       newPosition = parsedItem.newPosition;
     }
@@ -178,7 +178,7 @@ export class DataParser implements Definition {
   }
 
   private RefArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
-    let data = [];
+    let data: any = [];
     let arrayLength = dv.getUint32(pos, true);
     let arrayPtr = dv.getUint32(pos + 4, true) + pos + 4;
     if (this.DEBUG) console.debug("RefArray", "arrayPtr", (pos + 4).toString(16), arrayPtr.toString(16));
@@ -198,7 +198,7 @@ export class DataParser implements Definition {
         if (typeof type === "string") {
           data.push(this.parseType(dv, newPosition, type).data);
         } else {
-          data.push(this[type.baseType](dv, newPosition, type.subType, type.length).data);
+          data.push(this[type.baseType](dv, newPosition, type.subType!, type.length!).data);
         }
       }
     }
@@ -214,7 +214,7 @@ export class DataParser implements Definition {
     const parsedItem =
       typeof type === "string"
         ? this.parseType(dv, pos + offset, type)
-        : this[type.baseType](dv, pos + offset, type.subType, type.length);
+        : this[type.baseType](dv, pos + offset, type.subType!, type.length!);
 
     return {
       newPosition: pos + 4,
@@ -282,10 +282,10 @@ export class DataParser implements Definition {
 
   private optimisedArray(dv: DataView, pos: number, type: DataType, length: number): ParseFunctionReturn {
     const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType);
-    if (this.DEBUG) console.debug("OptimizedArray", Array.from(new OptimisedArray(dv.buffer, pos, length)));
+    if (this.DEBUG) console.debug("OptimizedArray", Array.from(new OptimisedArray!(dv.buffer, pos, length)));
     return {
-      newPosition: pos + length * OptimisedArray.BYTES_PER_ELEMENT,
-      data: Array.from(new OptimisedArray(dv.buffer, pos, length)),
+      newPosition: pos + length * OptimisedArray!.BYTES_PER_ELEMENT,
+      data: Array.from(new OptimisedArray!(dv.buffer, pos, length)),
     };
   }
 

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-import * as HAVKDefs from "../definitions/HAVK";
+import * as HAVK from "../definitions/HAVK";
 import { DataParser } from "../src/data-parser";
 import { parseFile, parseAllChunks } from "../src/file-parser";
 
@@ -21,7 +21,9 @@ test("matches for havk1", function () {
     },
   ]);
   const havkChunk = allChunks.find((c) => c.chunkHeader.type === "havk");
-  const def = HAVKDefs[`V${havkChunk.chunkHeader.chunkVersion}`];
-  const test = new DataParser(def).parse(dv, havkChunk.chunkPosition + havkChunk.chunkHeader.chunkHeaderSize);
+  const def = HAVK.definitions[(`V${havkChunk!.chunkHeader.chunkVersion}`) as keyof typeof HAVK["definitions"]];
+  const parser = new DataParser(def);
+  //parser.DEBUG = true;
+  const test = parser.parse(dv, havkChunk!.chunkPosition + havkChunk!.chunkHeader.chunkHeaderSize);
   expect(test.data).toMatchObject(havk1Result);
 });

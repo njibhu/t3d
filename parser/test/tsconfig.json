@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
-    "types": ["jest", "node"],
+    "types": [
+      "jest",
+      "node"
+    ],
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "target": "es5",
   },
 }
