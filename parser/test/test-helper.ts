@@ -11,7 +11,7 @@ export function transformSnapshot(input: any): any {
         return input[String(index)];
       });
     } else {
-      const build = {};
+      const build: any = {};
       for (const [key, value] of Object.entries(input)) {
         build[key] = transformSnapshot(value);
       }
@@ -25,7 +25,8 @@ export function transformSnapshot(input: any): any {
     if (split.length === 2) {
       const low = BigInt(split[0]);
       const high = BigInt(split[1]);
-      return (high << BigInt(32)) | low;
+      const bigint = (high << BigInt(32)) | low;
+      return bigint;
     }
   }
 

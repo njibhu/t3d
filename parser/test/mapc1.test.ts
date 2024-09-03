@@ -9,6 +9,7 @@ import * as mapcSnapshots from "./mapc1";
 import * as PARM from "../definitions/PARM";
 import * as TRN from "../definitions/TRN";
 import * as ENV from "../definitions/ENV";
+import * as PRP2 from "../definitions/PRP2";
 
 const chunkBuffer = fs.readFileSync("./test/mapc1.bin", null);
 const dv = new DataView(toArrayBuffer(chunkBuffer));
@@ -28,6 +29,7 @@ test("contains the correct chunks", function () {
     "cube",
     "havk",
     "zon2",
+    "shex",
     "prp2",
     "rive",
     "dcal",
@@ -53,7 +55,6 @@ test("matches for TRN", function () {
   const trnChunk = allChunks.find((c) => c.chunkHeader.type === "trn");
   const def = TRN.definitions[`V${trnChunk!.chunkHeader.chunkVersion}` as keyof typeof TRN["definitions"]];
   const parser = new DataParser(def);
-  parser.DEBUG = true;
   const test = parser.parse(dv, trnChunk!.chunkPosition + trnChunk!.chunkHeader.chunkHeaderSize);
   //fs.writeFileSync("./test/trn.json", JSON.stringify(test.data, (key, value) => typeof value === 'bigint' ? Number(value) : value, 2));
   expect(test.data).toMatchObject(mapc1Result);
@@ -67,5 +68,15 @@ test("matches for ENV", function () {
   const parser = new DataParser(def);
   parser.FIX_NEGATIVE_ZERO = true;
   const test = parser.parse(dv, envChunk!.chunkPosition + envChunk!.chunkHeader.chunkHeaderSize);
+  expect(test.data).toMatchObject(mapc1Result);
+});
+
+// PRP2
+test("matches for PRP2", function () {
+  const mapc1Result = transformSnapshot(mapcSnapshots.PRP2);
+  const prp2Chunk = allChunks.find((c) => c.chunkHeader.type === "prp2");
+  const def = PRP2.definitions[`V${prp2Chunk!.chunkHeader.chunkVersion}` as keyof typeof PRP2["definitions"]];
+  const parser = new DataParser(def);
+  const test = parser.parse(dv, prp2Chunk!.chunkPosition + prp2Chunk!.chunkHeader.chunkHeaderSize);
   expect(test.data).toMatchObject(mapc1Result);
 });

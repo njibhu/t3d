@@ -110,7 +110,7 @@ export class DataParser implements Definition {
     if (this.DEBUG) console.debug("Uint64", Number(dv.getBigUint64(pos, true)));
     return {
       newPosition: pos + 8,
-      data: Number(dv.getBigUint64(pos, true)),
+      data: dv.getBigUint64(pos, true),
     };
   }
 
