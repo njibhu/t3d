@@ -4,10 +4,7 @@ import * as HAVK from "../definitions/HAVK";
 import { DataParser } from "../src/data-parser";
 import { parseFile, parseAllChunks } from "../src/file-parser";
 
-import { transformSnapshot, toArrayBuffer } from "./test-helper";
-import { snapshot } from "./havk1";
-
-const havk1Result = transformSnapshot(snapshot);
+import { toArrayBuffer } from "./test-helper";
 
 test("matches for havk1", function () {
   const chunkBuffer = fs.readFileSync("./test/havk1.bin", null);
@@ -25,5 +22,5 @@ test("matches for havk1", function () {
   const parser = new DataParser(def);
   //parser.DEBUG = true;
   const test = parser.parse(dv, havkChunk!.chunkPosition + havkChunk!.chunkHeader.chunkHeaderSize);
-  expect(test.data).toMatchObject(havk1Result);
+  expect(test.data).toMatchSnapshot("havk1");
 });

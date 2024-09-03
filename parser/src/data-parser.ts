@@ -143,8 +143,11 @@ export class DataParser implements Definition {
 
   private FixedArray(dv: DataView, pos: number, type: DataType | string, length: number): ParseFunctionReturn {
     // Some types can be mapped directly from their buffer into the return type
-    if (typeof type != "string" && this._getOptimisedArrayConstructor(type.baseType, pos)) {
-      return this.optimisedArray(dv, pos, type, length);
+    if(typeof type != "string"){
+      const arrayConstructor = getOptimisedArrayConstructor(type.baseType);
+      if(arrayConstructor){
+        return this.optimisedArray(dv, pos, length, arrayConstructor);
+      }
     }
 
     const data = [];
@@ -311,17 +314,19 @@ export class DataParser implements Definition {
    *      Parser utils & helpers
    **/
 
-  private optimisedArray(dv: DataView, pos: number, type: DataType, length: number): ParseFunctionReturn {
-    const OptimisedArray = this._getOptimisedArrayConstructor(type.baseType, pos);
-    const data = Array.from(new OptimisedArray!(dv.buffer, pos, length));
+  private optimisedArray(dv: DataView, pos: number, length: number, OptimisedArray: NonNullable<ReturnType<typeof getOptimisedArrayConstructor>>): ParseFunctionReturn {
+    const byteLength = length * OptimisedArray.BYTES_PER_ELEMENT;
+    const byteArray = new Uint8Array(dv.buffer.slice(pos, pos + byteLength));
+    const data = new OptimisedArray(byteArray.buffer);
+
     if (this.DEBUG) console.debug("OptimizedArray", data);
-    if(this.FIX_NEGATIVE_ZERO){
-      for (let i = 0; i < data.length; i++) {
-        if(isZeroNegative(data[i])){
-          data[i] = 0;
-        }
-      }
-    }
+    // if(this.FIX_NEGATIVE_ZERO){
+    //   for (let i = 0; i < data.length; i++) {
+    //     if(isZeroNegative(data[i])){
+    //       data[i] = 0;
+    //     }
+    //   }
+    // }
 
     return {
       newPosition: pos + length * OptimisedArray!.BYTES_PER_ELEMENT,
@@ -329,20 +334,27 @@ export class DataParser implements Definition {
     };
   }
 
-  private _getOptimisedArrayConstructor(baseType: BaseType, position: number) {
-    if(baseType === BaseType.Float32 && position % 4 === 0){
-      return Float32Array;
-    }
-    if(baseType === BaseType.Float64 && position % 8 === 0){
-      return Float64Array;
-    }
 
-    if(baseType === BaseType.Uint16 && position % 2 === 0){
-      return Uint16Array;
-    }
-    if(baseType === BaseType.Uint32 && position % 4 === 0){
-      return Uint32Array;
-    }
+}
+
+function getOptimisedArrayConstructor(baseType: BaseType) {
+  if(baseType === BaseType.Float32){
+    return Float32Array;
+  }
+  if(baseType === BaseType.Float64){
+    return Float64Array;
+  }
+  if(baseType === BaseType.Uint8){
+    return Uint8Array;
+  }
+  if(baseType === BaseType.Uint16){
+    return Uint16Array;
+  }
+  if(baseType === BaseType.Uint32){
+    return Uint32Array;
+  }
+  if(baseType === BaseType.Uint64){
+    return BigUint64Array;
   }
 }
 

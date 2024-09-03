@@ -3,8 +3,7 @@ import * as fs from "fs";
 import { DataParser } from "../src/data-parser";
 import { parseFile, parseAllChunks } from "../src/file-parser";
 
-import { transformSnapshot, toArrayBuffer } from "./test-helper";
-import * as modlSnapshots from "./modl1";
+import {  toArrayBuffer } from "./test-helper";
 
 import * as MODL from "../definitions/MODL";
 import * as PRPS from "../definitions/PRPS";
@@ -22,43 +21,38 @@ test("contains the correct chunks", function () {
 });
 
 test("matches for MODL", function () {
-  const modl1Result = transformSnapshot(modlSnapshots.MODL);
   const modlChunk = allChunks.find((c) => c.chunkHeader.type === "MODL");
   const def = MODL.definitions[`V${modlChunk!.chunkHeader.chunkVersion}` as keyof typeof MODL["definitions"]];
   const test = new DataParser(def).parse(dv, modlChunk!.chunkPosition + modlChunk!.chunkHeader.chunkHeaderSize);
-  expect(test.data).toMatchObject(modl1Result);
+  expect(test.data).toMatchSnapshot("modl-modl")
 });
 
 test("matches for PRPS", function () {
-  const prpsResult = transformSnapshot(modlSnapshots.PRPS);
   const prpsChunk = allChunks.find((c) => c.chunkHeader.type === "PRPS");
   const def = PRPS.definitions[`V${prpsChunk!.chunkHeader.chunkVersion}` as keyof typeof PRPS["definitions"]];
   const test = new DataParser(def).parse(dv, prpsChunk!.chunkPosition + prpsChunk!.chunkHeader.chunkHeaderSize);
-  expect(test.data).toMatchObject(prpsResult);
+  expect(test.data).toMatchSnapshot("modl-prps")
 });
 
 test("matches for ANIM", function () {
-  const animResult = transformSnapshot(modlSnapshots.ANIM);
   const animChunk = allChunks.find((c) => c.chunkHeader.type === "ANIM");
   const def = ANIM.definitions[`V${animChunk!.chunkHeader.chunkVersion}` as keyof typeof ANIM["definitions"]];
   const test = new DataParser(def).parse(dv, animChunk!.chunkPosition + animChunk!.chunkHeader.chunkHeaderSize);
-  expect(test.data).toMatchObject(animResult);
+  expect(test.data).toMatchSnapshot("modl-anim")
 });
 
 // COLL
 test("matches for COLL", function () {
-  const collResult = transformSnapshot(modlSnapshots.COLL);
   const collChunk = allChunks.find((c) => c.chunkHeader.type === "COLL");
   const def = COLL.definitions[`V${collChunk!.chunkHeader.chunkVersion}` as keyof typeof COLL["definitions"]];
   const test = new DataParser(def).parse(dv, collChunk!.chunkPosition + collChunk!.chunkHeader.chunkHeaderSize);
-  expect(test.data).toMatchObject(collResult);
+  expect(test.data).toMatchSnapshot("modl-coll")
 });
 
 // GEOM
 test("matches for GEOM", function () {
-  const geomResult = transformSnapshot(modlSnapshots.GEOM);
   const geomChunk = allChunks.find((c) => c.chunkHeader.type === "GEOM");
   const def = GEOM.definitions[`V${geomChunk!.chunkHeader.chunkVersion}` as keyof typeof GEOM["definitions"]];
   const test = new DataParser(def).parse(dv, geomChunk!.chunkPosition + geomChunk!.chunkHeader.chunkHeaderSize);
-  expect(test.data).toMatchObject(geomResult);
+  expect(test.data).toMatchSnapshot("modl-geom")
 });
