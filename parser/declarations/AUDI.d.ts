@@ -122,7 +122,7 @@ export namespace V4_N {
     fadeBand: number,
     height: number,
     radius: number,
-    guid: BigInt
+    guid: number
   }
 
 }
@@ -151,7 +151,7 @@ export namespace V5_N {
     fadeBand: number,
     height: number,
     radius: number,
-    guid: BigInt,
+    guid: number,
     flags: number
   }
 
@@ -184,7 +184,7 @@ export namespace V6_N {
     fadeBand: number,
     height: number,
     radius: number,
-    guid: BigInt,
+    guid: number,
     flags: number
   }
 
@@ -218,7 +218,7 @@ export namespace V7_N {
     fadeBand: number,
     height: number,
     radius: number,
-    guid: BigInt,
+    guid: number,
     flags: number
   }
 
@@ -257,7 +257,7 @@ export namespace V8_N {
     fadeBand: number,
     height: number,
     radius: number,
-    guid: BigInt,
+    guid: number,
     flags: number
   }
 

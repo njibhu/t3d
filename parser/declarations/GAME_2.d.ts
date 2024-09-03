@@ -5,7 +5,7 @@ export namespace V0_N {
   }
 
   export type ScenePathV0 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV0>,
     closed: number
   }
@@ -41,7 +41,7 @@ export namespace V1_N {
   }
 
   export type ScenePathV1 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV1>,
     closed: number
   }
@@ -79,7 +79,7 @@ export namespace V2_N {
   }
 
   export type ScenePathV2 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV2>,
     closed: number
   }
@@ -125,7 +125,7 @@ export namespace V3_N {
   }
 
   export type ScenePathV3 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV3>,
     closed: number
   }
@@ -172,7 +172,7 @@ export namespace V4_N {
   }
 
   export type ScenePathV4 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV4>,
     closed: number
   }
@@ -219,7 +219,7 @@ export namespace V5_N {
   }
 
   export type ScenePathV5 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV5>,
     closed: number
   }
@@ -259,7 +259,7 @@ export namespace V6_N {
   }
 
   export type ScenePathV6 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV6>,
     closed: number
   }
@@ -287,7 +287,7 @@ export namespace V6_N {
   }
 
   export type SceneGameSurfaceV6 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
 }

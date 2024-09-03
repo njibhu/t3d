@@ -4,12 +4,12 @@ export namespace V0_N {
   }
 
   export type PackAnimSequenceV0 = {
-    sequence: BigInt,
+    sequence: number,
     animationData: Array<PackAnimSequenceDataV0>
   }
 
   export type PackAnimSequenceDataV0 = {
-    token: BigInt,
+    token: number,
     flags: number,
     blendInTime: number,
     blendOutTime: number,

@@ -4,11 +4,11 @@ export namespace V0_N {
   }
 
   export type ModelMeshDataV65 = {
-    visBone: BigInt,
+    visBone: number,
     morphTargets: Array<ModelMeshMorphTargetV65>,
     flags: number,
     seamVertIndices: Array<number>,
-    meshName: BigInt,
+    meshName: number,
     minBound: Array<number>,
     maxBound: Array<number>,
     bounds: Array<GrBoundData>,
@@ -21,7 +21,7 @@ export namespace V0_N {
   export type ModelMeshMorphTargetV65 = {
     positions: Array<ModelMeshMorphVertV65>,
     normals: Array<ModelMeshMorphVertV65>,
-    mesh: BigInt
+    mesh: number
   }
 
   export type ModelMeshMorphVertV65 = {
@@ -65,24 +65,24 @@ export namespace V1_N {
   }
 
   export type ModelMeshDataV66 = {
-    visBone: BigInt,
+    visBone: number,
     morphTargets: Array<ModelMeshMorphTargetV66>,
     flags: number,
     seamVertIndices: Array<number>,
-    meshName: BigInt,
+    meshName: number,
     minBound: Array<number>,
     maxBound: Array<number>,
     bounds: Array<GrBoundData>,
     materialIndex: number,
     materialName: string,
-    boneBindings: Array<BigInt>,
+    boneBindings: Array<number>,
     geometry: ModelMeshGeometryV1
   }
 
   export type ModelMeshMorphTargetV66 = {
     positions: Array<ModelMeshMorphVertV66>,
     normals: Array<ModelMeshMorphVertV66>,
-    mesh: BigInt
+    mesh: number
   }
 
   export type ModelMeshMorphVertV66 = {

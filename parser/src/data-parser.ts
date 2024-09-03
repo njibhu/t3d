@@ -107,10 +107,10 @@ export class DataParser implements Definition {
   }
 
   private Uint64(dv: DataView, pos: number): ParseFunctionReturn {
-    if (this.DEBUG) console.debug("Uint64", dv.getBigUint64(pos, true));
+    if (this.DEBUG) console.debug("Uint64", Number(dv.getBigUint64(pos, true)));
     return {
       newPosition: pos + 8,
-      data: dv.getBigUint64(pos, true),
+      data: Number(dv.getBigUint64(pos, true)),
     };
   }
 
@@ -293,6 +293,9 @@ export class DataParser implements Definition {
         data: ret > 0 ? ret : 0,
       };
     } catch (e) {
+      if (this.DEBUG) {
+        console.error("Error while parsing filename", e);
+      }
       return {
         newPosition: orgPos + 4,
         data: -1,

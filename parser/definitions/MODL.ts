@@ -53,7 +53,8 @@ const V0 = {
       LocalTransform: "ModelTransformDataV0",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV0: {
       Flags: Uint32,
@@ -135,7 +136,8 @@ const V1 = {
       LocalTransform: "ModelTransformDataV1",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV1: {
       Flags: Uint32,
@@ -237,7 +239,8 @@ const V2 = {
       LocalTransform: "ModelTransformDataV2",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV2: {
       Flags: Uint32,
@@ -396,7 +399,8 @@ const V3 = {
       LocalTransform: "ModelTransformDataV3",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV3: {
       Flags: Uint32,
@@ -573,7 +577,8 @@ const V4 = {
       LocalTransform: "ModelTransformDataV4",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV4: {
       Flags: Uint32,
@@ -751,7 +756,8 @@ const V5 = {
       LocalTransform: "ModelTransformDataV5",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV5: {
       Flags: Uint32,
@@ -934,7 +940,8 @@ const V6 = {
       LocalTransform: "ModelTransformDataV6",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV6: {
       Flags: Uint32,
@@ -1122,7 +1129,8 @@ const V7 = {
       LocalTransform: "ModelTransformDataV7",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV7: {
       Flags: Uint32,
@@ -1295,7 +1303,8 @@ const V8 = {
       LocalTransform: "ModelTransformDataV8",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV8: {
       Flags: Uint32,
@@ -1435,7 +1444,8 @@ const V9 = {
       LocalTransform: "ModelTransformDataV9",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV9: {
       Flags: Uint32,
@@ -1575,7 +1585,8 @@ const V10 = {
       LocalTransform: "ModelTransformDataV10",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV10: {
       Flags: Uint32,
@@ -1736,7 +1747,8 @@ const V11 = {
       LocalTransform: "ModelTransformDataV11",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV11: {
       Flags: Uint32,
@@ -1910,7 +1922,8 @@ const V12 = {
       LocalTransform: "ModelTransformDataV12",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV12: {
       Flags: Uint32,
@@ -2084,7 +2097,8 @@ const V13 = {
       LocalTransform: "ModelTransformDataV13",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV13: {
       Flags: Uint32,
@@ -2260,7 +2274,8 @@ const V14 = {
       LocalTransform: "ModelTransformDataV14",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV14: {
       Flags: Uint32,
@@ -2438,7 +2453,8 @@ const V15 = {
       LocalTransform: "ModelTransformDataV15",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV15: {
       Flags: Uint32,
@@ -2627,7 +2643,8 @@ const V16 = {
       LocalTransform: "ModelTransformDataV16",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV16: {
       Flags: Uint32,
@@ -2824,7 +2841,8 @@ const V17 = {
       LocalTransform: "ModelTransformDataV17",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV17: {
       Flags: Uint32,
@@ -3025,7 +3043,8 @@ const V18 = {
       LocalTransform: "ModelTransformDataV18",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV18: {
       Flags: Uint32,
@@ -3236,7 +3255,8 @@ const V19 = {
       LocalTransform: "ModelTransformDataV19",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV19: {
       Flags: Uint32,
@@ -3483,7 +3503,8 @@ const V20 = {
       LocalTransform: "ModelTransformDataV20",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV20: {
       Flags: Uint32,
@@ -3731,7 +3752,8 @@ const V21 = {
       LocalTransform: "ModelTransformDataV21",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV21: {
       Flags: Uint32,
@@ -3985,7 +4007,8 @@ const V22 = {
       LocalTransform: "ModelTransformDataV22",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV22: {
       Flags: Uint32,
@@ -4239,7 +4262,8 @@ const V23 = {
       LocalTransform: "ModelTransformDataV23",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV23: {
       Flags: Uint32,
@@ -4493,7 +4517,8 @@ const V24 = {
       LocalTransform: "ModelTransformDataV24",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV24: {
       Flags: Uint32,
@@ -4748,7 +4773,8 @@ const V25 = {
       LocalTransform: "ModelTransformDataV25",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV25: {
       Flags: Uint32,
@@ -5004,7 +5030,8 @@ const V26 = {
       LocalTransform: "ModelTransformDataV26",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV26: {
       Flags: Uint32,
@@ -5260,7 +5287,8 @@ const V27 = {
       LocalTransform: "ModelTransformDataV27",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV27: {
       Flags: Uint32,
@@ -5520,7 +5548,8 @@ const V28 = {
       LocalTransform: "ModelTransformDataV28",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV28: {
       Flags: Uint32,
@@ -5791,7 +5820,8 @@ const V29 = {
       LocalTransform: "ModelTransformDataV29",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV29: {
       Flags: Uint32,
@@ -6067,7 +6097,8 @@ const V30 = {
       LocalTransform: "ModelTransformDataV30",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV30: {
       Flags: Uint32,
@@ -6344,7 +6375,8 @@ const V31 = {
       LocalTransform: "ModelTransformDataV31",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV31: {
       Flags: Uint32,
@@ -6622,7 +6654,8 @@ const V32 = {
       LocalTransform: "ModelTransformDataV32",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV32: {
       Flags: Uint32,
@@ -6943,7 +6976,8 @@ const V33 = {
       LocalTransform: "ModelTransformDataV33",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV33: {
       Flags: Uint32,
@@ -7288,7 +7322,8 @@ const V34 = {
       LocalTransform: "ModelTransformDataV34",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV34: {
       Flags: Uint32,
@@ -7629,7 +7664,8 @@ const V35 = {
       LocalTransform: "ModelTransformDataV35",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV35: {
       Flags: Uint32,
@@ -7973,7 +8009,8 @@ const V36 = {
       LocalTransform: "ModelTransformDataV36",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV36: {
       Flags: Uint32,
@@ -8323,7 +8360,8 @@ const V37 = {
       LocalTransform: "ModelTransformDataV37",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV37: {
       Flags: Uint32,
@@ -8673,7 +8711,8 @@ const V38 = {
       LocalTransform: "ModelTransformDataV38",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV38: {
       Flags: Uint32,
@@ -9023,7 +9062,8 @@ const V39 = {
       LocalTransform: "ModelTransformDataV39",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV39: {
       Flags: Uint32,
@@ -9374,7 +9414,8 @@ const V40 = {
       LocalTransform: "ModelTransformDataV40",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV40: {
       Flags: Uint32,
@@ -9728,7 +9769,8 @@ const V41 = {
       LocalTransform: "ModelTransformDataV41",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV41: {
       Flags: Uint32,
@@ -10091,7 +10133,8 @@ const V42 = {
       LocalTransform: "ModelTransformDataV42",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV42: {
       Flags: Uint32,
@@ -10439,6 +10482,7 @@ const V43 = {
       InitialPlacement: "ModelTransformDataV43",
       MeshBindings: DynArray("ModelMeshBindingDataV43"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV43"),
@@ -10449,7 +10493,8 @@ const V43 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV43"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV43: {
       Name: RefString(),
@@ -10457,7 +10502,8 @@ const V43 = {
       LocalTransform: "ModelTransformDataV43",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV43: {
       Flags: Uint32,
@@ -10805,6 +10851,7 @@ const V44 = {
       InitialPlacement: "ModelTransformDataV44",
       MeshBindings: DynArray("ModelMeshBindingDataV44"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV44"),
@@ -10815,7 +10862,8 @@ const V44 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV44"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV44: {
       Name: RefString(),
@@ -10823,7 +10871,8 @@ const V44 = {
       LocalTransform: "ModelTransformDataV44",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV44: {
       Flags: Uint32,
@@ -11181,6 +11230,7 @@ const V45 = {
       InitialPlacement: "ModelTransformDataV45",
       MeshBindings: DynArray("ModelMeshBindingDataV45"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV45"),
@@ -11191,7 +11241,8 @@ const V45 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV45"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV45: {
       Name: RefString(),
@@ -11199,7 +11250,8 @@ const V45 = {
       LocalTransform: "ModelTransformDataV45",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV45: {
       Flags: Uint32,
@@ -11557,6 +11609,7 @@ const V46 = {
       InitialPlacement: "ModelTransformDataV46",
       MeshBindings: DynArray("ModelMeshBindingDataV46"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV46"),
@@ -11567,7 +11620,8 @@ const V46 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV46"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV46: {
       Name: RefString(),
@@ -11575,7 +11629,8 @@ const V46 = {
       LocalTransform: "ModelTransformDataV46",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV46: {
       Flags: Uint32,
@@ -11935,6 +11990,7 @@ const V47 = {
       InitialPlacement: "ModelTransformDataV47",
       MeshBindings: DynArray("ModelMeshBindingDataV47"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV47"),
@@ -11945,7 +12001,8 @@ const V47 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV47"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV47: {
       Name: RefString(),
@@ -11953,7 +12010,8 @@ const V47 = {
       LocalTransform: "ModelTransformDataV47",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV47: {
       Flags: Uint32,
@@ -12319,6 +12377,7 @@ const V48 = {
       InitialPlacement: "ModelTransformDataV48",
       MeshBindings: DynArray("ModelMeshBindingDataV48"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV48"),
@@ -12329,7 +12388,8 @@ const V48 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV48"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV48: {
       Name: RefString(),
@@ -12337,7 +12397,8 @@ const V48 = {
       LocalTransform: "ModelTransformDataV48",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV48: {
       Flags: Uint32,
@@ -12703,6 +12764,7 @@ const V49 = {
       InitialPlacement: "ModelTransformDataV49",
       MeshBindings: DynArray("ModelMeshBindingDataV49"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV49"),
@@ -12713,7 +12775,8 @@ const V49 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV49"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV49: {
       Name: RefString(),
@@ -12721,7 +12784,8 @@ const V49 = {
       LocalTransform: "ModelTransformDataV49",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV49: {
       Flags: Uint32,
@@ -13092,6 +13156,7 @@ const V50 = {
       InitialPlacement: "ModelTransformDataV50",
       MeshBindings: DynArray("ModelMeshBindingDataV50"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV50"),
@@ -13102,7 +13167,8 @@ const V50 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV50"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV50: {
       Name: RefString(),
@@ -13110,7 +13176,8 @@ const V50 = {
       LocalTransform: "ModelTransformDataV50",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV50: {
       Flags: Uint32,
@@ -13489,6 +13556,7 @@ const V51 = {
       InitialPlacement: "ModelTransformDataV51",
       MeshBindings: DynArray("ModelMeshBindingDataV51"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV51"),
@@ -13499,7 +13567,8 @@ const V51 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV51"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV51: {
       Name: RefString(),
@@ -13507,7 +13576,8 @@ const V51 = {
       LocalTransform: "ModelTransformDataV51",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV51: {
       Flags: Uint32,
@@ -13890,6 +13960,7 @@ const V52 = {
       InitialPlacement: "ModelTransformDataV52",
       MeshBindings: DynArray("ModelMeshBindingDataV52"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV52"),
@@ -13900,7 +13971,8 @@ const V52 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV52"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV52: {
       Name: RefString(),
@@ -13908,7 +13980,8 @@ const V52 = {
       LocalTransform: "ModelTransformDataV52",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV52: {
       Flags: Uint32,
@@ -14299,6 +14372,7 @@ const V53 = {
       InitialPlacement: "ModelTransformDataV53",
       MeshBindings: DynArray("ModelMeshBindingDataV53"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV53"),
@@ -14309,7 +14383,8 @@ const V53 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV53"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV53: {
       Name: RefString(),
@@ -14317,7 +14392,8 @@ const V53 = {
       LocalTransform: "ModelTransformDataV53",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV53: {
       Flags: Uint32,
@@ -14711,6 +14787,7 @@ const V54 = {
       InitialPlacement: "ModelTransformDataV54",
       MeshBindings: DynArray("ModelMeshBindingDataV54"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV54"),
@@ -14722,6 +14799,7 @@ const V54 = {
       Bones: DynArray("ModelBoneDataV54"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV54")
     },
     ModelBoneDataV54: {
@@ -14730,7 +14808,8 @@ const V54 = {
       LocalTransform: "ModelTransformDataV54",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV54: {
       Flags: Uint32,
@@ -15130,6 +15209,7 @@ const V55 = {
       InitialPlacement: "ModelTransformDataV55",
       MeshBindings: DynArray("ModelMeshBindingDataV55"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV55"),
@@ -15141,6 +15221,7 @@ const V55 = {
       Bones: DynArray("ModelBoneDataV55"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV55")
     },
     ModelBoneDataV55: {
@@ -15149,7 +15230,8 @@ const V55 = {
       LocalTransform: "ModelTransformDataV55",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV55: {
       Flags: Uint32,
@@ -15550,6 +15632,7 @@ const V56 = {
       InitialPlacement: "ModelTransformDataV56",
       MeshBindings: DynArray("ModelMeshBindingDataV56"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV56"),
@@ -15561,6 +15644,7 @@ const V56 = {
       Bones: DynArray("ModelBoneDataV56"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV56")
     },
     ModelBoneDataV56: {
@@ -15569,7 +15653,8 @@ const V56 = {
       LocalTransform: "ModelTransformDataV56",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV56: {
       Flags: Uint32,
@@ -15971,6 +16056,7 @@ const V57 = {
       InitialPlacement: "ModelTransformDataV57",
       MeshBindings: DynArray("ModelMeshBindingDataV57"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV57"),
@@ -15982,6 +16068,7 @@ const V57 = {
       Bones: DynArray("ModelBoneDataV57"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV57")
     },
     ModelBoneDataV57: {
@@ -15990,7 +16077,8 @@ const V57 = {
       LocalTransform: "ModelTransformDataV57",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV57: {
       Flags: Uint32,
@@ -16398,6 +16486,7 @@ const V58 = {
       InitialPlacement: "ModelTransformDataV58",
       MeshBindings: DynArray("ModelMeshBindingDataV58"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV58"),
@@ -16409,6 +16498,7 @@ const V58 = {
       Bones: DynArray("ModelBoneDataV58"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV58")
     },
     ModelBoneDataV58: {
@@ -16417,7 +16507,8 @@ const V58 = {
       LocalTransform: "ModelTransformDataV58",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV58: {
       Flags: Uint32,
@@ -16831,6 +16922,7 @@ const V59 = {
       InitialPlacement: "ModelTransformDataV59",
       MeshBindings: DynArray("ModelMeshBindingDataV59"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV59"),
@@ -16842,6 +16934,7 @@ const V59 = {
       Bones: DynArray("ModelBoneDataV59"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV59")
     },
     ModelBoneDataV59: {
@@ -16850,7 +16943,8 @@ const V59 = {
       LocalTransform: "ModelTransformDataV59",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV59: {
       Flags: Uint32,
@@ -17265,6 +17359,7 @@ const V60 = {
       InitialPlacement: "ModelTransformDataV60",
       MeshBindings: DynArray("ModelMeshBindingDataV60"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV60"),
@@ -17276,6 +17371,7 @@ const V60 = {
       Bones: DynArray("ModelBoneDataV60"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV60")
     },
     ModelBoneDataV60: {
@@ -17284,7 +17380,8 @@ const V60 = {
       LocalTransform: "ModelTransformDataV60",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV60: {
       Flags: Uint32,
@@ -17706,6 +17803,7 @@ const V61 = {
       InitialPlacement: "ModelTransformDataV61",
       MeshBindings: DynArray("ModelMeshBindingDataV61"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV61"),
@@ -17717,6 +17815,7 @@ const V61 = {
       Bones: DynArray("ModelBoneDataV61"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV61")
     },
     ModelBoneDataV61: {
@@ -17725,7 +17824,8 @@ const V61 = {
       LocalTransform: "ModelTransformDataV61",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV61: {
       Flags: Uint32,
@@ -18849,7 +18949,8 @@ const V64 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelMeshDataV64: {
       visBone: Uint64,
@@ -19218,7 +19319,8 @@ const V65 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV65: {
       clouds: DynArray("ModelParticleCloudV65"),
@@ -19553,7 +19655,8 @@ const V66 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV66: {
       clouds: DynArray("ModelParticleCloudV66"),
@@ -19888,7 +19991,8 @@ const V67 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV67: {
       clouds: DynArray("ModelParticleCloudV66"),
@@ -20242,7 +20346,8 @@ const V68 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV68: {
       clouds: DynArray("ModelParticleCloudV66"),
@@ -20594,7 +20699,8 @@ const V69 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV69: {
       clouds: DynArray("ModelParticleCloudV66"),

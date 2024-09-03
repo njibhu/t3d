@@ -62,7 +62,7 @@ export namespace V1_N {
     filename: string,
     flags: number,
     type: number,
-    permutation: BigInt
+    permutation: number
   }
 
 }
@@ -98,7 +98,7 @@ export namespace V2_N {
     filename: string,
     flags: number,
     type: number,
-    permutation: BigInt
+    permutation: number
   }
 
 }

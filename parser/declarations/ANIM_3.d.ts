@@ -4,7 +4,7 @@ export namespace V0_N {
   }
 
   export type PackEmoteAnimationV0 = {
-    token: BigInt,
+    token: number,
     timings: Array<PackEmoteTimingV0>
   }
 
@@ -25,7 +25,7 @@ export namespace V1_N {
   }
 
   export type PackEmoteAnimationV1 = {
-    token: BigInt,
+    token: number,
     timings: Array<PackEmoteTimingV1>
   }
 
@@ -47,7 +47,7 @@ export namespace V2_N {
   }
 
   export type PackEmoteAnimationV2 = {
-    Token: BigInt,
+    Token: number,
     Timing: Array<PackEmoteTimingV2>
   }
 
@@ -70,7 +70,7 @@ export namespace V3_N {
   }
 
   export type PackEmoteAnimationV3 = {
-    Token: BigInt,
+    Token: number,
     Timing: Array<PackEmoteTimingV3>
   }
 

@@ -1,7 +1,7 @@
 export namespace V0_N {
   export type MapSurfaces = {
     chunkData: Array<MapSurfaceChunk>,
-    typeData: Array<BigInt>
+    typeData: Array<number>
   }
 
   export type MapSurfaceChunk = {
@@ -27,8 +27,8 @@ export namespace V1_N {
   }
 
   export type MapSurfaceAttribute = {
-    Id: BigInt,
-    Sound: BigInt,
+    Id: number,
+    Sound: number,
     flags: number
   }
 
@@ -51,8 +51,8 @@ export namespace V2_N {
   }
 
   export type MapSurfaceAttribute = {
-    Id: BigInt,
-    Sound: BigInt,
+    Id: number,
+    Sound: number,
     flags: number
   }
 
@@ -68,12 +68,12 @@ export namespace V2_N {
   }
 
   export type MapSurfaceOverride = {
-    surfaceId: BigInt,
+    surfaceId: number,
     bitArray: Array<number>
   }
 
   export type MapSurfacePropOverride = {
-    propId: BigInt,
+    propId: number,
     overrideArray: Array<MapSurfaceOverride>
   }
 

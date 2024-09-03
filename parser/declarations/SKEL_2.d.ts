@@ -137,7 +137,7 @@ export namespace V3_N {
     vertexB: Array<number>,
     radius: number,
     mass: number,
-    name: BigInt
+    name: number
   }
 
   export type SceneJointV3 = {

@@ -27,7 +27,7 @@ export namespace V1_N {
   }
 
   export type PackMapAreaV1 = {
-    token: BigInt,
+    token: number,
     type: number,
     floor: number,
     polygon: PackMapAreaPolygonV1,
@@ -64,7 +64,7 @@ export namespace V2_N {
   }
 
   export type PackMapAreaV2 = {
-    token: BigInt,
+    token: number,
     type: number,
     floor: number,
     flags: number,
@@ -106,7 +106,7 @@ export namespace V3_N {
   }
 
   export type PackMapAreaV3 = {
-    token: BigInt,
+    token: number,
     type: number,
     floor: number,
     flags: number,
@@ -149,7 +149,7 @@ export namespace V4_N {
   }
 
   export type PackMapAreaV4 = {
-    token: BigInt,
+    token: number,
     type: number,
     floor: number,
     flags: number,

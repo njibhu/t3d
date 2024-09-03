@@ -18,14 +18,16 @@ export namespace V0_N {
     Skeleton: ModelGrannySkeletonV0,
     InitialPlacement: ModelTransformData,
     MeshBindings: Array<ModelMeshBindingData>,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelGrannySkeletonV0 = {
     Name: string,
     Bones: Array<ModelBoneData>,
     LODType: number,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelBoneData = {
@@ -34,7 +36,8 @@ export namespace V0_N {
     LocalTransform: ModelTransformData,
     InverseWorld4x4: Array<Array<number>>,
     LODError: number,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelTransformData = {
@@ -49,7 +52,7 @@ export namespace V0_N {
   }
 
   export type ModelBoneConstraintV62 = {
-    token: BigInt,
+    token: number,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -77,17 +80,17 @@ export namespace V0_N {
     angle: number,
     azimuth: number,
     distance: Array<number>,
-    token: BigInt
+    token: number
   }
 
   export type ModelBoneSymmetryV62 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: number,
+    boneRight: number
   }
 
   export type ModelTrackMaskV62 = {
     data: PackGrannyTrackMaskType,
-    token: BigInt
+    token: number
   }
 
   export type PackGrannyTrackMaskType = {
@@ -119,14 +122,16 @@ export namespace V1_N {
     Skeleton: ModelGrannySkeletonV1,
     InitialPlacement: ModelTransformData,
     MeshBindings: Array<ModelMeshBindingData>,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelGrannySkeletonV1 = {
     Name: string,
     Bones: Array<ModelBoneData>,
     LODType: number,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelBoneData = {
@@ -135,7 +140,8 @@ export namespace V1_N {
     LocalTransform: ModelTransformData,
     InverseWorld4x4: Array<Array<number>>,
     LODError: number,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelTransformData = {
@@ -150,7 +156,7 @@ export namespace V1_N {
   }
 
   export type ModelBoneConstraintV63 = {
-    token: BigInt,
+    token: number,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -178,7 +184,7 @@ export namespace V1_N {
     angle: number,
     azimuth: number,
     distance: Array<number>,
-    token: BigInt
+    token: number
   }
 
   export type PackGrannyMirrorSpecType = {
@@ -187,7 +193,7 @@ export namespace V1_N {
 
   export type ModelTrackMaskV63 = {
     data: PackGrannyTrackMaskType,
-    token: BigInt
+    token: number
   }
 
   export type PackGrannyTrackMaskType = {

@@ -5,37 +5,37 @@ export namespace V0_N {
   }
 
   export type PackAnimAimIKConfigV0 = {
-    name: BigInt,
-    boneEye: BigInt,
-    boneSight: BigInt,
-    endEffector: BigInt,
+    name: number,
+    boneEye: number,
+    boneSight: number,
+    endEffector: number,
     frustumHAngle: number,
     frustumVAngle: number,
     frustumLength: number,
     targetVelocityConstraint: number,
     bones: Array<PackAnimAimIKBoneV0>,
-    targets: Array<BigInt>,
+    targets: Array<number>,
     flags: number
   }
 
   export type PackAnimAimIKBoneV0 = {
-    boneToken: BigInt,
+    boneToken: number,
     clampAngle: number,
     weight: number,
     smoothingWeight: number
   }
 
   export type PackAnimIKChainGroupV0 = {
-    name: BigInt,
+    name: number,
     chains: Array<PackAnimIKChainV0>
   }
 
   export type PackAnimIKChainV0 = {
-    name: BigInt,
+    name: number,
     smoothWeight: Array<number>,
     hyperExtensionStart: number,
     hyperExtensionScale: number,
-    bones: Array<BigInt>,
+    bones: Array<number>,
     targetRaycastInfo: PackAnimIKRaycastTargetV0,
     targetMode: number,
     chainType: number

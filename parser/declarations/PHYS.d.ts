@@ -171,7 +171,7 @@ export namespace V4_N {
   }
 
   export type ScenePathV5 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV5>,
     closed: number
   }
@@ -206,12 +206,12 @@ export namespace V4_N {
   }
 
   export type PackMapPhysicsObjectRefV4 = {
-    sequence: BigInt,
+    sequence: number,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV4 = {
-    token: BigInt,
+    token: number,
     scale: number,
     translate: Array<number>,
     rotate: Array<number>,
@@ -294,7 +294,7 @@ export namespace V5_N {
   }
 
   export type ScenePathV5 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV5>,
     closed: number
   }
@@ -329,12 +329,12 @@ export namespace V5_N {
   }
 
   export type PackMapPhysicsObjectRefV5 = {
-    sequence: BigInt,
+    sequence: number,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV5 = {
-    token: BigInt,
+    token: number,
     scale: number,
     translate: Array<number>,
     rotate: Array<number>,
@@ -418,7 +418,7 @@ export namespace V6_N {
   }
 
   export type ScenePathV6 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV6>,
     closed: number
   }
@@ -446,7 +446,7 @@ export namespace V6_N {
   }
 
   export type SceneGameSurfaceV6 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
   export type PackMapPhysicsGeometryV6 = {
@@ -456,12 +456,12 @@ export namespace V6_N {
   }
 
   export type PackMapPhysicsObjectRefV6 = {
-    sequence: BigInt,
+    sequence: number,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV6 = {
-    token: BigInt,
+    token: number,
     scale: number,
     translate: Array<number>,
     rotate: Array<number>,
@@ -551,7 +551,7 @@ export namespace V7_N {
   }
 
   export type ScenePathV6 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV6>,
     closed: number
   }
@@ -579,7 +579,7 @@ export namespace V7_N {
   }
 
   export type SceneGameSurfaceV6 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
   export type PackMapPhysicsGeometryV7 = {
@@ -589,12 +589,12 @@ export namespace V7_N {
   }
 
   export type PackMapPhysicsObjectRefV7 = {
-    sequence: BigInt,
+    sequence: number,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV7 = {
-    token: BigInt,
+    token: number,
     scale: number,
     translate: Array<number>,
     rotate: Array<number>,
@@ -685,7 +685,7 @@ export namespace V8_N {
   }
 
   export type ScenePathV6 = {
-    properties: Array<BigInt>,
+    properties: Array<number>,
     points: Array<ScenePathNodeV6>,
     closed: number
   }
@@ -713,7 +713,7 @@ export namespace V8_N {
   }
 
   export type SceneGameSurfaceV6 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
   export type PackMapPhysicsGeometryV8 = {
@@ -723,12 +723,12 @@ export namespace V8_N {
   }
 
   export type PackMapPhysicsObjectRefV8 = {
-    sequence: BigInt,
+    sequence: number,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV8 = {
-    token: BigInt,
+    token: number,
     scale: number,
     translate: Array<number>,
     rotate: Array<number>,
@@ -787,12 +787,12 @@ export namespace V9_N {
   }
 
   export type PackMapPhysicsObjectRefV9 = {
-    sequence: BigInt,
+    sequence: number,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV9 = {
-    token: BigInt,
+    token: number,
     scale: number,
     translate: Array<number>,
     rotate: Array<number>,
@@ -852,12 +852,12 @@ export namespace V10_N {
   }
 
   export type PackMapPhysicsObjectRefV10 = {
-    sequence: BigInt,
+    sequence: number,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV10 = {
-    token: BigInt,
+    token: number,
     scale: number,
     translate: Array<number>,
     rotate: Array<number>,

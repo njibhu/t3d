@@ -42,7 +42,7 @@ export namespace V2_N {
     bottmVertices: Array<Array<number>>,
     topVertices: Array<Array<number>>,
     name: string,
-    surface: BigInt
+    surface: number
   }
 
 }

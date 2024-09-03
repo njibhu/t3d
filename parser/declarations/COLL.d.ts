@@ -8,14 +8,14 @@ export namespace V0_N {
   }
 
   export type ModelCollisionMeshV0 = {
-    animationSequence: BigInt,
+    animationSequence: number,
     vertices: Array<Array<number>>,
     indices: Array<number>,
     surfaces: Array<number>
   }
 
   export type ModelCollisionCloudV0 = {
-    animationSequence: BigInt,
+    animationSequence: number,
     points: Array<Array<number>>,
     surface: number
   }
@@ -32,7 +32,7 @@ export namespace V0_N {
   }
 
   export type ModelCollisionSurfaceV0 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
 }
@@ -49,14 +49,14 @@ export namespace V1_N {
   }
 
   export type ModelCollisionMeshV1 = {
-    animationSequences: Array<BigInt>,
+    animationSequences: Array<number>,
     vertices: Array<Array<number>>,
     indices: Array<number>,
     surfaces: Array<number>
   }
 
   export type ModelCollisionCloudV1 = {
-    animationSequence: BigInt,
+    animationSequence: number,
     points: Array<Array<number>>,
     surface: number
   }
@@ -73,7 +73,7 @@ export namespace V1_N {
   }
 
   export type ModelCollisionSurfaceV1 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
 }
@@ -91,14 +91,14 @@ export namespace V2_N {
   }
 
   export type ModelCollisionMeshV8 = {
-    animationSequences: Array<BigInt>,
+    animationSequences: Array<number>,
     vertices: Array<Array<number>>,
     indices: Array<number>,
     surfaces: Array<number>
   }
 
   export type ModelCollisionCloudV8 = {
-    animationSequence: BigInt,
+    animationSequence: number,
     points: Array<Array<number>>,
     surface: number
   }
@@ -122,7 +122,7 @@ export namespace V2_N {
   }
 
   export type ModelCollisionSurfaceV8 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
 }
@@ -140,7 +140,7 @@ export namespace V3_N {
   }
 
   export type ModelCollisionAnimationV9 = {
-    animation: BigInt,
+    animation: number,
     objects: Array<ModelCollisionAnimatedObjectV9>
   }
 
@@ -182,7 +182,7 @@ export namespace V3_N {
   }
 
   export type ModelCollisionSurfaceV9 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
 }
@@ -200,7 +200,7 @@ export namespace V4_N {
   }
 
   export type ModelCollisionAnimationV10 = {
-    animation: BigInt,
+    animation: number,
     objects: Array<ModelCollisionAnimatedObjectV10>,
     targetPoints: Array<Array<number>>
   }
@@ -244,7 +244,7 @@ export namespace V4_N {
   }
 
   export type ModelCollisionSurfaceV10 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
 }

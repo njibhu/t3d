@@ -101,7 +101,7 @@ export namespace V3_N {
   }
 
   export type SceneShapeSurfaceV3 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
   export type SceneCollisionShapeV3 = {
@@ -140,7 +140,7 @@ export namespace V4_N {
   }
 
   export type SceneShapeSurfaceV4 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
   export type SceneCollisionShapeV4 = {
@@ -172,7 +172,7 @@ export namespace V5_N {
   }
 
   export type SceneShapeSurfaceV5 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
   export type SceneBoxShapeV5 = {
@@ -226,7 +226,7 @@ export namespace V6_N {
   }
 
   export type SceneShapeSurfaceV6 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
   export type SceneBoxShapeV6 = {
@@ -345,7 +345,7 @@ export namespace V8_N {
   }
 
   export type SceneSurfaceV8 = {
-    tokens: Array<BigInt>
+    tokens: Array<number>
   }
 
 }

@@ -8,7 +8,7 @@ export namespace V11_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV12>,
-    timeStamp: BigInt
+    timeStamp: number
   }
 
   export type PackMapZoneLayerDefV12 = {
@@ -73,7 +73,7 @@ export namespace V12_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV13>,
-    timeStamp: BigInt
+    timeStamp: number
   }
 
   export type PackMapZoneLayerDefV13 = {
@@ -139,7 +139,7 @@ export namespace V13_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV14>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV2
   }
 
@@ -218,7 +218,7 @@ export namespace V14_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV15>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV3
   }
 
@@ -300,7 +300,7 @@ export namespace V15_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV16>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV4
   }
 
@@ -387,7 +387,7 @@ export namespace V16_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV17>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV5
   }
 
@@ -474,7 +474,7 @@ export namespace V17_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV18>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV6
   }
 
@@ -564,7 +564,7 @@ export namespace V18_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV19>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV7
   }
 
@@ -654,7 +654,7 @@ export namespace V19_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV20>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV8
   }
 
@@ -745,7 +745,7 @@ export namespace V20_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV21>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV9
   }
 
@@ -837,7 +837,7 @@ export namespace V21_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV22>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV10,
     reserved: string
   }
@@ -933,7 +933,7 @@ export namespace V22_N {
     defFilename: string,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV23>,
-    timeStamp: BigInt,
+    timeStamp: number,
     pageTable: PackMapZonePageTableV11,
     reserved: string
   }
@@ -965,7 +965,7 @@ export namespace V22_N {
     flags: number,
     hslOffset: Array<number>,
     zOffsets: Array<number>,
-    permutation: BigInt
+    permutation: number
   }
 
   export type PackMapZonePageTableV11 = {

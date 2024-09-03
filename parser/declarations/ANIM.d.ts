@@ -2,12 +2,12 @@ export namespace V0_N {
   export type ModelFileAnimationV0 = {
     animations: Array<ModelAnimationDataV8>,
     compoundAnimations: Array<ModelCompoundAnimationDataV0>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV8>
   }
 
   export type ModelAnimationDataV8 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV8>,
@@ -30,15 +30,15 @@ export namespace V0_N {
   }
 
   export type ModelCompoundAnimationDataV0 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV8 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -49,18 +49,18 @@ export namespace V1_N {
   export type ModelFileAnimationV1 = {
     animations: Array<ModelAnimationDataV9>,
     compoundAnimations: Array<ModelCompoundAnimationDataV1>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV9>
   }
 
   export type ModelAnimationDataV9 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV9>,
     uvAnimData: Array<ModelUVAnimationV1>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>
+    triggerTokens: Array<number>
   }
 
   export type ModelVisTrackDataV9 = {
@@ -79,15 +79,15 @@ export namespace V1_N {
   }
 
   export type ModelCompoundAnimationDataV1 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV9 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -98,19 +98,19 @@ export namespace V2_N {
   export type ModelFileAnimationBankV2 = {
     animations: Array<ModelAnimationDataV10>,
     compoundAnimations: Array<ModelCompoundAnimationDataV2>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV10>
   }
 
   export type ModelAnimationDataV10 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV10>,
     uvAnimData: Array<ModelUVAnimationV2>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>
+    triggerTokens: Array<number>
   }
 
   export type ModelVisTrackDataV10 = {
@@ -129,15 +129,15 @@ export namespace V2_N {
   }
 
   export type ModelCompoundAnimationDataV2 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV10 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -148,19 +148,19 @@ export namespace V3_N {
   export type ModelFileAnimationBankV3 = {
     animations: Array<ModelAnimationDataV11>,
     compoundAnimations: Array<ModelCompoundAnimationDataV3>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV11>
   }
 
   export type ModelAnimationDataV11 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV11>,
     uvAnimData: Array<ModelUVAnimationV3>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV3>
   }
 
@@ -180,20 +180,20 @@ export namespace V3_N {
   }
 
   export type ModelLightAnimationV3 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV3>
   }
 
   export type ModelCompoundAnimationDataV3 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV11 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -204,19 +204,19 @@ export namespace V4_N {
   export type ModelFileAnimationBankV4 = {
     animations: Array<ModelAnimationDataV12>,
     compoundAnimations: Array<ModelCompoundAnimationDataV4>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV12>
   }
 
   export type ModelAnimationDataV12 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV12>,
     uvAnimData: Array<ModelUVAnimationV4>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV4>,
     isAdditive: number
   }
@@ -237,20 +237,20 @@ export namespace V4_N {
   }
 
   export type ModelLightAnimationV4 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV4>
   }
 
   export type ModelCompoundAnimationDataV4 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV12 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -261,19 +261,19 @@ export namespace V5_N {
   export type ModelFileAnimationBankV5 = {
     animations: Array<ModelAnimationDataV13>,
     compoundAnimations: Array<ModelCompoundAnimationDataV5>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV13>
   }
 
   export type ModelAnimationDataV13 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV13>,
     uvAnimData: Array<ModelUVAnimationV5>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV5>,
     isAdditive: number
   }
@@ -294,20 +294,20 @@ export namespace V5_N {
   }
 
   export type ModelLightAnimationV5 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV5>
   }
 
   export type ModelCompoundAnimationDataV5 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV13 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -318,12 +318,12 @@ export namespace V6_N {
   export type ModelFileAnimationBankV6 = {
     animations: Array<ModelAnimationDataV14>,
     compoundAnimations: Array<ModelCompoundAnimationDataV6>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV14>
   }
 
   export type ModelAnimationDataV14 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV14>,
@@ -332,7 +332,7 @@ export namespace V6_N {
     matConstAnim: Array<ModelMatConstAnimV6>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV6>,
     isAdditive: number
   }
@@ -353,7 +353,7 @@ export namespace V6_N {
   }
 
   export type ModelCloudAnimV6 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV6>
   }
 
@@ -364,20 +364,20 @@ export namespace V6_N {
   }
 
   export type ModelLightAnimationV6 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV6>
   }
 
   export type ModelCompoundAnimationDataV6 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV14 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -388,12 +388,12 @@ export namespace V7_N {
   export type ModelFileAnimationBankV7 = {
     animations: Array<ModelAnimationDataV15>,
     compoundAnimations: Array<ModelCompoundAnimationDataV7>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV15>
   }
 
   export type ModelAnimationDataV15 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV15>,
@@ -402,7 +402,7 @@ export namespace V7_N {
     matConstAnim: Array<ModelMatConstAnimV7>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV7>,
     isAdditive: number
   }
@@ -424,7 +424,7 @@ export namespace V7_N {
   }
 
   export type ModelCloudAnimV7 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV7>
   }
 
@@ -436,20 +436,20 @@ export namespace V7_N {
   }
 
   export type ModelLightAnimationV7 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV7>
   }
 
   export type ModelCompoundAnimationDataV7 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV15 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -460,12 +460,12 @@ export namespace V8_N {
   export type ModelFileAnimationBankV8 = {
     animations: Array<ModelAnimationDataV16>,
     compoundAnimations: Array<ModelCompoundAnimationDataV8>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV16>
   }
 
   export type ModelAnimationDataV16 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV16>,
@@ -474,7 +474,7 @@ export namespace V8_N {
     matConstAnim: Array<ModelMatConstAnimV8>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV8>,
     isAdditive: number,
     variantCount: number,
@@ -498,7 +498,7 @@ export namespace V8_N {
   }
 
   export type ModelCloudAnimV8 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV8>
   }
 
@@ -510,20 +510,20 @@ export namespace V8_N {
   }
 
   export type ModelLightAnimationV8 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV8>
   }
 
   export type ModelCompoundAnimationDataV8 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV16 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -534,12 +534,12 @@ export namespace V9_N {
   export type ModelFileAnimationBankV9 = {
     animations: Array<ModelAnimationDataV17>,
     compoundAnimations: Array<ModelCompoundAnimationDataV9>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV17>
   }
 
   export type ModelAnimationDataV17 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV17>,
@@ -548,7 +548,7 @@ export namespace V9_N {
     matConstAnim: Array<ModelMatConstAnimV9>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV9>,
     isAdditive: number,
     variantCount: number,
@@ -573,7 +573,7 @@ export namespace V9_N {
   }
 
   export type ModelCloudAnimV9 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV9>
   }
 
@@ -586,20 +586,20 @@ export namespace V9_N {
   }
 
   export type ModelLightAnimationV9 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV9>
   }
 
   export type ModelCompoundAnimationDataV9 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV17 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -610,12 +610,12 @@ export namespace V10_N {
   export type ModelFileAnimationBankV10 = {
     animations: Array<ModelAnimationDataV18>,
     compoundAnimations: Array<ModelCompoundAnimationDataV10>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV18>
   }
 
   export type ModelAnimationDataV18 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV18>,
@@ -624,7 +624,7 @@ export namespace V10_N {
     matConstAnim: Array<ModelMatConstAnimV10>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV10>,
     isAdditive: number,
     variantCount: number,
@@ -650,7 +650,7 @@ export namespace V10_N {
   }
 
   export type ModelCloudAnimV10 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV10>
   }
 
@@ -663,27 +663,27 @@ export namespace V10_N {
   }
 
   export type ModelLightAnimationV10 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV10>
   }
 
   export type ModelAnimPropertyDataV10 = {
-    id: BigInt,
+    id: number,
     type: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelCompoundAnimationDataV10 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV18 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -694,12 +694,12 @@ export namespace V11_N {
   export type ModelFileAnimationBankV11 = {
     animations: Array<ModelAnimationDataV19>,
     compoundAnimations: Array<ModelCompoundAnimationDataV11>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV19>
   }
 
   export type ModelAnimationDataV19 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV19>,
@@ -708,7 +708,7 @@ export namespace V11_N {
     matConstAnim: Array<ModelMatConstAnimV11>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV11>,
     isAdditive: number,
     variantCount: number,
@@ -736,7 +736,7 @@ export namespace V11_N {
   }
 
   export type ModelCloudAnimV11 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV11>
   }
 
@@ -749,27 +749,27 @@ export namespace V11_N {
   }
 
   export type ModelLightAnimationV11 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV11>
   }
 
   export type ModelAnimPropertyDataV11 = {
-    id: BigInt,
+    id: number,
     type: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelCompoundAnimationDataV11 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV19 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -780,12 +780,12 @@ export namespace V12_N {
   export type ModelFileAnimationBankV12 = {
     animations: Array<ModelAnimationDataV20>,
     compoundAnimations: Array<ModelCompoundAnimationDataV12>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV20>
   }
 
   export type ModelAnimationDataV20 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV20>,
@@ -794,7 +794,7 @@ export namespace V12_N {
     matConstAnim: Array<ModelMatConstAnimV12>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV12>,
     isAdditive: number,
     variantCount: number,
@@ -823,7 +823,7 @@ export namespace V12_N {
   }
 
   export type ModelCloudAnimV12 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV12>
   }
 
@@ -836,34 +836,34 @@ export namespace V12_N {
   }
 
   export type ModelLightAnimationV12 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV12>
   }
 
   export type ModelAnimPropertyDataV12 = {
-    id: BigInt,
+    id: number,
     type: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV12 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelCompoundAnimationDataV12 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV20 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -874,12 +874,12 @@ export namespace V13_N {
   export type ModelFileAnimationBankV13 = {
     animations: Array<ModelAnimationDataV21>,
     compoundAnimations: Array<ModelCompoundAnimationDataV13>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV21>
   }
 
   export type ModelAnimationDataV21 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV21>,
@@ -888,7 +888,7 @@ export namespace V13_N {
     matConstAnim: Array<ModelMatConstAnimV13>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV13>,
     isAdditive: number,
     variantCount: number,
@@ -917,7 +917,7 @@ export namespace V13_N {
   }
 
   export type ModelCloudAnimV13 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV13>
   }
 
@@ -930,35 +930,35 @@ export namespace V13_N {
   }
 
   export type ModelLightAnimationV13 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV13>
   }
 
   export type ModelAnimPropertyDataV13 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV13 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelCompoundAnimationDataV13 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV21 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -969,12 +969,12 @@ export namespace V14_N {
   export type ModelFileAnimationBankV14 = {
     animations: Array<ModelAnimationDataV22>,
     compoundAnimations: Array<ModelCompoundAnimationDataV14>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV22>
   }
 
   export type ModelAnimationDataV22 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV22>,
@@ -983,7 +983,7 @@ export namespace V14_N {
     matConstAnim: Array<ModelMatConstAnimV14>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV14>,
     isAdditive: number,
     variantCount: number,
@@ -995,7 +995,7 @@ export namespace V14_N {
   }
 
   export type ModelVisTrackDataV22 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -1012,7 +1012,7 @@ export namespace V14_N {
   }
 
   export type ModelCloudAnimV14 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV14>
   }
 
@@ -1025,35 +1025,35 @@ export namespace V14_N {
   }
 
   export type ModelLightAnimationV14 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV14>
   }
 
   export type ModelAnimPropertyDataV14 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV14 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelCompoundAnimationDataV14 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV22 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -1064,12 +1064,12 @@ export namespace V15_N {
   export type ModelFileAnimationBankV15 = {
     animations: Array<ModelAnimationDataV23>,
     compoundAnimations: Array<ModelCompoundAnimationDataV15>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV23>
   }
 
   export type ModelAnimationDataV23 = {
-    token: BigInt,
+    token: number,
     data: Array<number>,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV23>,
@@ -1078,7 +1078,7 @@ export namespace V15_N {
     matConstAnim: Array<ModelMatConstAnimV15>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV15>,
     isAdditive: number,
     variantCount: number,
@@ -1091,7 +1091,7 @@ export namespace V15_N {
   }
 
   export type ModelVisTrackDataV23 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -1108,7 +1108,7 @@ export namespace V15_N {
   }
 
   export type ModelCloudAnimV15 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV15>
   }
 
@@ -1121,40 +1121,40 @@ export namespace V15_N {
   }
 
   export type ModelLightAnimationV15 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV15>
   }
 
   export type ModelAnimPropertyDataV15 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV15 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV15 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV15>
   }
 
   export type ModelCompoundAnimationDataV15 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV23 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -1165,12 +1165,12 @@ export namespace V16_N {
   export type ModelFileAnimationBankV16 = {
     animations: Array<ModelAnimationDataV24>,
     compoundAnimations: Array<ModelCompoundAnimationDataV16>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV24>
   }
 
   export type ModelAnimationDataV24 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV24>,
@@ -1179,7 +1179,7 @@ export namespace V16_N {
     matConstAnim: Array<ModelMatConstAnimV16>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV16>,
     isAdditive: number,
     variantCount: number,
@@ -1197,7 +1197,7 @@ export namespace V16_N {
   }
 
   export type ModelVisTrackDataV24 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -1214,7 +1214,7 @@ export namespace V16_N {
   }
 
   export type ModelCloudAnimV16 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV16>
   }
 
@@ -1227,50 +1227,50 @@ export namespace V16_N {
   }
 
   export type ModelLightAnimationV16 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV16>
   }
 
   export type ModelAnimPropertyDataV16 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV16 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV16 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV16>
   }
 
   export type ModelStreakAnimV16 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV16>
   }
 
   export type ModelAnchorAnimV16 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV16>
   }
 
   export type ModelCompoundAnimationDataV16 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV24 = {
     filename: string,
-    sequenceTokens: Array<BigInt>
+    sequenceTokens: Array<number>
   }
 
 }
@@ -1281,12 +1281,12 @@ export namespace V17_N {
   export type ModelFileAnimationBankV17 = {
     animations: Array<ModelAnimationDataV25>,
     compoundAnimations: Array<ModelCompoundAnimationDataV17>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV25>
   }
 
   export type ModelAnimationDataV25 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV25>,
@@ -1295,7 +1295,7 @@ export namespace V17_N {
     matConstAnim: Array<ModelMatConstAnimV17>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV17>,
     isAdditive: number,
     variantCount: number,
@@ -1313,7 +1313,7 @@ export namespace V17_N {
   }
 
   export type ModelVisTrackDataV25 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -1330,7 +1330,7 @@ export namespace V17_N {
   }
 
   export type ModelCloudAnimV17 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV17>
   }
 
@@ -1343,45 +1343,45 @@ export namespace V17_N {
   }
 
   export type ModelLightAnimationV17 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV17>
   }
 
   export type ModelAnimPropertyDataV17 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV17 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV17 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV17>
   }
 
   export type ModelStreakAnimV17 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV17>
   }
 
   export type ModelAnchorAnimV17 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV17>
   }
 
   export type ModelCompoundAnimationDataV17 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV25 = {
@@ -1390,7 +1390,7 @@ export namespace V17_N {
   }
 
   export type ModelAnimationImportSequenceV17 = {
-    name: BigInt,
+    name: number,
     duration: number
   }
 
@@ -1402,12 +1402,12 @@ export namespace V18_N {
   export type ModelFileAnimationBankV18 = {
     animations: Array<ModelAnimationDataV26>,
     compoundAnimations: Array<ModelCompoundAnimationDataV18>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV26>
   }
 
   export type ModelAnimationDataV26 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV26>,
@@ -1416,7 +1416,7 @@ export namespace V18_N {
     matConstAnim: Array<ModelMatConstAnimV18>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV18>,
     isAdditive: number,
     variantCount: number,
@@ -1434,7 +1434,7 @@ export namespace V18_N {
   }
 
   export type ModelVisTrackDataV26 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -1451,7 +1451,7 @@ export namespace V18_N {
   }
 
   export type ModelCloudAnimV18 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV18>
   }
 
@@ -1464,45 +1464,45 @@ export namespace V18_N {
   }
 
   export type ModelLightAnimationV18 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV18>
   }
 
   export type ModelAnimPropertyDataV18 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV18 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV18 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV18>
   }
 
   export type ModelStreakAnimV18 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV18>
   }
 
   export type ModelAnchorAnimV18 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV18>
   }
 
   export type ModelCompoundAnimationDataV18 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV26 = {
@@ -1511,7 +1511,7 @@ export namespace V18_N {
   }
 
   export type ModelAnimationImportSequenceV18 = {
-    name: BigInt,
+    name: number,
     duration: number
   }
 
@@ -1523,13 +1523,13 @@ export namespace V19_N {
   export type ModelFileAnimationBankV19 = {
     animations: Array<ModelAnimationDataV27>,
     compoundAnimations: Array<ModelCompoundAnimationDataV19>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV27>,
     modelReference: string
   }
 
   export type ModelAnimationDataV27 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV27>,
@@ -1538,7 +1538,7 @@ export namespace V19_N {
     matConstAnim: Array<ModelMatConstAnimV19>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV19>,
     isAdditive: number,
     variantCount: number,
@@ -1556,7 +1556,7 @@ export namespace V19_N {
   }
 
   export type ModelVisTrackDataV27 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -1573,7 +1573,7 @@ export namespace V19_N {
   }
 
   export type ModelCloudAnimV19 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV19>
   }
 
@@ -1586,45 +1586,45 @@ export namespace V19_N {
   }
 
   export type ModelLightAnimationV19 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV19>
   }
 
   export type ModelAnimPropertyDataV19 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV19 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV19 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV19>
   }
 
   export type ModelStreakAnimV19 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV19>
   }
 
   export type ModelAnchorAnimV19 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV19>
   }
 
   export type ModelCompoundAnimationDataV19 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV27 = {
@@ -1633,7 +1633,7 @@ export namespace V19_N {
   }
 
   export type ModelAnimationImportSequenceV19 = {
-    name: BigInt,
+    name: number,
     duration: number
   }
 
@@ -1645,13 +1645,13 @@ export namespace V20_N {
   export type ModelFileAnimationBankV20 = {
     animations: Array<ModelAnimationDataV28>,
     compoundAnimations: Array<ModelCompoundAnimationDataV20>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV28>,
     modelReference: string
   }
 
   export type ModelAnimationDataV28 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV28>,
@@ -1660,7 +1660,7 @@ export namespace V20_N {
     matConstAnim: Array<ModelMatConstAnimV20>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV20>,
     isAdditive: number,
     variantCount: number,
@@ -1679,7 +1679,7 @@ export namespace V20_N {
   }
 
   export type ModelVisTrackDataV28 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -1696,7 +1696,7 @@ export namespace V20_N {
   }
 
   export type ModelCloudAnimV20 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV20>
   }
 
@@ -1709,50 +1709,50 @@ export namespace V20_N {
   }
 
   export type ModelLightAnimationV20 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV20>
   }
 
   export type ModelAnimPropertyDataV20 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV20 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV20 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV20>
   }
 
   export type ModelStreakAnimV20 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV20>
   }
 
   export type ModelAnchorAnimV20 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV20>
   }
 
   export type ModelLightningAnimV20 = {
-    bone: BigInt,
+    bone: number,
     lightningTrackData: Array<ModelTrackTypeDataV20>
   }
 
   export type ModelCompoundAnimationDataV20 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV28 = {
@@ -1761,7 +1761,7 @@ export namespace V20_N {
   }
 
   export type ModelAnimationImportSequenceV20 = {
-    name: BigInt,
+    name: number,
     duration: number
   }
 
@@ -1773,13 +1773,13 @@ export namespace V21_N {
   export type ModelFileAnimationBankV21 = {
     animations: Array<ModelAnimationDataV29>,
     compoundAnimations: Array<ModelCompoundAnimationDataV21>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV29>,
     modelReference: string
   }
 
   export type ModelAnimationDataV29 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV29>,
@@ -1788,7 +1788,7 @@ export namespace V21_N {
     matConstAnim: Array<ModelMatConstAnimV21>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV21>,
     isAdditive: number,
     variantCount: number,
@@ -1808,7 +1808,7 @@ export namespace V21_N {
   }
 
   export type ModelVisTrackDataV29 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -1825,7 +1825,7 @@ export namespace V21_N {
   }
 
   export type ModelCloudAnimV21 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV21>
   }
 
@@ -1838,55 +1838,55 @@ export namespace V21_N {
   }
 
   export type ModelLightAnimationV21 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV21>
   }
 
   export type ModelAnimPropertyDataV21 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV21 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV21 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV21>
   }
 
   export type ModelStreakAnimV21 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV21>
   }
 
   export type ModelAnchorAnimV21 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV21>
   }
 
   export type ModelLightningAnimV21 = {
-    bone: BigInt,
+    bone: number,
     lightningTrackData: Array<ModelTrackTypeDataV21>
   }
 
   export type ModelWindAnimationV21 = {
-    bone: BigInt,
+    bone: number,
     windTrackData: Array<ModelTrackTypeDataV21>
   }
 
   export type ModelCompoundAnimationDataV21 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV29 = {
@@ -1895,7 +1895,7 @@ export namespace V21_N {
   }
 
   export type ModelAnimationImportSequenceV21 = {
-    name: BigInt,
+    name: number,
     duration: number
   }
 
@@ -1907,12 +1907,12 @@ export namespace V22_N {
   export type ModelFileAnimationBankV22 = {
     animations: Array<ModelAnimationDataV30>,
     compoundAnimations: Array<ModelCompoundAnimationDataV22>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV30>
   }
 
   export type ModelAnimationDataV30 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV30>,
@@ -1921,7 +1921,7 @@ export namespace V22_N {
     matConstAnim: Array<ModelMatConstAnimV22>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV22>,
     isAdditive: number,
     variantCount: number,
@@ -1941,7 +1941,7 @@ export namespace V22_N {
   }
 
   export type ModelVisTrackDataV30 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -1958,7 +1958,7 @@ export namespace V22_N {
   }
 
   export type ModelCloudAnimV22 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV22>
   }
 
@@ -1971,55 +1971,55 @@ export namespace V22_N {
   }
 
   export type ModelLightAnimationV22 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV22>
   }
 
   export type ModelAnimPropertyDataV22 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV22 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV22 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV22>
   }
 
   export type ModelStreakAnimV22 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV22>
   }
 
   export type ModelAnchorAnimV22 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV22>
   }
 
   export type ModelLightningAnimV22 = {
-    bone: BigInt,
+    bone: number,
     lightningTrackData: Array<ModelTrackTypeDataV22>
   }
 
   export type ModelWindAnimationV22 = {
-    bone: BigInt,
+    bone: number,
     windTrackData: Array<ModelTrackTypeDataV22>
   }
 
   export type ModelCompoundAnimationDataV22 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV30 = {
@@ -2028,7 +2028,7 @@ export namespace V22_N {
   }
 
   export type ModelAnimationImportSequenceV22 = {
-    name: BigInt,
+    name: number,
     duration: number
   }
 
@@ -2040,12 +2040,12 @@ export namespace V23_N {
   export type ModelFileAnimationBankV23 = {
     animations: Array<ModelAnimationDataV31>,
     compoundAnimations: Array<ModelCompoundAnimationDataV23>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV31>
   }
 
   export type ModelAnimationDataV31 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV31>,
@@ -2054,7 +2054,7 @@ export namespace V23_N {
     matConstAnim: Array<ModelMatConstAnimV23>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV23>,
     isAdditive: number,
     variantCount: number,
@@ -2074,7 +2074,7 @@ export namespace V23_N {
   }
 
   export type ModelVisTrackDataV31 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -2091,7 +2091,7 @@ export namespace V23_N {
   }
 
   export type ModelCloudAnimV23 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV23>
   }
 
@@ -2104,55 +2104,55 @@ export namespace V23_N {
   }
 
   export type ModelLightAnimationV23 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV23>
   }
 
   export type ModelAnimPropertyDataV23 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV23 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV23 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV23>
   }
 
   export type ModelStreakAnimV23 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV23>
   }
 
   export type ModelAnchorAnimV23 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV23>
   }
 
   export type ModelLightningAnimV23 = {
-    bone: BigInt,
+    bone: number,
     lightningTrackData: Array<ModelTrackTypeDataV23>
   }
 
   export type ModelWindAnimationV23 = {
-    bone: BigInt,
+    bone: number,
     windTrackData: Array<ModelTrackTypeDataV23>
   }
 
   export type ModelCompoundAnimationDataV23 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV31 = {
@@ -2161,7 +2161,7 @@ export namespace V23_N {
   }
 
   export type ModelAnimationImportSequenceV23 = {
-    name: BigInt,
+    name: number,
     duration: number
   }
 
@@ -2178,12 +2178,12 @@ export namespace V24_N {
   export type ModelFileAnimationBankV24 = {
     animations: Array<ModelAnimationDataV32>,
     compoundAnimations: Array<ModelCompoundAnimationDataV24>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV32>
   }
 
   export type ModelAnimationDataV32 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV0,
     animLod: ModelAnimationLodV24,
     moveSpeed: number,
@@ -2193,7 +2193,7 @@ export namespace V24_N {
     matConstAnim: Array<ModelMatConstAnimV24>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV24>,
     isAdditive: number,
     variantCount: number,
@@ -2218,7 +2218,7 @@ export namespace V24_N {
   }
 
   export type ModelVisTrackDataV32 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -2235,7 +2235,7 @@ export namespace V24_N {
   }
 
   export type ModelCloudAnimV24 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV24>
   }
 
@@ -2248,55 +2248,55 @@ export namespace V24_N {
   }
 
   export type ModelLightAnimationV24 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV24>
   }
 
   export type ModelAnimPropertyDataV24 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV24 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV24 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV24>
   }
 
   export type ModelStreakAnimV24 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV24>
   }
 
   export type ModelAnchorAnimV24 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV24>
   }
 
   export type ModelLightningAnimV24 = {
-    bone: BigInt,
+    bone: number,
     lightningTrackData: Array<ModelTrackTypeDataV24>
   }
 
   export type ModelWindAnimationV24 = {
-    bone: BigInt,
+    bone: number,
     windTrackData: Array<ModelTrackTypeDataV24>
   }
 
   export type ModelCompoundAnimationDataV24 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV32 = {
@@ -2305,7 +2305,7 @@ export namespace V24_N {
   }
 
   export type ModelAnimationImportSequenceV24 = {
-    name: BigInt,
+    name: number,
     duration: number
   }
 
@@ -2322,12 +2322,12 @@ export namespace V25_N {
   export type ModelFileAnimationBankV25 = {
     animations: Array<ModelAnimationDataV33>,
     compoundAnimations: Array<ModelCompoundAnimationDataV25>,
-    fallbacks: Array<BigInt>,
+    fallbacks: Array<number>,
     imports: Array<ModelAnimationImportDataV33>
   }
 
   export type ModelAnimationDataV33 = {
-    token: BigInt,
+    token: number,
     data: PackGrannyAnimationTypeV1,
     animLod: ModelAnimationLodV25,
     moveSpeed: number,
@@ -2337,7 +2337,7 @@ export namespace V25_N {
     matConstAnim: Array<ModelMatConstAnimV25>,
     morphTrackGroups: Array<number>,
     triggerTimes: Array<number>,
-    triggerTokens: Array<BigInt>,
+    triggerTokens: Array<number>,
     lightAnimData: Array<ModelLightAnimationV25>,
     isAdditive: number,
     variantCount: number,
@@ -2363,7 +2363,7 @@ export namespace V25_N {
   }
 
   export type ModelVisTrackDataV33 = {
-    boneToken: BigInt,
+    boneToken: number,
     keys: Array<number>
   }
 
@@ -2380,7 +2380,7 @@ export namespace V25_N {
   }
 
   export type ModelCloudAnimV25 = {
-    bone: BigInt,
+    bone: number,
     cloudTrackData: Array<ModelTrackTypeDataV25>
   }
 
@@ -2393,55 +2393,55 @@ export namespace V25_N {
   }
 
   export type ModelLightAnimationV25 = {
-    bone: BigInt,
+    bone: number,
     lightTrackData: Array<ModelTrackTypeDataV25>
   }
 
   export type ModelAnimPropertyDataV25 = {
-    id: BigInt,
+    id: number,
     type: number,
     time: number,
-    val: BigInt,
+    val: number,
     strVal: string
   }
 
   export type ModelTokenMapAnimV25 = {
-    linkToken: BigInt,
+    linkToken: number,
     trackGroupIndex: number,
     vectorTrackIndex: number,
     initialValue: Array<number>
   }
 
   export type ModelBoneConstraintAnimV25 = {
-    bone: BigInt,
+    bone: number,
     bcTrackData: Array<ModelTrackTypeDataV25>
   }
 
   export type ModelStreakAnimV25 = {
-    bone: BigInt,
+    bone: number,
     anchorAnim: Array<ModelAnchorAnimV25>
   }
 
   export type ModelAnchorAnimV25 = {
-    bone: BigInt,
+    bone: number,
     anchorTrackData: Array<ModelTrackTypeDataV25>
   }
 
   export type ModelLightningAnimV25 = {
-    bone: BigInt,
+    bone: number,
     lightningTrackData: Array<ModelTrackTypeDataV25>
   }
 
   export type ModelWindAnimationV25 = {
-    bone: BigInt,
+    bone: number,
     windTrackData: Array<ModelTrackTypeDataV25>
   }
 
   export type ModelCompoundAnimationDataV25 = {
-    token: BigInt,
-    start: BigInt,
-    loop: BigInt,
-    end: BigInt
+    token: number,
+    start: number,
+    loop: number,
+    end: number
   }
 
   export type ModelAnimationImportDataV33 = {
@@ -2450,7 +2450,7 @@ export namespace V25_N {
   }
 
   export type ModelAnimationImportSequenceV25 = {
-    name: BigInt,
+    name: number,
     duration: number
   }
 

@@ -55,9 +55,11 @@ test("matches for TRN", function () {
   const parser = new DataParser(def);
   parser.DEBUG = true;
   const test = parser.parse(dv, trnChunk!.chunkPosition + trnChunk!.chunkHeader.chunkHeaderSize);
+  //fs.writeFileSync("./test/trn.json", JSON.stringify(test.data, (key, value) => typeof value === 'bigint' ? Number(value) : value, 2));
   expect(test.data).toMatchObject(mapc1Result);
 });
 
+// ENV
 test("matches for ENV", function () {
   const mapc1Result = transformSnapshot(mapcSnapshots.ENV);
   const envChunk = allChunks.find((c) => c.chunkHeader.type === "env");

@@ -18,13 +18,15 @@ const V0 = {
       Skeleton: Pointer("ModelGrannySkeletonV0"),
       InitialPlacement: "ModelTransformData",
       MeshBindings: DynArray("ModelMeshBindingData"),
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelGrannySkeletonV0: {
       Name: RefString(),
       Bones: DynArray("ModelBoneData"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneData: {
       Name: RefString(),
@@ -32,7 +34,8 @@ const V0 = {
       LocalTransform: "ModelTransformData",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformData: {
       Flags: Uint32,
@@ -109,13 +112,15 @@ const V1 = {
       Skeleton: Pointer("ModelGrannySkeletonV1"),
       InitialPlacement: "ModelTransformData",
       MeshBindings: DynArray("ModelMeshBindingData"),
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelGrannySkeletonV1: {
       Name: RefString(),
       Bones: DynArray("ModelBoneData"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneData: {
       Name: RefString(),
@@ -123,7 +128,8 @@ const V1 = {
       LocalTransform: "ModelTransformData",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformData: {
       Flags: Uint32,

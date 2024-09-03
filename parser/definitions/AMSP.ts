@@ -73,7 +73,8 @@ const V0 = {
     },
     RangeDataV0: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     DspDataV0: {
       param: DynArray("DynamicParamDataV0"),
@@ -169,7 +170,8 @@ const V1 = {
     },
     RangeDataV1: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     VolumeGroupDataV1: {
       flags: Uint32,
@@ -316,7 +318,8 @@ const V2 = {
     },
     RangeDataV2: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     HandlerDataV2: {
       name: Uint64,
@@ -460,7 +463,8 @@ const V3 = {
     },
     RangeDataV3: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     HandlerDataV3: {
       name: Uint64,
@@ -606,7 +610,8 @@ const V4 = {
     },
     RangeDataV4: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     HandlerDataV4: {
       name: Uint64,
@@ -748,7 +753,8 @@ const V5 = {
     },
     RangeDataV5: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     SnapshotDataV5: {
       name: Uint64,
@@ -924,7 +930,8 @@ const V6 = {
     },
     RangeDataV6: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     SnapshotDataV6: {
       name: Uint64,
@@ -1083,7 +1090,8 @@ const V7 = {
     },
     RangeDataV7: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV7: {
       name: Uint64,
@@ -1252,7 +1260,8 @@ const V8 = {
     },
     RangeDataV8: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV8: {
       name: Uint64,
@@ -1446,7 +1455,8 @@ const V9 = {
     },
     RangeDataV9: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV9: {
       name: Uint64,
@@ -1635,7 +1645,8 @@ const V10 = {
     },
     RangeDataV10: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV10: {
       name: Uint64,
@@ -1826,7 +1837,8 @@ const V11 = {
     },
     RangeDataV11: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV11: {
       name: Uint64,
@@ -2017,7 +2029,8 @@ const V12 = {
     },
     RangeDataV12: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV12: {
       name: Uint64,
@@ -2209,7 +2222,8 @@ const V13 = {
     },
     RangeDataV13: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV13: {
       name: Uint64,
@@ -2401,7 +2415,8 @@ const V14 = {
     },
     RangeDataV14: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV14: {
       name: Uint64,
@@ -2594,7 +2609,8 @@ const V15 = {
     },
     RangeDataV15: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV15: {
       name: Uint64,
@@ -2787,7 +2803,8 @@ const V16 = {
     },
     RangeDataV16: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV16: {
       name: Uint64,
@@ -2984,7 +3001,8 @@ const V17 = {
     },
     RangeDataV17: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV17: {
       name: Uint64,
@@ -3184,7 +3202,8 @@ const V18 = {
     },
     RangeDataV18: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV18: {
       name: Uint64,
@@ -3384,7 +3403,8 @@ const V19 = {
     },
     RangeDataV19: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV19: {
       name: Uint64,
@@ -3585,7 +3605,8 @@ const V20 = {
     },
     RangeDataV20: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV20: {
       name: Uint64,
@@ -3789,7 +3810,8 @@ const V21 = {
     },
     RangeDataV21: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV21: {
       name: Uint64,
@@ -4016,7 +4038,8 @@ const V22 = {
     },
     RangeDataV22: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV22: {
       name: Uint64,
@@ -4244,7 +4267,8 @@ const V23 = {
     },
     RangeDataV23: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV23: {
       name: Uint64,
@@ -4473,7 +4497,8 @@ const V24 = {
     },
     RangeDataV24: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV24: {
       name: Uint64,
@@ -4706,7 +4731,8 @@ const V25 = {
     },
     RangeDataV25: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV25: {
       name: Uint64,
@@ -4961,7 +4987,8 @@ const V26 = {
     },
     RangeDataV26: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV26: {
       name: Uint64,
@@ -5222,7 +5249,8 @@ const V27 = {
     },
     RangeDataV27: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV27: {
       name: Uint64,
@@ -5489,7 +5517,8 @@ const V28 = {
     },
     RangeDataV28: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV28: {
       name: Uint64,
@@ -5759,7 +5788,8 @@ const V29 = {
     },
     RangeDataV29: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV29: {
       name: Uint64,
@@ -6041,7 +6071,8 @@ const V30 = {
     },
     RangeDataV30: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV30: {
       name: Uint64,
@@ -6323,7 +6354,8 @@ const V31 = {
     },
     RangeDataV31: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV31: {
       name: Uint64,
@@ -6606,7 +6638,8 @@ const V32 = {
     },
     RangeDataV31: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV31: {
       name: Uint64,

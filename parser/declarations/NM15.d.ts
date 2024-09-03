@@ -56,7 +56,7 @@ export namespace V2_N {
   }
 
   export type PackMapNavMeshMoverV2 = {
-    mapPropId: BigInt,
+    mapPropId: number,
     navMeshData: Array<number>,
     coarseGraphData: Array<number>,
     mediatorData: Array<number>
@@ -86,7 +86,7 @@ export namespace V3_N {
 
   export type PackMapNavMeshMoverV3 = {
     chunkIndex: number,
-    mapPropId: BigInt,
+    mapPropId: number,
     navMeshData: Array<number>,
     coarseGraphData: Array<number>,
     mediatorData: Array<number>

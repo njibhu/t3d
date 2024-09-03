@@ -168,7 +168,7 @@ export type V5 = V5_N.PackAssetManifestV5;
 export namespace V6_N {
   export type PackAssetManifest = {
     buildId: number,
-    totalRecordSize: BigInt,
+    totalRecordSize: number,
     records: Array<PackAssetManifestRecord>,
     streams: Array<PackAssetManifestStream>,
     properties: Array<PackAssetManifestProperty>,

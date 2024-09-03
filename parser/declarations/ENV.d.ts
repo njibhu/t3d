@@ -2011,7 +2011,7 @@ export namespace V39_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV39 = {
@@ -2234,7 +2234,7 @@ export namespace V40_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV40 = {
@@ -2459,7 +2459,7 @@ export namespace V41_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV41 = {
@@ -2685,7 +2685,7 @@ export namespace V42_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV42 = {
@@ -2912,7 +2912,7 @@ export namespace V43_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV43 = {
@@ -3145,7 +3145,7 @@ export namespace V44_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV44 = {
@@ -3385,7 +3385,7 @@ export namespace V45_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV45 = {
@@ -3625,7 +3625,7 @@ export namespace V46_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV46 = {
@@ -3865,7 +3865,7 @@ export namespace V47_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV47 = {
@@ -4098,7 +4098,7 @@ export namespace V48_N {
     wind: Array<PackMapEnvDataWindV48>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -4106,7 +4106,7 @@ export namespace V48_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV48 = {
@@ -4304,7 +4304,7 @@ export namespace V48_N {
     wind: Array<PackMapEnvDataWindV48>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV48>,
     starFile: string
   }
@@ -4340,7 +4340,7 @@ export namespace V49_N {
     wind: Array<PackMapEnvDataWindV49>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -4348,7 +4348,7 @@ export namespace V49_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV49 = {
@@ -4550,7 +4550,7 @@ export namespace V49_N {
     wind: Array<PackMapEnvDataWindV49>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV49>,
     starFile: string
   }
@@ -4586,7 +4586,7 @@ export namespace V50_N {
     wind: Array<PackMapEnvDataWindV50>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -4594,7 +4594,7 @@ export namespace V50_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV50 = {
@@ -4797,7 +4797,7 @@ export namespace V50_N {
     wind: Array<PackMapEnvDataWindV50>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV50>,
     starFile: string
   }
@@ -4833,7 +4833,7 @@ export namespace V51_N {
     wind: Array<PackMapEnvDataWindV51>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -4841,7 +4841,7 @@ export namespace V51_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV51 = {
@@ -5046,7 +5046,7 @@ export namespace V51_N {
     wind: Array<PackMapEnvDataWindV51>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV51>,
     starFile: string
   }
@@ -5082,7 +5082,7 @@ export namespace V52_N {
     wind: Array<PackMapEnvDataWindV52>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -5090,7 +5090,7 @@ export namespace V52_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV52 = {
@@ -5298,7 +5298,7 @@ export namespace V52_N {
     wind: Array<PackMapEnvDataWindV52>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV52>,
     starFile: string
   }
@@ -5334,7 +5334,7 @@ export namespace V53_N {
     wind: Array<PackMapEnvDataWindV53>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -5342,7 +5342,7 @@ export namespace V53_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV53 = {
@@ -5551,7 +5551,7 @@ export namespace V53_N {
     wind: Array<PackMapEnvDataWindV53>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV53>,
     starFile: string
   }
@@ -5587,7 +5587,7 @@ export namespace V54_N {
     wind: Array<PackMapEnvDataWindV54>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -5595,7 +5595,7 @@ export namespace V54_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV54 = {
@@ -5804,7 +5804,7 @@ export namespace V54_N {
     wind: Array<PackMapEnvDataWindV54>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV54>,
     starFile: string
   }
@@ -5841,7 +5841,7 @@ export namespace V55_N {
     wind: Array<PackMapEnvDataWindV55>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -5849,7 +5849,7 @@ export namespace V55_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV55 = {
@@ -6006,7 +6006,7 @@ export namespace V55_N {
 
   export type PackMapEnvDataSpawnGroupsV26 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV26>,
-    targetVolume: BigInt
+    targetVolume: number
   }
 
   export type PackMapEnvDataSpawnListV26 = {
@@ -6078,7 +6078,7 @@ export namespace V55_N {
     wind: Array<PackMapEnvDataWindV55>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV55>,
     starFile: string
   }
@@ -6115,7 +6115,7 @@ export namespace V56_N {
     wind: Array<PackMapEnvDataWindV56>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -6123,7 +6123,7 @@ export namespace V56_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV56 = {
@@ -6280,7 +6280,7 @@ export namespace V56_N {
 
   export type PackMapEnvDataSpawnGroupsV27 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV27>,
-    targetVolume: BigInt
+    targetVolume: number
   }
 
   export type PackMapEnvDataSpawnListV27 = {
@@ -6356,7 +6356,7 @@ export namespace V56_N {
     wind: Array<PackMapEnvDataWindV56>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV56>,
     starFile: string
   }
@@ -6393,7 +6393,7 @@ export namespace V57_N {
     wind: Array<PackMapEnvDataWindV57>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -6401,7 +6401,7 @@ export namespace V57_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV57 = {
@@ -6558,7 +6558,7 @@ export namespace V57_N {
 
   export type PackMapEnvDataSpawnGroupsV28 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV28>,
-    targetVolume: BigInt
+    targetVolume: number
   }
 
   export type PackMapEnvDataSpawnListV28 = {
@@ -6635,7 +6635,7 @@ export namespace V57_N {
     wind: Array<PackMapEnvDataWindV57>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV57>,
     starFile: string
   }
@@ -6672,7 +6672,7 @@ export namespace V58_N {
     wind: Array<PackMapEnvDataWindV58>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -6680,7 +6680,7 @@ export namespace V58_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV58 = {
@@ -6838,7 +6838,7 @@ export namespace V58_N {
 
   export type PackMapEnvDataSpawnGroupsV29 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV29>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV29 = {
@@ -6915,7 +6915,7 @@ export namespace V58_N {
     wind: Array<PackMapEnvDataWindV58>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV58>,
     starFile: string
   }
@@ -6952,7 +6952,7 @@ export namespace V59_N {
     wind: Array<PackMapEnvDataWindV59>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -6960,7 +6960,7 @@ export namespace V59_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV59 = {
@@ -7118,7 +7118,7 @@ export namespace V59_N {
 
   export type PackMapEnvDataSpawnGroupsV30 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV30>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV30 = {
@@ -7195,7 +7195,7 @@ export namespace V59_N {
     wind: Array<PackMapEnvDataWindV59>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV59>,
     starFile: string
   }
@@ -7232,7 +7232,7 @@ export namespace V60_N {
     wind: Array<PackMapEnvDataWindV60>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -7240,7 +7240,7 @@ export namespace V60_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV60 = {
@@ -7399,7 +7399,7 @@ export namespace V60_N {
 
   export type PackMapEnvDataSpawnGroupsV31 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV31>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV31 = {
@@ -7476,7 +7476,7 @@ export namespace V60_N {
     wind: Array<PackMapEnvDataWindV60>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV60>,
     starFile: string
   }
@@ -7513,7 +7513,7 @@ export namespace V61_N {
     wind: Array<PackMapEnvDataWindV61>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -7521,7 +7521,7 @@ export namespace V61_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV61 = {
@@ -7681,7 +7681,7 @@ export namespace V61_N {
 
   export type PackMapEnvDataSpawnGroupsV32 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV32>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV32 = {
@@ -7758,7 +7758,7 @@ export namespace V61_N {
     wind: Array<PackMapEnvDataWindV61>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV61>,
     starFile: string
   }
@@ -7795,7 +7795,7 @@ export namespace V62_N {
     wind: Array<PackMapEnvDataWindV62>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -7803,7 +7803,7 @@ export namespace V62_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV62 = {
@@ -7964,7 +7964,7 @@ export namespace V62_N {
 
   export type PackMapEnvDataSpawnGroupsV33 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV33>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV33 = {
@@ -8041,7 +8041,7 @@ export namespace V62_N {
     wind: Array<PackMapEnvDataWindV62>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV62>,
     starFile: string
   }
@@ -8078,7 +8078,7 @@ export namespace V63_N {
     wind: Array<PackMapEnvDataWindV63>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -8086,7 +8086,7 @@ export namespace V63_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV63 = {
@@ -8247,7 +8247,7 @@ export namespace V63_N {
 
   export type PackMapEnvDataSpawnGroupsV34 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV34>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV34 = {
@@ -8329,7 +8329,7 @@ export namespace V63_N {
     wind: Array<PackMapEnvDataWindV63>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV63>,
     starFile: string
   }
@@ -8366,7 +8366,7 @@ export namespace V64_N {
     wind: Array<PackMapEnvDataWindV64>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -8374,7 +8374,7 @@ export namespace V64_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV64 = {
@@ -8536,7 +8536,7 @@ export namespace V64_N {
 
   export type PackMapEnvDataSpawnGroupsV35 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV35>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV35 = {
@@ -8619,7 +8619,7 @@ export namespace V64_N {
     wind: Array<PackMapEnvDataWindV64>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV64>,
     starFile: string
   }
@@ -8656,7 +8656,7 @@ export namespace V65_N {
     wind: Array<PackMapEnvDataWindV65>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     center: Array<number>,
     zRange: Array<number>,
     fadeHorizInner: number,
@@ -8664,7 +8664,7 @@ export namespace V65_N {
     fadeVertical: number,
     type: number,
     vertexArray: Array<Array<number>>,
-    guid: BigInt
+    guid: number
   }
 
   export type PackMapEnvDataLightingV65 = {
@@ -8827,7 +8827,7 @@ export namespace V65_N {
 
   export type PackMapEnvDataSpawnGroupsV36 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV36>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV36 = {
@@ -8910,7 +8910,7 @@ export namespace V65_N {
     wind: Array<PackMapEnvDataWindV65>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV65>,
     starFile: string
   }
@@ -8947,9 +8947,9 @@ export namespace V66_N {
     wind: Array<PackMapEnvDataWindV66>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV37>
   }
 
@@ -9113,7 +9113,7 @@ export namespace V66_N {
 
   export type PackMapEnvDataSpawnGroupsV37 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV37>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV37 = {
@@ -9206,7 +9206,7 @@ export namespace V66_N {
     wind: Array<PackMapEnvDataWindV66>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV66>,
     starFile: string
   }
@@ -9243,9 +9243,9 @@ export namespace V67_N {
     wind: Array<PackMapEnvDataWindV67>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV38>
   }
 
@@ -9409,7 +9409,7 @@ export namespace V67_N {
 
   export type PackMapEnvDataSpawnGroupsV38 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV38>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV38 = {
@@ -9427,7 +9427,7 @@ export namespace V67_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -9503,7 +9503,7 @@ export namespace V67_N {
     wind: Array<PackMapEnvDataWindV67>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV67>,
     starFile: string
   }
@@ -9540,9 +9540,9 @@ export namespace V68_N {
     wind: Array<PackMapEnvDataWindV68>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV39>
   }
 
@@ -9707,7 +9707,7 @@ export namespace V68_N {
 
   export type PackMapEnvDataSpawnGroupsV39 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV39>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV39 = {
@@ -9725,7 +9725,7 @@ export namespace V68_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -9801,7 +9801,7 @@ export namespace V68_N {
     wind: Array<PackMapEnvDataWindV68>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV68>,
     starFile: string
   }
@@ -9838,9 +9838,9 @@ export namespace V69_N {
     wind: Array<PackMapEnvDataWindV69>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV40>
   }
 
@@ -10004,7 +10004,7 @@ export namespace V69_N {
 
   export type PackMapEnvDataSpawnGroupsV40 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV40>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV40 = {
@@ -10022,7 +10022,7 @@ export namespace V69_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -10098,7 +10098,7 @@ export namespace V69_N {
     wind: Array<PackMapEnvDataWindV69>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV69>,
     starFile: string
   }
@@ -10135,9 +10135,9 @@ export namespace V70_N {
     wind: Array<PackMapEnvDataWindV70>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV41>
   }
 
@@ -10301,7 +10301,7 @@ export namespace V70_N {
 
   export type PackMapEnvDataSpawnGroupsV41 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV41>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV41 = {
@@ -10319,7 +10319,7 @@ export namespace V70_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -10395,7 +10395,7 @@ export namespace V70_N {
     wind: Array<PackMapEnvDataWindV70>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV70>,
     starFile: string
   }
@@ -10432,9 +10432,9 @@ export namespace V71_N {
     wind: Array<PackMapEnvDataWindV71>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV42>
   }
 
@@ -10600,7 +10600,7 @@ export namespace V71_N {
 
   export type PackMapEnvDataSpawnGroupsV42 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV42>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV42 = {
@@ -10618,7 +10618,7 @@ export namespace V71_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -10694,7 +10694,7 @@ export namespace V71_N {
     wind: Array<PackMapEnvDataWindV71>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV71>,
     starFile: string
   }
@@ -10731,10 +10731,10 @@ export namespace V72_N {
     wind: Array<PackMapEnvDataWindV72>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
-    audioToken: BigInt,
+    bindTarget: number,
+    audioToken: number,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV43>
   }
 
@@ -10900,7 +10900,7 @@ export namespace V72_N {
 
   export type PackMapEnvDataSpawnGroupsV43 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV43>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV43 = {
@@ -10918,7 +10918,7 @@ export namespace V72_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -10994,8 +10994,8 @@ export namespace V72_N {
     wind: Array<PackMapEnvDataWindV72>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
-    audioToken: BigInt,
+    bindTarget: number,
+    audioToken: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV72>,
     starFile: string
   }
@@ -11033,9 +11033,9 @@ export namespace V73_N {
     audio: Array<PackMapEnvDataAudioV44>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV44>
   }
 
@@ -11201,7 +11201,7 @@ export namespace V73_N {
 
   export type PackMapEnvDataSpawnGroupsV44 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV44>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV44 = {
@@ -11219,7 +11219,7 @@ export namespace V73_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -11270,7 +11270,7 @@ export namespace V73_N {
   }
 
   export type PackMapEnvDataAudioV44 = {
-    token: BigInt
+    token: number
   }
 
   export type PackMapEnvDataShapeV44 = {
@@ -11300,7 +11300,7 @@ export namespace V73_N {
     audio: Array<PackMapEnvDataAudioV44>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV73>,
     starFile: string
   }
@@ -11338,10 +11338,10 @@ export namespace V74_N {
     audio: Array<PackMapEnvDataAudioV45>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     reserved: string,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV45>
   }
 
@@ -11510,7 +11510,7 @@ export namespace V74_N {
 
   export type PackMapEnvDataSpawnGroupsV45 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV45>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV45 = {
@@ -11528,7 +11528,7 @@ export namespace V74_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -11579,7 +11579,7 @@ export namespace V74_N {
   }
 
   export type PackMapEnvDataAudioV45 = {
-    token: BigInt
+    token: number
   }
 
   export type PackMapEnvDataShapeV45 = {
@@ -11609,7 +11609,7 @@ export namespace V74_N {
     audio: Array<PackMapEnvDataAudioV45>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     reserved: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV74>,
     starFile: string
@@ -11648,11 +11648,11 @@ export namespace V75_N {
     audio: Array<PackMapEnvDataAudioV46>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     flags: number,
     ext: PackMapEnvDataBaseExV46,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV46>
   }
 
@@ -11906,7 +11906,7 @@ export namespace V75_N {
 
   export type PackMapEnvDataSpawnGroupsV46 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV46>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV46 = {
@@ -11924,7 +11924,7 @@ export namespace V75_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -11975,7 +11975,7 @@ export namespace V75_N {
   }
 
   export type PackMapEnvDataAudioV46 = {
-    token: BigInt
+    token: number
   }
 
   export type PackMapEnvDataBaseExV46 = {
@@ -12024,7 +12024,7 @@ export namespace V75_N {
     audio: Array<PackMapEnvDataAudioV46>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     flags: number,
     ext: PackMapEnvDataBaseExV46,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV75>,
@@ -12064,11 +12064,11 @@ export namespace V76_N {
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV47>
   }
 
@@ -12322,7 +12322,7 @@ export namespace V76_N {
 
   export type PackMapEnvDataSpawnGroupsV47 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV47>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV47 = {
@@ -12340,7 +12340,7 @@ export namespace V76_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -12391,7 +12391,7 @@ export namespace V76_N {
   }
 
   export type PackMapEnvDataAudioV47 = {
-    token: BigInt
+    token: number
   }
 
   export type PackMapEnvDataBaseExV47 = {
@@ -12440,7 +12440,7 @@ export namespace V76_N {
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV76>,
@@ -12491,11 +12491,11 @@ export namespace V77_N {
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     type: number,
-    guid: BigInt,
+    guid: number,
     shapeArray: Array<PackMapEnvDataShapeV47>
   }
 
@@ -12749,7 +12749,7 @@ export namespace V77_N {
 
   export type PackMapEnvDataSpawnGroupsV47 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV47>,
-    targets: Array<BigInt>
+    targets: Array<number>
   }
 
   export type PackMapEnvDataSpawnListV47 = {
@@ -12767,7 +12767,7 @@ export namespace V77_N {
     probability: number,
     delay: number,
     flags: number,
-    animSequence: BigInt,
+    animSequence: number,
     modelFile: string,
     maxConcurrent: number
   }
@@ -12818,7 +12818,7 @@ export namespace V77_N {
   }
 
   export type PackMapEnvDataAudioV47 = {
-    token: BigInt
+    token: number
   }
 
   export type PackMapEnvDataBaseExV47 = {
@@ -12867,7 +12867,7 @@ export namespace V77_N {
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV76>,
@@ -12907,14 +12907,14 @@ export namespace V77_N {
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
     nightMods: Array<number>,
-    bindTarget: BigInt,
+    bindTarget: number,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV76>,
     starFile: string,
     skyModeCubeTex: Array<PackMapEnvDataSkyModeCubeTexV47>,
-    token: BigInt,
-    guid: BigInt
+    token: number,
+    guid: number
   }
 
 }

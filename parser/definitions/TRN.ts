@@ -21,8 +21,9 @@ const V10 = {
     },
     PackMapTerrainTexV10: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV10: {
@@ -77,8 +78,9 @@ const V11 = {
     },
     PackMapTerrainTexV11: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV11: {
@@ -133,8 +135,9 @@ const V12 = {
     },
     PackMapTerrainTexV12: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV12: {
@@ -191,8 +194,9 @@ const V13 = {
     },
     PackMapTerrainTexV13: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV13: {
@@ -251,8 +255,9 @@ const V14 = {
     },
     PackMapTerrainTexV14: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV14: {

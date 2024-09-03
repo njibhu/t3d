@@ -32,7 +32,7 @@ export namespace V1_N {
   export type PackMapResourceMapNodeItemV1 = {
     filename: string,
     type: number,
-    permutation: BigInt
+    permutation: number
   }
 
 }

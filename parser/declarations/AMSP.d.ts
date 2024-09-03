@@ -12,17 +12,17 @@ export namespace V0_N {
   export type HandlerDataV0 = {
     byteCode: Array<number>,
     flags: number,
-    name: BigInt
+    name: number
   }
 
   export type MetaSoundDataV0 = {
     attenuation: AttenuationDataV0,
-    category: BigInt,
+    category: number,
     channelMode: number,
     channelPriority: number,
     depth: DynamicParamDataV0,
     dsp: Array<DspDataV0>,
-    endCue: BigInt,
+    endCue: number,
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
@@ -32,12 +32,12 @@ export namespace V0_N {
     initialDelay: RangeDataV0,
     loopCount: number,
     loopMode: number,
-    name: BigInt,
+    name: number,
     pan: DynamicParamDataV0,
     pitch: DynamicParamDataV0,
     playbackMode: number,
     playLength: RangeDataV0,
-    playlistId: BigInt,
+    playlistId: number,
     positionMode: number,
     positionOffset: Array<number>,
     positionOffsetAngle: RangeDataV0,
@@ -69,7 +69,7 @@ export namespace V0_N {
   export type EnvelopeDataV0 = {
     envelopePoint: Array<EnvelopePointDataV0>,
     offsetType: number,
-    offsetParameter: BigInt
+    offsetParameter: number
   }
 
   export type EnvelopePointDataV0 = {
@@ -84,7 +84,8 @@ export namespace V0_N {
 
   export type RangeDataV0 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type DspDataV0 = {
@@ -95,23 +96,23 @@ export namespace V0_N {
   export type FileNameDataV0 = {
     audioType: number,
     fileName: string,
-    language: BigInt,
+    language: number,
     weight: number
   }
 
   export type ScriptRefDataV0 = {
     fileName: string,
-    name: BigInt
+    name: number
   }
 
   export type TriggerKeyDataV0 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV0>
   }
 
   export type TriggerMarkerDataV0 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -145,7 +146,7 @@ export namespace V1_N {
     maxAudible: number,
     maxAudibleBehavior: number,
     muteFadeTime: number,
-    name: BigInt,
+    name: number,
     volumeA: number,
     volumeAThreshold: number,
     volumeB: number,
@@ -154,7 +155,7 @@ export namespace V1_N {
     volumeDucking: number,
     volumeDuckingTimeAttack: number,
     volumeDuckingTimeRelease: number,
-    volumeGroupName: BigInt
+    volumeGroupName: number
   }
 
   export type AttenuationDataV1 = {
@@ -177,7 +178,7 @@ export namespace V1_N {
   export type EnvelopeDataV1 = {
     envelopePoint: Array<EnvelopePointDataV1>,
     offsetType: number,
-    offsetParameter: BigInt
+    offsetParameter: number
   }
 
   export type EnvelopePointDataV1 = {
@@ -192,30 +193,31 @@ export namespace V1_N {
 
   export type RangeDataV1 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type VolumeGroupDataV1 = {
     flags: number,
-    name: BigInt,
-    parentName: BigInt,
+    name: number,
+    parentName: number,
     volume: number
   }
 
   export type HandlerDataV1 = {
     byteCode: Array<number>,
     flags: number,
-    name: BigInt
+    name: number
   }
 
   export type MetaSoundDataV1 = {
     attenuation: AttenuationDataV1,
-    category: BigInt,
+    category: number,
     channelMode: number,
     channelPriority: number,
     depth: DynamicParamDataV1,
     dsp: Array<DspDataV1>,
-    endCue: BigInt,
+    endCue: number,
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
@@ -225,12 +227,12 @@ export namespace V1_N {
     initialDelay: RangeDataV1,
     loopCount: number,
     loopMode: number,
-    name: BigInt,
+    name: number,
     pan: DynamicParamDataV1,
     pitch: DynamicParamDataV1,
     playbackMode: number,
     playLength: RangeDataV1,
-    playlistId: BigInt,
+    playlistId: number,
     positionMode: number,
     positionOffset: Array<number>,
     positionOffsetAngle: RangeDataV1,
@@ -250,23 +252,23 @@ export namespace V1_N {
   export type FileNameDataV1 = {
     audioType: number,
     fileName: string,
-    language: BigInt,
+    language: number,
     weight: number
   }
 
   export type ScriptRefDataV1 = {
     fileName: string,
-    name: BigInt
+    name: number
   }
 
   export type TriggerKeyDataV1 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV1>
   }
 
   export type TriggerMarkerDataV1 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -277,7 +279,7 @@ export type V1 = V1_N.ScriptFileDataV1;
 
 export namespace V2_N {
   export type ScriptFileDataV2 = {
-    musicCue: BigInt,
+    musicCue: number,
     audioSettings: AudioSettingsDataV2,
     handler: Array<HandlerDataV2>,
     metaSound: Array<MetaSoundDataV2>,
@@ -296,15 +298,15 @@ export namespace V2_N {
   }
 
   export type VolumeGroupDataV2 = {
-    name: BigInt,
-    parentName: BigInt,
+    name: number,
+    parentName: number,
     flags: number,
     volume: number
   }
 
   export type CategoryDataV2 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
+    name: number,
+    volumeGroupName: number,
     attenuation: AttenuationDataV2,
     muteFadeTime: number,
     volumeA: number,
@@ -338,7 +340,7 @@ export namespace V2_N {
   }
 
   export type EnvelopeDataV2 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV2>,
     offsetType: number
   }
@@ -355,20 +357,21 @@ export namespace V2_N {
 
   export type RangeDataV2 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type HandlerDataV2 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV2 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    playlistId: number,
     dsp: Array<DspDataV2>,
     attenuation: AttenuationDataV2,
     fileName: Array<FileNameDataV2>,
@@ -406,25 +409,25 @@ export namespace V2_N {
   }
 
   export type FileNameDataV2 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV2 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV2 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV2>
   }
 
   export type TriggerMarkerDataV2 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -435,8 +438,8 @@ export type V2 = V2_N.ScriptFileDataV2;
 
 export namespace V3_N {
   export type ScriptFileDataV3 = {
-    musicCue: BigInt,
-    endCue: BigInt,
+    musicCue: number,
+    endCue: number,
     audioSettings: AudioSettingsDataV3,
     handler: Array<HandlerDataV3>,
     metaSound: Array<MetaSoundDataV3>,
@@ -455,15 +458,15 @@ export namespace V3_N {
   }
 
   export type VolumeGroupDataV3 = {
-    name: BigInt,
-    parentName: BigInt,
+    name: number,
+    parentName: number,
     flags: number,
     volume: number
   }
 
   export type CategoryDataV3 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
+    name: number,
+    volumeGroupName: number,
     attenuation: AttenuationDataV3,
     muteFadeTime: number,
     volumeA: number,
@@ -497,7 +500,7 @@ export namespace V3_N {
   }
 
   export type EnvelopeDataV3 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV3>,
     offsetType: number
   }
@@ -514,20 +517,21 @@ export namespace V3_N {
 
   export type RangeDataV3 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type HandlerDataV3 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV3 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    playlistId: number,
     dsp: Array<DspDataV3>,
     attenuation: AttenuationDataV3,
     fileName: Array<FileNameDataV3>,
@@ -565,25 +569,25 @@ export namespace V3_N {
   }
 
   export type FileNameDataV3 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV3 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV3 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV3>
   }
 
   export type TriggerMarkerDataV3 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -594,8 +598,8 @@ export type V3 = V3_N.ScriptFileDataV3;
 
 export namespace V4_N {
   export type ScriptFileDataV4 = {
-    musicCue: BigInt,
-    endCue: BigInt,
+    musicCue: number,
+    endCue: number,
     audioSettings: AudioSettingsDataV4,
     handler: Array<HandlerDataV4>,
     metaSound: Array<MetaSoundDataV4>,
@@ -615,15 +619,15 @@ export namespace V4_N {
   }
 
   export type VolumeGroupDataV4 = {
-    name: BigInt,
-    parentName: BigInt,
+    name: number,
+    parentName: number,
     flags: number,
     volume: number
   }
 
   export type CategoryDataV4 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
+    name: number,
+    volumeGroupName: number,
     attenuation: AttenuationDataV4,
     muteFadeTime: number,
     volumeA: number,
@@ -657,7 +661,7 @@ export namespace V4_N {
   }
 
   export type EnvelopeDataV4 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV4>,
     offsetType: number
   }
@@ -674,20 +678,21 @@ export namespace V4_N {
 
   export type RangeDataV4 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type HandlerDataV4 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV4 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    playlistId: number,
     dsp: Array<DspDataV4>,
     attenuation: AttenuationDataV4,
     fileName: Array<FileNameDataV4>,
@@ -725,25 +730,25 @@ export namespace V4_N {
   }
 
   export type FileNameDataV4 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV4 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV4 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV4>
   }
 
   export type TriggerMarkerDataV4 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -754,8 +759,8 @@ export type V4 = V4_N.ScriptFileDataV4;
 
 export namespace V5_N {
   export type ScriptFileDataV5 = {
-    musicCue: BigInt,
-    endCue: BigInt,
+    musicCue: number,
+    endCue: number,
     audioSettings: AudioSettingsDataV5,
     handler: Array<HandlerDataV5>,
     metaSound: Array<MetaSoundDataV5>,
@@ -767,8 +772,8 @@ export namespace V5_N {
   }
 
   export type AudioSettingsDataV5 = {
-    defaultBuss: BigInt,
-    effectsBuss: BigInt,
+    defaultBuss: number,
+    effectsBuss: number,
     distanceScale: number,
     category: Array<CategoryDataV5>,
     snapshot: Array<SnapshotDataV5>,
@@ -777,8 +782,8 @@ export namespace V5_N {
   }
 
   export type CategoryDataV5 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
+    name: number,
+    volumeGroupName: number,
     attenuation: AttenuationDataV5,
     muteFadeTime: number,
     volumeA: number,
@@ -812,7 +817,7 @@ export namespace V5_N {
   }
 
   export type EnvelopeDataV5 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV5>,
     offsetType: number
   }
@@ -829,11 +834,12 @@ export namespace V5_N {
 
   export type RangeDataV5 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type SnapshotDataV5 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -841,8 +847,8 @@ export namespace V5_N {
   }
 
   export type BussDataV5 = {
-    name: BigInt,
-    output: BigInt,
+    name: number,
+    output: number,
     flags: number,
     dsp: Array<DspDataV5>,
     volume: number
@@ -855,16 +861,16 @@ export namespace V5_N {
   }
 
   export type HandlerDataV5 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV5 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    playlistId: number,
     dsp: Array<DspDataV5>,
     attenuation: AttenuationDataV5,
     fileName: Array<FileNameDataV5>,
@@ -897,25 +903,25 @@ export namespace V5_N {
   }
 
   export type FileNameDataV5 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV5 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV5 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV5>
   }
 
   export type TriggerMarkerDataV5 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -926,8 +932,8 @@ export type V5 = V5_N.ScriptFileDataV5;
 
 export namespace V6_N {
   export type ScriptFileDataV6 = {
-    musicCue: BigInt,
-    endCue: BigInt,
+    musicCue: number,
+    endCue: number,
     audioSettings: AudioSettingsDataV6,
     handler: Array<HandlerDataV6>,
     metaSound: Array<MetaSoundDataV6>,
@@ -939,8 +945,8 @@ export namespace V6_N {
   }
 
   export type AudioSettingsDataV6 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     buss: Array<BussDataV6>,
     category: Array<CategoryDataV6>,
@@ -950,14 +956,14 @@ export namespace V6_N {
   }
 
   export type BussDataV6 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV6
   }
 
   export type BussDynamicDataV6 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV6>
@@ -970,9 +976,9 @@ export namespace V6_N {
   }
 
   export type CategoryDataV6 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV6,
     muteFadeTime: number,
     volumeA: number,
@@ -1006,7 +1012,7 @@ export namespace V6_N {
   }
 
   export type EnvelopeDataV6 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV6>,
     offsetType: number
   }
@@ -1023,11 +1029,12 @@ export namespace V6_N {
 
   export type RangeDataV6 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type SnapshotDataV6 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -1035,16 +1042,16 @@ export namespace V6_N {
   }
 
   export type HandlerDataV6 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV6 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    playlistId: number,
     dsp: Array<DspDataV6>,
     attenuation: AttenuationDataV6,
     fileName: Array<FileNameDataV6>,
@@ -1077,25 +1084,25 @@ export namespace V6_N {
   }
 
   export type FileNameDataV6 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV6 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV6 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV6>
   }
 
   export type TriggerMarkerDataV6 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -1106,8 +1113,8 @@ export type V6 = V6_N.ScriptFileDataV6;
 
 export namespace V7_N {
   export type ScriptFileDataV7 = {
-    musicCue: BigInt,
-    endCue: BigInt,
+    musicCue: number,
+    endCue: number,
     audioSettings: AudioSettingsDataV7,
     handler: Array<HandlerDataV7>,
     metaSound: Array<MetaSoundDataV7>,
@@ -1119,8 +1126,8 @@ export namespace V7_N {
   }
 
   export type AudioSettingsDataV7 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     focusTransition: number,
     buss: Array<BussDataV7>,
@@ -1131,14 +1138,14 @@ export namespace V7_N {
   }
 
   export type BussDataV7 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV7
   }
 
   export type BussDynamicDataV7 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV7>
@@ -1151,9 +1158,9 @@ export namespace V7_N {
   }
 
   export type CategoryDataV7 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV7,
     dynamicData: CategoryDynamicDataV7,
     muteFadeTime: number,
@@ -1181,7 +1188,7 @@ export namespace V7_N {
   }
 
   export type EnvelopeDataV7 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV7>,
     offsetType: number
   }
@@ -1198,11 +1205,12 @@ export namespace V7_N {
 
   export type RangeDataV7 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV7 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -1210,7 +1218,7 @@ export namespace V7_N {
   }
 
   export type SnapshotDataV7 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -1219,17 +1227,17 @@ export namespace V7_N {
   }
 
   export type HandlerDataV7 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV7 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV7>,
     attenuation: AttenuationDataV7,
     fileName: Array<FileNameDataV7>,
@@ -1262,25 +1270,25 @@ export namespace V7_N {
   }
 
   export type FileNameDataV7 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV7 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV7 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV7>
   }
 
   export type TriggerMarkerDataV7 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -1291,8 +1299,8 @@ export type V7 = V7_N.ScriptFileDataV7;
 
 export namespace V8_N {
   export type ScriptFileDataV8 = {
-    musicCue: BigInt,
-    endCue: BigInt,
+    musicCue: number,
+    endCue: number,
     audioSettings: AudioSettingsDataV8,
     handler: Array<HandlerDataV8>,
     metaSound: Array<MetaSoundDataV8>,
@@ -1304,8 +1312,8 @@ export namespace V8_N {
   }
 
   export type AudioSettingsDataV8 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     focusTransition: number,
     buss: Array<BussDataV8>,
@@ -1317,14 +1325,14 @@ export namespace V8_N {
   }
 
   export type BussDataV8 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV8
   }
 
   export type BussDynamicDataV8 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV8>
@@ -1337,9 +1345,9 @@ export namespace V8_N {
   }
 
   export type CategoryDataV8 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV8,
     dynamicData: CategoryDynamicDataV8,
     muteFadeTime: number,
@@ -1367,7 +1375,7 @@ export namespace V8_N {
   }
 
   export type EnvelopeDataV8 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV8>,
     offsetType: number
   }
@@ -1384,11 +1392,12 @@ export namespace V8_N {
 
   export type RangeDataV8 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV8 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -1398,7 +1407,7 @@ export namespace V8_N {
   }
 
   export type ReverbDataV8 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -1416,7 +1425,7 @@ export namespace V8_N {
   }
 
   export type SnapshotDataV8 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -1425,17 +1434,17 @@ export namespace V8_N {
   }
 
   export type HandlerDataV8 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV8 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV8>,
     attenuation: AttenuationDataV8,
     fileName: Array<FileNameDataV8>,
@@ -1469,25 +1478,25 @@ export namespace V8_N {
   }
 
   export type FileNameDataV8 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV8 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV8 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV8>
   }
 
   export type TriggerMarkerDataV8 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -1498,8 +1507,8 @@ export type V8 = V8_N.ScriptFileDataV8;
 
 export namespace V9_N {
   export type ScriptFileDataV9 = {
-    musicCue: BigInt,
-    endCue: BigInt,
+    musicCue: number,
+    endCue: number,
     audioSettings: AudioSettingsDataV9,
     handler: Array<HandlerDataV9>,
     metaSound: Array<MetaSoundDataV9>,
@@ -1511,8 +1520,8 @@ export namespace V9_N {
   }
 
   export type AudioSettingsDataV9 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     focusTransition: number,
     buss: Array<BussDataV9>,
@@ -1524,14 +1533,14 @@ export namespace V9_N {
   }
 
   export type BussDataV9 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV9
   }
 
   export type BussDynamicDataV9 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV9>
@@ -1544,10 +1553,10 @@ export namespace V9_N {
   }
 
   export type CategoryDataV9 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
-    soundPoolCategory: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
+    soundPoolCategory: number,
     attenuation: AttenuationDataV9,
     dynamicData: CategoryDynamicDataV9,
     muteFadeTime: number,
@@ -1579,7 +1588,7 @@ export namespace V9_N {
   }
 
   export type EnvelopeDataV9 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV9>,
     offsetType: number
   }
@@ -1596,11 +1605,12 @@ export namespace V9_N {
 
   export type RangeDataV9 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV9 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -1610,7 +1620,7 @@ export namespace V9_N {
   }
 
   export type ReverbDataV9 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -1628,7 +1638,7 @@ export namespace V9_N {
   }
 
   export type SnapshotDataV9 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -1637,17 +1647,17 @@ export namespace V9_N {
   }
 
   export type HandlerDataV9 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV9 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV9>,
     attenuation: AttenuationDataV9,
     fileName: Array<FileNameDataV9>,
@@ -1681,25 +1691,25 @@ export namespace V9_N {
   }
 
   export type FileNameDataV9 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV9 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV9 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV9>
   }
 
   export type TriggerMarkerDataV9 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -1710,7 +1720,7 @@ export type V9 = V9_N.ScriptFileDataV9;
 
 export namespace V10_N {
   export type ScriptFileDataV10 = {
-    musicCue: BigInt,
+    musicCue: number,
     audioSettings: AudioSettingsDataV10,
     handler: Array<HandlerDataV10>,
     metaSound: Array<MetaSoundDataV10>,
@@ -1724,8 +1734,8 @@ export namespace V10_N {
   }
 
   export type AudioSettingsDataV10 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     focusTransition: number,
     buss: Array<BussDataV10>,
@@ -1737,14 +1747,14 @@ export namespace V10_N {
   }
 
   export type BussDataV10 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV10
   }
 
   export type BussDynamicDataV10 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV10>
@@ -1757,9 +1767,9 @@ export namespace V10_N {
   }
 
   export type CategoryDataV10 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV10,
     dynamicData: CategoryDynamicDataV10,
     muteFadeTime: number,
@@ -1787,7 +1797,7 @@ export namespace V10_N {
   }
 
   export type EnvelopeDataV10 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV10>,
     offsetType: number
   }
@@ -1804,11 +1814,12 @@ export namespace V10_N {
 
   export type RangeDataV10 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV10 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -1818,7 +1829,7 @@ export namespace V10_N {
   }
 
   export type ReverbDataV10 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -1836,7 +1847,7 @@ export namespace V10_N {
   }
 
   export type SnapshotDataV10 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -1845,17 +1856,17 @@ export namespace V10_N {
   }
 
   export type HandlerDataV10 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV10 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV10>,
     attenuation: AttenuationDataV10,
     fileName: Array<FileNameDataV10>,
@@ -1889,25 +1900,25 @@ export namespace V10_N {
   }
 
   export type FileNameDataV10 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV10 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV10 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV10>
   }
 
   export type TriggerMarkerDataV10 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -1918,7 +1929,7 @@ export type V10 = V10_N.ScriptFileDataV10;
 
 export namespace V11_N {
   export type ScriptFileDataV11 = {
-    musicCue: BigInt,
+    musicCue: number,
     audioSettings: AudioSettingsDataV11,
     handler: Array<HandlerDataV11>,
     metaSound: Array<MetaSoundDataV11>,
@@ -1932,8 +1943,8 @@ export namespace V11_N {
   }
 
   export type AudioSettingsDataV11 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     focusTransition: number,
     buss: Array<BussDataV11>,
@@ -1946,14 +1957,14 @@ export namespace V11_N {
   }
 
   export type BussDataV11 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV11
   }
 
   export type BussDynamicDataV11 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV11>
@@ -1966,9 +1977,9 @@ export namespace V11_N {
   }
 
   export type CategoryDataV11 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV11,
     dynamicData: CategoryDynamicDataV11,
     muteFadeTime: number,
@@ -1996,7 +2007,7 @@ export namespace V11_N {
   }
 
   export type EnvelopeDataV11 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV11>,
     offsetType: number
   }
@@ -2013,11 +2024,12 @@ export namespace V11_N {
 
   export type RangeDataV11 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV11 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -2027,7 +2039,7 @@ export namespace V11_N {
   }
 
   export type ReverbDataV11 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -2045,7 +2057,7 @@ export namespace V11_N {
   }
 
   export type SnapshotDataV11 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -2054,17 +2066,17 @@ export namespace V11_N {
   }
 
   export type HandlerDataV11 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV11 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV11>,
     attenuation: AttenuationDataV11,
     fileName: Array<FileNameDataV11>,
@@ -2098,25 +2110,25 @@ export namespace V11_N {
   }
 
   export type FileNameDataV11 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV11 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV11 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV11>
   }
 
   export type TriggerMarkerDataV11 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -2127,7 +2139,7 @@ export type V11 = V11_N.ScriptFileDataV11;
 
 export namespace V12_N {
   export type ScriptFileDataV12 = {
-    musicCue: BigInt,
+    musicCue: number,
     audioSettings: AudioSettingsDataV12,
     handler: Array<HandlerDataV12>,
     metaSound: Array<MetaSoundDataV12>,
@@ -2142,8 +2154,8 @@ export namespace V12_N {
   }
 
   export type AudioSettingsDataV12 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     focusTransition: number,
     buss: Array<BussDataV12>,
@@ -2156,14 +2168,14 @@ export namespace V12_N {
   }
 
   export type BussDataV12 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV12
   }
 
   export type BussDynamicDataV12 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV12>
@@ -2176,9 +2188,9 @@ export namespace V12_N {
   }
 
   export type CategoryDataV12 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV12,
     dynamicData: CategoryDynamicDataV12,
     muteFadeTime: number,
@@ -2206,7 +2218,7 @@ export namespace V12_N {
   }
 
   export type EnvelopeDataV12 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV12>,
     offsetType: number
   }
@@ -2223,11 +2235,12 @@ export namespace V12_N {
 
   export type RangeDataV12 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV12 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -2237,7 +2250,7 @@ export namespace V12_N {
   }
 
   export type ReverbDataV12 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -2255,7 +2268,7 @@ export namespace V12_N {
   }
 
   export type SnapshotDataV12 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -2264,17 +2277,17 @@ export namespace V12_N {
   }
 
   export type HandlerDataV12 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV12 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV12>,
     attenuation: AttenuationDataV12,
     fileName: Array<FileNameDataV12>,
@@ -2308,25 +2321,25 @@ export namespace V12_N {
   }
 
   export type FileNameDataV12 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV12 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV12 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV12>
   }
 
   export type TriggerMarkerDataV12 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -2337,8 +2350,8 @@ export type V12 = V12_N.ScriptFileDataV12;
 
 export namespace V13_N {
   export type ScriptFileDataV13 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
+    musicCue: number,
+    reverbOverride: number,
     audioSettings: AudioSettingsDataV13,
     handler: Array<HandlerDataV13>,
     metaSound: Array<MetaSoundDataV13>,
@@ -2353,8 +2366,8 @@ export namespace V13_N {
   }
 
   export type AudioSettingsDataV13 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     focusTransition: number,
     buss: Array<BussDataV13>,
@@ -2367,14 +2380,14 @@ export namespace V13_N {
   }
 
   export type BussDataV13 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV13
   }
 
   export type BussDynamicDataV13 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV13>
@@ -2387,9 +2400,9 @@ export namespace V13_N {
   }
 
   export type CategoryDataV13 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV13,
     dynamicData: CategoryDynamicDataV13,
     muteFadeTime: number,
@@ -2417,7 +2430,7 @@ export namespace V13_N {
   }
 
   export type EnvelopeDataV13 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV13>,
     offsetType: number
   }
@@ -2434,11 +2447,12 @@ export namespace V13_N {
 
   export type RangeDataV13 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV13 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -2448,7 +2462,7 @@ export namespace V13_N {
   }
 
   export type ReverbDataV13 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -2466,7 +2480,7 @@ export namespace V13_N {
   }
 
   export type SnapshotDataV13 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -2475,17 +2489,17 @@ export namespace V13_N {
   }
 
   export type HandlerDataV13 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV13 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV13>,
     attenuation: AttenuationDataV13,
     fileName: Array<FileNameDataV13>,
@@ -2519,25 +2533,25 @@ export namespace V13_N {
   }
 
   export type FileNameDataV13 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV13 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV13 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV13>
   }
 
   export type TriggerMarkerDataV13 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -2548,8 +2562,8 @@ export type V13 = V13_N.ScriptFileDataV13;
 
 export namespace V14_N {
   export type ScriptFileDataV14 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
+    musicCue: number,
+    reverbOverride: number,
     audioSettings: AudioSettingsDataV14,
     handler: Array<HandlerDataV14>,
     metaSound: Array<MetaSoundDataV14>,
@@ -2564,8 +2578,8 @@ export namespace V14_N {
   }
 
   export type AudioSettingsDataV14 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -2579,14 +2593,14 @@ export namespace V14_N {
   }
 
   export type BussDataV14 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV14
   }
 
   export type BussDynamicDataV14 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV14>
@@ -2599,9 +2613,9 @@ export namespace V14_N {
   }
 
   export type CategoryDataV14 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV14,
     dynamicData: CategoryDynamicDataV14,
     muteFadeTime: number,
@@ -2627,7 +2641,7 @@ export namespace V14_N {
   }
 
   export type EnvelopeDataV14 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV14>,
     offsetType: number
   }
@@ -2644,11 +2658,12 @@ export namespace V14_N {
 
   export type RangeDataV14 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV14 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -2658,7 +2673,7 @@ export namespace V14_N {
   }
 
   export type ReverbDataV14 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -2676,7 +2691,7 @@ export namespace V14_N {
   }
 
   export type SnapshotDataV14 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -2685,17 +2700,17 @@ export namespace V14_N {
   }
 
   export type HandlerDataV14 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV14 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV14>,
     attenuation: AttenuationDataV14,
     fileName: Array<FileNameDataV14>,
@@ -2729,25 +2744,25 @@ export namespace V14_N {
   }
 
   export type FileNameDataV14 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV14 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV14 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV14>
   }
 
   export type TriggerMarkerDataV14 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -2758,8 +2773,8 @@ export type V14 = V14_N.ScriptFileDataV14;
 
 export namespace V15_N {
   export type ScriptFileDataV15 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
+    musicCue: number,
+    reverbOverride: number,
     audioSettings: AudioSettingsDataV15,
     handler: Array<HandlerDataV15>,
     metaSound: Array<MetaSoundDataV15>,
@@ -2774,8 +2789,8 @@ export namespace V15_N {
   }
 
   export type AudioSettingsDataV15 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -2789,14 +2804,14 @@ export namespace V15_N {
   }
 
   export type BussDataV15 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV15
   }
 
   export type BussDynamicDataV15 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV15>
@@ -2809,9 +2824,9 @@ export namespace V15_N {
   }
 
   export type CategoryDataV15 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV15,
     dynamicData: CategoryDynamicDataV15,
     muteFadeTime: number,
@@ -2838,7 +2853,7 @@ export namespace V15_N {
   }
 
   export type EnvelopeDataV15 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV15>,
     offsetType: number
   }
@@ -2855,11 +2870,12 @@ export namespace V15_N {
 
   export type RangeDataV15 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV15 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -2869,7 +2885,7 @@ export namespace V15_N {
   }
 
   export type ReverbDataV15 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -2887,7 +2903,7 @@ export namespace V15_N {
   }
 
   export type SnapshotDataV15 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -2896,17 +2912,17 @@ export namespace V15_N {
   }
 
   export type HandlerDataV15 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV15 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV15>,
     attenuation: AttenuationDataV15,
     fileName: Array<FileNameDataV15>,
@@ -2940,25 +2956,25 @@ export namespace V15_N {
   }
 
   export type FileNameDataV15 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV15 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV15 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV15>
   }
 
   export type TriggerMarkerDataV15 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -2969,8 +2985,8 @@ export type V15 = V15_N.ScriptFileDataV15;
 
 export namespace V16_N {
   export type ScriptFileDataV16 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
+    musicCue: number,
+    reverbOverride: number,
     audioSettings: AudioSettingsDataV16,
     handler: Array<HandlerDataV16>,
     metaSound: Array<MetaSoundDataV16>,
@@ -2985,8 +3001,8 @@ export namespace V16_N {
   }
 
   export type AudioSettingsDataV16 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -3000,14 +3016,14 @@ export namespace V16_N {
   }
 
   export type BussDataV16 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV16
   }
 
   export type BussDynamicDataV16 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV16>
@@ -3020,9 +3036,9 @@ export namespace V16_N {
   }
 
   export type CategoryDataV16 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV16,
     dynamicData: CategoryDynamicDataV16,
     muteFadeTime: number,
@@ -3049,7 +3065,7 @@ export namespace V16_N {
   }
 
   export type EnvelopeDataV16 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV16>,
     offsetType: number
   }
@@ -3066,11 +3082,12 @@ export namespace V16_N {
 
   export type RangeDataV16 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV16 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -3080,7 +3097,7 @@ export namespace V16_N {
   }
 
   export type ReverbDataV16 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -3102,7 +3119,7 @@ export namespace V16_N {
   }
 
   export type SnapshotDataV16 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -3111,17 +3128,17 @@ export namespace V16_N {
   }
 
   export type HandlerDataV16 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV16 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV16>,
     attenuation: AttenuationDataV16,
     fileName: Array<FileNameDataV16>,
@@ -3155,25 +3172,25 @@ export namespace V16_N {
   }
 
   export type FileNameDataV16 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV16 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV16 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV16>
   }
 
   export type TriggerMarkerDataV16 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -3184,8 +3201,8 @@ export type V16 = V16_N.ScriptFileDataV16;
 
 export namespace V17_N {
   export type ScriptFileDataV17 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
+    musicCue: number,
+    reverbOverride: number,
     audioSettings: AudioSettingsDataV17,
     handler: Array<HandlerDataV17>,
     metaSound: Array<MetaSoundDataV17>,
@@ -3200,8 +3217,8 @@ export namespace V17_N {
   }
 
   export type AudioSettingsDataV17 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -3215,14 +3232,14 @@ export namespace V17_N {
   }
 
   export type BussDataV17 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV17
   }
 
   export type BussDynamicDataV17 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV17>
@@ -3235,9 +3252,9 @@ export namespace V17_N {
   }
 
   export type CategoryDataV17 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV17,
     dynamicData: CategoryDynamicDataV17,
     muteFadeTime: number,
@@ -3264,7 +3281,7 @@ export namespace V17_N {
   }
 
   export type EnvelopeDataV17 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV17>,
     offsetType: number
   }
@@ -3281,11 +3298,12 @@ export namespace V17_N {
 
   export type RangeDataV17 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV17 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -3295,7 +3313,7 @@ export namespace V17_N {
   }
 
   export type ReverbDataV17 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -3317,7 +3335,7 @@ export namespace V17_N {
   }
 
   export type SnapshotDataV17 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -3326,17 +3344,17 @@ export namespace V17_N {
   }
 
   export type HandlerDataV17 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV17 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV17>,
     attenuation: AttenuationDataV17,
     fileName: Array<FileNameDataV17>,
@@ -3373,25 +3391,25 @@ export namespace V17_N {
   }
 
   export type FileNameDataV17 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV17 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV17 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV17>
   }
 
   export type TriggerMarkerDataV17 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -3402,8 +3420,8 @@ export type V17 = V17_N.ScriptFileDataV17;
 
 export namespace V18_N {
   export type ScriptFileDataV18 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
+    musicCue: number,
+    reverbOverride: number,
     audioSettings: AudioSettingsDataV18,
     handler: Array<HandlerDataV18>,
     metaSound: Array<MetaSoundDataV18>,
@@ -3418,8 +3436,8 @@ export namespace V18_N {
   }
 
   export type AudioSettingsDataV18 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -3433,14 +3451,14 @@ export namespace V18_N {
   }
 
   export type BussDataV18 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV18
   }
 
   export type BussDynamicDataV18 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV18>
@@ -3453,9 +3471,9 @@ export namespace V18_N {
   }
 
   export type CategoryDataV18 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV18,
     dynamicData: CategoryDynamicDataV18,
     muteFadeTime: number,
@@ -3482,7 +3500,7 @@ export namespace V18_N {
   }
 
   export type EnvelopeDataV18 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV18>,
     offsetType: number
   }
@@ -3499,11 +3517,12 @@ export namespace V18_N {
 
   export type RangeDataV18 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV18 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -3513,7 +3532,7 @@ export namespace V18_N {
   }
 
   export type ReverbDataV18 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -3535,7 +3554,7 @@ export namespace V18_N {
   }
 
   export type SnapshotDataV18 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -3544,17 +3563,17 @@ export namespace V18_N {
   }
 
   export type HandlerDataV18 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV18 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV18>,
     attenuation: AttenuationDataV18,
     fileName: Array<FileNameDataV18>,
@@ -3591,25 +3610,25 @@ export namespace V18_N {
   }
 
   export type FileNameDataV18 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV18 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV18 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV18>
   }
 
   export type TriggerMarkerDataV18 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -3620,8 +3639,8 @@ export type V18 = V18_N.ScriptFileDataV18;
 
 export namespace V19_N {
   export type ScriptFileDataV19 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
+    musicCue: number,
+    reverbOverride: number,
     audioSettings: AudioSettingsDataV19,
     handler: Array<HandlerDataV19>,
     metaSound: Array<MetaSoundDataV19>,
@@ -3636,8 +3655,8 @@ export namespace V19_N {
   }
 
   export type AudioSettingsDataV19 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -3651,14 +3670,14 @@ export namespace V19_N {
   }
 
   export type BussDataV19 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV19
   }
 
   export type BussDynamicDataV19 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV19>
@@ -3671,9 +3690,9 @@ export namespace V19_N {
   }
 
   export type CategoryDataV19 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV19,
     dynamicData: CategoryDynamicDataV19,
     muteFadeTime: number,
@@ -3700,7 +3719,7 @@ export namespace V19_N {
   }
 
   export type EnvelopeDataV19 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV19>,
     offsetType: number
   }
@@ -3717,11 +3736,12 @@ export namespace V19_N {
 
   export type RangeDataV19 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV19 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -3731,7 +3751,7 @@ export namespace V19_N {
   }
 
   export type ReverbDataV19 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -3753,7 +3773,7 @@ export namespace V19_N {
   }
 
   export type SnapshotDataV19 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -3763,17 +3783,17 @@ export namespace V19_N {
   }
 
   export type HandlerDataV19 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV19 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV19>,
     attenuation: AttenuationDataV19,
     fileName: Array<FileNameDataV19>,
@@ -3810,25 +3830,25 @@ export namespace V19_N {
   }
 
   export type FileNameDataV19 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV19 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV19 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV19>
   }
 
   export type TriggerMarkerDataV19 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -3839,9 +3859,9 @@ export type V19 = V19_N.ScriptFileDataV19;
 
 export namespace V20_N {
   export type ScriptFileDataV20 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV20,
     handler: Array<HandlerDataV20>,
     metaSound: Array<MetaSoundDataV20>,
@@ -3856,8 +3876,8 @@ export namespace V20_N {
   }
 
   export type AudioSettingsDataV20 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -3871,14 +3891,14 @@ export namespace V20_N {
   }
 
   export type BussDataV20 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV20
   }
 
   export type BussDynamicDataV20 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV20>
@@ -3891,9 +3911,9 @@ export namespace V20_N {
   }
 
   export type CategoryDataV20 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV20,
     dynamicData: CategoryDynamicDataV20,
     muteFadeTime: number,
@@ -3920,7 +3940,7 @@ export namespace V20_N {
   }
 
   export type EnvelopeDataV20 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV20>,
     offsetType: number
   }
@@ -3937,11 +3957,12 @@ export namespace V20_N {
 
   export type RangeDataV20 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV20 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -3951,7 +3972,7 @@ export namespace V20_N {
   }
 
   export type ReverbDataV20 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -3973,7 +3994,7 @@ export namespace V20_N {
   }
 
   export type SnapshotDataV20 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -3983,17 +4004,17 @@ export namespace V20_N {
   }
 
   export type HandlerDataV20 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV20 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV20>,
     attenuation: AttenuationDataV20,
     fileName: Array<FileNameDataV20>,
@@ -4030,25 +4051,25 @@ export namespace V20_N {
   }
 
   export type FileNameDataV20 = {
-    language: BigInt,
+    language: number,
     weight: number,
     fileName: string,
     audioType: number
   }
 
   export type ScriptRefDataV20 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV20 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV20>
   }
 
   export type TriggerMarkerDataV20 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -4059,9 +4080,9 @@ export type V20 = V20_N.ScriptFileDataV20;
 
 export namespace V21_N {
   export type ScriptFileDataV21 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV21,
     handler: Array<HandlerDataV21>,
     metaSound: Array<MetaSoundDataV21>,
@@ -4076,8 +4097,8 @@ export namespace V21_N {
   }
 
   export type AudioSettingsDataV21 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -4093,14 +4114,14 @@ export namespace V21_N {
   }
 
   export type BussDataV21 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV21
   }
 
   export type BussDynamicDataV21 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV21>
@@ -4113,9 +4134,9 @@ export namespace V21_N {
   }
 
   export type CategoryDataV21 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV21,
     dynamicData: CategoryDynamicDataV21,
     muteFadeTime: number,
@@ -4142,7 +4163,7 @@ export namespace V21_N {
   }
 
   export type EnvelopeDataV21 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV21>,
     offsetType: number
   }
@@ -4159,11 +4180,12 @@ export namespace V21_N {
 
   export type RangeDataV21 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV21 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -4173,16 +4195,16 @@ export namespace V21_N {
   }
 
   export type MusicConditionDataV21 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV21 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV21>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -4195,8 +4217,8 @@ export namespace V21_N {
   }
 
   export type FileNameDataV21 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -4204,7 +4226,7 @@ export namespace V21_N {
   }
 
   export type ReverbDataV21 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -4226,7 +4248,7 @@ export namespace V21_N {
   }
 
   export type SnapshotDataV21 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -4236,17 +4258,17 @@ export namespace V21_N {
   }
 
   export type HandlerDataV21 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV21 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV21>,
     attenuation: AttenuationDataV21,
     fileName: Array<FileNameDataV21>,
@@ -4283,18 +4305,18 @@ export namespace V21_N {
   }
 
   export type ScriptRefDataV21 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV21 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV21>
   }
 
   export type TriggerMarkerDataV21 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -4305,9 +4327,9 @@ export type V21 = V21_N.ScriptFileDataV21;
 
 export namespace V22_N {
   export type ScriptFileDataV22 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV22,
     handler: Array<HandlerDataV22>,
     metaSound: Array<MetaSoundDataV22>,
@@ -4322,8 +4344,8 @@ export namespace V22_N {
   }
 
   export type AudioSettingsDataV22 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -4339,14 +4361,14 @@ export namespace V22_N {
   }
 
   export type BussDataV22 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV22
   }
 
   export type BussDynamicDataV22 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV22>
@@ -4359,9 +4381,9 @@ export namespace V22_N {
   }
 
   export type CategoryDataV22 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV22,
     dynamicData: CategoryDynamicDataV22,
     muteFadeTime: number,
@@ -4389,7 +4411,7 @@ export namespace V22_N {
   }
 
   export type EnvelopeDataV22 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV22>,
     offsetType: number
   }
@@ -4406,11 +4428,12 @@ export namespace V22_N {
 
   export type RangeDataV22 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV22 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -4421,16 +4444,16 @@ export namespace V22_N {
   }
 
   export type MusicConditionDataV22 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV22 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV22>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -4443,8 +4466,8 @@ export namespace V22_N {
   }
 
   export type FileNameDataV22 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -4452,7 +4475,7 @@ export namespace V22_N {
   }
 
   export type ReverbDataV22 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -4474,7 +4497,7 @@ export namespace V22_N {
   }
 
   export type SnapshotDataV22 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -4484,17 +4507,17 @@ export namespace V22_N {
   }
 
   export type HandlerDataV22 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV22 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV22>,
     attenuation: AttenuationDataV22,
     fileName: Array<FileNameDataV22>,
@@ -4531,18 +4554,18 @@ export namespace V22_N {
   }
 
   export type ScriptRefDataV22 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV22 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV22>
   }
 
   export type TriggerMarkerDataV22 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -4553,9 +4576,9 @@ export type V22 = V22_N.ScriptFileDataV22;
 
 export namespace V23_N {
   export type ScriptFileDataV23 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV23,
     handler: Array<HandlerDataV23>,
     metaSound: Array<MetaSoundDataV23>,
@@ -4571,8 +4594,8 @@ export namespace V23_N {
   }
 
   export type AudioSettingsDataV23 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -4588,14 +4611,14 @@ export namespace V23_N {
   }
 
   export type BussDataV23 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV23
   }
 
   export type BussDynamicDataV23 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV23>
@@ -4608,9 +4631,9 @@ export namespace V23_N {
   }
 
   export type CategoryDataV23 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV23,
     dynamicData: CategoryDynamicDataV23,
     muteFadeTime: number,
@@ -4638,7 +4661,7 @@ export namespace V23_N {
   }
 
   export type EnvelopeDataV23 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV23>,
     offsetType: number
   }
@@ -4655,11 +4678,12 @@ export namespace V23_N {
 
   export type RangeDataV23 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV23 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -4670,16 +4694,16 @@ export namespace V23_N {
   }
 
   export type MusicConditionDataV23 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV23 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV23>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -4692,8 +4716,8 @@ export namespace V23_N {
   }
 
   export type FileNameDataV23 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -4701,7 +4725,7 @@ export namespace V23_N {
   }
 
   export type ReverbDataV23 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -4723,7 +4747,7 @@ export namespace V23_N {
   }
 
   export type SnapshotDataV23 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -4733,17 +4757,17 @@ export namespace V23_N {
   }
 
   export type HandlerDataV23 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV23 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV23>,
     attenuation: AttenuationDataV23,
     fileName: Array<FileNameDataV23>,
@@ -4780,18 +4804,18 @@ export namespace V23_N {
   }
 
   export type ScriptRefDataV23 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV23 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV23>
   }
 
   export type TriggerMarkerDataV23 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -4802,9 +4826,9 @@ export type V23 = V23_N.ScriptFileDataV23;
 
 export namespace V24_N {
   export type ScriptFileDataV24 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV24,
     handler: Array<HandlerDataV24>,
     metaSound: Array<MetaSoundDataV24>,
@@ -4820,8 +4844,8 @@ export namespace V24_N {
   }
 
   export type AudioSettingsDataV24 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -4837,14 +4861,14 @@ export namespace V24_N {
   }
 
   export type BussDataV24 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV24
   }
 
   export type BussDynamicDataV24 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV24>
@@ -4857,9 +4881,9 @@ export namespace V24_N {
   }
 
   export type CategoryDataV24 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV24,
     dynamicData: CategoryDynamicDataV24,
     muteFadeTime: number,
@@ -4887,7 +4911,7 @@ export namespace V24_N {
   }
 
   export type EnvelopeDataV24 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV24>,
     offsetType: number
   }
@@ -4904,11 +4928,12 @@ export namespace V24_N {
 
   export type RangeDataV24 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV24 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -4919,16 +4944,16 @@ export namespace V24_N {
   }
 
   export type MusicConditionDataV24 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV24 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV24>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -4941,8 +4966,8 @@ export namespace V24_N {
   }
 
   export type FileNameDataV24 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -4953,7 +4978,7 @@ export namespace V24_N {
   }
 
   export type ReverbDataV24 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -4975,7 +5000,7 @@ export namespace V24_N {
   }
 
   export type SnapshotDataV24 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -4985,17 +5010,17 @@ export namespace V24_N {
   }
 
   export type HandlerDataV24 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV24 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV24>,
     attenuation: AttenuationDataV24,
     fileName: Array<FileNameDataV24>,
@@ -5032,18 +5057,18 @@ export namespace V24_N {
   }
 
   export type ScriptRefDataV24 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV24 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV24>
   }
 
   export type TriggerMarkerDataV24 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -5054,9 +5079,9 @@ export type V24 = V24_N.ScriptFileDataV24;
 
 export namespace V25_N {
   export type ScriptFileDataV25 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV25,
     handler: Array<HandlerDataV25>,
     metaSound: Array<MetaSoundDataV25>,
@@ -5072,8 +5097,8 @@ export namespace V25_N {
   }
 
   export type AudioSettingsDataV25 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -5090,14 +5115,14 @@ export namespace V25_N {
   }
 
   export type BussDataV25 = {
-    name: BigInt,
+    name: number,
     flags: number,
-    output: BigInt,
+    output: number,
     dynamicData: BussDynamicDataV25
   }
 
   export type BussDynamicDataV25 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV25>
@@ -5110,9 +5135,9 @@ export namespace V25_N {
   }
 
   export type CategoryDataV25 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV25,
     dynamicData: CategoryDynamicDataV25,
     muteFadeTime: number,
@@ -5140,7 +5165,7 @@ export namespace V25_N {
   }
 
   export type EnvelopeDataV25 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV25>,
     offsetType: number
   }
@@ -5157,11 +5182,12 @@ export namespace V25_N {
 
   export type RangeDataV25 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV25 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -5172,7 +5198,7 @@ export namespace V25_N {
   }
 
   export type MaterialDataV25 = {
-    name: BigInt,
+    name: number,
     flags: number,
     absorptionLF: number,
     absorptionMF: number,
@@ -5181,16 +5207,16 @@ export namespace V25_N {
   }
 
   export type MusicConditionDataV25 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV25 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV25>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -5203,8 +5229,8 @@ export namespace V25_N {
   }
 
   export type FileNameDataV25 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -5215,7 +5241,7 @@ export namespace V25_N {
   }
 
   export type ReverbDataV25 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -5237,7 +5263,7 @@ export namespace V25_N {
   }
 
   export type SnapshotDataV25 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -5247,17 +5273,17 @@ export namespace V25_N {
   }
 
   export type HandlerDataV25 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV25 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV25>,
     attenuation: AttenuationDataV25,
     fileName: Array<FileNameDataV25>,
@@ -5294,18 +5320,18 @@ export namespace V25_N {
   }
 
   export type ScriptRefDataV25 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV25 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV25>
   }
 
   export type TriggerMarkerDataV25 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -5316,9 +5342,9 @@ export type V25 = V25_N.ScriptFileDataV25;
 
 export namespace V26_N {
   export type ScriptFileDataV26 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV26,
     handler: Array<HandlerDataV26>,
     metaSound: Array<MetaSoundDataV26>,
@@ -5334,8 +5360,8 @@ export namespace V26_N {
   }
 
   export type AudioSettingsDataV26 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     focusTransition: number,
@@ -5356,8 +5382,8 @@ export namespace V26_N {
   }
 
   export type BussDataV26 = {
-    name: BigInt,
-    output: BigInt,
+    name: number,
+    output: number,
     flags: number,
     normalizeFadeTime: number,
     normalizeThreshold: number,
@@ -5370,7 +5396,7 @@ export namespace V26_N {
   }
 
   export type BussDynamicDataV26 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV26>
@@ -5383,9 +5409,9 @@ export namespace V26_N {
   }
 
   export type CategoryDataV26 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV26,
     dynamicData: CategoryDynamicDataV26,
     focusReserve: number,
@@ -5416,7 +5442,7 @@ export namespace V26_N {
   }
 
   export type EnvelopeDataV26 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV26>,
     offsetType: number
   }
@@ -5433,11 +5459,12 @@ export namespace V26_N {
 
   export type RangeDataV26 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV26 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -5451,7 +5478,7 @@ export namespace V26_N {
   }
 
   export type MaterialDataV26 = {
-    name: BigInt,
+    name: number,
     flags: number,
     absorptionLF: number,
     absorptionMF: number,
@@ -5460,16 +5487,16 @@ export namespace V26_N {
   }
 
   export type MusicConditionDataV26 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV26 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV26>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -5482,8 +5509,8 @@ export namespace V26_N {
   }
 
   export type FileNameDataV26 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -5494,7 +5521,7 @@ export namespace V26_N {
   }
 
   export type ReverbDataV26 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -5516,7 +5543,7 @@ export namespace V26_N {
   }
 
   export type SnapshotDataV26 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -5526,17 +5553,17 @@ export namespace V26_N {
   }
 
   export type HandlerDataV26 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV26 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV26>,
     attenuation: AttenuationDataV26,
     fileName: Array<FileNameDataV26>,
@@ -5573,18 +5600,18 @@ export namespace V26_N {
   }
 
   export type ScriptRefDataV26 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type TriggerKeyDataV26 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV26>
   }
 
   export type TriggerMarkerDataV26 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -5595,9 +5622,9 @@ export type V26 = V26_N.ScriptFileDataV26;
 
 export namespace V27_N {
   export type ScriptFileDataV27 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV27,
     handler: Array<HandlerDataV27>,
     metaSound: Array<MetaSoundDataV27>,
@@ -5614,8 +5641,8 @@ export namespace V27_N {
   }
 
   export type AudioSettingsDataV27 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     echoLevel: number,
@@ -5639,8 +5666,8 @@ export namespace V27_N {
   }
 
   export type BussDataV27 = {
-    name: BigInt,
-    output: BigInt,
+    name: number,
+    output: number,
     flags: number,
     normalizeFadeTime: number,
     normalizeThreshold: number,
@@ -5653,7 +5680,7 @@ export namespace V27_N {
   }
 
   export type BussDynamicDataV27 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV27>
@@ -5666,9 +5693,9 @@ export namespace V27_N {
   }
 
   export type CategoryDataV27 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV27,
     dynamicData: CategoryDynamicDataV27,
     focusReserve: number,
@@ -5699,7 +5726,7 @@ export namespace V27_N {
   }
 
   export type EnvelopeDataV27 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV27>,
     offsetType: number
   }
@@ -5716,11 +5743,12 @@ export namespace V27_N {
 
   export type RangeDataV27 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV27 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -5734,7 +5762,7 @@ export namespace V27_N {
   }
 
   export type MaterialDataV27 = {
-    name: BigInt,
+    name: number,
     flags: number,
     absorptionLF: number,
     absorptionMF: number,
@@ -5743,16 +5771,16 @@ export namespace V27_N {
   }
 
   export type MusicConditionDataV27 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV27 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV27>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -5765,8 +5793,8 @@ export namespace V27_N {
   }
 
   export type FileNameDataV27 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -5777,13 +5805,13 @@ export namespace V27_N {
   }
 
   export type PropertyDataV27 = {
-    name: BigInt,
-    tokenValue: BigInt,
+    name: number,
+    tokenValue: number,
     floatValue: number
   }
 
   export type ReverbDataV27 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -5805,12 +5833,12 @@ export namespace V27_N {
   }
 
   export type ScriptRefDataV27 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type SnapshotDataV27 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -5820,17 +5848,17 @@ export namespace V27_N {
   }
 
   export type HandlerDataV27 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV27 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV27>,
     attenuation: AttenuationDataV27,
     fileName: Array<FileNameDataV27>,
@@ -5867,13 +5895,13 @@ export namespace V27_N {
   }
 
   export type TriggerKeyDataV27 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV27>
   }
 
   export type TriggerMarkerDataV27 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -5884,9 +5912,9 @@ export type V27 = V27_N.ScriptFileDataV27;
 
 export namespace V28_N {
   export type ScriptFileDataV28 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV28,
     handler: Array<HandlerDataV28>,
     metaSound: Array<MetaSoundDataV28>,
@@ -5904,8 +5932,8 @@ export namespace V28_N {
   }
 
   export type AudioSettingsDataV28 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     echoLevel: number,
@@ -5929,8 +5957,8 @@ export namespace V28_N {
   }
 
   export type BussDataV28 = {
-    name: BigInt,
-    output: BigInt,
+    name: number,
+    output: number,
     flags: number,
     normalizeFadeTime: number,
     normalizeThreshold: number,
@@ -5943,7 +5971,7 @@ export namespace V28_N {
   }
 
   export type BussDynamicDataV28 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV28>
@@ -5956,9 +5984,9 @@ export namespace V28_N {
   }
 
   export type CategoryDataV28 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV28,
     dynamicData: CategoryDynamicDataV28,
     focusReserve: number,
@@ -5989,7 +6017,7 @@ export namespace V28_N {
   }
 
   export type EnvelopeDataV28 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV28>,
     offsetType: number
   }
@@ -6006,11 +6034,12 @@ export namespace V28_N {
 
   export type RangeDataV28 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV28 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -6024,7 +6053,7 @@ export namespace V28_N {
   }
 
   export type MaterialDataV28 = {
-    name: BigInt,
+    name: number,
     flags: number,
     absorptionLF: number,
     absorptionMF: number,
@@ -6033,16 +6062,16 @@ export namespace V28_N {
   }
 
   export type MusicConditionDataV28 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV28 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV28>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -6055,8 +6084,8 @@ export namespace V28_N {
   }
 
   export type FileNameDataV28 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -6067,13 +6096,13 @@ export namespace V28_N {
   }
 
   export type PropertyDataV28 = {
-    name: BigInt,
-    tokenValue: BigInt,
+    name: number,
+    tokenValue: number,
     floatValue: number
   }
 
   export type ReverbDataV28 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -6095,12 +6124,12 @@ export namespace V28_N {
   }
 
   export type ScriptRefDataV28 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type SnapshotDataV28 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -6110,17 +6139,17 @@ export namespace V28_N {
   }
 
   export type HandlerDataV28 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV28 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV28>,
     attenuation: AttenuationDataV28,
     fileName: Array<FileNameDataV28>,
@@ -6158,13 +6187,13 @@ export namespace V28_N {
   }
 
   export type TriggerKeyDataV28 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV28>
   }
 
   export type TriggerMarkerDataV28 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -6175,9 +6204,9 @@ export type V28 = V28_N.ScriptFileDataV28;
 
 export namespace V29_N {
   export type ScriptFileDataV29 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV29,
     handler: Array<HandlerDataV29>,
     metaSound: Array<MetaSoundDataV29>,
@@ -6195,8 +6224,8 @@ export namespace V29_N {
   }
 
   export type AudioSettingsDataV29 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     echoLevel: number,
@@ -6221,8 +6250,8 @@ export namespace V29_N {
   }
 
   export type BussDataV29 = {
-    name: BigInt,
-    output: BigInt,
+    name: number,
+    output: number,
     flags: number,
     normalizeFadeTime: number,
     normalizeThreshold: number,
@@ -6235,7 +6264,7 @@ export namespace V29_N {
   }
 
   export type BussDynamicDataV29 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV29>
@@ -6248,9 +6277,9 @@ export namespace V29_N {
   }
 
   export type CategoryDataV29 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV29,
     dynamicData: CategoryDynamicDataV29,
     focusReserve: number,
@@ -6281,7 +6310,7 @@ export namespace V29_N {
   }
 
   export type EnvelopeDataV29 = {
-    offsetParameter: BigInt,
+    offsetParameter: number,
     envelopePoint: Array<EnvelopePointDataV29>,
     offsetType: number
   }
@@ -6298,11 +6327,12 @@ export namespace V29_N {
 
   export type RangeDataV29 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV29 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -6316,7 +6346,7 @@ export namespace V29_N {
   }
 
   export type MaterialDataV29 = {
-    name: BigInt,
+    name: number,
     flags: number,
     absorptionLF: number,
     absorptionMF: number,
@@ -6325,16 +6355,16 @@ export namespace V29_N {
   }
 
   export type MusicConditionDataV29 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV29 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV29>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -6347,8 +6377,8 @@ export namespace V29_N {
   }
 
   export type FileNameDataV29 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -6359,13 +6389,13 @@ export namespace V29_N {
   }
 
   export type PropertyDataV29 = {
-    name: BigInt,
-    tokenValue: BigInt,
+    name: number,
+    tokenValue: number,
     floatValue: number
   }
 
   export type ReverbDataV29 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -6387,12 +6417,12 @@ export namespace V29_N {
   }
 
   export type ScriptRefDataV29 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type SnapshotDataV29 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -6402,22 +6432,22 @@ export namespace V29_N {
   }
 
   export type MusicExternalDataV29 = {
-    name: BigInt,
+    name: number,
     externalPlaylist: string
   }
 
   export type HandlerDataV29 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV29 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV29>,
     attenuation: AttenuationDataV29,
     fileName: Array<FileNameDataV29>,
@@ -6455,13 +6485,13 @@ export namespace V29_N {
   }
 
   export type TriggerKeyDataV29 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV29>
   }
 
   export type TriggerMarkerDataV29 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -6472,9 +6502,9 @@ export type V29 = V29_N.ScriptFileDataV29;
 
 export namespace V30_N {
   export type ScriptFileDataV30 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV30,
     handler: Array<HandlerDataV30>,
     metaSound: Array<MetaSoundDataV30>,
@@ -6492,8 +6522,8 @@ export namespace V30_N {
   }
 
   export type AudioSettingsDataV30 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     echoLevel: number,
@@ -6518,8 +6548,8 @@ export namespace V30_N {
   }
 
   export type BussDataV30 = {
-    name: BigInt,
-    output: BigInt,
+    name: number,
+    output: number,
     flags: number,
     normalizeFadeTime: number,
     normalizeThreshold: number,
@@ -6532,7 +6562,7 @@ export namespace V30_N {
   }
 
   export type BussDynamicDataV30 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV30>
@@ -6545,9 +6575,9 @@ export namespace V30_N {
   }
 
   export type CategoryDataV30 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV30,
     dynamicData: CategoryDynamicDataV30,
     focusReserve: number,
@@ -6579,15 +6609,15 @@ export namespace V30_N {
 
   export type EnvelopeDataV30 = {
     inputOffset: number,
-    inputOffsetProperty: BigInt,
-    inputParameter: BigInt,
+    inputOffsetProperty: number,
+    inputParameter: number,
     inputScale: number,
-    inputScaleProperty: BigInt,
+    inputScaleProperty: number,
     inputType: number,
     outputOffset: number,
-    outputOffsetProperty: BigInt,
+    outputOffsetProperty: number,
     outputScale: number,
-    outputScaleProperty: BigInt,
+    outputScaleProperty: number,
     envelopePoint: Array<EnvelopePointDataV30>
   }
 
@@ -6603,11 +6633,12 @@ export namespace V30_N {
 
   export type RangeDataV30 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV30 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -6621,7 +6652,7 @@ export namespace V30_N {
   }
 
   export type MaterialDataV30 = {
-    name: BigInt,
+    name: number,
     flags: number,
     absorptionLF: number,
     absorptionMF: number,
@@ -6630,16 +6661,16 @@ export namespace V30_N {
   }
 
   export type MusicConditionDataV30 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV30 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV30>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -6652,8 +6683,8 @@ export namespace V30_N {
   }
 
   export type FileNameDataV30 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -6664,13 +6695,13 @@ export namespace V30_N {
   }
 
   export type PropertyDataV30 = {
-    name: BigInt,
-    tokenValue: BigInt,
+    name: number,
+    tokenValue: number,
     floatValue: number
   }
 
   export type ReverbDataV30 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -6692,12 +6723,12 @@ export namespace V30_N {
   }
 
   export type ScriptRefDataV30 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type SnapshotDataV30 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -6707,22 +6738,22 @@ export namespace V30_N {
   }
 
   export type MusicExternalDataV30 = {
-    name: BigInt,
+    name: number,
     externalPlaylist: string
   }
 
   export type HandlerDataV30 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV30 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV30>,
     attenuation: AttenuationDataV30,
     fileName: Array<FileNameDataV30>,
@@ -6760,13 +6791,13 @@ export namespace V30_N {
   }
 
   export type TriggerKeyDataV30 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV30>
   }
 
   export type TriggerMarkerDataV30 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -6777,9 +6808,9 @@ export type V30 = V30_N.ScriptFileDataV30;
 
 export namespace V31_N {
   export type ScriptFileDataV31 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV31,
     handler: Array<HandlerDataV31>,
     metaSound: Array<MetaSoundDataV31>,
@@ -6797,8 +6828,8 @@ export namespace V31_N {
   }
 
   export type AudioSettingsDataV31 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     echoLevel: number,
@@ -6823,8 +6854,8 @@ export namespace V31_N {
   }
 
   export type BussDataV31 = {
-    name: BigInt,
-    output: BigInt,
+    name: number,
+    output: number,
     flags: number,
     normalizeFadeTime: number,
     normalizeThreshold: number,
@@ -6837,7 +6868,7 @@ export namespace V31_N {
   }
 
   export type BussDynamicDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV31>
@@ -6850,9 +6881,9 @@ export namespace V31_N {
   }
 
   export type CategoryDataV31 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV31,
     dynamicData: CategoryDynamicDataV31,
     focusReserve: number,
@@ -6884,15 +6915,15 @@ export namespace V31_N {
 
   export type EnvelopeDataV31 = {
     inputOffset: number,
-    inputOffsetProperty: BigInt,
-    inputParameter: BigInt,
+    inputOffsetProperty: number,
+    inputParameter: number,
     inputScale: number,
-    inputScaleProperty: BigInt,
+    inputScaleProperty: number,
     inputType: number,
     outputOffset: number,
-    outputOffsetProperty: BigInt,
+    outputOffsetProperty: number,
     outputScale: number,
-    outputScaleProperty: BigInt,
+    outputScaleProperty: number,
     envelopePoint: Array<EnvelopePointDataV31>
   }
 
@@ -6908,11 +6939,12 @@ export namespace V31_N {
 
   export type RangeDataV31 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV31 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -6926,7 +6958,7 @@ export namespace V31_N {
   }
 
   export type MaterialDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     absorptionLF: number,
     absorptionMF: number,
@@ -6935,16 +6967,16 @@ export namespace V31_N {
   }
 
   export type MusicConditionDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV31 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV31>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -6957,8 +6989,8 @@ export namespace V31_N {
   }
 
   export type FileNameDataV31 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -6969,13 +7001,13 @@ export namespace V31_N {
   }
 
   export type PropertyDataV31 = {
-    name: BigInt,
-    tokenValue: BigInt,
+    name: number,
+    tokenValue: number,
     floatValue: number
   }
 
   export type ReverbDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -6997,12 +7029,12 @@ export namespace V31_N {
   }
 
   export type ScriptRefDataV31 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type SnapshotDataV31 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -7012,22 +7044,22 @@ export namespace V31_N {
   }
 
   export type MusicExternalDataV31 = {
-    name: BigInt,
+    name: number,
     externalPlaylist: string
   }
 
   export type HandlerDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV31 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV31>,
     attenuation: AttenuationDataV31,
     fileName: Array<FileNameDataV31>,
@@ -7066,13 +7098,13 @@ export namespace V31_N {
   }
 
   export type TriggerKeyDataV31 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV31>
   }
 
   export type TriggerMarkerDataV31 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }
@@ -7083,9 +7115,9 @@ export type V31 = V31_N.ScriptFileDataV31;
 
 export namespace V32_N {
   export type ScriptFileDataV32 = {
-    musicCue: BigInt,
-    reverbOverride: BigInt,
-    snapshot: BigInt,
+    musicCue: number,
+    reverbOverride: number,
+    snapshot: number,
     audioSettings: AudioSettingsDataV31,
     handler: Array<HandlerDataV31>,
     metaSound: Array<MetaSoundDataV31>,
@@ -7106,8 +7138,8 @@ export namespace V32_N {
   }
 
   export type AudioSettingsDataV31 = {
-    defaultSnapshot: BigInt,
-    effectsBuss: BigInt,
+    defaultSnapshot: number,
+    effectsBuss: number,
     distanceScale: number,
     dopplerScale: number,
     echoLevel: number,
@@ -7132,8 +7164,8 @@ export namespace V32_N {
   }
 
   export type BussDataV31 = {
-    name: BigInt,
-    output: BigInt,
+    name: number,
+    output: number,
     flags: number,
     normalizeFadeTime: number,
     normalizeThreshold: number,
@@ -7146,7 +7178,7 @@ export namespace V32_N {
   }
 
   export type BussDynamicDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     volume: number,
     dsp: Array<DspDataV31>
@@ -7159,9 +7191,9 @@ export namespace V32_N {
   }
 
   export type CategoryDataV31 = {
-    name: BigInt,
-    volumeGroupName: BigInt,
-    outputBussName: BigInt,
+    name: number,
+    volumeGroupName: number,
+    outputBussName: number,
     attenuation: AttenuationDataV31,
     dynamicData: CategoryDynamicDataV31,
     focusReserve: number,
@@ -7193,15 +7225,15 @@ export namespace V32_N {
 
   export type EnvelopeDataV31 = {
     inputOffset: number,
-    inputOffsetProperty: BigInt,
-    inputParameter: BigInt,
+    inputOffsetProperty: number,
+    inputParameter: number,
     inputScale: number,
-    inputScaleProperty: BigInt,
+    inputScaleProperty: number,
     inputType: number,
     outputOffset: number,
-    outputOffsetProperty: BigInt,
+    outputOffsetProperty: number,
     outputScale: number,
-    outputScaleProperty: BigInt,
+    outputScaleProperty: number,
     envelopePoint: Array<EnvelopePointDataV31>
   }
 
@@ -7217,11 +7249,12 @@ export namespace V32_N {
 
   export type RangeDataV31 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV31 = {
-    name: BigInt,
+    name: number,
     volume: number,
     nonFocusGain: number,
     lowPass: number,
@@ -7235,7 +7268,7 @@ export namespace V32_N {
   }
 
   export type MaterialDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     absorptionLF: number,
     absorptionMF: number,
@@ -7244,16 +7277,16 @@ export namespace V32_N {
   }
 
   export type MusicConditionDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MusicPlaylistDataV31 = {
-    category: BigInt,
-    name: BigInt,
-    primaryPlaylistId: BigInt,
-    secondaryPlaylistId: BigInt,
+    category: number,
+    name: number,
+    primaryPlaylistId: number,
+    secondaryPlaylistId: number,
     fileName: Array<FileNameDataV31>,
     fadeInTime: number,
     fadeOutTime: number,
@@ -7266,8 +7299,8 @@ export namespace V32_N {
   }
 
   export type FileNameDataV31 = {
-    condition: BigInt,
-    language: BigInt,
+    condition: number,
+    language: number,
     volume: number,
     weight: number,
     fileName: string,
@@ -7278,13 +7311,13 @@ export namespace V32_N {
   }
 
   export type PropertyDataV31 = {
-    name: BigInt,
-    tokenValue: BigInt,
+    name: number,
+    tokenValue: number,
     floatValue: number
   }
 
   export type ReverbDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     room: number,
     roomHF: number,
@@ -7306,12 +7339,12 @@ export namespace V32_N {
   }
 
   export type ScriptRefDataV31 = {
-    name: BigInt,
+    name: number,
     fileName: string
   }
 
   export type SnapshotDataV31 = {
-    name: BigInt,
+    name: number,
     blendInTime: number,
     blendOutTime: number,
     flags: number,
@@ -7321,22 +7354,22 @@ export namespace V32_N {
   }
 
   export type MusicExternalDataV31 = {
-    name: BigInt,
+    name: number,
     externalPlaylist: string
   }
 
   export type HandlerDataV31 = {
-    name: BigInt,
+    name: number,
     flags: number,
     byteCode: Array<number>
   }
 
   export type MetaSoundDataV31 = {
-    category: BigInt,
-    endCue: BigInt,
-    name: BigInt,
-    offsetBone: BigInt,
-    playlistId: BigInt,
+    category: number,
+    endCue: number,
+    name: number,
+    offsetBone: number,
+    playlistId: number,
     dsp: Array<DspDataV31>,
     attenuation: AttenuationDataV31,
     fileName: Array<FileNameDataV31>,
@@ -7375,13 +7408,13 @@ export namespace V32_N {
   }
 
   export type TriggerKeyDataV31 = {
-    name: BigInt,
+    name: number,
     triggerMarker: Array<TriggerMarkerDataV31>
   }
 
   export type TriggerMarkerDataV31 = {
-    cue: BigInt,
-    end: BigInt,
+    cue: number,
+    end: number,
     time: number,
     type: number
   }

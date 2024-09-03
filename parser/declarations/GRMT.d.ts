@@ -90,7 +90,7 @@ export namespace V5_N {
     flags: number,
     texType: number,
     textureMasks: Array<number>,
-    texTokens: Array<BigInt>
+    texTokens: Array<number>
   }
 
 }
@@ -106,7 +106,7 @@ export namespace V6_N {
     procAnim: number,
     debugFlags: number,
     flags: number,
-    texTokens: Array<BigInt>
+    texTokens: Array<number>
   }
 
 }

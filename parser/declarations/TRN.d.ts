@@ -6,7 +6,7 @@ export namespace V10_N {
     tileFlagArray: Array<number>,
     chunkArray: Array<PackMapTerrainChunkV10>,
     materials: PackMapTerrainMaterialsV10,
-    typeArray: Array<BigInt>
+    typeArray: Array<number>
   }
 
   export type PackMapTerrainChunkV10 = {
@@ -28,8 +28,9 @@ export namespace V10_N {
 
   export type PackMapTerrainTexV10 = {
     tokenName: number,
-    flags: Array<number>,
+    flags: number,
     filename: string,
+    flags_: Array<number>,
     layer: number
   }
 
@@ -67,7 +68,7 @@ export namespace V11_N {
     tileFlagArray: Array<number>,
     chunkArray: Array<PackMapTerrainChunkV11>,
     materials: PackMapTerrainMaterialsV11,
-    typeArray: Array<BigInt>
+    typeArray: Array<number>
   }
 
   export type PackMapTerrainChunkV11 = {
@@ -89,8 +90,9 @@ export namespace V11_N {
 
   export type PackMapTerrainTexV11 = {
     tokenName: number,
-    flags: Array<number>,
+    flags: number,
     filename: string,
+    flags_: Array<number>,
     layer: number
   }
 
@@ -128,7 +130,7 @@ export namespace V12_N {
     tileFlagArray: Array<number>,
     chunkArray: Array<PackMapTerrainChunkV12>,
     materials: PackMapTerrainMaterialsV12,
-    typeArray: Array<BigInt>
+    typeArray: Array<number>
   }
 
   export type PackMapTerrainChunkV12 = {
@@ -150,8 +152,9 @@ export namespace V12_N {
 
   export type PackMapTerrainTexV12 = {
     tokenName: number,
-    flags: Array<number>,
+    flags: number,
     filename: string,
+    flags_: Array<number>,
     layer: number
   }
 
@@ -189,7 +192,7 @@ export namespace V13_N {
     tileFlagArray: Array<number>,
     chunkArray: Array<PackMapTerrainChunkV13>,
     materials: PackMapTerrainMaterialsV13,
-    typeArray: Array<BigInt>
+    typeArray: Array<number>
   }
 
   export type PackMapTerrainChunkV13 = {
@@ -213,8 +216,9 @@ export namespace V13_N {
 
   export type PackMapTerrainTexV13 = {
     tokenName: number,
-    flags: Array<number>,
+    flags: number,
     filename: string,
+    flags_: Array<number>,
     layer: number
   }
 
@@ -258,7 +262,7 @@ export namespace V14_N {
   export type PackMapTerrainChunkV14 = {
     chunkFlags: number,
     surfaceIndexArray: Array<number>,
-    surfaceTokenArray: Array<BigInt>
+    surfaceTokenArray: Array<number>
   }
 
   export type PackMapTerrainMaterialsV14 = {
@@ -277,8 +281,9 @@ export namespace V14_N {
 
   export type PackMapTerrainTexV14 = {
     tokenName: number,
-    flags: Array<number>,
+    flags: number,
     filename: string,
+    flags_: Array<number>,
     layer: number
   }
 

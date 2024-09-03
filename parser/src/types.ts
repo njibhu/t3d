@@ -51,7 +51,7 @@ export const Uint32: DataType = {
 
 export const Uint64: DataType = {
   baseType: BaseType.Uint64,
-  declarationType: "BigInt",
+  declarationType: "number", //Clamped back into number to prevent compatibility issues
 };
 
 export function CString(length?: number): DataType {
