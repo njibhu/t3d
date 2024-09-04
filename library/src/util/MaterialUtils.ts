@@ -30,6 +30,10 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
  * @namespace MaterialUtils
  */
 
+import type { Color, DataTexture, ShaderMaterial, Material, Texture, MeshPhongMaterial, MeshBasicMaterial } from "three";
+import type GW2File from "../format/file/GW2File"
+import type LocalReader from "../LocalReader/LocalReader";
+
 /**
  * Builds a custom vertex shader for a given number of uv cannels.
  * WIP not implemented yet!
@@ -38,7 +42,7 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
  * @param  {Number} numUv Number of UV channels used by this shader
  * @return {String}       Genereted vertex shader source
  */
-function buildVS(numUv) {
+export function buildVS(numUv: number): string {
   let vdefs = "";
   let adefs = "";
   let reads = "";
@@ -72,7 +76,7 @@ function buildVS(numUv) {
  * @param {THREE.Color} color
  * @returns {THREE.DataTexture}
  */
-function generateDataTexture(width, height, color) {
+export function generateDataTexture(width: number, height: number, color: Color): DataTexture {
   // create a buffer with color data
   const size = width * height;
   const data = new Uint8Array(4 * size);
@@ -104,7 +108,7 @@ function generateDataTexture(width, height, color) {
  * @param  {any} lightMap  TODO
  * @returns {string}
  */
-function buildPS(textures, numUv, alphaTest, lightMap) {
+export function buildPS(textures: any[], numUv: number, alphaTest: number, lightMap: any): string {
   const t1uv = "vUv_" + (textures[0].uvIdx + 1);
 
   let discard = "";
@@ -161,9 +165,9 @@ function buildPS(textures, numUv, alphaTest, lightMap) {
  * @param  {Number} alphaTest Texture see-trough alpha treshold
  * @return {THREE.ShaderMaterial} Generated shader
  */
-function getUVMat(textures, numUV, alphaTest) {
+export function getUVMat(textures: any[], numUV: number, alphaTest: number): ShaderMaterial {
   let lightMap = false;
-  const uniforms = {};
+  const uniforms: any = {};
 
   textures.forEach(function (t, idx) {
     uniforms["texture" + idx] = { type: "t", value: t };
@@ -173,7 +177,7 @@ function getUVMat(textures, numUV, alphaTest) {
     lightMap = true;
   }
 
-  const attributes = {};
+  const attributes: any = {};
 
   for (let i = 2; i < numUV; i++) {
     attributes["uv" + (i + 1)] = { type: "v2", value: [] };
@@ -185,9 +189,20 @@ function getUVMat(textures, numUV, alphaTest) {
     uniforms: uniforms,
     vertexShader: vs,
     fragmentShader: buildPS(textures, numUV, alphaTest, lightMap),
+    // @ts-ignore
     attributes: attributes,
     side: THREE.FrontSide,
   });
+}
+
+interface ModelMaterialData {
+  textures: {
+    token: string;
+    filename: number;
+    uvPSInputIndex: number;
+  }[];
+  materialFlags: number;
+  texCoordCount: number;
 }
 
 /**
@@ -212,14 +227,14 @@ function getUVMat(textures, numUV, alphaTest) {
  * @param  {Object} sharedTextures  Value Object for keeping the texture cache
  * @return {THREE.Material}         A THREE Material with the generated contents and settings.
  */
-function getMaterial(material, materialFile, localReader, sharedTextures) {
+export function getMaterial(material: ModelMaterialData, materialFile: GW2File, localReader: LocalReader, sharedTextures: any): Material | undefined {
   if (!materialFile) return;
 
-  const dxChunk = materialFile.getChunk("dx9s");
-  let grChunk = materialFile.getChunk("grmt");
+  const dxChunk = materialFile.getChunk("dx9s")!;
+  let grChunk = materialFile.getChunk("grmt")!;
 
   /// Append all textures to the custom material
-  const finalTextures = [];
+  const finalTextures : (Texture & {uvIdx?: number}) [] = [];
 
   // Some materials don't use textures..
   if (material && material.textures.length && dxChunk.data.techniques.length > 0) {
@@ -250,8 +265,8 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     // var samplerIdx = effect.samplerIndex[0];
 
     const samplerTextures = [];
-    let textureToken;
-    let samplerTex;
+    let textureToken: string; // UINT64
+    let samplerTex: ModelMaterialData["textures"][number] | null;
     for (let i = 0; i < effect.samplerIndex.length; i++) {
       const samplerIdx = effect.samplerIndex[i];
       const sampler = dxChunk.data.samplers[samplerIdx];
@@ -314,17 +329,18 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     });
   } /// End if material and texture
 
-  let finalMaterial;
+  let finalMaterial: (MeshPhongMaterial | MeshBasicMaterial) & { textureFilename?: string, normalMap?: Texture | null};
 
   /// Create custom shader material if there are textures
   if (finalTextures) {
     // TODO: make this work!
     //eslint-disable-next-line no-constant-condition
     if (false && finalTextures.length > 0) {
+      //@ts-ignore
       finalMaterial = getUVMat(finalTextures, material.texCoordCount, grChunk.data.flags !== 16460);
     } else {
-      let ft = false;
-      let nt = false;
+      let ft: any = false;
+      let nt: any = false;
       material.textures.forEach(function (t) {
         // Flag for diffuse map
         if (!ft && t.token.split("-")[0] === "1733499172") ft = t;
@@ -358,6 +374,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     finalMaterial = new THREE.MeshBasicMaterial({
       side: THREE.FrontSide,
       color: 0xff0000,
+      //@ts-ignore
       shading: THREE.FlatShading,
     });
   }
@@ -373,7 +390,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
     const alphaMask2 = 0x0100 + 0x0200;
     //let alphaMask2b = 0x0200;
 
-    grChunk = materialFile.getChunk("grmt");
+    grChunk = materialFile.getChunk("grmt")!;
 
     // Enable alpha test for transparent flags
     if (
@@ -467,7 +484,7 @@ function getMaterial(material, materialFile, localReader, sharedTextures) {
  * @param  {Object} sharedTextures Value Object for keeping the texture cache
  * @return {THREE.Texture} A texture that will be populated by the file data when it is loaded.
  */
-function getTexture(texURL, localReader, sharedTextures) {
+function getTexture(texURL: number, localReader: LocalReader, sharedTextures: any): Texture {
   let finalTexture;
 
   /// Read texture from shared array of loaded textures
@@ -502,7 +519,7 @@ function getTexture(texURL, localReader, sharedTextures) {
 
  * @return {THREE.Texture} A texture that will be populated by the file data when it is loaded.
  */
-function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
+function loadLocalTexture(localReader: LocalReader, fileId: number, mapping?: number, defaultColor?: number, onerror?: Function): Texture {
   if (defaultColor === undefined) {
     defaultColor = Math.floor(0xffffff * Math.random());
   }
@@ -522,7 +539,7 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
   texture.flipY = true;
 
   /// Only allow non-zero fileId, otherwise jsut return static texture
-  if (parseInt(fileId) <= 0) {
+  if (parseInt(String(fileId)) <= 0) {
     if (onerror) onerror();
     return texture;
   }
@@ -551,6 +568,7 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
         dxtType === 3 || dxtType === 5 || true ? THREE.RGBAFormat : THREE.RGBFormat;
 
       /// Update texture with the loaded image.
+      //@ts-ignore
       texture.image = image;
       texture.needsUpdate = true;
     },
@@ -560,12 +578,3 @@ function loadLocalTexture(localReader, fileId, mapping, defaultColor, onerror) {
   /// Return texture with temporary content.
   return texture;
 }
-
-module.exports = {
-  buildVS: buildVS,
-  generateDataTexture: generateDataTexture,
-  buildPS: buildPS,
-  getUVMat: getUVMat,
-  getMaterial: getMaterial,
-  loadLocalTexture: loadLocalTexture,
-};

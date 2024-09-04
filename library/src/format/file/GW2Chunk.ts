@@ -17,6 +17,8 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
+import type DataStream from "DataStream";
+
 const HEAD_STRUCT = [
   "type",
   "cstring:4",
@@ -36,7 +38,7 @@ const HEAD_STRUCT = [
  * @property DUPLICATE_SETTINGS
  * @type {Object}
  */
-let DUPLICATE_SETTINGS;
+let DUPLICATE_SETTINGS: any;
 
 // Replacement for DUPLICATE_SETTINGS, based on the name of the root property.
 const PACKTOCHUNK = [
@@ -56,7 +58,7 @@ function genDuplicateSettings() {
   // Early return if the settings have been already generated
   if (DUPLICATE_SETTINGS) return;
 
-  function getRootName(definition) {
+  function getRootName(definition: any) {
     const a = new definition();
     return Object.keys(a).filter((v) => {
       return a[v] === a.__root && v !== "__root";
@@ -66,13 +68,13 @@ function genDuplicateSettings() {
   DUPLICATE_SETTINGS = {};
   for (const setting of PACKTOCHUNK) {
     const regex = new RegExp(`^${setting.root}(V[0-9]*)?$`);
-    const chunkDef = T3D.formats.filter((v) => {
+    const chunkDef = T3D.formats.filter((v: any) => {
       return v.name === setting.chunk;
     });
 
     for (const defsIdx in chunkDef) {
       const defs = chunkDef[defsIdx].versions;
-      const lastVersion = defs[Object.keys(defs).pop()];
+      const lastVersion = defs[Object.keys(defs).pop()!];
       const rootName = getRootName(lastVersion);
       if (rootName.match(regex)) {
         if (!DUPLICATE_SETTINGS[setting.chunk]) {
@@ -87,39 +89,18 @@ function genDuplicateSettings() {
 
 /**
  * Basic chunk parsing functionality for Guild Wars 2 file chunks
- *
- * @constructor
- * @param {DataStream} ds A DataStream containing deflated chunk binary data.
- * @param {Number} addr Offset of chunk start within the DataStream
  */
 class GW2Chunk {
-  constructor(ds, addr) {
+  data: any;
+  headerLength: number;
+  header: any;
+
+  constructor(public ds: DataStream, public addr: number) {
     // Early returns if already called, it defines the DUPLICATE_SETTINGS variable
     genDuplicateSettings();
 
-    /**
-     * @property {DataStream} ds The DataStream data source used by this chunk.
-     */
-    this.ds = ds;
-
-    /**
-     * @property {Number} addr The address to this Chunk within ds.
-     */
-    this.addr = addr;
-
-    /**
-     * @property {Object} data The typed data read from the body of this chunk.
-     */
     this.data = null;
-
-    /**
-     * @property {Number} headerLength The length in bytes of the chunk header.
-     */
     this.headerLength = NaN;
-
-    /**
-     * @property {Object} header Chunk header data.
-     */
     this.loadHead();
   }
 
@@ -139,7 +120,7 @@ class GW2Chunk {
    * @return {Array}  DataStream formatted array describing the data
    * sctructures of this chunk
    */
-  getDefinition(fileType) {
+  getDefinition(fileType: string): Array<any> | undefined {
     /// Normally we're looking for the 0th occurance
     /// But some chunk names occur multiple times and we're interrested
     /// in the N:th occurance of the definition.
@@ -199,7 +180,7 @@ class GW2Chunk {
    * Used for resolving chunk naming conflicts between pack file types when
    * looking up the structure definition for this chunk.
    */
-  loadData(fileType) {
+  loadData(fileType: string) {
     const def = this.getDefinition(fileType);
 
     if (def) {
@@ -224,7 +205,7 @@ class GW2Chunk {
    *
    * @return {GW2Chunk} The next chunk if any, otherwise null.
    */
-  next() {
+  next(): GW2Chunk | null {
     try {
       // Calculate actual data size, as mChunkDataSize
       // does not count the size of some header variables
@@ -236,4 +217,4 @@ class GW2Chunk {
   }
 }
 
-module.exports = GW2Chunk;
+export default GW2Chunk;

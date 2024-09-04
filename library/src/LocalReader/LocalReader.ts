@@ -16,14 +16,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
-declare var T3D: any;
-var DataStream: any = globalThis.DataStream;
-
-const ArchiveParser = require("./ArchiveParser");
-const PersistantStore = require("./PersistantStore");
-const DataReader = require("./DataReader");
-const MapFileList = require("../MapFileList");
-const FileTypes = require("./FileTypes");
+import ArchiveParser from "./ArchiveParser";
+import PersistantStore from "./PersistantStore";
+import DataReader from "./DataReader";
+import MapFileList from "../MapFileList";
+import FileTypes from "./FileTypes";
 
 interface LocalReaderSettings {
   noIndexedDB?: boolean; // Do not use indexedDB (persistant storage, default is true)
@@ -177,7 +174,7 @@ class LocalReader {
     }
 
     // Spawn the decompression tasks
-    const taskArray = [];
+    const taskArray: Promise<any>[] = [];
     for (let i = 0; i < 1; i++) {
       taskArray[i] = Promise.resolve({ task: i });
     }
@@ -366,9 +363,9 @@ class LocalReader {
    */
   loadFile(
     baseId: number,
-    callback: (rawData?: ArrayBuffer, dxtType?: number, width?: number, height?: number) => void,
+    callback: (rawData?: ArrayBuffer | null, dxtType?: number, width?: number, height?: number) => void,
     isImage: boolean,
-    raw: boolean
+    raw?: boolean
   ) {
     const mftId = this.getFileIndex(baseId);
     if (mftId <= 0) return callback(null);
@@ -410,7 +407,7 @@ class LocalReader {
     }
   }
 
-  async _readFileType(baseId: number): Promise<{ fileType: string; crc: number; size: number }> {
+  async _readFileType(baseId: number): Promise<{ fileType: string; crc: number; size: number }| undefined> {
     if (!this._fileTypeCache) this._fileTypeCache = [];
 
     const mftId = this.getFileIndex(baseId);
@@ -422,10 +419,11 @@ class LocalReader {
     } else {
       const fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
       if (fileBuffer === undefined) return undefined;
+      //@ts-ignore (global type conflict)
       fileType = FileTypes.getFileType(new DataStream(fileBuffer));
     }
     return { fileType: fileType, crc: metaData.crc, size: metaData.size };
   }
 }
 
-module.exports = LocalReader;
+export default LocalReader;
