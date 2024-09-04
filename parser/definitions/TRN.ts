@@ -1,6 +1,6 @@
 import { FixedArray, Uint32, Float32, DynArray, Uint16, Uint64, Filename, Uint8, Pointer } from "../src/types";
 
-export const V10 = {
+const V10 = {
   chunkName: "trn",
   name: "PackMapTerrainV10",
   version: 10,
@@ -21,8 +21,9 @@ export const V10 = {
     },
     PackMapTerrainTexV10: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV10: {
@@ -56,7 +57,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "trn",
   name: "PackMapTerrainV11",
   version: 11,
@@ -77,8 +78,9 @@ export const V11 = {
     },
     PackMapTerrainTexV11: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV11: {
@@ -112,7 +114,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "trn",
   name: "PackMapTerrainV12",
   version: 12,
@@ -133,8 +135,9 @@ export const V12 = {
     },
     PackMapTerrainTexV12: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV12: {
@@ -168,7 +171,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "trn",
   name: "PackMapTerrainV13",
   version: 13,
@@ -191,8 +194,9 @@ export const V13 = {
     },
     PackMapTerrainTexV13: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV13: {
@@ -227,7 +231,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "trn",
   name: "PackMapTerrainV14",
   version: 14,
@@ -251,8 +255,9 @@ export const V14 = {
     },
     PackMapTerrainTexV14: {
       tokenName: Uint32,
-      flags: FixedArray(Uint32, 2),
+      flags: Uint32,
       filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
       layer: Uint32
     },
     PackMapTerrrainChunkMaterialV14: {
@@ -287,4 +292,5 @@ export const V14 = {
 };
 
 export const latest = V14;
-export const definitionArray = [V10, V11, V12, V13, V14];
+export const definitions = { V10, V11, V12, V13, V14 };
+export const definitionArray = Object.values(definitions);

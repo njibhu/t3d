@@ -53,7 +53,7 @@ export namespace V0_N {
   }
 
   export type PackAnimModelV0 = {
-    modelFileId: string,
+    modelFileId: number,
     modelFileRaw: string,
     machineIndex: number
   }
@@ -117,10 +117,10 @@ export namespace V1_N {
   }
 
   export type PackAnimModelV1 = {
-    modelFileId: string,
+    modelFileId: number,
     modelFileRaw: string,
     machineIndex: number,
-    listeners: Array<number>
+    listeners: Uint8Array
   }
 
 }

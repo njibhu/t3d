@@ -1,6 +1,6 @@
 import { FixedArray, Uint32, Uint8, DynArray, Float32 } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "shad",
   name: "PackMapShadowV0",
   version: 0,
@@ -21,7 +21,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "shad",
   name: "PackMapShadowV1",
   version: 1,
@@ -46,4 +46,5 @@ export const V1 = {
 };
 
 export const latest = V1;
-export const definitionArray = [V0, V1];
+export const definitions = { V0, V1 };
+export const definitionArray = Object.values(definitions);

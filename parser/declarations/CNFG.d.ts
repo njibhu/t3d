@@ -14,7 +14,7 @@ export namespace V0_N {
     frustumLength: number,
     targetVelocityConstraint: number,
     bones: Array<PackAnimAimIKBoneV0>,
-    targets: Array<BigInt>,
+    targets: BigUint64Array,
     flags: number
   }
 
@@ -32,10 +32,10 @@ export namespace V0_N {
 
   export type PackAnimIKChainV0 = {
     name: BigInt,
-    smoothWeight: Array<number>,
+    smoothWeight: Float32Array,
     hyperExtensionStart: number,
     hyperExtensionScale: number,
-    bones: Array<BigInt>,
+    bones: BigUint64Array,
     targetRaycastInfo: PackAnimIKRaycastTargetV0,
     targetMode: number,
     chainType: number
@@ -43,7 +43,7 @@ export namespace V0_N {
 
   export type PackAnimIKRaycastTargetV0 = {
     flags: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
 }

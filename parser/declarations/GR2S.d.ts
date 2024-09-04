@@ -4,7 +4,7 @@ export namespace V0_N {
   }
 
   export type ModelGr2DataV0 = {
-    data: Array<number>
+    data: Uint8Array
   }
 
 }
@@ -19,7 +19,7 @@ export namespace V1_N {
   export type ModelGr2DataV1 = {
     filename: string,
     flags: number,
-    data: Array<number>
+    data: Uint8Array
   }
 
 }
@@ -34,7 +34,7 @@ export namespace V2_N {
   export type ModelGr2DataV2 = {
     filename: string,
     flags: number,
-    data: Array<number>
+    data: Uint8Array
   }
 
 }
@@ -49,7 +49,7 @@ export namespace V3_N {
   export type ModelGr2DataV3 = {
     filename: string,
     flags: number,
-    data: Array<number>
+    data: Uint8Array
   }
 
 }
@@ -64,7 +64,7 @@ export namespace V4_N {
   export type ModelGr2DataV4 = {
     filename: string,
     flags: number,
-    data: Array<number>
+    data: Uint8Array
   }
 
 }

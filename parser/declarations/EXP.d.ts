@@ -6,7 +6,7 @@ export namespace V0_N {
   export type MapExpansionProperty = {
     type: number,
     val: BigInt,
-    strVal: string
+    strVal: number
   }
 
 }

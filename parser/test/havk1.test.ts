@@ -1,18 +1,26 @@
-import { latest as HAVKDef } from "../definitions/HAVK";
-import { DataParser } from "../src/data-parser";
-import { snapshot } from "./havk1";
-import { transformSnapshot, toArrayBuffer } from "./test-helper";
 import * as fs from "fs";
 
-const havk1Result = transformSnapshot(snapshot);
+import * as HAVK from "../definitions/HAVK";
+import { DataParser } from "../src/data-parser";
+import { parseFile, parseAllChunks } from "../src/file-parser";
+
+import { toArrayBuffer } from "./test-helper";
 
 test("matches for havk1", function () {
   const chunkBuffer = fs.readFileSync("./test/havk1.bin", null);
-  const chunkParser = new DataParser(HAVKDef);
-
   const dv = new DataView(toArrayBuffer(chunkBuffer));
-  const pos = 28; // After all the chunk and file headers
-
-  const test = chunkParser.parse(dv, pos);
-  expect(test.data).toMatchObject(havk1Result);
+  const fileHead = parseFile(dv);
+  const allChunks = parseAllChunks(dv, fileHead.newPosition);
+  expect(allChunks).toEqual([
+    {
+      chunkHeader: { chunkDataSize: 976, chunkHeaderSize: 16, chunkVersion: 14, offsetTableOffset: 848, type: "havk" },
+      chunkPosition: 12,
+    },
+  ]);
+  const havkChunk = allChunks.find((c) => c.chunkHeader.type === "havk");
+  const def = HAVK.definitions[(`V${havkChunk!.chunkHeader.chunkVersion}`) as keyof typeof HAVK["definitions"]];
+  const parser = new DataParser(def);
+  //parser.DEBUG = true;
+  const test = parser.parse(dv, havkChunk!.chunkPosition + havkChunk!.chunkHeader.chunkHeaderSize);
+  expect(test.data).toMatchSnapshot("havk1");
 });

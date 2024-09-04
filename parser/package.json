@@ -20,13 +20,16 @@
     "type": "git",
     "url": "git+https://github.com/njibhu/t3d.git"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "npx tsc --outDir build/tsc src/main.ts && npx browserify build/tsc/src/main.js -o build/t3d-parser.js "
+  },
   "devDependencies": {
     "@types/jest": "26.0.15",
+    "browserify": "17.0.0",
     "jest": "26.6.1",
     "lodash": "4.17.20",
     "ts-jest": "26.4.2",
     "ts-node": "8.9.1",
-    "typescript": "3.9.7"
+    "typescript": "5.5.4"
   }
 }

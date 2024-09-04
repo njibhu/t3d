@@ -5,7 +5,7 @@ export namespace V0_N {
   }
 
   export type SequenceDataV0 = {
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     name: BigInt,
@@ -24,7 +24,7 @@ export namespace V0_N {
   export type PropertyDataV0 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV0 = {
@@ -75,7 +75,7 @@ export namespace V0_N {
   }
 
   export type ColorDefDataV0 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
@@ -100,7 +100,7 @@ export namespace V1_N {
   }
 
   export type SequenceDataV1 = {
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     name: BigInt,
@@ -119,7 +119,7 @@ export namespace V1_N {
   export type PropertyDataV1 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV1 = {
@@ -171,13 +171,13 @@ export namespace V1_N {
   }
 
   export type ColorDefDataV1 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type ScriptDataV1 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV1 = {
@@ -202,7 +202,7 @@ export namespace V2_N {
   }
 
   export type SequenceDataV2 = {
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     name: BigInt,
@@ -221,7 +221,7 @@ export namespace V2_N {
   export type PropertyDataV2 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV2 = {
@@ -273,13 +273,13 @@ export namespace V2_N {
   }
 
   export type ColorDefDataV2 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type ScriptDataV2 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV2 = {
@@ -304,7 +304,7 @@ export namespace V3_N {
   }
 
   export type SequenceDataV3 = {
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     name: BigInt,
@@ -323,7 +323,7 @@ export namespace V3_N {
   export type PropertyDataV3 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV3 = {
@@ -375,13 +375,13 @@ export namespace V3_N {
   }
 
   export type ColorDefDataV3 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type ScriptDataV3 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV3 = {
@@ -406,7 +406,7 @@ export namespace V4_N {
   }
 
   export type SequenceDataV4 = {
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     name: BigInt,
@@ -425,7 +425,7 @@ export namespace V4_N {
   export type PropertyDataV4 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV4 = {
@@ -477,13 +477,13 @@ export namespace V4_N {
   }
 
   export type ColorDefDataV4 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type ScriptDataV4 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV4 = {
@@ -509,7 +509,7 @@ export namespace V5_N {
   }
 
   export type SequenceDataV5 = {
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     name: BigInt,
@@ -528,7 +528,7 @@ export namespace V5_N {
   export type PropertyDataV5 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV5 = {
@@ -580,13 +580,13 @@ export namespace V5_N {
   }
 
   export type ColorDefDataV5 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type ScriptDataV5 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV5 = {
@@ -614,7 +614,7 @@ export namespace V6_N {
   export type SequenceDataV6 = {
     name: BigInt,
     length: number,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     trackGroup: Array<TrackGroupDataV6>
@@ -631,7 +631,7 @@ export namespace V6_N {
   export type PropertyDataV6 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV6 = {
@@ -683,13 +683,13 @@ export namespace V6_N {
   }
 
   export type ColorDefDataV6 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type ScriptDataV6 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV6 = {
@@ -717,7 +717,7 @@ export namespace V7_N {
   export type SequenceDataV7 = {
     name: BigInt,
     length: number,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     trackGroup: Array<TrackGroupDataV7>
@@ -734,7 +734,7 @@ export namespace V7_N {
   export type PropertyDataV7 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV7 = {
@@ -786,13 +786,13 @@ export namespace V7_N {
   }
 
   export type ColorDefDataV7 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type ScriptDataV7 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV7 = {
@@ -820,7 +820,7 @@ export namespace V8_N {
   export type SequenceDataV8 = {
     name: BigInt,
     length: number,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     trackGroup: Array<TrackGroupDataV8>
@@ -837,7 +837,7 @@ export namespace V8_N {
   export type PropertyDataV8 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV8 = {
@@ -890,18 +890,18 @@ export namespace V8_N {
   }
 
   export type ColorDefDataV8 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type FileNameRefDataV8 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV8 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV8 = {
@@ -929,7 +929,7 @@ export namespace V9_N {
   export type SequenceDataV9 = {
     name: BigInt,
     length: number,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     trackGroup: Array<TrackGroupDataV9>
@@ -946,7 +946,7 @@ export namespace V9_N {
   export type PropertyDataV9 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV9 = {
@@ -1000,18 +1000,18 @@ export namespace V9_N {
   }
 
   export type ColorDefDataV9 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type FileNameRefDataV9 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV9 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV9 = {
@@ -1039,7 +1039,7 @@ export namespace V10_N {
   export type SequenceDataV10 = {
     name: BigInt,
     length: number,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     trackGroup: Array<TrackGroupDataV10>
@@ -1056,7 +1056,7 @@ export namespace V10_N {
   export type PropertyDataV10 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV10 = {
@@ -1110,18 +1110,18 @@ export namespace V10_N {
   }
 
   export type ColorDefDataV10 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type FileNameRefDataV10 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV10 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV10 = {
@@ -1149,7 +1149,7 @@ export namespace V11_N {
   export type SequenceDataV11 = {
     name: BigInt,
     length: number,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     trackGroup: Array<TrackGroupDataV11>
@@ -1166,7 +1166,7 @@ export namespace V11_N {
   export type PropertyDataV11 = {
     type: number,
     value: BigInt,
-    pathVal: string
+    pathVal: number
   }
 
   export type TrackDataV11 = {
@@ -1220,18 +1220,18 @@ export namespace V11_N {
   }
 
   export type ColorDefDataV11 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number
   }
 
   export type FileNameRefDataV11 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV11 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV11 = {
@@ -1258,7 +1258,7 @@ export namespace V12_N {
 
   export type SequenceDataV12 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -1275,7 +1275,7 @@ export namespace V12_N {
 
   export type PropertyDataV12 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -1331,17 +1331,17 @@ export namespace V12_N {
 
   export type ColorDefDataV12 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV12 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV12 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV12 = {
@@ -1368,7 +1368,7 @@ export namespace V13_N {
 
   export type SequenceDataV13 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -1385,7 +1385,7 @@ export namespace V13_N {
 
   export type PropertyDataV13 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -1441,17 +1441,17 @@ export namespace V13_N {
 
   export type ColorDefDataV13 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV13 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV13 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV13 = {
@@ -1478,7 +1478,7 @@ export namespace V14_N {
 
   export type SequenceDataV14 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -1495,7 +1495,7 @@ export namespace V14_N {
 
   export type PropertyDataV14 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -1551,17 +1551,17 @@ export namespace V14_N {
 
   export type ColorDefDataV14 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV14 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV14 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV14 = {
@@ -1589,7 +1589,7 @@ export namespace V15_N {
 
   export type SequenceDataV15 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     updateScript: BigInt,
@@ -1607,7 +1607,7 @@ export namespace V15_N {
 
   export type PropertyDataV15 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -1663,17 +1663,17 @@ export namespace V15_N {
 
   export type ColorDefDataV15 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV15 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV15 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV15 = {
@@ -1701,7 +1701,7 @@ export namespace V16_N {
 
   export type SequenceDataV16 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     updateScript: BigInt,
@@ -1719,7 +1719,7 @@ export namespace V16_N {
 
   export type PropertyDataV16 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -1775,17 +1775,17 @@ export namespace V16_N {
 
   export type ColorDefDataV16 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV16 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV16 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV16 = {
@@ -1813,7 +1813,7 @@ export namespace V17_N {
 
   export type SequenceDataV17 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     updateScript: BigInt,
@@ -1831,7 +1831,7 @@ export namespace V17_N {
 
   export type PropertyDataV17 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -1887,17 +1887,17 @@ export namespace V17_N {
 
   export type ColorDefDataV17 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV17 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV17 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV17 = {
@@ -1925,7 +1925,7 @@ export namespace V18_N {
 
   export type SequenceDataV18 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     updateScript: BigInt,
@@ -1943,7 +1943,7 @@ export namespace V18_N {
 
   export type PropertyDataV18 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -1999,17 +1999,17 @@ export namespace V18_N {
 
   export type ColorDefDataV18 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV18 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV18 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV18 = {
@@ -2037,7 +2037,7 @@ export namespace V19_N {
 
   export type SequenceDataV19 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     updateScript: BigInt,
@@ -2055,7 +2055,7 @@ export namespace V19_N {
 
   export type PropertyDataV19 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -2111,17 +2111,17 @@ export namespace V19_N {
 
   export type ColorDefDataV19 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV19 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV19 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV19 = {
@@ -2149,7 +2149,7 @@ export namespace V20_N {
 
   export type SequenceDataV20 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     updateScript: BigInt,
@@ -2167,7 +2167,7 @@ export namespace V20_N {
 
   export type PropertyDataV20 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -2223,17 +2223,17 @@ export namespace V20_N {
 
   export type ColorDefDataV20 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV20 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV20 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV20 = {
@@ -2262,7 +2262,7 @@ export namespace V21_N {
 
   export type SequenceDataV21 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     updateScript: BigInt,
@@ -2280,7 +2280,7 @@ export namespace V21_N {
 
   export type PropertyDataV21 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -2336,17 +2336,17 @@ export namespace V21_N {
 
   export type ColorDefDataV21 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV21 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV21 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV21 = {
@@ -2375,7 +2375,7 @@ export namespace V22_N {
 
   export type SequenceDataV22 = {
     name: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     updateScript: BigInt,
@@ -2393,7 +2393,7 @@ export namespace V22_N {
 
   export type PropertyDataV22 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -2449,17 +2449,17 @@ export namespace V22_N {
 
   export type ColorDefDataV22 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV22 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV22 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV22 = {
@@ -2489,7 +2489,7 @@ export namespace V23_N {
   export type SequenceDataV23 = {
     name: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -2507,7 +2507,7 @@ export namespace V23_N {
 
   export type PropertyDataV23 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -2563,17 +2563,17 @@ export namespace V23_N {
 
   export type ColorDefDataV23 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV23 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV23 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV23 = {
@@ -2604,7 +2604,7 @@ export namespace V24_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -2622,7 +2622,7 @@ export namespace V24_N {
 
   export type PropertyDataV24 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -2678,17 +2678,17 @@ export namespace V24_N {
 
   export type ColorDefDataV24 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV24 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV24 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV24 = {
@@ -2719,7 +2719,7 @@ export namespace V25_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -2737,7 +2737,7 @@ export namespace V25_N {
 
   export type PropertyDataV25 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -2793,17 +2793,17 @@ export namespace V25_N {
 
   export type ColorDefDataV25 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV25 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV25 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV25 = {
@@ -2834,7 +2834,7 @@ export namespace V26_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -2852,7 +2852,7 @@ export namespace V26_N {
 
   export type PropertyDataV26 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -2908,17 +2908,17 @@ export namespace V26_N {
 
   export type ColorDefDataV26 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV26 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV26 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV26 = {
@@ -2949,7 +2949,7 @@ export namespace V27_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -2967,7 +2967,7 @@ export namespace V27_N {
 
   export type PropertyDataV27 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -3023,17 +3023,17 @@ export namespace V27_N {
 
   export type ColorDefDataV27 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV27 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV27 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV27 = {
@@ -3064,7 +3064,7 @@ export namespace V28_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -3082,7 +3082,7 @@ export namespace V28_N {
 
   export type PropertyDataV28 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -3138,17 +3138,17 @@ export namespace V28_N {
 
   export type ColorDefDataV28 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV28 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV28 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV28 = {
@@ -3179,7 +3179,7 @@ export namespace V29_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -3197,7 +3197,7 @@ export namespace V29_N {
 
   export type PropertyDataV29 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -3253,21 +3253,21 @@ export namespace V29_N {
 
   export type ColorDefDataV29 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV29 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV29 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV29 = {
-    guid: Array<number>,
+    guid: Uint8Array,
     name: BigInt,
     id: number,
     voiceId: number,
@@ -3295,7 +3295,7 @@ export namespace V30_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -3313,7 +3313,7 @@ export namespace V30_N {
 
   export type PropertyDataV30 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -3369,17 +3369,17 @@ export namespace V30_N {
 
   export type ColorDefDataV30 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV30 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV30 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV30 = {
@@ -3410,7 +3410,7 @@ export namespace V31_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -3428,7 +3428,7 @@ export namespace V31_N {
 
   export type PropertyDataV31 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -3484,17 +3484,17 @@ export namespace V31_N {
 
   export type ColorDefDataV31 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV31 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV31 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV31 = {
@@ -3525,7 +3525,7 @@ export namespace V32_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -3543,7 +3543,7 @@ export namespace V32_N {
 
   export type PropertyDataV32 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -3599,17 +3599,17 @@ export namespace V32_N {
 
   export type ColorDefDataV32 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV32 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV32 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV32 = {
@@ -3640,7 +3640,7 @@ export namespace V33_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -3658,7 +3658,7 @@ export namespace V33_N {
 
   export type PropertyDataV33 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -3714,17 +3714,17 @@ export namespace V33_N {
 
   export type ColorDefDataV33 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV33 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV33 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV33 = {
@@ -3755,7 +3755,7 @@ export namespace V34_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -3773,7 +3773,7 @@ export namespace V34_N {
 
   export type PropertyDataV34 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -3829,17 +3829,17 @@ export namespace V34_N {
 
   export type ColorDefDataV34 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV34 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV34 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV34 = {
@@ -3855,7 +3855,7 @@ export namespace V34_N {
   }
 
   export type SpeciesResourceDataV34 = {
-    speciesId: Array<number>,
+    speciesId: Uint8Array,
     modelId: BigInt,
     modelVariant: BigInt
   }
@@ -3876,7 +3876,7 @@ export namespace V35_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -3894,7 +3894,7 @@ export namespace V35_N {
 
   export type PropertyDataV35 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -3950,17 +3950,17 @@ export namespace V35_N {
 
   export type ColorDefDataV35 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV35 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV35 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV35 = {
@@ -3976,7 +3976,7 @@ export namespace V35_N {
   }
 
   export type SpeciesResourceDataV35 = {
-    speciesId: Array<number>,
+    speciesId: Uint8Array,
     name: BigInt,
     modelId: BigInt,
     modelVariant: BigInt
@@ -3998,7 +3998,7 @@ export namespace V36_N {
     name: BigInt,
     playScript: BigInt,
     updateScript: BigInt,
-    environmentMap: string,
+    environmentMap: number,
     map: string,
     clientMap: string,
     length: number,
@@ -4016,7 +4016,7 @@ export namespace V36_N {
 
   export type PropertyDataV36 = {
     value: BigInt,
-    pathVal: string,
+    pathVal: number,
     type: number
   }
 
@@ -4072,17 +4072,17 @@ export namespace V36_N {
 
   export type ColorDefDataV36 = {
     intensity: number,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type FileNameRefDataV36 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type ScriptDataV36 = {
     name: BigInt,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type TextResourceDataV36 = {
@@ -4098,7 +4098,7 @@ export namespace V36_N {
   }
 
   export type SpeciesResourceDataV36 = {
-    speciesId: Array<number>,
+    speciesId: Uint8Array,
     name: BigInt,
     modelId: BigInt,
     modelVariant: BigInt

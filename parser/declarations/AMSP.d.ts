@@ -10,7 +10,7 @@ export namespace V0_N {
   }
 
   export type HandlerDataV0 = {
-    byteCode: Array<number>,
+    byteCode: Uint8Array,
     flags: number,
     name: BigInt
   }
@@ -39,7 +39,7 @@ export namespace V0_N {
     playLength: RangeDataV0,
     playlistId: BigInt,
     positionMode: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     positionOffsetAngle: RangeDataV0,
     positionRange: RangeDataV0,
     repeatCount: RangeDataV0,
@@ -84,7 +84,8 @@ export namespace V0_N {
 
   export type RangeDataV0 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type DspDataV0 = {
@@ -94,13 +95,13 @@ export namespace V0_N {
 
   export type FileNameDataV0 = {
     audioType: number,
-    fileName: string,
+    fileName: number,
     language: BigInt,
     weight: number
   }
 
   export type ScriptRefDataV0 = {
-    fileName: string,
+    fileName: number,
     name: BigInt
   }
 
@@ -135,7 +136,7 @@ export namespace V1_N {
   export type AudioSettingsDataV1 = {
     category: Array<CategoryDataV1>,
     distanceScale: number,
-    voiceBankFileName: string,
+    voiceBankFileName: number,
     volumeGroup: Array<VolumeGroupDataV1>
   }
 
@@ -192,7 +193,8 @@ export namespace V1_N {
 
   export type RangeDataV1 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type VolumeGroupDataV1 = {
@@ -203,7 +205,7 @@ export namespace V1_N {
   }
 
   export type HandlerDataV1 = {
-    byteCode: Array<number>,
+    byteCode: Uint8Array,
     flags: number,
     name: BigInt
   }
@@ -232,7 +234,7 @@ export namespace V1_N {
     playLength: RangeDataV1,
     playlistId: BigInt,
     positionMode: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     positionOffsetAngle: RangeDataV1,
     positionRange: RangeDataV1,
     repeatCount: RangeDataV1,
@@ -249,13 +251,13 @@ export namespace V1_N {
 
   export type FileNameDataV1 = {
     audioType: number,
-    fileName: string,
+    fileName: number,
     language: BigInt,
     weight: number
   }
 
   export type ScriptRefDataV1 = {
-    fileName: string,
+    fileName: number,
     name: BigInt
   }
 
@@ -292,7 +294,7 @@ export namespace V2_N {
     volumeGroup: Array<VolumeGroupDataV2>,
     category: Array<CategoryDataV2>,
     distanceScale: number,
-    voiceBankFileName: string
+    voiceBankFileName: number
   }
 
   export type VolumeGroupDataV2 = {
@@ -355,13 +357,14 @@ export namespace V2_N {
 
   export type RangeDataV2 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type HandlerDataV2 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV2 = {
@@ -375,7 +378,7 @@ export namespace V2_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV2,
@@ -408,13 +411,13 @@ export namespace V2_N {
   export type FileNameDataV2 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV2 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV2 = {
@@ -451,7 +454,7 @@ export namespace V3_N {
     volumeGroup: Array<VolumeGroupDataV3>,
     category: Array<CategoryDataV3>,
     distanceScale: number,
-    voiceBankFileName: string
+    voiceBankFileName: number
   }
 
   export type VolumeGroupDataV3 = {
@@ -514,13 +517,14 @@ export namespace V3_N {
 
   export type RangeDataV3 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type HandlerDataV3 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV3 = {
@@ -534,7 +538,7 @@ export namespace V3_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV3,
@@ -567,13 +571,13 @@ export namespace V3_N {
   export type FileNameDataV3 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV3 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV3 = {
@@ -610,8 +614,8 @@ export namespace V4_N {
     volumeGroup: Array<VolumeGroupDataV4>,
     category: Array<CategoryDataV4>,
     distanceScale: number,
-    bankIndexFileName: string,
-    bankScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number
   }
 
   export type VolumeGroupDataV4 = {
@@ -674,13 +678,14 @@ export namespace V4_N {
 
   export type RangeDataV4 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type HandlerDataV4 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV4 = {
@@ -694,7 +699,7 @@ export namespace V4_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV4,
@@ -727,13 +732,13 @@ export namespace V4_N {
   export type FileNameDataV4 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV4 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV4 = {
@@ -772,8 +777,8 @@ export namespace V5_N {
     distanceScale: number,
     category: Array<CategoryDataV5>,
     snapshot: Array<SnapshotDataV5>,
-    bankIndexFileName: string,
-    bankScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number
   }
 
   export type CategoryDataV5 = {
@@ -829,7 +834,8 @@ export namespace V5_N {
 
   export type RangeDataV5 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type SnapshotDataV5 = {
@@ -851,13 +857,13 @@ export namespace V5_N {
   export type DspDataV5 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type HandlerDataV5 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV5 = {
@@ -871,7 +877,7 @@ export namespace V5_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV5,
@@ -899,13 +905,13 @@ export namespace V5_N {
   export type FileNameDataV5 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV5 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV5 = {
@@ -945,8 +951,8 @@ export namespace V6_N {
     buss: Array<BussDataV6>,
     category: Array<CategoryDataV6>,
     snapshot: Array<SnapshotDataV6>,
-    bankIndexFileName: string,
-    bankScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number
   }
 
   export type BussDataV6 = {
@@ -966,7 +972,7 @@ export namespace V6_N {
   export type DspDataV6 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV6 = {
@@ -1023,7 +1029,8 @@ export namespace V6_N {
 
   export type RangeDataV6 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type SnapshotDataV6 = {
@@ -1037,7 +1044,7 @@ export namespace V6_N {
   export type HandlerDataV6 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV6 = {
@@ -1051,7 +1058,7 @@ export namespace V6_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV6,
@@ -1079,13 +1086,13 @@ export namespace V6_N {
   export type FileNameDataV6 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV6 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV6 = {
@@ -1126,8 +1133,8 @@ export namespace V7_N {
     buss: Array<BussDataV7>,
     category: Array<CategoryDataV7>,
     snapshot: Array<SnapshotDataV7>,
-    bankIndexFileName: string,
-    bankScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number
   }
 
   export type BussDataV7 = {
@@ -1147,7 +1154,7 @@ export namespace V7_N {
   export type DspDataV7 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV7 = {
@@ -1198,7 +1205,8 @@ export namespace V7_N {
 
   export type RangeDataV7 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV7 = {
@@ -1221,7 +1229,7 @@ export namespace V7_N {
   export type HandlerDataV7 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV7 = {
@@ -1236,7 +1244,7 @@ export namespace V7_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV7,
@@ -1264,13 +1272,13 @@ export namespace V7_N {
   export type FileNameDataV7 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV7 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV7 = {
@@ -1312,8 +1320,8 @@ export namespace V8_N {
     category: Array<CategoryDataV8>,
     reverb: Array<ReverbDataV8>,
     snapshot: Array<SnapshotDataV8>,
-    bankIndexFileName: string,
-    bankScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number
   }
 
   export type BussDataV8 = {
@@ -1333,7 +1341,7 @@ export namespace V8_N {
   export type DspDataV8 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV8 = {
@@ -1384,7 +1392,8 @@ export namespace V8_N {
 
   export type RangeDataV8 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV8 = {
@@ -1427,7 +1436,7 @@ export namespace V8_N {
   export type HandlerDataV8 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV8 = {
@@ -1442,7 +1451,7 @@ export namespace V8_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV8,
@@ -1471,13 +1480,13 @@ export namespace V8_N {
   export type FileNameDataV8 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV8 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV8 = {
@@ -1519,8 +1528,8 @@ export namespace V9_N {
     category: Array<CategoryDataV9>,
     reverb: Array<ReverbDataV9>,
     snapshot: Array<SnapshotDataV9>,
-    bankIndexFileName: string,
-    bankScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number
   }
 
   export type BussDataV9 = {
@@ -1540,7 +1549,7 @@ export namespace V9_N {
   export type DspDataV9 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV9 = {
@@ -1596,7 +1605,8 @@ export namespace V9_N {
 
   export type RangeDataV9 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV9 = {
@@ -1639,7 +1649,7 @@ export namespace V9_N {
   export type HandlerDataV9 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV9 = {
@@ -1654,7 +1664,7 @@ export namespace V9_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV9,
@@ -1683,13 +1693,13 @@ export namespace V9_N {
   export type FileNameDataV9 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV9 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV9 = {
@@ -1732,8 +1742,8 @@ export namespace V10_N {
     category: Array<CategoryDataV10>,
     reverb: Array<ReverbDataV10>,
     snapshot: Array<SnapshotDataV10>,
-    bankIndexFileName: string,
-    bankScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number
   }
 
   export type BussDataV10 = {
@@ -1753,7 +1763,7 @@ export namespace V10_N {
   export type DspDataV10 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV10 = {
@@ -1804,7 +1814,8 @@ export namespace V10_N {
 
   export type RangeDataV10 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV10 = {
@@ -1847,7 +1858,7 @@ export namespace V10_N {
   export type HandlerDataV10 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV10 = {
@@ -1862,7 +1873,7 @@ export namespace V10_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV10,
@@ -1891,13 +1902,13 @@ export namespace V10_N {
   export type FileNameDataV10 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV10 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV10 = {
@@ -1940,9 +1951,9 @@ export namespace V11_N {
     category: Array<CategoryDataV11>,
     reverb: Array<ReverbDataV11>,
     snapshot: Array<SnapshotDataV11>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV11 = {
@@ -1962,7 +1973,7 @@ export namespace V11_N {
   export type DspDataV11 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV11 = {
@@ -2013,7 +2024,8 @@ export namespace V11_N {
 
   export type RangeDataV11 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV11 = {
@@ -2056,7 +2068,7 @@ export namespace V11_N {
   export type HandlerDataV11 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV11 = {
@@ -2071,7 +2083,7 @@ export namespace V11_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV11,
@@ -2100,13 +2112,13 @@ export namespace V11_N {
   export type FileNameDataV11 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV11 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV11 = {
@@ -2150,9 +2162,9 @@ export namespace V12_N {
     category: Array<CategoryDataV12>,
     reverb: Array<ReverbDataV12>,
     snapshot: Array<SnapshotDataV12>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV12 = {
@@ -2172,7 +2184,7 @@ export namespace V12_N {
   export type DspDataV12 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV12 = {
@@ -2223,7 +2235,8 @@ export namespace V12_N {
 
   export type RangeDataV12 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV12 = {
@@ -2266,7 +2279,7 @@ export namespace V12_N {
   export type HandlerDataV12 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV12 = {
@@ -2281,7 +2294,7 @@ export namespace V12_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV12,
@@ -2310,13 +2323,13 @@ export namespace V12_N {
   export type FileNameDataV12 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV12 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV12 = {
@@ -2361,9 +2374,9 @@ export namespace V13_N {
     category: Array<CategoryDataV13>,
     reverb: Array<ReverbDataV13>,
     snapshot: Array<SnapshotDataV13>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV13 = {
@@ -2383,7 +2396,7 @@ export namespace V13_N {
   export type DspDataV13 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV13 = {
@@ -2434,7 +2447,8 @@ export namespace V13_N {
 
   export type RangeDataV13 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV13 = {
@@ -2477,7 +2491,7 @@ export namespace V13_N {
   export type HandlerDataV13 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV13 = {
@@ -2492,7 +2506,7 @@ export namespace V13_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV13,
@@ -2521,13 +2535,13 @@ export namespace V13_N {
   export type FileNameDataV13 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV13 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV13 = {
@@ -2573,9 +2587,9 @@ export namespace V14_N {
     category: Array<CategoryDataV14>,
     reverb: Array<ReverbDataV14>,
     snapshot: Array<SnapshotDataV14>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV14 = {
@@ -2595,7 +2609,7 @@ export namespace V14_N {
   export type DspDataV14 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV14 = {
@@ -2644,7 +2658,8 @@ export namespace V14_N {
 
   export type RangeDataV14 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV14 = {
@@ -2687,7 +2702,7 @@ export namespace V14_N {
   export type HandlerDataV14 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV14 = {
@@ -2702,7 +2717,7 @@ export namespace V14_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV14,
@@ -2731,13 +2746,13 @@ export namespace V14_N {
   export type FileNameDataV14 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV14 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV14 = {
@@ -2783,9 +2798,9 @@ export namespace V15_N {
     category: Array<CategoryDataV15>,
     reverb: Array<ReverbDataV15>,
     snapshot: Array<SnapshotDataV15>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV15 = {
@@ -2805,7 +2820,7 @@ export namespace V15_N {
   export type DspDataV15 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV15 = {
@@ -2855,7 +2870,8 @@ export namespace V15_N {
 
   export type RangeDataV15 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV15 = {
@@ -2898,7 +2914,7 @@ export namespace V15_N {
   export type HandlerDataV15 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV15 = {
@@ -2913,7 +2929,7 @@ export namespace V15_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV15,
@@ -2942,13 +2958,13 @@ export namespace V15_N {
   export type FileNameDataV15 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV15 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV15 = {
@@ -2994,9 +3010,9 @@ export namespace V16_N {
     category: Array<CategoryDataV16>,
     reverb: Array<ReverbDataV16>,
     snapshot: Array<SnapshotDataV16>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV16 = {
@@ -3016,7 +3032,7 @@ export namespace V16_N {
   export type DspDataV16 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV16 = {
@@ -3066,7 +3082,8 @@ export namespace V16_N {
 
   export type RangeDataV16 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV16 = {
@@ -3113,7 +3130,7 @@ export namespace V16_N {
   export type HandlerDataV16 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV16 = {
@@ -3128,7 +3145,7 @@ export namespace V16_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     flags: number,
     loopCount: number,
     depth: DynamicParamDataV16,
@@ -3157,13 +3174,13 @@ export namespace V16_N {
   export type FileNameDataV16 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV16 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV16 = {
@@ -3209,9 +3226,9 @@ export namespace V17_N {
     category: Array<CategoryDataV17>,
     reverb: Array<ReverbDataV17>,
     snapshot: Array<SnapshotDataV17>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV17 = {
@@ -3231,7 +3248,7 @@ export namespace V17_N {
   export type DspDataV17 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV17 = {
@@ -3281,7 +3298,8 @@ export namespace V17_N {
 
   export type RangeDataV17 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV17 = {
@@ -3328,7 +3346,7 @@ export namespace V17_N {
   export type HandlerDataV17 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV17 = {
@@ -3345,7 +3363,7 @@ export namespace V17_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -3375,13 +3393,13 @@ export namespace V17_N {
   export type FileNameDataV17 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV17 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV17 = {
@@ -3427,9 +3445,9 @@ export namespace V18_N {
     category: Array<CategoryDataV18>,
     reverb: Array<ReverbDataV18>,
     snapshot: Array<SnapshotDataV18>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV18 = {
@@ -3449,7 +3467,7 @@ export namespace V18_N {
   export type DspDataV18 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV18 = {
@@ -3499,7 +3517,8 @@ export namespace V18_N {
 
   export type RangeDataV18 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV18 = {
@@ -3546,7 +3565,7 @@ export namespace V18_N {
   export type HandlerDataV18 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV18 = {
@@ -3563,7 +3582,7 @@ export namespace V18_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -3593,13 +3612,13 @@ export namespace V18_N {
   export type FileNameDataV18 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV18 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV18 = {
@@ -3645,9 +3664,9 @@ export namespace V19_N {
     category: Array<CategoryDataV19>,
     reverb: Array<ReverbDataV19>,
     snapshot: Array<SnapshotDataV19>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV19 = {
@@ -3667,7 +3686,7 @@ export namespace V19_N {
   export type DspDataV19 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV19 = {
@@ -3717,7 +3736,8 @@ export namespace V19_N {
 
   export type RangeDataV19 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV19 = {
@@ -3765,7 +3785,7 @@ export namespace V19_N {
   export type HandlerDataV19 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV19 = {
@@ -3782,7 +3802,7 @@ export namespace V19_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -3812,13 +3832,13 @@ export namespace V19_N {
   export type FileNameDataV19 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV19 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV19 = {
@@ -3865,9 +3885,9 @@ export namespace V20_N {
     category: Array<CategoryDataV20>,
     reverb: Array<ReverbDataV20>,
     snapshot: Array<SnapshotDataV20>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV20 = {
@@ -3887,7 +3907,7 @@ export namespace V20_N {
   export type DspDataV20 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV20 = {
@@ -3937,7 +3957,8 @@ export namespace V20_N {
 
   export type RangeDataV20 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV20 = {
@@ -3985,7 +4006,7 @@ export namespace V20_N {
   export type HandlerDataV20 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV20 = {
@@ -4002,7 +4023,7 @@ export namespace V20_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -4032,13 +4053,13 @@ export namespace V20_N {
   export type FileNameDataV20 = {
     language: BigInt,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
   export type ScriptRefDataV20 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV20 = {
@@ -4087,9 +4108,9 @@ export namespace V21_N {
     musicPlaylist: Array<MusicPlaylistDataV21>,
     reverb: Array<ReverbDataV21>,
     snapshot: Array<SnapshotDataV21>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV21 = {
@@ -4109,7 +4130,7 @@ export namespace V21_N {
   export type DspDataV21 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV21 = {
@@ -4159,7 +4180,8 @@ export namespace V21_N {
 
   export type RangeDataV21 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV21 = {
@@ -4175,7 +4197,7 @@ export namespace V21_N {
   export type MusicConditionDataV21 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV21 = {
@@ -4199,7 +4221,7 @@ export namespace V21_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
@@ -4238,7 +4260,7 @@ export namespace V21_N {
   export type HandlerDataV21 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV21 = {
@@ -4255,7 +4277,7 @@ export namespace V21_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -4284,7 +4306,7 @@ export namespace V21_N {
 
   export type ScriptRefDataV21 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV21 = {
@@ -4333,9 +4355,9 @@ export namespace V22_N {
     musicPlaylist: Array<MusicPlaylistDataV22>,
     reverb: Array<ReverbDataV22>,
     snapshot: Array<SnapshotDataV22>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV22 = {
@@ -4355,7 +4377,7 @@ export namespace V22_N {
   export type DspDataV22 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV22 = {
@@ -4406,7 +4428,8 @@ export namespace V22_N {
 
   export type RangeDataV22 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV22 = {
@@ -4423,7 +4446,7 @@ export namespace V22_N {
   export type MusicConditionDataV22 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV22 = {
@@ -4447,7 +4470,7 @@ export namespace V22_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
@@ -4486,7 +4509,7 @@ export namespace V22_N {
   export type HandlerDataV22 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV22 = {
@@ -4503,7 +4526,7 @@ export namespace V22_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -4532,7 +4555,7 @@ export namespace V22_N {
 
   export type ScriptRefDataV22 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV22 = {
@@ -4582,9 +4605,9 @@ export namespace V23_N {
     musicPlaylist: Array<MusicPlaylistDataV23>,
     reverb: Array<ReverbDataV23>,
     snapshot: Array<SnapshotDataV23>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV23 = {
@@ -4604,7 +4627,7 @@ export namespace V23_N {
   export type DspDataV23 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV23 = {
@@ -4655,7 +4678,8 @@ export namespace V23_N {
 
   export type RangeDataV23 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV23 = {
@@ -4672,7 +4696,7 @@ export namespace V23_N {
   export type MusicConditionDataV23 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV23 = {
@@ -4696,7 +4720,7 @@ export namespace V23_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number
   }
 
@@ -4735,7 +4759,7 @@ export namespace V23_N {
   export type HandlerDataV23 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV23 = {
@@ -4752,7 +4776,7 @@ export namespace V23_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -4781,7 +4805,7 @@ export namespace V23_N {
 
   export type ScriptRefDataV23 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV23 = {
@@ -4831,9 +4855,9 @@ export namespace V24_N {
     musicPlaylist: Array<MusicPlaylistDataV24>,
     reverb: Array<ReverbDataV24>,
     snapshot: Array<SnapshotDataV24>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV24 = {
@@ -4853,7 +4877,7 @@ export namespace V24_N {
   export type DspDataV24 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV24 = {
@@ -4904,7 +4928,8 @@ export namespace V24_N {
 
   export type RangeDataV24 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV24 = {
@@ -4921,7 +4946,7 @@ export namespace V24_N {
   export type MusicConditionDataV24 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV24 = {
@@ -4945,7 +4970,7 @@ export namespace V24_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number,
     noteBase: number,
     noteMin: number,
@@ -4987,7 +5012,7 @@ export namespace V24_N {
   export type HandlerDataV24 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV24 = {
@@ -5004,7 +5029,7 @@ export namespace V24_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -5033,7 +5058,7 @@ export namespace V24_N {
 
   export type ScriptRefDataV24 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV24 = {
@@ -5084,9 +5109,9 @@ export namespace V25_N {
     musicPlaylist: Array<MusicPlaylistDataV25>,
     reverb: Array<ReverbDataV25>,
     snapshot: Array<SnapshotDataV25>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV25 = {
@@ -5106,7 +5131,7 @@ export namespace V25_N {
   export type DspDataV25 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV25 = {
@@ -5157,7 +5182,8 @@ export namespace V25_N {
 
   export type RangeDataV25 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV25 = {
@@ -5183,7 +5209,7 @@ export namespace V25_N {
   export type MusicConditionDataV25 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV25 = {
@@ -5207,7 +5233,7 @@ export namespace V25_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number,
     noteBase: number,
     noteMin: number,
@@ -5249,7 +5275,7 @@ export namespace V25_N {
   export type HandlerDataV25 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV25 = {
@@ -5266,7 +5292,7 @@ export namespace V25_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -5295,7 +5321,7 @@ export namespace V25_N {
 
   export type ScriptRefDataV25 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV25 = {
@@ -5350,9 +5376,9 @@ export namespace V26_N {
     musicPlaylist: Array<MusicPlaylistDataV26>,
     reverb: Array<ReverbDataV26>,
     snapshot: Array<SnapshotDataV26>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV26 = {
@@ -5379,7 +5405,7 @@ export namespace V26_N {
   export type DspDataV26 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV26 = {
@@ -5433,7 +5459,8 @@ export namespace V26_N {
 
   export type RangeDataV26 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV26 = {
@@ -5462,7 +5489,7 @@ export namespace V26_N {
   export type MusicConditionDataV26 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV26 = {
@@ -5486,7 +5513,7 @@ export namespace V26_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number,
     noteBase: number,
     noteMin: number,
@@ -5528,7 +5555,7 @@ export namespace V26_N {
   export type HandlerDataV26 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV26 = {
@@ -5545,7 +5572,7 @@ export namespace V26_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -5574,7 +5601,7 @@ export namespace V26_N {
 
   export type ScriptRefDataV26 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type TriggerKeyDataV26 = {
@@ -5633,9 +5660,9 @@ export namespace V27_N {
     reverb: Array<ReverbDataV27>,
     scriptRef: Array<ScriptRefDataV27>,
     snapshot: Array<SnapshotDataV27>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV27 = {
@@ -5662,7 +5689,7 @@ export namespace V27_N {
   export type DspDataV27 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV27 = {
@@ -5716,7 +5743,8 @@ export namespace V27_N {
 
   export type RangeDataV27 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV27 = {
@@ -5745,7 +5773,7 @@ export namespace V27_N {
   export type MusicConditionDataV27 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV27 = {
@@ -5769,7 +5797,7 @@ export namespace V27_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number,
     noteBase: number,
     noteMin: number,
@@ -5806,7 +5834,7 @@ export namespace V27_N {
 
   export type ScriptRefDataV27 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type SnapshotDataV27 = {
@@ -5822,7 +5850,7 @@ export namespace V27_N {
   export type HandlerDataV27 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV27 = {
@@ -5839,7 +5867,7 @@ export namespace V27_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -5923,9 +5951,9 @@ export namespace V28_N {
     reverb: Array<ReverbDataV28>,
     scriptRef: Array<ScriptRefDataV28>,
     snapshot: Array<SnapshotDataV28>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number
   }
 
   export type BussDataV28 = {
@@ -5952,7 +5980,7 @@ export namespace V28_N {
   export type DspDataV28 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV28 = {
@@ -6006,7 +6034,8 @@ export namespace V28_N {
 
   export type RangeDataV28 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV28 = {
@@ -6035,7 +6064,7 @@ export namespace V28_N {
   export type MusicConditionDataV28 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV28 = {
@@ -6059,7 +6088,7 @@ export namespace V28_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number,
     noteBase: number,
     noteMin: number,
@@ -6096,7 +6125,7 @@ export namespace V28_N {
 
   export type ScriptRefDataV28 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type SnapshotDataV28 = {
@@ -6112,7 +6141,7 @@ export namespace V28_N {
   export type HandlerDataV28 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV28 = {
@@ -6129,7 +6158,7 @@ export namespace V28_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -6214,9 +6243,9 @@ export namespace V29_N {
     reverb: Array<ReverbDataV29>,
     scriptRef: Array<ScriptRefDataV29>,
     snapshot: Array<SnapshotDataV29>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string,
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number,
     musicExternal: Array<MusicExternalDataV29>
   }
 
@@ -6244,7 +6273,7 @@ export namespace V29_N {
   export type DspDataV29 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV29 = {
@@ -6298,7 +6327,8 @@ export namespace V29_N {
 
   export type RangeDataV29 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV29 = {
@@ -6327,7 +6357,7 @@ export namespace V29_N {
   export type MusicConditionDataV29 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV29 = {
@@ -6351,7 +6381,7 @@ export namespace V29_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number,
     noteBase: number,
     noteMin: number,
@@ -6388,7 +6418,7 @@ export namespace V29_N {
 
   export type ScriptRefDataV29 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type SnapshotDataV29 = {
@@ -6409,7 +6439,7 @@ export namespace V29_N {
   export type HandlerDataV29 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV29 = {
@@ -6426,7 +6456,7 @@ export namespace V29_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -6511,9 +6541,9 @@ export namespace V30_N {
     reverb: Array<ReverbDataV30>,
     scriptRef: Array<ScriptRefDataV30>,
     snapshot: Array<SnapshotDataV30>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string,
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number,
     musicExternal: Array<MusicExternalDataV30>
   }
 
@@ -6541,7 +6571,7 @@ export namespace V30_N {
   export type DspDataV30 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV30 = {
@@ -6603,7 +6633,8 @@ export namespace V30_N {
 
   export type RangeDataV30 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV30 = {
@@ -6632,7 +6663,7 @@ export namespace V30_N {
   export type MusicConditionDataV30 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV30 = {
@@ -6656,7 +6687,7 @@ export namespace V30_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number,
     noteBase: number,
     noteMin: number,
@@ -6693,7 +6724,7 @@ export namespace V30_N {
 
   export type ScriptRefDataV30 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type SnapshotDataV30 = {
@@ -6714,7 +6745,7 @@ export namespace V30_N {
   export type HandlerDataV30 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV30 = {
@@ -6731,7 +6762,7 @@ export namespace V30_N {
     endCueOffset: number,
     fadeInTime: number,
     fadeOutTime: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -6816,9 +6847,9 @@ export namespace V31_N {
     reverb: Array<ReverbDataV31>,
     scriptRef: Array<ScriptRefDataV31>,
     snapshot: Array<SnapshotDataV31>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string,
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number,
     musicExternal: Array<MusicExternalDataV31>
   }
 
@@ -6846,7 +6877,7 @@ export namespace V31_N {
   export type DspDataV31 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV31 = {
@@ -6908,7 +6939,8 @@ export namespace V31_N {
 
   export type RangeDataV31 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV31 = {
@@ -6937,7 +6969,7 @@ export namespace V31_N {
   export type MusicConditionDataV31 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV31 = {
@@ -6961,7 +6993,7 @@ export namespace V31_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number,
     noteBase: number,
     noteMin: number,
@@ -6998,7 +7030,7 @@ export namespace V31_N {
 
   export type ScriptRefDataV31 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type SnapshotDataV31 = {
@@ -7019,7 +7051,7 @@ export namespace V31_N {
   export type HandlerDataV31 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV31 = {
@@ -7037,7 +7069,7 @@ export namespace V31_N {
     fadeInTime: number,
     fadeOutTime: number,
     modelScaleSizeFactor: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,
@@ -7125,9 +7157,9 @@ export namespace V32_N {
     reverb: Array<ReverbDataV31>,
     scriptRef: Array<ScriptRefDataV31>,
     snapshot: Array<SnapshotDataV31>,
-    bankIndexFileName: string,
-    bankScriptFileName: string,
-    musicScriptFileName: string,
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number,
     musicExternal: Array<MusicExternalDataV31>
   }
 
@@ -7155,7 +7187,7 @@ export namespace V32_N {
   export type DspDataV31 = {
     type: number,
     flags: number,
-    property: Array<number>
+    property: Float32Array
   }
 
   export type CategoryDataV31 = {
@@ -7217,7 +7249,8 @@ export namespace V32_N {
 
   export type RangeDataV31 = {
     max: number,
-    min: number
+    min: number,
+    min_: number
   }
 
   export type CategoryDynamicDataV31 = {
@@ -7246,7 +7279,7 @@ export namespace V32_N {
   export type MusicConditionDataV31 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MusicPlaylistDataV31 = {
@@ -7270,7 +7303,7 @@ export namespace V32_N {
     language: BigInt,
     volume: number,
     weight: number,
-    fileName: string,
+    fileName: number,
     audioType: number,
     noteBase: number,
     noteMin: number,
@@ -7307,7 +7340,7 @@ export namespace V32_N {
 
   export type ScriptRefDataV31 = {
     name: BigInt,
-    fileName: string
+    fileName: number
   }
 
   export type SnapshotDataV31 = {
@@ -7328,7 +7361,7 @@ export namespace V32_N {
   export type HandlerDataV31 = {
     name: BigInt,
     flags: number,
-    byteCode: Array<number>
+    byteCode: Uint8Array
   }
 
   export type MetaSoundDataV31 = {
@@ -7346,7 +7379,7 @@ export namespace V32_N {
     fadeInTime: number,
     fadeOutTime: number,
     modelScaleSizeFactor: number,
-    positionOffset: Array<number>,
+    positionOffset: Float32Array,
     channelMax: number,
     flags: number,
     loopCount: number,

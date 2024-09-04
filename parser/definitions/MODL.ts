@@ -1,6 +1,6 @@
 import { Uint64, Uint32, Filename, Uint8, DynArray, FixedArray, Float32, Uint16, RefArray, Pointer, RefString } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "MODL",
   name: "ModelFileDataV0",
   version: 0,
@@ -53,7 +53,8 @@ export const V0 = {
       LocalTransform: "ModelTransformDataV0",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV0: {
       Flags: Uint32,
@@ -82,7 +83,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "MODL",
   name: "ModelFileDataV1",
   version: 1,
@@ -135,7 +136,8 @@ export const V1 = {
       LocalTransform: "ModelTransformDataV1",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV1: {
       Flags: Uint32,
@@ -184,7 +186,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "MODL",
   name: "ModelFileDataV2",
   version: 2,
@@ -237,7 +239,8 @@ export const V2 = {
       LocalTransform: "ModelTransformDataV2",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV2: {
       Flags: Uint32,
@@ -343,7 +346,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "MODL",
   name: "ModelFileDataV3",
   version: 3,
@@ -396,7 +399,8 @@ export const V3 = {
       LocalTransform: "ModelTransformDataV3",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV3: {
       Flags: Uint32,
@@ -513,7 +517,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "MODL",
   name: "ModelFileDataV4",
   version: 4,
@@ -573,7 +577,8 @@ export const V4 = {
       LocalTransform: "ModelTransformDataV4",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV4: {
       Flags: Uint32,
@@ -690,7 +695,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "MODL",
   name: "ModelFileDataV5",
   version: 5,
@@ -751,7 +756,8 @@ export const V5 = {
       LocalTransform: "ModelTransformDataV5",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV5: {
       Flags: Uint32,
@@ -869,7 +875,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "MODL",
   name: "ModelFileDataV6",
   version: 6,
@@ -934,7 +940,8 @@ export const V6 = {
       LocalTransform: "ModelTransformDataV6",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV6: {
       Flags: Uint32,
@@ -1056,7 +1063,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "MODL",
   name: "ModelFileDataV7",
   version: 7,
@@ -1122,7 +1129,8 @@ export const V7 = {
       LocalTransform: "ModelTransformDataV7",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV7: {
       Flags: Uint32,
@@ -1244,7 +1252,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "MODL",
   name: "ModelFileDataV8",
   version: 8,
@@ -1295,7 +1303,8 @@ export const V8 = {
       LocalTransform: "ModelTransformDataV8",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV8: {
       Flags: Uint32,
@@ -1383,7 +1392,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "MODL",
   name: "ModelFileDataV9",
   version: 9,
@@ -1435,7 +1444,8 @@ export const V9 = {
       LocalTransform: "ModelTransformDataV9",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV9: {
       Flags: Uint32,
@@ -1523,7 +1533,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "MODL",
   name: "ModelFileDataV10",
   version: 10,
@@ -1575,7 +1585,8 @@ export const V10 = {
       LocalTransform: "ModelTransformDataV10",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV10: {
       Flags: Uint32,
@@ -1684,7 +1695,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "MODL",
   name: "ModelFileDataV11",
   version: 11,
@@ -1736,7 +1747,8 @@ export const V11 = {
       LocalTransform: "ModelTransformDataV11",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV11: {
       Flags: Uint32,
@@ -1857,7 +1869,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "MODL",
   name: "ModelFileDataV12",
   version: 12,
@@ -1910,7 +1922,8 @@ export const V12 = {
       LocalTransform: "ModelTransformDataV12",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV12: {
       Flags: Uint32,
@@ -2031,7 +2044,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "MODL",
   name: "ModelFileDataV13",
   version: 13,
@@ -2084,7 +2097,8 @@ export const V13 = {
       LocalTransform: "ModelTransformDataV13",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV13: {
       Flags: Uint32,
@@ -2205,7 +2219,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "MODL",
   name: "ModelFileDataV14",
   version: 14,
@@ -2260,7 +2274,8 @@ export const V14 = {
       LocalTransform: "ModelTransformDataV14",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV14: {
       Flags: Uint32,
@@ -2381,7 +2396,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "MODL",
   name: "ModelFileDataV15",
   version: 15,
@@ -2438,7 +2453,8 @@ export const V15 = {
       LocalTransform: "ModelTransformDataV15",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV15: {
       Flags: Uint32,
@@ -2570,7 +2586,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "MODL",
   name: "ModelFileDataV16",
   version: 16,
@@ -2627,7 +2643,8 @@ export const V16 = {
       LocalTransform: "ModelTransformDataV16",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV16: {
       Flags: Uint32,
@@ -2760,7 +2777,7 @@ export const V16 = {
   }
 };
 
-export const V17 = {
+const V17 = {
   chunkName: "MODL",
   name: "ModelFileDataV17",
   version: 17,
@@ -2824,7 +2841,8 @@ export const V17 = {
       LocalTransform: "ModelTransformDataV17",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV17: {
       Flags: Uint32,
@@ -2958,7 +2976,7 @@ export const V17 = {
   }
 };
 
-export const V18 = {
+const V18 = {
   chunkName: "MODL",
   name: "ModelFileDataV18",
   version: 18,
@@ -3025,7 +3043,8 @@ export const V18 = {
       LocalTransform: "ModelTransformDataV18",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV18: {
       Flags: Uint32,
@@ -3169,7 +3188,7 @@ export const V18 = {
   }
 };
 
-export const V19 = {
+const V19 = {
   chunkName: "MODL",
   name: "ModelFileDataV19",
   version: 19,
@@ -3236,7 +3255,8 @@ export const V19 = {
       LocalTransform: "ModelTransformDataV19",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV19: {
       Flags: Uint32,
@@ -3416,7 +3436,7 @@ export const V19 = {
   }
 };
 
-export const V20 = {
+const V20 = {
   chunkName: "MODL",
   name: "ModelFileDataV20",
   version: 20,
@@ -3483,7 +3503,8 @@ export const V20 = {
       LocalTransform: "ModelTransformDataV20",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV20: {
       Flags: Uint32,
@@ -3663,7 +3684,7 @@ export const V20 = {
   }
 };
 
-export const V21 = {
+const V21 = {
   chunkName: "MODL",
   name: "ModelFileDataV21",
   version: 21,
@@ -3731,7 +3752,8 @@ export const V21 = {
       LocalTransform: "ModelTransformDataV21",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV21: {
       Flags: Uint32,
@@ -3917,7 +3939,7 @@ export const V21 = {
   }
 };
 
-export const V22 = {
+const V22 = {
   chunkName: "MODL",
   name: "ModelFileDataV22",
   version: 22,
@@ -3985,7 +4007,8 @@ export const V22 = {
       LocalTransform: "ModelTransformDataV22",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV22: {
       Flags: Uint32,
@@ -4171,7 +4194,7 @@ export const V22 = {
   }
 };
 
-export const V23 = {
+const V23 = {
   chunkName: "MODL",
   name: "ModelFileDataV23",
   version: 23,
@@ -4239,7 +4262,8 @@ export const V23 = {
       LocalTransform: "ModelTransformDataV23",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV23: {
       Flags: Uint32,
@@ -4425,7 +4449,7 @@ export const V23 = {
   }
 };
 
-export const V24 = {
+const V24 = {
   chunkName: "MODL",
   name: "ModelFileDataV24",
   version: 24,
@@ -4493,7 +4517,8 @@ export const V24 = {
       LocalTransform: "ModelTransformDataV24",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV24: {
       Flags: Uint32,
@@ -4680,7 +4705,7 @@ export const V24 = {
   }
 };
 
-export const V25 = {
+const V25 = {
   chunkName: "MODL",
   name: "ModelFileDataV25",
   version: 25,
@@ -4748,7 +4773,8 @@ export const V25 = {
       LocalTransform: "ModelTransformDataV25",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV25: {
       Flags: Uint32,
@@ -4936,7 +4962,7 @@ export const V25 = {
   }
 };
 
-export const V26 = {
+const V26 = {
   chunkName: "MODL",
   name: "ModelFileDataV26",
   version: 26,
@@ -5004,7 +5030,8 @@ export const V26 = {
       LocalTransform: "ModelTransformDataV26",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV26: {
       Flags: Uint32,
@@ -5191,7 +5218,7 @@ export const V26 = {
   }
 };
 
-export const V27 = {
+const V27 = {
   chunkName: "MODL",
   name: "ModelFileDataV27",
   version: 27,
@@ -5260,7 +5287,8 @@ export const V27 = {
       LocalTransform: "ModelTransformDataV27",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV27: {
       Flags: Uint32,
@@ -5447,7 +5475,7 @@ export const V27 = {
   }
 };
 
-export const V28 = {
+const V28 = {
   chunkName: "MODL",
   name: "ModelFileDataV28",
   version: 28,
@@ -5520,7 +5548,8 @@ export const V28 = {
       LocalTransform: "ModelTransformDataV28",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV28: {
       Flags: Uint32,
@@ -5707,7 +5736,7 @@ export const V28 = {
   }
 };
 
-export const V29 = {
+const V29 = {
   chunkName: "MODL",
   name: "ModelFileDataV29",
   version: 29,
@@ -5791,7 +5820,8 @@ export const V29 = {
       LocalTransform: "ModelTransformDataV29",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV29: {
       Flags: Uint32,
@@ -5983,7 +6013,7 @@ export const V29 = {
   }
 };
 
-export const V30 = {
+const V30 = {
   chunkName: "MODL",
   name: "ModelFileDataV30",
   version: 30,
@@ -6067,7 +6097,8 @@ export const V30 = {
       LocalTransform: "ModelTransformDataV30",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV30: {
       Flags: Uint32,
@@ -6260,7 +6291,7 @@ export const V30 = {
   }
 };
 
-export const V31 = {
+const V31 = {
   chunkName: "MODL",
   name: "ModelFileDataV31",
   version: 31,
@@ -6344,7 +6375,8 @@ export const V31 = {
       LocalTransform: "ModelTransformDataV31",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV31: {
       Flags: Uint32,
@@ -6538,7 +6570,7 @@ export const V31 = {
   }
 };
 
-export const V32 = {
+const V32 = {
   chunkName: "MODL",
   name: "ModelFileDataV32",
   version: 32,
@@ -6622,7 +6654,8 @@ export const V32 = {
       LocalTransform: "ModelTransformDataV32",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV32: {
       Flags: Uint32,
@@ -6859,7 +6892,7 @@ export const V32 = {
   }
 };
 
-export const V33 = {
+const V33 = {
   chunkName: "MODL",
   name: "ModelFileDataV33",
   version: 33,
@@ -6943,7 +6976,8 @@ export const V33 = {
       LocalTransform: "ModelTransformDataV33",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV33: {
       Flags: Uint32,
@@ -7204,7 +7238,7 @@ export const V33 = {
   }
 };
 
-export const V34 = {
+const V34 = {
   chunkName: "MODL",
   name: "ModelFileDataV34",
   version: 34,
@@ -7288,7 +7322,8 @@ export const V34 = {
       LocalTransform: "ModelTransformDataV34",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV34: {
       Flags: Uint32,
@@ -7545,7 +7580,7 @@ export const V34 = {
   }
 };
 
-export const V35 = {
+const V35 = {
   chunkName: "MODL",
   name: "ModelFileDataV35",
   version: 35,
@@ -7629,7 +7664,8 @@ export const V35 = {
       LocalTransform: "ModelTransformDataV35",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV35: {
       Flags: Uint32,
@@ -7889,7 +7925,7 @@ export const V35 = {
   }
 };
 
-export const V36 = {
+const V36 = {
   chunkName: "MODL",
   name: "ModelFileDataV36",
   version: 36,
@@ -7973,7 +8009,8 @@ export const V36 = {
       LocalTransform: "ModelTransformDataV36",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV36: {
       Flags: Uint32,
@@ -8240,7 +8277,7 @@ export const V36 = {
   }
 };
 
-export const V37 = {
+const V37 = {
   chunkName: "MODL",
   name: "ModelFileDataV37",
   version: 37,
@@ -8323,7 +8360,8 @@ export const V37 = {
       LocalTransform: "ModelTransformDataV37",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV37: {
       Flags: Uint32,
@@ -8590,7 +8628,7 @@ export const V37 = {
   }
 };
 
-export const V38 = {
+const V38 = {
   chunkName: "MODL",
   name: "ModelFileDataV38",
   version: 38,
@@ -8673,7 +8711,8 @@ export const V38 = {
       LocalTransform: "ModelTransformDataV38",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV38: {
       Flags: Uint32,
@@ -8940,7 +8979,7 @@ export const V38 = {
   }
 };
 
-export const V39 = {
+const V39 = {
   chunkName: "MODL",
   name: "ModelFileDataV39",
   version: 39,
@@ -9023,7 +9062,8 @@ export const V39 = {
       LocalTransform: "ModelTransformDataV39",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV39: {
       Flags: Uint32,
@@ -9291,7 +9331,7 @@ export const V39 = {
   }
 };
 
-export const V40 = {
+const V40 = {
   chunkName: "MODL",
   name: "ModelFileDataV40",
   version: 40,
@@ -9374,7 +9414,8 @@ export const V40 = {
       LocalTransform: "ModelTransformDataV40",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV40: {
       Flags: Uint32,
@@ -9645,7 +9686,7 @@ export const V40 = {
   }
 };
 
-export const V41 = {
+const V41 = {
   chunkName: "MODL",
   name: "ModelFileDataV41",
   version: 41,
@@ -9728,7 +9769,8 @@ export const V41 = {
       LocalTransform: "ModelTransformDataV41",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV41: {
       Flags: Uint32,
@@ -10008,7 +10050,7 @@ export const V41 = {
   }
 };
 
-export const V42 = {
+const V42 = {
   chunkName: "MODL",
   name: "ModelFileDataV42",
   version: 42,
@@ -10091,7 +10133,8 @@ export const V42 = {
       LocalTransform: "ModelTransformDataV42",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV42: {
       Flags: Uint32,
@@ -10372,7 +10415,7 @@ export const V42 = {
   }
 };
 
-export const V43 = {
+const V43 = {
   chunkName: "MODL",
   name: "ModelFileDataV43",
   version: 43,
@@ -10439,6 +10482,7 @@ export const V43 = {
       InitialPlacement: "ModelTransformDataV43",
       MeshBindings: DynArray("ModelMeshBindingDataV43"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV43"),
@@ -10449,7 +10493,8 @@ export const V43 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV43"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV43: {
       Name: RefString(),
@@ -10457,7 +10502,8 @@ export const V43 = {
       LocalTransform: "ModelTransformDataV43",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV43: {
       Flags: Uint32,
@@ -10738,7 +10784,7 @@ export const V43 = {
   }
 };
 
-export const V44 = {
+const V44 = {
   chunkName: "MODL",
   name: "ModelFileDataV44",
   version: 44,
@@ -10805,6 +10851,7 @@ export const V44 = {
       InitialPlacement: "ModelTransformDataV44",
       MeshBindings: DynArray("ModelMeshBindingDataV44"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV44"),
@@ -10815,7 +10862,8 @@ export const V44 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV44"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV44: {
       Name: RefString(),
@@ -10823,7 +10871,8 @@ export const V44 = {
       LocalTransform: "ModelTransformDataV44",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV44: {
       Flags: Uint32,
@@ -11104,7 +11153,7 @@ export const V44 = {
   }
 };
 
-export const V45 = {
+const V45 = {
   chunkName: "MODL",
   name: "ModelFileDataV45",
   version: 45,
@@ -11181,6 +11230,7 @@ export const V45 = {
       InitialPlacement: "ModelTransformDataV45",
       MeshBindings: DynArray("ModelMeshBindingDataV45"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV45"),
@@ -11191,7 +11241,8 @@ export const V45 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV45"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV45: {
       Name: RefString(),
@@ -11199,7 +11250,8 @@ export const V45 = {
       LocalTransform: "ModelTransformDataV45",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV45: {
       Flags: Uint32,
@@ -11480,7 +11532,7 @@ export const V45 = {
   }
 };
 
-export const V46 = {
+const V46 = {
   chunkName: "MODL",
   name: "ModelFileDataV46",
   version: 46,
@@ -11557,6 +11609,7 @@ export const V46 = {
       InitialPlacement: "ModelTransformDataV46",
       MeshBindings: DynArray("ModelMeshBindingDataV46"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV46"),
@@ -11567,7 +11620,8 @@ export const V46 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV46"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV46: {
       Name: RefString(),
@@ -11575,7 +11629,8 @@ export const V46 = {
       LocalTransform: "ModelTransformDataV46",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV46: {
       Flags: Uint32,
@@ -11856,7 +11911,7 @@ export const V46 = {
   }
 };
 
-export const V47 = {
+const V47 = {
   chunkName: "MODL",
   name: "ModelFileDataV47",
   version: 47,
@@ -11935,6 +11990,7 @@ export const V47 = {
       InitialPlacement: "ModelTransformDataV47",
       MeshBindings: DynArray("ModelMeshBindingDataV47"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV47"),
@@ -11945,7 +12001,8 @@ export const V47 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV47"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV47: {
       Name: RefString(),
@@ -11953,7 +12010,8 @@ export const V47 = {
       LocalTransform: "ModelTransformDataV47",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV47: {
       Flags: Uint32,
@@ -12234,7 +12292,7 @@ export const V47 = {
   }
 };
 
-export const V48 = {
+const V48 = {
   chunkName: "MODL",
   name: "ModelFileDataV48",
   version: 48,
@@ -12319,6 +12377,7 @@ export const V48 = {
       InitialPlacement: "ModelTransformDataV48",
       MeshBindings: DynArray("ModelMeshBindingDataV48"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV48"),
@@ -12329,7 +12388,8 @@ export const V48 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV48"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV48: {
       Name: RefString(),
@@ -12337,7 +12397,8 @@ export const V48 = {
       LocalTransform: "ModelTransformDataV48",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV48: {
       Flags: Uint32,
@@ -12618,7 +12679,7 @@ export const V48 = {
   }
 };
 
-export const V49 = {
+const V49 = {
   chunkName: "MODL",
   name: "ModelFileDataV49",
   version: 49,
@@ -12703,6 +12764,7 @@ export const V49 = {
       InitialPlacement: "ModelTransformDataV49",
       MeshBindings: DynArray("ModelMeshBindingDataV49"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV49"),
@@ -12713,7 +12775,8 @@ export const V49 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV49"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV49: {
       Name: RefString(),
@@ -12721,7 +12784,8 @@ export const V49 = {
       LocalTransform: "ModelTransformDataV49",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV49: {
       Flags: Uint32,
@@ -13007,7 +13071,7 @@ export const V49 = {
   }
 };
 
-export const V50 = {
+const V50 = {
   chunkName: "MODL",
   name: "ModelFileDataV50",
   version: 50,
@@ -13092,6 +13156,7 @@ export const V50 = {
       InitialPlacement: "ModelTransformDataV50",
       MeshBindings: DynArray("ModelMeshBindingDataV50"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV50"),
@@ -13102,7 +13167,8 @@ export const V50 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV50"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV50: {
       Name: RefString(),
@@ -13110,7 +13176,8 @@ export const V50 = {
       LocalTransform: "ModelTransformDataV50",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV50: {
       Flags: Uint32,
@@ -13397,7 +13464,7 @@ export const V50 = {
   }
 };
 
-export const V51 = {
+const V51 = {
   chunkName: "MODL",
   name: "ModelFileDataV51",
   version: 51,
@@ -13489,6 +13556,7 @@ export const V51 = {
       InitialPlacement: "ModelTransformDataV51",
       MeshBindings: DynArray("ModelMeshBindingDataV51"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV51"),
@@ -13499,7 +13567,8 @@ export const V51 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV51"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV51: {
       Name: RefString(),
@@ -13507,7 +13576,8 @@ export const V51 = {
       LocalTransform: "ModelTransformDataV51",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV51: {
       Flags: Uint32,
@@ -13798,7 +13868,7 @@ export const V51 = {
   }
 };
 
-export const V52 = {
+const V52 = {
   chunkName: "MODL",
   name: "ModelFileDataV52",
   version: 52,
@@ -13890,6 +13960,7 @@ export const V52 = {
       InitialPlacement: "ModelTransformDataV52",
       MeshBindings: DynArray("ModelMeshBindingDataV52"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV52"),
@@ -13900,7 +13971,8 @@ export const V52 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV52"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV52: {
       Name: RefString(),
@@ -13908,7 +13980,8 @@ export const V52 = {
       LocalTransform: "ModelTransformDataV52",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV52: {
       Flags: Uint32,
@@ -14207,7 +14280,7 @@ export const V52 = {
   }
 };
 
-export const V53 = {
+const V53 = {
   chunkName: "MODL",
   name: "ModelFileDataV53",
   version: 53,
@@ -14299,6 +14372,7 @@ export const V53 = {
       InitialPlacement: "ModelTransformDataV53",
       MeshBindings: DynArray("ModelMeshBindingDataV53"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV53"),
@@ -14309,7 +14383,8 @@ export const V53 = {
       Name: RefString(),
       Bones: DynArray("ModelBoneDataV53"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneDataV53: {
       Name: RefString(),
@@ -14317,7 +14392,8 @@ export const V53 = {
       LocalTransform: "ModelTransformDataV53",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV53: {
       Flags: Uint32,
@@ -14618,7 +14694,7 @@ export const V53 = {
   }
 };
 
-export const V54 = {
+const V54 = {
   chunkName: "MODL",
   name: "ModelFileDataV54",
   version: 54,
@@ -14711,6 +14787,7 @@ export const V54 = {
       InitialPlacement: "ModelTransformDataV54",
       MeshBindings: DynArray("ModelMeshBindingDataV54"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV54"),
@@ -14722,6 +14799,7 @@ export const V54 = {
       Bones: DynArray("ModelBoneDataV54"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV54")
     },
     ModelBoneDataV54: {
@@ -14730,7 +14808,8 @@ export const V54 = {
       LocalTransform: "ModelTransformDataV54",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV54: {
       Flags: Uint32,
@@ -15037,7 +15116,7 @@ export const V54 = {
   }
 };
 
-export const V55 = {
+const V55 = {
   chunkName: "MODL",
   name: "ModelFileDataV55",
   version: 55,
@@ -15130,6 +15209,7 @@ export const V55 = {
       InitialPlacement: "ModelTransformDataV55",
       MeshBindings: DynArray("ModelMeshBindingDataV55"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV55"),
@@ -15141,6 +15221,7 @@ export const V55 = {
       Bones: DynArray("ModelBoneDataV55"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV55")
     },
     ModelBoneDataV55: {
@@ -15149,7 +15230,8 @@ export const V55 = {
       LocalTransform: "ModelTransformDataV55",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV55: {
       Flags: Uint32,
@@ -15457,7 +15539,7 @@ export const V55 = {
   }
 };
 
-export const V56 = {
+const V56 = {
   chunkName: "MODL",
   name: "ModelFileDataV56",
   version: 56,
@@ -15550,6 +15632,7 @@ export const V56 = {
       InitialPlacement: "ModelTransformDataV56",
       MeshBindings: DynArray("ModelMeshBindingDataV56"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV56"),
@@ -15561,6 +15644,7 @@ export const V56 = {
       Bones: DynArray("ModelBoneDataV56"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV56")
     },
     ModelBoneDataV56: {
@@ -15569,7 +15653,8 @@ export const V56 = {
       LocalTransform: "ModelTransformDataV56",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV56: {
       Flags: Uint32,
@@ -15878,7 +15963,7 @@ export const V56 = {
   }
 };
 
-export const V57 = {
+const V57 = {
   chunkName: "MODL",
   name: "ModelFileDataV57",
   version: 57,
@@ -15971,6 +16056,7 @@ export const V57 = {
       InitialPlacement: "ModelTransformDataV57",
       MeshBindings: DynArray("ModelMeshBindingDataV57"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV57"),
@@ -15982,6 +16068,7 @@ export const V57 = {
       Bones: DynArray("ModelBoneDataV57"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV57")
     },
     ModelBoneDataV57: {
@@ -15990,7 +16077,8 @@ export const V57 = {
       LocalTransform: "ModelTransformDataV57",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV57: {
       Flags: Uint32,
@@ -16305,7 +16393,7 @@ export const V57 = {
   }
 };
 
-export const V58 = {
+const V58 = {
   chunkName: "MODL",
   name: "ModelFileDataV58",
   version: 58,
@@ -16398,6 +16486,7 @@ export const V58 = {
       InitialPlacement: "ModelTransformDataV58",
       MeshBindings: DynArray("ModelMeshBindingDataV58"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV58"),
@@ -16409,6 +16498,7 @@ export const V58 = {
       Bones: DynArray("ModelBoneDataV58"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV58")
     },
     ModelBoneDataV58: {
@@ -16417,7 +16507,8 @@ export const V58 = {
       LocalTransform: "ModelTransformDataV58",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV58: {
       Flags: Uint32,
@@ -16738,7 +16829,7 @@ export const V58 = {
   }
 };
 
-export const V59 = {
+const V59 = {
   chunkName: "MODL",
   name: "ModelFileDataV59",
   version: 59,
@@ -16831,6 +16922,7 @@ export const V59 = {
       InitialPlacement: "ModelTransformDataV59",
       MeshBindings: DynArray("ModelMeshBindingDataV59"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV59"),
@@ -16842,6 +16934,7 @@ export const V59 = {
       Bones: DynArray("ModelBoneDataV59"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV59")
     },
     ModelBoneDataV59: {
@@ -16850,7 +16943,8 @@ export const V59 = {
       LocalTransform: "ModelTransformDataV59",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV59: {
       Flags: Uint32,
@@ -17172,7 +17266,7 @@ export const V59 = {
   }
 };
 
-export const V60 = {
+const V60 = {
   chunkName: "MODL",
   name: "ModelFileDataV60",
   version: 60,
@@ -17265,6 +17359,7 @@ export const V60 = {
       InitialPlacement: "ModelTransformDataV60",
       MeshBindings: DynArray("ModelMeshBindingDataV60"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV60"),
@@ -17276,6 +17371,7 @@ export const V60 = {
       Bones: DynArray("ModelBoneDataV60"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV60")
     },
     ModelBoneDataV60: {
@@ -17284,7 +17380,8 @@ export const V60 = {
       LocalTransform: "ModelTransformDataV60",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV60: {
       Flags: Uint32,
@@ -17613,7 +17710,7 @@ export const V60 = {
   }
 };
 
-export const V61 = {
+const V61 = {
   chunkName: "MODL",
   name: "ModelFileDataV61",
   version: 61,
@@ -17706,6 +17803,7 @@ export const V61 = {
       InitialPlacement: "ModelTransformDataV61",
       MeshBindings: DynArray("ModelMeshBindingDataV61"),
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneFlags: DynArray(Uint32),
       emitterBones: DynArray(Uint32),
       trackMasks: DynArray("ModelTrackMaskV61"),
@@ -17717,6 +17815,7 @@ export const V61 = {
       Bones: DynArray("ModelBoneDataV61"),
       LODType: Uint32,
       ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8),
       boneSymmetries: DynArray("ModelBoneSymmetryV61")
     },
     ModelBoneDataV61: {
@@ -17725,7 +17824,8 @@ export const V61 = {
       LocalTransform: "ModelTransformDataV61",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformDataV61: {
       Flags: Uint32,
@@ -18066,7 +18166,7 @@ export const V61 = {
   }
 };
 
-export const V62 = {
+const V62 = {
   chunkName: "MODL",
   name: "ModelFileDataV62",
   version: 62,
@@ -18430,7 +18530,7 @@ export const V62 = {
   }
 };
 
-export const V63 = {
+const V63 = {
   chunkName: "MODL",
   name: "ModelFileDataV63",
   version: 63,
@@ -18794,7 +18894,7 @@ export const V63 = {
   }
 };
 
-export const V64 = {
+const V64 = {
   chunkName: "MODL",
   name: "ModelFileDataV64",
   version: 64,
@@ -18849,7 +18949,8 @@ export const V64 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelMeshDataV64: {
       visBone: Uint64,
@@ -19163,7 +19264,7 @@ export const V64 = {
   }
 };
 
-export const V65 = {
+const V65 = {
   chunkName: "MODL",
   name: "ModelFileDataV65",
   version: 65,
@@ -19218,7 +19319,8 @@ export const V65 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV65: {
       clouds: DynArray("ModelParticleCloudV65"),
@@ -19497,7 +19599,7 @@ export const V65 = {
   }
 };
 
-export const V66 = {
+const V66 = {
   chunkName: "MODL",
   name: "ModelFileDataV66",
   version: 66,
@@ -19553,7 +19655,8 @@ export const V66 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV66: {
       clouds: DynArray("ModelParticleCloudV66"),
@@ -19832,7 +19935,7 @@ export const V66 = {
   }
 };
 
-export const V67 = {
+const V67 = {
   chunkName: "MODL",
   name: "ModelFileDataV67",
   version: 67,
@@ -19888,7 +19991,8 @@ export const V67 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV67: {
       clouds: DynArray("ModelParticleCloudV66"),
@@ -20186,7 +20290,7 @@ export const V67 = {
   }
 };
 
-export const V68 = {
+const V68 = {
   chunkName: "MODL",
   name: "ModelFileDataV68",
   version: 68,
@@ -20242,7 +20346,8 @@ export const V68 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV68: {
       clouds: DynArray("ModelParticleCloudV66"),
@@ -20538,7 +20643,7 @@ export const V68 = {
   }
 };
 
-export const V69 = {
+const V69 = {
   chunkName: "MODL",
   name: "ModelFileDataV69",
   version: 69,
@@ -20594,7 +20699,8 @@ export const V69 = {
       scrollFreq: FixedArray(Float32, 2),
       scale: FixedArray(Float32, 2),
       scaleFreq: FixedArray(Float32, 2),
-      rotate: Float32
+      rotate: Float32,
+      rotate_: Float32
     },
     ModelCloudDataV69: {
       clouds: DynArray("ModelParticleCloudV66"),
@@ -20889,4 +20995,5 @@ export const V69 = {
 };
 
 export const latest = V69;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66, V67, V68, V69];
+export const definitions = { V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32, V33, V34, V35, V36, V37, V38, V39, V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66, V67, V68, V69 };
+export const definitionArray = Object.values(definitions);

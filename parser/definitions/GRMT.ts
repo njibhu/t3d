@@ -1,6 +1,6 @@
 import { Uint8, Uint32, Uint64, DynArray, FixedArray } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "GRMT",
   name: "AmatGrV0",
   version: 0,
@@ -14,7 +14,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "GRMT",
   name: "AmatGrV1",
   version: 1,
@@ -29,7 +29,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "GRMT",
   name: "AmatGrV2",
   version: 2,
@@ -45,7 +45,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "GRMT",
   name: "AmatGrV3",
   version: 3,
@@ -62,7 +62,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "GRMT",
   name: "AmatGr",
   version: 4,
@@ -80,7 +80,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "GRMT",
   name: "AmatGr",
   version: 5,
@@ -99,7 +99,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "GRMT",
   name: "AmatGr",
   version: 6,
@@ -116,4 +116,5 @@ export const V6 = {
 };
 
 export const latest = V6;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6];
+export const definitions = { V0, V1, V2, V3, V4, V5, V6 };
+export const definitionArray = Object.values(definitions);

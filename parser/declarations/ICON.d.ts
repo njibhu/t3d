@@ -1,6 +1,6 @@
 export namespace V0_N {
   export type ModelFileIcon = {
-    jpgData: Array<number>
+    jpgData: Uint8Array
   }
 
 }

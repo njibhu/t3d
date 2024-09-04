@@ -6,7 +6,7 @@ export namespace V0_N {
   export type MapOcclusion = {
     token: number,
     flags: number,
-    vertices: Array<Array<number>>,
+    vertices: Array<Float32Array>,
     name: string
   }
 

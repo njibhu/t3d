@@ -9,7 +9,7 @@ export namespace V0_N {
   export type MapRiver = {
     guid: BigInt,
     xTiling: number,
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     reaches: Array<MapRiverReach>
   }
 
@@ -18,16 +18,16 @@ export namespace V0_N {
     curveLength: number,
     curvePercent: number,
     xTessellation: number,
-    yTessellation: Array<number>,
+    yTessellation: Uint32Array,
     broadId: number,
     materials: Array<MapRiverMaterial>
   }
 
   export type MapRiverMaterial = {
-    materialFile: string,
-    textureFiles: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFile: number,
+    textureFiles: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     textureMaps: Array<MapRiverTextureMap>
   }
 
@@ -39,7 +39,7 @@ export namespace V0_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -58,7 +58,7 @@ export namespace V1_N {
     guid: BigInt,
     name: string,
     xTiling: number,
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     reaches: Array<MapRiverReach>
   }
 
@@ -67,16 +67,16 @@ export namespace V1_N {
     curveLength: number,
     curvePercent: number,
     xTessellation: number,
-    yTessellation: Array<number>,
+    yTessellation: Uint32Array,
     broadId: number,
     materials: Array<MapRiverMaterial>
   }
 
   export type MapRiverMaterial = {
-    materialFile: string,
-    textureFiles: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFile: number,
+    textureFiles: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     textureMaps: Array<MapRiverTextureMap>
   }
 
@@ -89,7 +89,7 @@ export namespace V1_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -108,7 +108,7 @@ export namespace V2_N {
     guid: BigInt,
     name: string,
     xTiling: number,
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     reaches: Array<MapRiverReach>
   }
 
@@ -117,17 +117,17 @@ export namespace V2_N {
     curveLength: number,
     curvePercent: number,
     xTessellation: number,
-    yTessellation: Array<number>,
+    yTessellation: Uint32Array,
     broadId: number,
     fvf: number,
     materials: Array<MapRiverMaterial>
   }
 
   export type MapRiverMaterial = {
-    materialFile: string,
-    textureFiles: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFile: number,
+    textureFiles: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     textureMaps: Array<MapRiverTextureMap>
   }
 
@@ -140,7 +140,7 @@ export namespace V2_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -159,7 +159,7 @@ export namespace V3_N {
     guid: BigInt,
     name: string,
     xTiling: number,
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     reaches: Array<MapRiverReach>,
     flags: number
   }
@@ -169,7 +169,7 @@ export namespace V3_N {
     curveLength: number,
     curvePercent: number,
     xTessellation: number,
-    yTessellation: Array<number>,
+    yTessellation: Uint32Array,
     broadId: number,
     fvf: number,
     flags: number,
@@ -177,10 +177,10 @@ export namespace V3_N {
   }
 
   export type MapRiverMaterial = {
-    materialFile: string,
-    textureFiles: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFile: number,
+    textureFiles: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     textureMaps: Array<MapRiverTextureMap>
   }
 
@@ -193,7 +193,7 @@ export namespace V3_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -212,7 +212,7 @@ export namespace V4_N {
     guid: BigInt,
     name: string,
     xTiling: number,
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     reaches: Array<MapRiverReach>,
     flags: number
   }
@@ -222,7 +222,7 @@ export namespace V4_N {
     curveLength: number,
     curvePercent: number,
     xTessellation: number,
-    yTessellation: Array<number>,
+    yTessellation: Uint32Array,
     broadId: number,
     fvf: number,
     flags: number,
@@ -231,10 +231,10 @@ export namespace V4_N {
   }
 
   export type MapRiverMaterial = {
-    materialFile: string,
-    textureFiles: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFile: number,
+    textureFiles: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     textureMaps: Array<MapRiverTextureMap>,
     flags: number
   }
@@ -249,7 +249,7 @@ export namespace V4_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -265,14 +265,14 @@ export namespace V5_N {
     guid: BigInt,
     name: string,
     properties: Array<PackMapRiverProperty>,
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     reaches: Array<MapRiverReach>
   }
 
   export type PackMapRiverProperty = {
     type: number,
     val: BigInt,
-    strVal: string
+    strVal: number
   }
 
   export type MapRiverReach = {

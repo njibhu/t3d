@@ -1,21 +1,21 @@
 export namespace V10_N {
   export type PackMapTerrainV10 = {
-    dims: Array<number>,
+    dims: Uint32Array,
     swapDistance: number,
-    heightMapArray: Array<number>,
-    tileFlagArray: Array<number>,
+    heightMapArray: Float32Array,
+    tileFlagArray: Uint32Array,
     chunkArray: Array<PackMapTerrainChunkV10>,
     materials: PackMapTerrainMaterialsV10,
-    typeArray: Array<BigInt>
+    typeArray: BigUint64Array
   }
 
   export type PackMapTerrainChunkV10 = {
     chunkFlags: number,
-    tileTableArray: Array<number>
+    tileTableArray: Uint8Array
   }
 
   export type PackMapTerrainMaterialsV10 = {
-    pagedImage: string,
+    pagedImage: number,
     constArray: Array<PackMapTerrainConstV10>,
     texFileArray: Array<PackMapTerrainTexV10>,
     materials: Array<PackMapTerrrainChunkMaterialV10>
@@ -23,13 +23,14 @@ export namespace V10_N {
 
   export type PackMapTerrainConstV10 = {
     tokenName: number,
-    value: Array<number>
+    value: Float32Array
   }
 
   export type PackMapTerrainTexV10 = {
     tokenName: number,
-    flags: Array<number>,
-    filename: string,
+    flags: number,
+    filename: number,
+    flags_: Uint32Array,
     layer: number
   }
 
@@ -41,17 +42,17 @@ export namespace V10_N {
   }
 
   export type PackMapTerrainMaterialV10 = {
-    materialFile: string,
+    materialFile: number,
     fvf: number,
-    constIndexArray: Array<number>,
-    texIndexArray: Array<number>
+    constIndexArray: Uint32Array,
+    texIndexArray: Uint32Array
   }
 
   export type PackMapTerrainChunkUVDataV10 = {
-    translation: Array<number>,
-    xScaleRange: Array<number>,
-    yScaleRange: Array<number>,
-    scaleSpeed: Array<number>,
+    translation: Float32Array,
+    xScaleRange: Float32Array,
+    yScaleRange: Float32Array,
+    scaleSpeed: Float32Array,
     rotation: number
   }
 
@@ -61,22 +62,22 @@ export type V10 = V10_N.PackMapTerrainV10;
 
 export namespace V11_N {
   export type PackMapTerrainV11 = {
-    dims: Array<number>,
+    dims: Uint32Array,
     swapDistance: number,
-    heightMapArray: Array<number>,
-    tileFlagArray: Array<number>,
+    heightMapArray: Float32Array,
+    tileFlagArray: Uint32Array,
     chunkArray: Array<PackMapTerrainChunkV11>,
     materials: PackMapTerrainMaterialsV11,
-    typeArray: Array<BigInt>
+    typeArray: BigUint64Array
   }
 
   export type PackMapTerrainChunkV11 = {
     chunkFlags: number,
-    tileTableArray: Array<number>
+    tileTableArray: Uint8Array
   }
 
   export type PackMapTerrainMaterialsV11 = {
-    pagedImage: string,
+    pagedImage: number,
     constArray: Array<PackMapTerrainConstV11>,
     texFileArray: Array<PackMapTerrainTexV11>,
     materials: Array<PackMapTerrrainChunkMaterialV11>
@@ -84,35 +85,36 @@ export namespace V11_N {
 
   export type PackMapTerrainConstV11 = {
     tokenName: number,
-    value: Array<number>
+    value: Float32Array
   }
 
   export type PackMapTerrainTexV11 = {
     tokenName: number,
-    flags: Array<number>,
-    filename: string,
+    flags: number,
+    filename: number,
+    flags_: Uint32Array,
     layer: number
   }
 
   export type PackMapTerrrainChunkMaterialV11 = {
-    tiling: Array<number>,
+    tiling: Uint8Array,
     hiResMaterial: PackMapTerrainMaterialV11,
     loResMaterial: PackMapTerrainMaterialV11,
     uvData: PackMapTerrainChunkUVDataV11
   }
 
   export type PackMapTerrainMaterialV11 = {
-    materialFile: string,
+    materialFile: number,
     fvf: number,
-    constIndexArray: Array<number>,
-    texIndexArray: Array<number>
+    constIndexArray: Uint32Array,
+    texIndexArray: Uint32Array
   }
 
   export type PackMapTerrainChunkUVDataV11 = {
-    translation: Array<number>,
-    xScaleRange: Array<number>,
-    yScaleRange: Array<number>,
-    scaleSpeed: Array<number>,
+    translation: Float32Array,
+    xScaleRange: Float32Array,
+    yScaleRange: Float32Array,
+    scaleSpeed: Float32Array,
     rotation: number
   }
 
@@ -122,22 +124,22 @@ export type V11 = V11_N.PackMapTerrainV11;
 
 export namespace V12_N {
   export type PackMapTerrainV12 = {
-    dims: Array<number>,
+    dims: Uint32Array,
     swapDistance: number,
-    heightMapArray: Array<number>,
-    tileFlagArray: Array<number>,
+    heightMapArray: Float32Array,
+    tileFlagArray: Uint32Array,
     chunkArray: Array<PackMapTerrainChunkV12>,
     materials: PackMapTerrainMaterialsV12,
-    typeArray: Array<BigInt>
+    typeArray: BigUint64Array
   }
 
   export type PackMapTerrainChunkV12 = {
     chunkFlags: number,
-    tileTableArray: Array<number>
+    tileTableArray: Uint8Array
   }
 
   export type PackMapTerrainMaterialsV12 = {
-    pagedImage: string,
+    pagedImage: number,
     constArray: Array<PackMapTerrainConstV12>,
     texFileArray: Array<PackMapTerrainTexV12>,
     materials: Array<PackMapTerrrainChunkMaterialV12>
@@ -145,35 +147,36 @@ export namespace V12_N {
 
   export type PackMapTerrainConstV12 = {
     tokenName: number,
-    value: Array<number>
+    value: Float32Array
   }
 
   export type PackMapTerrainTexV12 = {
     tokenName: number,
-    flags: Array<number>,
-    filename: string,
+    flags: number,
+    filename: number,
+    flags_: Uint32Array,
     layer: number
   }
 
   export type PackMapTerrrainChunkMaterialV12 = {
-    tiling: Array<number>,
+    tiling: Uint8Array,
     hiResMaterial: PackMapTerrainMaterialV12,
     loResMaterial: PackMapTerrainMaterialV12,
     uvData: PackMapTerrainChunkUVDataV12
   }
 
   export type PackMapTerrainMaterialV12 = {
-    materialFile: string,
+    materialFile: number,
     fvf: number,
-    constIndexArray: Array<number>,
-    texIndexArray: Array<number>
+    constIndexArray: Uint32Array,
+    texIndexArray: Uint32Array
   }
 
   export type PackMapTerrainChunkUVDataV12 = {
-    translation: Array<number>,
-    xScaleRange: Array<number>,
-    yScaleRange: Array<number>,
-    scaleSpeed: Array<number>,
+    translation: Float32Array,
+    xScaleRange: Float32Array,
+    yScaleRange: Float32Array,
+    scaleSpeed: Float32Array,
     rotation: number
   }
 
@@ -183,43 +186,44 @@ export type V12 = V12_N.PackMapTerrainV12;
 
 export namespace V13_N {
   export type PackMapTerrainV13 = {
-    dims: Array<number>,
+    dims: Uint32Array,
     swapDistance: number,
-    heightMapArray: Array<number>,
-    tileFlagArray: Array<number>,
+    heightMapArray: Float32Array,
+    tileFlagArray: Uint32Array,
     chunkArray: Array<PackMapTerrainChunkV13>,
     materials: PackMapTerrainMaterialsV13,
-    typeArray: Array<BigInt>
+    typeArray: BigUint64Array
   }
 
   export type PackMapTerrainChunkV13 = {
     chunkFlags: number,
-    tileTableArray: Array<number>
+    tileTableArray: Uint8Array
   }
 
   export type PackMapTerrainMaterialsV13 = {
-    pagedImage: string,
+    pagedImage: number,
     constArray: Array<PackMapTerrainConstV13>,
     texFileArray: Array<PackMapTerrainTexV13>,
     materials: Array<PackMapTerrrainChunkMaterialV13>,
-    midFade: Array<number>,
-    farFade: Array<number>
+    midFade: Float32Array,
+    farFade: Float32Array
   }
 
   export type PackMapTerrainConstV13 = {
     tokenName: number,
-    value: Array<number>
+    value: Float32Array
   }
 
   export type PackMapTerrainTexV13 = {
     tokenName: number,
-    flags: Array<number>,
-    filename: string,
+    flags: number,
+    filename: number,
+    flags_: Uint32Array,
     layer: number
   }
 
   export type PackMapTerrrainChunkMaterialV13 = {
-    tiling: Array<number>,
+    tiling: Uint8Array,
     hiResMaterial: PackMapTerrainMaterialV13,
     loResMaterial: PackMapTerrainMaterialV13,
     faderMaterial: PackMapTerrainMaterialV13,
@@ -227,17 +231,17 @@ export namespace V13_N {
   }
 
   export type PackMapTerrainMaterialV13 = {
-    materialFile: string,
+    materialFile: number,
     fvf: number,
-    constIndexArray: Array<number>,
-    texIndexArray: Array<number>
+    constIndexArray: Uint32Array,
+    texIndexArray: Uint32Array
   }
 
   export type PackMapTerrainChunkUVDataV13 = {
-    translation: Array<number>,
-    xScaleRange: Array<number>,
-    yScaleRange: Array<number>,
-    scaleSpeed: Array<number>,
+    translation: Float32Array,
+    xScaleRange: Float32Array,
+    yScaleRange: Float32Array,
+    scaleSpeed: Float32Array,
     rotation: number
   }
 
@@ -247,43 +251,44 @@ export type V13 = V13_N.PackMapTerrainV13;
 
 export namespace V14_N {
   export type PackMapTerrainV14 = {
-    dims: Array<number>,
+    dims: Uint32Array,
     swapDistance: number,
-    heightMapArray: Array<number>,
-    tileFlagArray: Array<number>,
+    heightMapArray: Float32Array,
+    tileFlagArray: Uint32Array,
     chunkArray: Array<PackMapTerrainChunkV14>,
     materials: PackMapTerrainMaterialsV14
   }
 
   export type PackMapTerrainChunkV14 = {
     chunkFlags: number,
-    surfaceIndexArray: Array<number>,
-    surfaceTokenArray: Array<BigInt>
+    surfaceIndexArray: Uint16Array,
+    surfaceTokenArray: BigUint64Array
   }
 
   export type PackMapTerrainMaterialsV14 = {
-    pagedImage: string,
+    pagedImage: number,
     constArray: Array<PackMapTerrainConstV14>,
     texFileArray: Array<PackMapTerrainTexV14>,
     materials: Array<PackMapTerrrainChunkMaterialV14>,
-    midFade: Array<number>,
-    farFade: Array<number>
+    midFade: Float32Array,
+    farFade: Float32Array
   }
 
   export type PackMapTerrainConstV14 = {
     tokenName: number,
-    value: Array<number>
+    value: Float32Array
   }
 
   export type PackMapTerrainTexV14 = {
     tokenName: number,
-    flags: Array<number>,
-    filename: string,
+    flags: number,
+    filename: number,
+    flags_: Uint32Array,
     layer: number
   }
 
   export type PackMapTerrrainChunkMaterialV14 = {
-    tiling: Array<number>,
+    tiling: Uint8Array,
     hiResMaterial: PackMapTerrainMaterialV14,
     loResMaterial: PackMapTerrainMaterialV14,
     faderMaterial: PackMapTerrainMaterialV14,
@@ -291,17 +296,17 @@ export namespace V14_N {
   }
 
   export type PackMapTerrainMaterialV14 = {
-    materialFile: string,
+    materialFile: number,
     fvf: number,
-    constIndexArray: Array<number>,
-    texIndexArray: Array<number>
+    constIndexArray: Uint32Array,
+    texIndexArray: Uint32Array
   }
 
   export type PackMapTerrainChunkUVDataV14 = {
-    translation: Array<number>,
-    xScaleRange: Array<number>,
-    yScaleRange: Array<number>,
-    scaleSpeed: Array<number>,
+    translation: Float32Array,
+    xScaleRange: Float32Array,
+    yScaleRange: Float32Array,
+    scaleSpeed: Float32Array,
     rotation: number
   }
 

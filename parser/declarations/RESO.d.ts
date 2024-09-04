@@ -4,13 +4,13 @@ export namespace V0_N {
   }
 
   export type PackMapResourceMapNodeV0 = {
-    position: Array<number>,
+    position: Float32Array,
     flags: number,
     itemArray: Array<PackMapResourceMapNodeItemV0>
   }
 
   export type PackMapResourceMapNodeItemV0 = {
-    filename: string,
+    filename: number,
     type: number
   }
 
@@ -24,13 +24,13 @@ export namespace V1_N {
   }
 
   export type PackMapResourceMapNodeV1 = {
-    position: Array<number>,
+    position: Float32Array,
     flags: number,
     itemArray: Array<PackMapResourceMapNodeItemV1>
   }
 
   export type PackMapResourceMapNodeItemV1 = {
-    filename: string,
+    filename: number,
     type: number,
     permutation: BigInt
   }

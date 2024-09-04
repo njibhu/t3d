@@ -29,8 +29,8 @@ export namespace V1_N {
 
   export type ModelToolMotionV1 = {
     sequence: BigInt,
-    keys: Array<number>,
-    values: Array<Array<number>>
+    keys: Float32Array,
+    values: Array<Float32Array>
   }
 
 }
@@ -53,13 +53,13 @@ export namespace V2_N {
 
   export type ModelToolMotionV2 = {
     sequence: BigInt,
-    keys: Array<number>,
-    values: Array<Array<number>>
+    keys: Float32Array,
+    values: Array<Float32Array>
   }
 
   export type ModelToolBlitTextureV2 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
 }
@@ -83,13 +83,13 @@ export namespace V3_N {
 
   export type ModelToolMotionV3 = {
     sequence: BigInt,
-    keys: Array<number>,
-    values: Array<Array<number>>
+    keys: Float32Array,
+    values: Array<Float32Array>
   }
 
   export type ModelToolBlitTextureV3 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
 }
@@ -114,13 +114,13 @@ export namespace V4_N {
 
   export type ModelToolMotionV4 = {
     sequence: BigInt,
-    keys: Array<number>,
-    values: Array<Array<number>>
+    keys: Float32Array,
+    values: Array<Float32Array>
   }
 
   export type ModelToolBlitTextureV4 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV4 = {
@@ -150,13 +150,13 @@ export namespace V5_N {
 
   export type ModelToolMotionV5 = {
     sequence: BigInt,
-    keys: Array<number>,
-    values: Array<Array<number>>
+    keys: Float32Array,
+    values: Array<Float32Array>
   }
 
   export type ModelToolBlitTextureV5 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV5 = {
@@ -185,7 +185,7 @@ export namespace V6_N {
 
   export type ModelToolBlitTextureV6 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV6 = {
@@ -215,7 +215,7 @@ export namespace V7_N {
 
   export type ModelToolBlitTextureV7 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV7 = {
@@ -242,7 +242,7 @@ export namespace V8_N {
     blitTextures: Array<ModelToolBlitTextureV8>,
     streakData: ModelToolStreakV8,
     lightningData: ModelToolLightningV8,
-    permutationTokens: Array<BigInt>
+    permutationTokens: BigUint64Array
   }
 
   export type ModelToolCloudV8 = {
@@ -252,7 +252,7 @@ export namespace V8_N {
 
   export type ModelToolBlitTextureV8 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV8 = {
@@ -279,7 +279,7 @@ export namespace V9_N {
     blitTextures: Array<ModelToolBlitTextureV9>,
     streakData: ModelToolStreakV9,
     lightningData: ModelToolLightningV9,
-    permutationTokens: Array<BigInt>,
+    permutationTokens: BigUint64Array,
     properties: Array<ModelToolPropertyDataV9>
   }
 
@@ -290,7 +290,7 @@ export namespace V9_N {
 
   export type ModelToolBlitTextureV9 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV9 = {
@@ -310,7 +310,7 @@ export namespace V9_N {
     mergeIndex: number,
     time: number,
     val: BigInt,
-    strVal: string
+    strVal: number
   }
 
 }
@@ -326,7 +326,7 @@ export namespace V10_N {
     blitTextures: Array<ModelToolBlitTextureV10>,
     streakData: ModelToolStreakV10,
     lightningData: ModelToolLightningV10,
-    permutationTokens: Array<BigInt>
+    permutationTokens: BigUint64Array
   }
 
   export type ModelToolCloudV10 = {
@@ -336,7 +336,7 @@ export namespace V10_N {
 
   export type ModelToolBlitTextureV10 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV10 = {
@@ -363,7 +363,7 @@ export namespace V11_N {
     blitTextures: Array<ModelToolBlitTextureV11>,
     streakData: ModelToolStreakV11,
     lightningData: ModelToolLightningV11,
-    permutationTokens: Array<BigInt>
+    permutationTokens: BigUint64Array
   }
 
   export type ModelToolCloudV11 = {
@@ -373,7 +373,7 @@ export namespace V11_N {
 
   export type ModelToolBlitTextureV11 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV11 = {
@@ -400,7 +400,7 @@ export namespace V12_N {
     blitTextures: Array<ModelToolBlitTextureV12>,
     streakData: ModelToolStreakV12,
     lightningData: ModelToolLightningV12,
-    permutationTokens: Array<BigInt>,
+    permutationTokens: BigUint64Array,
     highLodAnimations: Array<ModelToolAnimationV12>
   }
 
@@ -411,7 +411,7 @@ export namespace V12_N {
 
   export type ModelToolBlitTextureV12 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV12 = {
@@ -432,7 +432,7 @@ export namespace V12_N {
   }
 
   export type PackGrannyAnimationTypeV0 = {
-    animation: Array<number>
+    animation: Uint8Array
   }
 
 }
@@ -448,7 +448,7 @@ export namespace V13_N {
     blitTextures: Array<ModelToolBlitTextureV13>,
     streakData: ModelToolStreakV13,
     lightningData: ModelToolLightningV13,
-    permutationTokens: Array<BigInt>,
+    permutationTokens: BigUint64Array,
     highLodAnimations: Array<ModelToolAnimationV13>
   }
 
@@ -459,7 +459,7 @@ export namespace V13_N {
 
   export type ModelToolBlitTextureV13 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV13 = {
@@ -480,7 +480,7 @@ export namespace V13_N {
   }
 
   export type PackGrannyAnimationTypeV0 = {
-    animation: Array<number>
+    animation: Uint8Array
   }
 
 }
@@ -496,7 +496,7 @@ export namespace V14_N {
     blitTextures: Array<ModelToolBlitTextureV14>,
     streakData: ModelToolStreakV14,
     lightningData: ModelToolLightningV14,
-    permutationTokens: Array<BigInt>,
+    permutationTokens: BigUint64Array,
     highLodAnimations: Array<ModelToolAnimationV14>,
     compressionInfos: Array<ModelSequenceCompressionInfoV14>
   }
@@ -508,7 +508,7 @@ export namespace V14_N {
 
   export type ModelToolBlitTextureV14 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV14 = {
@@ -529,7 +529,7 @@ export namespace V14_N {
   }
 
   export type PackGrannyAnimationTypeV0 = {
-    animation: Array<number>
+    animation: Uint8Array
   }
 
   export type ModelSequenceCompressionInfoV14 = {
@@ -551,7 +551,7 @@ export namespace V15_N {
     blitTextures: Array<ModelToolBlitTextureV15>,
     streakData: ModelToolStreakV15,
     lightningData: ModelToolLightningV15,
-    permutationTokens: Array<BigInt>,
+    permutationTokens: BigUint64Array,
     highLodAnimations: Array<ModelToolAnimationV15>,
     compressionInfos: Array<ModelSequenceCompressionInfoV15>,
     region: string
@@ -564,7 +564,7 @@ export namespace V15_N {
 
   export type ModelToolBlitTextureV15 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV15 = {
@@ -585,7 +585,7 @@ export namespace V15_N {
   }
 
   export type PackGrannyAnimationTypeV0 = {
-    animation: Array<number>
+    animation: Uint8Array
   }
 
   export type ModelSequenceCompressionInfoV15 = {
@@ -607,7 +607,7 @@ export namespace V16_N {
     blitTextures: Array<ModelToolBlitTextureV16>,
     streakData: ModelToolStreakV16,
     lightningData: ModelToolLightningV16,
-    permutationTokens: Array<BigInt>,
+    permutationTokens: BigUint64Array,
     highLodAnimations: Array<ModelToolAnimationV16>,
     compressionInfos: Array<ModelSequenceCompressionInfoV16>,
     region: string
@@ -620,7 +620,7 @@ export namespace V16_N {
 
   export type ModelToolBlitTextureV16 = {
     blitId: BigInt,
-    filename: string
+    filename: number
   }
 
   export type ModelToolStreakV16 = {
@@ -641,8 +641,8 @@ export namespace V16_N {
   }
 
   export type PackGrannyAnimationTypeV1 = {
-    animation: Array<number>,
-    pointers: Array<number>
+    animation: Uint8Array,
+    pointers: Uint32Array
   }
 
   export type ModelSequenceCompressionInfoV16 = {

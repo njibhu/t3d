@@ -1,7 +1,7 @@
 export namespace V1_N {
   export type PackMapShadowExtV1 = {
-    filename: string,
-    shadowDims: Array<number>
+    filename: number,
+    shadowDims: Uint32Array
   }
 
 }

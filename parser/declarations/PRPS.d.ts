@@ -7,7 +7,7 @@ export namespace V0_N {
   export type ModelFixedOffsetData = {
     name: BigInt,
     parentBone: BigInt,
-    translation: Array<number>
+    translation: Float32Array
   }
 
   export type ModelPropertyData = {
@@ -16,7 +16,7 @@ export namespace V0_N {
     mergeIndex: number,
     time: number,
     val: BigInt,
-    strVal: string
+    strVal: number
   }
 
 }

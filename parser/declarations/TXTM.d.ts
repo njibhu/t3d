@@ -5,7 +5,7 @@ export namespace V0_N {
   }
 
   export type TextPackLanguage = {
-    filenames: Array<string>
+    filenames: Array<number>
   }
 
 }

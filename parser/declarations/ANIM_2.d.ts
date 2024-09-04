@@ -16,8 +16,8 @@ export namespace V0_N {
 
   export type SceneKeyframeV0 = {
     time: number,
-    position: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneActionPointV0 = {
@@ -26,8 +26,8 @@ export namespace V0_N {
   }
 
   export type SceneAnimationImportV0 = {
-    filename: string,
-    animNames: Array<BigInt>
+    filename: number,
+    animNames: BigUint64Array
   }
 
 }
@@ -53,8 +53,8 @@ export namespace V1_N {
 
   export type SceneKeyframeV1 = {
     time: number,
-    position: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneActionPointV1 = {
@@ -68,8 +68,8 @@ export namespace V1_N {
   }
 
   export type SceneAnimationImportV1 = {
-    filename: string,
-    animNames: Array<BigInt>
+    filename: number,
+    animNames: BigUint64Array
   }
 
 }
@@ -96,8 +96,8 @@ export namespace V2_N {
 
   export type SceneKeyframeV2 = {
     time: number,
-    position: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneActionPointV2 = {
@@ -117,12 +117,12 @@ export namespace V2_N {
 
   export type SceneTransformV2 = {
     name: BigInt,
-    translation: Array<number>,
-    rotation: Array<number>
+    translation: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneAnimationImportV2 = {
-    filename: string,
+    filename: number,
     animNames: Array<SceneImportSequenceV2>,
     flags: number
   }

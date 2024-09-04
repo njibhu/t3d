@@ -5,17 +5,21 @@ export function transformSnapshot(input: any): any {
   }
   // if Object
   if (typeof input === "object") {
-    const isArray = !Object.keys(input).some((v) => isNaN(Number(v)));
-    if (isArray) {
-      return new Array(Object.keys(input).length).fill(undefined).map((_v, index) => {
-        return input[String(index)];
-      });
-    } else {
-      const build = {};
-      for (const [key, value] of Object.entries(input)) {
-        build[key] = transformSnapshot(value);
-      }
-      return build;
+    const build: any = {};
+    for (const [key, value] of Object.entries(input)) {
+      build[key] = transformSnapshot(value);
+    }
+    return build;
+  }
+
+  // 64bits ids
+  if (typeof input === "string") {
+    const split = input.split("-");
+    if (split.length === 2) {
+      const low = BigInt(split[0]);
+      const high = BigInt(split[1]);
+      const bigint = (high << BigInt(32)) | low;
+      return Number(bigint);
     }
   }
 
@@ -24,10 +28,5 @@ export function transformSnapshot(input: any): any {
 }
 
 export function toArrayBuffer(buf: Buffer): ArrayBuffer {
-  var ab = new ArrayBuffer(buf.length);
-  var view = new Uint8Array(ab);
-  for (var i = 0; i < buf.length; ++i) {
-    view[i] = buf[i];
-  }
-  return ab;
+  return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
 }

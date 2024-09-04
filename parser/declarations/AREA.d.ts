@@ -5,16 +5,16 @@ export namespace V0_N {
   }
 
   export type PackMapAreaV0 = {
-    min: Array<number>,
-    max: Array<number>,
-    internal: Array<number>,
-    external: Array<number>,
+    min: Float32Array,
+    max: Float32Array,
+    internal: Float32Array,
+    external: Float32Array,
     token: number,
     flags: number
   }
 
   export type PackMapPortalV0 = {
-    portalVerts: Array<Array<number>>
+    portalVerts: Array<Float32Array>
   }
 
 }
@@ -35,22 +35,22 @@ export namespace V1_N {
   }
 
   export type PackMapAreaPolygonV1 = {
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     height: number
   }
 
   export type PackMapAreaVolumeV1 = {
     portals: Array<PackMapAreaPortalV1>,
-    position: Array<number>,
-    extents: Array<number>,
-    pointInterior: Array<number>,
-    pointExterior: Array<number>
+    position: Float32Array,
+    extents: Float32Array,
+    pointInterior: Float32Array,
+    pointExterior: Float32Array
   }
 
   export type PackMapAreaPortalV1 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array
   }
 
 }
@@ -73,22 +73,22 @@ export namespace V2_N {
   }
 
   export type PackMapAreaPolygonV2 = {
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     height: number
   }
 
   export type PackMapAreaVolumeV2 = {
     portals: Array<PackMapAreaPortalV2>,
-    position: Array<number>,
-    extents: Array<number>,
-    pointInterior: Array<number>,
-    pointExterior: Array<number>
+    position: Float32Array,
+    extents: Float32Array,
+    pointInterior: Float32Array,
+    pointExterior: Float32Array
   }
 
   export type PackMapAreaPortalV2 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array
   }
 
   export type PackMapAreaToolV2 = {
@@ -115,22 +115,22 @@ export namespace V3_N {
   }
 
   export type PackMapAreaPolygonV3 = {
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     height: number
   }
 
   export type PackMapAreaVolumeV3 = {
     portals: Array<PackMapAreaPortalV3>,
-    position: Array<number>,
-    extents: Array<number>,
-    pointInterior: Array<number>,
-    pointExterior: Array<number>
+    position: Float32Array,
+    extents: Float32Array,
+    pointInterior: Float32Array,
+    pointExterior: Float32Array
   }
 
   export type PackMapAreaPortalV3 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array
   }
 
   export type PackMapAreaToolV3 = {
@@ -158,22 +158,22 @@ export namespace V4_N {
   }
 
   export type PackMapAreaPolygonV4 = {
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     height: number
   }
 
   export type PackMapAreaVolumeV4 = {
     portals: Array<PackMapAreaPortalV4>,
-    position: Array<number>,
-    extents: Array<number>,
-    pointInterior: Array<number>,
-    pointExterior: Array<number>
+    position: Float32Array,
+    extents: Float32Array,
+    pointInterior: Float32Array,
+    pointExterior: Float32Array
   }
 
   export type PackMapAreaPortalV4 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array
   }
 
   export type PackMapAreaToolV4 = {

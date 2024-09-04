@@ -1,6 +1,6 @@
 export namespace V0_N {
   export type SceneFilePhysicsV0 = {
-    shapeData: Array<number>,
+    shapeData: Uint8Array,
     shapes: Array<SceneShapeV0>,
     collisionShapes: Array<SceneCollisionShapeV0>,
     namedShapes: Array<SceneNamedShapeV0>
@@ -24,7 +24,7 @@ export type V0 = V0_N.SceneFilePhysicsV0;
 
 export namespace V1_N {
   export type SceneFilePhysicsV1 = {
-    shapeData: Array<number>,
+    shapeData: Uint8Array,
     shapes: Array<SceneShapeV1>,
     collisionShapes: Array<SceneCollisionShapeV1>,
     namedShapes: Array<SceneNamedShapeV1>,
@@ -44,7 +44,7 @@ export namespace V1_N {
   }
 
   export type ScenePathPhysicsV1 = {
-    pathData: Array<Array<number>>
+    pathData: Array<Float32Array>
   }
 
 }
@@ -53,7 +53,7 @@ export type V1 = V1_N.SceneFilePhysicsV1;
 
 export namespace V2_N {
   export type SceneFilePhysicsV2 = {
-    shapeData: Array<number>,
+    shapeData: Uint8Array,
     shapes: Array<SceneShapeV2>,
     collisionShapes: Array<SceneCollisionShapeV2>,
     queryShapes: Array<SceneQueryShapeV2>,
@@ -78,7 +78,7 @@ export namespace V2_N {
   }
 
   export type ScenePathPhysicsV2 = {
-    pathData: Array<Array<number>>
+    pathData: Array<Float32Array>
   }
 
 }
@@ -87,7 +87,7 @@ export type V2 = V2_N.SceneFilePhysicsV2;
 
 export namespace V3_N {
   export type SceneFilePhysicsV3 = {
-    shapeData: Array<number>,
+    shapeData: Uint8Array,
     shapes: Array<SceneShapeV3>,
     surfaces: Array<SceneShapeSurfaceV3>,
     collisionShapes: Array<SceneCollisionShapeV3>,
@@ -97,11 +97,11 @@ export namespace V3_N {
   }
 
   export type SceneShapeV3 = {
-    surfaces: Array<number>
+    surfaces: Uint8Array
   }
 
   export type SceneShapeSurfaceV3 = {
-    tokens: Array<BigInt>
+    tokens: BigUint64Array
   }
 
   export type SceneCollisionShapeV3 = {
@@ -118,7 +118,7 @@ export namespace V3_N {
   }
 
   export type ScenePathPhysicsV3 = {
-    pathData: Array<Array<number>>
+    pathData: Array<Float32Array>
   }
 
 }
@@ -127,7 +127,7 @@ export type V3 = V3_N.SceneFilePhysicsV3;
 
 export namespace V4_N {
   export type SceneFilePhysicsV4 = {
-    shapeData: Array<number>,
+    shapeData: Uint8Array,
     shapes: Array<SceneShapeV4>,
     surfaces: Array<SceneShapeSurfaceV4>,
     collisionShapes: Array<SceneCollisionShapeV4>,
@@ -136,11 +136,11 @@ export namespace V4_N {
   }
 
   export type SceneShapeV4 = {
-    surfaces: Array<number>
+    surfaces: Uint8Array
   }
 
   export type SceneShapeSurfaceV4 = {
-    tokens: Array<BigInt>
+    tokens: BigUint64Array
   }
 
   export type SceneCollisionShapeV4 = {
@@ -172,28 +172,28 @@ export namespace V5_N {
   }
 
   export type SceneShapeSurfaceV5 = {
-    tokens: Array<BigInt>
+    tokens: BigUint64Array
   }
 
   export type SceneBoxShapeV5 = {
     surface: number,
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneSphereShapeV5 = {
     surface: number,
-    center: Array<number>,
+    center: Float32Array,
     radius: number
   }
 
   export type SceneMeshShapeV5 = {
-    surfaces: Array<number>,
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    surfaces: Uint8Array,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneCollisionShapeV5 = {
@@ -226,35 +226,35 @@ export namespace V6_N {
   }
 
   export type SceneShapeSurfaceV6 = {
-    tokens: Array<BigInt>
+    tokens: BigUint64Array
   }
 
   export type SceneBoxShapeV6 = {
     surface: number,
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneSphereShapeV6 = {
     surface: number,
-    center: Array<number>,
+    center: Float32Array,
     radius: number
   }
 
   export type SceneCapsuleShapeV6 = {
     surface: number,
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number
   }
 
   export type SceneMeshShapeV6 = {
-    surfaces: Array<number>,
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    surfaces: Uint8Array,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneCollisionShapeV6 = {
@@ -283,27 +283,27 @@ export namespace V7_N {
   }
 
   export type SceneBoxShapeV7 = {
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneSphereShapeV7 = {
-    center: Array<number>,
+    center: Float32Array,
     radius: number
   }
 
   export type SceneCapsuleShapeV7 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number
   }
 
   export type SceneMeshShapeV7 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
 }
@@ -320,32 +320,32 @@ export namespace V8_N {
   }
 
   export type SceneBoxShapeV8 = {
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneSphereShapeV8 = {
-    center: Array<number>,
+    center: Float32Array,
     radius: number
   }
 
   export type SceneCapsuleShapeV8 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number
   }
 
   export type SceneMeshShapeV8 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaces: Array<number>
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaces: Uint8Array
   }
 
   export type SceneSurfaceV8 = {
-    tokens: Array<BigInt>
+    tokens: BigUint64Array
   }
 
 }

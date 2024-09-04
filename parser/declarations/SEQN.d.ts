@@ -37,9 +37,9 @@ export namespace V0_N {
 
   export type PackAnimSequenceStepMoveV0 = {
     duration: number,
-    moveRotation: Array<number>,
-    facingRotation: Array<number>,
-    velocity: Array<number>
+    moveRotation: Float32Array,
+    facingRotation: Float32Array,
+    velocity: Float32Array
   }
 
   export type PackAnimSequenceTriggerV0 = {

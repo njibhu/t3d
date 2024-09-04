@@ -6,19 +6,19 @@ export namespace V0_N {
 
   export type PackCompositeBlitRectSetV0 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint32Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV0 = {
     name: string,
     nameToken: BigInt,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV0>,
-    hairStyles: Array<BigInt>,
-    skeletonFile: string,
+    hairStyles: BigUint64Array,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV0>,
     type: number,
     variantRefRace: BigInt,
@@ -28,25 +28,25 @@ export namespace V0_N {
   export type PackCompositeFileDataV0 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskClothSkin: string,
-    maskLeather: string,
-    maskMetal: string,
-    maskGlow: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskClothSkin: number,
+    maskLeather: number,
+    maskMetal: number,
+    maskGlow: number,
+    textureBase: number,
+    textureNormal: number,
     hideFlags: number,
     skinFlags: number,
     blitRectIndex: number
   }
 
   export type PackCompositeSkinPatternV0 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number
   }
 
   export type PackCompositeVariantV0 = {
@@ -84,20 +84,20 @@ export namespace V1_N {
 
   export type PackCompositeBlitRectSetV1 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint32Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV1 = {
     name: string,
     nameToken: BigInt,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV1>,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV1>,
     skinColorPalette: string,
     type: number,
@@ -108,15 +108,15 @@ export namespace V1_N {
   export type PackCompositeFileDataV1 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -124,11 +124,11 @@ export namespace V1_N {
   }
 
   export type PackCompositeSkinPatternV1 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number
   }
 
   export type PackCompositeVariantV1 = {
@@ -166,20 +166,20 @@ export namespace V2_N {
 
   export type PackCompositeBlitRectSetV2 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint32Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV2 = {
     name: string,
     nameToken: BigInt,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV2>,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV2>,
     skinColorPalette: string,
     type: number,
@@ -190,26 +190,26 @@ export namespace V2_N {
   export type PackCompositeFileDataV2 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     hideFlags: number,
     skinFlags: number,
     blitRectIndex: number
   }
 
   export type PackCompositeSkinPatternV2 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number
   }
 
   export type PackCompositeVariantV2 = {
@@ -247,21 +247,21 @@ export namespace V3_N {
 
   export type PackCompositeBlitRectSetV3 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint32Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV3 = {
     name: string,
     nameToken: BigInt,
-    beard: Array<BigInt>,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    beard: BigUint64Array,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV3>,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV3>,
     skinColorPalette: string,
     type: number,
@@ -272,26 +272,26 @@ export namespace V3_N {
   export type PackCompositeFileDataV3 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     hideFlags: number,
     skinFlags: number,
     blitRectIndex: number
   }
 
   export type PackCompositeSkinPatternV3 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number
   }
 
   export type PackCompositeVariantV3 = {
@@ -323,28 +323,28 @@ export type V3 = V3_N.PackCompositeV3;
 
 export namespace V4_N {
   export type PackCompositeV4 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV4>,
     raceSexData: Array<PackCompositeRaceDataV4>
   }
 
   export type PackCompositeBlitRectSetV4 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV4 = {
     name: string,
     nameToken: BigInt,
-    beard: Array<BigInt>,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    beard: BigUint64Array,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV4>,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV4>,
     skinColorPalette: string,
     type: number,
@@ -355,15 +355,15 @@ export namespace V4_N {
   export type PackCompositeFileDataV4 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -371,11 +371,11 @@ export namespace V4_N {
   }
 
   export type PackCompositeSkinPatternV4 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number
   }
 
   export type PackCompositeVariantV4 = {
@@ -407,28 +407,28 @@ export type V4 = V4_N.PackCompositeV4;
 
 export namespace V5_N {
   export type PackCompositeV5 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV5>,
     raceSexData: Array<PackCompositeRaceDataV5>
   }
 
   export type PackCompositeBlitRectSetV5 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV5 = {
     name: string,
     nameToken: BigInt,
-    beard: Array<BigInt>,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    beard: BigUint64Array,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV5>,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV5>,
     skinColorPalette: string,
     type: number,
@@ -439,15 +439,15 @@ export namespace V5_N {
   export type PackCompositeFileDataV5 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -455,11 +455,11 @@ export namespace V5_N {
   }
 
   export type PackCompositeSkinPatternV5 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number
   }
 
   export type PackCompositeVariantV5 = {
@@ -494,28 +494,28 @@ export type V5 = V5_N.PackCompositeV5;
 
 export namespace V6_N {
   export type PackCompositeV6 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV6>,
     raceSexData: Array<PackCompositeRaceDataV6>
   }
 
   export type PackCompositeBlitRectSetV6 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV6 = {
     name: string,
     nameToken: BigInt,
-    beard: Array<BigInt>,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    beard: BigUint64Array,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV6>,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV6>,
     skinColorPalette: string,
     type: number,
@@ -526,15 +526,15 @@ export namespace V6_N {
   export type PackCompositeFileDataV6 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -542,12 +542,12 @@ export namespace V6_N {
   }
 
   export type PackCompositeSkinPatternV6 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV6 = {
@@ -582,28 +582,28 @@ export type V6 = V6_N.PackCompositeV6;
 
 export namespace V7_N {
   export type PackCompositeV7 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV7>,
     raceSexData: Array<PackCompositeRaceDataV7>
   }
 
   export type PackCompositeBlitRectSetV7 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV7 = {
     name: string,
     nameToken: BigInt,
-    beard: Array<BigInt>,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    beard: BigUint64Array,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV7>,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV7>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -615,15 +615,15 @@ export namespace V7_N {
   export type PackCompositeFileDataV7 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -631,12 +631,12 @@ export namespace V7_N {
   }
 
   export type PackCompositeSkinPatternV7 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV7 = {
@@ -671,29 +671,29 @@ export type V7 = V7_N.PackCompositeV7;
 
 export namespace V8_N {
   export type PackCompositeV8 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV8>,
     raceSexData: Array<PackCompositeRaceDataV8>
   }
 
   export type PackCompositeBlitRectSetV8 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV8 = {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    beard: BigUint64Array,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV8>,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV8>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -705,15 +705,15 @@ export namespace V8_N {
   export type PackCompositeFileDataV8 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -721,12 +721,12 @@ export namespace V8_N {
   }
 
   export type PackCompositeSkinPatternV8 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV8 = {
@@ -761,7 +761,7 @@ export type V8 = V8_N.PackCompositeV8;
 
 export namespace V9_N {
   export type PackCompositeV9 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV9>,
     raceSexData: Array<PackCompositeRaceDataV9>,
     configVersion: number
@@ -769,22 +769,22 @@ export namespace V9_N {
 
   export type PackCompositeBlitRectSetV9 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV9 = {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    beard: BigUint64Array,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV9>,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV9>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -796,15 +796,15 @@ export namespace V9_N {
   export type PackCompositeFileDataV9 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -812,12 +812,12 @@ export namespace V9_N {
   }
 
   export type PackCompositeSkinPatternV9 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV9 = {
@@ -852,7 +852,7 @@ export type V9 = V9_N.PackCompositeV9;
 
 export namespace V10_N {
   export type PackCompositeV10 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV10>,
     raceSexData: Array<PackCompositeRaceDataV10>,
     configVersion: number
@@ -860,23 +860,23 @@ export namespace V10_N {
 
   export type PackCompositeBlitRectSetV10 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeRaceDataV10 = {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    beard: BigUint64Array,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV10>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV10>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -888,15 +888,15 @@ export namespace V10_N {
   export type PackCompositeFileDataV10 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -904,12 +904,12 @@ export namespace V10_N {
   }
 
   export type PackCompositeSkinPatternV10 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV10 = {
@@ -944,7 +944,7 @@ export type V10 = V10_N.PackCompositeV10;
 
 export namespace V11_N {
   export type PackCompositeV11 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV11>,
     boneScales: Array<PackCompositeBoneScaleV11>,
     raceSexData: Array<PackCompositeRaceDataV11>,
@@ -953,9 +953,9 @@ export namespace V11_N {
 
   export type PackCompositeBlitRectSetV11 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeBoneScaleV11 = {
@@ -972,23 +972,23 @@ export namespace V11_N {
     flags: number,
     max: number,
     min: number,
-    rotate: Array<number>,
-    scale: Array<number>,
-    translate: Array<number>
+    rotate: Float32Array,
+    scale: Float32Array,
+    translate: Float32Array
   }
 
   export type PackCompositeRaceDataV11 = {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
-    ears: Array<BigInt>,
-    faces: Array<BigInt>,
+    beard: BigUint64Array,
+    ears: BigUint64Array,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV11>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV11>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -1000,15 +1000,15 @@ export namespace V11_N {
   export type PackCompositeFileDataV11 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -1016,12 +1016,12 @@ export namespace V11_N {
   }
 
   export type PackCompositeSkinPatternV11 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV11 = {
@@ -1057,7 +1057,7 @@ export type V11 = V11_N.PackCompositeV11;
 
 export namespace V12_N {
   export type PackCompositeV12 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV12>,
     boneScales: Array<PackCompositeBoneScaleV12>,
     raceSexData: Array<PackCompositeRaceDataV12>,
@@ -1066,9 +1066,9 @@ export namespace V12_N {
 
   export type PackCompositeBlitRectSetV12 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeBoneScaleV12 = {
@@ -1087,9 +1087,9 @@ export namespace V12_N {
     flags: number,
     max: number,
     min: number,
-    rotate: Array<number>,
-    scale: Array<number>,
-    translate: Array<number>
+    rotate: Float32Array,
+    scale: Float32Array,
+    translate: Float32Array
   }
 
   export type PackCompositeMorphWeightV12 = {
@@ -1101,17 +1101,17 @@ export namespace V12_N {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
+    beard: BigUint64Array,
     bodyBoneScales: Array<PackCompositeBoneScaleV12>,
     bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV12>,
-    ears: Array<BigInt>,
+    ears: BigUint64Array,
     faceBoneScales: Array<PackCompositeBoneScaleV12>,
-    faces: Array<BigInt>,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV12>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV12>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -1128,15 +1128,15 @@ export namespace V12_N {
   export type PackCompositeFileDataV12 = {
     name: BigInt,
     type: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -1144,12 +1144,12 @@ export namespace V12_N {
   }
 
   export type PackCompositeSkinPatternV12 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV12 = {
@@ -1185,7 +1185,7 @@ export type V12 = V12_N.PackCompositeV12;
 
 export namespace V13_N {
   export type PackCompositeV13 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV13>,
     boneScales: Array<PackCompositeBoneScaleV13>,
     raceSexData: Array<PackCompositeRaceDataV13>,
@@ -1194,9 +1194,9 @@ export namespace V13_N {
 
   export type PackCompositeBlitRectSetV13 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeBoneScaleV13 = {
@@ -1215,9 +1215,9 @@ export namespace V13_N {
     flags: number,
     max: number,
     min: number,
-    rotate: Array<number>,
-    scale: Array<number>,
-    translate: Array<number>
+    rotate: Float32Array,
+    scale: Float32Array,
+    translate: Float32Array
   }
 
   export type PackCompositeMorphWeightV13 = {
@@ -1229,17 +1229,17 @@ export namespace V13_N {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
+    beard: BigUint64Array,
     bodyBoneScales: Array<PackCompositeBoneScaleV13>,
     bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV13>,
-    ears: Array<BigInt>,
+    ears: BigUint64Array,
     faceBoneScales: Array<PackCompositeBoneScaleV13>,
-    faces: Array<BigInt>,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV13>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV13>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -1257,15 +1257,15 @@ export namespace V13_N {
     name: BigInt,
     type: number,
     flags: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -1273,12 +1273,12 @@ export namespace V13_N {
   }
 
   export type PackCompositeSkinPatternV13 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV13 = {
@@ -1314,7 +1314,7 @@ export type V13 = V13_N.PackCompositeV13;
 
 export namespace V14_N {
   export type PackCompositeV14 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV14>,
     boneScales: Array<PackCompositeBoneScaleV14>,
     raceSexData: Array<PackCompositeRaceDataV14>,
@@ -1323,9 +1323,9 @@ export namespace V14_N {
 
   export type PackCompositeBlitRectSetV14 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeBoneScaleV14 = {
@@ -1344,9 +1344,9 @@ export namespace V14_N {
     flags: number,
     max: number,
     min: number,
-    rotate: Array<number>,
-    scale: Array<number>,
-    translate: Array<number>
+    rotate: Float32Array,
+    scale: Float32Array,
+    translate: Float32Array
   }
 
   export type PackCompositeMorphWeightV14 = {
@@ -1358,18 +1358,18 @@ export namespace V14_N {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
+    beard: BigUint64Array,
     bodyBoneScales: Array<PackCompositeBoneScaleV14>,
     bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV14>,
-    ears: Array<BigInt>,
+    ears: BigUint64Array,
     eyeColorPalette: string,
     faceBoneScales: Array<PackCompositeBoneScaleV14>,
-    faces: Array<BigInt>,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV14>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV14>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -1387,15 +1387,15 @@ export namespace V14_N {
     name: BigInt,
     type: number,
     flags: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -1403,12 +1403,12 @@ export namespace V14_N {
   }
 
   export type PackCompositeSkinPatternV14 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV14 = {
@@ -1445,7 +1445,7 @@ export type V14 = V14_N.PackCompositeV14;
 
 export namespace V15_N {
   export type PackCompositeV15 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV15>,
     boneScales: Array<PackCompositeBoneScaleV15>,
     raceSexData: Array<PackCompositeRaceDataV15>,
@@ -1454,9 +1454,9 @@ export namespace V15_N {
 
   export type PackCompositeBlitRectSetV15 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeBoneScaleV15 = {
@@ -1475,9 +1475,9 @@ export namespace V15_N {
     flags: number,
     max: number,
     min: number,
-    rotate: Array<number>,
-    scale: Array<number>,
-    translate: Array<number>
+    rotate: Float32Array,
+    scale: Float32Array,
+    translate: Float32Array
   }
 
   export type PackCompositeMorphWeightV15 = {
@@ -1489,18 +1489,18 @@ export namespace V15_N {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
+    beard: BigUint64Array,
     bodyBoneScales: Array<PackCompositeBoneScaleV15>,
     bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV15>,
-    ears: Array<BigInt>,
+    ears: BigUint64Array,
     eyeColorPalette: string,
     faceBoneScales: Array<PackCompositeBoneScaleV15>,
-    faces: Array<BigInt>,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV15>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV15>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -1519,15 +1519,15 @@ export namespace V15_N {
     name: BigInt,
     type: number,
     flags: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -1535,12 +1535,12 @@ export namespace V15_N {
   }
 
   export type PackCompositeSkinPatternV15 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV15 = {
@@ -1573,7 +1573,7 @@ export namespace V15_N {
 
   export type PackCompositeAnimOverrideV15 = {
     animRole: BigInt,
-    filepath: string
+    filepath: number
   }
 
 }
@@ -1582,7 +1582,7 @@ export type V15 = V15_N.PackCompositeV15;
 
 export namespace V16_N {
   export type PackCompositeV16 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV16>,
     boneScales: Array<PackCompositeBoneScaleV16>,
     raceSexData: Array<PackCompositeRaceDataV16>,
@@ -1591,9 +1591,9 @@ export namespace V16_N {
 
   export type PackCompositeBlitRectSetV16 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeBoneScaleV16 = {
@@ -1612,9 +1612,9 @@ export namespace V16_N {
     flags: number,
     max: number,
     min: number,
-    rotate: Array<number>,
-    scale: Array<number>,
-    translate: Array<number>
+    rotate: Float32Array,
+    scale: Float32Array,
+    translate: Float32Array
   }
 
   export type PackCompositeMorphWeightV16 = {
@@ -1626,18 +1626,18 @@ export namespace V16_N {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
+    beard: BigUint64Array,
     bodyBoneScales: Array<PackCompositeBoneScaleV16>,
     bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV16>,
-    ears: Array<BigInt>,
+    ears: BigUint64Array,
     eyeColorPalette: string,
     faceBoneScales: Array<PackCompositeBoneScaleV16>,
-    faces: Array<BigInt>,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV16>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV16>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -1656,15 +1656,15 @@ export namespace V16_N {
     name: BigInt,
     type: number,
     flags: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -1672,12 +1672,12 @@ export namespace V16_N {
   }
 
   export type PackCompositeSkinPatternV16 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeVariantV16 = {
@@ -1710,7 +1710,7 @@ export namespace V16_N {
 
   export type PackCompositeAnimOverrideV16 = {
     animRole: BigInt,
-    filepath: string
+    filepath: number
   }
 
 }
@@ -1719,7 +1719,7 @@ export type V16 = V16_N.PackCompositeV16;
 
 export namespace V17_N {
   export type PackCompositeV17 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV17>,
     boneScales: Array<PackCompositeBoneScaleV17>,
     raceSexData: Array<PackCompositeRaceDataV17>,
@@ -1728,9 +1728,9 @@ export namespace V17_N {
 
   export type PackCompositeBlitRectSetV17 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeBoneScaleV17 = {
@@ -1749,9 +1749,9 @@ export namespace V17_N {
     flags: number,
     max: number,
     min: number,
-    rotate: Array<number>,
-    scale: Array<number>,
-    translate: Array<number>
+    rotate: Float32Array,
+    scale: Float32Array,
+    translate: Float32Array
   }
 
   export type PackCompositeMorphWeightV17 = {
@@ -1763,18 +1763,18 @@ export namespace V17_N {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
+    beard: BigUint64Array,
     bodyBoneScales: Array<PackCompositeBoneScaleV17>,
     bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV17>,
-    ears: Array<BigInt>,
+    ears: BigUint64Array,
     eyeColorPalette: string,
     faceBoneScales: Array<PackCompositeBoneScaleV17>,
-    faces: Array<BigInt>,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV17>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV17>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -1793,15 +1793,15 @@ export namespace V17_N {
     name: BigInt,
     type: number,
     flags: number,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -1809,12 +1809,12 @@ export namespace V17_N {
   }
 
   export type PackCompositeSkinPatternV17 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeSkinStyleV17 = {
@@ -1854,7 +1854,7 @@ export namespace V17_N {
 
   export type PackCompositeAnimOverrideV17 = {
     animRole: BigInt,
-    filepath: string
+    filepath: number
   }
 
 }
@@ -1863,7 +1863,7 @@ export type V17 = V17_N.PackCompositeV17;
 
 export namespace V18_N {
   export type PackCompositeV18 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV18>,
     boneScales: Array<PackCompositeBoneScaleV18>,
     raceSexData: Array<PackCompositeRaceDataV18>,
@@ -1872,9 +1872,9 @@ export namespace V18_N {
 
   export type PackCompositeBlitRectSetV18 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeBoneScaleV18 = {
@@ -1893,9 +1893,9 @@ export namespace V18_N {
     flags: number,
     max: number,
     min: number,
-    rotate: Array<number>,
-    scale: Array<number>,
-    translate: Array<number>
+    rotate: Float32Array,
+    scale: Float32Array,
+    translate: Float32Array
   }
 
   export type PackCompositeMorphWeightV18 = {
@@ -1907,18 +1907,18 @@ export namespace V18_N {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
+    beard: BigUint64Array,
     bodyBoneScales: Array<PackCompositeBoneScaleV18>,
     bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV18>,
-    ears: Array<BigInt>,
+    ears: BigUint64Array,
     eyeColorPalette: string,
     faceBoneScales: Array<PackCompositeBoneScaleV18>,
-    faces: Array<BigInt>,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV18>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV18>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -1938,15 +1938,15 @@ export namespace V18_N {
     type: number,
     flags: number,
     animRoleOverride: BigInt,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -1954,12 +1954,12 @@ export namespace V18_N {
   }
 
   export type PackCompositeSkinPatternV18 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeSkinStyleV18 = {
@@ -1999,7 +1999,7 @@ export namespace V18_N {
 
   export type PackCompositeAnimOverrideV18 = {
     animRole: BigInt,
-    filepath: string
+    filepath: number
   }
 
 }
@@ -2008,7 +2008,7 @@ export type V18 = V18_N.PackCompositeV18;
 
 export namespace V19_N {
   export type PackCompositeV20 = {
-    armorColorIds: Array<number>,
+    armorColorIds: Uint32Array,
     blitRects: Array<PackCompositeBlitRectSetV20>,
     boneScales: Array<PackCompositeBoneScaleV20>,
     raceSexData: Array<PackCompositeRaceDataV20>,
@@ -2017,9 +2017,9 @@ export namespace V19_N {
 
   export type PackCompositeBlitRectSetV20 = {
     name: string,
-    size: Array<number>,
-    rectIndex: Array<number>,
-    rectArray: Array<Array<number>>
+    size: Uint32Array,
+    rectIndex: Uint8Array,
+    rectArray: Array<Uint32Array>
   }
 
   export type PackCompositeBoneScaleV20 = {
@@ -2038,9 +2038,9 @@ export namespace V19_N {
     flags: number,
     max: number,
     min: number,
-    rotate: Array<number>,
-    scale: Array<number>,
-    translate: Array<number>
+    rotate: Float32Array,
+    scale: Float32Array,
+    translate: Float32Array
   }
 
   export type PackCompositeMorphWeightV20 = {
@@ -2052,18 +2052,18 @@ export namespace V19_N {
     name: string,
     nameToken: BigInt,
     baseHeadToken: BigInt,
-    beard: Array<BigInt>,
+    beard: BigUint64Array,
     bodyBoneScales: Array<PackCompositeBoneScaleV20>,
     bodyBoneScaleFiles: Array<PackCompositeBoneScaleFileV20>,
-    ears: Array<BigInt>,
+    ears: BigUint64Array,
     eyeColorPalette: string,
     faceBoneScales: Array<PackCompositeBoneScaleV20>,
-    faces: Array<BigInt>,
+    faces: BigUint64Array,
     fileData: Array<PackCompositeFileDataV20>,
     flags: number,
-    hairStyles: Array<BigInt>,
+    hairStyles: BigUint64Array,
     hairColorPalette: string,
-    skeletonFile: string,
+    skeletonFile: number,
     skinPatterns: Array<PackCompositeSkinPatternV20>,
     skinColorPalette: string,
     skinPatternPalette: string,
@@ -2083,15 +2083,15 @@ export namespace V19_N {
     type: number,
     flags: number,
     animRoleOverride: BigInt,
-    meshBase: string,
-    meshOverlap: string,
-    maskDye1: string,
-    maskDye2: string,
-    maskDye3: string,
-    maskDye4: string,
-    maskCut: string,
-    textureBase: string,
-    textureNormal: string,
+    meshBase: number,
+    meshOverlap: number,
+    maskDye1: number,
+    maskDye2: number,
+    maskDye3: number,
+    maskDye4: number,
+    maskCut: number,
+    textureBase: number,
+    textureNormal: number,
     dyeFlags: number,
     hideFlags: number,
     skinFlags: number,
@@ -2099,12 +2099,12 @@ export namespace V19_N {
   }
 
   export type PackCompositeSkinPatternV20 = {
-    chest: string,
-    face: string,
-    feet: string,
-    hands: string,
-    legs: string,
-    ears: string
+    chest: number,
+    face: number,
+    feet: number,
+    hands: number,
+    legs: number,
+    ears: number
   }
 
   export type PackCompositeSkinStyleV20 = {
@@ -2145,7 +2145,7 @@ export namespace V19_N {
 
   export type PackCompositeAnimOverrideV20 = {
     animRole: BigInt,
-    filepath: string
+    filepath: number
   }
 
 }

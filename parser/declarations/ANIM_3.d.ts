@@ -9,7 +9,7 @@ export namespace V0_N {
   }
 
   export type PackEmoteTimingV0 = {
-    modelFileId: string,
+    modelFileId: number,
     blendInTime: number,
     blendOutTime: number,
     duration: number
@@ -30,7 +30,7 @@ export namespace V1_N {
   }
 
   export type PackEmoteTimingV1 = {
-    modelFileId: string,
+    modelFileId: number,
     blendInTime: number,
     blendOutTime: number,
     duration: number,
@@ -52,7 +52,7 @@ export namespace V2_N {
   }
 
   export type PackEmoteTimingV2 = {
-    ModelFile: string,
+    ModelFile: number,
     BlendIn: number,
     BlendOut: number,
     IntroDuration: number,
@@ -75,7 +75,7 @@ export namespace V3_N {
   }
 
   export type PackEmoteTimingV3 = {
-    ModelFile: string,
+    ModelFile: number,
     BlendIn: number,
     BlendOut: number,
     IntroDuration: number,

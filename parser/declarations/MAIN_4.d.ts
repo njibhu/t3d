@@ -3,7 +3,7 @@ export namespace V0_N {
     flags: number,
     typeInfos: Array<PackContentTypeInfo>,
     namespaces: Array<PackContentNamespace>,
-    fileRefs: Array<string>,
+    fileRefs: Array<number>,
     indexEntries: Array<PackContentIndexEntry>,
     localOffsets: Array<PackContentLocalOffsetFixup>,
     externalOffsets: Array<PackContentExternalOffsetFixup>,
@@ -11,7 +11,7 @@ export namespace V0_N {
     stringIndices: Array<PackContentStringIndexFixup>,
     trackedReferences: Array<PackContentTrackedReference>,
     strings: Array<string>,
-    content: Array<number>
+    content: Uint8Array
   }
 
   export type PackContentTypeInfo = {

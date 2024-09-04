@@ -3,22 +3,22 @@ export namespace V0_N {
     bones: Array<SceneBoneV0>,
     joints: Array<SceneJointV0>,
     unmappedBones: Array<SceneUnmappedBoneV0>,
-    ragdollToModel: Array<number>,
-    modelToRagdoll: Array<number>
+    ragdollToModel: Uint32Array,
+    modelToRagdoll: Uint32Array
   }
 
   export type SceneBoneV0 = {
-    vertexA: Array<number>,
-    vertexB: Array<number>,
+    vertexA: Float32Array,
+    vertexB: Float32Array,
     radius: number,
     mass: number
   }
 
   export type SceneJointV0 = {
-    bones: Array<number>,
-    pivots: Array<Array<number>>,
-    twists: Array<Array<number>>,
-    planes: Array<Array<number>>,
+    bones: Uint32Array,
+    pivots: Array<Float32Array>,
+    twists: Array<Float32Array>,
+    planes: Array<Float32Array>,
     coneLimit: number,
     planeMin: number,
     planeMax: number,
@@ -29,7 +29,7 @@ export namespace V0_N {
   export type SceneUnmappedBoneV0 = {
     modelBoneIndex: number,
     sceneBoneIndex: number,
-    localPose: Array<Array<number>>
+    localPose: Array<Float32Array>
   }
 
 }
@@ -42,22 +42,22 @@ export namespace V1_N {
     joints: Array<SceneJointV1>,
     hingeJoints: Array<SceneHingeJointV1>,
     unmappedBones: Array<SceneUnmappedBoneV1>,
-    ragdollToModel: Array<number>,
-    modelToRagdoll: Array<number>
+    ragdollToModel: Uint32Array,
+    modelToRagdoll: Uint32Array
   }
 
   export type SceneBoneV1 = {
-    vertexA: Array<number>,
-    vertexB: Array<number>,
+    vertexA: Float32Array,
+    vertexB: Float32Array,
     radius: number,
     mass: number
   }
 
   export type SceneJointV1 = {
-    bones: Array<number>,
-    pivots: Array<Array<number>>,
-    twists: Array<Array<number>>,
-    planes: Array<Array<number>>,
+    bones: Uint32Array,
+    pivots: Array<Float32Array>,
+    twists: Array<Float32Array>,
+    planes: Array<Float32Array>,
     coneLimit: number,
     planeMin: number,
     planeMax: number,
@@ -66,10 +66,10 @@ export namespace V1_N {
   }
 
   export type SceneHingeJointV1 = {
-    bones: Array<number>,
-    pivots: Array<Array<number>>,
-    hinges: Array<Array<number>>,
-    normals: Array<Array<number>>,
+    bones: Uint32Array,
+    pivots: Array<Float32Array>,
+    hinges: Array<Float32Array>,
+    normals: Array<Float32Array>,
     limitMin: number,
     limitMax: number
   }
@@ -77,7 +77,7 @@ export namespace V1_N {
   export type SceneUnmappedBoneV1 = {
     modelBoneIndex: number,
     sceneBoneIndex: number,
-    localPose: Array<Array<number>>
+    localPose: Array<Float32Array>
   }
 
 }
@@ -89,21 +89,21 @@ export namespace V2_N {
     bones: Array<SceneBoneV2>,
     joints: Array<SceneJointV2>,
     hingeJoints: Array<SceneHingeJointV2>,
-    ragdollToModel: Array<number>
+    ragdollToModel: Uint32Array
   }
 
   export type SceneBoneV2 = {
-    vertexA: Array<number>,
-    vertexB: Array<number>,
+    vertexA: Float32Array,
+    vertexB: Float32Array,
     radius: number,
     mass: number
   }
 
   export type SceneJointV2 = {
-    bones: Array<number>,
-    pivots: Array<Array<number>>,
-    twists: Array<Array<number>>,
-    planes: Array<Array<number>>,
+    bones: Uint32Array,
+    pivots: Array<Float32Array>,
+    twists: Array<Float32Array>,
+    planes: Array<Float32Array>,
     coneLimit: number,
     planeMin: number,
     planeMax: number,
@@ -112,10 +112,10 @@ export namespace V2_N {
   }
 
   export type SceneHingeJointV2 = {
-    bones: Array<number>,
-    pivots: Array<Array<number>>,
-    hinges: Array<Array<number>>,
-    normals: Array<Array<number>>,
+    bones: Uint32Array,
+    pivots: Array<Float32Array>,
+    hinges: Array<Float32Array>,
+    normals: Array<Float32Array>,
     limitMin: number,
     limitMax: number
   }
@@ -129,22 +129,22 @@ export namespace V3_N {
     bones: Array<SceneBoneV3>,
     joints: Array<SceneJointV3>,
     hingeJoints: Array<SceneHingeJointV3>,
-    ragdollToModel: Array<number>
+    ragdollToModel: Uint32Array
   }
 
   export type SceneBoneV3 = {
-    vertexA: Array<number>,
-    vertexB: Array<number>,
+    vertexA: Float32Array,
+    vertexB: Float32Array,
     radius: number,
     mass: number,
     name: BigInt
   }
 
   export type SceneJointV3 = {
-    bones: Array<number>,
-    pivots: Array<Array<number>>,
-    twists: Array<Array<number>>,
-    planes: Array<Array<number>>,
+    bones: Uint32Array,
+    pivots: Array<Float32Array>,
+    twists: Array<Float32Array>,
+    planes: Array<Float32Array>,
     coneLimit: number,
     planeMin: number,
     planeMax: number,
@@ -153,10 +153,10 @@ export namespace V3_N {
   }
 
   export type SceneHingeJointV3 = {
-    bones: Array<number>,
-    pivots: Array<Array<number>>,
-    hinges: Array<Array<number>>,
-    normals: Array<Array<number>>,
+    bones: Uint32Array,
+    pivots: Array<Float32Array>,
+    hinges: Array<Float32Array>,
+    normals: Array<Float32Array>,
     limitMin: number,
     limitMax: number
   }

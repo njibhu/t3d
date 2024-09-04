@@ -1,7 +1,7 @@
 import { CString, Uint16, Uint32 } from "../src/types";
 import { DataParser } from "./data-parser";
 
-interface FileHead {
+export interface FileHead {
   identifier: string;
   unknownField1: number;
   unknownField2: number;
@@ -20,7 +20,7 @@ const FILE_HEAD = {
   },
 };
 
-interface ChunkHead {
+export interface ChunkHead {
   type: string;
   chunkDataSize: number;
   chunkVersion: number;
@@ -41,12 +41,16 @@ const CHUNK_HEAD = {
 
 export function parseFile(dataView: DataView): { newPosition: number; data: FileHead } {
   const fileHeaderParser = new DataParser(FILE_HEAD);
-  return fileHeaderParser.parse(dataView, 0);
+  const result = fileHeaderParser.parse(dataView, 0);
+  result.data.type = result.data.type.replace("\u0000", "");
+  return result;
 }
 
 export function parseChunkHead(dataView: DataView, pos: number): { newPosition: number; data: ChunkHead } {
   const chunkHeadParser = new DataParser(CHUNK_HEAD);
-  return chunkHeadParser.parse(dataView, pos);
+  const result = chunkHeadParser.parse(dataView, pos);
+  result.data.type = result.data.type.replace("\u0000", "");
+  return result;
 }
 
 export function parseAllChunks(

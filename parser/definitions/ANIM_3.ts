@@ -1,6 +1,6 @@
 import { Uint64, Fileref, Float32, Uint32, DynArray } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "anim",
   name: "PackEmoteAnimationsV0",
   version: 0,
@@ -21,7 +21,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "anim",
   name: "PackEmoteAnimationsV1",
   version: 1,
@@ -43,7 +43,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "anim",
   name: "PackEmoteAnimationsV2",
   version: 2,
@@ -66,7 +66,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "anim",
   name: "PackEmoteAnimationsV3",
   version: 3,
@@ -91,4 +91,5 @@ export const V3 = {
 };
 
 export const latest = V3;
-export const definitionArray = [V0, V1, V2, V3];
+export const definitions = { V0, V1, V2, V3 };
+export const definitionArray = Object.values(definitions);

@@ -1,6 +1,6 @@
 import { Uint64, Float32, Uint32, DynArray, Pointer, Uint8, Filename, RefString16, FixedArray } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV0",
   version: 0,
@@ -73,7 +73,8 @@ export const V0 = {
     },
     RangeDataV0: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     DspDataV0: {
       param: DynArray("DynamicParamDataV0"),
@@ -111,7 +112,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV1",
   version: 1,
@@ -169,7 +170,8 @@ export const V1 = {
     },
     RangeDataV1: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     VolumeGroupDataV1: {
       flags: Uint32,
@@ -252,7 +254,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV2",
   version: 2,
@@ -316,7 +318,8 @@ export const V2 = {
     },
     RangeDataV2: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     HandlerDataV2: {
       name: Uint64,
@@ -396,7 +399,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV3",
   version: 3,
@@ -460,7 +463,8 @@ export const V3 = {
     },
     RangeDataV3: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     HandlerDataV3: {
       name: Uint64,
@@ -541,7 +545,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV4",
   version: 4,
@@ -606,7 +610,8 @@ export const V4 = {
     },
     RangeDataV4: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     HandlerDataV4: {
       name: Uint64,
@@ -687,7 +692,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV5",
   version: 5,
@@ -748,7 +753,8 @@ export const V5 = {
     },
     RangeDataV5: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     SnapshotDataV5: {
       name: Uint64,
@@ -844,7 +850,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV6",
   version: 6,
@@ -924,7 +930,8 @@ export const V6 = {
     },
     RangeDataV6: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     SnapshotDataV6: {
       name: Uint64,
@@ -1008,7 +1015,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV7",
   version: 7,
@@ -1083,7 +1090,8 @@ export const V7 = {
     },
     RangeDataV7: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV7: {
       name: Uint64,
@@ -1176,7 +1184,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV8",
   version: 8,
@@ -1252,7 +1260,8 @@ export const V8 = {
     },
     RangeDataV8: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV8: {
       name: Uint64,
@@ -1365,7 +1374,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV9",
   version: 9,
@@ -1446,7 +1455,8 @@ export const V9 = {
     },
     RangeDataV9: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV9: {
       name: Uint64,
@@ -1559,7 +1569,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV10",
   version: 10,
@@ -1635,7 +1645,8 @@ export const V10 = {
     },
     RangeDataV10: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV10: {
       name: Uint64,
@@ -1749,7 +1760,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV11",
   version: 11,
@@ -1826,7 +1837,8 @@ export const V11 = {
     },
     RangeDataV11: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV11: {
       name: Uint64,
@@ -1940,7 +1952,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV12",
   version: 12,
@@ -2017,7 +2029,8 @@ export const V12 = {
     },
     RangeDataV12: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV12: {
       name: Uint64,
@@ -2132,7 +2145,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV13",
   version: 13,
@@ -2209,7 +2222,8 @@ export const V13 = {
     },
     RangeDataV13: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV13: {
       name: Uint64,
@@ -2325,7 +2339,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV14",
   version: 14,
@@ -2401,7 +2415,8 @@ export const V14 = {
     },
     RangeDataV14: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV14: {
       name: Uint64,
@@ -2517,7 +2532,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV15",
   version: 15,
@@ -2594,7 +2609,8 @@ export const V15 = {
     },
     RangeDataV15: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV15: {
       name: Uint64,
@@ -2710,7 +2726,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV16",
   version: 16,
@@ -2787,7 +2803,8 @@ export const V16 = {
     },
     RangeDataV16: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV16: {
       name: Uint64,
@@ -2907,7 +2924,7 @@ export const V16 = {
   }
 };
 
-export const V17 = {
+const V17 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV17",
   version: 17,
@@ -2984,7 +3001,8 @@ export const V17 = {
     },
     RangeDataV17: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV17: {
       name: Uint64,
@@ -3107,7 +3125,7 @@ export const V17 = {
   }
 };
 
-export const V18 = {
+const V18 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV18",
   version: 18,
@@ -3184,7 +3202,8 @@ export const V18 = {
     },
     RangeDataV18: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV18: {
       name: Uint64,
@@ -3307,7 +3326,7 @@ export const V18 = {
   }
 };
 
-export const V19 = {
+const V19 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV19",
   version: 19,
@@ -3384,7 +3403,8 @@ export const V19 = {
     },
     RangeDataV19: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV19: {
       name: Uint64,
@@ -3508,7 +3528,7 @@ export const V19 = {
   }
 };
 
-export const V20 = {
+const V20 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV20",
   version: 20,
@@ -3585,7 +3605,8 @@ export const V20 = {
     },
     RangeDataV20: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV20: {
       name: Uint64,
@@ -3710,7 +3731,7 @@ export const V20 = {
   }
 };
 
-export const V21 = {
+const V21 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV21",
   version: 21,
@@ -3789,7 +3810,8 @@ export const V21 = {
     },
     RangeDataV21: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV21: {
       name: Uint64,
@@ -3936,7 +3958,7 @@ export const V21 = {
   }
 };
 
-export const V22 = {
+const V22 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV22",
   version: 22,
@@ -4016,7 +4038,8 @@ export const V22 = {
     },
     RangeDataV22: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV22: {
       name: Uint64,
@@ -4164,7 +4187,7 @@ export const V22 = {
   }
 };
 
-export const V23 = {
+const V23 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV23",
   version: 23,
@@ -4244,7 +4267,8 @@ export const V23 = {
     },
     RangeDataV23: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV23: {
       name: Uint64,
@@ -4393,7 +4417,7 @@ export const V23 = {
   }
 };
 
-export const V24 = {
+const V24 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV24",
   version: 24,
@@ -4473,7 +4497,8 @@ export const V24 = {
     },
     RangeDataV24: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV24: {
       name: Uint64,
@@ -4625,7 +4650,7 @@ export const V24 = {
   }
 };
 
-export const V25 = {
+const V25 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV25",
   version: 25,
@@ -4706,7 +4731,8 @@ export const V25 = {
     },
     RangeDataV25: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV25: {
       name: Uint64,
@@ -4866,7 +4892,7 @@ export const V25 = {
   }
 };
 
-export const V26 = {
+const V26 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV26",
   version: 26,
@@ -4961,7 +4987,8 @@ export const V26 = {
     },
     RangeDataV26: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV26: {
       name: Uint64,
@@ -5124,7 +5151,7 @@ export const V26 = {
   }
 };
 
-export const V27 = {
+const V27 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV27",
   version: 27,
@@ -5222,7 +5249,8 @@ export const V27 = {
     },
     RangeDataV27: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV27: {
       name: Uint64,
@@ -5391,7 +5419,7 @@ export const V27 = {
   }
 };
 
-export const V28 = {
+const V28 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV28",
   version: 28,
@@ -5489,7 +5517,8 @@ export const V28 = {
     },
     RangeDataV28: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV28: {
       name: Uint64,
@@ -5660,7 +5689,7 @@ export const V28 = {
   }
 };
 
-export const V29 = {
+const V29 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV29",
   version: 29,
@@ -5759,7 +5788,8 @@ export const V29 = {
     },
     RangeDataV29: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV29: {
       name: Uint64,
@@ -5934,7 +5964,7 @@ export const V29 = {
   }
 };
 
-export const V30 = {
+const V30 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV30",
   version: 30,
@@ -6041,7 +6071,8 @@ export const V30 = {
     },
     RangeDataV30: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV30: {
       name: Uint64,
@@ -6216,7 +6247,7 @@ export const V30 = {
   }
 };
 
-export const V31 = {
+const V31 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV31",
   version: 31,
@@ -6323,7 +6354,8 @@ export const V31 = {
     },
     RangeDataV31: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV31: {
       name: Uint64,
@@ -6499,7 +6531,7 @@ export const V31 = {
   }
 };
 
-export const V32 = {
+const V32 = {
   chunkName: "AMSP",
   name: "ScriptFileDataV32",
   version: 32,
@@ -6606,7 +6638,8 @@ export const V32 = {
     },
     RangeDataV31: {
       max: Float32,
-      min: Uint8
+      min: Float32,
+      min_: Uint8
     },
     CategoryDynamicDataV31: {
       name: Uint64,
@@ -6786,4 +6819,5 @@ export const V32 = {
 };
 
 export const latest = V32;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32];
+export const definitions = { V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31, V32 };
+export const definitionArray = Object.values(definitions);

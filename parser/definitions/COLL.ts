@@ -1,6 +1,6 @@
 import { Uint64, Uint32, DynArray, Float32, FixedArray, Uint16, Uint8 } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "COLL",
   name: "ModelFileCollisionV0",
   version: 0,
@@ -38,7 +38,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "COLL",
   name: "ModelFileCollisionV1",
   version: 1,
@@ -76,7 +76,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "COLL",
   name: "ModelFileCollisionV8",
   version: 2,
@@ -121,7 +121,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "COLL",
   name: "ModelFileCollisionV9",
   version: 3,
@@ -175,7 +175,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "COLL",
   name: "ModelFileCollisionV10",
   version: 4,
@@ -232,4 +232,5 @@ export const V4 = {
 };
 
 export const latest = V4;
-export const definitionArray = [V0, V1, V2, V3, V4];
+export const definitions = { V0, V1, V2, V3, V4 };
+export const definitionArray = Object.values(definitions);

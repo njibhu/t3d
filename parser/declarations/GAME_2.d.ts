@@ -5,29 +5,29 @@ export namespace V0_N {
   }
 
   export type ScenePathV0 = {
-    properties: Array<BigInt>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV0>,
     closed: number
   }
 
   export type ScenePathNodeV0 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number
   }
 
   export type SceneGameMeshV0 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV0>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneEdgeV0 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
 }
@@ -41,30 +41,30 @@ export namespace V1_N {
   }
 
   export type ScenePathV1 = {
-    properties: Array<BigInt>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV1>,
     closed: number
   }
 
   export type ScenePathNodeV1 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number
   }
 
   export type SceneGameMeshV1 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV1>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneEdgeV1 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
 }
@@ -79,35 +79,35 @@ export namespace V2_N {
   }
 
   export type ScenePathV2 = {
-    properties: Array<BigInt>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV2>,
     closed: number
   }
 
   export type ScenePathNodeV2 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number
   }
 
   export type SceneGameMeshV2 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV2>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneEdgeV2 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
   export type SceneGrabNodeV2 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number
@@ -125,36 +125,36 @@ export namespace V3_N {
   }
 
   export type ScenePathV3 = {
-    properties: Array<BigInt>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV3>,
     closed: number
   }
 
   export type ScenePathNodeV3 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number
   }
 
   export type SceneGameMeshV3 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV3>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaceFlags: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaceFlags: Uint32Array
   }
 
   export type SceneEdgeV3 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
   export type SceneGrabNodeV3 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number
@@ -172,14 +172,14 @@ export namespace V4_N {
   }
 
   export type ScenePathV4 = {
-    properties: Array<BigInt>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV4>,
     closed: number
   }
 
   export type ScenePathNodeV4 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number,
@@ -187,22 +187,22 @@ export namespace V4_N {
   }
 
   export type SceneGameMeshV4 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV4>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaceFlags: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaceFlags: Uint32Array
   }
 
   export type SceneEdgeV4 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
   export type SceneGrabNodeV4 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number
@@ -219,14 +219,14 @@ export namespace V5_N {
   }
 
   export type ScenePathV5 = {
-    properties: Array<BigInt>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV5>,
     closed: number
   }
 
   export type ScenePathNodeV5 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number,
@@ -234,17 +234,17 @@ export namespace V5_N {
   }
 
   export type SceneGameMeshV5 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV5>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaceFlags: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaceFlags: Uint32Array
   }
 
   export type SceneEdgeV5 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
 }
@@ -259,35 +259,35 @@ export namespace V6_N {
   }
 
   export type ScenePathV6 = {
-    properties: Array<BigInt>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV6>,
     closed: number
   }
 
   export type ScenePathNodeV6 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     flags: number,
     smoothing: number,
     singlesided: number
   }
 
   export type SceneGameMeshV6 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV6>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaces: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaces: Uint8Array
   }
 
   export type SceneEdgeV6 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
   export type SceneGameSurfaceV6 = {
-    tokens: Array<BigInt>
+    tokens: BigUint64Array
   }
 
 }

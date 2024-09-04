@@ -1,3 +1,14 @@
+export type FileTypes = keyof typeof fileChunkMap;
+export type ChunkTypes = {
+  [K in FileTypes]: keyof typeof fileChunkMap[K];
+}[FileTypes];
+export type DefinitionTypes = {
+  [K in FileTypes]: {
+    [SubKey in keyof typeof fileChunkMap[K]]: typeof fileChunkMap[K][SubKey];
+  }[keyof typeof fileChunkMap[K]];
+}[FileTypes];
+
+
 export const fileChunkMap = {
   cntc: { Main: "MAIN_4" },
   hvkC: { havk: "HAVK" },
@@ -50,7 +61,7 @@ export const fileChunkMap = {
   anic: { seqn: "SEQN", mach: "MACH", fall: "FALL", cnfg: "CNFG" },
   cmaC: { main: "MAIN_3" },
   // cmpc: {"error",},
-  CDHS: { CDHS: "CDHS" },
+  // CDHS: { CDHS: "CDHS" }, // not in definitions
   ABNK: { BKCK: "BKCK" },
   // bone: { scal: "" },
-};
+} as const;

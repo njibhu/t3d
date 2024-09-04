@@ -5,8 +5,8 @@ export namespace V0_N {
 
   export type ModelRootMotionV0 = {
     sequence: BigInt,
-    keys: Array<number>,
-    values: Array<Array<number>>
+    keys: Float32Array,
+    values: Array<Float32Array>
   }
 
 }
@@ -20,9 +20,9 @@ export namespace V1_N {
 
   export type ModelRootMotionV1 = {
     sequence: BigInt,
-    keys: Array<number>,
-    posValues: Array<Array<number>>,
-    quatValues: Array<Array<number>>
+    keys: Float32Array,
+    posValues: Array<Float32Array>,
+    quatValues: Array<Float32Array>
   }
 
 }

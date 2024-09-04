@@ -1,6 +1,6 @@
 import { Filename, Uint32, Uint8, FixedArray, Float32, Uint64, DynArray, Pointer, RefString16, Uint16 } from "../src/types";
 
-export const V11 = {
+const V11 = {
   chunkName: "zon2",
   name: "PackMapZonesV12",
   version: 11,
@@ -61,7 +61,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "zon2",
   name: "PackMapZonesV13",
   version: 12,
@@ -123,7 +123,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "zon2",
   name: "PackMapZonesV14",
   version: 13,
@@ -196,7 +196,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "zon2",
   name: "PackMapZonesV15",
   version: 14,
@@ -270,7 +270,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "zon2",
   name: "PackMapZonesV16",
   version: 15,
@@ -350,7 +350,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "zon2",
   name: "PackMapZonesV17",
   version: 16,
@@ -430,7 +430,7 @@ export const V16 = {
   }
 };
 
-export const V17 = {
+const V17 = {
   chunkName: "zon2",
   name: "PackMapZonesV18",
   version: 17,
@@ -513,7 +513,7 @@ export const V17 = {
   }
 };
 
-export const V18 = {
+const V18 = {
   chunkName: "zon2",
   name: "PackMapZonesV19",
   version: 18,
@@ -596,7 +596,7 @@ export const V18 = {
   }
 };
 
-export const V19 = {
+const V19 = {
   chunkName: "zon2",
   name: "PackMapZonesV20",
   version: 19,
@@ -680,7 +680,7 @@ export const V19 = {
   }
 };
 
-export const V20 = {
+const V20 = {
   chunkName: "zon2",
   name: "PackMapZonesV21",
   version: 20,
@@ -764,7 +764,7 @@ export const V20 = {
   }
 };
 
-export const V21 = {
+const V21 = {
   chunkName: "zon2",
   name: "PackMapZonesV22",
   version: 21,
@@ -853,7 +853,7 @@ export const V21 = {
   }
 };
 
-export const V22 = {
+const V22 = {
   chunkName: "zon2",
   name: "PackMapZonesV23",
   version: 22,
@@ -944,4 +944,5 @@ export const V22 = {
 };
 
 export const latest = V22;
-export const definitionArray = [V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22];
+export const definitions = { V11, V12, V13, V14, V15, V16, V17, V18, V19, V20, V21, V22 };
+export const definitionArray = Object.values(definitions);

@@ -4,13 +4,13 @@ export namespace V1_N {
   }
 
   export type PackMapDecalV1 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScale: Array<number>,
-    textureOffset: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScale: Float32Array,
+    textureOffset: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number
   }
 
@@ -24,18 +24,18 @@ export namespace V2_N {
   }
 
   export type PackMapDecalV2 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScale: Array<number>,
-    textureOffset: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScale: Float32Array,
+    textureOffset: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number,
-    animTranslation: Array<number>,
-    animScaleRangeX: Array<number>,
-    animScaleRangeY: Array<number>,
-    animScaleSpeed: Array<number>,
+    animTranslation: Float32Array,
+    animScaleRangeX: Float32Array,
+    animScaleRangeY: Float32Array,
+    animScaleSpeed: Float32Array,
     animRotation: number
   }
 
@@ -49,20 +49,20 @@ export namespace V3_N {
   }
 
   export type PackMapDecalV3 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScaleUV0: Array<number>,
-    textureOffsetUV0: Array<number>,
-    textureScaleUV1: Array<number>,
-    textureOffsetUV1: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScaleUV0: Float32Array,
+    textureOffsetUV0: Float32Array,
+    textureScaleUV1: Float32Array,
+    textureOffsetUV1: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number,
-    animTranslation: Array<number>,
-    animScaleRangeX: Array<number>,
-    animScaleRangeY: Array<number>,
-    animScaleSpeed: Array<number>,
+    animTranslation: Float32Array,
+    animScaleRangeX: Float32Array,
+    animScaleRangeY: Float32Array,
+    animScaleSpeed: Float32Array,
     animRotation: number,
     surfaceBias: number
   }
@@ -77,24 +77,24 @@ export namespace V4_N {
   }
 
   export type PackMapDecalV4 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScaleUV0: Array<number>,
-    textureOffsetUV0: Array<number>,
-    textureScaleUV1: Array<number>,
-    textureOffsetUV1: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScaleUV0: Float32Array,
+    textureOffsetUV0: Float32Array,
+    textureScaleUV1: Float32Array,
+    textureOffsetUV1: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number,
-    animTranslation: Array<number>,
-    animScaleRangeX: Array<number>,
-    animScaleRangeY: Array<number>,
-    animScaleSpeed: Array<number>,
+    animTranslation: Float32Array,
+    animScaleRangeX: Float32Array,
+    animScaleRangeY: Float32Array,
+    animScaleSpeed: Float32Array,
     animRotation: number,
     surfaceBias: number,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
 }
@@ -107,31 +107,31 @@ export namespace V5_N {
   }
 
   export type PackMapDecalV5 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScaleUV0: Array<number>,
-    textureOffsetUV0: Array<number>,
-    textureScaleUV1: Array<number>,
-    textureOffsetUV1: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScaleUV0: Float32Array,
+    textureOffsetUV0: Float32Array,
+    textureScaleUV1: Float32Array,
+    textureOffsetUV1: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number,
-    animTranslation: Array<number>,
-    animScaleRangeX: Array<number>,
-    animScaleRangeY: Array<number>,
-    animScaleSpeed: Array<number>,
+    animTranslation: Float32Array,
+    animScaleRangeX: Float32Array,
+    animScaleRangeY: Float32Array,
+    animScaleSpeed: Float32Array,
     animRotation: number,
     surfaceBias: number,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     vertices: Array<PackMapDecalVertexV4>,
-    indices: Array<number>,
-    propIds: Array<BigInt>
+    indices: Uint16Array,
+    propIds: BigUint64Array
   }
 
   export type PackMapDecalVertexV4 = {
-    position: Array<number>
+    position: Float32Array
   }
 
 }
@@ -144,32 +144,32 @@ export namespace V6_N {
   }
 
   export type PackMapDecalV6 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScaleUV0: Array<number>,
-    textureOffsetUV0: Array<number>,
-    textureScaleUV1: Array<number>,
-    textureOffsetUV1: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScaleUV0: Float32Array,
+    textureOffsetUV0: Float32Array,
+    textureScaleUV1: Float32Array,
+    textureOffsetUV1: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number,
-    animTranslation: Array<number>,
-    animScaleRangeX: Array<number>,
-    animScaleRangeY: Array<number>,
-    animScaleSpeed: Array<number>,
+    animTranslation: Float32Array,
+    animScaleRangeX: Float32Array,
+    animScaleRangeY: Float32Array,
+    animScaleSpeed: Float32Array,
     animRotation: number,
     surfaceBias: number,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     vertices: Array<PackMapDecalVertexV5>,
-    indices: Array<number>,
-    propIds: Array<BigInt>,
+    indices: Uint16Array,
+    propIds: BigUint64Array,
     projection: number
   }
 
   export type PackMapDecalVertexV5 = {
-    position: Array<number>
+    position: Float32Array
   }
 
 }
@@ -182,33 +182,33 @@ export namespace V7_N {
   }
 
   export type PackMapDecalV7 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScaleUV0: Array<number>,
-    textureOffsetUV0: Array<number>,
-    textureScaleUV1: Array<number>,
-    textureOffsetUV1: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScaleUV0: Float32Array,
+    textureOffsetUV0: Float32Array,
+    textureScaleUV1: Float32Array,
+    textureOffsetUV1: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number,
-    animTranslation: Array<number>,
-    animScaleRangeX: Array<number>,
-    animScaleRangeY: Array<number>,
-    animScaleSpeed: Array<number>,
+    animTranslation: Float32Array,
+    animScaleRangeX: Float32Array,
+    animScaleRangeY: Float32Array,
+    animScaleSpeed: Float32Array,
     animRotation: number,
     surfaceBias: number,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     vertices: Array<PackMapDecalVertexV6>,
-    indices: Array<number>,
-    propIds: Array<BigInt>,
+    indices: Uint16Array,
+    propIds: BigUint64Array,
     projection: number,
     id: BigInt
   }
 
   export type PackMapDecalVertexV6 = {
-    position: Array<number>
+    position: Float32Array
   }
 
 }
@@ -221,34 +221,34 @@ export namespace V8_N {
   }
 
   export type PackMapDecalV8 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScaleUV0: Array<number>,
-    textureOffsetUV0: Array<number>,
-    textureScaleUV1: Array<number>,
-    textureOffsetUV1: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScaleUV0: Float32Array,
+    textureOffsetUV0: Float32Array,
+    textureScaleUV1: Float32Array,
+    textureOffsetUV1: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number,
-    animTranslation: Array<number>,
-    animScaleRangeX: Array<number>,
-    animScaleRangeY: Array<number>,
-    animScaleSpeed: Array<number>,
+    animTranslation: Float32Array,
+    animScaleRangeX: Float32Array,
+    animScaleRangeY: Float32Array,
+    animScaleSpeed: Float32Array,
     animRotation: number,
     surfaceBias: number,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     vertices: Array<PackMapDecalVertexV7>,
-    indices: Array<number>,
-    propIds: Array<BigInt>,
+    indices: Uint16Array,
+    propIds: BigUint64Array,
     projection: number,
     surfaceId: BigInt,
     id: BigInt
   }
 
   export type PackMapDecalVertexV7 = {
-    position: Array<number>
+    position: Float32Array
   }
 
 }
@@ -261,37 +261,37 @@ export namespace V9_N {
   }
 
   export type PackMapDecalV9 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScaleUV0: Array<number>,
-    textureOffsetUV0: Array<number>,
-    textureScaleUV1: Array<number>,
-    textureOffsetUV1: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScaleUV0: Float32Array,
+    textureOffsetUV0: Float32Array,
+    textureScaleUV1: Float32Array,
+    textureOffsetUV1: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number,
-    animTranslation: Array<number>,
-    animScaleRangeX: Array<number>,
-    animScaleRangeY: Array<number>,
-    animScaleSpeed: Array<number>,
+    animTranslation: Float32Array,
+    animScaleRangeX: Float32Array,
+    animScaleRangeY: Float32Array,
+    animScaleSpeed: Float32Array,
     animRotation: number,
     surfaceBias: number,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     vertices: Array<PackMapDecalVertexV8>,
-    indices: Array<number>,
-    propIds: Array<BigInt>,
+    indices: Uint16Array,
+    propIds: BigUint64Array,
     projection: number,
     surfaceId: BigInt,
     id: BigInt
   }
 
   export type PackMapDecalVertexV8 = {
-    position: Array<number>,
-    normal: Array<number>,
-    tangent: Array<number>,
-    bitangent: Array<number>
+    position: Float32Array,
+    normal: Float32Array,
+    tangent: Float32Array,
+    bitangent: Float32Array
   }
 
 }
@@ -304,38 +304,38 @@ export namespace V10_N {
   }
 
   export type PackMapDecalV10 = {
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    textureScaleUV0: Array<number>,
-    textureOffsetUV0: Array<number>,
-    textureScaleUV1: Array<number>,
-    textureOffsetUV1: Array<number>,
-    gridSize: Array<number>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    textureScaleUV0: Float32Array,
+    textureOffsetUV0: Float32Array,
+    textureScaleUV1: Float32Array,
+    textureOffsetUV1: Float32Array,
+    gridSize: Float32Array,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     flags: number,
-    animTranslation: Array<number>,
-    animScaleRangeX: Array<number>,
-    animScaleRangeY: Array<number>,
-    animScaleSpeed: Array<number>,
+    animTranslation: Float32Array,
+    animScaleRangeX: Float32Array,
+    animScaleRangeY: Float32Array,
+    animScaleSpeed: Float32Array,
     animRotation: number,
     surfaceBias: number,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     vertices: Array<PackMapDecalVertexV9>,
-    indices: Array<number>,
-    propIds: Array<BigInt>,
+    indices: Uint16Array,
+    propIds: BigUint64Array,
     projection: number,
     surfaceId: BigInt,
     id: BigInt
   }
 
   export type PackMapDecalVertexV9 = {
-    position: Array<number>,
-    normal: Array<number>,
-    tangent: Array<number>,
-    bitangent: Array<number>
+    position: Float32Array,
+    normal: Float32Array,
+    tangent: Float32Array,
+    bitangent: Float32Array
   }
 
 }

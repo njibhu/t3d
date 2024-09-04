@@ -1,6 +1,6 @@
 import { Uint32, DynArray, RefString16, FixedArray, Uint8, Uint64, Float32, Fileref, Uint16, Filename } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "comp",
   name: "PackCompositeV0",
   version: 0,
@@ -73,7 +73,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "comp",
   name: "PackCompositeV1",
   version: 1,
@@ -150,7 +150,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "comp",
   name: "PackCompositeV2",
   version: 2,
@@ -226,7 +226,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "comp",
   name: "PackCompositeV3",
   version: 3,
@@ -303,7 +303,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "comp",
   name: "PackCompositeV4",
   version: 4,
@@ -382,7 +382,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "comp",
   name: "PackCompositeV5",
   version: 5,
@@ -464,7 +464,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "comp",
   name: "PackCompositeV6",
   version: 6,
@@ -547,7 +547,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "comp",
   name: "PackCompositeV7",
   version: 7,
@@ -631,7 +631,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "comp",
   name: "PackCompositeV8",
   version: 8,
@@ -716,7 +716,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "comp",
   name: "PackCompositeV9",
   version: 9,
@@ -802,7 +802,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "comp",
   name: "PackCompositeV10",
   version: 10,
@@ -889,7 +889,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "comp",
   name: "PackCompositeV11",
   version: 11,
@@ -994,7 +994,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "comp",
   name: "PackCompositeV12",
   version: 12,
@@ -1112,7 +1112,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "comp",
   name: "PackCompositeV13",
   version: 13,
@@ -1231,7 +1231,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "comp",
   name: "PackCompositeV14",
   version: 14,
@@ -1352,7 +1352,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "comp",
   name: "PackCompositeV15",
   version: 15,
@@ -1478,7 +1478,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "comp",
   name: "PackCompositeV16",
   version: 16,
@@ -1604,7 +1604,7 @@ export const V16 = {
   }
 };
 
-export const V17 = {
+const V17 = {
   chunkName: "comp",
   name: "PackCompositeV17",
   version: 17,
@@ -1736,7 +1736,7 @@ export const V17 = {
   }
 };
 
-export const V18 = {
+const V18 = {
   chunkName: "comp",
   name: "PackCompositeV18",
   version: 18,
@@ -1869,7 +1869,7 @@ export const V18 = {
   }
 };
 
-export const V19 = {
+const V19 = {
   chunkName: "comp",
   name: "PackCompositeV20",
   version: 19,
@@ -2004,4 +2004,5 @@ export const V19 = {
 };
 
 export const latest = V19;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19];
+export const definitions = { V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16, V17, V18, V19 };
+export const definitionArray = Object.values(definitions);

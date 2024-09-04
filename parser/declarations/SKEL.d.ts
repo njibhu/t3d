@@ -1,15 +1,15 @@
 export namespace V0_N {
   export type ModelFileSkeletonV0 = {
     skeletonData: ModelSkeletonDataV62,
-    fileReference: string
+    fileReference: number
   }
 
   export type ModelSkeletonDataV62 = {
     grannyModel: ModelGrannyModelV0,
     boneConstraints: Array<ModelBoneConstraintV62>,
-    boneFlags: Array<number>,
+    boneFlags: Uint32Array,
     boneSymmetries: Array<ModelBoneSymmetryV62>,
-    emitterBones: Array<number>,
+    emitterBones: Uint32Array,
     trackMasks: Array<ModelTrackMaskV62>
   }
 
@@ -18,30 +18,33 @@ export namespace V0_N {
     Skeleton: ModelGrannySkeletonV0,
     InitialPlacement: ModelTransformData,
     MeshBindings: Array<ModelMeshBindingData>,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelGrannySkeletonV0 = {
     Name: string,
     Bones: Array<ModelBoneData>,
     LODType: number,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelBoneData = {
     Name: string,
     ParentIndex: number,
     LocalTransform: ModelTransformData,
-    InverseWorld4x4: Array<Array<number>>,
+    InverseWorld4x4: Array<Float32Array>,
     LODError: number,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelTransformData = {
     Flags: number,
-    Position: Array<number>,
-    Orientation: Array<number>,
-    ScaleShear: Array<Array<number>>
+    Position: Float32Array,
+    Orientation: Float32Array,
+    ScaleShear: Array<Float32Array>
   }
 
   export type ModelMeshBindingData = {
@@ -58,17 +61,17 @@ export namespace V0_N {
     gravity: number,
     collisionRadius: number,
     wind: number,
-    angle: Array<number>,
+    angle: Float32Array,
     angleStrength: number,
     angleType: number,
-    distanceInner: Array<number>,
+    distanceInner: Float32Array,
     distanceInnerStrength: number,
     distanceInnerType: number,
     links: Array<ModelBoneConstraintLinkV62>,
-    distanceOuter: Array<number>,
+    distanceOuter: Float32Array,
     distanceOuterStrength: number,
     distanceOuterType: number,
-    twist: Array<number>,
+    twist: Float32Array,
     twistStrength: number,
     twistType: number
   }
@@ -76,7 +79,7 @@ export namespace V0_N {
   export type ModelBoneConstraintLinkV62 = {
     angle: number,
     azimuth: number,
-    distance: Array<number>,
+    distance: Float32Array,
     token: BigInt
   }
 
@@ -91,7 +94,7 @@ export namespace V0_N {
   }
 
   export type PackGrannyTrackMaskType = {
-    trackMask: Array<number>
+    trackMask: Uint8Array
   }
 
 }
@@ -101,16 +104,16 @@ export type V0 = V0_N.ModelFileSkeletonV0;
 export namespace V1_N {
   export type ModelFileSkeletonV1 = {
     skeletonData: ModelSkeletonDataV63,
-    fileReference: string,
+    fileReference: number,
     overrides: ModelSkeletonOverridesV1
   }
 
   export type ModelSkeletonDataV63 = {
     grannyModel: ModelGrannyModelV1,
     boneConstraints: Array<ModelBoneConstraintV63>,
-    boneFlags: Array<number>,
+    boneFlags: Uint32Array,
     mirrorSpec: PackGrannyMirrorSpecType,
-    emitterBones: Array<number>,
+    emitterBones: Uint32Array,
     trackMasks: Array<ModelTrackMaskV63>
   }
 
@@ -119,30 +122,33 @@ export namespace V1_N {
     Skeleton: ModelGrannySkeletonV1,
     InitialPlacement: ModelTransformData,
     MeshBindings: Array<ModelMeshBindingData>,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelGrannySkeletonV1 = {
     Name: string,
     Bones: Array<ModelBoneData>,
     LODType: number,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelBoneData = {
     Name: string,
     ParentIndex: number,
     LocalTransform: ModelTransformData,
-    InverseWorld4x4: Array<Array<number>>,
+    InverseWorld4x4: Array<Float32Array>,
     LODError: number,
-    ExtendedData: number
+    ExtendedData: number,
+    ExtendedData_: number
   }
 
   export type ModelTransformData = {
     Flags: number,
-    Position: Array<number>,
-    Orientation: Array<number>,
-    ScaleShear: Array<Array<number>>
+    Position: Float32Array,
+    Orientation: Float32Array,
+    ScaleShear: Array<Float32Array>
   }
 
   export type ModelMeshBindingData = {
@@ -159,17 +165,17 @@ export namespace V1_N {
     gravity: number,
     collisionRadius: number,
     wind: number,
-    angle: Array<number>,
+    angle: Float32Array,
     angleStrength: number,
     angleType: number,
-    distanceInner: Array<number>,
+    distanceInner: Float32Array,
     distanceInnerStrength: number,
     distanceInnerType: number,
     links: Array<ModelBoneConstraintLinkV63>,
-    distanceOuter: Array<number>,
+    distanceOuter: Float32Array,
     distanceOuterStrength: number,
     distanceOuterType: number,
-    twist: Array<number>,
+    twist: Float32Array,
     twistStrength: number,
     twistType: number
   }
@@ -177,12 +183,12 @@ export namespace V1_N {
   export type ModelBoneConstraintLinkV63 = {
     angle: number,
     azimuth: number,
-    distance: Array<number>,
+    distance: Float32Array,
     token: BigInt
   }
 
   export type PackGrannyMirrorSpecType = {
-    mirrorSpec: Array<number>
+    mirrorSpec: Uint8Array
   }
 
   export type ModelTrackMaskV63 = {
@@ -191,7 +197,7 @@ export namespace V1_N {
   }
 
   export type PackGrannyTrackMaskType = {
-    trackMask: Array<number>
+    trackMask: Uint8Array
   }
 
   export type ModelSkeletonOverridesV1 = {

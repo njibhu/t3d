@@ -1,6 +1,6 @@
 import { Uint8, DynArray, RefString16, Uint32, Uint64, FixedArray, Float32 } from "../src/types";
 
-export const V3 = {
+const V3 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 3,
@@ -38,7 +38,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 4,
@@ -77,7 +77,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 5,
@@ -121,7 +121,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 6,
@@ -166,7 +166,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 7,
@@ -204,7 +204,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 8,
@@ -243,7 +243,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 9,
@@ -284,7 +284,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 10,
@@ -326,7 +326,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 11,
@@ -382,7 +382,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 12,
@@ -438,7 +438,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 13,
@@ -495,7 +495,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 14,
@@ -572,7 +572,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 15,
@@ -660,7 +660,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "edit",
   name: "MapEditData",
   version: 16,
@@ -755,4 +755,5 @@ export const V16 = {
 };
 
 export const latest = V16;
-export const definitionArray = [V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16];
+export const definitions = { V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16 };
+export const definitionArray = Object.values(definitions);

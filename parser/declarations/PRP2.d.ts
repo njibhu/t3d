@@ -6,10 +6,10 @@ export namespace V3_N {
   }
 
   export type PackMapPropObjV3 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -17,10 +17,10 @@ export namespace V3_N {
   }
 
   export type PackMapPropObjAnimSeqV3 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -45,10 +45,10 @@ export namespace V4_N {
   }
 
   export type PackMapPropObjV4 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -57,10 +57,10 @@ export namespace V4_N {
   }
 
   export type PackMapPropObjAnimSeqV4 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -86,10 +86,10 @@ export namespace V5_N {
   }
 
   export type PackMapPropObjV5 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -98,10 +98,10 @@ export namespace V5_N {
   }
 
   export type PackMapPropObjAnimSeqV5 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -113,8 +113,8 @@ export namespace V5_N {
   export type PackMapPropObjToolV5 = {
     guid: BigInt,
     layerMask: number,
-    glomOrigin: Array<number>,
-    glomClipScale: Array<number>,
+    glomOrigin: Float32Array,
+    glomClipScale: Float32Array,
     glomTargetId: BigInt,
     glomType: number
   }
@@ -131,10 +131,10 @@ export namespace V6_N {
   }
 
   export type PackMapPropObjV6 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -143,10 +143,10 @@ export namespace V6_N {
   }
 
   export type PackMapPropObjAnimSeqV6 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -158,8 +158,8 @@ export namespace V6_N {
   export type PackMapPropObjToolV6 = {
     guid: BigInt,
     layerMask: number,
-    glomOrigin: Array<number>,
-    glomClipScale: Array<number>,
+    glomOrigin: Float32Array,
+    glomClipScale: Float32Array,
     glomTargetId: BigInt,
     glomType: number
   }
@@ -176,11 +176,11 @@ export namespace V7_N {
   }
 
   export type PackMapPropObjV7 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -189,11 +189,11 @@ export namespace V7_N {
   }
 
   export type PackMapPropObjAnimSeqV7 = {
-    filename: string,
+    filename: number,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -205,8 +205,8 @@ export namespace V7_N {
   export type PackMapPropObjToolV7 = {
     guid: BigInt,
     layerMask: number,
-    glomOrigin: Array<number>,
-    glomClipScale: Array<number>,
+    glomOrigin: Float32Array,
+    glomClipScale: Float32Array,
     glomTargetId: BigInt,
     glomType: number
   }
@@ -223,12 +223,12 @@ export namespace V8_N {
   }
 
   export type PackMapPropObjV8 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -237,12 +237,12 @@ export namespace V8_N {
   }
 
   export type PackMapPropObjAnimSeqV8 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -254,8 +254,8 @@ export namespace V8_N {
   export type PackMapPropObjToolV8 = {
     guid: BigInt,
     layerMask: number,
-    glomOrigin: Array<number>,
-    glomClipScale: Array<number>,
+    glomOrigin: Float32Array,
+    glomClipScale: Float32Array,
     glomTargetId: BigInt,
     glomType: number
   }
@@ -272,12 +272,12 @@ export namespace V9_N {
   }
 
   export type PackMapPropObjV9 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -286,12 +286,12 @@ export namespace V9_N {
   }
 
   export type PackMapPropObjAnimSeqV9 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -303,8 +303,8 @@ export namespace V9_N {
   export type PackMapPropObjToolV9 = {
     guid: BigInt,
     layerMask: number,
-    glomOrigin: Array<number>,
-    glomClipScale: Array<number>,
+    glomOrigin: Float32Array,
+    glomClipScale: Float32Array,
     glomTargetId: BigInt,
     glomType: number
   }
@@ -321,12 +321,12 @@ export namespace V10_N {
   }
 
   export type PackMapPropObjV10 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -335,12 +335,12 @@ export namespace V10_N {
   }
 
   export type PackMapPropObjAnimSeqV10 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -352,8 +352,8 @@ export namespace V10_N {
   export type PackMapPropObjToolV10 = {
     guid: BigInt,
     layerMask: number,
-    glomOrigin: Array<number>,
-    glomClipScale: Array<number>,
+    glomOrigin: Float32Array,
+    glomClipScale: Float32Array,
     glomTargetId: BigInt,
     glomType: number
   }
@@ -372,12 +372,12 @@ export namespace V11_N {
   }
 
   export type PackMapPropObjV11 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -387,12 +387,12 @@ export namespace V11_N {
   }
 
   export type PackMapPropObjAnimSeqV11 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -405,14 +405,14 @@ export namespace V11_N {
   export type PackMapPropObjToolV11 = {
     guid: BigInt,
     layerMask: number,
-    glomOrigin: Array<number>,
-    glomClipScale: Array<number>,
+    glomOrigin: Float32Array,
+    glomClipScale: Float32Array,
     glomTargetId: BigInt,
     glomType: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -431,12 +431,12 @@ export namespace V12_N {
   }
 
   export type PackMapPropObjV12 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -446,12 +446,12 @@ export namespace V12_N {
   }
 
   export type PackMapPropObjAnimSeqV12 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -468,12 +468,12 @@ export namespace V12_N {
   }
 
   export type PackMapPropObjMetaV12 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -483,21 +483,21 @@ export namespace V12_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV12 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -516,12 +516,12 @@ export namespace V13_N {
   }
 
   export type PackMapPropObjV13 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -531,12 +531,12 @@ export namespace V13_N {
   }
 
   export type PackMapPropObjAnimSeqV13 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -550,16 +550,16 @@ export namespace V13_N {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>
+    children: BigUint64Array
   }
 
   export type PackMapPropObjMetaV13 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -569,22 +569,22 @@ export namespace V13_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV13 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    children: BigUint64Array,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -603,12 +603,12 @@ export namespace V14_N {
   }
 
   export type PackMapPropObjV14 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -619,12 +619,12 @@ export namespace V14_N {
   }
 
   export type PackMapPropObjAnimSeqV14 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -639,16 +639,16 @@ export namespace V14_N {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>
+    children: BigUint64Array
   }
 
   export type PackMapPropObjMetaV14 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -659,22 +659,22 @@ export namespace V14_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV14 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    children: BigUint64Array,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -694,13 +694,13 @@ export namespace V15_N {
   }
 
   export type PackMapPropObjV15 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -711,13 +711,13 @@ export namespace V15_N {
   }
 
   export type PackMapPropObjAnimSeqV15 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -729,13 +729,13 @@ export namespace V15_N {
   }
 
   export type PackMapPropObjInstanceV15 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -744,12 +744,12 @@ export namespace V15_N {
     bucketId: number,
     byte: number,
     transforms: Array<PackMapPropTransformV15>,
-    origGuidArray: Array<BigInt>
+    origGuidArray: BigUint64Array
   }
 
   export type PackMapPropTransformV15 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -757,17 +757,17 @@ export namespace V15_N {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>
+    children: BigUint64Array
   }
 
   export type PackMapPropObjMetaV15 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -778,22 +778,22 @@ export namespace V15_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV15 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    children: BigUint64Array,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -813,14 +813,14 @@ export namespace V16_N {
   }
 
   export type PackMapPropObjV16 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -831,14 +831,14 @@ export namespace V16_N {
   }
 
   export type PackMapPropObjAnimSeqV16 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -850,14 +850,14 @@ export namespace V16_N {
   }
 
   export type PackMapPropObjInstanceV16 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -866,12 +866,12 @@ export namespace V16_N {
     bucketId: number,
     byte: number,
     transforms: Array<PackMapPropTransformV16>,
-    origGuidArray: Array<BigInt>
+    origGuidArray: BigUint64Array
   }
 
   export type PackMapPropTransformV16 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -879,18 +879,18 @@ export namespace V16_N {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>
+    children: BigUint64Array
   }
 
   export type PackMapPropObjMetaV16 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -901,22 +901,22 @@ export namespace V16_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV16 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    children: BigUint64Array,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -936,14 +936,14 @@ export namespace V17_N {
   }
 
   export type PackMapPropObjV17 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -954,14 +954,14 @@ export namespace V17_N {
   }
 
   export type PackMapPropObjAnimSeqV17 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -973,14 +973,14 @@ export namespace V17_N {
   }
 
   export type PackMapPropObjInstanceV17 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -989,12 +989,12 @@ export namespace V17_N {
     bucketId: number,
     byte: number,
     transforms: Array<PackMapPropTransformV17>,
-    origGuidArray: Array<BigInt>
+    origGuidArray: BigUint64Array
   }
 
   export type PackMapPropTransformV17 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -1002,18 +1002,18 @@ export namespace V17_N {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>
+    children: BigUint64Array
   }
 
   export type PackMapPropObjMetaV17 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1024,22 +1024,22 @@ export namespace V17_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV17 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    children: BigUint64Array,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -1059,14 +1059,14 @@ export namespace V18_N {
   }
 
   export type PackMapPropObjV18 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1078,14 +1078,14 @@ export namespace V18_N {
   }
 
   export type PackMapPropObjAnimSeqV18 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1098,14 +1098,14 @@ export namespace V18_N {
   }
 
   export type PackMapPropObjInstanceV18 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1115,12 +1115,12 @@ export namespace V18_N {
     byte: number,
     sortLayer: number,
     transforms: Array<PackMapPropTransformV18>,
-    origGuidArray: Array<BigInt>
+    origGuidArray: BigUint64Array
   }
 
   export type PackMapPropTransformV18 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -1128,18 +1128,18 @@ export namespace V18_N {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>
+    children: BigUint64Array
   }
 
   export type PackMapPropObjMetaV18 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1151,22 +1151,22 @@ export namespace V18_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV18 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    children: BigUint64Array,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -1186,16 +1186,16 @@ export namespace V19_N {
   }
 
   export type PackMapPropObjV19 = {
-    filename: string,
-    blitTextures: Array<string>,
-    constTokens: Array<number>,
-    constValues: Array<Array<number>>,
+    filename: number,
+    blitTextures: Array<number>,
+    constTokens: Uint32Array,
+    constValues: Array<Float32Array>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1207,16 +1207,16 @@ export namespace V19_N {
   }
 
   export type PackMapPropObjAnimSeqV19 = {
-    filename: string,
-    blitTextures: Array<string>,
-    constTokens: Array<number>,
-    constValues: Array<Array<number>>,
+    filename: number,
+    blitTextures: Array<number>,
+    constTokens: Uint32Array,
+    constValues: Array<Float32Array>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1229,16 +1229,16 @@ export namespace V19_N {
   }
 
   export type PackMapPropObjInstanceV19 = {
-    filename: string,
-    blitTextures: Array<string>,
-    constTokens: Array<number>,
-    constValues: Array<Array<number>>,
+    filename: number,
+    blitTextures: Array<number>,
+    constTokens: Uint32Array,
+    constValues: Array<Float32Array>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1248,12 +1248,12 @@ export namespace V19_N {
     byte: number,
     sortLayer: number,
     transforms: Array<PackMapPropTransformV19>,
-    origGuidArray: Array<BigInt>
+    origGuidArray: BigUint64Array
   }
 
   export type PackMapPropTransformV19 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -1261,20 +1261,20 @@ export namespace V19_N {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>
+    children: BigUint64Array
   }
 
   export type PackMapPropObjMetaV19 = {
-    filename: string,
-    blitTextures: Array<string>,
-    constTokens: Array<number>,
-    constValues: Array<Array<number>>,
+    filename: number,
+    blitTextures: Array<number>,
+    constTokens: Uint32Array,
+    constValues: Array<Float32Array>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1286,22 +1286,22 @@ export namespace V19_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV19 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    children: BigUint64Array,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -1321,15 +1321,15 @@ export namespace V20_N {
   }
 
   export type PackMapPropObjV20 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     constants: Array<PackMapPropConstantV17>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1342,20 +1342,20 @@ export namespace V20_N {
 
   export type PackMapPropConstantV17 = {
     token: number,
-    constant: Array<number>,
+    constant: Float32Array,
     submodel: number
   }
 
   export type PackMapPropObjAnimSeqV20 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     constants: Array<PackMapPropConstantV17>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1368,15 +1368,15 @@ export namespace V20_N {
   }
 
   export type PackMapPropObjInstanceV20 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     constants: Array<PackMapPropConstantV17>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1386,12 +1386,12 @@ export namespace V20_N {
     byte: number,
     sortLayer: number,
     transforms: Array<PackMapPropTransformV20>,
-    origGuidArray: Array<BigInt>
+    origGuidArray: BigUint64Array
   }
 
   export type PackMapPropTransformV20 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -1399,19 +1399,19 @@ export namespace V20_N {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>
+    children: BigUint64Array
   }
 
   export type PackMapPropObjMetaV20 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     constants: Array<PackMapPropConstantV17>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1423,22 +1423,22 @@ export namespace V20_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV20 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    children: BigUint64Array,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -1459,15 +1459,15 @@ export namespace V21_N {
   }
 
   export type PackMapPropObjV21 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     constants: Array<PackMapPropConstantV18>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1481,20 +1481,20 @@ export namespace V21_N {
 
   export type PackMapPropConstantV18 = {
     token: number,
-    constant: Array<number>,
+    constant: Float32Array,
     submodel: number
   }
 
   export type PackMapPropObjAnimSeqV21 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     constants: Array<PackMapPropConstantV18>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1508,15 +1508,15 @@ export namespace V21_N {
   }
 
   export type PackMapPropObjInstanceV21 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     constants: Array<PackMapPropConstantV18>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1527,12 +1527,12 @@ export namespace V21_N {
     byte: number,
     sortLayer: number,
     transforms: Array<PackMapPropTransformV21>,
-    origGuidArray: Array<BigInt>
+    origGuidArray: BigUint64Array
   }
 
   export type PackMapPropTransformV21 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -1540,19 +1540,19 @@ export namespace V21_N {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>
+    children: BigUint64Array
   }
 
   export type PackMapPropObjMetaV21 = {
-    filename: string,
-    blitTextures: Array<string>,
+    filename: number,
+    blitTextures: Array<number>,
     constants: Array<PackMapPropConstantV18>,
     guid: BigInt,
     permutation: BigInt,
-    bounds: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
-    color: Array<number>,
+    bounds: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
+    color: Uint8Array,
     scale: number,
     lod1: number,
     lod2: number,
@@ -1565,22 +1565,22 @@ export namespace V21_N {
     layerMask: number,
     glomType: number,
     parent: BigInt,
-    glomOrigin: Array<number>
+    glomOrigin: Float32Array
   }
 
   export type PackMapPropObjVolumeV21 = {
     guid: BigInt,
     layerMask: number,
     glomType: number,
-    children: Array<BigInt>,
-    glomClipScale: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    children: BigUint64Array,
+    glomClipScale: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }

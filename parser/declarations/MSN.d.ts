@@ -4,8 +4,8 @@ export namespace V1_N {
   }
 
   export type PackMapInterestPoint = {
-    position: Array<number>,
-    forward: Array<number>
+    position: Float32Array,
+    forward: Float32Array
   }
 
 }
@@ -18,8 +18,8 @@ export namespace V2_N {
   }
 
   export type PackMapInterestPoint = {
-    position: Array<number>,
-    forward: Array<number>,
+    position: Float32Array,
+    forward: Float32Array,
     description: string
   }
 

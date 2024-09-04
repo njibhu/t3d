@@ -1,6 +1,6 @@
 import { Uint64, RefString, DynArray, Pointer, Fileref, RefString16, Uint8, Uint32, Filename, Float32, FixedArray } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "TOOL",
   name: "ModelFileToolV0",
   version: 0,
@@ -17,7 +17,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "TOOL",
   name: "ModelFileToolV1",
   version: 1,
@@ -40,7 +40,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "TOOL",
   name: "ModelFileToolV2",
   version: 2,
@@ -68,7 +68,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "TOOL",
   name: "ModelFileToolV3",
   version: 3,
@@ -97,7 +97,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "TOOL",
   name: "ModelFileToolV4",
   version: 4,
@@ -131,7 +131,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "TOOL",
   name: "ModelFileToolV5",
   version: 5,
@@ -165,7 +165,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "TOOL",
   name: "ModelFileToolV6",
   version: 6,
@@ -193,7 +193,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "TOOL",
   name: "ModelFileToolV7",
   version: 7,
@@ -227,7 +227,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "TOOL",
   name: "ModelFileToolV8",
   version: 8,
@@ -262,7 +262,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "TOOL",
   name: "ModelFileToolV9",
   version: 9,
@@ -306,7 +306,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "TOOL",
   name: "ModelFileToolV10",
   version: 10,
@@ -341,7 +341,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "TOOL",
   name: "ModelFileToolV11",
   version: 11,
@@ -376,7 +376,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "TOOL",
   name: "ModelFileToolV12",
   version: 12,
@@ -420,7 +420,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "TOOL",
   name: "ModelFileToolV13",
   version: 13,
@@ -464,7 +464,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "TOOL",
   name: "ModelFileToolV14",
   version: 14,
@@ -514,7 +514,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "TOOL",
   name: "ModelFileToolV15",
   version: 15,
@@ -565,7 +565,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "TOOL",
   name: "ModelFileToolV16",
   version: 16,
@@ -618,4 +618,5 @@ export const V16 = {
 };
 
 export const latest = V16;
-export const definitionArray = [V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16];
+export const definitions = { V0, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16 };
+export const definitionArray = Object.values(definitions);

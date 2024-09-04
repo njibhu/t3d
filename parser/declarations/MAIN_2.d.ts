@@ -1,8 +1,8 @@
 export namespace V0_N {
   export type CollideNavMeshChunk = {
-    navMeshData: Array<number>,
-    coarseGraphData: Array<number>,
-    queryMediatorMoppData: Array<number>
+    navMeshData: Uint8Array,
+    coarseGraphData: Uint8Array,
+    queryMediatorMoppData: Uint8Array
   }
 
 }

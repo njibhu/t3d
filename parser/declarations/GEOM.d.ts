@@ -7,10 +7,10 @@ export namespace V0_N {
     visBone: BigInt,
     morphTargets: Array<ModelMeshMorphTargetV65>,
     flags: number,
-    seamVertIndices: Array<number>,
+    seamVertIndices: Uint32Array,
     meshName: BigInt,
-    minBound: Array<number>,
-    maxBound: Array<number>,
+    minBound: Float32Array,
+    maxBound: Float32Array,
     bounds: Array<GrBoundData>,
     materialIndex: number,
     materialName: string,
@@ -26,12 +26,12 @@ export namespace V0_N {
 
   export type ModelMeshMorphVertV65 = {
     index: number,
-    vector: Array<number>
+    vector: Float32Array
   }
 
   export type GrBoundData = {
-    center: Array<number>,
-    boxExtent: Array<number>,
+    center: Float32Array,
+    boxExtent: Float32Array,
     sphereRadius: number
   }
 
@@ -48,11 +48,11 @@ export namespace V0_N {
 
   export type PackVertexType = {
     fvf: number,
-    vertices: Array<number>
+    vertices: Uint8Array
   }
 
   export type ModelMeshIndexDataV0 = {
-    indices: Array<number>
+    indices: Uint16Array
   }
 
 }
@@ -68,14 +68,14 @@ export namespace V1_N {
     visBone: BigInt,
     morphTargets: Array<ModelMeshMorphTargetV66>,
     flags: number,
-    seamVertIndices: Array<number>,
+    seamVertIndices: Uint32Array,
     meshName: BigInt,
-    minBound: Array<number>,
-    maxBound: Array<number>,
+    minBound: Float32Array,
+    maxBound: Float32Array,
     bounds: Array<GrBoundData>,
     materialIndex: number,
     materialName: string,
-    boneBindings: Array<BigInt>,
+    boneBindings: BigUint64Array,
     geometry: ModelMeshGeometryV1
   }
 
@@ -87,12 +87,12 @@ export namespace V1_N {
 
   export type ModelMeshMorphVertV66 = {
     index: number,
-    vector: Array<number>
+    vector: Float32Array
   }
 
   export type GrBoundData = {
-    center: Array<number>,
-    boxExtent: Array<number>,
+    center: Float32Array,
+    boxExtent: Float32Array,
     sphereRadius: number
   }
 
@@ -100,7 +100,7 @@ export namespace V1_N {
     verts: ModelMeshVertexDataV1,
     indices: ModelMeshIndexDataV1,
     lods: Array<ModelMeshIndexDataV1>,
-    transforms: Array<number>
+    transforms: Uint32Array
   }
 
   export type ModelMeshVertexDataV1 = {
@@ -110,11 +110,11 @@ export namespace V1_N {
 
   export type PackVertexType = {
     fvf: number,
-    vertices: Array<number>
+    vertices: Uint8Array
   }
 
   export type ModelMeshIndexDataV1 = {
-    indices: Array<number>
+    indices: Uint16Array
   }
 
 }

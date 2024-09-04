@@ -1,6 +1,6 @@
 import { FixedArray, Float32, Uint32, Uint16, DynArray, Uint8, Uint64, RefString16 } from "../src/types";
 
-export const V6 = {
+const V6 = {
   chunkName: "havk",
   name: "PackMapCollideV6",
   version: 6,
@@ -50,7 +50,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "havk",
   name: "PackMapCollideV7",
   version: 7,
@@ -108,7 +108,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "havk",
   name: "PackMapCollideV8",
   version: 8,
@@ -159,7 +159,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "havk",
   name: "PackMapCollideV9",
   version: 9,
@@ -214,7 +214,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "havk",
   name: "PackMapCollideV10",
   version: 10,
@@ -270,7 +270,7 @@ export const V10 = {
   }
 };
 
-export const V11 = {
+const V11 = {
   chunkName: "havk",
   name: "PackMapCollideV11",
   version: 11,
@@ -328,7 +328,7 @@ export const V11 = {
   }
 };
 
-export const V12 = {
+const V12 = {
   chunkName: "havk",
   name: "PackMapCollideV12",
   version: 12,
@@ -387,7 +387,7 @@ export const V12 = {
   }
 };
 
-export const V13 = {
+const V13 = {
   chunkName: "havk",
   name: "PackMapCollideV13",
   version: 13,
@@ -442,7 +442,7 @@ export const V13 = {
   }
 };
 
-export const V14 = {
+const V14 = {
   chunkName: "havk",
   name: "PackMapCollideV14",
   version: 14,
@@ -507,7 +507,7 @@ export const V14 = {
   }
 };
 
-export const V15 = {
+const V15 = {
   chunkName: "havk",
   name: "PackMapCollideV15",
   version: 15,
@@ -575,7 +575,7 @@ export const V15 = {
   }
 };
 
-export const V16 = {
+const V16 = {
   chunkName: "havk",
   name: "PackMapCollideV16",
   version: 16,
@@ -645,4 +645,5 @@ export const V16 = {
 };
 
 export const latest = V16;
-export const definitionArray = [V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16];
+export const definitions = { V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16 };
+export const definitionArray = Object.values(definitions);

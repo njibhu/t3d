@@ -52,14 +52,15 @@ async function run() {
 ${currentChunk
   .map(
     (chunk) =>
-      `export const V${chunk.version} = ${JSON.stringify(chunk, null, 2)
+      `const V${chunk.version} = ${JSON.stringify(chunk, null, 2)
         .replace(/"/g, "") // Remove all double quotes
         .replace(/'/g, '"')};` // Transform all single quotes into double quotes
   )
   .join("\n\n")}
 
 export const latest = V${currentChunk.slice(-1)[0].version};
-export const definitionArray = [${currentChunk.map((c) => `V${c.version}`).join(", ")}];`
+export const definitions = { ${currentChunk.map((c) => `V${c.version}`).join(", ")} };
+export const definitionArray = Object.values(definitions);`
       );
 
       await generateIndex(destinationFolder);

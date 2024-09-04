@@ -1,6 +1,6 @@
 import { FixedArray, Float32, Filename, DynArray, Uint32, Uint16, Uint64, Uint8 } from "../src/types";
 
-export const V1 = {
+const V1 = {
   chunkName: "dcal",
   name: "PackMapDecalsV1",
   version: 1,
@@ -21,7 +21,7 @@ export const V1 = {
   }
 };
 
-export const V2 = {
+const V2 = {
   chunkName: "dcal",
   name: "PackMapDecalsV2",
   version: 2,
@@ -47,7 +47,7 @@ export const V2 = {
   }
 };
 
-export const V3 = {
+const V3 = {
   chunkName: "dcal",
   name: "PackMapDecalsV3",
   version: 3,
@@ -76,7 +76,7 @@ export const V3 = {
   }
 };
 
-export const V4 = {
+const V4 = {
   chunkName: "dcal",
   name: "PackMapDecalsV4",
   version: 4,
@@ -107,7 +107,7 @@ export const V4 = {
   }
 };
 
-export const V5 = {
+const V5 = {
   chunkName: "dcal",
   name: "PackMapDecalsV5",
   version: 5,
@@ -144,7 +144,7 @@ export const V5 = {
   }
 };
 
-export const V6 = {
+const V6 = {
   chunkName: "dcal",
   name: "PackMapDecalsV6",
   version: 6,
@@ -182,7 +182,7 @@ export const V6 = {
   }
 };
 
-export const V7 = {
+const V7 = {
   chunkName: "dcal",
   name: "PackMapDecalsV7",
   version: 7,
@@ -221,7 +221,7 @@ export const V7 = {
   }
 };
 
-export const V8 = {
+const V8 = {
   chunkName: "dcal",
   name: "PackMapDecalsV8",
   version: 8,
@@ -261,7 +261,7 @@ export const V8 = {
   }
 };
 
-export const V9 = {
+const V9 = {
   chunkName: "dcal",
   name: "PackMapDecalsV9",
   version: 9,
@@ -304,7 +304,7 @@ export const V9 = {
   }
 };
 
-export const V10 = {
+const V10 = {
   chunkName: "dcal",
   name: "PackMapDecalsV10",
   version: 10,
@@ -349,4 +349,5 @@ export const V10 = {
 };
 
 export const latest = V10;
-export const definitionArray = [V1, V2, V3, V4, V5, V6, V7, V8, V9, V10];
+export const definitions = { V1, V2, V3, V4, V5, V6, V7, V8, V9, V10 };
+export const definitionArray = Object.values(definitions);

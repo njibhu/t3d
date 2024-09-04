@@ -1,7 +1,7 @@
 export namespace V6_N {
   export type PackMapCollideV6 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     moppCodes: Array<PackMapCollideMoppCodeV6>,
     meshes: Array<PackMapCollideMeshV6>,
     geometries: Array<PackMapCollideGeometryV6>,
@@ -10,12 +10,12 @@ export namespace V6_N {
   }
 
   export type PackMapCollideMoppCodeV6 = {
-    cookedData: Array<number>
+    cookedData: Uint8Array
   }
 
   export type PackMapCollideMeshV6 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     sizes: Array<PackMapCollideMeshSizeV6>
   }
 
@@ -37,15 +37,15 @@ export namespace V6_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV6 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
@@ -55,26 +55,26 @@ export type V6 = V6_N.PackMapCollideV6;
 
 export namespace V7_N {
   export type PackMapCollideV7 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     moppCodes: Array<PackMapCollideMoppCodeV7>,
     meshes: Array<PackMapCollideMeshV7>,
     geometries: Array<PackMapCollideGeometryV7>,
     propModels: Array<PackMapCollideModelPropV7>,
     zoneModels: Array<PackMapCollideModelZoneV7>,
-    aiBoundaryMin: Array<number>,
-    aiBoundaryMax: Array<number>,
-    aiChunkDims: Array<number>,
+    aiBoundaryMin: Float32Array,
+    aiBoundaryMax: Float32Array,
+    aiChunkDims: Uint32Array,
     aiChunks: Array<PackMapCollideAiChunkV7>
   }
 
   export type PackMapCollideMoppCodeV7 = {
-    cookedData: Array<number>
+    cookedData: Uint8Array
   }
 
   export type PackMapCollideMeshV7 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     sizes: Array<PackMapCollideMeshSizeV7>
   }
 
@@ -96,21 +96,21 @@ export namespace V7_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV7 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideAiChunkV7 = {
-    navMeshData: Array<number>,
-    coarseGraphData: Array<number>
+    navMeshData: Uint8Array,
+    coarseGraphData: Uint8Array
   }
 
 }
@@ -119,23 +119,23 @@ export type V7 = V7_N.PackMapCollideV7;
 
 export namespace V8_N {
   export type PackMapCollideV8 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     meshes: Array<PackMapCollideMeshV8>,
     geometries: Array<PackMapCollideGeometryV8>,
     propModels: Array<PackMapCollideModelPropV8>,
     zoneModels: Array<PackMapCollideModelZoneV8>,
-    aiBoundaryMin: Array<number>,
-    aiBoundaryMax: Array<number>,
-    aiChunkDims: Array<number>,
+    aiBoundaryMin: Float32Array,
+    aiBoundaryMax: Float32Array,
+    aiChunkDims: Uint32Array,
     aiChunks: Array<PackMapCollideAiChunkV8>
   }
 
   export type PackMapCollideMeshV8 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     moppCodeScale: number,
-    moppCodeData: Array<number>
+    moppCodeData: Uint8Array
   }
 
   export type PackMapCollideGeometryV8 = {
@@ -151,21 +151,21 @@ export namespace V8_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV8 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideAiChunkV8 = {
-    navMeshData: Array<number>,
-    coarseGraphData: Array<number>
+    navMeshData: Uint8Array,
+    coarseGraphData: Uint8Array
   }
 
 }
@@ -174,24 +174,24 @@ export type V8 = V8_N.PackMapCollideV8;
 
 export namespace V9_N {
   export type PackMapCollideV9 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     meshes: Array<PackMapCollideMeshV9>,
     geometries: Array<PackMapCollideGeometryV9>,
     obsModels: Array<PackMapCollideModelObsV9>,
     propModels: Array<PackMapCollideModelPropV9>,
     zoneModels: Array<PackMapCollideModelZoneV9>,
-    aiBoundaryMin: Array<number>,
-    aiBoundaryMax: Array<number>,
-    aiChunkDims: Array<number>,
+    aiBoundaryMin: Float32Array,
+    aiBoundaryMax: Float32Array,
+    aiChunkDims: Uint32Array,
     aiChunks: Array<PackMapCollideAiChunkV9>
   }
 
   export type PackMapCollideMeshV9 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     moppCodeScale: number,
-    moppCodeData: Array<number>
+    moppCodeData: Uint8Array
   }
 
   export type PackMapCollideGeometryV9 = {
@@ -211,21 +211,21 @@ export namespace V9_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV9 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideAiChunkV9 = {
-    navMeshData: Array<number>,
-    coarseGraphData: Array<number>
+    navMeshData: Uint8Array,
+    coarseGraphData: Uint8Array
   }
 
 }
@@ -234,24 +234,24 @@ export type V9 = V9_N.PackMapCollideV9;
 
 export namespace V10_N {
   export type PackMapCollideV10 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     meshes: Array<PackMapCollideMeshV10>,
     geometries: Array<PackMapCollideGeometryV10>,
     obsModels: Array<PackMapCollideModelObsV10>,
     propModels: Array<PackMapCollideModelPropV10>,
     zoneModels: Array<PackMapCollideModelZoneV10>,
-    aiBoundaryMin: Array<number>,
-    aiBoundaryMax: Array<number>,
-    aiChunkDims: Array<number>,
+    aiBoundaryMin: Float32Array,
+    aiBoundaryMax: Float32Array,
+    aiChunkDims: Uint32Array,
     aiChunks: Array<PackMapCollideAiChunkV10>
   }
 
   export type PackMapCollideMeshV10 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     moppCodeScale: number,
-    moppCodeData: Array<number>
+    moppCodeData: Uint8Array
   }
 
   export type PackMapCollideGeometryV10 = {
@@ -271,22 +271,22 @@ export namespace V10_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV10 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideAiChunkV10 = {
-    navMeshData: Array<number>,
-    coarseGraphData: Array<number>,
-    queryMediatorMoppData: Array<number>
+    navMeshData: Uint8Array,
+    coarseGraphData: Uint8Array,
+    queryMediatorMoppData: Uint8Array
   }
 
 }
@@ -295,22 +295,22 @@ export type V10 = V10_N.PackMapCollideV10;
 
 export namespace V11_N {
   export type PackMapCollideV11 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     meshes: Array<PackMapCollideMeshV11>,
     geometries: Array<PackMapCollideGeometryV11>,
     obsModels: Array<PackMapCollideModelObsV11>,
     propModels: Array<PackMapCollideModelPropV11>,
     zoneModels: Array<PackMapCollideModelZoneV11>,
-    aiChunkDims: Array<number>,
+    aiChunkDims: Uint32Array,
     aiChunks: Array<PackMapCollideAiChunkV11>
   }
 
   export type PackMapCollideMeshV11 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     moppCodeScale: number,
-    moppCodeData: Array<number>
+    moppCodeData: Uint8Array
   }
 
   export type PackMapCollideGeometryV11 = {
@@ -324,7 +324,7 @@ export namespace V11_N {
   }
 
   export type PackMapCollideModelObsV11 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -332,24 +332,24 @@ export namespace V11_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV11 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideAiChunkV11 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
-    navMeshData: Array<number>,
-    coarseGraphData: Array<number>,
-    queryMediatorMoppData: Array<number>
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
+    navMeshData: Uint8Array,
+    coarseGraphData: Uint8Array,
+    queryMediatorMoppData: Uint8Array
   }
 
 }
@@ -358,23 +358,23 @@ export type V11 = V11_N.PackMapCollideV11;
 
 export namespace V12_N {
   export type PackMapCollideV12 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     meshes: Array<PackMapCollideMeshV12>,
     geometries: Array<PackMapCollideGeometryV12>,
     obsModels: Array<PackMapCollideModelObsV12>,
     propModels: Array<PackMapCollideModelPropV12>,
     zoneModels: Array<PackMapCollideModelZoneV12>,
-    aiChunkDims: Array<number>,
+    aiChunkDims: Uint32Array,
     aiChunks: Array<PackMapCollideAiChunkV12>
   }
 
   export type PackMapCollideMeshV12 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    surfaces: Array<number>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    surfaces: Uint16Array,
     moppCodeScale: number,
-    moppCodeData: Array<number>
+    moppCodeData: Uint8Array
   }
 
   export type PackMapCollideGeometryV12 = {
@@ -388,7 +388,7 @@ export namespace V12_N {
   }
 
   export type PackMapCollideModelObsV12 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -396,24 +396,24 @@ export namespace V12_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV12 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideAiChunkV12 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
-    navMeshData: Array<number>,
-    coarseGraphData: Array<number>,
-    queryMediatorMoppData: Array<number>
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
+    navMeshData: Uint8Array,
+    coarseGraphData: Uint8Array,
+    queryMediatorMoppData: Uint8Array
   }
 
 }
@@ -422,8 +422,8 @@ export type V12 = V12_N.PackMapCollideV12;
 
 export namespace V13_N {
   export type PackMapCollideV13 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     collisions: Array<PackMapCollideCollisionV13>,
     blockers: Array<PackMapCollideBlockerV13>,
     animations: Array<PackMapCollideAnimationV13>,
@@ -434,29 +434,29 @@ export namespace V13_N {
   }
 
   export type PackMapCollideCollisionV13 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    surfaces: Array<number>,
-    moppCodeData: Array<number>
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    surfaces: Uint16Array,
+    moppCodeData: Uint8Array
   }
 
   export type PackMapCollideBlockerV13 = {
-    vertices: Array<Array<number>>
+    vertices: Array<Float32Array>
   }
 
   export type PackMapCollideAnimationV13 = {
     sequence: BigInt,
-    collisionIndices: Array<number>,
-    blockerIndices: Array<number>
+    collisionIndices: Uint32Array,
+    blockerIndices: Uint32Array
   }
 
   export type PackMapCollideGeometryV13 = {
     quantizedExtents: number,
-    animations: Array<number>
+    animations: Uint32Array
   }
 
   export type PackMapCollideModelObsV13 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -464,15 +464,15 @@ export namespace V13_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV13 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
@@ -482,8 +482,8 @@ export type V13 = V13_N.PackMapCollideV13;
 
 export namespace V14_N {
   export type PackMapCollideV14 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     collisions: Array<PackMapCollideCollisionV14>,
     blockers: Array<PackMapCollideBlockerV14>,
     navMeshes: Array<PackMapCollideNavMeshV14>,
@@ -495,40 +495,40 @@ export namespace V14_N {
   }
 
   export type PackMapCollideCollisionV14 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    surfaces: Array<number>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    surfaces: Uint16Array,
     moppCodeData: PackMoppType
   }
 
   export type PackMoppType = {
-    moppData: Array<number>
+    moppData: Uint8Array
   }
 
   export type PackMapCollideBlockerV14 = {
-    vertices: Array<Array<number>>
+    vertices: Array<Float32Array>
   }
 
   export type PackMapCollideNavMeshV14 = {
-    navMesh: Array<number>,
-    graph: Array<number>,
-    mediator: Array<number>
+    navMesh: Uint8Array,
+    graph: Uint8Array,
+    mediator: Uint8Array
   }
 
   export type PackMapCollideAnimationV14 = {
     sequence: BigInt,
-    collisionIndices: Array<number>,
-    blockerIndices: Array<number>
+    collisionIndices: Uint32Array,
+    blockerIndices: Uint32Array
   }
 
   export type PackMapCollideGeometryV14 = {
     quantizedExtents: number,
-    animations: Array<number>,
+    animations: Uint32Array,
     navMeshIndex: number
   }
 
   export type PackMapCollideModelObsV14 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -536,15 +536,15 @@ export namespace V14_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV14 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
@@ -554,8 +554,8 @@ export type V14 = V14_N.PackMapCollideV14;
 
 export namespace V15_N {
   export type PackMapCollideV15 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     flags: number,
     waterSurfaceZ: number,
     collisions: Array<PackMapCollideCollisionV15>,
@@ -569,34 +569,34 @@ export namespace V15_N {
   }
 
   export type PackMapCollideCollisionV15 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    surfaces: Array<number>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    surfaces: Uint16Array,
     moppCodeData: PackMoppType
   }
 
   export type PackMoppType = {
-    moppData: Array<number>
+    moppData: Uint8Array
   }
 
   export type PackMapCollideBlockerV15 = {
-    vertices: Array<Array<number>>
+    vertices: Array<Float32Array>
   }
 
   export type PackMapCollideAnimationV15 = {
     sequence: BigInt,
-    collisionIndices: Array<number>,
-    blockerIndices: Array<number>
+    collisionIndices: Uint32Array,
+    blockerIndices: Uint32Array
   }
 
   export type PackMapCollideGeometryV15 = {
     quantizedExtents: number,
-    animations: Array<number>,
+    animations: Uint32Array,
     navMeshIndex: number
   }
 
   export type PackMapCollideModelObsV15 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -604,23 +604,23 @@ export namespace V15_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV15 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideWaterVolumeV15 = {
     guid: BigInt,
     flags: number,
-    verticalRange: Array<number>,
-    vertices: Array<Array<number>>
+    verticalRange: Float32Array,
+    vertices: Array<Float32Array>
   }
 
 }
@@ -629,8 +629,8 @@ export type V15 = V15_N.PackMapCollideV15;
 
 export namespace V16_N {
   export type PackMapCollideV16 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     flags: number,
     waterSurfaceZ: number,
     collisions: Array<PackMapCollideCollisionV16>,
@@ -644,34 +644,34 @@ export namespace V16_N {
   }
 
   export type PackMapCollideCollisionV16 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    surfaces: Array<number>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    surfaces: Uint16Array,
     moppCodeData: PackMoppType
   }
 
   export type PackMoppType = {
-    moppData: Array<number>
+    moppData: Uint8Array
   }
 
   export type PackMapCollideBlockerV16 = {
-    vertices: Array<Array<number>>
+    vertices: Array<Float32Array>
   }
 
   export type PackMapCollideAnimationV16 = {
     sequence: BigInt,
-    collisionIndices: Array<number>,
-    blockerIndices: Array<number>
+    collisionIndices: Uint32Array,
+    blockerIndices: Uint32Array
   }
 
   export type PackMapCollideGeometryV16 = {
     quantizedExtents: number,
-    animations: Array<number>,
+    animations: Uint32Array,
     navMeshIndex: number
   }
 
   export type PackMapCollideModelObsV16 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -679,15 +679,15 @@ export namespace V16_N {
     token: BigInt,
     sequence: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapCollideModelZoneV16 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
@@ -695,8 +695,8 @@ export namespace V16_N {
     guid: BigInt,
     name: string,
     flags: number,
-    verticalRange: Array<number>,
-    vertices: Array<Array<number>>
+    verticalRange: Float32Array,
+    vertices: Array<Float32Array>
   }
 
 }

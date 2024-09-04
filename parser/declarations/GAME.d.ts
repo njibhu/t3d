@@ -1,6 +1,6 @@
 export namespace V0_N {
   export type ModelFileGame = {
-    gameData: Array<number>
+    gameData: Uint8Array
   }
 
 }

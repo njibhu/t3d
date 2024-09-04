@@ -1,6 +1,6 @@
 import { RefString, Uint32, FixedArray, Float32, Uint8, Pointer, DynArray, Uint64, Uint16, Filename } from "../src/types";
 
-export const V0 = {
+const V0 = {
   chunkName: "SKEL",
   name: "ModelFileSkeletonV0",
   version: 0,
@@ -18,13 +18,15 @@ export const V0 = {
       Skeleton: Pointer("ModelGrannySkeletonV0"),
       InitialPlacement: "ModelTransformData",
       MeshBindings: DynArray("ModelMeshBindingData"),
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelGrannySkeletonV0: {
       Name: RefString(),
       Bones: DynArray("ModelBoneData"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneData: {
       Name: RefString(),
@@ -32,7 +34,8 @@ export const V0 = {
       LocalTransform: "ModelTransformData",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformData: {
       Flags: Uint32,
@@ -91,7 +94,7 @@ export const V0 = {
   }
 };
 
-export const V1 = {
+const V1 = {
   chunkName: "SKEL",
   name: "ModelFileSkeletonV1",
   version: 1,
@@ -109,13 +112,15 @@ export const V1 = {
       Skeleton: Pointer("ModelGrannySkeletonV1"),
       InitialPlacement: "ModelTransformData",
       MeshBindings: DynArray("ModelMeshBindingData"),
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelGrannySkeletonV1: {
       Name: RefString(),
       Bones: DynArray("ModelBoneData"),
       LODType: Uint32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelBoneData: {
       Name: RefString(),
@@ -123,7 +128,8 @@ export const V1 = {
       LocalTransform: "ModelTransformData",
       InverseWorld4x4: FixedArray(FixedArray(Float32, 4), 4),
       LODError: Float32,
-      ExtendedData: Pointer(Uint8)
+      ExtendedData: Pointer(Uint8),
+      ExtendedData_: Pointer(Uint8)
     },
     ModelTransformData: {
       Flags: Uint32,
@@ -186,4 +192,5 @@ export const V1 = {
 };
 
 export const latest = V1;
-export const definitionArray = [V0, V1];
+export const definitions = { V0, V1 };
+export const definitionArray = Object.values(definitions);

@@ -1,6 +1,6 @@
 import { Filename, FixedArray, Uint32 } from "../src/types";
 
-export const V1 = {
+const V1 = {
   chunkName: "shex",
   name: "PackMapShadowExtV1",
   version: 1,
@@ -11,4 +11,5 @@ export const V1 = {
 };
 
 export const latest = V1;
-export const definitionArray = [V1];
+export const definitions = { V1 };
+export const definitionArray = Object.values(definitions);
