@@ -74,7 +74,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} Int32Array to the DataStream backing buffer.
       */
-    mapInt32Array(length: number, e: boolean | null): any;
+    mapInt32Array(length: number, e?: boolean | null): any;
     /**
       Maps an Int16Array into the DataStream buffer, swizzling it to native
       endianness in-place. The current offset from the start of the buffer needs to
@@ -87,7 +87,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} Int16Array to the DataStream backing buffer.
       */
-    mapInt16Array(length: number, e: boolean | null): any;
+    mapInt16Array(length: number, e?: boolean | null): any;
     /**
       Maps an Int8Array into the DataStream buffer.
     
@@ -110,7 +110,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} Uint32Array to the DataStream backing buffer.
       */
-    mapUint32Array(length: number, e: boolean | null): any;
+    mapUint32Array(length: number, e?: boolean | null): any;
     /**
       Maps a Uint16Array into the DataStream buffer, swizzling it to native
       endianness in-place. The current offset from the start of the buffer needs to
@@ -123,7 +123,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} Uint16Array to the DataStream backing buffer.
       */
-    mapUint16Array(length: number, e: boolean | null): any;
+    mapUint16Array(length: number, e?: boolean | null): any;
     /**
       Maps a Uint8Array into the DataStream buffer.
     
@@ -146,7 +146,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} Float64Array to the DataStream backing buffer.
       */
-    mapFloat64Array(length: number, e: boolean | null): any;
+    mapFloat64Array(length: number, e?: boolean | null): any;
     /**
       Maps a Float32Array into the DataStream buffer, swizzling it to native
       endianness in-place. The current offset from the start of the buffer needs to
@@ -159,7 +159,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} Float32Array to the DataStream backing buffer.
       */
-    mapFloat32Array(length: number, e: boolean | null): any;
+    mapFloat32Array(length: number, e?: boolean | null): any;
     /**
       Reads an Int32Array of desired length and endianness from the DataStream.
     
@@ -167,7 +167,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} The read Int32Array.
      */
-    readInt32Array(length: number, e: boolean | null): any;
+    readInt32Array(length: number, e?: boolean | null): any;
     /**
       Reads an Int16Array of desired length and endianness from the DataStream.
     
@@ -175,7 +175,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} The read Int16Array.
      */
-    readInt16Array(length: number, e: boolean | null): any;
+    readInt16Array(length: number, e?: boolean | null): any;
     /**
       Reads an Int8Array of desired length from the DataStream.
     
@@ -191,7 +191,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} The read Uint32Array.
      */
-    readUint32Array(length: number, e: boolean | null): any;
+    readUint32Array(length: number, e?: boolean | null): any;
     /**
       Reads a Uint16Array of desired length and endianness from the DataStream.
     
@@ -199,7 +199,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} The read Uint16Array.
      */
-    readUint16Array(length: number, e: boolean | null): any;
+    readUint16Array(length: number, e?: boolean | null): any;
     /**
       Reads a Uint8Array of desired length from the DataStream.
     
@@ -215,7 +215,7 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} The read Float64Array.
      */
-    readFloat64Array(length: number, e: boolean | null): any;
+    readFloat64Array(length: number, e?: boolean | null): any;
     /**
       Reads a Float32Array of desired length and endianness from the DataStream.
     
@@ -223,21 +223,21 @@ declare class DataStream {
       @param {?boolean} e Endianness of the data to read.
       @return {Object} The read Float32Array.
      */
-    readFloat32Array(length: number, e: boolean | null): any;
+    readFloat32Array(length: number, e?: boolean | null): any;
     /**
       Writes an Int32Array of specified endianness to the DataStream.
     
       @param {Object} arr The array to write.
       @param {?boolean} e Endianness of the data to write.
      */
-    writeInt32Array(arr: any, e: boolean | null): void;
+    writeInt32Array(arr: any, e?: boolean | null): void;
     /**
       Writes an Int16Array of specified endianness to the DataStream.
     
       @param {Object} arr The array to write.
       @param {?boolean} e Endianness of the data to write.
      */
-    writeInt16Array(arr: any, e: boolean | null): void;
+    writeInt16Array(arr: any, e?: boolean | null): void;
     /**
       Writes an Int8Array to the DataStream.
     
@@ -250,14 +250,14 @@ declare class DataStream {
       @param {Object} arr The array to write.
       @param {?boolean} e Endianness of the data to write.
      */
-    writeUint32Array(arr: any, e: boolean | null): void;
+    writeUint32Array(arr: any, e?: boolean | null): void;
     /**
       Writes a Uint16Array of specified endianness to the DataStream.
     
       @param {Object} arr The array to write.
       @param {?boolean} e Endianness of the data to write.
      */
-    writeUint16Array(arr: any, e: boolean | null): void;
+    writeUint16Array(arr: any, e?: boolean | null): void;
     /**
       Writes a Uint8Array to the DataStream.
     
@@ -270,28 +270,28 @@ declare class DataStream {
       @param {Object} arr The array to write.
       @param {?boolean} e Endianness of the data to write.
      */
-    writeFloat64Array(arr: any, e: boolean | null): void;
+    writeFloat64Array(arr: any, e?: boolean | null): void;
     /**
       Writes a Float32Array of specified endianness to the DataStream.
     
       @param {Object} arr The array to write.
       @param {?boolean} e Endianness of the data to write.
      */
-    writeFloat32Array(arr: any, e: boolean | null): void;
+    writeFloat32Array(arr: any, e?: boolean | null): void;
     /**
       Reads a 32-bit int from the DataStream with the desired endianness.
     
       @param {?boolean} e Endianness of the number.
       @return {number} The read number.
      */
-    readInt32(e: boolean | null): number;
+    readInt32(e?: boolean | null): number;
     /**
       Reads a 16-bit int from the DataStream with the desired endianness.
     
       @param {?boolean} e Endianness of the number.
       @return {number} The read number.
      */
-    readInt16(e: boolean | null): number;
+    readInt16(e?: boolean | null): number;
     /**
       Reads an 8-bit int from the DataStream.
     
@@ -304,14 +304,14 @@ declare class DataStream {
       @param {?boolean} e Endianness of the number.
       @return {number} The read number.
      */
-    readUint32(e: boolean | null): number;
+    readUint32(e?: boolean | null): number;
     /**
       Reads a 16-bit unsigned int from the DataStream with the desired endianness.
     
       @param {?boolean} e Endianness of the number.
       @return {number} The read number.
      */
-    readUint16(e: boolean | null): number;
+    readUint16(e?: boolean | null): number;
     /**
       Reads an 8-bit unsigned int from the DataStream.
     
@@ -324,28 +324,28 @@ declare class DataStream {
       @param {?boolean} e Endianness of the number.
       @return {number} The read number.
      */
-    readFloat32(e: boolean | null): number;
+    readFloat32(e?: boolean | null): number;
     /**
       Reads a 64-bit float from the DataStream with the desired endianness.
     
       @param {?boolean} e Endianness of the number.
       @return {number} The read number.
      */
-    readFloat64(e: boolean | null): number;
+    readFloat64(e?: boolean | null): number;
     /**
       Writes a 32-bit int to the DataStream with the desired endianness.
     
       @param {number} v Number to write.
       @param {?boolean} e Endianness of the number.
      */
-    writeInt32(v: number, e: boolean | null): void;
+    writeInt32(v: number, e?: boolean | null): void;
     /**
       Writes a 16-bit int to the DataStream with the desired endianness.
     
       @param {number} v Number to write.
       @param {?boolean} e Endianness of the number.
      */
-    writeInt16(v: number, e: boolean | null): void;
+    writeInt16(v: number, e?: boolean | null): void;
     /**
       Writes an 8-bit int to the DataStream.
     
@@ -358,14 +358,14 @@ declare class DataStream {
       @param {number} v Number to write.
       @param {?boolean} e Endianness of the number.
      */
-    writeUint32(v: number, e: boolean | null): void;
+    writeUint32(v: number, e?: boolean | null): void;
     /**
       Writes a 16-bit unsigned int to the DataStream with the desired endianness.
     
       @param {number} v Number to write.
       @param {?boolean} e Endianness of the number.
      */
-    writeUint16(v: number, e: boolean | null): void;
+    writeUint16(v: number, e?: boolean | null): void;
     /**
       Writes an 8-bit unsigned  int to the DataStream.
     
@@ -378,14 +378,14 @@ declare class DataStream {
       @param {number} v Number to write.
       @param {?boolean} e Endianness of the number.
      */
-    writeFloat32(v: number, e: boolean | null): void;
+    writeFloat32(v: number, e?: boolean | null): void;
     /**
       Writes a 64-bit float to the DataStream with the desired endianness.
     
       @param {number} v Number to write.
       @param {?boolean} e Endianness of the number.
      */
-    writeFloat64(v: number, e: boolean | null): void;
+    writeFloat64(v: number, e?: boolean | null): void;
     /**
       Seek position where DataStream#readStruct ran into a problem.
       Useful for debugging struct parsing.

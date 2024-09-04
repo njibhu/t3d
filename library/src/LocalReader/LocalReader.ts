@@ -364,7 +364,7 @@ class LocalReader {
   loadFile(
     baseId: number,
     callback: (rawData?: ArrayBuffer | null, dxtType?: number, width?: number, height?: number) => void,
-    isImage: boolean,
+    isImage?: boolean,
     raw?: boolean
   ) {
     const mftId = this.getFileIndex(baseId);
