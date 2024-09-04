@@ -1,6 +1,6 @@
 export namespace V0_N {
   export type MapPackage = {
-    baseFile: string,
+    baseFile: number,
     variants: Array<MapVariant>,
     flags: number
   }
@@ -8,7 +8,7 @@ export namespace V0_N {
   export type MapVariant = {
     file: string,
     name: string,
-    token: number,
+    token: BigInt,
     flags: number
   }
 

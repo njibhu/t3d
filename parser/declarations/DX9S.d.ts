@@ -7,13 +7,13 @@ export namespace V0_N {
 
   export type AmatDx9SamplerV0 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV0 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV0 = {
@@ -25,12 +25,12 @@ export namespace V0_N {
   }
 
   export type AmatDx9PassV0 = {
-    renderState: Array<number>,
-    samplerIndex: Array<number>,
+    renderState: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -48,13 +48,13 @@ export namespace V1_N {
 
   export type AmatDx9SamplerV1 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV1 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV1 = {
@@ -67,17 +67,17 @@ export namespace V1_N {
 
   export type AmatDx9PassV1 = {
     effectRenderStates: Array<AmatDx9RenderStatesV1>,
-    samplerIndex: Array<number>,
-    pixelShader: Array<number>,
+    samplerIndex: Uint32Array,
+    pixelShader: Uint32Array,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
-    passFlags: Array<number>
+    passFlags: Uint32Array
   }
 
   export type AmatDx9RenderStatesV1 = {
-    renderStates: Array<number>
+    renderStates: Uint32Array
   }
 
 }
@@ -93,13 +93,13 @@ export namespace V2_N {
 
   export type AmatDx9SamplerV2 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV2 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV2 = {
@@ -115,12 +115,12 @@ export namespace V2_N {
   }
 
   export type AmatDx9EffectV2 = {
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -138,13 +138,13 @@ export namespace V3_N {
 
   export type AmatDx9SamplerV3 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV3 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV3 = {
@@ -160,12 +160,12 @@ export namespace V3_N {
   }
 
   export type AmatDx9EffectV3 = {
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -183,13 +183,13 @@ export namespace V4_N {
 
   export type AmatDx9SamplerV4 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV4 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV4 = {
@@ -205,12 +205,12 @@ export namespace V4_N {
   }
 
   export type AmatDx9EffectV4 = {
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -228,13 +228,13 @@ export namespace V5_N {
 
   export type AmatDx9SamplerV5 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV5 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV5 = {
@@ -250,12 +250,12 @@ export namespace V5_N {
   }
 
   export type AmatDx9EffectV5 = {
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -273,13 +273,13 @@ export namespace V6_N {
 
   export type AmatDx9SamplerV6 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV6 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV6 = {
@@ -294,12 +294,12 @@ export namespace V6_N {
   }
 
   export type AmatDx9EffectV6 = {
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -317,13 +317,13 @@ export namespace V7_N {
 
   export type AmatDx9SamplerV7 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV7 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV7 = {
@@ -338,12 +338,12 @@ export namespace V7_N {
   }
 
   export type AmatDx9EffectV7 = {
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -361,13 +361,13 @@ export namespace V8_N {
 
   export type AmatDx9SamplerV8 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV8 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV8 = {
@@ -382,12 +382,12 @@ export namespace V8_N {
   }
 
   export type AmatDx9EffectV8 = {
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -405,13 +405,13 @@ export namespace V9_N {
 
   export type AmatDx9SamplerV9 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV9 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array
   }
 
   export type AmatDx9TechniqueV9 = {
@@ -426,13 +426,13 @@ export namespace V9_N {
   }
 
   export type AmatDx9EffectV9 = {
-    token: number,
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    token: BigInt,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -450,13 +450,13 @@ export namespace V10_N {
 
   export type AmatDx9SamplerV10 = {
     textureIndex: number,
-    state: Array<number>
+    state: Uint32Array
   }
 
   export type AmatDx9ShaderV10 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>,
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array,
     instructionCount: number
   }
 
@@ -472,13 +472,13 @@ export namespace V10_N {
   }
 
   export type AmatDx9EffectV10 = {
-    token: number,
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    token: BigInt,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
-    texTransform: Array<number>,
+    texGen: Uint32Array,
+    texTransform: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }
@@ -497,14 +497,14 @@ export namespace V11_N {
 
   export type AmatDx9SamplerV11 = {
     textureIndex: number,
-    state: Array<number>,
+    state: Uint32Array,
     usesBindTexture: number
   }
 
   export type AmatDx9ShaderV11 = {
-    shader: Array<number>,
-    constRegisters: Array<number>,
-    constTokens: Array<number>,
+    shader: Uint32Array,
+    constRegisters: Uint32Array,
+    constTokens: Uint32Array,
     instructionCount: number
   }
 
@@ -520,12 +520,12 @@ export namespace V11_N {
   }
 
   export type AmatDx9EffectV11 = {
-    token: number,
-    renderStates: Array<number>,
-    samplerIndex: Array<number>,
+    token: BigInt,
+    renderStates: Uint32Array,
+    samplerIndex: Uint32Array,
     pixelShader: number,
     vertexShader: number,
-    texGen: Array<number>,
+    texGen: Uint32Array,
     vsGenFlags: number,
     passFlags: number
   }

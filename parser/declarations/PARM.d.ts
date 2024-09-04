@@ -1,8 +1,8 @@
 export namespace V0_N {
   export type MapParam = {
-    rect: Array<number>,
+    rect: Float32Array,
     flags: number,
-    guid: Array<number>
+    guid: Uint8Array
   }
 
 }

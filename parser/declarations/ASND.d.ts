@@ -1,6 +1,6 @@
 export namespace V0_N {
   export type WaveformDataV0 = {
-    data: Array<number>,
+    data: Uint8Array,
     flags: number,
     length: number,
     noteBase: number,
@@ -32,8 +32,8 @@ export namespace V1_N {
     reserved1: number,
     reserved2: number,
     reserved3: number,
-    audioData: Array<number>,
-    otherData: Array<number>
+    audioData: Uint8Array,
+    otherData: Uint8Array
   }
 
 }
@@ -60,8 +60,8 @@ export namespace V2_N {
     reserved6: number,
     reserved7: number,
     reserved8: number,
-    audioData: Array<number>,
-    otherData: Array<number>
+    audioData: Uint8Array,
+    otherData: Uint8Array
   }
 
   export type ReservedWaveformDataV2 = {

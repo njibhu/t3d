@@ -11,10 +11,10 @@ export namespace V0_N {
 
   export type PackMapCoarseNavGraphNodeV0 = {
     materialId: number,
-    bottomLeftBound: Array<number>,
-    topRightBound: Array<number>,
-    centroid: Array<number>,
-    faces: Array<number>
+    bottomLeftBound: Float32Array,
+    topRightBound: Float32Array,
+    centroid: Float32Array,
+    faces: Uint32Array
   }
 
   export type PackMapCoarseNavGraphNodeConnectionsV0 = {
@@ -29,8 +29,8 @@ export namespace V0_N {
   }
 
   export type PackMapCoarseNavGraphConnectionEdgeV0 = {
-    edgeStart: Array<number>,
-    edgeEnd: Array<number>
+    edgeStart: Float32Array,
+    edgeEnd: Float32Array
   }
 
 }

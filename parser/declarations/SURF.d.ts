@@ -1,13 +1,13 @@
 export namespace V0_N {
   export type MapSurfaces = {
     chunkData: Array<MapSurfaceChunk>,
-    typeData: Array<number>
+    typeData: BigUint64Array
   }
 
   export type MapSurfaceChunk = {
-    coord: Array<number>,
+    coord: Uint32Array,
     metadata: Array<MapSurfaceMeta>,
-    typeData: Array<number>
+    typeData: Uint8Array
   }
 
   export type MapSurfaceMeta = {
@@ -27,15 +27,15 @@ export namespace V1_N {
   }
 
   export type MapSurfaceAttribute = {
-    Id: number,
-    Sound: number,
+    Id: BigInt,
+    Sound: BigInt,
     flags: number
   }
 
   export type MapSurfaceAttributeTool = {
     name: string,
     category: string,
-    color: Array<number>
+    color: Uint8Array
   }
 
 }
@@ -51,29 +51,29 @@ export namespace V2_N {
   }
 
   export type MapSurfaceAttribute = {
-    Id: number,
-    Sound: number,
+    Id: BigInt,
+    Sound: BigInt,
     flags: number
   }
 
   export type MapSurfaceAttributeTool = {
     name: string,
     category: string,
-    color: Array<number>
+    color: Uint8Array
   }
 
   export type MapSurfaceTerrainOverride = {
-    chunkCoord: Array<number>,
+    chunkCoord: Uint32Array,
     overrideArray: Array<MapSurfaceOverride>
   }
 
   export type MapSurfaceOverride = {
-    surfaceId: number,
-    bitArray: Array<number>
+    surfaceId: BigInt,
+    bitArray: Uint32Array
   }
 
   export type MapSurfacePropOverride = {
-    propId: number,
+    propId: BigInt,
     overrideArray: Array<MapSurfaceOverride>
   }
 

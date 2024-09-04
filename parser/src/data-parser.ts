@@ -1,6 +1,6 @@
 import { BaseType, DataType } from "./types";
 
-interface Definition {
+export interface Definition {
   definitions?: {
     [definition: string]: { [key: string]: DataType | string };
   };

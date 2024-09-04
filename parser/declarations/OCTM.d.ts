@@ -1,9 +1,9 @@
 export namespace V0_N {
   export type MapOcclusionTome = {
     enableTomeQueries: number,
-    tome: Array<number>,
-    propIDMap: Array<number>,
-    reserved: Array<number>
+    tome: Uint8Array,
+    propIDMap: Uint8Array,
+    reserved: Uint8Array
   }
 
 }

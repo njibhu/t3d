@@ -1,7 +1,7 @@
 export namespace V1_N {
   export type PackMapPhysicsV1 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     shapeArray: Array<PackMapPhysicsShapeDataV1>,
     geometryArray: Array<PackMapPhysicsGeometryV1>,
     propModelArray: Array<PackMapPhysicsModelPropV1>
@@ -9,18 +9,18 @@ export namespace V1_N {
 
   export type PackMapPhysicsShapeDataV1 = {
     scale: number,
-    gameDataPtr: Array<number>
+    gameDataPtr: Uint8Array
   }
 
   export type PackMapPhysicsGeometryV1 = {
-    shapeDataIndexArray: Array<number>
+    shapeDataIndexArray: Uint32Array
   }
 
   export type PackMapPhysicsModelPropV1 = {
-    token: Array<number>,
+    token: Uint32Array,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
@@ -30,8 +30,8 @@ export type V1 = V1_N.PackMapPhysicsV1;
 
 export namespace V2_N {
   export type PackMapPhysicsV2 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     shapeArray: Array<PackMapPhysicsShapeDataV2>,
     geometryArray: Array<PackMapPhysicsGeometryV2>,
     propModelArray: Array<PackMapPhysicsModelPropV2>,
@@ -40,25 +40,25 @@ export namespace V2_N {
 
   export type PackMapPhysicsShapeDataV2 = {
     scale: number,
-    gameDataPtr: Array<number>
+    gameDataPtr: Uint8Array
   }
 
   export type PackMapPhysicsGeometryV2 = {
-    shapeDataIndexArray: Array<number>
+    shapeDataIndexArray: Uint32Array
   }
 
   export type PackMapPhysicsModelPropV2 = {
-    token: Array<number>,
+    token: Uint32Array,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelZoneV0 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
@@ -68,8 +68,8 @@ export type V2 = V2_N.PackMapPhysicsV2;
 
 export namespace V3_N {
   export type PackMapPhysicsV3 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     meshArray: Array<PackMapPhysicsMeshV3>,
     shapeArray: Array<PackMapPhysicsShapeDataV3>,
     geometryArray: Array<PackMapPhysicsGeometryV3>,
@@ -78,32 +78,32 @@ export namespace V3_N {
   }
 
   export type PackMapPhysicsMeshV3 = {
-    indexArray: Array<number>,
-    vertexArray: Array<Array<number>>,
-    moppCodeData: Array<number>
+    indexArray: Uint16Array,
+    vertexArray: Array<Float32Array>,
+    moppCodeData: Uint8Array
   }
 
   export type PackMapPhysicsShapeDataV3 = {
     scale: number,
-    gameDataPtr: Array<number>
+    gameDataPtr: Uint8Array
   }
 
   export type PackMapPhysicsGeometryV3 = {
-    shapeDataIndexArray: Array<number>
+    shapeDataIndexArray: Uint32Array
   }
 
   export type PackMapPhysicsModelPropV3 = {
-    token: Array<number>,
+    token: Uint32Array,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelZoneV1 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
@@ -113,8 +113,8 @@ export type V3 = V3_N.PackMapPhysicsV3;
 
 export namespace V4_N {
   export type PackMapPhysicsV4 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     objectArray: Array<PackMapPhysicsObjectV4>,
     geometryArray: Array<PackMapPhysicsGeometryV4>,
     propModelArray: Array<PackMapPhysicsModelPropV4>,
@@ -129,9 +129,9 @@ export namespace V4_N {
   }
 
   export type PackMapPhysicsMeshV4 = {
-    indexArray: Array<number>,
-    vertexArray: Array<Array<number>>,
-    moppCodeData: Array<number>
+    indexArray: Uint16Array,
+    vertexArray: Array<Float32Array>,
+    moppCodeData: Uint8Array
   }
 
   export type SceneFilePhysicsV7 = {
@@ -142,27 +142,27 @@ export namespace V4_N {
   }
 
   export type SceneBoxShapeV7 = {
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneSphereShapeV7 = {
-    center: Array<number>,
+    center: Float32Array,
     radius: number
   }
 
   export type SceneCapsuleShapeV7 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number
   }
 
   export type SceneMeshShapeV7 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneFileGameV5 = {
@@ -171,14 +171,14 @@ export namespace V4_N {
   }
 
   export type ScenePathV5 = {
-    properties: Array<number>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV5>,
     closed: number
   }
 
   export type ScenePathNodeV5 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number,
@@ -186,47 +186,47 @@ export namespace V4_N {
   }
 
   export type SceneGameMeshV5 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV5>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaceFlags: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaceFlags: Uint32Array
   }
 
   export type SceneEdgeV5 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
   export type PackMapPhysicsGeometryV4 = {
-    filePath: string,
+    filePath: number,
     quantizedExtents: number,
     objRefArray: Array<PackMapPhysicsObjectRefV4>
   }
 
   export type PackMapPhysicsObjectRefV4 = {
-    sequence: number,
+    sequence: BigInt,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV4 = {
-    token: number,
+    token: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelZoneV2 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelObstacleV4 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -236,8 +236,8 @@ export type V4 = V4_N.PackMapPhysicsV4;
 
 export namespace V5_N {
   export type PackMapPhysicsV5 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     objectArray: Array<PackMapPhysicsObjectV5>,
     geometryArray: Array<PackMapPhysicsGeometryV5>,
     propModelArray: Array<PackMapPhysicsModelPropV5>,
@@ -252,9 +252,9 @@ export namespace V5_N {
   }
 
   export type PackMapPhysicsMeshV5 = {
-    indexArray: Array<number>,
-    vertexArray: Array<Array<number>>,
-    moppCodeData: Array<number>
+    indexArray: Uint16Array,
+    vertexArray: Array<Float32Array>,
+    moppCodeData: Uint8Array
   }
 
   export type SceneFilePhysicsV7 = {
@@ -265,27 +265,27 @@ export namespace V5_N {
   }
 
   export type SceneBoxShapeV7 = {
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneSphereShapeV7 = {
-    center: Array<number>,
+    center: Float32Array,
     radius: number
   }
 
   export type SceneCapsuleShapeV7 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number
   }
 
   export type SceneMeshShapeV7 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneFileGameV5 = {
@@ -294,14 +294,14 @@ export namespace V5_N {
   }
 
   export type ScenePathV5 = {
-    properties: Array<number>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV5>,
     closed: number
   }
 
   export type ScenePathNodeV5 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     radius: number,
     flags: number,
     smoothing: number,
@@ -309,17 +309,17 @@ export namespace V5_N {
   }
 
   export type SceneGameMeshV5 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV5>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaceFlags: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaceFlags: Uint32Array
   }
 
   export type SceneEdgeV5 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
   export type PackMapPhysicsGeometryV5 = {
@@ -329,27 +329,27 @@ export namespace V5_N {
   }
 
   export type PackMapPhysicsObjectRefV5 = {
-    sequence: number,
+    sequence: BigInt,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV5 = {
-    token: number,
+    token: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelZoneV3 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelObstacleV5 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -359,8 +359,8 @@ export type V5 = V5_N.PackMapPhysicsV5;
 
 export namespace V6_N {
   export type PackMapPhysicsV6 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     objectArray: Array<PackMapPhysicsObjectV6>,
     geometryArray: Array<PackMapPhysicsGeometryV6>,
     propModelArray: Array<PackMapPhysicsModelPropV6>,
@@ -375,9 +375,9 @@ export namespace V6_N {
   }
 
   export type PackMapPhysicsMeshV6 = {
-    indexArray: Array<number>,
-    vertexArray: Array<Array<number>>,
-    moppCodeData: Array<number>
+    indexArray: Uint16Array,
+    vertexArray: Array<Float32Array>,
+    moppCodeData: Uint8Array
   }
 
   export type SceneFilePhysicsV7 = {
@@ -388,27 +388,27 @@ export namespace V6_N {
   }
 
   export type SceneBoxShapeV7 = {
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneSphereShapeV7 = {
-    center: Array<number>,
+    center: Float32Array,
     radius: number
   }
 
   export type SceneCapsuleShapeV7 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number
   }
 
   export type SceneMeshShapeV7 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneFileGameV6 = {
@@ -418,35 +418,35 @@ export namespace V6_N {
   }
 
   export type ScenePathV6 = {
-    properties: Array<number>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV6>,
     closed: number
   }
 
   export type ScenePathNodeV6 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     flags: number,
     smoothing: number,
     singlesided: number
   }
 
   export type SceneGameMeshV6 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV6>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaces: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaces: Uint8Array
   }
 
   export type SceneEdgeV6 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
   export type SceneGameSurfaceV6 = {
-    tokens: Array<number>
+    tokens: BigUint64Array
   }
 
   export type PackMapPhysicsGeometryV6 = {
@@ -456,27 +456,27 @@ export namespace V6_N {
   }
 
   export type PackMapPhysicsObjectRefV6 = {
-    sequence: number,
+    sequence: BigInt,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV6 = {
-    token: number,
+    token: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelZoneV4 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelObstacleV6 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -486,14 +486,14 @@ export type V6 = V6_N.PackMapPhysicsV6;
 
 export namespace V7_N {
   export type PackMapPhysicsV7 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     blockArray: Array<PackMapPhysicsBlockV7>
   }
 
   export type PackMapPhysicsBlockV7 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     objectArray: Array<PackMapPhysicsObjectV7>,
     geometryArray: Array<PackMapPhysicsGeometryV7>,
     propModelArray: Array<PackMapPhysicsModelPropV7>,
@@ -508,9 +508,9 @@ export namespace V7_N {
   }
 
   export type PackMapPhysicsMeshV7 = {
-    indexArray: Array<number>,
-    vertexArray: Array<Array<number>>,
-    moppCodeData: Array<number>
+    indexArray: Uint16Array,
+    vertexArray: Array<Float32Array>,
+    moppCodeData: Uint8Array
   }
 
   export type SceneFilePhysicsV7 = {
@@ -521,27 +521,27 @@ export namespace V7_N {
   }
 
   export type SceneBoxShapeV7 = {
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneSphereShapeV7 = {
-    center: Array<number>,
+    center: Float32Array,
     radius: number
   }
 
   export type SceneCapsuleShapeV7 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number
   }
 
   export type SceneMeshShapeV7 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneFileGameV6 = {
@@ -551,35 +551,35 @@ export namespace V7_N {
   }
 
   export type ScenePathV6 = {
-    properties: Array<number>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV6>,
     closed: number
   }
 
   export type ScenePathNodeV6 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     flags: number,
     smoothing: number,
     singlesided: number
   }
 
   export type SceneGameMeshV6 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV6>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaces: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaces: Uint8Array
   }
 
   export type SceneEdgeV6 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
   export type SceneGameSurfaceV6 = {
-    tokens: Array<number>
+    tokens: BigUint64Array
   }
 
   export type PackMapPhysicsGeometryV7 = {
@@ -589,27 +589,27 @@ export namespace V7_N {
   }
 
   export type PackMapPhysicsObjectRefV7 = {
-    sequence: number,
+    sequence: BigInt,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV7 = {
-    token: number,
+    token: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelZoneV5 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelObstacleV7 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -619,14 +619,14 @@ export type V7 = V7_N.PackMapPhysicsV7;
 
 export namespace V8_N {
   export type PackMapPhysicsV8 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     blockArray: Array<PackMapPhysicsBlockV8>
   }
 
   export type PackMapPhysicsBlockV8 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     objectArray: Array<PackMapPhysicsObjectV8>,
     geometryArray: Array<PackMapPhysicsGeometryV8>,
     propModelArray: Array<PackMapPhysicsModelPropV8>,
@@ -642,9 +642,9 @@ export namespace V8_N {
   }
 
   export type PackMapPhysicsMeshV8 = {
-    indexArray: Array<number>,
-    vertexArray: Array<Array<number>>,
-    moppCodeData: Array<number>
+    indexArray: Uint16Array,
+    vertexArray: Array<Float32Array>,
+    moppCodeData: Uint8Array
   }
 
   export type SceneFilePhysicsV7 = {
@@ -655,27 +655,27 @@ export namespace V8_N {
   }
 
   export type SceneBoxShapeV7 = {
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneSphereShapeV7 = {
-    center: Array<number>,
+    center: Float32Array,
     radius: number
   }
 
   export type SceneCapsuleShapeV7 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number
   }
 
   export type SceneMeshShapeV7 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array
   }
 
   export type SceneFileGameV6 = {
@@ -685,35 +685,35 @@ export namespace V8_N {
   }
 
   export type ScenePathV6 = {
-    properties: Array<number>,
+    properties: BigUint64Array,
     points: Array<ScenePathNodeV6>,
     closed: number
   }
 
   export type ScenePathNodeV6 = {
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     flags: number,
     smoothing: number,
     singlesided: number
   }
 
   export type SceneGameMeshV6 = {
-    indices: Array<number>,
-    vertices: Array<Array<number>>,
+    indices: Uint16Array,
+    vertices: Array<Float32Array>,
     edges: Array<SceneEdgeV6>,
-    moppInfo: Array<number>,
-    moppBytes: Array<number>,
-    surfaces: Array<number>
+    moppInfo: Float32Array,
+    moppBytes: Uint8Array,
+    surfaces: Uint8Array
   }
 
   export type SceneEdgeV6 = {
-    indices: Array<number>,
-    triangles: Array<number>
+    indices: Uint32Array,
+    triangles: Uint32Array
   }
 
   export type SceneGameSurfaceV6 = {
-    tokens: Array<number>
+    tokens: BigUint64Array
   }
 
   export type PackMapPhysicsGeometryV8 = {
@@ -723,27 +723,27 @@ export namespace V8_N {
   }
 
   export type PackMapPhysicsObjectRefV8 = {
-    sequence: number,
+    sequence: BigInt,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV8 = {
-    token: number,
+    token: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelZoneV6 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelObstacleV8 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -753,14 +753,14 @@ export type V8 = V8_N.PackMapPhysicsV8;
 
 export namespace V9_N {
   export type PackMapPhysicsV9 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     blockArray: Array<PackMapPhysicsBlockV9>
   }
 
   export type PackMapPhysicsBlockV9 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     objectArray: Array<PackMapPhysicsObjectV9>,
     geometryArray: Array<PackMapPhysicsGeometryV9>,
     propModelArray: Array<PackMapPhysicsModelPropV9>,
@@ -771,13 +771,13 @@ export namespace V9_N {
 
   export type PackMapPhysicsObjectV9 = {
     mesh: PackMapPhysicsMeshV9,
-    sceneFilePtr: Array<number>
+    sceneFilePtr: Uint8Array
   }
 
   export type PackMapPhysicsMeshV9 = {
-    indexArray: Array<number>,
-    vertexArray: Array<Array<number>>,
-    moppCodeData: Array<number>
+    indexArray: Uint16Array,
+    vertexArray: Array<Float32Array>,
+    moppCodeData: Uint8Array
   }
 
   export type PackMapPhysicsGeometryV9 = {
@@ -787,27 +787,27 @@ export namespace V9_N {
   }
 
   export type PackMapPhysicsObjectRefV9 = {
-    sequence: number,
+    sequence: BigInt,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV9 = {
-    token: number,
+    token: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelZoneV7 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelObstacleV9 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 
@@ -817,14 +817,14 @@ export type V9 = V9_N.PackMapPhysicsV9;
 
 export namespace V10_N {
   export type PackMapPhysicsV10 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     blockArray: Array<PackMapPhysicsBlockV10>
   }
 
   export type PackMapPhysicsBlockV10 = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
     objectArray: Array<PackMapPhysicsObjectV10>,
     geometryArray: Array<PackMapPhysicsGeometryV10>,
     propModelArray: Array<PackMapPhysicsModelPropV10>,
@@ -835,44 +835,44 @@ export namespace V10_N {
 
   export type PackMapPhysicsObjectV10 = {
     mesh: PackMapPhysicsMeshV10,
-    sceneFilePtr: Array<number>
+    sceneFilePtr: Uint8Array
   }
 
   export type PackMapPhysicsMeshV10 = {
-    indexArray: Array<number>,
-    vertexArray: Array<Array<number>>,
-    moppCodeData: Array<number>
+    indexArray: Uint16Array,
+    vertexArray: Array<Float32Array>,
+    moppCodeData: Uint8Array
   }
 
   export type PackMapPhysicsGeometryV10 = {
     filePath: string,
     quantizedExtents: number,
     objRefArray: Array<PackMapPhysicsObjectRefV10>,
-    surface: Array<number>
+    surface: Uint16Array
   }
 
   export type PackMapPhysicsObjectRefV10 = {
-    sequence: number,
+    sequence: BigInt,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV10 = {
-    token: number,
+    token: BigInt,
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelZoneV8 = {
     scale: number,
-    translate: Array<number>,
-    rotate: Array<number>,
+    translate: Float32Array,
+    rotate: Float32Array,
     geometryIndex: number
   }
 
   export type PackMapPhysicsModelObstacleV10 = {
-    translate: Array<number>,
+    translate: Float32Array,
     geometryIndex: number
   }
 

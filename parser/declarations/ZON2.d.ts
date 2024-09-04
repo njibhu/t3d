@@ -5,10 +5,10 @@ export namespace V11_N {
   }
 
   export type PackMapZoneDefV12 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV12>,
-    timeStamp: number
+    timeStamp: BigInt
   }
 
   export type PackMapZoneLayerDefV12 = {
@@ -17,10 +17,10 @@ export namespace V11_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
     noise: number,
     layerFlags: number,
     modelArray: Array<PackMapZoneModelV12>,
@@ -28,24 +28,24 @@ export namespace V11_N {
   }
 
   export type PackMapZoneModelV12 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number
   }
 
   export type PackMapZoneV12 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV12>,
     collideData: Array<PackMapZoneCollideDataV12>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>
   }
 
   export type PackMapZoneEncodingDataV12 = {
@@ -70,10 +70,10 @@ export namespace V12_N {
   }
 
   export type PackMapZoneDefV13 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV13>,
-    timeStamp: number
+    timeStamp: BigInt
   }
 
   export type PackMapZoneLayerDefV13 = {
@@ -83,10 +83,10 @@ export namespace V12_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
     noise: number,
     layerFlags: number,
     modelArray: Array<PackMapZoneModelV13>,
@@ -94,24 +94,24 @@ export namespace V12_N {
   }
 
   export type PackMapZoneModelV13 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number
   }
 
   export type PackMapZoneV13 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV13>,
     collideData: Array<PackMapZoneCollideDataV13>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>
   }
 
   export type PackMapZoneEncodingDataV13 = {
@@ -136,10 +136,10 @@ export namespace V13_N {
   }
 
   export type PackMapZoneDefV14 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV14>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV2
   }
 
@@ -150,10 +150,10 @@ export namespace V13_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
     noise: number,
     layerFlags: number,
     modelArray: Array<PackMapZoneModelV14>,
@@ -161,7 +161,7 @@ export namespace V13_N {
   }
 
   export type PackMapZoneModelV14 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number
   }
@@ -172,25 +172,25 @@ export namespace V13_N {
   }
 
   export type PackMapZonePageV2 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>
+    paintFlags: Uint32Array
   }
 
   export type PackMapZoneV14 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV14>,
     collideData: Array<PackMapZoneCollideDataV14>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>
   }
 
   export type PackMapZoneEncodingDataV14 = {
@@ -215,10 +215,10 @@ export namespace V14_N {
   }
 
   export type PackMapZoneDefV15 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV15>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV3
   }
 
@@ -229,10 +229,10 @@ export namespace V14_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
     noise: number,
     layerFlags: number,
     modelArray: Array<PackMapZoneModelV15>,
@@ -240,10 +240,10 @@ export namespace V14_N {
   }
 
   export type PackMapZoneModelV15 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number,
-    hslOffset: Array<number>
+    hslOffset: Float32Array
   }
 
   export type PackMapZonePageTableV3 = {
@@ -252,25 +252,25 @@ export namespace V14_N {
   }
 
   export type PackMapZonePageV3 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>
+    paintFlags: Uint32Array
   }
 
   export type PackMapZoneV15 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV15>,
     collideData: Array<PackMapZoneCollideDataV15>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>
   }
 
   export type PackMapZoneEncodingDataV15 = {
@@ -297,10 +297,10 @@ export namespace V15_N {
   }
 
   export type PackMapZoneDefV16 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV16>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV4
   }
 
@@ -311,10 +311,10 @@ export namespace V15_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
     noise: number,
     layerFlags: number,
     modelArray: Array<PackMapZoneModelV16>,
@@ -322,10 +322,10 @@ export namespace V15_N {
   }
 
   export type PackMapZoneModelV16 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number,
-    hslOffset: Array<number>
+    hslOffset: Float32Array
   }
 
   export type PackMapZonePageTableV4 = {
@@ -334,25 +334,25 @@ export namespace V15_N {
   }
 
   export type PackMapZonePageV4 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>
+    paintFlags: Uint32Array
   }
 
   export type PackMapZoneV16 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV16>,
     collideData: Array<PackMapZoneCollideDataV16>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>,
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>,
     broadId: number
   }
 
@@ -368,7 +368,7 @@ export namespace V15_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -384,10 +384,10 @@ export namespace V16_N {
   }
 
   export type PackMapZoneDefV17 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV17>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV5
   }
 
@@ -398,10 +398,10 @@ export namespace V16_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
     noise: number,
     layerFlags: number,
     modelArray: Array<PackMapZoneModelV17>,
@@ -409,10 +409,10 @@ export namespace V16_N {
   }
 
   export type PackMapZoneModelV17 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number,
-    hslOffset: Array<number>
+    hslOffset: Float32Array
   }
 
   export type PackMapZonePageTableV5 = {
@@ -421,25 +421,25 @@ export namespace V16_N {
   }
 
   export type PackMapZonePageV5 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>
+    paintFlags: Uint32Array
   }
 
   export type PackMapZoneV17 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV17>,
     collideData: Array<PackMapZoneCollideDataV17>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>,
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>,
     broadId: number
   }
 
@@ -455,7 +455,7 @@ export namespace V16_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -471,10 +471,10 @@ export namespace V17_N {
   }
 
   export type PackMapZoneDefV18 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV18>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV6
   }
 
@@ -485,24 +485,24 @@ export namespace V17_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
-    hslRanges: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
+    hslRanges: Array<Float32Array>,
     noise: number,
     layerFlags: number,
-    materialname: string,
+    materialname: number,
     modelArray: Array<PackMapZoneModelV18>,
     subModel: PackMapZoneModelV18
   }
 
   export type PackMapZoneModelV18 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number,
-    hslOffset: Array<number>,
-    zOffsets: Array<number>
+    hslOffset: Float32Array,
+    zOffsets: Uint8Array
   }
 
   export type PackMapZonePageTableV6 = {
@@ -511,25 +511,25 @@ export namespace V17_N {
   }
 
   export type PackMapZonePageV6 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>
+    paintFlags: Uint32Array
   }
 
   export type PackMapZoneV18 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV18>,
     collideData: Array<PackMapZoneCollideDataV18>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>,
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>,
     broadId: number
   }
 
@@ -545,7 +545,7 @@ export namespace V17_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -561,10 +561,10 @@ export namespace V18_N {
   }
 
   export type PackMapZoneDefV19 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV19>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV7
   }
 
@@ -575,24 +575,24 @@ export namespace V18_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
-    hslRanges: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
+    hslRanges: Array<Float32Array>,
     noise: number,
     layerFlags: number,
-    materialname: string,
+    materialname: number,
     modelArray: Array<PackMapZoneModelV19>,
     subModel: PackMapZoneModelV19
   }
 
   export type PackMapZoneModelV19 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number,
-    hslOffset: Array<number>,
-    zOffsets: Array<number>
+    hslOffset: Float32Array,
+    zOffsets: Uint8Array
   }
 
   export type PackMapZonePageTableV7 = {
@@ -601,25 +601,25 @@ export namespace V18_N {
   }
 
   export type PackMapZonePageV7 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>
+    paintFlags: Uint32Array
   }
 
   export type PackMapZoneV19 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV19>,
     collideData: Array<PackMapZoneCollideDataV19>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>,
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>,
     broadId: number
   }
 
@@ -635,7 +635,7 @@ export namespace V18_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -651,10 +651,10 @@ export namespace V19_N {
   }
 
   export type PackMapZoneDefV20 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV20>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV8
   }
 
@@ -665,25 +665,25 @@ export namespace V19_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
-    hslRanges: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
+    hslRanges: Array<Float32Array>,
     instanceScaleJitter: number,
     noise: number,
     layerFlags: number,
-    materialname: string,
+    materialname: number,
     modelArray: Array<PackMapZoneModelV20>,
     subModel: PackMapZoneModelV20
   }
 
   export type PackMapZoneModelV20 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number,
-    hslOffset: Array<number>,
-    zOffsets: Array<number>
+    hslOffset: Float32Array,
+    zOffsets: Uint8Array
   }
 
   export type PackMapZonePageTableV8 = {
@@ -692,25 +692,25 @@ export namespace V19_N {
   }
 
   export type PackMapZonePageV8 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>
+    paintFlags: Uint32Array
   }
 
   export type PackMapZoneV20 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV20>,
     collideData: Array<PackMapZoneCollideDataV20>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>,
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>,
     broadId: number
   }
 
@@ -726,7 +726,7 @@ export namespace V19_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -742,10 +742,10 @@ export namespace V20_N {
   }
 
   export type PackMapZoneDefV21 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV21>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV9
   }
 
@@ -756,25 +756,25 @@ export namespace V20_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
-    hslRanges: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
+    hslRanges: Array<Float32Array>,
     instanceScaleJitter: number,
     noise: number,
     layerFlags: number,
-    materialname: string,
+    materialname: number,
     modelArray: Array<PackMapZoneModelV21>,
     subModel: PackMapZoneModelV21
   }
 
   export type PackMapZoneModelV21 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number,
-    hslOffset: Array<number>,
-    zOffsets: Array<number>
+    hslOffset: Float32Array,
+    zOffsets: Uint8Array
   }
 
   export type PackMapZonePageTableV9 = {
@@ -783,25 +783,25 @@ export namespace V20_N {
   }
 
   export type PackMapZonePageV9 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>
+    paintFlags: Uint32Array
   }
 
   export type PackMapZoneV21 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV21>,
     collideData: Array<PackMapZoneCollideDataV21>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>,
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>,
     broadId: number
   }
 
@@ -817,7 +817,7 @@ export namespace V20_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -834,10 +834,10 @@ export namespace V21_N {
   }
 
   export type PackMapZoneDefV22 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV22>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV10,
     reserved: string
   }
@@ -849,26 +849,26 @@ export namespace V21_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
-    hslRanges: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
+    hslRanges: Array<Float32Array>,
     instanceScaleJitter: number,
     noise: number,
     layerFlags: number,
-    materialname: string,
+    materialname: number,
     modelArray: Array<PackMapZoneModelV22>,
     subModel: PackMapZoneModelV22,
     reserved: string
   }
 
   export type PackMapZoneModelV22 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number,
-    hslOffset: Array<number>,
-    zOffsets: Array<number>
+    hslOffset: Float32Array,
+    zOffsets: Uint8Array
   }
 
   export type PackMapZonePageTableV10 = {
@@ -877,26 +877,26 @@ export namespace V21_N {
   }
 
   export type PackMapZonePageV10 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>,
+    paintFlags: Uint32Array,
     string: string
   }
 
   export type PackMapZoneV22 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV22>,
     collideData: Array<PackMapZoneCollideDataV22>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>,
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>,
     broadId: number,
     reserved: string
   }
@@ -913,7 +913,7 @@ export namespace V21_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -930,10 +930,10 @@ export namespace V22_N {
   }
 
   export type PackMapZoneDefV23 = {
-    defFilename: string,
+    defFilename: number,
     token: number,
     layerDefArray: Array<PackMapZoneLayerDefV23>,
-    timeStamp: number,
+    timeStamp: BigInt,
     pageTable: PackMapZonePageTableV11,
     reserved: string
   }
@@ -945,27 +945,27 @@ export namespace V22_N {
     radiusGround: number,
     sortGroup: number,
     tiling: number,
-    scaleRange: Array<number>,
+    scaleRange: Float32Array,
     probability: number,
-    fadeRange: Array<number>,
-    rotRange: Array<Array<number>>,
-    hslRanges: Array<Array<number>>,
+    fadeRange: Float32Array,
+    rotRange: Array<Float32Array>,
+    hslRanges: Array<Float32Array>,
     instanceScaleJitter: number,
     noise: number,
     layerFlags: number,
-    materialname: string,
+    materialname: number,
     modelArray: Array<PackMapZoneModelV23>,
     subModel: PackMapZoneModelV23,
     reserved: string
   }
 
   export type PackMapZoneModelV23 = {
-    filename: string,
+    filename: number,
     probability: number,
     flags: number,
-    hslOffset: Array<number>,
-    zOffsets: Array<number>,
-    permutation: number
+    hslOffset: Float32Array,
+    zOffsets: Uint8Array,
+    permutation: BigInt
   }
 
   export type PackMapZonePageTableV11 = {
@@ -974,26 +974,26 @@ export namespace V22_N {
   }
 
   export type PackMapZonePageV11 = {
-    flags: Array<number>,
-    chunkCoord: Array<number>,
+    flags: Uint8Array,
+    chunkCoord: Uint32Array,
     seed: number,
-    paintFlags: Array<number>,
+    paintFlags: Uint32Array,
     string: string
   }
 
   export type PackMapZoneV23 = {
     zoneFlags: number,
-    vertRect: Array<number>,
+    vertRect: Uint32Array,
     waterHeight: number,
     seed: number,
     defToken: number,
-    range: Array<number>,
+    range: Float32Array,
     zPos: number,
-    flags: Array<number>,
+    flags: Uint8Array,
     encodeData: Array<PackMapZoneEncodingDataV23>,
     collideData: Array<PackMapZoneCollideDataV23>,
-    offsetData: Array<number>,
-    vertices: Array<Array<number>>,
+    offsetData: Uint16Array,
+    vertices: Array<Float32Array>,
     broadId: number,
     reserved: string
   }
@@ -1010,7 +1010,7 @@ export namespace V22_N {
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }

@@ -8,14 +8,14 @@ export namespace V3_N {
   }
 
   export type MapEditRegion = {
-    ambientColor: Array<number>,
-    directionalColor: Array<number>,
+    ambientColor: Uint8Array,
+    directionalColor: Uint8Array,
     ambientIntenisty: number,
     directionalIntenisty: number
   }
 
   export type MapEditLayers = {
-    layerStates: Array<number>
+    layerStates: Uint8Array
   }
 
   export type PackMapEditAnnotations = {
@@ -25,13 +25,13 @@ export namespace V3_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>
+    anchors: Array<Float32Array>
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -49,15 +49,15 @@ export namespace V4_N {
   }
 
   export type MapEditRegion = {
-    ambientColor: Array<number>,
-    directionalColor: Array<number>,
+    ambientColor: Uint8Array,
+    directionalColor: Uint8Array,
     ambientIntenisty: number,
     directionalIntenisty: number
   }
 
   export type MapEditLayers = {
-    layerPropCount: Array<number>,
-    layerStates: Array<number>
+    layerPropCount: Uint32Array,
+    layerStates: Uint8Array
   }
 
   export type PackMapEditAnnotations = {
@@ -67,13 +67,13 @@ export namespace V4_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>
+    anchors: Array<Float32Array>
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -92,15 +92,15 @@ export namespace V5_N {
   }
 
   export type MapEditRegion = {
-    ambientColor: Array<number>,
-    directionalColor: Array<number>,
+    ambientColor: Uint8Array,
+    directionalColor: Uint8Array,
     ambientIntenisty: number,
     directionalIntenisty: number
   }
 
   export type MapEditLayers = {
-    layerPropCount: Array<number>,
-    layerStates: Array<number>
+    layerPropCount: Uint32Array,
+    layerStates: Uint8Array
   }
 
   export type PackMapEditAnnotations = {
@@ -110,18 +110,18 @@ export namespace V5_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>
+    anchors: Array<Float32Array>
   }
 
   export type PackMapEditDirtyChunks = {
     dirtyFlags: number,
-    chunkCoord: Array<number>
+    chunkCoord: Uint32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -141,15 +141,15 @@ export namespace V6_N {
   }
 
   export type MapEditRegion = {
-    ambientColor: Array<number>,
-    directionalColor: Array<number>,
+    ambientColor: Uint8Array,
+    directionalColor: Uint8Array,
     ambientIntenisty: number,
     directionalIntenisty: number
   }
 
   export type MapEditLayers = {
-    layerPropCount: Array<number>,
-    layerStates: Array<number>
+    layerPropCount: Uint32Array,
+    layerStates: Uint8Array
   }
 
   export type PackMapEditAnnotations = {
@@ -159,18 +159,18 @@ export namespace V6_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>
+    anchors: Array<Float32Array>
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -188,8 +188,8 @@ export namespace V7_N {
   }
 
   export type MapEditLayers = {
-    layerPropCount: Array<number>,
-    layerStates: Array<number>
+    layerPropCount: Uint32Array,
+    layerStates: Uint8Array
   }
 
   export type PackMapEditAnnotations = {
@@ -199,19 +199,19 @@ export namespace V7_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -229,8 +229,8 @@ export namespace V8_N {
   }
 
   export type MapEditLayers = {
-    layerPropCount: Array<number>,
-    layerStates: Array<number>,
+    layerPropCount: Uint32Array,
+    layerStates: Uint8Array,
     layerNames: Array<string>
   }
 
@@ -241,19 +241,19 @@ export namespace V8_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -273,8 +273,8 @@ export namespace V9_N {
   }
 
   export type MapEditLayers = {
-    layerPropCount: Array<number>,
-    layerStates: Array<number>,
+    layerPropCount: Uint32Array,
+    layerStates: Uint8Array,
     layerNames: Array<string>
   }
 
@@ -285,19 +285,19 @@ export namespace V9_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -318,8 +318,8 @@ export namespace V10_N {
   }
 
   export type MapEditLayers = {
-    layerPropCount: Array<number>,
-    layerStates: Array<number>,
+    layerPropCount: Uint32Array,
+    layerStates: Uint8Array,
     layerNames: Array<string>
   }
 
@@ -330,19 +330,19 @@ export namespace V10_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -364,13 +364,13 @@ export namespace V11_N {
   }
 
   export type MapEditLayers = {
-    layerStates: Array<number>,
+    layerStates: Uint8Array,
     layerNames: Array<string>,
     items: Array<MapEditLayerItem>
   }
 
   export type MapEditLayerItem = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
     layerFlags: number
   }
@@ -382,28 +382,28 @@ export namespace V11_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
   export type MapEditSnapPoint = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
     flags: number,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -425,13 +425,13 @@ export namespace V12_N {
   }
 
   export type MapEditLayers = {
-    layerStates: Array<number>,
+    layerStates: Uint8Array,
     layerNames: Array<string>,
     items: Array<MapEditLayerItem>
   }
 
   export type MapEditLayerItem = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
     layerFlags: number
   }
@@ -443,28 +443,28 @@ export namespace V12_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
   export type MapEditSnapPoint = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
     flags: number,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -486,16 +486,16 @@ export namespace V13_N {
   }
 
   export type MapEditLayers = {
-    layerStates: Array<number>,
+    layerStates: Uint8Array,
     layerNames: Array<string>,
-    layerIds: Array<number>,
+    layerIds: Uint32Array,
     items: Array<MapEditLayerItem>
   }
 
   export type MapEditLayerItem = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
-    layerFlags: Array<number>
+    layerFlags: Uint32Array
   }
 
   export type PackMapEditAnnotations = {
@@ -505,28 +505,28 @@ export namespace V13_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
   export type MapEditSnapPoint = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
     flags: number,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -548,16 +548,16 @@ export namespace V14_N {
   }
 
   export type MapEditLayers = {
-    layerStates: Array<number>,
+    layerStates: Uint8Array,
     layerNames: Array<string>,
-    layerIds: Array<number>,
+    layerIds: Uint32Array,
     items: Array<MapEditLayerItem>
   }
 
   export type MapEditLayerItem = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
-    layerFlags: Array<number>
+    layerFlags: Uint32Array
   }
 
   export type PackMapEditAnnotations = {
@@ -567,19 +567,19 @@ export namespace V14_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -592,8 +592,8 @@ export namespace V14_N {
   export type PackMapEditSurfacePoly = {
     name: string,
     surfaceType: number,
-    vertices: Array<Array<number>>,
-    range: Array<number>
+    vertices: Array<Float32Array>,
+    range: Float32Array
   }
 
   export type PackMapEditSurfaceRoad = {
@@ -603,16 +603,16 @@ export namespace V14_N {
   }
 
   export type PackMapEditSurfaceRoadNode = {
-    position: Array<number>,
+    position: Float32Array,
     radius: number
   }
 
   export type MapEditSnapPoint = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
     flags: number,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
@@ -635,16 +635,16 @@ export namespace V15_N {
   }
 
   export type MapEditLayers = {
-    layerStates: Array<number>,
+    layerStates: Uint8Array,
     layerNames: Array<string>,
-    layerIds: Array<number>,
+    layerIds: Uint32Array,
     items: Array<MapEditLayerItem>
   }
 
   export type MapEditLayerItem = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
-    layerFlags: Array<number>
+    layerFlags: Uint32Array
   }
 
   export type PackMapEditAnnotations = {
@@ -654,19 +654,19 @@ export namespace V15_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -679,8 +679,8 @@ export namespace V15_N {
   export type PackMapEditSurfacePoly = {
     name: string,
     surfaceType: number,
-    vertices: Array<Array<number>>,
-    range: Array<number>
+    vertices: Array<Float32Array>,
+    range: Float32Array
   }
 
   export type PackMapEditSurfaceRoad = {
@@ -690,28 +690,28 @@ export namespace V15_N {
   }
 
   export type PackMapEditSurfaceRoadNode = {
-    position: Array<number>,
+    position: Float32Array,
     radius: number
   }
 
   export type MapEditSnapPoint = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
     flags: number,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type MapEditMeasureSpan = {
     name: string,
-    substrateId0: number,
-    substrateId1: number,
+    substrateId0: BigInt,
+    substrateId1: BigInt,
     substrateModuleId0: number,
     substrateModuleId1: number,
-    position0: Array<number>,
-    position1: Array<number>,
-    limits: Array<number>
+    position0: Float32Array,
+    position1: Float32Array,
+    limits: Float32Array
   }
 
 }
@@ -733,16 +733,16 @@ export namespace V16_N {
   }
 
   export type MapEditLayers = {
-    layerStates: Array<number>,
+    layerStates: Uint8Array,
     layerNames: Array<string>,
-    layerIds: Array<number>,
+    layerIds: Uint32Array,
     items: Array<MapEditLayerItem>
   }
 
   export type MapEditLayerItem = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
-    layerFlags: Array<number>
+    layerFlags: Uint32Array
   }
 
   export type PackMapEditAnnotations = {
@@ -752,19 +752,19 @@ export namespace V16_N {
   export type PackMapEditAnnotation = {
     name: string,
     flags: number,
-    anchors: Array<Array<number>>,
-    zRange: Array<number>
+    anchors: Array<Float32Array>,
+    zRange: Float32Array
   }
 
   export type PackMapEditDirtyChunks = {
     flags: number,
-    position: Array<number>
+    position: Float32Array
   }
 
   export type MapEditCamLocations = {
     attack: number,
     rotation: number,
-    position: Array<number>,
+    position: Float32Array,
     name: string
   }
 
@@ -778,8 +778,8 @@ export namespace V16_N {
   export type PackMapEditSurfacePoly = {
     name: string,
     surfaceType: number,
-    vertices: Array<Array<number>>,
-    range: Array<number>
+    vertices: Array<Float32Array>,
+    range: Float32Array
   }
 
   export type PackMapEditSurfaceRoad = {
@@ -789,34 +789,34 @@ export namespace V16_N {
   }
 
   export type PackMapEditSurfaceRoadNode = {
-    position: Array<number>,
+    position: Float32Array,
     radius: number
   }
 
   export type PackMapEditNavmeshGenPropMode = {
-    propId: number,
+    propId: BigInt,
     mode: number,
-    animSequence: number
+    animSequence: BigInt
   }
 
   export type MapEditSnapPoint = {
-    guid: number,
+    guid: BigInt,
     moduleId: number,
     flags: number,
-    position: Array<number>,
-    rotation: Array<number>,
+    position: Float32Array,
+    rotation: Float32Array,
     scale: number
   }
 
   export type MapEditMeasureSpan = {
     name: string,
-    substrateId0: number,
-    substrateId1: number,
+    substrateId0: BigInt,
+    substrateId1: BigInt,
     substrateModuleId0: number,
     substrateModuleId1: number,
-    position0: Array<number>,
-    position1: Array<number>,
-    limits: Array<number>
+    position0: Float32Array,
+    position1: Float32Array,
+    limits: Float32Array
   }
 
 }

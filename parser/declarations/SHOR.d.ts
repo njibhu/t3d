@@ -7,13 +7,13 @@ export namespace V2_N {
     offset: number,
     opacity: number,
     animationSpeed: number,
-    edgeSize: Array<number>,
+    edgeSize: Float32Array,
     flags: number,
-    points: Array<Array<number>>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    points: Array<Float32Array>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     restTime: number,
-    fadeRanges: Array<Array<number>>
+    fadeRanges: Array<Float32Array>
   }
 
 }
@@ -29,13 +29,13 @@ export namespace V3_N {
     offset: number,
     opacity: number,
     animationSpeed: number,
-    edgeSize: Array<number>,
+    edgeSize: Float32Array,
     flags: number,
-    points: Array<Array<number>>,
-    materialFilename: string,
-    textureFilenames: Array<string>,
+    points: Array<Float32Array>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
     restTime: number,
-    fadeRanges: Array<Array<number>>,
+    fadeRanges: Array<Float32Array>,
     simplifyDistMin: number,
     simplifyDistMax: number,
     simplifyDot: number

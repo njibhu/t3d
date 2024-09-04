@@ -5,7 +5,7 @@ export namespace V0_N {
     texTransformRange: number,
     sortOrder: number,
     flags: number,
-    textureMasks: Array<number>
+    textureMasks: Uint32Array
   }
 
 }
@@ -20,7 +20,7 @@ export namespace V1_N {
     sortOrder: number,
     flags: number,
     texType: number,
-    textureMasks: Array<number>
+    textureMasks: Uint32Array
   }
 
 }
@@ -36,7 +36,7 @@ export namespace V2_N {
     sortTri: number,
     flags: number,
     texType: number,
-    textureMasks: Array<number>
+    textureMasks: Uint32Array
   }
 
 }
@@ -53,7 +53,7 @@ export namespace V3_N {
     debugFlags: number,
     flags: number,
     texType: number,
-    textureMasks: Array<number>
+    textureMasks: Uint32Array
   }
 
 }
@@ -71,7 +71,7 @@ export namespace V4_N {
     debugFlags: number,
     flags: number,
     texType: number,
-    textureMasks: Array<number>
+    textureMasks: Uint32Array
   }
 
 }
@@ -89,8 +89,8 @@ export namespace V5_N {
     debugFlags: number,
     flags: number,
     texType: number,
-    textureMasks: Array<number>,
-    texTokens: Array<number>
+    textureMasks: Uint32Array,
+    texTokens: BigUint64Array
   }
 
 }
@@ -106,7 +106,7 @@ export namespace V6_N {
     procAnim: number,
     debugFlags: number,
     flags: number,
-    texTokens: Array<number>
+    texTokens: BigUint64Array
   }
 
 }

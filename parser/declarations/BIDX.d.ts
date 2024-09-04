@@ -8,7 +8,7 @@ export namespace V0_N {
   }
 
   export type BankFileNameDataV0 = {
-    fileName: string
+    fileName: number
   }
 
 }

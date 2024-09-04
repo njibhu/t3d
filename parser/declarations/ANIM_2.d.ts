@@ -5,7 +5,7 @@ export namespace V0_N {
   }
 
   export type SceneAnimationV0 = {
-    name: number,
+    name: BigInt,
     motion: SceneMotionV0,
     actionPoints: Array<SceneActionPointV0>
   }
@@ -16,18 +16,18 @@ export namespace V0_N {
 
   export type SceneKeyframeV0 = {
     time: number,
-    position: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneActionPointV0 = {
-    name: number,
+    name: BigInt,
     motion: SceneMotionV0
   }
 
   export type SceneAnimationImportV0 = {
-    filename: string,
-    animNames: Array<number>
+    filename: number,
+    animNames: BigUint64Array
   }
 
 }
@@ -41,7 +41,7 @@ export namespace V1_N {
   }
 
   export type SceneAnimationV1 = {
-    name: number,
+    name: BigInt,
     motion: SceneMotionV1,
     actionPoints: Array<SceneActionPointV1>,
     events: Array<SceneAnimationEventV1>
@@ -53,23 +53,23 @@ export namespace V1_N {
 
   export type SceneKeyframeV1 = {
     time: number,
-    position: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneActionPointV1 = {
-    name: number,
+    name: BigInt,
     motion: SceneMotionV1
   }
 
   export type SceneAnimationEventV1 = {
-    name: number,
+    name: BigInt,
     time: number
   }
 
   export type SceneAnimationImportV1 = {
-    filename: string,
-    animNames: Array<number>
+    filename: number,
+    animNames: BigUint64Array
   }
 
 }
@@ -84,7 +84,7 @@ export namespace V2_N {
   }
 
   export type SceneAnimationV2 = {
-    name: number,
+    name: BigInt,
     motion: SceneMotionV2,
     actionPoints: Array<SceneActionPointV2>,
     events: Array<SceneAnimationEventV2>
@@ -96,39 +96,39 @@ export namespace V2_N {
 
   export type SceneKeyframeV2 = {
     time: number,
-    position: Array<number>,
-    rotation: Array<number>
+    position: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneActionPointV2 = {
-    name: number,
+    name: BigInt,
     motion: SceneMotionV2
   }
 
   export type SceneAnimationEventV2 = {
-    name: number,
+    name: BigInt,
     time: number
   }
 
   export type ScenePoseV2 = {
-    name: number,
+    name: BigInt,
     transforms: Array<SceneTransformV2>
   }
 
   export type SceneTransformV2 = {
-    name: number,
-    translation: Array<number>,
-    rotation: Array<number>
+    name: BigInt,
+    translation: Float32Array,
+    rotation: Float32Array
   }
 
   export type SceneAnimationImportV2 = {
-    filename: string,
+    filename: number,
     animNames: Array<SceneImportSequenceV2>,
     flags: number
   }
 
   export type SceneImportSequenceV2 = {
-    name: number
+    name: BigInt
   }
 
 }

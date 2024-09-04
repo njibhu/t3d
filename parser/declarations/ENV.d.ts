@@ -14,13 +14,13 @@ export namespace V29_N {
     skyCards: PackMapEnvDataSkyCardsV29,
     water: Array<PackMapEnvDataWaterV29>,
     wind: Array<PackMapEnvDataWindV29>,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV29 = {
@@ -28,9 +28,9 @@ export namespace V29_N {
   }
 
   export type PackMapEnvDataLightV29 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV29 = {
@@ -40,7 +40,7 @@ export namespace V29_N {
   export type PackMapEnvDataLayerV29 = {
     altitude: number,
     scale: number,
-    texture: string,
+    texture: number,
     day: PackMapEnvDataLayerAttributesV29,
     night: PackMapEnvDataLayerAttributesV29,
     name: string
@@ -51,41 +51,41 @@ export namespace V29_N {
     depth: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV29 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
     saturation: number,
     tintAmount: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number
   }
 
   export type PackMapEnvDataHazeV29 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV29 = {
-    angle: Array<number>,
+    angle: Float32Array,
     deviation: number,
     extent: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
@@ -121,17 +121,17 @@ export namespace V29_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV29 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -144,13 +144,13 @@ export namespace V29_N {
     patternAngle: number,
     patternTile: number,
     patternSpeed: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string
+    bumpTexture: number,
+    patternTexture: number
   }
 
   export type PackMapEnvDataWindV29 = {
@@ -173,13 +173,13 @@ export namespace V29_N {
     water: Array<PackMapEnvDataWaterV29>,
     wind: Array<PackMapEnvDataWindV29>,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV29>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV29 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -202,13 +202,13 @@ export namespace V30_N {
     skyCards: PackMapEnvDataSkyCardsV30,
     water: Array<PackMapEnvDataWaterV30>,
     wind: Array<PackMapEnvDataWindV30>,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV30 = {
@@ -216,9 +216,9 @@ export namespace V30_N {
   }
 
   export type PackMapEnvDataLightV30 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV30 = {
@@ -229,7 +229,7 @@ export namespace V30_N {
     altitude: number,
     cutOut: number,
     scale: number,
-    texture: string,
+    texture: number,
     day: PackMapEnvDataLayerAttributesV30,
     night: PackMapEnvDataLayerAttributesV30,
     name: string
@@ -240,41 +240,41 @@ export namespace V30_N {
     depth: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV30 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
     saturation: number,
     tintAmount: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number
   }
 
   export type PackMapEnvDataHazeV30 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV30 = {
-    angle: Array<number>,
+    angle: Float32Array,
     deviation: number,
     extent: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
@@ -310,17 +310,17 @@ export namespace V30_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV30 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -333,13 +333,13 @@ export namespace V30_N {
     patternAngle: number,
     patternTile: number,
     patternSpeed: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string
+    bumpTexture: number,
+    patternTexture: number
   }
 
   export type PackMapEnvDataWindV30 = {
@@ -362,13 +362,13 @@ export namespace V30_N {
     water: Array<PackMapEnvDataWaterV30>,
     wind: Array<PackMapEnvDataWindV30>,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV30>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV30 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -391,13 +391,13 @@ export namespace V31_N {
     skyCards: PackMapEnvDataSkyCardsV31,
     water: Array<PackMapEnvDataWaterV31>,
     wind: Array<PackMapEnvDataWindV31>,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV31 = {
@@ -405,9 +405,9 @@ export namespace V31_N {
   }
 
   export type PackMapEnvDataLightV31 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV31 = {
@@ -418,7 +418,7 @@ export namespace V31_N {
     altitude: number,
     cutOut: number,
     scale: number,
-    texture: string,
+    texture: number,
     day: PackMapEnvDataLayerAttributesV31,
     night: PackMapEnvDataLayerAttributesV31,
     name: string
@@ -429,44 +429,44 @@ export namespace V31_N {
     depth: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV31 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
     saturation: number,
     tintAmount: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number
   }
 
   export type PackMapEnvDataHazeV31 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV31 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
@@ -502,17 +502,17 @@ export namespace V31_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV31 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -526,13 +526,13 @@ export namespace V31_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string
+    bumpTexture: number,
+    patternTexture: number
   }
 
   export type PackMapEnvDataWindV31 = {
@@ -555,13 +555,13 @@ export namespace V31_N {
     water: Array<PackMapEnvDataWaterV31>,
     wind: Array<PackMapEnvDataWindV31>,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV31>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV31 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -584,13 +584,13 @@ export namespace V32_N {
     skyCards: PackMapEnvDataSkyCardsV32,
     water: Array<PackMapEnvDataWaterV32>,
     wind: Array<PackMapEnvDataWindV32>,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV32 = {
@@ -598,9 +598,9 @@ export namespace V32_N {
   }
 
   export type PackMapEnvDataLightV32 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV32 = {
@@ -612,7 +612,7 @@ export namespace V32_N {
     cutOut: number,
     depth: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV32>,
     name: string
   }
@@ -621,44 +621,44 @@ export namespace V32_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV32 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
     saturation: number,
     tintAmount: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number
   }
 
   export type PackMapEnvDataHazeV32 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV32 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
@@ -694,17 +694,17 @@ export namespace V32_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV32 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -718,13 +718,13 @@ export namespace V32_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string
+    bumpTexture: number,
+    patternTexture: number
   }
 
   export type PackMapEnvDataWindV32 = {
@@ -747,13 +747,13 @@ export namespace V32_N {
     water: Array<PackMapEnvDataWaterV32>,
     wind: Array<PackMapEnvDataWindV32>,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV32>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV32 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -777,13 +777,13 @@ export namespace V33_N {
     water: Array<PackMapEnvDataWaterV33>,
     wind: Array<PackMapEnvDataWindV33>,
     name: string,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV33 = {
@@ -791,9 +791,9 @@ export namespace V33_N {
   }
 
   export type PackMapEnvDataLightV33 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV33 = {
@@ -805,7 +805,7 @@ export namespace V33_N {
     cutOut: number,
     depth: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV33>,
     name: string
   }
@@ -814,44 +814,44 @@ export namespace V33_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV33 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
     saturation: number,
     tintAmount: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number
   }
 
   export type PackMapEnvDataHazeV33 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV33 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
@@ -887,17 +887,17 @@ export namespace V33_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV33 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -911,13 +911,13 @@ export namespace V33_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string
+    bumpTexture: number,
+    patternTexture: number
   }
 
   export type PackMapEnvDataWindV33 = {
@@ -941,13 +941,13 @@ export namespace V33_N {
     wind: Array<PackMapEnvDataWindV33>,
     name: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV33>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV33 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -971,13 +971,13 @@ export namespace V34_N {
     water: Array<PackMapEnvDataWaterV34>,
     wind: Array<PackMapEnvDataWindV34>,
     name: string,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV34 = {
@@ -985,9 +985,9 @@ export namespace V34_N {
   }
 
   export type PackMapEnvDataLightV34 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV34 = {
@@ -999,7 +999,7 @@ export namespace V34_N {
     cutOut: number,
     depth: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV34>,
     name: string
   }
@@ -1008,46 +1008,46 @@ export namespace V34_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV34 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number
   }
 
   export type PackMapEnvDataHazeV34 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV34 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
@@ -1083,17 +1083,17 @@ export namespace V34_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV34 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -1107,13 +1107,13 @@ export namespace V34_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string
+    bumpTexture: number,
+    patternTexture: number
   }
 
   export type PackMapEnvDataWindV34 = {
@@ -1137,13 +1137,13 @@ export namespace V34_N {
     wind: Array<PackMapEnvDataWindV34>,
     name: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV34>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV34 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -1168,13 +1168,13 @@ export namespace V35_N {
     water: Array<PackMapEnvDataWaterV35>,
     wind: Array<PackMapEnvDataWindV35>,
     name: string,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV35 = {
@@ -1182,9 +1182,9 @@ export namespace V35_N {
   }
 
   export type PackMapEnvDataLightV35 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV35 = {
@@ -1196,7 +1196,7 @@ export namespace V35_N {
     cutOut: number,
     depth: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV35>,
     name: string
   }
@@ -1205,55 +1205,55 @@ export namespace V35_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV35 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number
   }
 
   export type PackMapEnvDataHazeV35 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV35 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV6 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV35 = {
@@ -1289,17 +1289,17 @@ export namespace V35_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV35 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -1313,13 +1313,13 @@ export namespace V35_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string
+    bumpTexture: number,
+    patternTexture: number
   }
 
   export type PackMapEnvDataWindV35 = {
@@ -1344,13 +1344,13 @@ export namespace V35_N {
     wind: Array<PackMapEnvDataWindV35>,
     name: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV35>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV35 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -1375,13 +1375,13 @@ export namespace V36_N {
     water: Array<PackMapEnvDataWaterV36>,
     wind: Array<PackMapEnvDataWindV36>,
     name: string,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV36 = {
@@ -1389,9 +1389,9 @@ export namespace V36_N {
   }
 
   export type PackMapEnvDataLightV36 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV36 = {
@@ -1403,7 +1403,7 @@ export namespace V36_N {
     cutOut: number,
     depth: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV36>,
     name: string
   }
@@ -1412,55 +1412,55 @@ export namespace V36_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV36 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number
   }
 
   export type PackMapEnvDataHazeV36 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV36 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV7 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV36 = {
@@ -1496,17 +1496,17 @@ export namespace V36_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV36 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -1520,13 +1520,13 @@ export namespace V36_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string,
+    bumpTexture: number,
+    patternTexture: number,
     depthAttenuation: number
   }
 
@@ -1552,13 +1552,13 @@ export namespace V36_N {
     wind: Array<PackMapEnvDataWindV36>,
     name: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV36>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV36 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -1583,13 +1583,13 @@ export namespace V37_N {
     water: Array<PackMapEnvDataWaterV37>,
     wind: Array<PackMapEnvDataWindV37>,
     name: string,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV37 = {
@@ -1597,9 +1597,9 @@ export namespace V37_N {
   }
 
   export type PackMapEnvDataLightV37 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV37 = {
@@ -1612,7 +1612,7 @@ export namespace V37_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV37>,
     name: string
   }
@@ -1621,55 +1621,55 @@ export namespace V37_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV37 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number
   }
 
   export type PackMapEnvDataHazeV37 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV37 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV8 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV37 = {
@@ -1705,17 +1705,17 @@ export namespace V37_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV37 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -1729,13 +1729,13 @@ export namespace V37_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string,
+    bumpTexture: number,
+    patternTexture: number,
     depthAttenuation: number
   }
 
@@ -1761,13 +1761,13 @@ export namespace V37_N {
     wind: Array<PackMapEnvDataWindV37>,
     name: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV37>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV37 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -1792,13 +1792,13 @@ export namespace V38_N {
     water: Array<PackMapEnvDataWaterV38>,
     wind: Array<PackMapEnvDataWindV38>,
     name: string,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>
+    vertexArray: Array<Float32Array>
   }
 
   export type PackMapEnvDataLightingV38 = {
@@ -1806,9 +1806,9 @@ export namespace V38_N {
   }
 
   export type PackMapEnvDataLightV38 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataCloudsV38 = {
@@ -1821,7 +1821,7 @@ export namespace V38_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV38>,
     name: string
   }
@@ -1830,57 +1830,57 @@ export namespace V38_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV38 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV38 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV38 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV9 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV38 = {
@@ -1916,17 +1916,17 @@ export namespace V38_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV38 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -1940,13 +1940,13 @@ export namespace V38_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string,
+    bumpTexture: number,
+    patternTexture: number,
     depthAttenuation: number
   }
 
@@ -1972,13 +1972,13 @@ export namespace V38_N {
     wind: Array<PackMapEnvDataWindV38>,
     name: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV38>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV38 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -2004,14 +2004,14 @@ export namespace V39_N {
     water: Array<PackMapEnvDataWaterV39>,
     wind: Array<PackMapEnvDataWindV39>,
     name: string,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV39 = {
@@ -2019,9 +2019,9 @@ export namespace V39_N {
   }
 
   export type PackMapEnvDataLightV39 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV10 = {
@@ -2043,7 +2043,7 @@ export namespace V39_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV39>,
     name: string
   }
@@ -2052,57 +2052,57 @@ export namespace V39_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV39 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV39 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV39 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV10 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV39 = {
@@ -2138,17 +2138,17 @@ export namespace V39_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV39 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -2162,13 +2162,13 @@ export namespace V39_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string,
+    bumpTexture: number,
+    patternTexture: number,
     depthAttenuation: number
   }
 
@@ -2195,13 +2195,13 @@ export namespace V39_N {
     wind: Array<PackMapEnvDataWindV39>,
     name: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV39>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV39 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -2227,14 +2227,14 @@ export namespace V40_N {
     water: Array<PackMapEnvDataWaterV40>,
     wind: Array<PackMapEnvDataWindV40>,
     name: string,
-    center: Array<number>,
-    zRange: Array<number>,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV40 = {
@@ -2242,9 +2242,9 @@ export namespace V40_N {
   }
 
   export type PackMapEnvDataLightV40 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV11 = {
@@ -2266,7 +2266,7 @@ export namespace V40_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV40>,
     name: string
   }
@@ -2275,57 +2275,57 @@ export namespace V40_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV40 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV40 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV40 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV11 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV40 = {
@@ -2362,17 +2362,17 @@ export namespace V40_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV40 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -2386,13 +2386,13 @@ export namespace V40_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
-    bumpTexture: string,
-    patternTexture: string,
+    bumpTexture: number,
+    patternTexture: number,
     depthAttenuation: number
   }
 
@@ -2419,13 +2419,13 @@ export namespace V40_N {
     wind: Array<PackMapEnvDataWindV40>,
     name: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV40>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV40 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -2451,15 +2451,15 @@ export namespace V41_N {
     water: Array<PackMapEnvDataWaterV41>,
     wind: Array<PackMapEnvDataWindV41>,
     name: string,
-    nightMods: Array<number>,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV41 = {
@@ -2467,9 +2467,9 @@ export namespace V41_N {
   }
 
   export type PackMapEnvDataLightV41 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV12 = {
@@ -2491,7 +2491,7 @@ export namespace V41_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV41>,
     name: string
   }
@@ -2500,57 +2500,57 @@ export namespace V41_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV41 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV41 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV41 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV12 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV41 = {
@@ -2587,17 +2587,17 @@ export namespace V41_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV41 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -2611,14 +2611,14 @@ export namespace V41_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>
+    materialFilename: number,
+    textureFilenames: Array<number>
   }
 
   export type PackMapEnvDataWindV41 = {
@@ -2643,15 +2643,15 @@ export namespace V41_N {
     water: Array<PackMapEnvDataWaterV41>,
     wind: Array<PackMapEnvDataWindV41>,
     name: string,
-    nightMods: Array<number>,
+    nightMods: Uint8Array,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV41>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV41 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -2677,15 +2677,15 @@ export namespace V42_N {
     water: Array<PackMapEnvDataWaterV42>,
     wind: Array<PackMapEnvDataWindV42>,
     name: string,
-    nightMods: Array<number>,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV42 = {
@@ -2693,9 +2693,9 @@ export namespace V42_N {
   }
 
   export type PackMapEnvDataLightV42 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV13 = {
@@ -2717,7 +2717,7 @@ export namespace V42_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV42>,
     name: string
   }
@@ -2727,57 +2727,57 @@ export namespace V42_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>
+    velocity: Float32Array
   }
 
   export type PackMapEnvDataEffectV42 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV42 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV42 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV13 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV42 = {
@@ -2814,17 +2814,17 @@ export namespace V42_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>
+    texture: number,
+    textureUV: Float32Array
   }
 
   export type PackMapEnvDataWaterV42 = {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -2838,14 +2838,14 @@ export namespace V42_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>
+    materialFilename: number,
+    textureFilenames: Array<number>
   }
 
   export type PackMapEnvDataWindV42 = {
@@ -2870,15 +2870,15 @@ export namespace V42_N {
     water: Array<PackMapEnvDataWaterV42>,
     wind: Array<PackMapEnvDataWindV42>,
     name: string,
-    nightMods: Array<number>,
+    nightMods: Uint8Array,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV42>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV42 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -2904,15 +2904,15 @@ export namespace V43_N {
     water: Array<PackMapEnvDataWaterV43>,
     wind: Array<PackMapEnvDataWindV43>,
     name: string,
-    nightMods: Array<number>,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV43 = {
@@ -2920,9 +2920,9 @@ export namespace V43_N {
   }
 
   export type PackMapEnvDataLightV43 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV14 = {
@@ -2944,7 +2944,7 @@ export namespace V43_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV43>,
     name: string
   }
@@ -2954,59 +2954,59 @@ export namespace V43_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataEffectV43 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV43 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV43 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV14 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV43 = {
@@ -3043,10 +3043,10 @@ export namespace V43_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -3054,7 +3054,7 @@ export namespace V43_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -3068,16 +3068,16 @@ export namespace V43_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV43 = {
@@ -3102,15 +3102,15 @@ export namespace V43_N {
     water: Array<PackMapEnvDataWaterV43>,
     wind: Array<PackMapEnvDataWindV43>,
     name: string,
-    nightMods: Array<number>,
+    nightMods: Uint8Array,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV43>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV43 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -3137,15 +3137,15 @@ export namespace V44_N {
     water: Array<PackMapEnvDataWaterV44>,
     wind: Array<PackMapEnvDataWindV44>,
     name: string,
-    nightMods: Array<number>,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV44 = {
@@ -3153,9 +3153,9 @@ export namespace V44_N {
   }
 
   export type PackMapEnvDataLightV44 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV15 = {
@@ -3177,7 +3177,7 @@ export namespace V44_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV44>,
     name: string
   }
@@ -3187,65 +3187,65 @@ export namespace V44_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV15 = {
-    range: Array<number>,
-    colors: Array<Array<number>>,
-    distances: Array<number>
+    range: Float32Array,
+    colors: Array<Uint8Array>,
+    distances: Float32Array
   }
 
   export type PackMapEnvDataEffectV44 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV44 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV44 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV15 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV44 = {
@@ -3282,10 +3282,10 @@ export namespace V44_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -3293,7 +3293,7 @@ export namespace V44_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -3307,16 +3307,16 @@ export namespace V44_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV44 = {
@@ -3342,15 +3342,15 @@ export namespace V44_N {
     water: Array<PackMapEnvDataWaterV44>,
     wind: Array<PackMapEnvDataWindV44>,
     name: string,
-    nightMods: Array<number>,
+    nightMods: Uint8Array,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV44>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV44 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -3377,15 +3377,15 @@ export namespace V45_N {
     water: Array<PackMapEnvDataWaterV45>,
     wind: Array<PackMapEnvDataWindV45>,
     name: string,
-    nightMods: Array<number>,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV45 = {
@@ -3393,9 +3393,9 @@ export namespace V45_N {
   }
 
   export type PackMapEnvDataLightV45 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV16 = {
@@ -3417,7 +3417,7 @@ export namespace V45_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV45>,
     name: string
   }
@@ -3427,65 +3427,65 @@ export namespace V45_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV16 = {
-    range: Array<number>,
-    colors: Array<Array<number>>,
-    distances: Array<number>
+    range: Float32Array,
+    colors: Array<Uint8Array>,
+    distances: Float32Array
   }
 
   export type PackMapEnvDataEffectV45 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV45 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV45 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV16 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV45 = {
@@ -3522,10 +3522,10 @@ export namespace V45_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -3533,7 +3533,7 @@ export namespace V45_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -3547,16 +3547,16 @@ export namespace V45_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV45 = {
@@ -3582,15 +3582,15 @@ export namespace V45_N {
     water: Array<PackMapEnvDataWaterV45>,
     wind: Array<PackMapEnvDataWindV45>,
     name: string,
-    nightMods: Array<number>,
+    nightMods: Uint8Array,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV45>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV45 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -3617,15 +3617,15 @@ export namespace V46_N {
     water: Array<PackMapEnvDataWaterV46>,
     wind: Array<PackMapEnvDataWindV46>,
     name: string,
-    nightMods: Array<number>,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV46 = {
@@ -3633,9 +3633,9 @@ export namespace V46_N {
   }
 
   export type PackMapEnvDataLightV46 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV17 = {
@@ -3657,7 +3657,7 @@ export namespace V46_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV46>,
     name: string
   }
@@ -3667,65 +3667,65 @@ export namespace V46_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV17 = {
-    range: Array<number>,
-    colors: Array<Array<number>>,
-    distances: Array<number>
+    range: Float32Array,
+    colors: Array<Uint8Array>,
+    distances: Float32Array
   }
 
   export type PackMapEnvDataEffectV46 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV46 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV46 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV17 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV46 = {
@@ -3762,10 +3762,10 @@ export namespace V46_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -3773,7 +3773,7 @@ export namespace V46_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -3787,16 +3787,16 @@ export namespace V46_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV46 = {
@@ -3822,15 +3822,15 @@ export namespace V46_N {
     water: Array<PackMapEnvDataWaterV46>,
     wind: Array<PackMapEnvDataWindV46>,
     name: string,
-    nightMods: Array<number>,
+    nightMods: Uint8Array,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV46>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV46 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -3857,15 +3857,15 @@ export namespace V47_N {
     water: Array<PackMapEnvDataWaterV47>,
     wind: Array<PackMapEnvDataWindV47>,
     name: string,
-    nightMods: Array<number>,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV47 = {
@@ -3873,9 +3873,9 @@ export namespace V47_N {
   }
 
   export type PackMapEnvDataLightV47 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV18 = {
@@ -3897,7 +3897,7 @@ export namespace V47_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV47>,
     name: string
   }
@@ -3907,65 +3907,65 @@ export namespace V47_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV18 = {
-    range: Array<number>,
-    colors: Array<Array<number>>,
-    distances: Array<number>
+    range: Float32Array,
+    colors: Array<Uint8Array>,
+    distances: Float32Array
   }
 
   export type PackMapEnvDataEffectV47 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV47 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV47 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV18 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV47 = {
@@ -4002,10 +4002,10 @@ export namespace V47_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -4013,7 +4013,7 @@ export namespace V47_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -4027,16 +4027,16 @@ export namespace V47_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV47 = {
@@ -4062,15 +4062,15 @@ export namespace V47_N {
     water: Array<PackMapEnvDataWaterV47>,
     wind: Array<PackMapEnvDataWindV47>,
     name: string,
-    nightMods: Array<number>,
+    nightMods: Uint8Array,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV47>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV47 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -4097,16 +4097,16 @@ export namespace V48_N {
     water: Array<PackMapEnvDataWaterV48>,
     wind: Array<PackMapEnvDataWindV48>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV48 = {
@@ -4114,9 +4114,9 @@ export namespace V48_N {
   }
 
   export type PackMapEnvDataLightV48 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharV19 = {
@@ -4138,7 +4138,7 @@ export namespace V48_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV48>,
     name: string
   }
@@ -4148,65 +4148,65 @@ export namespace V48_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV19 = {
-    range: Array<number>,
-    colors: Array<Array<number>>,
-    distances: Array<number>
+    range: Float32Array,
+    colors: Array<Uint8Array>,
+    distances: Float32Array
   }
 
   export type PackMapEnvDataEffectV48 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV48 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV48 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV19 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV48 = {
@@ -4243,10 +4243,10 @@ export namespace V48_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -4254,7 +4254,7 @@ export namespace V48_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -4268,16 +4268,16 @@ export namespace V48_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV48 = {
@@ -4303,16 +4303,16 @@ export namespace V48_N {
     water: Array<PackMapEnvDataWaterV48>,
     wind: Array<PackMapEnvDataWindV48>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV48>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV48 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -4339,16 +4339,16 @@ export namespace V49_N {
     water: Array<PackMapEnvDataWaterV49>,
     wind: Array<PackMapEnvDataWindV49>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV49 = {
@@ -4356,9 +4356,9 @@ export namespace V49_N {
   }
 
   export type PackMapEnvDataLightV49 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV20 = {
@@ -4384,7 +4384,7 @@ export namespace V49_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV49>,
     name: string
   }
@@ -4394,65 +4394,65 @@ export namespace V49_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV20 = {
-    range: Array<number>,
-    colors: Array<Array<number>>,
-    distances: Array<number>
+    range: Float32Array,
+    colors: Array<Uint8Array>,
+    distances: Float32Array
   }
 
   export type PackMapEnvDataEffectV49 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV49 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV49 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV20 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV49 = {
@@ -4489,10 +4489,10 @@ export namespace V49_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -4500,7 +4500,7 @@ export namespace V49_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -4514,16 +4514,16 @@ export namespace V49_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV49 = {
@@ -4549,16 +4549,16 @@ export namespace V49_N {
     water: Array<PackMapEnvDataWaterV49>,
     wind: Array<PackMapEnvDataWindV49>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV49>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV49 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -4585,16 +4585,16 @@ export namespace V50_N {
     water: Array<PackMapEnvDataWaterV50>,
     wind: Array<PackMapEnvDataWindV50>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV50 = {
@@ -4602,9 +4602,9 @@ export namespace V50_N {
   }
 
   export type PackMapEnvDataLightV50 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV21 = {
@@ -4630,7 +4630,7 @@ export namespace V50_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV50>,
     name: string
   }
@@ -4640,66 +4640,66 @@ export namespace V50_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV21 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV50 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV50 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV50 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV21 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV50 = {
@@ -4736,10 +4736,10 @@ export namespace V50_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -4747,7 +4747,7 @@ export namespace V50_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -4761,16 +4761,16 @@ export namespace V50_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV50 = {
@@ -4796,16 +4796,16 @@ export namespace V50_N {
     water: Array<PackMapEnvDataWaterV50>,
     wind: Array<PackMapEnvDataWindV50>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV50>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV50 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -4832,16 +4832,16 @@ export namespace V51_N {
     water: Array<PackMapEnvDataWaterV51>,
     wind: Array<PackMapEnvDataWindV51>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV51 = {
@@ -4849,9 +4849,9 @@ export namespace V51_N {
   }
 
   export type PackMapEnvDataLightV51 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV22 = {
@@ -4877,7 +4877,7 @@ export namespace V51_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV51>,
     name: string
   }
@@ -4887,68 +4887,68 @@ export namespace V51_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV22 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV51 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV51 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV51 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
     lifetime: number,
-    opacity: Array<number>,
+    opacity: Float32Array,
     particleCount: number,
     period: number,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV22 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV51 = {
@@ -4985,10 +4985,10 @@ export namespace V51_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -4996,7 +4996,7 @@ export namespace V51_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -5010,16 +5010,16 @@ export namespace V51_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV51 = {
@@ -5045,16 +5045,16 @@ export namespace V51_N {
     water: Array<PackMapEnvDataWaterV51>,
     wind: Array<PackMapEnvDataWindV51>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV51>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV51 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -5081,16 +5081,16 @@ export namespace V52_N {
     water: Array<PackMapEnvDataWaterV52>,
     wind: Array<PackMapEnvDataWindV52>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV52 = {
@@ -5098,9 +5098,9 @@ export namespace V52_N {
   }
 
   export type PackMapEnvDataLightV52 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV23 = {
@@ -5126,7 +5126,7 @@ export namespace V52_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV52>,
     name: string
   }
@@ -5136,71 +5136,71 @@ export namespace V52_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV23 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV52 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV52 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV52 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV23 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV52 = {
@@ -5237,10 +5237,10 @@ export namespace V52_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -5248,7 +5248,7 @@ export namespace V52_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -5262,16 +5262,16 @@ export namespace V52_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV52 = {
@@ -5297,16 +5297,16 @@ export namespace V52_N {
     water: Array<PackMapEnvDataWaterV52>,
     wind: Array<PackMapEnvDataWindV52>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV52>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV52 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -5333,16 +5333,16 @@ export namespace V53_N {
     water: Array<PackMapEnvDataWaterV53>,
     wind: Array<PackMapEnvDataWindV53>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV53 = {
@@ -5350,9 +5350,9 @@ export namespace V53_N {
   }
 
   export type PackMapEnvDataLightV53 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV24 = {
@@ -5378,7 +5378,7 @@ export namespace V53_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV53>,
     name: string
   }
@@ -5388,72 +5388,72 @@ export namespace V53_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV24 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV53 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV53 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV53 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV24 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV53 = {
@@ -5490,10 +5490,10 @@ export namespace V53_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -5501,7 +5501,7 @@ export namespace V53_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -5515,16 +5515,16 @@ export namespace V53_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV53 = {
@@ -5550,16 +5550,16 @@ export namespace V53_N {
     water: Array<PackMapEnvDataWaterV53>,
     wind: Array<PackMapEnvDataWindV53>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV53>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV53 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -5586,16 +5586,16 @@ export namespace V54_N {
     water: Array<PackMapEnvDataWaterV54>,
     wind: Array<PackMapEnvDataWindV54>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV54 = {
@@ -5603,9 +5603,9 @@ export namespace V54_N {
   }
 
   export type PackMapEnvDataLightV54 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV25 = {
@@ -5631,7 +5631,7 @@ export namespace V54_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV54>,
     name: string
   }
@@ -5641,72 +5641,72 @@ export namespace V54_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV25 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV54 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV54 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV54 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV25 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV54 = {
@@ -5743,10 +5743,10 @@ export namespace V54_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
@@ -5754,7 +5754,7 @@ export namespace V54_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -5768,16 +5768,16 @@ export namespace V54_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV54 = {
@@ -5803,16 +5803,16 @@ export namespace V54_N {
     water: Array<PackMapEnvDataWaterV54>,
     wind: Array<PackMapEnvDataWindV54>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV54>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV54 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -5840,16 +5840,16 @@ export namespace V55_N {
     water: Array<PackMapEnvDataWaterV55>,
     wind: Array<PackMapEnvDataWindV55>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV55 = {
@@ -5857,9 +5857,9 @@ export namespace V55_N {
   }
 
   export type PackMapEnvDataLightV55 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV26 = {
@@ -5885,7 +5885,7 @@ export namespace V55_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV55>,
     name: string
   }
@@ -5895,72 +5895,72 @@ export namespace V55_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV26 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV55 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV55 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV55 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV26 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV55 = {
@@ -5997,16 +5997,16 @@ export namespace V55_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV26 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV26>,
-    targetVolume: number
+    targetVolume: BigInt
   }
 
   export type PackMapEnvDataSpawnListV26 = {
@@ -6014,8 +6014,8 @@ export namespace V55_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV26 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
     probability: number,
     delay: number,
     maxConcurrent: number,
@@ -6027,7 +6027,7 @@ export namespace V55_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -6041,16 +6041,16 @@ export namespace V55_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV55 = {
@@ -6077,16 +6077,16 @@ export namespace V55_N {
     water: Array<PackMapEnvDataWaterV55>,
     wind: Array<PackMapEnvDataWindV55>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV55>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV55 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -6114,16 +6114,16 @@ export namespace V56_N {
     water: Array<PackMapEnvDataWaterV56>,
     wind: Array<PackMapEnvDataWindV56>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV56 = {
@@ -6131,9 +6131,9 @@ export namespace V56_N {
   }
 
   export type PackMapEnvDataLightV56 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV27 = {
@@ -6159,7 +6159,7 @@ export namespace V56_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV56>,
     name: string
   }
@@ -6169,72 +6169,72 @@ export namespace V56_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV27 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV56 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV56 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV56 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV27 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV56 = {
@@ -6271,16 +6271,16 @@ export namespace V56_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV27 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV27>,
-    targetVolume: number
+    targetVolume: BigInt
   }
 
   export type PackMapEnvDataSpawnListV27 = {
@@ -6288,12 +6288,12 @@ export namespace V56_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV27 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
@@ -6305,7 +6305,7 @@ export namespace V56_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -6319,16 +6319,16 @@ export namespace V56_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV56 = {
@@ -6355,16 +6355,16 @@ export namespace V56_N {
     water: Array<PackMapEnvDataWaterV56>,
     wind: Array<PackMapEnvDataWindV56>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV56>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV56 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -6392,16 +6392,16 @@ export namespace V57_N {
     water: Array<PackMapEnvDataWaterV57>,
     wind: Array<PackMapEnvDataWindV57>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV57 = {
@@ -6409,9 +6409,9 @@ export namespace V57_N {
   }
 
   export type PackMapEnvDataLightV57 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV28 = {
@@ -6437,7 +6437,7 @@ export namespace V57_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV57>,
     name: string
   }
@@ -6447,72 +6447,72 @@ export namespace V57_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV28 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV57 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV57 = {
-    distColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    distColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV57 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV28 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV57 = {
@@ -6549,16 +6549,16 @@ export namespace V57_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV28 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV28>,
-    targetVolume: number
+    targetVolume: BigInt
   }
 
   export type PackMapEnvDataSpawnListV28 = {
@@ -6566,13 +6566,13 @@ export namespace V57_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV28 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
@@ -6584,7 +6584,7 @@ export namespace V57_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -6598,16 +6598,16 @@ export namespace V57_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV57 = {
@@ -6634,16 +6634,16 @@ export namespace V57_N {
     water: Array<PackMapEnvDataWaterV57>,
     wind: Array<PackMapEnvDataWindV57>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV57>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV57 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -6671,16 +6671,16 @@ export namespace V58_N {
     water: Array<PackMapEnvDataWaterV58>,
     wind: Array<PackMapEnvDataWindV58>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV58 = {
@@ -6688,9 +6688,9 @@ export namespace V58_N {
   }
 
   export type PackMapEnvDataLightV58 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV29 = {
@@ -6716,7 +6716,7 @@ export namespace V58_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV58>,
     name: string
   }
@@ -6726,73 +6726,73 @@ export namespace V58_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV29 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV58 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV58 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV58 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV29 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV58 = {
@@ -6829,16 +6829,16 @@ export namespace V58_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV29 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV29>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV29 = {
@@ -6846,13 +6846,13 @@ export namespace V58_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV29 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
@@ -6864,7 +6864,7 @@ export namespace V58_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -6878,16 +6878,16 @@ export namespace V58_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV58 = {
@@ -6914,16 +6914,16 @@ export namespace V58_N {
     water: Array<PackMapEnvDataWaterV58>,
     wind: Array<PackMapEnvDataWindV58>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV58>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV58 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -6951,16 +6951,16 @@ export namespace V59_N {
     water: Array<PackMapEnvDataWaterV59>,
     wind: Array<PackMapEnvDataWindV59>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV59 = {
@@ -6968,9 +6968,9 @@ export namespace V59_N {
   }
 
   export type PackMapEnvDataLightV59 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV30 = {
@@ -6996,7 +6996,7 @@ export namespace V59_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV59>,
     name: string
   }
@@ -7006,73 +7006,73 @@ export namespace V59_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV30 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV59 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number
   }
 
   export type PackMapEnvDataHazeV59 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV59 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV30 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV59 = {
@@ -7109,16 +7109,16 @@ export namespace V59_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV30 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV30>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV30 = {
@@ -7126,17 +7126,17 @@ export namespace V59_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV30 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    modelFile: string,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -7144,7 +7144,7 @@ export namespace V59_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -7158,16 +7158,16 @@ export namespace V59_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV59 = {
@@ -7194,16 +7194,16 @@ export namespace V59_N {
     water: Array<PackMapEnvDataWaterV59>,
     wind: Array<PackMapEnvDataWindV59>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV59>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV59 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -7231,16 +7231,16 @@ export namespace V60_N {
     water: Array<PackMapEnvDataWaterV60>,
     wind: Array<PackMapEnvDataWindV60>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV60 = {
@@ -7248,9 +7248,9 @@ export namespace V60_N {
   }
 
   export type PackMapEnvDataLightV60 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV31 = {
@@ -7276,7 +7276,7 @@ export namespace V60_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV60>,
     name: string
   }
@@ -7286,74 +7286,74 @@ export namespace V60_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV31 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV60 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>
+    flatteningRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV60 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV60 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV31 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV60 = {
@@ -7390,16 +7390,16 @@ export namespace V60_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV31 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV31>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV31 = {
@@ -7407,17 +7407,17 @@ export namespace V60_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV31 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    modelFile: string,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -7425,7 +7425,7 @@ export namespace V60_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -7439,16 +7439,16 @@ export namespace V60_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV60 = {
@@ -7475,16 +7475,16 @@ export namespace V60_N {
     water: Array<PackMapEnvDataWaterV60>,
     wind: Array<PackMapEnvDataWindV60>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV60>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV60 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -7512,16 +7512,16 @@ export namespace V61_N {
     water: Array<PackMapEnvDataWaterV61>,
     wind: Array<PackMapEnvDataWindV61>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV61 = {
@@ -7529,9 +7529,9 @@ export namespace V61_N {
   }
 
   export type PackMapEnvDataLightV61 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV32 = {
@@ -7557,7 +7557,7 @@ export namespace V61_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV61>,
     name: string
   }
@@ -7567,75 +7567,75 @@ export namespace V61_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV32 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV61 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV61 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number
   }
 
   export type PackMapEnvDataPFieldV61 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV32 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV61 = {
@@ -7672,16 +7672,16 @@ export namespace V61_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV32 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV32>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV32 = {
@@ -7689,17 +7689,17 @@ export namespace V61_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV32 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    modelFile: string,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -7707,7 +7707,7 @@ export namespace V61_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -7721,16 +7721,16 @@ export namespace V61_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV61 = {
@@ -7757,16 +7757,16 @@ export namespace V61_N {
     water: Array<PackMapEnvDataWaterV61>,
     wind: Array<PackMapEnvDataWindV61>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV61>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV61 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -7794,16 +7794,16 @@ export namespace V62_N {
     water: Array<PackMapEnvDataWaterV62>,
     wind: Array<PackMapEnvDataWindV62>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV62 = {
@@ -7811,9 +7811,9 @@ export namespace V62_N {
   }
 
   export type PackMapEnvDataLightV62 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV33 = {
@@ -7839,7 +7839,7 @@ export namespace V62_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV62>,
     name: string
   }
@@ -7849,76 +7849,76 @@ export namespace V62_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV33 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV62 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV62 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV62 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV33 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV62 = {
@@ -7955,16 +7955,16 @@ export namespace V62_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV33 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV33>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV33 = {
@@ -7972,17 +7972,17 @@ export namespace V62_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV33 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    modelFile: string,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -7990,7 +7990,7 @@ export namespace V62_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -8004,16 +8004,16 @@ export namespace V62_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>
   }
 
   export type PackMapEnvDataWindV62 = {
@@ -8040,16 +8040,16 @@ export namespace V62_N {
     water: Array<PackMapEnvDataWaterV62>,
     wind: Array<PackMapEnvDataWindV62>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV62>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV62 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -8077,16 +8077,16 @@ export namespace V63_N {
     water: Array<PackMapEnvDataWaterV63>,
     wind: Array<PackMapEnvDataWindV63>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV63 = {
@@ -8094,9 +8094,9 @@ export namespace V63_N {
   }
 
   export type PackMapEnvDataLightV63 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV34 = {
@@ -8122,7 +8122,7 @@ export namespace V63_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV63>,
     name: string
   }
@@ -8132,76 +8132,76 @@ export namespace V63_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV34 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV63 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV63 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV63 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV34 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV63 = {
@@ -8238,16 +8238,16 @@ export namespace V63_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV34 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV34>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV34 = {
@@ -8255,17 +8255,17 @@ export namespace V63_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV34 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    modelFile: string,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -8273,7 +8273,7 @@ export namespace V63_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -8287,21 +8287,21 @@ export namespace V63_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV63 = {
@@ -8328,16 +8328,16 @@ export namespace V63_N {
     water: Array<PackMapEnvDataWaterV63>,
     wind: Array<PackMapEnvDataWindV63>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV63>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV63 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -8365,16 +8365,16 @@ export namespace V64_N {
     water: Array<PackMapEnvDataWaterV64>,
     wind: Array<PackMapEnvDataWindV64>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV64 = {
@@ -8382,9 +8382,9 @@ export namespace V64_N {
   }
 
   export type PackMapEnvDataLightV64 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV35 = {
@@ -8410,7 +8410,7 @@ export namespace V64_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV64>,
     name: string
   }
@@ -8420,76 +8420,76 @@ export namespace V64_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV35 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV64 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV64 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV64 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV35 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV64 = {
@@ -8527,16 +8527,16 @@ export namespace V64_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV35 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV35>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV35 = {
@@ -8544,17 +8544,17 @@ export namespace V64_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV35 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    modelFile: string,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -8562,7 +8562,7 @@ export namespace V64_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -8576,21 +8576,21 @@ export namespace V64_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV64 = {
@@ -8618,16 +8618,16 @@ export namespace V64_N {
     water: Array<PackMapEnvDataWaterV64>,
     wind: Array<PackMapEnvDataWindV64>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV64>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV64 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -8655,16 +8655,16 @@ export namespace V65_N {
     water: Array<PackMapEnvDataWaterV65>,
     wind: Array<PackMapEnvDataWindV65>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    center: Array<number>,
-    zRange: Array<number>,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    center: Float32Array,
+    zRange: Float32Array,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
     type: number,
-    vertexArray: Array<Array<number>>,
-    guid: number
+    vertexArray: Array<Float32Array>,
+    guid: BigInt
   }
 
   export type PackMapEnvDataLightingV65 = {
@@ -8673,9 +8673,9 @@ export namespace V65_N {
   }
 
   export type PackMapEnvDataLightV65 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV36 = {
@@ -8701,7 +8701,7 @@ export namespace V65_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV65>,
     name: string
   }
@@ -8711,76 +8711,76 @@ export namespace V65_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV36 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV65 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV65 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV65 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV36 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV65 = {
@@ -8818,16 +8818,16 @@ export namespace V65_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV36 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV36>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV36 = {
@@ -8835,17 +8835,17 @@ export namespace V65_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV36 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    modelFile: string,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -8853,7 +8853,7 @@ export namespace V65_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -8867,21 +8867,21 @@ export namespace V65_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV65 = {
@@ -8909,16 +8909,16 @@ export namespace V65_N {
     water: Array<PackMapEnvDataWaterV65>,
     wind: Array<PackMapEnvDataWindV65>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV65>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV65 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -8946,10 +8946,10 @@ export namespace V66_N {
     water: Array<PackMapEnvDataWaterV66>,
     wind: Array<PackMapEnvDataWindV66>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV37>
   }
 
@@ -8959,9 +8959,9 @@ export namespace V66_N {
   }
 
   export type PackMapEnvDataLightV66 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV37 = {
@@ -8987,7 +8987,7 @@ export namespace V66_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV66>,
     name: string
   }
@@ -8997,76 +8997,76 @@ export namespace V66_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV37 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV66 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV66 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV66 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV37 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV66 = {
@@ -9104,16 +9104,16 @@ export namespace V66_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV37 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV37>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV37 = {
@@ -9121,17 +9121,17 @@ export namespace V66_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV37 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    modelFile: string,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -9139,7 +9139,7 @@ export namespace V66_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -9153,21 +9153,21 @@ export namespace V66_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV66 = {
@@ -9181,12 +9181,12 @@ export namespace V66_N {
   }
 
   export type PackMapEnvDataShapeV37 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -9205,16 +9205,16 @@ export namespace V66_N {
     water: Array<PackMapEnvDataWaterV66>,
     wind: Array<PackMapEnvDataWindV66>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV66>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV66 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -9242,10 +9242,10 @@ export namespace V67_N {
     water: Array<PackMapEnvDataWaterV67>,
     wind: Array<PackMapEnvDataWindV67>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV38>
   }
 
@@ -9255,9 +9255,9 @@ export namespace V67_N {
   }
 
   export type PackMapEnvDataLightV67 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV38 = {
@@ -9283,7 +9283,7 @@ export namespace V67_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV67>,
     name: string
   }
@@ -9293,76 +9293,76 @@ export namespace V67_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV38 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV67 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV67 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV67 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV38 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV67 = {
@@ -9400,16 +9400,16 @@ export namespace V67_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV38 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV38>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV38 = {
@@ -9417,18 +9417,18 @@ export namespace V67_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV38 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -9436,7 +9436,7 @@ export namespace V67_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -9450,21 +9450,21 @@ export namespace V67_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV67 = {
@@ -9478,12 +9478,12 @@ export namespace V67_N {
   }
 
   export type PackMapEnvDataShapeV38 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -9502,16 +9502,16 @@ export namespace V67_N {
     water: Array<PackMapEnvDataWaterV67>,
     wind: Array<PackMapEnvDataWindV67>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV67>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV67 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -9539,10 +9539,10 @@ export namespace V68_N {
     water: Array<PackMapEnvDataWaterV68>,
     wind: Array<PackMapEnvDataWindV68>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV39>
   }
 
@@ -9553,9 +9553,9 @@ export namespace V68_N {
   }
 
   export type PackMapEnvDataLightV68 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV39 = {
@@ -9581,7 +9581,7 @@ export namespace V68_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV68>,
     name: string
   }
@@ -9591,76 +9591,76 @@ export namespace V68_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV39 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV68 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV68 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV68 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV39 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV68 = {
@@ -9698,16 +9698,16 @@ export namespace V68_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV39 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV39>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV39 = {
@@ -9715,18 +9715,18 @@ export namespace V68_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV39 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -9734,7 +9734,7 @@ export namespace V68_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -9748,21 +9748,21 @@ export namespace V68_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV68 = {
@@ -9776,12 +9776,12 @@ export namespace V68_N {
   }
 
   export type PackMapEnvDataShapeV39 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -9800,16 +9800,16 @@ export namespace V68_N {
     water: Array<PackMapEnvDataWaterV68>,
     wind: Array<PackMapEnvDataWindV68>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV68>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV68 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -9837,10 +9837,10 @@ export namespace V69_N {
     water: Array<PackMapEnvDataWaterV69>,
     wind: Array<PackMapEnvDataWindV69>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV40>
   }
 
@@ -9850,9 +9850,9 @@ export namespace V69_N {
   }
 
   export type PackMapEnvDataLightV69 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV40 = {
@@ -9878,7 +9878,7 @@ export namespace V69_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV69>,
     name: string
   }
@@ -9888,76 +9888,76 @@ export namespace V69_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV40 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV69 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV69 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV69 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV40 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV69 = {
@@ -9995,16 +9995,16 @@ export namespace V69_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV40 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV40>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV40 = {
@@ -10012,18 +10012,18 @@ export namespace V69_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV40 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -10031,7 +10031,7 @@ export namespace V69_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -10045,21 +10045,21 @@ export namespace V69_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV69 = {
@@ -10073,12 +10073,12 @@ export namespace V69_N {
   }
 
   export type PackMapEnvDataShapeV40 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -10097,16 +10097,16 @@ export namespace V69_N {
     water: Array<PackMapEnvDataWaterV69>,
     wind: Array<PackMapEnvDataWindV69>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV69>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV69 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -10134,10 +10134,10 @@ export namespace V70_N {
     water: Array<PackMapEnvDataWaterV70>,
     wind: Array<PackMapEnvDataWindV70>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV41>
   }
 
@@ -10147,9 +10147,9 @@ export namespace V70_N {
   }
 
   export type PackMapEnvDataLightV70 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV41 = {
@@ -10175,7 +10175,7 @@ export namespace V70_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV70>,
     name: string
   }
@@ -10185,76 +10185,76 @@ export namespace V70_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV41 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV70 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV70 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV70 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV41 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV70 = {
@@ -10292,16 +10292,16 @@ export namespace V70_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV41 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV41>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV41 = {
@@ -10309,18 +10309,18 @@ export namespace V70_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV41 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -10328,7 +10328,7 @@ export namespace V70_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -10342,21 +10342,21 @@ export namespace V70_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV70 = {
@@ -10370,12 +10370,12 @@ export namespace V70_N {
   }
 
   export type PackMapEnvDataShapeV41 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -10394,16 +10394,16 @@ export namespace V70_N {
     water: Array<PackMapEnvDataWaterV70>,
     wind: Array<PackMapEnvDataWindV70>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV70>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV70 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -10431,24 +10431,24 @@ export namespace V71_N {
     water: Array<PackMapEnvDataWaterV71>,
     wind: Array<PackMapEnvDataWindV71>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV42>
   }
 
   export type PackMapEnvDataLightingV71 = {
     lights: Array<PackMapEnvDataLightV71>,
     shadowInfluence: number,
-    backlightColor: Array<number>,
+    backlightColor: Uint8Array,
     backlightIntensity: number
   }
 
   export type PackMapEnvDataLightV71 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV42 = {
@@ -10474,7 +10474,7 @@ export namespace V71_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV71>,
     name: string
   }
@@ -10484,76 +10484,76 @@ export namespace V71_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV42 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV71 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV71 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV71 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV42 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV71 = {
@@ -10591,16 +10591,16 @@ export namespace V71_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV42 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV42>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV42 = {
@@ -10608,18 +10608,18 @@ export namespace V71_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV42 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -10627,7 +10627,7 @@ export namespace V71_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -10641,21 +10641,21 @@ export namespace V71_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV71 = {
@@ -10669,12 +10669,12 @@ export namespace V71_N {
   }
 
   export type PackMapEnvDataShapeV42 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -10693,16 +10693,16 @@ export namespace V71_N {
     water: Array<PackMapEnvDataWaterV71>,
     wind: Array<PackMapEnvDataWindV71>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV71>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV71 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -10730,25 +10730,25 @@ export namespace V72_N {
     water: Array<PackMapEnvDataWaterV72>,
     wind: Array<PackMapEnvDataWindV72>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    audioToken: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    audioToken: BigInt,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV43>
   }
 
   export type PackMapEnvDataLightingV72 = {
     lights: Array<PackMapEnvDataLightV72>,
     shadowInfluence: number,
-    backlightColor: Array<number>,
+    backlightColor: Uint8Array,
     backlightIntensity: number
   }
 
   export type PackMapEnvDataLightV72 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV43 = {
@@ -10774,7 +10774,7 @@ export namespace V72_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV72>,
     name: string
   }
@@ -10784,76 +10784,76 @@ export namespace V72_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV43 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV72 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV72 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV72 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV43 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV72 = {
@@ -10891,16 +10891,16 @@ export namespace V72_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV43 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV43>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV43 = {
@@ -10908,18 +10908,18 @@ export namespace V72_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV43 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -10927,7 +10927,7 @@ export namespace V72_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -10941,21 +10941,21 @@ export namespace V72_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV72 = {
@@ -10969,12 +10969,12 @@ export namespace V72_N {
   }
 
   export type PackMapEnvDataShapeV43 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -10993,17 +10993,17 @@ export namespace V72_N {
     water: Array<PackMapEnvDataWaterV72>,
     wind: Array<PackMapEnvDataWindV72>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
-    audioToken: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
+    audioToken: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV72>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV72 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -11032,24 +11032,24 @@ export namespace V73_N {
     wind: Array<PackMapEnvDataWindV73>,
     audio: Array<PackMapEnvDataAudioV44>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV44>
   }
 
   export type PackMapEnvDataLightingV73 = {
     lights: Array<PackMapEnvDataLightV73>,
     shadowInfluence: number,
-    backlightColor: Array<number>,
+    backlightColor: Uint8Array,
     backlightIntensity: number
   }
 
   export type PackMapEnvDataLightV73 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV44 = {
@@ -11075,7 +11075,7 @@ export namespace V73_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV73>,
     name: string
   }
@@ -11085,76 +11085,76 @@ export namespace V73_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number
   }
 
   export type PackMapEnvDataColoredLightRingsV44 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV73 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV73 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV73 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string
   }
 
   export type PackMapEnvDataPFieldCutoutV44 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV73 = {
@@ -11192,16 +11192,16 @@ export namespace V73_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV44 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV44>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV44 = {
@@ -11209,18 +11209,18 @@ export namespace V73_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV44 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -11228,7 +11228,7 @@ export namespace V73_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -11242,21 +11242,21 @@ export namespace V73_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV73 = {
@@ -11270,16 +11270,16 @@ export namespace V73_N {
   }
 
   export type PackMapEnvDataAudioV44 = {
-    token: number
+    token: BigInt
   }
 
   export type PackMapEnvDataShapeV44 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -11299,16 +11299,16 @@ export namespace V73_N {
     wind: Array<PackMapEnvDataWindV73>,
     audio: Array<PackMapEnvDataAudioV44>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV73>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV73 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -11337,25 +11337,25 @@ export namespace V74_N {
     wind: Array<PackMapEnvDataWindV74>,
     audio: Array<PackMapEnvDataAudioV45>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     reserved: string,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV45>
   }
 
   export type PackMapEnvDataLightingV74 = {
     lights: Array<PackMapEnvDataLightV74>,
     shadowInfluence: number,
-    backlightColor: Array<number>,
+    backlightColor: Uint8Array,
     backlightIntensity: number
   }
 
   export type PackMapEnvDataLightV74 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV45 = {
@@ -11381,7 +11381,7 @@ export namespace V74_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV74>,
     name: string,
     reserved: number
@@ -11392,68 +11392,68 @@ export namespace V74_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number,
     reserved: number
   }
 
   export type PackMapEnvDataColoredLightRingsV45 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV74 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
-    flatteningRange: Array<number>,
-    flatteningCharacterRange: Array<number>
+    flatteningRange: Float32Array,
+    flatteningCharacterRange: Float32Array
   }
 
   export type PackMapEnvDataHazeV74 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV74 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string,
     reserved: number
@@ -11461,9 +11461,9 @@ export namespace V74_N {
 
   export type PackMapEnvDataPFieldCutoutV45 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV74 = {
@@ -11501,16 +11501,16 @@ export namespace V74_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number
   }
 
   export type PackMapEnvDataSpawnGroupsV45 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV45>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV45 = {
@@ -11518,18 +11518,18 @@ export namespace V74_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV45 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -11537,7 +11537,7 @@ export namespace V74_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -11551,21 +11551,21 @@ export namespace V74_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV74 = {
@@ -11579,16 +11579,16 @@ export namespace V74_N {
   }
 
   export type PackMapEnvDataAudioV45 = {
-    token: number
+    token: BigInt
   }
 
   export type PackMapEnvDataShapeV45 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -11608,17 +11608,17 @@ export namespace V74_N {
     wind: Array<PackMapEnvDataWindV74>,
     audio: Array<PackMapEnvDataAudioV45>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     reserved: string,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV74>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV74 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -11647,26 +11647,26 @@ export namespace V75_N {
     wind: Array<PackMapEnvDataWindV75>,
     audio: Array<PackMapEnvDataAudioV46>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     flags: number,
     ext: PackMapEnvDataBaseExV46,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV46>
   }
 
   export type PackMapEnvDataLightingV75 = {
     lights: Array<PackMapEnvDataLightV75>,
     shadowInfluence: number,
-    backlightColor: Array<number>,
+    backlightColor: Uint8Array,
     backlightIntensity: number
   }
 
   export type PackMapEnvDataLightV75 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV46 = {
@@ -11692,7 +11692,7 @@ export namespace V75_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV75>,
     name: string,
     reserved: number
@@ -11703,27 +11703,27 @@ export namespace V75_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number,
     reserved: number
   }
 
   export type PackMapEnvDataColoredLightRingsV46 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV75 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
@@ -11732,7 +11732,7 @@ export namespace V75_N {
     ssaoContrast: number,
     ssaoSunScale: number,
     flags: number,
-    clutTexturePath: string,
+    clutTexturePath: number,
     ext: PackMapEnvDataEffectExV46
   }
 
@@ -11741,39 +11741,39 @@ export namespace V75_N {
   }
 
   export type PackMapEnvDataHazeV75 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV75 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string,
     reserved: number
@@ -11781,9 +11781,9 @@ export namespace V75_N {
 
   export type PackMapEnvDataPFieldCutoutV46 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV75 = {
@@ -11812,7 +11812,7 @@ export namespace V75_N {
     night: PackMapEnvDataSkyCardAttributesV75,
     flags: number,
     name: string,
-    location: Array<number>,
+    location: Float32Array,
     material: PackMapEnvDataSkyCardMaterialV46,
     ext: PackMapEnvDataSkyCardExV46
   }
@@ -11824,10 +11824,10 @@ export namespace V75_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number,
     lensFlare: PackMapEnvLensFlareV46,
     ext: PackMapEnvDataSkyCardAttributesExV46
@@ -11836,9 +11836,9 @@ export namespace V75_N {
   export type PackMapEnvLensFlareV46 = {
     atoms: Array<PackMapEnvLensFlareAtomV46>,
     textures: Array<PackMapEnvLensFlareTextureV46>,
-    material: string,
-    fadeBand: Array<number>,
-    reverseFadeBand: Array<number>,
+    material: number,
+    fadeBand: Float32Array,
+    reverseFadeBand: Float32Array,
     opacityCoeff: number,
     flags: number,
     constants: Array<PackMapEnvDataShaderConstantV46>
@@ -11849,21 +11849,21 @@ export namespace V75_N {
     columns: number,
     start: number,
     fps: number,
-    color: Array<number>,
-    offset: Array<number>,
-    scale: Array<number>,
+    color: Uint8Array,
+    offset: Float32Array,
+    scale: Float32Array,
     baseRotation: number,
     cameraRotation: number,
     flags: number
   }
 
   export type PackMapEnvLensFlareTextureV46 = {
-    texture: string
+    texture: number
   }
 
   export type PackMapEnvDataShaderConstantV46 = {
     token: number,
-    value: Array<number>
+    value: Float32Array
   }
 
   export type PackMapEnvDataSkyCardAttributesExV46 = {
@@ -11871,7 +11871,7 @@ export namespace V75_N {
   }
 
   export type PackMapEnvDataSkyCardMaterialV46 = {
-    filename: string,
+    filename: number,
     constants: Array<PackMapEnvDataShaderConstantV46>,
     textures: Array<PackMapEnvDataShaderTextureV46>,
     textureAnimation: PackEnvDataSkyCardAnimationV46,
@@ -11879,15 +11879,15 @@ export namespace V75_N {
   }
 
   export type PackMapEnvDataShaderTextureV46 = {
-    filename: string,
-    textureUV: Array<number>
+    filename: number,
+    textureUV: Float32Array
   }
 
   export type PackEnvDataSkyCardAnimationV46 = {
-    textureAnimTranslation: Array<number>,
-    textureAnimScaleRangeX: Array<number>,
-    textureAnimScaleRangeY: Array<number>,
-    textureAnimScaleSpeed: Array<number>,
+    textureAnimTranslation: Float32Array,
+    textureAnimScaleRangeX: Float32Array,
+    textureAnimScaleRangeY: Float32Array,
+    textureAnimScaleSpeed: Float32Array,
     textureAnimRotation: number,
     texCoords: number
   }
@@ -11906,7 +11906,7 @@ export namespace V75_N {
 
   export type PackMapEnvDataSpawnGroupsV46 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV46>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV46 = {
@@ -11914,18 +11914,18 @@ export namespace V75_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV46 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -11933,7 +11933,7 @@ export namespace V75_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -11947,21 +11947,21 @@ export namespace V75_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV75 = {
@@ -11975,7 +11975,7 @@ export namespace V75_N {
   }
 
   export type PackMapEnvDataAudioV46 = {
-    token: number
+    token: BigInt
   }
 
   export type PackMapEnvDataBaseExV46 = {
@@ -11990,7 +11990,7 @@ export namespace V75_N {
     brightMax: number,
     brightScale: number,
     darkScale: number,
-    waterReflectionParams: Array<number>
+    waterReflectionParams: Float32Array
   }
 
   export type PackMapEnvDataBaseEx2V46 = {
@@ -11998,12 +11998,12 @@ export namespace V75_N {
   }
 
   export type PackMapEnvDataShapeV46 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -12023,18 +12023,18 @@ export namespace V75_N {
     wind: Array<PackMapEnvDataWindV75>,
     audio: Array<PackMapEnvDataAudioV46>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     flags: number,
     ext: PackMapEnvDataBaseExV46,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV75>,
-    starFile: string
+    starFile: number
   }
 
   export type PackMapEnvDataSkyModeTexV75 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
 }
@@ -12063,26 +12063,26 @@ export namespace V76_N {
     wind: Array<PackMapEnvDataWindV76>,
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV47>
   }
 
   export type PackMapEnvDataLightingV76 = {
     lights: Array<PackMapEnvDataLightV76>,
     shadowInfluence: number,
-    backlightColor: Array<number>,
+    backlightColor: Uint8Array,
     backlightIntensity: number
   }
 
   export type PackMapEnvDataLightV76 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV47 = {
@@ -12108,7 +12108,7 @@ export namespace V76_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV76>,
     name: string,
     reserved: number
@@ -12119,27 +12119,27 @@ export namespace V76_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number,
     reserved: number
   }
 
   export type PackMapEnvDataColoredLightRingsV47 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV76 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
@@ -12148,7 +12148,7 @@ export namespace V76_N {
     ssaoContrast: number,
     ssaoSunScale: number,
     flags: number,
-    clutTexturePath: string,
+    clutTexturePath: number,
     ext: PackMapEnvDataEffectExV47
   }
 
@@ -12157,39 +12157,39 @@ export namespace V76_N {
   }
 
   export type PackMapEnvDataHazeV76 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV76 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string,
     reserved: number
@@ -12197,9 +12197,9 @@ export namespace V76_N {
 
   export type PackMapEnvDataPFieldCutoutV47 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV76 = {
@@ -12228,7 +12228,7 @@ export namespace V76_N {
     night: PackMapEnvDataSkyCardAttributesV76,
     flags: number,
     name: string,
-    location: Array<number>,
+    location: Float32Array,
     material: PackMapEnvDataSkyCardMaterialV47,
     ext: PackMapEnvDataSkyCardExV47
   }
@@ -12240,10 +12240,10 @@ export namespace V76_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number,
     lensFlare: PackMapEnvLensFlareV47,
     ext: PackMapEnvDataSkyCardAttributesExV47
@@ -12252,9 +12252,9 @@ export namespace V76_N {
   export type PackMapEnvLensFlareV47 = {
     atoms: Array<PackMapEnvLensFlareAtomV47>,
     textures: Array<PackMapEnvLensFlareTextureV47>,
-    material: string,
-    fadeBand: Array<number>,
-    reverseFadeBand: Array<number>,
+    material: number,
+    fadeBand: Float32Array,
+    reverseFadeBand: Float32Array,
     opacityCoeff: number,
     flags: number,
     constants: Array<PackMapEnvDataShaderConstantV47>
@@ -12265,21 +12265,21 @@ export namespace V76_N {
     columns: number,
     start: number,
     fps: number,
-    color: Array<number>,
-    offset: Array<number>,
-    scale: Array<number>,
+    color: Uint8Array,
+    offset: Float32Array,
+    scale: Float32Array,
     baseRotation: number,
     cameraRotation: number,
     flags: number
   }
 
   export type PackMapEnvLensFlareTextureV47 = {
-    texture: string
+    texture: number
   }
 
   export type PackMapEnvDataShaderConstantV47 = {
     token: number,
-    value: Array<number>
+    value: Float32Array
   }
 
   export type PackMapEnvDataSkyCardAttributesExV47 = {
@@ -12287,7 +12287,7 @@ export namespace V76_N {
   }
 
   export type PackMapEnvDataSkyCardMaterialV47 = {
-    filename: string,
+    filename: number,
     constants: Array<PackMapEnvDataShaderConstantV47>,
     textures: Array<PackMapEnvDataShaderTextureV47>,
     textureAnimation: PackEnvDataSkyCardAnimationV47,
@@ -12295,15 +12295,15 @@ export namespace V76_N {
   }
 
   export type PackMapEnvDataShaderTextureV47 = {
-    filename: string,
-    textureUV: Array<number>
+    filename: number,
+    textureUV: Float32Array
   }
 
   export type PackEnvDataSkyCardAnimationV47 = {
-    textureAnimTranslation: Array<number>,
-    textureAnimScaleRangeX: Array<number>,
-    textureAnimScaleRangeY: Array<number>,
-    textureAnimScaleSpeed: Array<number>,
+    textureAnimTranslation: Float32Array,
+    textureAnimScaleRangeX: Float32Array,
+    textureAnimScaleRangeY: Float32Array,
+    textureAnimScaleSpeed: Float32Array,
     textureAnimRotation: number,
     texCoords: number
   }
@@ -12322,7 +12322,7 @@ export namespace V76_N {
 
   export type PackMapEnvDataSpawnGroupsV47 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV47>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV47 = {
@@ -12330,18 +12330,18 @@ export namespace V76_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV47 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -12349,7 +12349,7 @@ export namespace V76_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -12363,21 +12363,21 @@ export namespace V76_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV76 = {
@@ -12391,7 +12391,7 @@ export namespace V76_N {
   }
 
   export type PackMapEnvDataAudioV47 = {
-    token: number
+    token: BigInt
   }
 
   export type PackMapEnvDataBaseExV47 = {
@@ -12406,7 +12406,7 @@ export namespace V76_N {
     brightMax: number,
     brightScale: number,
     darkScale: number,
-    waterReflectionParams: Array<number>
+    waterReflectionParams: Float32Array
   }
 
   export type PackMapEnvDataBaseEx2V47 = {
@@ -12414,12 +12414,12 @@ export namespace V76_N {
   }
 
   export type PackMapEnvDataShapeV47 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -12439,28 +12439,28 @@ export namespace V76_N {
     wind: Array<PackMapEnvDataWindV76>,
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV76>,
-    starFile: string,
+    starFile: number,
     skyModeCubeTex: Array<PackMapEnvDataSkyModeCubeTexV47>
   }
 
   export type PackMapEnvDataSkyModeTexV76 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
   export type PackMapEnvDataSkyModeCubeTexV47 = {
-    texPathE: string,
-    texPathW: string,
-    texPathN: string,
-    texPathS: string,
-    texPathB: string,
-    texPathT: string
+    texPathE: number,
+    texPathW: number,
+    texPathN: number,
+    texPathS: number,
+    texPathB: number,
+    texPathT: number
   }
 
 }
@@ -12490,26 +12490,26 @@ export namespace V77_N {
     wind: Array<PackMapEnvDataWindV76>,
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     type: number,
-    guid: number,
+    guid: BigInt,
     shapeArray: Array<PackMapEnvDataShapeV47>
   }
 
   export type PackMapEnvDataLightingV76 = {
     lights: Array<PackMapEnvDataLightV76>,
     shadowInfluence: number,
-    backlightColor: Array<number>,
+    backlightColor: Uint8Array,
     backlightIntensity: number
   }
 
   export type PackMapEnvDataLightV76 = {
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
-    direction: Array<number>
+    direction: Float32Array
   }
 
   export type PackMapEnvDataLightingCharGroupV47 = {
@@ -12535,7 +12535,7 @@ export namespace V77_N {
     depth: number,
     extent: number,
     scale: number,
-    texture: string,
+    texture: number,
     attributes: Array<PackMapEnvDataLayerAttributesV76>,
     name: string,
     reserved: number
@@ -12546,27 +12546,27 @@ export namespace V77_N {
     density: number,
     haze: number,
     lightIntensity: number,
-    velocity: Array<number>,
+    velocity: Float32Array,
     fadeWidth: number,
     fadeEnd: number,
     reserved: number
   }
 
   export type PackMapEnvDataColoredLightRingsV47 = {
-    range: Array<number>,
-    distances: Array<number>,
-    lightColors: Array<Array<number>>,
-    shadowColors: Array<Array<number>>
+    range: Float32Array,
+    distances: Float32Array,
+    lightColors: Array<Uint8Array>,
+    shadowColors: Array<Uint8Array>
   }
 
   export type PackMapEnvDataEffectV76 = {
-    glow: Array<number>,
-    tintColor: Array<number>,
-    tintTargetColor: Array<number>,
+    glow: Uint8Array,
+    tintColor: Uint8Array,
+    tintTargetColor: Uint8Array,
     saturation: number,
     tintAmount: number,
     tintFocus: number,
-    glowLevel: Array<number>,
+    glowLevel: Uint8Array,
     glowAmplify: number,
     focalDepth: number,
     focalRange: number,
@@ -12575,7 +12575,7 @@ export namespace V77_N {
     ssaoContrast: number,
     ssaoSunScale: number,
     flags: number,
-    clutTexturePath: string,
+    clutTexturePath: number,
     ext: PackMapEnvDataEffectExV47
   }
 
@@ -12584,39 +12584,39 @@ export namespace V77_N {
   }
 
   export type PackMapEnvDataHazeV76 = {
-    nearColor: Array<number>,
-    farColor: Array<number>,
-    distRange: Array<number>,
-    heightColor: Array<number>,
-    heightRange: Array<number>,
+    nearColor: Uint8Array,
+    farColor: Uint8Array,
+    distRange: Float32Array,
+    heightColor: Uint8Array,
+    heightRange: Float32Array,
     depthCue: number,
-    sunDirRange: Array<number>
+    sunDirRange: Float32Array
   }
 
   export type PackMapEnvDataPFieldV76 = {
     altitude: number,
-    angle: Array<number>,
+    angle: Float32Array,
     clusterCount: number,
-    clustering: Array<number>,
+    clustering: Float32Array,
     depth: number,
     deviation: number,
-    deviationSpeed: Array<number>,
+    deviationSpeed: Float32Array,
     extent: number,
     fade: number,
-    fieldDirection: Array<number>,
+    fieldDirection: Float32Array,
     flags: number,
-    lifetime: Array<number>,
-    opacity: Array<number>,
+    lifetime: Float32Array,
+    opacity: Float32Array,
     particleCount: number,
-    period: Array<number>,
-    rotation: Array<number>,
-    scaleX: Array<number>,
-    scaleY: Array<number>,
+    period: Float32Array,
+    rotation: Float32Array,
+    scaleX: Float32Array,
+    scaleY: Float32Array,
     seed: number,
-    speed: Array<number>,
-    texColRow: Array<number>,
+    speed: Float32Array,
+    texColRow: Uint32Array,
     texFPS: number,
-    texPath: string,
+    texPath: number,
     type: number,
     name: string,
     reserved: number
@@ -12624,9 +12624,9 @@ export namespace V77_N {
 
   export type PackMapEnvDataPFieldCutoutV47 = {
     name: string,
-    x: Array<number>,
-    y: Array<number>,
-    z: Array<number>
+    x: Float32Array,
+    y: Float32Array,
+    z: Float32Array
   }
 
   export type PackMapEnvDataSkyV76 = {
@@ -12655,7 +12655,7 @@ export namespace V77_N {
     night: PackMapEnvDataSkyCardAttributesV76,
     flags: number,
     name: string,
-    location: Array<number>,
+    location: Float32Array,
     material: PackMapEnvDataSkyCardMaterialV47,
     ext: PackMapEnvDataSkyCardExV47
   }
@@ -12667,10 +12667,10 @@ export namespace V77_N {
     latitude: number,
     lightIntensity: number,
     minHaze: number,
-    scale: Array<number>,
+    scale: Float32Array,
     speed: number,
-    texture: string,
-    textureUV: Array<number>,
+    texture: number,
+    textureUV: Float32Array,
     brightness: number,
     lensFlare: PackMapEnvLensFlareV47,
     ext: PackMapEnvDataSkyCardAttributesExV47
@@ -12679,9 +12679,9 @@ export namespace V77_N {
   export type PackMapEnvLensFlareV47 = {
     atoms: Array<PackMapEnvLensFlareAtomV47>,
     textures: Array<PackMapEnvLensFlareTextureV47>,
-    material: string,
-    fadeBand: Array<number>,
-    reverseFadeBand: Array<number>,
+    material: number,
+    fadeBand: Float32Array,
+    reverseFadeBand: Float32Array,
     opacityCoeff: number,
     flags: number,
     constants: Array<PackMapEnvDataShaderConstantV47>
@@ -12692,21 +12692,21 @@ export namespace V77_N {
     columns: number,
     start: number,
     fps: number,
-    color: Array<number>,
-    offset: Array<number>,
-    scale: Array<number>,
+    color: Uint8Array,
+    offset: Float32Array,
+    scale: Float32Array,
     baseRotation: number,
     cameraRotation: number,
     flags: number
   }
 
   export type PackMapEnvLensFlareTextureV47 = {
-    texture: string
+    texture: number
   }
 
   export type PackMapEnvDataShaderConstantV47 = {
     token: number,
-    value: Array<number>
+    value: Float32Array
   }
 
   export type PackMapEnvDataSkyCardAttributesExV47 = {
@@ -12714,7 +12714,7 @@ export namespace V77_N {
   }
 
   export type PackMapEnvDataSkyCardMaterialV47 = {
-    filename: string,
+    filename: number,
     constants: Array<PackMapEnvDataShaderConstantV47>,
     textures: Array<PackMapEnvDataShaderTextureV47>,
     textureAnimation: PackEnvDataSkyCardAnimationV47,
@@ -12722,15 +12722,15 @@ export namespace V77_N {
   }
 
   export type PackMapEnvDataShaderTextureV47 = {
-    filename: string,
-    textureUV: Array<number>
+    filename: number,
+    textureUV: Float32Array
   }
 
   export type PackEnvDataSkyCardAnimationV47 = {
-    textureAnimTranslation: Array<number>,
-    textureAnimScaleRangeX: Array<number>,
-    textureAnimScaleRangeY: Array<number>,
-    textureAnimScaleSpeed: Array<number>,
+    textureAnimTranslation: Float32Array,
+    textureAnimScaleRangeX: Float32Array,
+    textureAnimScaleRangeY: Float32Array,
+    textureAnimScaleSpeed: Float32Array,
     textureAnimRotation: number,
     texCoords: number
   }
@@ -12749,7 +12749,7 @@ export namespace V77_N {
 
   export type PackMapEnvDataSpawnGroupsV47 = {
     spawnGroups: Array<PackMapEnvDataSpawnListV47>,
-    targets: Array<number>
+    targets: BigUint64Array
   }
 
   export type PackMapEnvDataSpawnListV47 = {
@@ -12757,18 +12757,18 @@ export namespace V77_N {
   }
 
   export type PackMapEnvDataSpawnModelDataV47 = {
-    spawnRange: Array<number>,
-    lifeSpan: Array<number>,
-    scaleRange: Array<number>,
-    heightRange: Array<number>,
-    rotXRange: Array<number>,
-    rotYRange: Array<number>,
-    rotZRange: Array<number>,
+    spawnRange: Uint32Array,
+    lifeSpan: Uint32Array,
+    scaleRange: Float32Array,
+    heightRange: Float32Array,
+    rotXRange: Float32Array,
+    rotYRange: Float32Array,
+    rotZRange: Float32Array,
     probability: number,
     delay: number,
     flags: number,
-    animSequence: number,
-    modelFile: string,
+    animSequence: BigInt,
+    modelFile: number,
     maxConcurrent: number
   }
 
@@ -12776,7 +12776,7 @@ export namespace V77_N {
     waterFlags: number,
     animAmplitude: number,
     animChoppiness: number,
-    animWind: Array<number>,
+    animWind: Float32Array,
     bumpAmount: number,
     bumpAngle0: number,
     bumpAngle1: number,
@@ -12790,21 +12790,21 @@ export namespace V77_N {
     patternTile: number,
     patternSpeed: number,
     patternEdge: number,
-    surfaceShallowColor: Array<number>,
-    surfaceDeepColor: Array<number>,
-    patternColor: Array<number>,
+    surfaceShallowColor: Uint8Array,
+    surfaceDeepColor: Uint8Array,
+    patternColor: Uint8Array,
     surfaceFresnel: number,
     distortAmount: number,
     depthAttenuation: number,
-    materialFilename: string,
-    textureFilenames: Array<string>,
-    constantTokens: Array<number>,
-    constantValues: Array<Array<number>>,
+    materialFilename: number,
+    textureFilenames: Array<number>,
+    constantTokens: Uint32Array,
+    constantValues: Array<Float32Array>,
     foamSpawn: number,
     foamDissolve: number,
     foamDepthAttenuation: number,
-    foamColor0: Array<number>,
-    foamColor1: Array<number>
+    foamColor0: Uint8Array,
+    foamColor1: Uint8Array
   }
 
   export type PackMapEnvDataWindV76 = {
@@ -12818,7 +12818,7 @@ export namespace V77_N {
   }
 
   export type PackMapEnvDataAudioV47 = {
-    token: number
+    token: BigInt
   }
 
   export type PackMapEnvDataBaseExV47 = {
@@ -12833,7 +12833,7 @@ export namespace V77_N {
     brightMax: number,
     brightScale: number,
     darkScale: number,
-    waterReflectionParams: Array<number>
+    waterReflectionParams: Float32Array
   }
 
   export type PackMapEnvDataBaseEx2V47 = {
@@ -12841,12 +12841,12 @@ export namespace V77_N {
   }
 
   export type PackMapEnvDataShapeV47 = {
-    center: Array<number>,
+    center: Float32Array,
     height: number,
     fadeHorizInner: number,
     fadeHorizOuter: number,
     fadeVertical: number,
-    vertexArray: Array<Array<number>>,
+    vertexArray: Array<Float32Array>,
     shapeType: number
   }
 
@@ -12866,28 +12866,28 @@ export namespace V77_N {
     wind: Array<PackMapEnvDataWindV76>,
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV76>,
-    starFile: string,
+    starFile: number,
     skyModeCubeTex: Array<PackMapEnvDataSkyModeCubeTexV47>
   }
 
   export type PackMapEnvDataSkyModeTexV76 = {
-    texPathNE: string,
-    texPathSW: string,
-    texPathT: string
+    texPathNE: number,
+    texPathSW: number,
+    texPathT: number
   }
 
   export type PackMapEnvDataSkyModeCubeTexV47 = {
-    texPathE: string,
-    texPathW: string,
-    texPathN: string,
-    texPathS: string,
-    texPathB: string,
-    texPathT: string
+    texPathE: number,
+    texPathW: number,
+    texPathN: number,
+    texPathS: number,
+    texPathB: number,
+    texPathT: number
   }
 
   export type PackMapEnvDataOverrideV77 = {
@@ -12906,15 +12906,15 @@ export namespace V77_N {
     wind: Array<PackMapEnvDataWindV76>,
     audio: Array<PackMapEnvDataAudioV47>,
     name: string,
-    nightMods: Array<number>,
-    bindTarget: number,
+    nightMods: Uint8Array,
+    bindTarget: BigInt,
     flags: number,
     ext: PackMapEnvDataBaseExV47,
     skyModeTex: Array<PackMapEnvDataSkyModeTexV76>,
-    starFile: string,
+    starFile: number,
     skyModeCubeTex: Array<PackMapEnvDataSkyModeCubeTexV47>,
-    token: number,
-    guid: number
+    token: BigInt,
+    guid: BigInt
   }
 
 }

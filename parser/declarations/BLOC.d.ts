@@ -1,11 +1,11 @@
 export namespace V0_N {
   export type PackMapBlock = {
-    blockDims: Array<number>,
+    blockDims: Uint32Array,
     blockRecordArray: Array<PackMapBlockRecord>
   }
 
   export type PackMapBlockRecord = {
-    filename: string
+    filename: number
   }
 
 }

@@ -5,7 +5,7 @@ export namespace V0_N {
 
   export type TextPackVariant = {
     textId: number,
-    variantTextIds: Array<number>
+    variantTextIds: Uint32Array
   }
 
 }

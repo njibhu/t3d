@@ -5,8 +5,8 @@ export namespace V0_N {
   }
 
   export type PagedImageLayerDataV0 = {
-    dims: Array<number>,
-    rawDims: Array<number>,
+    dims: Uint32Array,
+    rawDims: Uint32Array,
     diskFormat: number,
     rawFormat: number,
     strippedFormat: number
@@ -14,8 +14,8 @@ export namespace V0_N {
 
   export type PagedImagePageDataV0 = {
     layer: number,
-    coord: Array<number>,
-    filename: string,
+    coord: Uint32Array,
+    filename: number,
     flags: number
   }
 
@@ -30,8 +30,8 @@ export namespace V1_N {
   }
 
   export type PagedImageLayerDataV1 = {
-    dims: Array<number>,
-    rawDims: Array<number>,
+    dims: Uint32Array,
+    rawDims: Uint32Array,
     diskFormat: number,
     rawFormat: number,
     strippedFormat: number
@@ -39,10 +39,10 @@ export namespace V1_N {
 
   export type PagedImagePageDataV1 = {
     layer: number,
-    coord: Array<number>,
-    filename: string,
+    coord: Uint32Array,
+    filename: number,
     flags: number,
-    solidColor: Array<number>
+    solidColor: Uint8Array
   }
 
 }
@@ -57,8 +57,8 @@ export namespace V2_N {
   }
 
   export type PagedImageLayerDataV2 = {
-    dims: Array<number>,
-    rawDims: Array<number>,
+    dims: Uint32Array,
+    rawDims: Uint32Array,
     diskFormat: number,
     rawFormat: number,
     strippedFormat: number
@@ -66,10 +66,10 @@ export namespace V2_N {
 
   export type PagedImagePageDataV2 = {
     layer: number,
-    coord: Array<number>,
-    filename: string,
+    coord: Uint32Array,
+    filename: number,
     flags: number,
-    solidColor: Array<number>
+    solidColor: Uint8Array
   }
 
 }
@@ -85,8 +85,8 @@ export namespace V3_N {
   }
 
   export type PagedImageLayerDataV3 = {
-    rawDims: Array<number>,
-    strippedDims: Array<number>,
+    rawDims: Uint32Array,
+    strippedDims: Uint32Array,
     rawFormat: number,
     strippedFormat: number,
     diskFormat: number
@@ -94,10 +94,10 @@ export namespace V3_N {
 
   export type PagedImagePageDataV3 = {
     layer: number,
-    coord: Array<number>,
-    filename: string,
+    coord: Uint32Array,
+    filename: number,
     flags: number,
-    solidColor: Array<number>
+    solidColor: Uint8Array
   }
 
 }

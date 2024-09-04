@@ -12,18 +12,18 @@ export namespace V0_N {
   export type AmatToolConstantV0 = {
     token: number,
     displayName: string,
-    defaultValue: Array<number>,
+    defaultValue: Float32Array,
     flags: number,
-    minValue: Array<number>,
-    maxValue: Array<number>
+    minValue: Float32Array,
+    maxValue: Float32Array
   }
 
   export type AmatToolTextureV0 = {
     texName: string,
     texDefaultFile: string,
     flags: number,
-    texGen: Array<number>,
-    texTransform: Array<number>
+    texGen: Uint32Array,
+    texTransform: Uint32Array
   }
 
 }
@@ -44,18 +44,18 @@ export namespace V1_N {
   export type AmatToolConstantV1 = {
     token: number,
     displayName: string,
-    defaultValue: Array<number>,
+    defaultValue: Float32Array,
     flags: number,
-    minValue: Array<number>,
-    maxValue: Array<number>
+    minValue: Float32Array,
+    maxValue: Float32Array
   }
 
   export type AmatToolTextureV1 = {
     texName: string,
     texDefaultFile: string,
     flags: number,
-    texGen: Array<number>,
-    texTransform: Array<number>
+    texGen: Uint32Array,
+    texTransform: Uint32Array
   }
 
 }
@@ -76,18 +76,18 @@ export namespace V2_N {
   export type AmatToolConstant = {
     token: number,
     displayName: string,
-    defaultValue: Array<number>,
+    defaultValue: Float32Array,
     flags: number,
-    minValue: Array<number>,
-    maxValue: Array<number>
+    minValue: Float32Array,
+    maxValue: Float32Array
   }
 
   export type AmatToolTexture = {
     texName: string,
     texDefaultFile: string,
     flags: number,
-    texGen: Array<number>,
-    texTransform: Array<number>
+    texGen: Uint32Array,
+    texTransform: Uint32Array
   }
 
 }
@@ -101,7 +101,7 @@ export namespace V3_N {
     texCoordCount: number,
     texTransformCount: number,
     decompressedTextCount: number,
-    compressedText: Array<number>,
+    compressedText: Uint8Array,
     constants: Array<AmatToolConstant>,
     textures: Array<AmatToolTexture>
   }
@@ -109,17 +109,17 @@ export namespace V3_N {
   export type AmatToolConstant = {
     token: number,
     displayName: string,
-    defaultValue: Array<number>,
+    defaultValue: Float32Array,
     flags: number,
-    minValue: Array<number>,
-    maxValue: Array<number>
+    minValue: Float32Array,
+    maxValue: Float32Array
   }
 
   export type AmatToolTexture = {
     texName: string,
     texDefaultFile: string,
     flags: number,
-    texGen: Array<number>
+    texGen: Uint32Array
   }
 
 }

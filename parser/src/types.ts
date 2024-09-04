@@ -70,6 +70,15 @@ export function RefString(): DataType {
 }
 
 export function FixedArray(subType: DataType | string, length: number): DataType {
+  const nativeClass = getNativeArray(subType);
+  if(nativeClass){
+    return {
+      baseType: BaseType.DynArray,
+      subType,
+      declarationType: nativeClass.name,
+    };
+  }
+
   return {
     baseType: BaseType.FixedArray,
     subType,
@@ -79,6 +88,15 @@ export function FixedArray(subType: DataType | string, length: number): DataType
 }
 
 export function DynArray(subType: DataType | string): DataType {
+  const nativeClass = getNativeArray(subType);
+  if(nativeClass){
+    return {
+      baseType: BaseType.DynArray,
+      subType,
+      declarationType: nativeClass.name,
+    };
+  }
+
   return {
     baseType: BaseType.DynArray,
     subType,
@@ -112,14 +130,14 @@ export function RefString16(): DataType {
 export function Filename(): DataType {
   return {
     baseType: BaseType.Filename,
-    declarationType: "string",
+    declarationType: "number",
   };
 }
 
 export function Fileref(): DataType {
   return {
     baseType: BaseType.Fileref,
-    declarationType: "string",
+    declarationType: "number",
   };
 }
 
@@ -128,4 +146,24 @@ export function Unknown(): DataType {
     baseType: BaseType.Unknown,
     declarationType: "unknown",
   };
+}
+
+function getNativeArray(type: DataType | string) {
+  if(typeof type === "string"){
+    return undefined;
+  }
+  switch(type.baseType){
+    case BaseType.Float32:
+      return Float32Array;
+    case BaseType.Float64:
+      return Float64Array;
+    case BaseType.Uint8:
+      return Uint8Array;
+    case BaseType.Uint16:
+      return Uint16Array;
+    case BaseType.Uint32:
+      return Uint32Array;
+    case BaseType.Uint64:
+      return BigUint64Array;
+  }
 }

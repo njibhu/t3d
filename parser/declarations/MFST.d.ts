@@ -118,7 +118,7 @@ export namespace V4_N {
 
   export type PackAssetManifestPropertyV4 = {
     type: number,
-    data: Array<number>
+    data: Uint8Array
   }
 
   export type PackAssetManifestPropertyIndexV4 = {
@@ -153,7 +153,7 @@ export namespace V5_N {
 
   export type PackAssetManifestPropertyV5 = {
     type: number,
-    data: Array<number>
+    data: Uint8Array
   }
 
   export type PackAssetManifestPropertyIndexV5 = {
@@ -168,7 +168,7 @@ export type V5 = V5_N.PackAssetManifestV5;
 export namespace V6_N {
   export type PackAssetManifest = {
     buildId: number,
-    totalRecordSize: number,
+    totalRecordSize: BigInt,
     records: Array<PackAssetManifestRecord>,
     streams: Array<PackAssetManifestStream>,
     properties: Array<PackAssetManifestProperty>,
@@ -189,7 +189,7 @@ export namespace V6_N {
 
   export type PackAssetManifestProperty = {
     type: number,
-    data: Array<number>
+    data: Uint8Array
   }
 
   export type PackAssetManifestPropertyIndex = {

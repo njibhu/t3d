@@ -5,10 +5,10 @@ export namespace V1_N {
 
   export type PackMapLight = {
     type: number,
-    position: Array<number>,
+    position: Float32Array,
     elevation: number,
     azimuth: number,
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number
@@ -29,10 +29,10 @@ export namespace V2_N {
 
   export type PackMapLight = {
     type: number,
-    position: Array<number>,
+    position: Float32Array,
     elevation: number,
     azimuth: number,
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -55,10 +55,10 @@ export namespace V3_N {
 
   export type PackMapLight = {
     type: number,
-    position: Array<number>,
+    position: Float32Array,
     elevation: number,
     azimuth: number,
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -83,14 +83,14 @@ export namespace V4_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -118,14 +118,14 @@ export namespace V5_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -143,22 +143,22 @@ export namespace V5_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
 }
@@ -173,14 +173,14 @@ export namespace V6_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -198,38 +198,38 @@ export namespace V6_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    minExt: Array<number>,
-    maxExt: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    minExt: Float32Array,
+    maxExt: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     images: Array<PackMapVolumeImage>
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
+    filename: number,
     dims: number,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
 }
@@ -244,14 +244,14 @@ export namespace V7_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -269,39 +269,39 @@ export namespace V7_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    minExt: Array<number>,
-    maxExt: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    minExt: Float32Array,
+    maxExt: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
     images: Array<PackMapVolumeImage>
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
+    filename: number,
     dims: number,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
 }
@@ -316,14 +316,14 @@ export namespace V8_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -341,40 +341,40 @@ export namespace V8_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    minExt: Array<number>,
-    maxExt: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    minExt: Float32Array,
+    maxExt: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoint: Array<number>,
+    floodPoint: Float32Array,
     images: Array<PackMapVolumeImage>
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
+    filename: number,
     dims: number,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
 }
@@ -389,14 +389,14 @@ export namespace V9_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -414,42 +414,42 @@ export namespace V9_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoint: Array<number>,
+    floodPoint: Float32Array,
     flags: number,
     images: Array<PackMapVolumeImage>
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
+    filename: number,
     dims: number,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
 }
@@ -464,14 +464,14 @@ export namespace V10_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -489,42 +489,42 @@ export namespace V10_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoint: Array<number>,
+    floodPoint: Float32Array,
     flags: number,
     images: Array<PackMapVolumeImage>
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
 }
@@ -541,15 +541,15 @@ export namespace V11_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -567,48 +567,48 @@ export namespace V11_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoint: Array<number>,
+    floodPoint: Float32Array,
     flags: number,
     images: Array<PackMapVolumeImage>,
     broadId: number
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -625,15 +625,15 @@ export namespace V12_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -651,48 +651,48 @@ export namespace V12_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoint: Array<number>,
+    floodPoint: Float32Array,
     flags: number,
     images: Array<PackMapVolumeImage>,
     broadId: number
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -709,15 +709,15 @@ export namespace V13_N {
   }
 
   export type PackMapLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -735,48 +735,48 @@ export namespace V13_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoints: Array<Array<number>>,
+    floodPoints: Array<Float32Array>,
     flags: number,
     images: Array<PackMapVolumeImage>,
     broadId: number
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -794,15 +794,15 @@ export namespace V14_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -820,58 +820,58 @@ export namespace V14_N {
   }
 
   export type PackMapProtalLight = {
-    guid: number,
+    guid: BigInt,
     fadeCamera: number,
     fadeLight: number,
     lighten: number,
     darken: number,
-    points: Array<Array<number>>,
+    points: Array<Float32Array>,
     broadId: number
   }
 
   export type PackMapSpotLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoints: Array<Array<number>>,
+    floodPoints: Array<Float32Array>,
     flags: number,
     images: Array<PackMapVolumeImage>,
     broadId: number
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -889,15 +889,15 @@ export namespace V15_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -915,8 +915,8 @@ export namespace V15_N {
   }
 
   export type PackMapPortalLight = {
-    guid: number,
-    points: Array<Array<number>>,
+    guid: BigInt,
+    points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
   }
@@ -929,48 +929,48 @@ export namespace V15_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapPointLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string
+    textureName: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoints: Array<Array<number>>,
+    floodPoints: Array<Float32Array>,
     flags: number,
     images: Array<PackMapVolumeImage>,
     broadId: number
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -988,15 +988,15 @@ export namespace V16_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -1014,8 +1014,8 @@ export namespace V16_N {
   }
 
   export type PackMapPortalLight = {
-    guid: number,
-    points: Array<Array<number>>,
+    guid: BigInt,
+    points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
   }
@@ -1028,53 +1028,53 @@ export namespace V16_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapSpotLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapSpotLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
+    direction: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string,
+    textureName: number,
     shadowData: PackMapSpotShadow
   }
 
   export type PackMapSpotShadow = {
-    shadowFilename: string
+    shadowFilename: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoints: Array<Array<number>>,
+    floodPoints: Array<Float32Array>,
     flags: number,
     images: Array<PackMapVolumeImage>,
     broadId: number
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -1092,15 +1092,15 @@ export namespace V17_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -1118,8 +1118,8 @@ export namespace V17_N {
   }
 
   export type PackMapPortalLight = {
-    guid: number,
-    points: Array<Array<number>>,
+    guid: BigInt,
+    points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
   }
@@ -1132,54 +1132,54 @@ export namespace V17_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapSpotLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapSpotLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
-    upDirection: Array<number>,
+    direction: Float32Array,
+    upDirection: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string,
+    textureName: number,
     shadowData: PackMapSpotShadow
   }
 
   export type PackMapSpotShadow = {
-    shadowFilename: string
+    shadowFilename: number
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoints: Array<Array<number>>,
+    floodPoints: Array<Float32Array>,
     flags: number,
     images: Array<PackMapVolumeImage>,
     broadId: number
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -1197,15 +1197,15 @@ export namespace V18_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -1223,8 +1223,8 @@ export namespace V18_N {
   }
 
   export type PackMapPortalLight = {
-    guid: number,
-    points: Array<Array<number>>,
+    guid: BigInt,
+    points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
   }
@@ -1237,37 +1237,37 @@ export namespace V18_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapSpotLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapSpotLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
-    upDirection: Array<number>,
+    direction: Float32Array,
+    upDirection: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string,
+    textureName: number,
     shadowData: PackMapSpotShadow,
     lodData: Array<PackMapSpotLod>
   }
 
   export type PackMapSpotShadow = {
-    shadowFilename: string
+    shadowFilename: number
   }
 
   export type PackMapSpotLod = {
     distance: number,
     flags: number,
     lightFlags: number,
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
     nearDist: number,
     farDist: number,
@@ -1276,28 +1276,28 @@ export namespace V18_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoints: Array<Array<number>>,
+    floodPoints: Array<Float32Array>,
     flags: number,
     images: Array<PackMapVolumeImage>,
     broadId: number
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }
@@ -1316,15 +1316,15 @@ export namespace V19_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
@@ -1342,8 +1342,8 @@ export namespace V19_N {
   }
 
   export type PackMapPortalLight = {
-    guid: number,
-    points: Array<Array<number>>,
+    guid: BigInt,
+    points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
   }
@@ -1356,37 +1356,37 @@ export namespace V19_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: number,
+    guid: BigInt,
     lights: Array<PackMapSpotLight>,
     curves: Array<PackMapCurve>,
     broadId: number
   }
 
   export type PackMapSpotLight = {
-    position: Array<number>,
-    color: Array<number>,
+    position: Float32Array,
+    color: Uint8Array,
     intensity: number,
     nearDistance: number,
     farDistance: number,
     flags: number,
-    direction: Array<number>,
-    upDirection: Array<number>,
+    direction: Float32Array,
+    upDirection: Float32Array,
     innerAngle: number,
     outerAngle: number,
-    textureName: string,
+    textureName: number,
     shadowData: PackMapSpotShadow,
     lodData: Array<PackMapSpotLod>
   }
 
   export type PackMapSpotShadow = {
-    shadowFilename: string
+    shadowFilename: number
   }
 
   export type PackMapSpotLod = {
     distance: number,
     flags: number,
     lightFlags: number,
-    color: Array<number>,
+    color: Uint8Array,
     intensity: number,
     nearDist: number,
     farDist: number,
@@ -1395,28 +1395,28 @@ export namespace V19_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: number,
-    position: Array<number>,
-    extents: Array<number>,
-    rotation: Array<number>,
-    intensities: Array<number>,
-    pack: Array<number>,
+    guid: BigInt,
+    position: Float32Array,
+    extents: Float32Array,
+    rotation: Float32Array,
+    intensities: Float32Array,
+    pack: Float32Array,
     name: string,
-    floodPoints: Array<Array<number>>,
+    floodPoints: Array<Float32Array>,
     flags: number,
     images: Array<PackMapVolumeImage>,
     broadId: number
   }
 
   export type PackMapVolumeImage = {
-    filename: string,
-    dims: Array<number>,
+    filename: number,
+    dims: Uint32Array,
     format: number,
-    image: Array<number>
+    image: Uint8Array
   }
 
   export type PackBroadphaseType = {
-    broadphaseData: Array<number>
+    broadphaseData: Uint8Array
   }
 
 }

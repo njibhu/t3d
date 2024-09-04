@@ -1,7 +1,7 @@
 import { CString, Uint16, Uint32 } from "../src/types";
 import { DataParser } from "./data-parser";
 
-interface FileHead {
+export interface FileHead {
   identifier: string;
   unknownField1: number;
   unknownField2: number;

@@ -5,9 +5,9 @@ export namespace V0_N {
   }
 
   export type PackMapCubeMapSampleV0 = {
-    position: Array<number>,
+    position: Float32Array,
     flags: number,
-    dataPtr: Array<number>
+    dataPtr: Uint8Array
   }
 
   export type PackMapCubeMapParamsV0 = {
@@ -28,10 +28,10 @@ export namespace V1_N {
   }
 
   export type PackMapCubeMapSampleV1 = {
-    position: Array<number>,
+    position: Float32Array,
     flags: number,
-    dayPtr: Array<number>,
-    nightPtr: Array<number>
+    dayPtr: Uint8Array,
+    nightPtr: Uint8Array
   }
 
   export type PackMapCubeMapParamsV1 = {
@@ -52,11 +52,11 @@ export namespace V2_N {
   }
 
   export type PackMapCubeMapSampleV2 = {
-    position: Array<number>,
-    filenameDayDefault: string,
-    filenameNightDefault: string,
-    filenameDayScript: string,
-    filenameNightScript: string
+    position: Float32Array,
+    filenameDayDefault: number,
+    filenameNightDefault: number,
+    filenameDayScript: number,
+    filenameNightScript: number
   }
 
   export type PackMapCubeMapParamsV2 = {
@@ -77,12 +77,12 @@ export namespace V3_N {
   }
 
   export type PackMapCubeMapSampleV3 = {
-    position: Array<number>,
-    filenameDayDefault: string,
-    filenameNightDefault: string,
-    filenameDayScript: string,
-    filenameNightScript: string,
-    envID: number
+    position: Float32Array,
+    filenameDayDefault: number,
+    filenameNightDefault: number,
+    filenameDayScript: number,
+    filenameNightScript: number,
+    envID: BigInt
   }
 
   export type PackMapCubeMapParamsV3 = {
@@ -104,16 +104,16 @@ export namespace V4_N {
   }
 
   export type PackMapCubeMapSampleV4 = {
-    position: Array<number>,
-    filenameDayDefault: string,
-    filenameNightDefault: string,
-    filenameDayScript: string,
-    filenameNightScript: string,
-    filenameDayDefaultHiRes: string,
-    filenameNightDefaultHiRes: string,
-    filenameDayScriptHiRes: string,
-    filenameNightScriptHiRes: string,
-    envID: number
+    position: Float32Array,
+    filenameDayDefault: number,
+    filenameNightDefault: number,
+    filenameDayScript: number,
+    filenameNightScript: number,
+    filenameDayDefaultHiRes: number,
+    filenameNightDefaultHiRes: number,
+    filenameDayScriptHiRes: number,
+    filenameNightScriptHiRes: number,
+    envID: BigInt
   }
 
   export type PackMapCubeMapParamsV4 = {

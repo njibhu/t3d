@@ -1,15 +1,15 @@
 export namespace V0_N {
   export type CollideNavMesh = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
-    chunkDims: Array<number>,
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
+    chunkDims: Uint32Array,
     chunkRefArray: Array<CollideNavMeshChunkRef>
   }
 
   export type CollideNavMeshChunkRef = {
-    boundsMin: Array<number>,
-    boundsMax: Array<number>,
-    chunkFilename: string
+    boundsMin: Float32Array,
+    boundsMax: Float32Array,
+    chunkFilename: number
   }
 
 }

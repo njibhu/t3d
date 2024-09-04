@@ -4,9 +4,9 @@ export namespace V0_N {
   }
 
   export type PackMapToolFsFileV0 = {
-    filename: string,
-    time: number,
-    dataPtr: Array<number>
+    filename: number,
+    time: BigInt,
+    dataPtr: Uint8Array
   }
 
 }

@@ -4,12 +4,12 @@ export namespace V0_N {
   }
 
   export type PackAnimSequenceV0 = {
-    sequence: number,
+    sequence: BigInt,
     animationData: Array<PackAnimSequenceDataV0>
   }
 
   export type PackAnimSequenceDataV0 = {
-    token: number,
+    token: BigInt,
     flags: number,
     blendInTime: number,
     blendOutTime: number,
@@ -37,9 +37,9 @@ export namespace V0_N {
 
   export type PackAnimSequenceStepMoveV0 = {
     duration: number,
-    moveRotation: Array<number>,
-    facingRotation: Array<number>,
-    velocity: Array<number>
+    moveRotation: Float32Array,
+    facingRotation: Float32Array,
+    velocity: Float32Array
   }
 
   export type PackAnimSequenceTriggerV0 = {

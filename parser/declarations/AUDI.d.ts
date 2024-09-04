@@ -1,7 +1,7 @@
 export namespace V0_N {
   export type MapAudio = {
-    globalAmbientScriptFilename: string,
-    globalMusicScriptFilename: string
+    globalAmbientScriptFilename: number,
+    globalMusicScriptFilename: number
   }
 
 }
@@ -10,20 +10,20 @@ export type V0 = V0_N.MapAudio;
 
 export namespace V1_N {
   export type MapAudio = {
-    globalAmbientScriptFilename: string,
-    globalMusicScriptFilename: string,
+    globalAmbientScriptFilename: number,
+    globalMusicScriptFilename: number,
     audioRegions: Array<PackMapAudioRegion>
   }
 
   export type PackMapAudioRegion = {
     regionType: number,
     overrideMode: number,
-    filenameSource: string,
-    filenameAmbient: string,
-    filenameMusic: string,
-    points: Array<Array<number>>,
-    position: Array<number>,
-    orientation: Array<number>,
+    filenameSource: number,
+    filenameAmbient: number,
+    filenameMusic: number,
+    points: Array<Float32Array>,
+    position: Float32Array,
+    orientation: Float32Array,
     fadeBand: number,
     height: number,
     radius: number
@@ -35,22 +35,22 @@ export type V1 = V1_N.MapAudio;
 
 export namespace V2_N {
   export type MapAudio = {
-    globalAmbientScriptFilename: string,
-    globalMusicScriptFilename: string,
-    globalAmbientUnderwaterScriptFilename: string,
-    globalMusicUnderwaterScriptFilename: string,
+    globalAmbientScriptFilename: number,
+    globalMusicScriptFilename: number,
+    globalAmbientUnderwaterScriptFilename: number,
+    globalMusicUnderwaterScriptFilename: number,
     audioRegions: Array<PackMapAudioRegion>
   }
 
   export type PackMapAudioRegion = {
     regionType: number,
     overrideMode: number,
-    filenameSource: string,
-    filenameAmbient: string,
-    filenameMusic: string,
-    points: Array<Array<number>>,
-    position: Array<number>,
-    orientation: Array<number>,
+    filenameSource: number,
+    filenameAmbient: number,
+    filenameMusic: number,
+    points: Array<Float32Array>,
+    position: Float32Array,
+    orientation: Float32Array,
     fadeBand: number,
     height: number,
     radius: number
@@ -62,29 +62,29 @@ export type V2 = V2_N.MapAudio;
 
 export namespace V3_N {
   export type MapAudio = {
-    filenameAmbientDaySurface: string,
-    filenameMusicDaySurface: string,
-    filenameAmbientDayUnderwater: string,
-    filenameMusicDayUnderwater: string,
-    filenameAmbientNightSurface: string,
-    filenameMusicNightSurface: string,
-    filenameAmbientNightUnderwater: string,
-    filenameMusicNightUnderwater: string,
+    filenameAmbientDaySurface: number,
+    filenameMusicDaySurface: number,
+    filenameAmbientDayUnderwater: number,
+    filenameMusicDayUnderwater: number,
+    filenameAmbientNightSurface: number,
+    filenameMusicNightSurface: number,
+    filenameAmbientNightUnderwater: number,
+    filenameMusicNightUnderwater: number,
     audioRegions: Array<PackMapAudioRegion>
   }
 
   export type PackMapAudioRegion = {
     regionType: number,
     overrideMode: number,
-    filenameSourceDay: string,
-    filenameAmbientDay: string,
-    filenameMusicDay: string,
-    filenameSourceNight: string,
-    filenameAmbientNight: string,
-    filenameMusicNight: string,
-    points: Array<Array<number>>,
-    position: Array<number>,
-    orientation: Array<number>,
+    filenameSourceDay: number,
+    filenameAmbientDay: number,
+    filenameMusicDay: number,
+    filenameSourceNight: number,
+    filenameAmbientNight: number,
+    filenameMusicNight: number,
+    points: Array<Float32Array>,
+    position: Float32Array,
+    orientation: Float32Array,
     fadeBand: number,
     height: number,
     radius: number
@@ -96,33 +96,33 @@ export type V3 = V3_N.MapAudio;
 
 export namespace V4_N {
   export type MapAudio = {
-    filenameAmbientDaySurface: string,
-    filenameMusicDaySurface: string,
-    filenameAmbientDayUnderwater: string,
-    filenameMusicDayUnderwater: string,
-    filenameAmbientNightSurface: string,
-    filenameMusicNightSurface: string,
-    filenameAmbientNightUnderwater: string,
-    filenameMusicNightUnderwater: string,
+    filenameAmbientDaySurface: number,
+    filenameMusicDaySurface: number,
+    filenameAmbientDayUnderwater: number,
+    filenameMusicDayUnderwater: number,
+    filenameAmbientNightSurface: number,
+    filenameMusicNightSurface: number,
+    filenameAmbientNightUnderwater: number,
+    filenameMusicNightUnderwater: number,
     audioRegions: Array<PackMapAudioRegion>
   }
 
   export type PackMapAudioRegion = {
     regionType: number,
     overrideMode: number,
-    filenameSourceDay: string,
-    filenameAmbientDay: string,
-    filenameMusicDay: string,
-    filenameSourceNight: string,
-    filenameAmbientNight: string,
-    filenameMusicNight: string,
-    points: Array<Array<number>>,
-    position: Array<number>,
-    orientation: Array<number>,
+    filenameSourceDay: number,
+    filenameAmbientDay: number,
+    filenameMusicDay: number,
+    filenameSourceNight: number,
+    filenameAmbientNight: number,
+    filenameMusicNight: number,
+    points: Array<Float32Array>,
+    position: Float32Array,
+    orientation: Float32Array,
     fadeBand: number,
     height: number,
     radius: number,
-    guid: number
+    guid: BigInt
   }
 
 }
@@ -131,27 +131,27 @@ export type V4 = V4_N.MapAudio;
 
 export namespace V5_N {
   export type MapAudio = {
-    filenameAmbientDaySurface: string,
-    filenameAmbientDayUnderwater: string,
-    filenameAmbientNightSurface: string,
-    filenameAmbientNightUnderwater: string,
+    filenameAmbientDaySurface: number,
+    filenameAmbientDayUnderwater: number,
+    filenameAmbientNightSurface: number,
+    filenameAmbientNightUnderwater: number,
     audioRegions: Array<PackMapAudioRegion>
   }
 
   export type PackMapAudioRegion = {
     regionType: number,
     overrideMode: number,
-    filenameSourceDay: string,
-    filenameAmbientDay: string,
-    filenameSourceNight: string,
-    filenameAmbientNight: string,
-    points: Array<Array<number>>,
-    position: Array<number>,
-    orientation: Array<number>,
+    filenameSourceDay: number,
+    filenameAmbientDay: number,
+    filenameSourceNight: number,
+    filenameAmbientNight: number,
+    points: Array<Float32Array>,
+    position: Float32Array,
+    orientation: Float32Array,
     fadeBand: number,
     height: number,
     radius: number,
-    guid: number,
+    guid: BigInt,
     flags: number
   }
 
@@ -161,30 +161,30 @@ export type V5 = V5_N.MapAudio;
 
 export namespace V6_N {
   export type MapAudio = {
-    filenameAmbientDaySurface: string,
-    filenameAmbientDayUnderwater: string,
-    filenameAmbientNightSurface: string,
-    filenameAmbientNightUnderwater: string,
+    filenameAmbientDaySurface: number,
+    filenameAmbientDayUnderwater: number,
+    filenameAmbientNightSurface: number,
+    filenameAmbientNightUnderwater: number,
     audioRegions: Array<PackMapAudioRegion>
   }
 
   export type PackMapAudioRegion = {
     regionType: number,
     overrideMode: number,
-    filenameSourceDay: string,
-    filenameAmbientDay: string,
-    filenameSourceNight: string,
-    filenameAmbientNight: string,
-    filenameInterior: string,
+    filenameSourceDay: number,
+    filenameAmbientDay: number,
+    filenameSourceNight: number,
+    filenameAmbientNight: number,
+    filenameInterior: number,
     exteriorVolume: number,
     priority: number,
-    points: Array<Array<number>>,
-    position: Array<number>,
-    orientation: Array<number>,
+    points: Array<Float32Array>,
+    position: Float32Array,
+    orientation: Float32Array,
     fadeBand: number,
     height: number,
     radius: number,
-    guid: number,
+    guid: BigInt,
     flags: number
   }
 
@@ -194,10 +194,10 @@ export type V6 = V6_N.MapAudio;
 
 export namespace V7_N {
   export type MapAudio = {
-    filenameAmbientDaySurface: string,
-    filenameAmbientDayUnderwater: string,
-    filenameAmbientNightSurface: string,
-    filenameAmbientNightUnderwater: string,
+    filenameAmbientDaySurface: number,
+    filenameAmbientDayUnderwater: number,
+    filenameAmbientNightSurface: number,
+    filenameAmbientNightUnderwater: number,
     audioRegions: Array<PackMapAudioRegion>,
     audioRegionTools: Array<PackMapAudioRegionTool>
   }
@@ -205,20 +205,20 @@ export namespace V7_N {
   export type PackMapAudioRegion = {
     regionType: number,
     overrideMode: number,
-    filenameSourceDay: string,
-    filenameAmbientDay: string,
-    filenameSourceNight: string,
-    filenameAmbientNight: string,
-    filenameInterior: string,
+    filenameSourceDay: number,
+    filenameAmbientDay: number,
+    filenameSourceNight: number,
+    filenameAmbientNight: number,
+    filenameInterior: number,
     exteriorVolume: number,
     priority: number,
-    points: Array<Array<number>>,
-    position: Array<number>,
-    orientation: Array<number>,
+    points: Array<Float32Array>,
+    position: Float32Array,
+    orientation: Float32Array,
     fadeBand: number,
     height: number,
     radius: number,
-    guid: number,
+    guid: BigInt,
     flags: number
   }
 
@@ -232,10 +232,10 @@ export type V7 = V7_N.MapAudio;
 
 export namespace V8_N {
   export type MapAudio = {
-    filenameAmbientDaySurface: string,
-    filenameAmbientDayUnderwater: string,
-    filenameAmbientNightSurface: string,
-    filenameAmbientNightUnderwater: string,
+    filenameAmbientDaySurface: number,
+    filenameAmbientDayUnderwater: number,
+    filenameAmbientNightSurface: number,
+    filenameAmbientNightUnderwater: number,
     audioRegions: Array<PackMapAudioRegion>,
     audioRegionTools: Array<PackMapAudioRegionTool>,
     audioDepArray: Array<PackMapAudioDep>
@@ -244,20 +244,20 @@ export namespace V8_N {
   export type PackMapAudioRegion = {
     regionType: number,
     overrideMode: number,
-    filenameSourceDay: string,
-    filenameAmbientDay: string,
-    filenameSourceNight: string,
-    filenameAmbientNight: string,
-    filenameInterior: string,
+    filenameSourceDay: number,
+    filenameAmbientDay: number,
+    filenameSourceNight: number,
+    filenameAmbientNight: number,
+    filenameInterior: number,
     exteriorVolume: number,
     priority: number,
-    points: Array<Array<number>>,
-    position: Array<number>,
-    orientation: Array<number>,
+    points: Array<Float32Array>,
+    position: Float32Array,
+    orientation: Float32Array,
     fadeBand: number,
     height: number,
     radius: number,
-    guid: number,
+    guid: BigInt,
     flags: number
   }
 
@@ -266,7 +266,7 @@ export namespace V8_N {
   }
 
   export type PackMapAudioDep = {
-    dependency: string,
+    dependency: number,
     flags: number
   }
 

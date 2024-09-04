@@ -12,19 +12,19 @@ export namespace V0_N {
   export type ContentMapRedirectorV0 = {
     mapId: number,
     token: number,
-    position: Array<number>,
+    position: Float32Array,
     radius: number
   }
 
   export type ContentMapStartV0 = {
     token: number,
     modelArray: Array<ContentMapModelV0>,
-    position: Array<number>,
+    position: Float32Array,
     radius: number
   }
 
   export type ContentMapModelV0 = {
-    filename: string,
+    filename: number,
     flags: number,
     type: number
   }
@@ -47,22 +47,22 @@ export namespace V1_N {
   export type ContentMapRedirectorV1 = {
     mapId: number,
     token: number,
-    position: Array<number>,
+    position: Float32Array,
     radius: number
   }
 
   export type ContentMapStartV1 = {
     token: number,
     modelArray: Array<ContentMapModelV1>,
-    position: Array<number>,
+    position: Float32Array,
     radius: number
   }
 
   export type ContentMapModelV1 = {
-    filename: string,
+    filename: number,
     flags: number,
     type: number,
-    permutation: number
+    permutation: BigInt
   }
 
 }
@@ -75,30 +75,30 @@ export namespace V2_N {
   }
 
   export type ContentMap = {
-    mapGUID: Array<number>,
+    mapGUID: Uint8Array,
     mapRedirectorArray: Array<ContentMapRedirector>,
     mapStartArray: Array<ContentMapStart>
   }
 
   export type ContentMapRedirector = {
-    mapGUID: Array<number>,
+    mapGUID: Uint8Array,
     token: number,
-    position: Array<number>,
+    position: Float32Array,
     radius: number
   }
 
   export type ContentMapStart = {
     token: number,
     modelArray: Array<ContentMapModel>,
-    position: Array<number>,
+    position: Float32Array,
     radius: number
   }
 
   export type ContentMapModel = {
-    filename: string,
+    filename: number,
     flags: number,
     type: number,
-    permutation: number
+    permutation: BigInt
   }
 
 }

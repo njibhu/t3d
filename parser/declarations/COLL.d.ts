@@ -8,31 +8,31 @@ export namespace V0_N {
   }
 
   export type ModelCollisionMeshV0 = {
-    animationSequence: number,
-    vertices: Array<Array<number>>,
-    indices: Array<number>,
-    surfaces: Array<number>
+    animationSequence: BigInt,
+    vertices: Array<Float32Array>,
+    indices: Uint16Array,
+    surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV0 = {
-    animationSequence: number,
-    points: Array<Array<number>>,
+    animationSequence: BigInt,
+    points: Array<Float32Array>,
     surface: number
   }
 
   export type ModelCollisionCubeV0 = {
-    transform: Array<Array<number>>,
+    transform: Array<Float32Array>,
     surface: number
   }
 
   export type ModelCollisionSphereV0 = {
     radius: number,
-    position: Array<number>,
+    position: Float32Array,
     surface: number
   }
 
   export type ModelCollisionSurfaceV0 = {
-    tokens: Array<number>
+    tokens: BigUint64Array
   }
 
 }
@@ -49,31 +49,31 @@ export namespace V1_N {
   }
 
   export type ModelCollisionMeshV1 = {
-    animationSequences: Array<number>,
-    vertices: Array<Array<number>>,
-    indices: Array<number>,
-    surfaces: Array<number>
+    animationSequences: BigUint64Array,
+    vertices: Array<Float32Array>,
+    indices: Uint16Array,
+    surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV1 = {
-    animationSequence: number,
-    points: Array<Array<number>>,
+    animationSequence: BigInt,
+    points: Array<Float32Array>,
     surface: number
   }
 
   export type ModelCollisionCubeV1 = {
-    transform: Array<Array<number>>,
+    transform: Array<Float32Array>,
     surface: number
   }
 
   export type ModelCollisionSphereV1 = {
     radius: number,
-    position: Array<number>,
+    position: Float32Array,
     surface: number
   }
 
   export type ModelCollisionSurfaceV1 = {
-    tokens: Array<number>
+    tokens: BigUint64Array
   }
 
 }
@@ -91,38 +91,38 @@ export namespace V2_N {
   }
 
   export type ModelCollisionMeshV8 = {
-    animationSequences: Array<number>,
-    vertices: Array<Array<number>>,
-    indices: Array<number>,
-    surfaces: Array<number>
+    animationSequences: BigUint64Array,
+    vertices: Array<Float32Array>,
+    indices: Uint16Array,
+    surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV8 = {
-    animationSequence: number,
-    points: Array<Array<number>>,
+    animationSequence: BigInt,
+    points: Array<Float32Array>,
     surface: number
   }
 
   export type ModelCollisionCubeV8 = {
-    transform: Array<Array<number>>,
+    transform: Array<Float32Array>,
     surface: number
   }
 
   export type ModelCollisionSphereV8 = {
     radius: number,
-    position: Array<number>,
+    position: Float32Array,
     surface: number
   }
 
   export type ModelCollisionCapsuleV8 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number,
     surface: number
   }
 
   export type ModelCollisionSurfaceV8 = {
-    tokens: Array<number>
+    tokens: BigUint64Array
   }
 
 }
@@ -140,49 +140,49 @@ export namespace V3_N {
   }
 
   export type ModelCollisionAnimationV9 = {
-    animation: number,
+    animation: BigInt,
     objects: Array<ModelCollisionAnimatedObjectV9>
   }
 
   export type ModelCollisionAnimatedObjectV9 = {
-    shapeIndices: Array<number>,
+    shapeIndices: Uint32Array,
     keyFrames: Array<ModelCollisionKeyFrameV9>
   }
 
   export type ModelCollisionKeyFrameV9 = {
     time: number,
-    position: Array<number>,
-    orientation: Array<number>
+    position: Float32Array,
+    orientation: Float32Array
   }
 
   export type ModelCollisionMeshV9 = {
-    vertices: Array<Array<number>>,
-    indices: Array<number>,
-    surfaces: Array<number>
+    vertices: Array<Float32Array>,
+    indices: Uint16Array,
+    surfaces: Uint8Array
   }
 
   export type ModelCollisionBoxV9 = {
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     surface: number
   }
 
   export type ModelCollisionSphereV9 = {
     radius: number,
-    position: Array<number>,
+    position: Float32Array,
     surface: number
   }
 
   export type ModelCollisionCapsuleV9 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number,
     surface: number
   }
 
   export type ModelCollisionSurfaceV9 = {
-    tokens: Array<number>
+    tokens: BigUint64Array
   }
 
 }
@@ -200,51 +200,51 @@ export namespace V4_N {
   }
 
   export type ModelCollisionAnimationV10 = {
-    animation: number,
+    animation: BigInt,
     objects: Array<ModelCollisionAnimatedObjectV10>,
-    targetPoints: Array<Array<number>>
+    targetPoints: Array<Float32Array>
   }
 
   export type ModelCollisionAnimatedObjectV10 = {
-    shapeIndices: Array<number>,
+    shapeIndices: Uint32Array,
     keyFrames: Array<ModelCollisionKeyFrameV10>
   }
 
   export type ModelCollisionKeyFrameV10 = {
     time: number,
-    position: Array<number>,
-    orientation: Array<number>
+    position: Float32Array,
+    orientation: Float32Array
   }
 
   export type ModelCollisionMeshV10 = {
-    vertices: Array<Array<number>>,
-    indices: Array<number>,
-    surfaces: Array<number>,
-    navSeedPoints: Array<Array<number>>
+    vertices: Array<Float32Array>,
+    indices: Uint16Array,
+    surfaces: Uint8Array,
+    navSeedPoints: Array<Float32Array>
   }
 
   export type ModelCollisionBoxV10 = {
-    dimensions: Array<number>,
-    position: Array<number>,
-    rotation: Array<number>,
+    dimensions: Float32Array,
+    position: Float32Array,
+    rotation: Float32Array,
     surface: number
   }
 
   export type ModelCollisionSphereV10 = {
     radius: number,
-    position: Array<number>,
+    position: Float32Array,
     surface: number
   }
 
   export type ModelCollisionCapsuleV10 = {
-    p0: Array<number>,
-    p1: Array<number>,
+    p0: Float32Array,
+    p1: Float32Array,
     radius: number,
     surface: number
   }
 
   export type ModelCollisionSurfaceV10 = {
-    tokens: Array<number>
+    tokens: BigUint64Array
   }
 
 }

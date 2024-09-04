@@ -1,7 +1,7 @@
 export namespace V0_N {
   export type PackMapWaterV0 = {
-    waterFoamData: Array<number>,
-    waterChunks: Array<number>
+    waterFoamData: Uint8Array,
+    waterChunks: Uint32Array
   }
 
 }
@@ -16,10 +16,10 @@ export namespace V1_N {
   }
 
   export type PackMapWaterSurfaceV1 = {
-    guid: number,
+    guid: BigInt,
     waterSurfaceFlags: number,
     waterSurfaceZ: number,
-    vertices: Array<Array<number>>
+    vertices: Array<Float32Array>
   }
 
 }

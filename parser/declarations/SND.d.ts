@@ -1,7 +1,7 @@
 export namespace V0_N {
   export type MapLegacy = {
-    data: Array<number>,
-    files: Array<string>
+    data: Uint8Array,
+    files: Array<number>
   }
 
 }

@@ -12,7 +12,7 @@ export namespace V0_N {
     reserved2: number,
     length: number,
     offset: number,
-    audioData: Array<number>
+    audioData: Uint8Array
   }
 
 }
@@ -33,7 +33,7 @@ export namespace V1_N {
     reserved2: number,
     length: number,
     offset: number,
-    audioData: Array<number>
+    audioData: Uint8Array
   }
 
 }
@@ -63,7 +63,7 @@ export namespace V2_N {
     reserved6: number,
     reserved7: number,
     reserved8: number,
-    audioData: Array<number>
+    audioData: Uint8Array
   }
 
   export type ReservedBankDataV2 = {

@@ -6,7 +6,7 @@ export namespace V0_N {
   }
 
   export type ModelFileSnapPointV0 = {
-    bone: number
+    bone: BigInt
   }
 
   export type ModelExpansionEmitterV0 = {
@@ -26,7 +26,7 @@ export namespace V1_N {
   }
 
   export type ModelFileSnapPointV1 = {
-    bone: number
+    bone: BigInt
   }
 
   export type ModelExpansionEmitterV1 = {
@@ -49,8 +49,8 @@ export namespace V2_N {
   }
 
   export type ModelFileSnapPointV2 = {
-    bone: number,
-    shape: number
+    bone: BigInt,
+    shape: BigInt
   }
 
   export type ModelExpansionEmitterV2 = {
@@ -73,8 +73,8 @@ export namespace V3_N {
   }
 
   export type ModelFileSnapPointV3 = {
-    bone: number,
-    shape: number,
+    bone: BigInt,
+    shape: BigInt,
     flags: number
   }
 

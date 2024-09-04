@@ -4,9 +4,9 @@ export namespace V0_N {
   }
 
   export type CollideModelManifestFile = {
-    modelFile: string,
-    collisionFile: string,
-    scales: Array<number>
+    modelFile: number,
+    collisionFile: number,
+    scales: Float32Array
   }
 
 }
@@ -20,9 +20,9 @@ export namespace V1_N {
 
   export type CollideModelManifestFile = {
     modelFileStr: string,
-    modelFile: string,
-    collisionFile: string,
-    scales: Array<number>
+    modelFile: number,
+    collisionFile: number,
+    scales: Float32Array
   }
 
 }

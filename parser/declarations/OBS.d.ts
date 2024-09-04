@@ -6,8 +6,8 @@ export namespace V0_N {
   export type PackMapEditCollision = {
     token: number,
     flags: number,
-    bottmVertices: Array<Array<number>>,
-    topVertices: Array<Array<number>>
+    bottmVertices: Array<Float32Array>,
+    topVertices: Array<Float32Array>
   }
 
 }
@@ -22,8 +22,8 @@ export namespace V1_N {
   export type PackMapEditCollision = {
     token: number,
     flags: number,
-    bottmVertices: Array<Array<number>>,
-    topVertices: Array<Array<number>>,
+    bottmVertices: Array<Float32Array>,
+    topVertices: Array<Float32Array>,
     name: string
   }
 
@@ -39,10 +39,10 @@ export namespace V2_N {
   export type PackMapEditCollision = {
     token: number,
     flags: number,
-    bottmVertices: Array<Array<number>>,
-    topVertices: Array<Array<number>>,
+    bottmVertices: Array<Float32Array>,
+    topVertices: Array<Float32Array>,
     name: string,
-    surface: number
+    surface: BigInt
   }
 
 }
