@@ -58,16 +58,19 @@ import type Logger from "../Logger";
  */
 export default class DataRenderer {
   static rendererName = "DataRenderer";
+  protected logger: typeof Logger;
 
-  constructor(protected localReader: LocalReader, public settings: any, protected context: any, protected logger: Logger, public rendererName = "DataRenderer") {
+  constructor(protected localReader: LocalReader, public settings: any, protected context: any, logger_?: typeof Logger, public rendererName = "DataRenderer") {
     /// Just storing parameters
     if (!settings) {
       settings = {};
     }
     this.context[rendererName] = {};
 
-    if (!logger){
+    if (!logger_){
       this.logger = T3D.Logger;
+    } else {
+      this.logger = logger_;
     }
   }
 

@@ -38,7 +38,7 @@ import type Logger from "../Logger";
 export default class StringRenderer extends DataRenderer {
   static rendererName = "StringRenderer";
 
-  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "StringRenderer");
   }
 

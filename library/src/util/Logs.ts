@@ -14,7 +14,7 @@ const progressCache: Record<string, number | undefined> = {};
  * @param {String} progressName Name of the resource being loaded
  */
 export function progress(
-  logger: Logger, 
+  logger: typeof Logger, 
   currentIndex: number, 
   maxIndex: number, 
   progressName: string

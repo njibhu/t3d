@@ -39,7 +39,7 @@ import type Logger from "../Logger";
 export default class SingleModelRenderer extends DataRenderer {
   static rendererName = "SingleModelRenderer";
 
-  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "SingleModelRenderer");
   }
 

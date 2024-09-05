@@ -28,34 +28,34 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
  */
 
 class Logger {
-  static readonly TYPE_ERROR: number = 4;
-  static readonly TYPE_WARNING: number = 3;
-  static readonly TYPE_MESSAGE: number = 2;
-  static readonly TYPE_PROGRESS: number = 1;
-  static readonly TYPE_DEBUG: number = 0;
+  readonly TYPE_ERROR: number = 4;
+  readonly TYPE_WARNING: number = 3;
+  readonly TYPE_MESSAGE: number = 2;
+  readonly TYPE_PROGRESS: number = 1;
+  readonly TYPE_DEBUG: number = 0;
 
   logFunctions = new Array(5);
 
   constructor(){
-    this.logFunctions[Logger.TYPE_ERROR] = function (...args: any[]) {
+    this.logFunctions[this.TYPE_ERROR] = function (...args: any[]) {
       console.error.apply(console, args);
     };
     
-    this.logFunctions[Logger.TYPE_WARNING] = function (...args: any[]) {
+    this.logFunctions[this.TYPE_WARNING] = function (...args: any[]) {
       console.warn.apply(console, args);
     };
     
-    this.logFunctions[Logger.TYPE_MESSAGE] = function (...args: any[]) {
+    this.logFunctions[this.TYPE_MESSAGE] = function (...args: any[]) {
       console.log.apply(console, args);
     };
     
-    this.logFunctions[Logger.TYPE_PROGRESS] = function (...args: any[]) {
+    this.logFunctions[this.TYPE_PROGRESS] = function (...args: any[]) {
       const argArr = args;
       argArr.unshift("Progress: ");
       console.log.apply(console, argArr);
     };
     
-    this.logFunctions[Logger.TYPE_DEBUG] = function (...args: any[]) {
+    this.logFunctions[this.TYPE_DEBUG] = function (...args: any[]) {
       const argArr = args;
       console.debug.apply(console, argArr);
     };
@@ -84,7 +84,7 @@ class Logger {
   
     /// Default to message if just one argument was passed
     if (argArr.length === 1) {
-      argArr.unshift(Logger.TYPE_MESSAGE);
+      argArr.unshift(this.TYPE_MESSAGE);
     }
   
     /// Otherwise 1st arg is severity, log/warn/error
@@ -96,4 +96,5 @@ class Logger {
   };
 }
 
-export default Logger;
+const logger = new Logger();
+export default logger;

@@ -48,7 +48,7 @@ export default class HavokRenderer extends DataRenderer {
   animations: any;
   havokChunkData: any;
 
-  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "HavokRenderer")
 
     this.mapFile = this.settings.mapFile;

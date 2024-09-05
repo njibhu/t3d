@@ -50,7 +50,7 @@ export default class TerrainRenderer extends DataRenderer {
   mapFile: GW2File;
   mapRect: { x1: number; x2: number; y1: number; y2: number } | undefined | null;
   
-  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "TerrainRenderer");
     this.mapFile = this.settings.mapFile;
   }

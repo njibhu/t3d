@@ -8,7 +8,8 @@
       "esModuleInterop": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
-      "typeRoots": ["./types"]
+      "typeRoots": ["./types"],
+      "resolveJsonModule": true
     },
     "include": [
       "src/**/*",

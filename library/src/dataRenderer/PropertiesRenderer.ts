@@ -50,7 +50,7 @@ export default class PropertiesRenderer extends DataRenderer {
   models: Record<number, any>;
   modelsList: string[] = [];
 
-  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "PropertiesRenderer");
     this.mapFile = this.settings.mapFile;
     this.showUnmaterialized = this.settings.showUnmaterialized || false;

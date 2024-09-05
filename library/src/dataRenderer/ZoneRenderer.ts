@@ -55,7 +55,7 @@ export default class ZoneRenderer extends DataRenderer {
   textureCache: any;
 
   mapFile: GW2File;
-  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "ZoneRenderer");
     this.mapFile = this.settings.mapFile;
   }

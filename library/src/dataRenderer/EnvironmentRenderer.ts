@@ -42,7 +42,7 @@ export default class EnvironmentRenderer extends DataRenderer {
   static rendererName = "EnvironmentRenderer";
 
   mapFile: GW2File;
-  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "EnvironmentRenderer");
 
     this.mapFile = this.settings.mapFile;
