@@ -477,7 +477,7 @@ declare class DataStream {
                                 Defaults to ASCII.
       @return {string} The read string.
      */
-    readString(length: number, encoding: string | null): string;
+    readString(length: number, encoding?: string | null): string;
     /**
       Writes a string of desired length and encoding to the DataStream.
     

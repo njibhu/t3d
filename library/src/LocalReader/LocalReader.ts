@@ -16,11 +16,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
-import ArchiveParser from "./ArchiveParser";
+import * as ArchiveParser from "./ArchiveParser";
 import PersistantStore from "./PersistantStore";
 import DataReader from "./DataReader";
 import MapFileList from "../MapFileList";
-import FileTypes from "./FileTypes";
+import * as FileTypes from "./FileTypes";
 
 interface LocalReaderSettings {
   noIndexedDB?: boolean; // Do not use indexedDB (persistant storage, default is true)

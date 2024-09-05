@@ -17,19 +17,27 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
+import type DataStream from "../../types/DataStream";
+
 /**
  * Organized thread pool of extractors
  * @class DataReader
  */
-class DataReader {
+export default class DataReader {
+  _workerPool: any[];
+  _workerLoad: any[];
+  _inflateCallbacks: any[];
+
   /**
    * @constructor
    * @param {Object} settings
    * @param {number} settings.workersNb Amount of concurrent spawned workers
    * @param {string} settings.workerPath Path to the worker script
    */
-  constructor(settings) {
-    this._settings = settings;
+  constructor(public settings: {
+    workersNb: number;
+    workerPath: string;
+  }) {
     this._workerPool = [];
     this._workerLoad = [];
     this._inflateCallbacks = [];
@@ -46,7 +54,12 @@ class DataReader {
    * @param {number} [capLength] Output size
    * @returns {Promise<{buffer: ArrayBuffer, dxtType: number, imageWidth: number, imageHeight: number}>}
    */
-  inflate(ds, size, mftId, isImage, capLength) {
+  inflate(ds: DataStream, size: number, mftId: number, isImage?: boolean, capLength?: number): Promise<{
+    buffer: ArrayBuffer;
+    dxtType: number;
+    imageWidth: number;
+    imageHeight: number;
+  }> {
     return new Promise((resolve, reject) => {
       const arrayBuffer = ds.buffer;
 
@@ -87,7 +100,7 @@ class DataReader {
   }
 
   // Initialization function for creating a new worker (thread)
-  _startWorker(path) {
+  _startWorker(path: any): void {
     const self = this;
     const worker = new Worker(path);
     const selfWorkerId = this._workerPool.push(worker) - 1;
@@ -96,14 +109,14 @@ class DataReader {
     }
 
     worker.onmessage = function (message_event) {
-      let mftId;
+      let mftId: number;
       // Remove load
       self._workerLoad[selfWorkerId] -= 1;
 
       // If error
       if (typeof message_event.data === "string") {
         T3D.Logger.log(T3D.Logger.TYPE_WARNING, "Inflater threw an error", message_event.data);
-        mftId = message_event.data.split(":")[0];
+        mftId = parseInt(message_event.data.split(":")[0]);
         for (const callback of self._inflateCallbacks[mftId]) {
           callback.reject();
         }
@@ -134,9 +147,7 @@ class DataReader {
   }
 
   // Get the worker with the less load
-  _getBestWorkerIndex() {
+  _getBestWorkerIndex(): number {
     return this._workerLoad.indexOf(Math.min(...this._workerLoad));
   }
 }
-
-module.exports = DataReader;
