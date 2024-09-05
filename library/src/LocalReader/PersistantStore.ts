@@ -25,11 +25,13 @@ const DB_VERSION = 4;
  * @class PersistantStore
  */
 class PersistantStore {
+  _dbConnection?: IDBDatabase;
+
   constructor() {
     // They may be multiple connection request issued at the same time, but it's actually okay since
     // as soon as they are registered, the not-used ones will get garbage collected
     this._dbConnection = undefined;
-    this._getConnection(() => {});
+    this._getConnection();
   }
 
   /**
@@ -39,7 +41,7 @@ class PersistantStore {
    * @private
    * @returns {Promise<IDBDatabase>} Promise to the Database connection
    */
-  _getConnection() {
+  _getConnection(): Promise<IDBDatabase> {
     const self = this;
     return new Promise((resolve, reject) => {
       if (self._dbConnection) resolve(self._dbConnection);
@@ -57,8 +59,9 @@ class PersistantStore {
 
       /// fired when the database needs to be upgraded (or the first time)
       request.onupgradeneeded = (event) => {
-        /** @type {IDBDatabase} */
-        const db = event.target.result;
+        // Probably bugged
+        //@ts-ignore
+        const db: IDBDatabase = (event.target as IDBOpenDBRequest).result;
         const currentVersion = event.oldVersion;
 
         if (currentVersion < 2) {
@@ -68,13 +71,14 @@ class PersistantStore {
         }
 
         if (currentVersion < 3) {
-          const storeListing = event.currentTarget.transaction.objectStore("listings");
+          const storeListing = (event.currentTarget as IDBOpenDBRequest).transaction!.objectStore("listings");
           storeListing.createIndex("filename", "filename", { unique: false });
         }
       };
 
       request.onsuccess = (event) => {
-        self._dbConnection = event.target.result;
+        self._dbConnection = (event.target as IDBOpenDBRequest).result;
+        //@ts-ignore
         self.isReady = true;
         resolve(self._dbConnection);
       };
@@ -96,7 +100,7 @@ class PersistantStore {
    * @param {boolean} isComplete Keep back the information if that was the last update on the current scan or not.
    * @returns {Promise<number>} On success, the number is the object key in the database
    */
-  putListing(id, listing, fileName, isComplete) {
+  putListing(id: number | undefined, listing: any[], fileName: string, isComplete: boolean): Promise<number> {
     const self = this;
     return new Promise((resolve, reject) => {
       self._getConnection().then((db) => {
@@ -107,7 +111,7 @@ class PersistantStore {
           : store.put({ array: listing, name: fileName });
 
         request.onsuccess = () => {
-          resolve(request.result);
+          resolve(request.result as number);
         };
         request.onerror = () => {
           reject();
@@ -125,14 +129,18 @@ class PersistantStore {
    *      array: the last listing
    *      key: the index of the last listing in the database
    */
-  getLastListing(fileName) {
+  getLastListing(fileName: string): Promise<{
+    array: any[];
+    key: any;
+    complete: boolean;
+  }> {
     const self = this;
     return new Promise((resolve) => {
       self._getConnection().then((db) => {
         const listingsStore = db.transaction(["listings"], "readonly").objectStore("listings").index("filename");
 
         listingsStore.openCursor(IDBKeyRange.only(fileName), "prev").onsuccess = (event) => {
-          const cursor = event.target.result;
+          const cursor: IDBCursorWithValue = (event.target as IDBRequest).result;
           if (!cursor) resolve({ array: [], key: undefined, complete: true });
           else {
             resolve({
@@ -147,4 +155,4 @@ class PersistantStore {
   }
 }
 
-module.exports = PersistantStore;
+export = PersistantStore;
