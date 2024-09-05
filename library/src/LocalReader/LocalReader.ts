@@ -426,7 +426,6 @@ class LocalReader {
     } else {
       const fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
       if (fileBuffer === undefined) return undefined;
-      //@ts-ignore (global type conflict)
       fileType = FileTypes.getFileType(new DataStream(fileBuffer));
     }
     return { fileType: fileType, crc: metaData.crc, size: metaData.size };

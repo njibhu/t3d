@@ -17,7 +17,12 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const DataRenderer = require("./DataRenderer");
+import DataRenderer from "./DataRenderer";
+
+import type LocalReader from "../LocalReader/LocalReader";
+import type Logger from "../Logger";
+import type GW2File from "../format/file/GW2File";
+import type { Material, Mesh } from "three";
 
 /**
  *
@@ -33,9 +38,18 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-class HavokRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
-    super(localReader, settings, context, logger, "HavokRenderer");
+export default class HavokRenderer extends DataRenderer {
+  static rendererName = "HavokRenderer";
+  mapFile: GW2File;
+  lastP: number;
+  seed: number;
+  meshes: Mesh[];
+  geometries: any;
+  animations: any;
+  havokChunkData: any;
+
+  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
+    super(localReader, settings, context, logger, "HavokRenderer")
 
     this.mapFile = this.settings.mapFile;
 
@@ -50,7 +64,7 @@ class HavokRenderer extends DataRenderer {
    * @param  {Function} callback         [description]
    * @async
    */
-  renderModels(models, title, callback) {
+  renderModels(models: any, title: any, callback: Function): void {
     let mat;
     if (this.settings && this.settings.visible) {
       mat = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
@@ -70,7 +84,7 @@ class HavokRenderer extends DataRenderer {
    * @param  {*} collisions [description]
    * @return {*}            [description]
    */
-  getCollisionsForAnimation(animation, collisions) {
+  getCollisionsForAnimation(animation: any, collisions: any): any[] {
     const ret = [];
 
     for (let i = 0; i < animation.collisionIndices.length; i++) {
@@ -94,7 +108,7 @@ class HavokRenderer extends DataRenderer {
    * @return {*} callback          [description]
    * @async
    */
-  parseAllModels(models, mat, title, chunkSize, offset, callback) {
+  parseAllModels(models: any, mat: Material, title: any, chunkSize: any, offset: any, callback: Function): void {
     let i = offset;
 
     for (; i < offset + chunkSize && i < models.length; i++) {
@@ -133,7 +147,7 @@ class HavokRenderer extends DataRenderer {
    * @param  {*} animations    [description]
    * @return {*}               [description]
    */
-  animationFromGeomIndex(propGeomIndex, geometries, animations) {
+  animationFromGeomIndex(propGeomIndex: any, geometries: any, animations: any) {
     // geometries is just list of all geometries.animations[end] for now
     const l = geometries[propGeomIndex].animations.length;
 
@@ -149,7 +163,7 @@ class HavokRenderer extends DataRenderer {
    * @param  {*} mat       [description]
    * @return {*}           [description]
    */
-  renderMesh(collision, model, mat) {
+  renderMesh(collision: any, model: any, mat: Material) {
     const pos = model.translate;
     const rot = model.rotate;
     const scale = 32 * model.scale;
@@ -193,7 +207,7 @@ class HavokRenderer extends DataRenderer {
    * @param  {*} mat       [description]
    * @return {*}           [description]
    */
-  parseHavokMesh(collision, mat) {
+  parseHavokMesh(collision: any, mat: Material) {
     const index = collision.index;
 
     if (!this.meshes[index]) {
@@ -240,7 +254,7 @@ class HavokRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback) {
+  renderAsync(callback: Function) {
     const self = this;
 
     // TODO:The design of this method pretty much requires one instance
@@ -248,7 +262,7 @@ class HavokRenderer extends DataRenderer {
     // at some point...
 
     /// Get required chunks
-    this.havokChunkData = this.mapFile.getChunk("havk").data;
+    this.havokChunkData = this.mapFile.getChunk("havk")!.data;
 
     /// Set static bounds to the bounds of the havk models
     this.getOutput().boundingBox = this.havokChunkData.boundsMax;
@@ -264,7 +278,7 @@ class HavokRenderer extends DataRenderer {
     const propModels = this.havokChunkData.propModels;
     const zoneModels = this.havokChunkData.zoneModels;
     const obsModels = this.havokChunkData.obsModels;
-    obsModels.forEach(function (mdl) {
+    obsModels.forEach(function (mdl: any) {
       mdl.scale = 1;
     });
 
@@ -284,5 +298,3 @@ class HavokRenderer extends DataRenderer {
   }
 }
 
-HavokRenderer.rendererName = "HavokRenderer";
-module.exports = HavokRenderer;

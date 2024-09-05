@@ -17,8 +17,11 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const RenderUtils = require("../util/RenderUtils");
-const DataRenderer = require("./DataRenderer");
+import * as RenderUtils from "../util/RenderUtils";
+import DataRenderer from "./DataRenderer";
+
+import type LocalReader from "../LocalReader/LocalReader";
+import type Logger from "../Logger";
 
 /**
  *
@@ -33,8 +36,10 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-class SingleModelRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
+export default class SingleModelRenderer extends DataRenderer {
+  static rendererName = "SingleModelRenderer";
+
+  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
     super(localReader, settings, context, logger, "SingleModelRenderer");
   }
 
@@ -46,7 +51,7 @@ class SingleModelRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback) {
+  renderAsync(callback: Function): void {
     const self = this;
 
     /// Get file id
@@ -83,5 +88,3 @@ class SingleModelRenderer extends DataRenderer {
   }
 }
 
-SingleModelRenderer.rendererName = "SingleModelRenderer";
-module.exports = SingleModelRenderer;

@@ -17,9 +17,15 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const RenderUtils = require("../util/RenderUtils");
-const DataRenderer = require("./DataRenderer");
-const LogsUtils = require("../util/Logs");
+import * as RenderUtils from "../util/RenderUtils";
+import DataRenderer from "./DataRenderer";
+import * as LogsUtils from "../util/Logs";
+
+import type LocalReader from "../LocalReader/LocalReader";
+import type Logger from "../Logger";
+import type { Matrix4 } from "three";
+import type GW2File from "../format/file/GW2File";
+
 
 /**
  *
@@ -34,8 +40,17 @@ const LogsUtils = require("../util/Logs");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-class PropertiesRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
+export default class PropertiesRenderer extends DataRenderer {
+  static rendererName = "PropertiesRenderer";
+
+  showUnmaterialized: boolean;
+  mapFile: GW2File;
+  meshCache: any;
+  textureCache: any;
+  models: Record<number, any>;
+  modelsList: string[] = [];
+
+  constructor(localReader: LocalReader, settings: any, context: any, logger: Logger) {
     super(localReader, settings, context, logger, "PropertiesRenderer");
     this.mapFile = this.settings.mapFile;
     this.showUnmaterialized = this.settings.showUnmaterialized || false;
@@ -54,10 +69,10 @@ class PropertiesRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback) {
+  renderAsync(callback: Function): void {
     this.getOutput().meshes = [];
 
-    const propertiesChunkData = this.mapFile.getChunk("prp2").data;
+    const propertiesChunkData = this.mapFile.getChunk("prp2")!.data;
 
     if (!propertiesChunkData) {
       return callback();
@@ -71,7 +86,7 @@ class PropertiesRenderer extends DataRenderer {
       .concat(propertiesChunkData.propMetaArray);
 
     /// Build an object containing all the data we need for each prop
-    this.models = props.reduce((models, prop) => {
+    this.models = props.reduce((models: any, prop: any) => {
       const propSize = prop.transforms ? prop.transforms.length + 1 : 1;
       if (models[prop.filename]) {
         models[prop.filename].props.push(prop);
@@ -89,7 +104,7 @@ class PropertiesRenderer extends DataRenderer {
     this.renderModel(0, callback);
   }
 
-  getFileIdsAsync(callback) {
+  getFileIdsAsync(callback: Function): void {
     this.logger.log(T3D.Logger.TYPE_WARNING, "PropertiesRenderer.getFileIdsAsync is not implemented");
     callback([]);
   }
@@ -103,7 +118,7 @@ class PropertiesRenderer extends DataRenderer {
    * any other place using the same model. This allows us to have a much lower amount of draw calls
    * and usage of GPU memory compared to a naive approach having a mesh for each model.
    */
-  renderModel(index, callback) {
+  renderModel(index: number, callback: Function): void {
     if (index >= this.modelsList.length) {
       this.meshCache = {};
       this.textureCache = {};
@@ -113,7 +128,7 @@ class PropertiesRenderer extends DataRenderer {
 
     LogsUtils.progress(this.logger, index, this.modelsList.length, "Loading 3D Models (Props)");
 
-    const modelName = this.modelsList[index];
+    const modelName = parseInt(this.modelsList[index]);
     RenderUtils.getMeshesForFilename(
       modelName,
       this.models[modelName].props[0].color,
@@ -122,9 +137,9 @@ class PropertiesRenderer extends DataRenderer {
       this.textureCache,
       this.showUnmaterialized,
       // We don't care about cached meshes since we know we only ask for each meshes once.
-      (meshes, _isCached, boundingSphere) => {
+      (meshes, _isCached, _boundingSphere) => {
         if (meshes) {
-          this.placeModelOnScene(modelName, meshes, boundingSphere);
+          this.placeModelOnScene(modelName, meshes /*, boundingSphere*/);
         }
 
         this.renderModel(index + 1, callback);
@@ -138,7 +153,7 @@ class PropertiesRenderer extends DataRenderer {
    * @param {number} modelName The baseId of the model
    * @param {*} meshes The 3d models of the model
    */
-  placeModelOnScene(modelName, meshes) {
+  placeModelOnScene(modelName: number, meshes: any): void {
     const model = this.models[modelName];
     const instancedMesh = RenderUtils.getInstancedMesh(meshes, model.size);
     let instancedIndex = 0;
@@ -159,7 +174,7 @@ class PropertiesRenderer extends DataRenderer {
  * @param {Object} propData
  * @returns {THREE.Matrix4}
  */
-function getMatrixForProp(propData) {
+function getMatrixForProp(propData: any): Matrix4 {
   const matrix = new THREE.Matrix4();
   matrix.makeRotationFromEuler(
     new THREE.Euler(propData.rotation[0], -propData.rotation[2], -propData.rotation[1], "ZXY")
@@ -169,6 +184,3 @@ function getMatrixForProp(propData) {
 
   return matrix;
 }
-
-PropertiesRenderer.rendererName = "PropertiesRenderer";
-module.exports = PropertiesRenderer;

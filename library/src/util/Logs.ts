@@ -13,7 +13,7 @@ const progressCache: Record<string, number | undefined> = {};
  * @param {Number} maxIndex Maximum index of items to load
  * @param {String} progressName Name of the resource being loaded
  */
-function progress(
+export function progress(
   logger: Logger, 
   currentIndex: number, 
   maxIndex: number, 
@@ -32,5 +32,3 @@ function progress(
     progressCache[progressName] = undefined;
   }
 }
-
-export { progress };

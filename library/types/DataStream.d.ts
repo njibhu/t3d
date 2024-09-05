@@ -1,5 +1,7 @@
 export = DataStream;
 declare class DataStream {
+    constructor(arrayBuffer: ArrayBuffer, byteOffset?: number, endianness?: boolean);
+    endianness: boolean;
     /**
       Saves the DataStream contents to the given filename.
       Uses Chrome's anchor download property to initiate download.
@@ -457,7 +459,7 @@ declare class DataStream {
       @param {boolean} endianness The endianness of the string data in the DataStream.
       @return {string} The read string.
      */
-    readUCS2String(length: number, endianness: boolean): string;
+    readUCS2String(length: number, endianness?: boolean): string;
     /**
       Write a UCS-2 string of desired endianness to the DataStream. The
       lengthOverride argument lets you define the number of characters to write.

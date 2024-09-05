@@ -233,9 +233,7 @@ export function getFilePart(file: File, offset: number, length: number): Promise
     const fd = global.fs.openSync(file);
     const buffer = (global as any).Buffer.alloc(length);
     const readLen = global.fs.readSync(fd, buffer, 0, length, offset);
-    //@ts-ignore
     const ds: DataStream = new DataStream(buffer);
-    //@ts-ignore
     ds.endianness = DataStream.LITTLE_ENDIAN;
     global.fs.closeSync(fd);
     return Promise.resolve({ ds, len: readLen });
@@ -247,9 +245,7 @@ export function getFilePart(file: File, offset: number, length: number): Promise
 
     reader.onload = function (fileEvent) {
       const buffer = fileEvent.target!.result;
-      //@ts-ignore
-      const ds = new DataStream(buffer);
-      //@ts-ignore
+      const ds = new DataStream(buffer as ArrayBuffer);
       ds.endianness = DataStream.LITTLE_ENDIAN;
       // Pass data stream and data length to callback function
       resolve({ ds: ds, len: length });

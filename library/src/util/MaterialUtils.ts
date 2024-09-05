@@ -484,7 +484,7 @@ export function getMaterial(material: ModelMaterialData, materialFile: GW2File, 
  * @param  {Object} sharedTextures Value Object for keeping the texture cache
  * @return {THREE.Texture} A texture that will be populated by the file data when it is loaded.
  */
-function getTexture(texURL: number, localReader: LocalReader, sharedTextures: any): Texture {
+export function getTexture(texURL: number, localReader: LocalReader, sharedTextures: any): Texture {
   let finalTexture;
 
   /// Read texture from shared array of loaded textures
@@ -519,7 +519,7 @@ function getTexture(texURL: number, localReader: LocalReader, sharedTextures: an
 
  * @return {THREE.Texture} A texture that will be populated by the file data when it is loaded.
  */
-function loadLocalTexture(localReader: LocalReader, fileId: number, mapping?: number, defaultColor?: number, onerror?: Function): Texture {
+export function loadLocalTexture(localReader: LocalReader, fileId: number, mapping?: number, defaultColor?: number, onerror?: Function): Texture {
   if (defaultColor === undefined) {
     defaultColor = Math.floor(0xffffff * Math.random());
   }

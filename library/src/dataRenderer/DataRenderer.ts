@@ -17,7 +17,9 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const GW2File = require("../format/file/GW2File");
+import GW2File from "../format/file/GW2File";
+import type LocalReader from "../LocalReader/LocalReader";
+import type Logger from "../Logger";
 
 /**
  * Base class for data interpretors a.k.a. 'Renderers'
@@ -54,20 +56,19 @@ const GW2File = require("../format/file/GW2File");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-class DataRenderer {
-  constructor(localReader, settings, context, logger, rendererName = "DataRenderer") {
-    this.rendererName = rendererName;
+export default class DataRenderer {
+  static rendererName = "DataRenderer";
+
+  constructor(protected localReader: LocalReader, public settings: any, protected context: any, protected logger: Logger, public rendererName = "DataRenderer") {
     /// Just storing parameters
-    this.localReader = localReader;
-    this.settings = settings;
     if (!settings) {
       settings = {};
     }
-    this.context = context;
     this.context[rendererName] = {};
 
-    if (logger) this.logger = logger;
-    else this.logger = T3D.Logger;
+    if (!logger){
+      this.logger = T3D.Logger;
+    }
   }
 
   /**
@@ -77,7 +78,7 @@ class DataRenderer {
    * If not specified the class of this instance will be used.
    * @return {Object}            The output value object for this class within the context.
    */
-  getOutput(otherClass) {
+  getOutput(otherClass?: any): any {
     return this.context[otherClass ? otherClass.rendererName : this.rendererName];
   }
 
@@ -98,7 +99,7 @@ class DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback) {
+  renderAsync(callback: Function): void {
     const self = this;
 
     this.localReader.loadFile(this.settings.id, function (inflatedData) {
@@ -109,13 +110,14 @@ class DataRenderer {
       self.getOutput().rawData = inflatedData;
 
       /// Construct raw string
-      const uarr = new Uint8Array(inflatedData);
+      const uarr = new Uint8Array(inflatedData!);
       const rawStrings = [];
       const chunksize = 0xffff;
       const len = Math.min(uarr.length, 10000);
 
       // There is a maximum stack size. We cannot call String.fromCharCode with as many arguments as we want
       for (let i = 0; i * chunksize < len; i++) {
+        //@ts-ignore
         rawStrings.push(String.fromCharCode.apply(null, uarr.subarray(i * chunksize, (i + 1) * chunksize)));
       }
 
@@ -127,7 +129,7 @@ class DataRenderer {
 
       /// Check if this is an PF or ATEX file
       // Binareis are MZ
-      const ds = new DataStream(inflatedData);
+      const ds = new DataStream(inflatedData!);
       const first4 = ds.readCString(4);
 
       /// Do special stuff for different fcc signatures
@@ -150,7 +152,7 @@ class DataRenderer {
           function (inflatedData, dxtType, imageWidth, imageHeigth) {
             /// Create image using returned data.
             const image = {
-              data: new Uint8Array(inflatedData),
+              data: new Uint8Array(inflatedData!),
               width: imageWidth,
               height: imageHeigth,
             };
@@ -170,6 +172,3 @@ class DataRenderer {
     });
   }
 }
-
-DataRenderer.rendererName = "DataRenderer";
-module.exports = DataRenderer;

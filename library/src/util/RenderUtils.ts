@@ -22,7 +22,7 @@ import * as MaterialUtils from "./MaterialUtils";
 import * as MathUtils from "./MathUtils";
 
 import type LocalReader from "../LocalReader/LocalReader";
-import type { Material, Mesh } from "three";
+import type { InstancedMesh, Material, Mesh } from "three";
 
 // TODO: Remove this local cache!!
 const matFiles: { [key: string]: any } = {};
@@ -67,7 +67,7 @@ const fvfFormat = {
  * @param  {Number} dy       Mesh height.
  * @return {THREE.Mesh}      The generated mesh.
  */
-export function renderRect(rect: any, yPos: number, material: Material, dy: number): Mesh {
+export function renderRect(rect: {x1: number, x2: number, y1: number, y2: number}, yPos: number, material: Material, dy?: number): Mesh {
   const dx = rect.x1 - rect.x2;
   const dz = rect.y1 - rect.y2;
   if (!dy) dy = 1;
@@ -95,7 +95,7 @@ export function renderRect(rect: any, yPos: number, material: Material, dy: numb
   return plane;
 }
 
-type FinalMesh = Mesh & {materialFlags?: any, materialFilename?: number, materialName?: any, numLods?: number, lodOverride?: any, flags?: any, numUV?: number};
+type FinalMesh = Mesh & {materialFlags?: any, materialFilename?: number, materialName?: any, numLods?: number, lodOverride?: any, flags?: any, numUV?: number, boundingSphere?: any};
 
 /**
  * Returns a THREE representation of the data contained by a GW2 model file.
@@ -127,7 +127,6 @@ export function renderGeomChunk(localReader: LocalReader, chunk: any, modelDataC
 
     const geom = new THREE.BufferGeometry();
 
-    //@ts-ignore
     const vertDS = new DataStream(rawVerts.buffer);
 
     // Dirty step length for now:
@@ -341,7 +340,7 @@ export function renderGeomChunk(localReader: LocalReader, chunk: any, modelDataC
  * @param {Number} filterFlags When undefined, it will render all LODs. When using 0, only show most detailed LOD
  * @returns {Mesh} a Three instanced mesh
  */
-export function getInstancedMesh(meshes: any[], size: number, filterFlags?: number): Mesh {
+export function getInstancedMesh(meshes: any[], size: number, filterFlags?: number): InstancedMesh {
   const meshMaterials: Material[] = [];
   const mergedGeometry = new THREE.Geometry();
   meshes.forEach((mesh, index) => {
@@ -392,7 +391,6 @@ export function loadMeshFromModelFile(filename: number, solidColor: any[], local
         throw "Could not find MFT entry for " + filename;
       }
 
-      //@ts-ignore
       const ds = new DataStream(inflatedData);
 
       const modelFile = new GW2File(ds, 0);
@@ -428,7 +426,6 @@ export function loadMeshFromModelFile(filename: number, solidColor: any[], local
 
         localReader.loadFile(mat.filename, function (inflatedData) {
           if (inflatedData) {
-            //@ts-ignore
             const ds = new DataStream(inflatedData);
             const materialFile = new GW2File(ds, 0);
             matFiles[mat.filename] = materialFile;
@@ -572,7 +569,7 @@ export function loadMeshFromModelFile(filename: number, solidColor: any[], local
  *
  * The third argument is the bounding spehere of this model file.
  */
-export function getMeshesForFilename(filename: number, color: any[], localReader: LocalReader, sharedMeshes: any, sharedTextures: any, showUnmaterialed: boolean, callback: (meshes: FinalMesh[], isCached: boolean, boundingSphere?: any ) => unknown): void {
+export function getMeshesForFilename(filename: number, color: any, localReader: LocalReader, sharedMeshes: any, sharedTextures: any, showUnmaterialed: boolean, callback: (meshes: FinalMesh[], isCached: boolean, boundingSphere?: any ) => unknown): void {
   /// If this file has already been loaded, just return a reference to the meshes.
   /// isCached will be set to true to inform the caller the meshes will probably
   /// have to be cloned in some way.
@@ -620,7 +617,6 @@ export function getFilesUsedByModel(filename: number, localReader: LocalReader, 
         throw "Could not find MFT entry for " + filename;
       }
 
-      //@ts-ignore
       const ds = new DataStream(inflatedData);
       const modelFile = new GW2File(ds, 0);
 
