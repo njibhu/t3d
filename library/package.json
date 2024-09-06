@@ -1,7 +1,6 @@
 {
   "name": "t3d-lib",
   "version": "2.3.0",
-  "type": "module",
   "scripts": {
     "build": "gulp",
     "version": "npm run build; git add build",
