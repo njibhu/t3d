@@ -17,7 +17,10 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const DataRenderer = require("./DataRenderer");
+import DataRenderer from "./DataRenderer";
+
+import type LocalReader from "../LocalReader/LocalReader";
+import type Logger from "../Logger";
 
 /**
  *
@@ -32,8 +35,10 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-class StringRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
+export default class StringRenderer extends DataRenderer {
+  static rendererName = "StringRenderer";
+
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "StringRenderer");
   }
 
@@ -48,7 +53,7 @@ class StringRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback) {
+  renderAsync(callback: Function): void {
     const self = this;
 
     /// Get file id
@@ -63,7 +68,7 @@ class StringRenderer extends DataRenderer {
     this.getOutput().strings = [];
 
     this.localReader.loadFile(this.settings.id, function (inflatedData) {
-      const ds = new DataStream(inflatedData);
+      const ds = new DataStream(inflatedData!);
       const end = ds.byteLength - 2;
 
       /// skip past fcc
@@ -104,6 +109,3 @@ class StringRenderer extends DataRenderer {
     });
   }
 }
-
-StringRenderer.rendererName = "StringRenderer";
-module.exports = StringRenderer;

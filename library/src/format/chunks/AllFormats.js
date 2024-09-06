@@ -367,3 +367,4 @@ const mfst = require("./mfst-1.js");
 definitionArray = definitionArray.concat(mfst);
 
 module.exports = definitionArray;
+exports = definitionArray;

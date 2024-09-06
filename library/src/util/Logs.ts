@@ -1,5 +1,7 @@
+import Logger from "../Logger";
+
 // A progress cache is needed to debounce logs at the same percentage
-const progressCache = {};
+const progressCache: Record<string, number | undefined> = {};
 
 /**
  * This utility function is a helper for showing loading progress of dataRenderers.
@@ -11,12 +13,17 @@ const progressCache = {};
  * @param {Number} maxIndex Maximum index of items to load
  * @param {String} progressName Name of the resource being loaded
  */
-function progress(logger, currentIndex, maxIndex, progressName) {
+export function progress(
+  logger: typeof Logger, 
+  currentIndex: number, 
+  maxIndex: number, 
+  progressName: string
+): void {
   const percent = Math.round((1000.0 * currentIndex) / maxIndex) / 10.0;
   // Make sure we don't spam logs
   if (progressCache[progressName] !== percent) {
     const consistentPercent = percent + (percent.toString().indexOf(".") < 0 ? ".0" : "");
-    logger.log(T3D.Logger.TYPE_PROGRESS, progressName, consistentPercent);
+    logger.log(Logger.TYPE_PROGRESS, progressName, consistentPercent);
     progressCache[progressName] = percent;
   }
 
@@ -25,7 +32,3 @@ function progress(logger, currentIndex, maxIndex, progressName) {
     progressCache[progressName] = undefined;
   }
 }
-
-module.exports = {
-  progress,
-};

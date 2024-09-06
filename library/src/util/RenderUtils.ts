@@ -17,12 +17,15 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const GW2File = require("../format/file/GW2File");
-const MaterialUtils = require("./MaterialUtils");
-const MathUtils = require("./MathUtils");
+import GW2File from "../format/file/GW2File";
+import * as MaterialUtils from "./MaterialUtils";
+import * as MathUtils from "./MathUtils";
+
+import type LocalReader from "../LocalReader/LocalReader";
+import type { InstancedMesh, Material, Mesh } from "three";
 
 // TODO: Remove this local cache!!
-const matFiles = {};
+const matFiles: { [key: string]: any } = {};
 
 /**
  * Object describing the meaning of the bits in fvf integers.
@@ -64,7 +67,7 @@ const fvfFormat = {
  * @param  {Number} dy       Mesh height.
  * @return {THREE.Mesh}      The generated mesh.
  */
-function renderRect(rect, yPos, material, dy) {
+export function renderRect(rect: {x1: number, x2: number, y1: number, y2: number}, yPos: number, material: Material, dy?: number): Mesh {
   const dx = rect.x1 - rect.x2;
   const dz = rect.y1 - rect.y2;
   if (!dy) dy = 1;
@@ -82,6 +85,7 @@ function renderRect(rect, yPos, material, dy) {
       wireframe: true,
     });
   const plane = new THREE.Mesh(geometry, material);
+  //@ts-ignore
   plane.overdraw = true;
 
   plane.position.x = cx;
@@ -90,6 +94,8 @@ function renderRect(rect, yPos, material, dy) {
 
   return plane;
 }
+
+type FinalMesh = Mesh & {materialFlags?: any, materialFilename?: number, materialName?: any, numLods?: number, lodOverride?: any, flags?: any, numUV?: number, boundingSphere?: any};
 
 /**
  * Returns a THREE representation of the data contained by a GW2 model file.
@@ -104,14 +110,14 @@ function renderRect(rect, yPos, material, dy) {
  *
  * @return {Array} Each geometry in the model file represented by a textured THREE.Mesh object
  */
-function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, showUnmaterialed) {
+export function renderGeomChunk(localReader: LocalReader, chunk: any, modelDataChunk: any, sharedTextures: any, showUnmaterialed: boolean): FinalMesh[] {
   const rawMeshes = chunk.data.meshes;
-  const meshes = [];
+  const meshes: any[] = [];
   const mats = modelDataChunk.data.permutations[0].materials;
 
-  rawMeshes.forEach(function (rawMesh) {
+  rawMeshes.forEach(function (rawMesh: any) {
     const rawGeom = rawMesh.geometry;
-    const fvf = rawGeom.verts.mesh.fvf; // rawGeom.fvf;
+    const fvf: number = rawGeom.verts.mesh.fvf; // rawGeom.fvf;
 
     const numVerts = rawGeom.verts.vertexCount; // rawGeom.vertexCount;
 
@@ -137,14 +143,19 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
     /// start of the vertex entry
     ///
     const distToNormals =
+      //@ts-ignore
       !!(fvf & fvfFormat.Position) * 12 + !!(fvf & fvfFormat.Weights) * 4 + !!(fvf & fvfFormat.Group) * 4;
 
+    //@ts-ignore
     const distToTangent = distToNormals + !!(fvf & fvfFormat.Normal) * 12 + !!(fvf & fvfFormat.Color) * 4;
 
+    //@ts-ignore
     const distToBittangent = distToTangent + !!(fvf & fvfFormat.Tangent) * 12;
 
+    //@ts-ignore
     const distToTangentFrame = distToBittangent + !!(fvf & fvfFormat.Bitangent) * 12;
 
+    //@ts-ignore
     const distToUV = distToTangentFrame + !!(fvf & fvfFormat.TangentFrame) * 12;
 
     /// Check if the UV is 32 bit float or 16 bit float.
@@ -239,6 +250,7 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
       console.log("adding normals");
       geom.setAttribute("normal", new THREE.BufferAttribute(normals, 3));
       geom.normalizeNormals();
+      //@ts-ignore
       geom.normalsNeedUpdate = true;
     } else {
       /// Calculate normals
@@ -258,10 +270,12 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
       }
 
       /// Not needed anymore?
+      //@ts-ignore
       geom.uvsNeedUpdate = true;
     }
 
     /// Tell geometry to update its UVs and buffers
+    //@ts-ignore
     geom.buffersNeedUpdate = true;
 
     /// DONE READING VERTEX DATA
@@ -291,7 +305,8 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
     }
 
     /// Create the final mesh from the BufferedGeometry and MeshBasicMaterial
-    const finalMesh = new THREE.Mesh(geom, finalMaterial);
+    const finalMesh: Mesh & {materialFlags?: any, materialFilename?: number, materialName?: any, numLods?: number, lodOverride?: any, flags?: any, numUV?: number} 
+      = new THREE.Mesh(geom, finalMaterial);
 
     /// Set material info on the returned mesh
     if (mat) {
@@ -325,8 +340,8 @@ function renderGeomChunk(localReader, chunk, modelDataChunk, sharedTextures, sho
  * @param {Number} filterFlags When undefined, it will render all LODs. When using 0, only show most detailed LOD
  * @returns {Mesh} a Three instanced mesh
  */
-function getInstancedMesh(meshes, size, filterFlags = 0) {
-  const meshMaterials = [];
+export function getInstancedMesh(meshes: any[], size: number, filterFlags?: number): InstancedMesh {
+  const meshMaterials: Material[] = [];
   const mergedGeometry = new THREE.Geometry();
   meshes.forEach((mesh, index) => {
     // If filterFlags is set, we ignore any mesh without the correct flag
@@ -365,9 +380,9 @@ function getInstancedMesh(meshes, size, filterFlags = 0) {
  *
  */
 
-function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures, showUnmaterialed, callback) {
+export function loadMeshFromModelFile(filename: number, solidColor: any[], localReader: LocalReader, sharedTextures: any, showUnmaterialed: boolean, callback: (meshes: FinalMesh[], boundingSphere?: any ) => unknown): void {
   // Short handles prop attributes
-  const finalMeshes = [];
+  const finalMeshes: FinalMesh[] = [];
 
   /// Load file
   localReader.loadFile(filename, function (inflatedData) {
@@ -381,10 +396,10 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
       const modelFile = new GW2File(ds, 0);
 
       // MODL for materials -> textures
-      const modelDataChunk = modelFile.getChunk("modl");
+      const modelDataChunk = modelFile.getChunk("modl")!;
 
       // GEOM for geometry
-      const geometryDataChunk = modelFile.getChunk("geom");
+      const geometryDataChunk = modelFile.getChunk("geom")!;
 
       /// Hacky fix for not being able to adjust for position
       const boundingSphere = modelDataChunk.data.boundingSphere;
@@ -395,7 +410,7 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
       const allMats = modelDataChunk.data.permutations[0].materials;
 
       //eslint-disable-next-line no-inner-declarations
-      function loadMaterialIndex(mIdx, matCallback) {
+      function loadMaterialIndex(mIdx: number, matCallback: Function) {
         if (mIdx >= allMats.length) {
           matCallback();
           return;
@@ -518,8 +533,11 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
     } catch (e) {
       console.warn("Failed rendering model " + filename, e);
       const mesh = new THREE.Mesh(new THREE.BoxGeometry(200, 2000, 200), new THREE.MeshNormalMaterial());
+      //@ts-ignore
       mesh.flags = 4;
+      //@ts-ignore
       mesh.materialFlags = 2056;
+      //@ts-ignore
       mesh.lodOverride = [1000000, 1000000];
       finalMeshes.push(mesh);
 
@@ -551,7 +569,7 @@ function loadMeshFromModelFile(filename, solidColor, localReader, sharedTextures
  *
  * The third argument is the bounding spehere of this model file.
  */
-function getMeshesForFilename(filename, color, localReader, sharedMeshes, sharedTextures, showUnmaterialed, callback) {
+export function getMeshesForFilename(filename: number, color: any, localReader: LocalReader, sharedMeshes: any, sharedTextures: any, showUnmaterialed: boolean, callback: (meshes: FinalMesh[], isCached: boolean, boundingSphere?: any ) => unknown): void {
   /// If this file has already been loaded, just return a reference to the meshes.
   /// isCached will be set to true to inform the caller the meshes will probably
   /// have to be cloned in some way.
@@ -589,7 +607,7 @@ function getMeshesForFilename(filename, color, localReader, sharedMeshes, shared
  * @param  {LocalReader}   localReader LocalReader instance to read from
  * @param  {Function} callback   First argument is list of used file IDs
  */
-function getFilesUsedByModel(filename, localReader, callback) {
+export function getFilesUsedByModel(filename: number, localReader: LocalReader, callback: (fileIds: number[]) => unknown): void {
   const fileIds = [filename];
 
   /// Load model file
@@ -603,19 +621,19 @@ function getFilesUsedByModel(filename, localReader, callback) {
       const modelFile = new GW2File(ds, 0);
 
       // MODL for materials -> textures
-      const modelDataChunk = modelFile.getChunk("modl");
+      const modelDataChunk = modelFile.getChunk("modl")!;
 
       /// Get materials used by model
       const mats = modelDataChunk.data.permutations[0].materials;
 
       /// Add each material file AND referenced TEXTURES
-      mats.forEach(function (mat) {
+      mats.forEach(function (mat: any) {
         /// Add material file id
         const matFileName = mat.filename;
         fileIds.push(matFileName);
 
         /// Add each texture file id
-        mat.textures.forEach(function (tex) {
+        mat.textures.forEach(function (tex: any) {
           fileIds.push(tex.filename);
         });
       });
@@ -626,12 +644,3 @@ function getFilesUsedByModel(filename, localReader, callback) {
     callback(fileIds);
   });
 }
-
-module.exports = {
-  renderRect: renderRect,
-  renderGeomChunk: renderGeomChunk,
-  loadMeshFromModelFile: loadMeshFromModelFile,
-  getMeshesForFilename: getMeshesForFilename,
-  getFilesUsedByModel: getFilesUsedByModel,
-  getInstancedMesh: getInstancedMesh,
-};

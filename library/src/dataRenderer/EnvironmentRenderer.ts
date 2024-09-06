@@ -17,8 +17,13 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const MaterialUtils = require("../util/MaterialUtils");
-const DataRenderer = require("./DataRenderer");
+import * as MaterialUtils from "../util/MaterialUtils";
+import DataRenderer from "./DataRenderer";
+
+import type LocalReader from "../LocalReader/LocalReader";
+import type Logger from "../Logger";
+import type { MeshBasicMaterial, Material } from "three";
+import type GW2File from "../format/file/GW2File";
 
 /**
  *
@@ -33,14 +38,17 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-class EnvironmentRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
+export default class EnvironmentRenderer extends DataRenderer {
+  static rendererName = "EnvironmentRenderer";
+
+  mapFile: GW2File;
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "EnvironmentRenderer");
 
     this.mapFile = this.settings.mapFile;
   }
 
-  getMat(tex) {
+  getMat(tex: any): MeshBasicMaterial {
     return new THREE.MeshBasicMaterial({
       map: tex,
       side: THREE.BackSide,
@@ -49,10 +57,10 @@ class EnvironmentRenderer extends DataRenderer {
     });
   }
 
-  loadTextureWithFallback(targetMatIndices, materialArray, filename, fallbackFilename, hazeColorAsInt) {
+  loadTextureWithFallback(targetMatIndices: number[], materialArray: Material[], filename: number, fallbackFilename: string, hazeColorAsInt: number): void {
     const self = this;
 
-    function writeMat(mat) {
+    function writeMat(mat: Material) {
       targetMatIndices.forEach(function (i) {
         materialArray[i] = mat;
       });
@@ -69,13 +77,13 @@ class EnvironmentRenderer extends DataRenderer {
     }
 
     const mat = self.getMat(
-      MaterialUtils.loadLocalTexture(this.localReader, filename, null, hazeColorAsInt, errorCallback)
+      MaterialUtils.loadLocalTexture(this.localReader, filename, undefined, hazeColorAsInt, errorCallback)
     );
 
     writeMat(mat);
   }
 
-  getHazeColor(environmentChunkData) {
+  getHazeColor(environmentChunkData: any) {
     const hazes = environmentChunkData && environmentChunkData.dataGlobal.haze;
 
     if (!hazes || hazes.length <= 0) {
@@ -85,7 +93,7 @@ class EnvironmentRenderer extends DataRenderer {
     }
   }
 
-  parseLights(environmentChunkData) {
+  parseLights(environmentChunkData: any) {
     const self = this;
 
     /// Set up output array
@@ -101,19 +109,19 @@ class EnvironmentRenderer extends DataRenderer {
           },
         ];
 
-    let ambientLight;
+    let ambientLight: any;
 
     // var light = lights[0];
     //
     let hasLight = false;
-    lights.forEach(function (light /*, idx*/) {
+    lights.forEach(function (light: any /*, idx*/) {
       if (hasLight) return;
 
       /// Directional lights
       /* eslint-disable-next-line no-unused-vars */
       let sumDirLightIntensity = 0;
 
-      light.lights.forEach(function (dirLightData /*, idx*/) {
+      light.lights.forEach(function (dirLightData: any /*, idx*/) {
         hasLight = true;
 
         const color = new THREE.Color(
@@ -168,8 +176,8 @@ class EnvironmentRenderer extends DataRenderer {
     }); // END for each light in lighting
 
     let ambientTotal = 0;
-    if (ambientLight) {
-      ambientTotal = ambientLight.color.r + ambientLight.color.g + ambientLight.color.b;
+    if (ambientLight as any) {
+      ambientTotal = ambientLight!.color.r + ambientLight!.color.g + ambientLight!.color.b;
       this.getOutput().lights.push(ambientLight);
     }
 
@@ -177,7 +185,7 @@ class EnvironmentRenderer extends DataRenderer {
     this.getOutput().hasLight = hasLight || ambientTotal > 0;
   }
 
-  parseSkybox(environmentChunkData, parameterChunkData, hazeColorAsInt) {
+  parseSkybox(environmentChunkData: any, parameterChunkData: any, hazeColorAsInt: number) {
     /// set up output array
     this.getOutput().skyCubeTexture = null;
     this.getOutput().skyBox = null;
@@ -203,7 +211,7 @@ class EnvironmentRenderer extends DataRenderer {
     // eslint-disable-next-line no-unused-vars
     const boundSide = Math.max(mapW, mapD);
 
-    const materialArray = [];
+    const materialArray: Material[] = [];
 
     /// Load skybox textures, fallback to hosted png files.
     this.loadTextureWithFallback([1, 4], materialArray, skyModeTex.texPathNE + 1, "img/193068.png", hazeColorAsInt);
@@ -269,9 +277,12 @@ class EnvironmentRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback) {
-    const environmentChunkData = this.mapFile.getChunk("env").data;
-    const parameterChunkData = this.mapFile.getChunk("parm").data;
+  renderAsync(callback: Function): void {
+    if(!this.mapFile) {
+      throw new Error("No map file available for EnvironmentRenderer");
+    }
+    const environmentChunkData = this.mapFile.getChunk("env")!.data;
+    const parameterChunkData = this.mapFile.getChunk("parm")!.data;
 
     /// Set renderer clear color from environment haze
     const hazeColor = this.getHazeColor(environmentChunkData);
@@ -288,6 +299,3 @@ class EnvironmentRenderer extends DataRenderer {
     callback();
   }
 }
-
-EnvironmentRenderer.rendererName = "EnvironmentRenderer";
-module.exports = EnvironmentRenderer;

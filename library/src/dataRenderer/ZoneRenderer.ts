@@ -17,8 +17,24 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const RenderUtils = require("../util/RenderUtils");
-const DataRenderer = require("./DataRenderer");
+import * as RenderUtils from "../util/RenderUtils";
+import DataRenderer from "./DataRenderer";
+
+import type LocalReader from "../LocalReader/LocalReader";
+import type Logger from "../Logger";
+import type { BufferGeometry } from "three";
+import type GW2File from "../format/file/GW2File";
+
+type ModelGroupEntry = {
+  x: number;
+  y: number;
+  z: number;
+  rotRangeX: [number, number];
+  rotRangeY: [number, number];
+  rotRangeZ: [number, number];
+  scaleRange: [number, number];
+  fadeRange: [number, number];
+}
 
 /**
  *
@@ -33,8 +49,13 @@ const DataRenderer = require("./DataRenderer");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-class ZoneRenderer extends DataRenderer {
-  constructor(localReader, settings, context, logger) {
+export default class ZoneRenderer extends DataRenderer {
+  static rendererName = "ZoneRenderer";
+  meshCache: any;
+  textureCache: any;
+
+  mapFile: GW2File;
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "ZoneRenderer");
     this.mapFile = this.settings.mapFile;
   }
@@ -47,12 +68,12 @@ class ZoneRenderer extends DataRenderer {
    * @param  {*} renderZoneCallback [description]
    * @return {*}                    [description]
    */
-  renderZone(zone, zoneDefs, mapRect, renderZoneCallback) {
+  renderZone(zone: any, zoneDefs: any, mapRect: [number, number], renderZoneCallback: Function) {
     const self = this;
 
     /// Get Zone Definition
-    let zoneDef = null;
-    zoneDefs.forEach(function (zd) {
+    let zoneDef: any = null;
+    zoneDefs.forEach(function (zd: any) {
       if (!zoneDef && zd.token === zone.defToken) zoneDef = zd;
     });
 
@@ -71,7 +92,7 @@ class ZoneRenderer extends DataRenderer {
      */
     // var lastPct = -1;
     const groupKeys = Object.keys(modelGroups);
-    function stepModels(i) {
+    function stepModels(i: number) {
       /* var pct = Math.round(100.0*i / groupKeys.length);
       if(lastPct!=pct){
         console.log("Rendering ZONE models "+pct);
@@ -91,14 +112,14 @@ class ZoneRenderer extends DataRenderer {
       /// Read model at index
       /// var model = models[i];
       const key = groupKeys[i]; /// key is model filename
-      const group = modelGroups[key];
+      const group = modelGroups[key as any];
 
-      const meshGroups = [];
+      const meshGroups : any[] = [];
 
       /// Get model just once for this group
       const showUnmaterialed = false;
       RenderUtils.getMeshesForFilename(
-        key,
+        key as any,
         null,
         self.localReader,
         self.meshCache,
@@ -128,13 +149,13 @@ class ZoneRenderer extends DataRenderer {
 
                 /// Add to big mesh
                 if (!meshGroups[meshIdx]) {
-                  const mg = mesh.geometry.clone();
+                  const mg: BufferGeometry = mesh.geometry.clone() as any;
                   meshGroups[meshIdx] = {
                     readVerts: mg.getAttribute("position").array,
                     verts: new Float32Array(group.length * mg.getAttribute("position").array.length),
 
-                    readIndices: mg.getIndex().array,
-                    indices: new Uint32Array(group.length * mg.getIndex().array.length),
+                    readIndices: mg.getIndex()!.array,
+                    indices: new Uint32Array(group.length * mg.getIndex()!.array.length),
 
                     readUVs: mg.getAttribute("uv").array,
                     uvs: new Float32Array(group.length * mg.getAttribute("uv").array.length),
@@ -204,6 +225,7 @@ class ZoneRenderer extends DataRenderer {
             mergedGeom.setAttribute("normal", new THREE.BufferAttribute(meshGroup.normals, 3));
             mergedGeom.setAttribute("uv", new THREE.BufferAttribute(meshGroup.uvs, 2));
 
+            //@ts-ignore
             mergedGeom.buffersNeedUpdate = true;
 
             const mesh = new THREE.Mesh(mergedGeom, meshGroup.material);
@@ -230,7 +252,7 @@ class ZoneRenderer extends DataRenderer {
    * @param  {*} mapRect [description]
    * @return {*}         [description]
    */
-  getModelGroups(zone, zoneDef, mapRect) {
+  getModelGroups(zone: any, zoneDef: any, mapRect: [number, number]): Record<number, ModelGroupEntry[]> {
     /// Calculate rect in global coordinates
     // let zPos = zone.zPos;
 
@@ -265,7 +287,7 @@ class ZoneRenderer extends DataRenderer {
     /// Zone Flags increases a linear position, used to step trough the Zone.
     let linearPos = 0;
 
-    const modelGroups = {};
+    const modelGroups : Record<number, ModelGroupEntry[]>= {};
 
     const terrainTiles = this.getOutput(T3D.TerrainRenderer).terrainTiles;
 
@@ -290,14 +312,14 @@ class ZoneRenderer extends DataRenderer {
           const modelY = Math.floor(linearPos / zdx) * c + zoneRect.y1;
 
           /// Get Z from intersection with terrain
-          let modelZ = null;
+          let modelZ: any = null;
 
           const startZ = 100000;
 
           const raycaster = new THREE.Raycaster(new THREE.Vector3(modelX, startZ, modelY), new THREE.Vector3(0, -1, 0));
 
           /// TODO: OPT?
-          terrainTiles.forEach(function (chunk) {
+          terrainTiles.forEach(function (chunk: any) {
             if (modelZ === null) {
               const intersections = raycaster.intersectObject(chunk);
               if (intersections.length > 0) {
@@ -310,7 +332,7 @@ class ZoneRenderer extends DataRenderer {
           /// TODO: check with modelIdx = flag & 0xf;
           const modelIdx = 0;
           const model = layer.modelArray[modelIdx];
-          const modelFilename = model.filename;
+          const modelFilename: number = model.filename;
           // let zOffsets = model.zOffsets;
 
           // let layerFlags = layer.layerFlags; // NOrmaly 128, 128
@@ -360,14 +382,14 @@ class ZoneRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback) {
+  renderAsync(callback: Function) {
     const self = this;
 
     /// Set up output array
     self.getOutput().meshes = [];
 
-    const zoneChunkData = this.mapFile.getChunk("zon2").data;
-    const parameterChunkData = this.mapFile.getChunk("parm").data;
+    const zoneChunkData = this.mapFile.getChunk("zon2")!.data;
+    const parameterChunkData = this.mapFile.getChunk("parm")!.data;
     // let terrainChunkData = this.mapFile.getChunk("trn").data;
     const mapRect = parameterChunkData.rect;
 
@@ -379,7 +401,7 @@ class ZoneRenderer extends DataRenderer {
     let lastPct = -1;
 
     /// Main render loop, render each zone
-    function stepZone(i) {
+    function stepZone(i: number) {
       const pct = Math.round((100.0 * i) / zones.length);
       if (lastPct !== pct) {
         self.logger.log(T3D.Logger.TYPE_PROGRESS, "Loading 3D Models (Zone)", pct);
@@ -399,9 +421,7 @@ class ZoneRenderer extends DataRenderer {
   }
 }
 
-ZoneRenderer.rendererName = "ZoneRenderer";
-module.exports = ZoneRenderer;
-
+/*
 /// NOT USED??
 // eslint-disable-next-line no-unused-vars
 function addZoneMeshesToScene(meshes, isCached, position, scale, rotation) {
@@ -424,6 +444,7 @@ function addZoneMeshesToScene(meshes, isCached, position, scale, rotation) {
     this.getOutput().meshes.push(mesh);
   });
 }
+*/
 
 /// / Not used: zone defintion per chunk data "images" 32*32 points
 /*

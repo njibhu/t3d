@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "ESNext", 
+      "strict": true,
+      "allowJs": true,
+      "outDir": "./build-ts/",
+      "module": "ES6",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "typeRoots": ["./types"],
+      "sourceMap": true
+    },
+    "include": [
+      "src/**/*",
+      "examples/**/*",
+    ],
+    "exclude": [
+      "node_modules",
+      "dist"
+    ]
+  }

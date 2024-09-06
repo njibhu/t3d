@@ -17,12 +17,15 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const RenderUtils = require("../util/RenderUtils");
-const MaterialUtils = require("../util/MaterialUtils");
-const DataRenderer = require("./DataRenderer");
-const GW2File = require("../format/file/GW2File.js");
+import DataRenderer from "./DataRenderer";
+import * as RenderUtils from "../util/RenderUtils";
+import * as MaterialUtils from "../util/MaterialUtils";
+import * as TerrainShader from "../util/TerrainShader";
+import GW2File from "../format/file/GW2File";
 
-const TerrainShader = require("../util/TerrainShader.js");
+import type LocalReader from "../LocalReader/LocalReader";
+import type Logger from "../Logger";
+import type {  Material } from "three";
 
 /**
  *
@@ -41,13 +44,18 @@ const TerrainShader = require("../util/TerrainShader.js");
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
-class TerrainRenderer extends DataRenderer {
-  constructor(localReader, mapFile, settings, context, logger) {
-    super(localReader, mapFile, settings, context, logger, "TerrainRenderer");
+export default class TerrainRenderer extends DataRenderer {
+  static rendererName = "TerrainRenderer";
+
+  mapFile: GW2File;
+  mapRect: { x1: number; x2: number; y1: number; y2: number } | undefined | null;
+  
+  constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
+    super(localReader, settings, context, logger, "TerrainRenderer");
     this.mapFile = this.settings.mapFile;
   }
 
-  drawWater(rect) {
+  drawWater(rect: {x1: number, x2: number, y1: number, y2: number}): any {
     /// Add Water
     const material = new THREE.MeshBasicMaterial({
       color: 0x5bb1e8,
@@ -59,12 +67,12 @@ class TerrainRenderer extends DataRenderer {
     return RenderUtils.renderRect(rect, 0, material);
   }
 
-  parseNumChunks(terrainData) {
+  parseNumChunks(terrainData: any): void {
     terrainData.numChunksD_1 = Math.sqrt((terrainData.dims[0] * terrainData.chunkArray.length) / terrainData.dims[1]);
     terrainData.numChunksD_2 = terrainData.chunkArray.length / terrainData.numChunksD_1;
   }
 
-  loadPagedImageCallback(callback, infaltedBuffer) {
+  loadPagedImageCallback(callback: Function, infaltedBuffer: ArrayBuffer): void {
     const self = this;
 
     // Prep output array
@@ -78,8 +86,8 @@ class TerrainRenderer extends DataRenderer {
     this.mapRect = null;
 
     /// Fetch chunks
-    const terrainData = this.mapFile.getChunk("trn").data;
-    const parameterData = this.mapFile.getChunk("parm").data;
+    const terrainData = this.mapFile.getChunk("trn")!.data;
+    const parameterData = this.mapFile.getChunk("parm")!.data;
 
     /// Read settings
     const maxAnisotropy = this.settings.anisotropy ? this.settings.anisotropy : 1;
@@ -122,14 +130,14 @@ class TerrainRenderer extends DataRenderer {
     //let texMats = {};
 
     /// Load textures from PIMG and inject as material maps (textures)
-    const chunkTextures = {};
+    const chunkTextures: any = {};
 
     /// Load textures
     if (pimgData) {
       const strippedPages = pimgData.strippedPages;
 
       /// Only use layer 0
-      strippedPages.forEach(function (page) {
+      strippedPages.forEach(function (page: any) {
         /// Only load layer 0 and 1
         if (page.layer <= 1) {
           const filename = page.filename;
@@ -161,7 +169,7 @@ class TerrainRenderer extends DataRenderer {
     /// Render Each chunk
     /// We'll make this async in order for the screen to be able to update
 
-    const renderChunk = function (cx, cy) {
+    const renderChunk = function (cx: number, cy: number): void {
       const chunkIndex = cy * xChunks + cx;
 
       const pageX = Math.floor(cx / 4);
@@ -174,7 +182,7 @@ class TerrainRenderer extends DataRenderer {
       // let matFileName = allMaterials[chunkIndex].hiResMaterial.materialFile;
       // let chunkData = terrainData.chunkArray[chunkIndex];
       // let mainTex = allTextures[chunkTextureIndices[0]];
-      let mat = customMaterial;
+      let mat: Material = customMaterial;
 
       /// TODO: just tick invert y = false...?
       const pageOffetX = (cx % 4) / 4.0;
@@ -274,6 +282,7 @@ class TerrainRenderer extends DataRenderer {
       for (let y = 0; y < chunkW; y++) {
         for (let x = 0; x < chunkW; x++) {
           if (x !== 0 && x !== chunkW - 1 && y !== 0 && y !== chunkW - 1) {
+            //@ts-ignore
             chunkGeo.getAttribute("position").array[cn * 3 + 2] = terrainData.heightMapArray[n];
             cn++;
           }
@@ -288,14 +297,15 @@ class TerrainRenderer extends DataRenderer {
       chunkGeo.applyMatrix4(mS);
 
       /// Compute face normals for lighting, not used when textured
+      //@ts-ignore
       chunkGeo.computeFaceNormals();
       chunkGeo.computeVertexNormals();
 
       /// Build chunk mesh!
       let chunk;
       chunk = new THREE.Mesh(chunkGeo, customMaterial);
-      if (mat.length) {
-        chunk = THREE.SceneUtils.createMultiMaterialObject(chunkGeo, mat);
+      if (Array.isArray(mat)) {
+        chunk = THREE.SceneUtils.createMultiMaterialObject(chunkGeo as any, mat);
       } else {
         chunk = new THREE.Mesh(chunkGeo, mat);
       }
@@ -349,7 +359,7 @@ class TerrainRenderer extends DataRenderer {
       self.getOutput().terrainTiles.push(chunk);
     }; /// End render chunk function
 
-    const stepChunk = function (cx, cy) {
+    const stepChunk = function (cx: number, cy: number) {
       if (cx >= xChunks) {
         cx = 0;
         cy++;
@@ -357,7 +367,7 @@ class TerrainRenderer extends DataRenderer {
 
       if (cy >= yChunks) {
         /// Draw water surface using map bounds
-        self.getOutput().water = self.drawWater(self.mapRect);
+        self.getOutput().water = self.drawWater(self.mapRect!);
 
         /// Set bounds in output VO
         self.getOutput().bounds = self.mapRect;
@@ -390,9 +400,10 @@ class TerrainRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback) {
+  renderAsync(callback: Function) {
     /// Load all paged Images, requires inflation of other pack files!
-    const pagedImageId = this.mapFile.getChunk("trn").data.materials.pagedImage;
+    const pagedImageId = this.mapFile.getChunk("trn")!.data.materials.pagedImage;
+    //@ts-ignore
     this.localReader.loadFile(pagedImageId, this.loadPagedImageCallback.bind(this, callback));
   }
 
@@ -405,14 +416,14 @@ class TerrainRenderer extends DataRenderer {
   getFileIdsAsync(/* callback */) {
     const terrainChunk = this.mapFile.getChunk("trn");
     const pimgTableDataChunk = this.mapFile.getChunk("pimg");
-    const fileIds = [];
+    const fileIds: number[] = [];
 
     /// ------------ SPLASH TEXTURES ------------
     const pimgData = pimgTableDataChunk && pimgTableDataChunk.data;
     const strippedPages = pimgData.strippedPages;
 
     /// Only use layer 0
-    strippedPages.forEach(function (page) {
+    strippedPages.forEach(function (page: any) {
       /// Only load layer 0 and 1
       if (page.layer <= 1 && page.filename > 0) {
         fileIds.push(page.filename);
@@ -421,9 +432,9 @@ class TerrainRenderer extends DataRenderer {
     /// ------------ END SPLASH TEXTURES ------------
 
     /// ------------ TILED IMAGES ------------
-    const terrainData = terrainChunk.data;
+    const terrainData = terrainChunk!.data;
     const allTextures = terrainData.materials.texFileArray;
-    allTextures.forEach(function (texture) {
+    allTextures.forEach(function (texture: any) {
       if (texture.filename > 0) fileIds.push(texture.filename);
     });
     /// ------------ END TILED IMAGES ------------
@@ -431,6 +442,3 @@ class TerrainRenderer extends DataRenderer {
     return fileIds;
   }
 }
-
-TerrainRenderer.rendererName = "TerrainRenderer";
-module.exports = TerrainRenderer;

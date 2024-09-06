@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const MathUtils = require("../util/MathUtils");
+import * as  MathUtils from "../util/MathUtils";
 
 /**
  * @file The ArchiveParser module is a set of helper tools to correctly read the Archive.
@@ -31,10 +31,14 @@ const MathUtils = require("../util/MathUtils");
  * @param {File} file
  * @returns {Promise<{archiveHeader: ArchiveHeader, metaTable: MetaTable, indexTable: IndexTable}>}
  */
-async function readArchive(file) {
+export async function readArchive(file: File): Promise<{
+  archiveHeader: ArchiveHeader;
+  metaTable: MetaTable;
+  indexTable: IndexTable;
+}> {
   try {
-    const archiveHeader = parseANDatHeader((await getFilePart(file, 0, 40)).ds);
-    const mftData = parseMFTTable((await getFilePart(file, archiveHeader.mftOffset, archiveHeader.mftSize)).ds);
+    const archiveHeader = parseANDatHeader((await getFilePart(file, 0, 40)).ds)!;
+    const mftData = parseMFTTable((await getFilePart(file, archiveHeader.mftOffset, archiveHeader.mftSize)).ds)!;
     const { ds, len } = await getFilePart(file, mftData.mftIndexOffset, mftData.mftIndexSize);
     const indexTable = parseMFTIndex(ds, len);
 
@@ -53,7 +57,7 @@ async function readArchive(file) {
  * The header of the archive.
  * @typedef {Object} ArchiveHeader
  * @property {number} version
- * @property {number} magic
+ * @property {string} magic
  * @property {number} headerSize
  * @property {number} chunkSize
  * @property {number} crc
@@ -62,15 +66,26 @@ async function readArchive(file) {
  * @property {number} flags
  */
 
+type ArchiveHeader = {
+  version: number;
+  magic: string;
+  headerSize: number;
+  chunkSize: number;
+  crc: number;
+  mftOffset: number;
+  mftSize: number;
+  flags: number;
+};
+
 /**
  *   Parse the main information about the archive like format version, positions of information tables, crc etc...
  *
  * @memberof ArchiveParser
  * @param {DataStream} ds
- * @returns {ArchiveIndex} Returns undefined if the header couldn't be parsed
+ * @returns {ArchiveHeader} Returns undefined if the header couldn't be parsed
  */
-function parseANDatHeader(ds) {
-  const header = {};
+export function parseANDatHeader(ds: InstanceType<typeof DataStream>): ArchiveHeader|undefined {
+  const header: Partial<ArchiveHeader> = {};
 
   // Header parsing
   header.version = ds.readUint8();
@@ -93,13 +108,19 @@ function parseANDatHeader(ds) {
 
   T3D.Logger.log(T3D.Logger.TYPE_DEBUG, "Loaded Main .dat header");
 
-  return header;
+  return header as ArchiveHeader;
 }
 
 /**
  * The array containing all the meta information concerning the contained files
  * @typedef {Array<{offset: number, size: number, compressed: number, crc: number}>} MetaTable
  */
+type MetaTable = Array<{
+  offset: number;
+  size: number;
+  compressed: number;
+  crc: number;
+}>;
 
 /**
  *   Parse the main information table that contains the offset, size, compression flags and crc
@@ -109,9 +130,17 @@ function parseANDatHeader(ds) {
  * @returns {{header: {magic: String, nbOfEntries: number}, table: MetaTable, mftIndexOffset: number, mftIndexSize: number}|undefined}
  *   Returns undefined if it couldn't parse the table
  */
-function parseMFTTable(ds) {
+export function parseMFTTable(ds: InstanceType<typeof DataStream>): {
+  header: {
+      magic: string;
+      nbOfEntries: number;
+  };
+  table: MetaTable;
+  mftIndexOffset: number;
+  mftIndexSize: number;
+} | undefined {
   // Parse the table header
-  const header = {};
+  const header: { magic?: string, nbOfEntries?: number } = {};
   header.magic = ds.readString(4);
   ds.seek(ds.position + 8); // Skip uint64
   header.nbOfEntries = ds.readUint32();
@@ -126,23 +155,23 @@ function parseMFTTable(ds) {
   // Where we put all the parsed data
   // We don't pre-alloc anymore since not having the data aligned together procs too many
   // cache misses during a fullscan
-  const fullTable = [];
+  const fullTable: MetaTable = [];
 
   // Go through the table
   for (let i = 1; i < header.nbOfEntries; i++) {
-    const item = {};
+    const item: Partial<MetaTable[number]> = {};
     item["offset"] = MathUtils.arr32To64([ds.readUint32(), ds.readUint32()]);
     item["size"] = ds.readUint32();
     item["compressed"] = ds.readUint16();
     ds.seek(ds.position + 4 + 2); // Skip uint16 + uint32
     item["crc"] = ds.readUint32();
-    fullTable[i] = item;
+    fullTable[i] = item as MetaTable[number];
   }
 
   T3D.Logger.log(T3D.Logger.TYPE_DEBUG, "Loaded MFTTable");
 
   return {
-    header: header,
+    header: header as { magic: string, nbOfEntries: number },
     table: fullTable,
     // Register the MFTIndex table position and size
     mftIndexOffset: fullTable[2].offset,
@@ -154,6 +183,7 @@ function parseMFTTable(ds) {
  * The array linking all the file indexes to their respective files
  * @typedef {Array<number>} IndexTable
  */
+type IndexTable = Array<number>;
 
 /**
  *   This function used to be much more complex with the use of
@@ -165,7 +195,7 @@ function parseMFTTable(ds) {
  * @param {number} size
  * @returns {IndexTable}
  */
-function parseMFTIndex(ds, size) {
+export function parseMFTIndex(ds: InstanceType<typeof DataStream>, size: number): IndexTable {
   const length = size / 8;
 
   const indexTable = [];
@@ -192,16 +222,19 @@ function parseMFTIndex(ds, size) {
  * @param {number} length
  * @returns {Promise<{ds: DataStream, len: number}>}
  */
-function getFilePart(file, offset, length) {
+export function getFilePart(file: File, offset: number, length: number): Promise<{
+  ds: InstanceType<typeof DataStream>;
+  len: number;
+}> {
   // Node compatibility workaround
-  if (global.process && global.fs) {
-    const fd = global.fs.openSync(file);
-    const buffer = global.Buffer.alloc(length);
-    const readLen = global.fs.readSync(fd, buffer, 0, length, offset);
+  if ((globalThis as any).process && (globalThis as any).fs) {
+    const fd = (globalThis as any).fs.openSync(file);
+    const buffer = (globalThis as any).Buffer.alloc(length);
+    const readLen = (globalThis as any).fs.readSync(fd, buffer, 0, length, offset);
     const ds = new DataStream(buffer);
     ds.endianness = DataStream.LITTLE_ENDIAN;
-    global.fs.closeSync(fd);
-    return { ds, len: readLen };
+    (globalThis as any).fs.closeSync(fd);
+    return Promise.resolve({ ds, len: readLen });
   }
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -209,8 +242,8 @@ function getFilePart(file, offset, length) {
     reader.onerror = reject;
 
     reader.onload = function (fileEvent) {
-      const buffer = fileEvent.target.result;
-      const ds = new DataStream(buffer);
+      const buffer = fileEvent.target!.result;
+      const ds = new DataStream(buffer as ArrayBuffer);
       ds.endianness = DataStream.LITTLE_ENDIAN;
       // Pass data stream and data length to callback function
       resolve({ ds: ds, len: length });
@@ -220,11 +253,3 @@ function getFilePart(file, offset, length) {
     reader.readAsArrayBuffer(file.slice(offset, offset + length));
   });
 }
-
-module.exports = {
-  readArchive: readArchive,
-  parseANDatHeader: parseANDatHeader,
-  parseMFTTable: parseMFTTable,
-  parseMFTIndex: parseMFTIndex,
-  getFilePart: getFilePart,
-};

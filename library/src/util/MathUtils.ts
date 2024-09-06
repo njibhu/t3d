@@ -32,7 +32,7 @@ const base32Max = Math.pow(2, 32);
  * @param  {Number} h Integer value
  * @return {Number} Float value
  */
-function f16(h) {
+export function f16(h: number): number {
   const s = (h & 0x8000) >> 15;
   const e = (h & 0x7c00) >> 10;
   const f = h & 0x03ff;
@@ -54,7 +54,7 @@ function f16(h) {
  * @param  {Number} bits Integer
  * @return {Number}      Number of binary ones in the data
  */
-function popcount(bits) {
+export function popcount(bits: number): number {
   const SK5 = 0x55555555;
   const SK3 = 0x33333333;
   const SKF0 = 0x0f0f0f0f;
@@ -76,7 +76,7 @@ function popcount(bits) {
  * @param  {Number[]} arr     Input integers, length should be 2.
  * @return {Number}      64 bit representation of the two integers.
  */
-function arr32To64(arr) {
+export function arr32To64(arr: number[]): number {
   /// Re-read as uint64 (still little endian)
   /// Warn: this will not work for ~50+ bit longs cus all JS numbers are 64 bit floats...
   return base32Max * arr[1] + arr[0];
@@ -90,7 +90,7 @@ function arr32To64(arr) {
  * @param  {Function} comparator A comparator function between the objects in arr_in
  * @return {Array}            Sorted and unique value.
  */
-function sort_unique(arr_in, comparator) {
+export function sort_unique(arr_in: any[], comparator: (a:any, b:any) => number): any[] {
   const arr = Array.prototype.sort.call(arr_in, comparator);
 
   const u = {};
@@ -101,15 +101,9 @@ function sort_unique(arr_in, comparator) {
       continue;
     }
     a.push(arr[i]);
+    //@ts-ignore
     u[arr[i]] = 1;
   }
 
   return a;
 }
-
-module.exports = {
-  f16: f16,
-  popcount: popcount,
-  arr32To64: arr32To64,
-  sort_unique: sort_unique,
-};

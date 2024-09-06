@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const GW2File = require("../format/file/GW2File.js");
+import GW2File from "../format/file/GW2File";
 
 /**
  * @namespace FileTypes
@@ -30,9 +30,8 @@ const FileTypes = {};
  *
  * @memberof FileTypes
  * @param {DataStream} ds
- * @return {number}
  */
-FileTypes.getFileType = function (ds) {
+export function getFileType(ds: any): string {
   const first4 = ds.readCString(4);
 
   // Parse textures
@@ -80,5 +79,3 @@ FileTypes.getFileType = function (ds) {
   // Unknown
   return "UNKNOWN";
 };
-
-module.exports = FileTypes;

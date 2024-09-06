@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-const Chunk = require("./GW2Chunk");
+import Chunk from "./GW2Chunk";
 
 const HEAD_STRUCT = [
   "identifier",
@@ -42,33 +42,11 @@ const HEAD_STRUCT = [
  * chunks on creation.
  */
 class GW2File {
-  constructor(ds, addr, noChunks) {
-    /**
-     * @property {DataStream} ds The DataStream data source used by this file.
-     */
-    this.ds = ds;
+  headerLength: number = NaN;
+  chunks: Chunk[] = [];
+  header: any;
 
-    /**
-     * @property {Number} addr The address to this File within ds.
-     */
-    this.addr = addr;
-
-    /// Not used anymore I think
-    this.data = null;
-
-    /**
-     * @property {Number} headerLength The length in bytes of the file header.
-     */
-    this.headerLength = NaN;
-
-    /**
-     * All {{#crossLink "GW2Chunk"}}chunks{{/crossLink}} contained in the file.
-     *
-     * @property chunks
-     * @type GW2Chunk[]
-     */
-    this.chunks = [];
-
+  constructor(public ds: InstanceType<typeof DataStream>, public addr: number, noChunks: boolean = false) {
     /**
      * @property {Object} header Chunk header data.
      */
@@ -98,7 +76,7 @@ class GW2File {
     // var structs = this.getChunkStructs && this.getChunkStructs();
 
     /// Load basic Chunk in order to read the chunk header.
-    let ch = new Chunk(this.ds, this.headerLength + this.addr);
+    let ch: Chunk | null = new Chunk(this.ds, this.headerLength + this.addr);
 
     // while(structs && ch!=null && ch.header.type){
     while (ch !== null && ch.header.type) {
@@ -118,7 +96,7 @@ class GW2File {
    * @param  {String} type The name, or type of the desired chunk.
    * @return {GW2Chunk} The first GW2Chunk in this file matching the type name, or null if no matching GW2Chunk was found.
    */
-  getChunk(type) {
+  getChunk(type: string) {
     for (let i = 0; i < this.chunks.length; i++) {
       if (this.chunks[i].header.type.toLowerCase() === type.toLowerCase()) {
         return this.chunks[i];
@@ -137,4 +115,4 @@ class GW2File {
   }
 }
 
-module.exports = GW2File;
+export default GW2File;

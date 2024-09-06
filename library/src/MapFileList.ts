@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-module.exports = {
+const mapMap = {
   /**
    * @property maps
    * @type {Array.<{name: String, maps: Array.<{fileName: String, name: String}>}>}
@@ -433,4 +433,6 @@ module.exports = {
       ],
     },
   ],
-};
+} as const;
+
+export default mapMap;
