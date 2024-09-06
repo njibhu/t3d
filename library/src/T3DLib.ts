@@ -17,9 +17,11 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
+declare var T3D: any;
+
 /* INCLUDES */
 import LocalReader from "./LocalReader/LocalReader";
-import { version as _version } from '../package.json';
+import { version as _version } from "./version"
 import GW2File from "./format/file/GW2File";
 import GW2Chunk from "./format/file/GW2Chunk";
 import DataRenderer from "./dataRenderer/DataRenderer";
@@ -41,6 +43,7 @@ import * as RenderUtils from "./util/RenderUtils";
 import PersistantStore from "./LocalReader/PersistantStore";
 import * as FileTypes from "./LocalReader/FileTypes";
 
+//@ts-ignore
 import * as formats from "./format/chunks/AllFormats";
 
 /* PRIVATE VARS */
@@ -51,7 +54,7 @@ const _settings = {
 
 type MapList = {name: string, maps: {fileName: number, name: string}[]}[];
 
-const T3D = {
+T3D = {
   version: _version,
   GW2File: GW2File,
   GW2Chunk: GW2Chunk,
@@ -274,10 +277,12 @@ const T3D = {
     return false;
   },
 
-  formats: formats
+  //@ts-ignore
+  formats: formats.default
 } as const;
 
 export default T3D;
+(globalThis as any).T3D = T3D;
 
 
 /* PRIVATE METHODS */
@@ -292,7 +297,7 @@ export default T3D;
 function checkRequirements() {
   let numErrors = 0;
 
-  if (!global.window || !window.indexedDB) {
+  if (!globalThis.window || !window.indexedDB) {
     T3D.Logger.log(T3D.Logger.TYPE_ERROR, "T3D persistant storing and loading requires indexedDB support.");
     numErrors++;
   }

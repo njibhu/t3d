@@ -17,8 +17,6 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-import type DataStream from "DataStream";
-
 const HEAD_STRUCT = [
   "type",
   "cstring:4",
@@ -95,7 +93,7 @@ class GW2Chunk {
   headerLength: number;
   header: any;
 
-  constructor(public ds: DataStream, public addr: number) {
+  constructor(public ds: InstanceType<typeof DataStream>, public addr: number) {
     // Early returns if already called, it defines the DUPLICATE_SETTINGS variable
     genDuplicateSettings();
 

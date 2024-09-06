@@ -21,8 +21,6 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
  * @namespace ParserUtils
  */
 
-type DataStream = any;
-
 /**
  * Collection of methods used for parsing complex data types from the .dat
  *
@@ -42,7 +40,7 @@ type DataStream = any;
  * @return {Function}        The generated parsing function.
  */
 export function getArrayReader(structDef: any[], maxCount: number): Function {
-  return function (ds: DataStream, struct: any) {
+  return function (ds: InstanceType<typeof DataStream>, struct: any) {
     let ret: Array<any> = [];
     try {
       const arr_len = ds.readUint32();
@@ -76,7 +74,7 @@ export function getArrayReader(structDef: any[], maxCount: number): Function {
  * @return {Function}        The generated parsing function.
  */
 export function getRefArrayReader(structDef: any[]): Function {
-  return function (ds: DataStream) {
+  return function (ds: InstanceType<typeof DataStream>) {
     const ret_arr: Array<any> = [];
 
     /// Read array of offsets
@@ -132,7 +130,7 @@ export function getRefArrayReader(structDef: any[]): Function {
  */
 export function getQWordReader(): Function {
   // let base32Max = 4294967296;
-  return function (ds: DataStream /*, struct */) {
+  return function (ds: InstanceType<typeof DataStream> /*, struct */) {
     return ds.readUint32() + "-" + ds.readUint32();
 
     // let p0 = ds.readUint32();
@@ -147,7 +145,7 @@ export function getQWordReader(): Function {
  * @return {Function}        The generated parsing function.
  */
 export function getStringReader(): Function {
-  return function (ds: DataStream /*, struct*/) {
+  return function (ds: InstanceType<typeof DataStream> /*, struct*/) {
     const ptr = ds.position + ds.readUint32();
     const pos = ds.position;
 
@@ -169,7 +167,7 @@ export function getStringReader(): Function {
  * @return {Function}        The generated parsing function.
  */
 export function getString16Reader(stringOffset: any): Function {
-  return function (ds: DataStream /*, struct*/) {
+  return function (ds: InstanceType<typeof DataStream> /*, struct*/) {
     const ptr = ds.position + ds.readUint32() + (stringOffset || 0);
     const pos = ds.position;
 
@@ -198,7 +196,7 @@ export function getString16Reader(stringOffset: any): Function {
  * @return {Function}        The generated parsing function.
  */
 export function getPointerReader(structDef: any[]): Function {
-  return function (ds: DataStream /*, struct*/) {
+  return function (ds: InstanceType<typeof DataStream> /*, struct*/) {
     const offset = ds.readUint32();
 
     if (offset === 0) {
@@ -226,7 +224,7 @@ export function getPointerReader(structDef: any[]): Function {
  * @return {Function}        The generated parsing function.
  */
 export function getFileNameReader(): Function {
-  return function (ds: DataStream /*, struct*/) {
+  return function (ds: InstanceType<typeof DataStream> /*, struct*/) {
     let pos;
     try {
       const ptr = ds.position + ds.readUint32();

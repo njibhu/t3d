@@ -155,4 +155,4 @@ class PersistantStore {
   }
 }
 
-export = PersistantStore;
+export default PersistantStore;

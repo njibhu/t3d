@@ -24,8 +24,6 @@ import * as  MathUtils from "../util/MathUtils";
  * @namespace ArchiveParser
  */
 
-import DataStream from "../../types/DataStream";
-
 /**
  *    All in one function to read a GW2.dat file and parse all the needed informations to work with it
  *
@@ -86,7 +84,7 @@ type ArchiveHeader = {
  * @param {DataStream} ds
  * @returns {ArchiveHeader} Returns undefined if the header couldn't be parsed
  */
-export function parseANDatHeader(ds: DataStream): ArchiveHeader|undefined {
+export function parseANDatHeader(ds: InstanceType<typeof DataStream>): ArchiveHeader|undefined {
   const header: Partial<ArchiveHeader> = {};
 
   // Header parsing
@@ -132,7 +130,7 @@ type MetaTable = Array<{
  * @returns {{header: {magic: String, nbOfEntries: number}, table: MetaTable, mftIndexOffset: number, mftIndexSize: number}|undefined}
  *   Returns undefined if it couldn't parse the table
  */
-export function parseMFTTable(ds: DataStream): {
+export function parseMFTTable(ds: InstanceType<typeof DataStream>): {
   header: {
       magic: string;
       nbOfEntries: number;
@@ -197,7 +195,7 @@ type IndexTable = Array<number>;
  * @param {number} size
  * @returns {IndexTable}
  */
-export function parseMFTIndex(ds: DataStream, size: number): IndexTable {
+export function parseMFTIndex(ds: InstanceType<typeof DataStream>, size: number): IndexTable {
   const length = size / 8;
 
   const indexTable = [];
@@ -225,17 +223,17 @@ export function parseMFTIndex(ds: DataStream, size: number): IndexTable {
  * @returns {Promise<{ds: DataStream, len: number}>}
  */
 export function getFilePart(file: File, offset: number, length: number): Promise<{
-  ds: DataStream;
+  ds: InstanceType<typeof DataStream>;
   len: number;
 }> {
   // Node compatibility workaround
-  if ((global as any).process && global.fs) {
-    const fd = global.fs.openSync(file);
-    const buffer = (global as any).Buffer.alloc(length);
-    const readLen = global.fs.readSync(fd, buffer, 0, length, offset);
-    const ds: DataStream = new DataStream(buffer);
+  if ((globalThis as any).process && (globalThis as any).fs) {
+    const fd = (globalThis as any).fs.openSync(file);
+    const buffer = (globalThis as any).Buffer.alloc(length);
+    const readLen = (globalThis as any).fs.readSync(fd, buffer, 0, length, offset);
+    const ds = new DataStream(buffer);
     ds.endianness = DataStream.LITTLE_ENDIAN;
-    global.fs.closeSync(fd);
+    (globalThis as any).fs.closeSync(fd);
     return Promise.resolve({ ds, len: readLen });
   }
   return new Promise((resolve, reject) => {

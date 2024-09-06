@@ -17,8 +17,6 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-import type DataStream from "../../types/DataStream";
-
 /**
  * Organized thread pool of extractors
  * @class DataReader
@@ -54,7 +52,7 @@ export default class DataReader {
    * @param {number} [capLength] Output size
    * @returns {Promise<{buffer: ArrayBuffer, dxtType: number, imageWidth: number, imageHeight: number}>}
    */
-  inflate(ds: DataStream, size: number, mftId: number, isImage?: boolean, capLength?: number): Promise<{
+  inflate(ds: InstanceType<typeof DataStream>, size: number, mftId: number, isImage?: boolean, capLength?: number): Promise<{
     buffer: ArrayBuffer;
     dxtType: number;
     imageWidth: number;

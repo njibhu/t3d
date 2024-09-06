@@ -18,7 +18,6 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
 import Chunk from "./GW2Chunk";
-import type DataStream from "DataStream";	
 
 const HEAD_STRUCT = [
   "identifier",
@@ -47,7 +46,7 @@ class GW2File {
   chunks: Chunk[] = [];
   header: any;
 
-  constructor(public ds: DataStream, public addr: number, noChunks: boolean = false) {
+  constructor(public ds: InstanceType<typeof DataStream>, public addr: number, noChunks: boolean = false) {
     /**
      * @property {Object} header Chunk header data.
      */

@@ -109,7 +109,7 @@ export default class EnvironmentRenderer extends DataRenderer {
           },
         ];
 
-    let ambientLight;
+    let ambientLight: any;
 
     // var light = lights[0];
     //

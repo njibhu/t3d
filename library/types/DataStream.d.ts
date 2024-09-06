@@ -496,7 +496,7 @@ declare class DataStream {
       @param {?number} length The length of the string to read.
       @return {string} The read string.
      */
-    readCString(length: number | null): string;
+    readCString(length?: number | null): string;
     /**
       Writes a null-terminated string to DataStream and zero-pads it to length
       bytes. If length is not given, writes the string followed by a zero.
