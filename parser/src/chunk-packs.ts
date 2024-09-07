@@ -13,7 +13,7 @@ export const fileChunkMap = {
   cntc: { Main: "MAIN_4" },
   hvkC: { havk: "HAVK" },
   ASND: { ASND: "ASND" },
-  AMAT: { GRMT: "GRMT", DX9S: "DX9S" },
+  AMAT: { GRMT: "GRMT", DX9S: "DX9S", BGFX: "BGFX" },
   AMSP: { AMSP: "AMSP" },
   MODL: {
     MODL: "MODL",
@@ -23,6 +23,7 @@ export const fileChunkMap = {
     ROOT: "ROOT",
     GAME: "GAME",
     GEOM: "GEOM",
+    PRPS: "PRPS",	
   },
   //AFNT: {"AFNT"},
   CINP: { CSCN: "CSCN" },

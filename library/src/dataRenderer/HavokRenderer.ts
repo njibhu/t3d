@@ -21,7 +21,8 @@ import DataRenderer from "./DataRenderer";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
-import type GW2File from "../format/file/GW2File";
+//import type GW2File from "../format/file/GW2File";
+import type FileParser from "t3d-parser";
 import type { Material, Mesh } from "three";
 
 /**
@@ -40,7 +41,7 @@ import type { Material, Mesh } from "three";
  */
 export default class HavokRenderer extends DataRenderer {
   static rendererName = "HavokRenderer";
-  mapFile: GW2File;
+  mapFile: FileParser;
   lastP: number;
   seed: number;
   meshes: Mesh[];

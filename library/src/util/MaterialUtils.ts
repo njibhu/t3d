@@ -31,7 +31,7 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
  */
 
 import type { Color, DataTexture, ShaderMaterial, Material, Texture, MeshPhongMaterial, MeshBasicMaterial } from "three";
-import type GW2File from "../format/file/GW2File"
+import type FileParser from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
 
 /**
@@ -227,7 +227,7 @@ interface ModelMaterialData {
  * @param  {Object} sharedTextures  Value Object for keeping the texture cache
  * @return {THREE.Material}         A THREE Material with the generated contents and settings.
  */
-export function getMaterial(material: ModelMaterialData, materialFile: GW2File, localReader: LocalReader, sharedTextures: any): Material | undefined {
+export function getMaterial(material: ModelMaterialData, materialFile: FileParser, localReader: LocalReader, sharedTextures: any): Material | undefined {
   if (!materialFile) return;
 
   const dxChunk = materialFile.getChunk("dx9s")!;

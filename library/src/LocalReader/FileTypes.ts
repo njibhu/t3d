@@ -17,13 +17,7 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-import GW2File from "../format/file/GW2File";
-
-/**
- * @namespace FileTypes
- */
-
-const FileTypes = {};
+import FileParser from "t3d-parser";
 
 /**
  * Parse the beginning of a file to find its type
@@ -60,7 +54,7 @@ export function getFileType(ds: any): string {
 
   // PackFiles
   if (first4.indexOf("PF") === 0) {
-    const file = new GW2File(ds, 0, true); /// true for "plz no load chunkz"
+    const file = new FileParser(ds.buffer, true); /// true for "plz no load chunkz"
     return "PF_" + file.header.type;
   }
 

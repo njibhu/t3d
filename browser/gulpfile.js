@@ -27,6 +27,8 @@ function copyStaticAssets() {
         `../node_modules/DataStream.js/DataStream.js`,
         `../library/build/T3D.js`,
         `../library/build/T3D.js.map`,
+        `../parser/build/t3d-parser.js`,
+        `../parser/build/t3d-parser.js.map`,
       ])
       .pipe(gulp.dest("./dist/static")),
   ];

@@ -29,19 +29,26 @@ export class DataParser implements Definition {
   public parse(dv: DataView, pos: number): ParseFunctionReturn {
     let position = pos;
     const parsedObject: any = {};
-    for (const key in this.root) {
-      const value = this.root[key];
-      let parsedResult: ParseFunctionReturn;
-      if (typeof value === "string") {
-        if (this.DEBUG) console.log(key, position.toString(16), "(parseType)");
-        parsedResult = this.parseType(dv, position, value);
-      } else {
-        const { baseType, subType, length } = value;
-        if (this.DEBUG) console.log(key, position.toString(16), baseType, subType, length);
-        parsedResult = this[baseType](dv, position, subType!, length!);
+    try {
+      for (const key in this.root) {
+        const value = this.root[key];
+        let parsedResult: ParseFunctionReturn;
+        if (typeof value === "string") {
+          if (this.DEBUG) console.log(key, position.toString(16), "(parseType)");
+          parsedResult = this.parseType(dv, position, value);
+        } else {
+          const { baseType, subType, length } = value;
+          if (this.DEBUG) console.log(key, position.toString(16), baseType, subType, length);
+          parsedResult = this[baseType](dv, position, subType!, length!);
+        }
+        parsedObject[key] = parsedResult.data;
+        position = parsedResult.newPosition;
       }
-      parsedObject[key] = parsedResult.data;
-      position = parsedResult.newPosition;
+    } catch (e) {
+      if(this.DEBUG || (globalThis as any).T3D_PARSER_DEBUG){
+        console.error("Partially parsed object:", parsedObject);
+      }
+      throw e;
     }
 
     return {
@@ -50,7 +57,7 @@ export class DataParser implements Definition {
     };
   }
 
-  public parseType(dv: DataView, pos: number, typeDefinitionName: string): ParseFunctionReturn {
+  private parseType(dv: DataView, pos: number, typeDefinitionName: string): ParseFunctionReturn {
     const parsedObject: any = {};
     let position = pos;
     const definition = this.definitions![typeDefinitionName];

@@ -17,9 +17,11 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-import GW2File from "../format/file/GW2File";
+//import GW2File from "../format/file/GW2File";
+import FileParser from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
+
 
 /**
  * Base class for data interpretors a.k.a. 'Renderers'
@@ -166,7 +168,7 @@ export default class DataRenderer {
           true
         );
       } else if (first4.indexOf("PF") === 0) {
-        self.getOutput().file = new GW2File(ds, 0);
+        self.getOutput().file = new FileParser(ds.buffer);
         callback();
       } else {
         self.getOutput().file = null;
