@@ -73,8 +73,9 @@ export function FixedArray(subType: DataType | string, length: number): DataType
   const nativeClass = getNativeArray(subType);
   if(nativeClass){
     return {
-      baseType: BaseType.DynArray,
+      baseType: BaseType.FixedArray,
       subType,
+      length,
       declarationType: nativeClass.name,
     };
   }
