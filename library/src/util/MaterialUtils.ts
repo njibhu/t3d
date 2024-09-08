@@ -230,8 +230,16 @@ interface ModelMaterialData {
 export function getMaterial(material: ModelMaterialData, materialFile: FileParser, localReader: LocalReader, sharedTextures: any): Material | undefined {
   if (!materialFile) return;
 
-  const dxChunk = materialFile.getChunk("dx9s")!;
+  const dxChunk = materialFile.getChunk("dx9s");
   let grChunk = materialFile.getChunk("grmt")!;
+
+  if(!dxChunk){
+    return new THREE.MeshBasicMaterial({
+      side: THREE.FrontSide,
+      color: 0xff0000,
+      flatShading: true,
+    });
+  }
 
   /// Append all textures to the custom material
   const finalTextures : (Texture & {uvIdx?: number}) [] = [];
@@ -374,8 +382,7 @@ export function getMaterial(material: ModelMaterialData, materialFile: FileParse
     finalMaterial = new THREE.MeshBasicMaterial({
       side: THREE.FrontSide,
       color: 0xff0000,
-      //@ts-ignore
-      shading: THREE.FlatShading,
+      flatShading: true
     });
   }
 

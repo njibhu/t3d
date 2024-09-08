@@ -177,6 +177,17 @@ export class DataParser implements Definition {
   private DynArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     let arrayLength = dv.getUint32(pos, true);
     let arrayOffset = dv.getUint32(pos + 4, true);
+
+    // length and offset checks
+    if(dv.byteLength < pos + 4 + arrayOffset){
+      console.error("DynArray: Array offset is out of bounds");
+      //throw new Error("DynArray: Array offset is out of bounds");
+      return {
+        newPosition: pos + 8,
+        data: [],
+      }
+    }
+
     if (this.DEBUG) console.debug("DynArray", arrayLength, arrayOffset);
 
     if (arrayOffset === 0) {

@@ -40,10 +40,6 @@ export default class FileParser {
       const def: Definition = definitions[`V${metadata.chunkHeader.chunkVersion}` as keyof typeof definitions];
       // TODO - Add version compatibility checks
       console.log(`Parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}`);	
-      if(metadata.chunkHeader.type === "GEOM" && metadata.chunkHeader.chunkVersion === 1){
-        //skipping GEOM chunk with version 1
-        continue;
-      }
       const parserResult = new DataParser(def).parse(this.dataView, metadata.chunkPosition + metadata.chunkHeader.chunkHeaderSize);
       this.chunks.push({
         header: metadata.chunkHeader,

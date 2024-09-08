@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modl2 matches for ANIM: modl2-anim 1`] = `
+Object {
+  "anim": Object {
+    "animation": Array [],
+    "pointers": Array [],
+  },
+  "bank": Object {
+    "animations": Array [],
+    "compoundAnimations": Array [],
+    "fallbacks": Array [],
+    "imports": Array [],
+  },
+}
+`;
+
+exports[`modl2 matches for GEOM: modl2-geom 1`] = `
+{
+  "meshes": [
+    {
+      "boneBindings": [],
+      "bounds": [],
+      "flags": 0,
+      "geometry": {},
+      "materialIndex": 4,
+      "materialName": "",
+      "maxBound": Float32Array [
+        -33.14767837524414,
+        -128.37332153320312,
+        13.069268226623535,
+      ],
+      "meshName": 84n,
+      "minBound": Float32Array [
+        3.5342708218127104e-19,
+        1.977759021384903e-39,
+        -13.069268226623535,
+      ],
+      "morphTargets": [],
+      "seamVertIndices": Uint32Array [],
+      "visBone": 0n,
+    },
+  ],
+}
+`;
+
+exports[`modl2 matches for MODL: modl2-modl 1`] = `
+Object {
+  "actionOffsetNames": Array [],
+  "actionOffsets": Array [],
+  "boneOffsetData": Array [],
+  "boundingSphere": Object {},
+  "clothData": Array [],
+  "cloudData": Object {},
+  "lightData": Object {},
+  "lightningData": Object {},
+  "lodOverride": Float32Array [
+    0,
+    0,
+  ],
+  "obstacles": Array [],
+  "permutations": Array [
+    Object {
+      "materials": Array [
+        Object {
+          "constants": Array [],
+          "filename": 2313158,
+          "matConstLinks": Array [
+            Object {
+              "constantToken": 1061427347,
+              "linkToken": 4458347457727686369n,
+            },
+            Object {
+              "constantToken": 0,
+              "linkToken": 0n,
+            },
+            Object {
+              "constantToken": 1047233823,
+              "linkToken": 4424048046607020758n,
+            },
+            Object {
+              "constantToken": 2,
+              "linkToken": 0n,
+            },
+            Object {
+              "constantToken": 1047233823,
+              "linkToken": 4453159315984593812n,
+            },
+            Object {
+              "constantToken": 2,
+              "linkToken": 0n,
+            },
+            Object {
+              "constantToken": 1065353216,
+              "linkToken": 4575657222285340212n,
+            },
+          ],
+          "materialFlags": 0,
+          "materialId": 9,
+          "sortLayer": 0,
+          "sortOrder": 2568,
+          "texCoordCount": 0,
+          "texTransforms": Array [],
+          "textures": Array [],
+          "token": 19379777n,
+          "uvTransLinks": Array [],
+        },
+      ],
+      "token": 0n,
+    },
+  ],
+  "softBodyData": Array [],
+  "soundScript": 0,
+  "streakData": Object {},
+  "windData": Object {},
+}
+`;
+
+exports[`modl2 matches for PRPS: modl2-prps 1`] = `
+Object {
+  "fixedOffsetData": Array [],
+  "properties": Array [],
+}
+`;
+
+exports[`modl2 matches for ROOT: modl2-root 1`] = `
+Object {
+  "rootMotions": Array [],
+}
+`;
