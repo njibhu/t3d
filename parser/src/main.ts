@@ -39,8 +39,8 @@ export default class FileParser {
       const definitions: typeof allDefs[keyof typeof allDefs]["definitions"] = allDefs[definitionName].definitions;
       const def: Definition = definitions[`V${metadata.chunkHeader.chunkVersion}` as keyof typeof definitions];
       // TODO - Add version compatibility checks
-      console.log(`Parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}`);	
-      const parserResult = new DataParser(def).parse(this.dataView, metadata.chunkPosition + metadata.chunkHeader.chunkHeaderSize);
+      console.log(`Parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}, flags ${this.header.flags}`);	
+      const parserResult = new DataParser(def, this.header.flags === 5).parse(this.dataView, metadata.chunkPosition + metadata.chunkHeader.chunkHeaderSize);
       this.chunks.push({
         header: metadata.chunkHeader,
         data: parserResult.data,

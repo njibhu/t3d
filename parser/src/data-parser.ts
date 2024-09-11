@@ -14,13 +14,16 @@ interface ParseFunctionReturn {
   data: any;
 }
 
+const PTR_SIZE_32 = 4;
+const PTR_SIZE_64 = 8;
+
 export class DataParser implements Definition {
   public readonly definitions: Definition["definitions"];
   public readonly root: Definition["root"];
   public DEBUG: boolean;
   public FIX_NEGATIVE_ZERO: boolean;
 
-  constructor(definition: Definition) {
+  constructor(definition: Definition, public is64Bit = false) {
     Object.assign(this, definition);
     this.DEBUG = false;
     this.FIX_NEGATIVE_ZERO = false;
@@ -133,7 +136,7 @@ export class DataParser implements Definition {
   }
 
   private RefString(dv: DataView, pos: number): ParseFunctionReturn {
-    let ptr = pos + dv.getUint32(pos, true);
+    let ptr = this.is64Bit ? pos + Number(dv.getBigUint64(pos, true)) : pos + dv.getUint32(pos, true);
 
     let data = "";
     let num;
@@ -143,7 +146,7 @@ export class DataParser implements Definition {
     }
 
     return {
-      newPosition: pos + 4,
+      newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
       data,
     };
   }
@@ -176,30 +179,20 @@ export class DataParser implements Definition {
 
   private DynArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     let arrayLength = dv.getUint32(pos, true);
-    let arrayOffset = dv.getUint32(pos + 4, true);
-
-    // length and offset checks
-    if(dv.byteLength < pos + 4 + arrayOffset){
-      console.error("DynArray: Array offset is out of bounds");
-      //throw new Error("DynArray: Array offset is out of bounds");
-      return {
-        newPosition: pos + 8,
-        data: [],
-      }
-    }
+    let arrayOffset = this.is64Bit ? Number(dv.getBigUint64(pos + PTR_SIZE_64, true)) : dv.getUint32(pos + PTR_SIZE_32, true);
 
     if (this.DEBUG) console.debug("DynArray", arrayLength, arrayOffset);
 
     if (arrayOffset === 0) {
       return {
-        newPosition: pos + 8,
+        newPosition: pos + (this.is64Bit ? 12 : 8),
         data: [],
       };
     }
     let arrayPtr = pos + 4 + arrayOffset;
 
     return {
-      newPosition: pos + 8,
+      newPosition: (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32) + 4,
       data: this.FixedArray(dv, arrayPtr, type, arrayLength).data,
     };
   }
@@ -213,9 +206,9 @@ export class DataParser implements Definition {
     offset += 4;
 
     // Read pointer to array data
-    const arr_ptr_offset = dv.getUint32(offset, true);
+    const arr_ptr_offset = this.is64Bit ? Number(dv.getBigUint64(offset, true)) : dv.getUint32(offset, true);
     const arr_ptr = offset + arr_ptr_offset;
-    offset += 4;
+    offset += (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32);
 
     if (arr_len === 0) {
       return { newPosition: offset, data: ret_arr };
@@ -226,19 +219,19 @@ export class DataParser implements Definition {
 
      // Go to pointer and read array of offsets
      let curr_pos = arr_ptr;
-     const offsets = new Int32Array(arr_len);
+     const offsets = new Array(arr_len);// new Int32Array(arr_len);
      for (let i = 0; i < arr_len; i++) {
-         offsets[i] = dv.getInt32(curr_pos + i * 4, true);
+         offsets[i] = this.is64Bit ? Number(dv.getBigUint64(curr_pos + i * PTR_SIZE_64, true)) : dv.getInt32(curr_pos + i * PTR_SIZE_32, true);
      }
 
     // Set pointer to read structures
-    let pointer = orgPos - 4;
-    const base_offset = dv.getUint32(pointer, true);
+    let pointer = orgPos - (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32);
+    const base_offset = this.is64Bit ? Number(dv.getBigUint64(pointer, true)): dv.getUint32(pointer, true);
     pointer += base_offset;
 
     for (let i = 0; i < offsets.length; i++) {
       if (offsets[i] !== 0) {
-        const struct_pos = pointer + i * 4 + offsets[i];
+        const struct_pos = pointer + i * (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32) + offsets[i];
         if (typeof type === "string") {
           ret_arr.push(this.parseType(dv, struct_pos, type).data);
         } else {
@@ -252,10 +245,10 @@ export class DataParser implements Definition {
   }
 
   private Pointer(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
-    const offset = dv.getUint32(pos, true);
+    const offset = this.is64Bit ? Number(dv.getBigUint64(pos, true)) : dv.getUint32(pos, true);
     if (offset === 0) {
       return {
-        newPosition: pos + 4,
+        newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
         data: {},
       };
     }
@@ -266,13 +259,13 @@ export class DataParser implements Definition {
         : this[type.baseType](dv, pos + offset, type.subType!, type.length!);
 
     return {
-      newPosition: pos + 4,
+      newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
       data: parsedItem.data,
     };
   }
 
   private RefString16(dv: DataView, pos: number): ParseFunctionReturn {
-    let ptr = pos + dv.getUint32(pos, true);
+    let ptr = pos + (this.is64Bit ? Number(dv.getBigUint64(pos, true)): dv.getUint32(pos, true));
 
     let data = "";
     let num;
@@ -282,7 +275,7 @@ export class DataParser implements Definition {
     }
 
     return {
-      newPosition: pos + 4,
+      newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
       data,
     };
   }
@@ -295,7 +288,7 @@ export class DataParser implements Definition {
     // This implementation is based on the old Utils.getFileNameReader() function
     let pos = orgPos;
     try {
-      let ptr = pos + dv.getUint32(pos, true);
+      let ptr = pos + (this.is64Bit ? Number(dv.getBigUint64(pos, true)): dv.getUint32(pos, true));
       if(this.DEBUG) { console.log(ptr.toString(16)); }
 
       const m_lowPart = dv.getUint16(ptr, true);
@@ -310,7 +303,7 @@ export class DataParser implements Definition {
       const ret = 0xff00 * (m_highPart - 0x100) + (m_lowPart - 0x100) + 1;
 
       return {
-        newPosition: orgPos + 4,
+        newPosition: orgPos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
         data: ret > 0 ? ret : 0,
       };
     } catch (e) {
@@ -318,7 +311,7 @@ export class DataParser implements Definition {
         console.error("Error while parsing filename", e);
       }
       return {
-        newPosition: orgPos + 4,
+        newPosition: orgPos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
         data: -1,
       };
     }

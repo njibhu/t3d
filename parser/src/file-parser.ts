@@ -3,7 +3,7 @@ import { DataParser } from "./data-parser";
 
 export interface FileHead {
   identifier: string;
-  unknownField1: number;
+  flags: number;
   unknownField2: number;
   pkFileVersion: number;
   type: string;
@@ -13,7 +13,7 @@ const FILE_HEAD = {
   definitions: {},
   root: {
     identifier: CString(2),
-    unknownField1: Uint16,
+    flags: Uint16,
     unknownField2: Uint16,
     pkFileVersion: Uint16,
     type: CString(4),
