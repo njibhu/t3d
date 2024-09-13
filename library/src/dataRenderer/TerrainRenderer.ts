@@ -21,7 +21,8 @@ import DataRenderer from "./DataRenderer";
 import * as RenderUtils from "../util/RenderUtils";
 import * as MaterialUtils from "../util/MaterialUtils";
 import * as TerrainShader from "../util/TerrainShader";
-import GW2File from "../format/file/GW2File";
+//import GW2File from "../format/file/GW2File";
+import FileParser from "t3d-parser";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
@@ -47,7 +48,7 @@ import type {  Material } from "three";
 export default class TerrainRenderer extends DataRenderer {
   static rendererName = "TerrainRenderer";
 
-  mapFile: GW2File;
+  mapFile: FileParser;
   mapRect: { x1: number; x2: number; y1: number; y2: number } | undefined | null;
   
   constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
@@ -72,14 +73,13 @@ export default class TerrainRenderer extends DataRenderer {
     terrainData.numChunksD_2 = terrainData.chunkArray.length / terrainData.numChunksD_1;
   }
 
-  loadPagedImageCallback(callback: Function, infaltedBuffer: ArrayBuffer): void {
+  loadPagedImageCallback(callback: Function, inflatedBuffer: ArrayBuffer): void {
     const self = this;
 
     // Prep output array
     self.getOutput().terrainTiles = [];
 
-    const pimgDS = new DataStream(infaltedBuffer);
-    const pimgFile = new GW2File(pimgDS, 0);
+    const pimgFile = new FileParser(inflatedBuffer);
     const pimgTableDataChunk = pimgFile.getChunk("pgtb");
     const pimgData = pimgTableDataChunk && pimgTableDataChunk.data;
 

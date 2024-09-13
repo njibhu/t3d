@@ -5,7 +5,7 @@
   "author": "Njibhu <manu@njibhu.eu>",
   "homepage": "https://github.com/njibhu/t3d#readme",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "src/main.ts",
   "directories": {
     "lib": "lib",
     "test": "tests"
@@ -24,6 +24,9 @@
     "build": "npx tsc --outDir build/tsc src/main.ts && npx browserify build/tsc/src/main.js -o build/t3d-parser.js "
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/jest": "26.0.15",
     "browserify": "17.0.0",
     "jest": "26.6.1",

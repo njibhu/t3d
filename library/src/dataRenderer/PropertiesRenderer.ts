@@ -24,7 +24,8 @@ import * as LogsUtils from "../util/Logs";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 import type { Matrix4 } from "three";
-import type GW2File from "../format/file/GW2File";
+//import type GW2File from "../format/file/GW2File";
+import type FileParser from "t3d-parser";
 
 
 /**
@@ -44,7 +45,7 @@ export default class PropertiesRenderer extends DataRenderer {
   static rendererName = "PropertiesRenderer";
 
   showUnmaterialized: boolean;
-  mapFile: GW2File;
+  mapFile: FileParser;
   meshCache: any;
   textureCache: any;
   models: Record<number, any>;

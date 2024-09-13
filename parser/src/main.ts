@@ -5,16 +5,16 @@ import { parseFile, parseAllChunks } from "./file-parser";
 import { fileChunkMap } from "./chunk-packs";	
 import type { FileTypes, ChunkTypes, DefinitionTypes } from "./chunk-packs";
 
-export class FileParser {
+export default class FileParser {
   private chunks: {header: ChunkHead, data: any}[] = [];
   private dataView: DataView;
-  private fileHead: FileHead;
   private chunkOffset: number;
+  public header: FileHead;
 
   constructor(buffer: ArrayBuffer, parseOnlyHead: boolean = false){
     this.dataView = new DataView(buffer);
     const { newPosition, data } = parseFile(this.dataView);
-    this.fileHead = data;
+    this.header = data;
     this.chunkOffset = newPosition;
     if(!parseOnlyHead){
       this.readChunks();
@@ -26,7 +26,7 @@ export class FileParser {
     this.chunks = [];
 
     const chunksMetadata = parseAllChunks(this.dataView, this.chunkOffset);
-    const fileType = this.fileHead.type as FileTypes;
+    const fileType = this.header.type as FileTypes;
 
     for(const metadata of chunksMetadata){
       const chunkType = metadata.chunkHeader.type as ChunkTypes;
@@ -39,7 +39,8 @@ export class FileParser {
       const definitions: typeof allDefs[keyof typeof allDefs]["definitions"] = allDefs[definitionName].definitions;
       const def: Definition = definitions[`V${metadata.chunkHeader.chunkVersion}` as keyof typeof definitions];
       // TODO - Add version compatibility checks
-      const parserResult = new DataParser(def).parse(this.dataView, metadata.chunkPosition + metadata.chunkHeader.chunkHeaderSize);
+      console.log(`Parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}, flags ${this.header.flags}`);	
+      const parserResult = new DataParser(def, this.header.flags === 5).parse(this.dataView, metadata.chunkPosition + metadata.chunkHeader.chunkHeaderSize);
       this.chunks.push({
         header: metadata.chunkHeader,
         data: parserResult.data,

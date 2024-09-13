@@ -23,7 +23,8 @@ import DataRenderer from "./DataRenderer";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 import type { BufferGeometry } from "three";
-import type GW2File from "../format/file/GW2File";
+//import type GW2File from "../format/file/GW2File";
+import type FileParser from "t3d-parser";
 
 type ModelGroupEntry = {
   x: number;
@@ -54,7 +55,7 @@ export default class ZoneRenderer extends DataRenderer {
   meshCache: any;
   textureCache: any;
 
-  mapFile: GW2File;
+  mapFile: FileParser;
   constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "ZoneRenderer");
     this.mapFile = this.settings.mapFile;

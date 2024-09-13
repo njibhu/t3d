@@ -14,31 +14,48 @@ interface ParseFunctionReturn {
   data: any;
 }
 
+const PTR_SIZE_32 = 4;
+const PTR_SIZE_64 = 8;
+
 export class DataParser implements Definition {
   public readonly definitions: Definition["definitions"];
   public readonly root: Definition["root"];
-  public DEBUG: boolean;
-  public FIX_NEGATIVE_ZERO: boolean;
+  public readonly name: string;
+  public readonly chunkName: string;
+  public readonly version: number;
 
-  constructor(definition: Definition) {
+  public DEBUG: boolean;
+
+  constructor(definition: Definition, public is64Bit = false) {
     Object.assign(this, definition);
     this.DEBUG = false;
-    this.FIX_NEGATIVE_ZERO = false;
   }
 
-  public parse(dv: DataView, pos: number): ParseFunctionReturn {
+  public safeParse(dv: DataView, position = 0): { data: any; error: any | null } {
+    try {
+      return { data: this.parse(dv, position).data, error: null };
+    } catch (e) {
+      return {
+        data: null,
+        error: e,
+      };
+    }
+  }
+
+  public parse(dv: DataView, pos = 0): ParseFunctionReturn {
+    this._debugLog(".", this.name, pos);
+
     let position = pos;
     const parsedObject: any = {};
+
     for (const key in this.root) {
       const value = this.root[key];
       let parsedResult: ParseFunctionReturn;
       if (typeof value === "string") {
-        if (this.DEBUG) console.log(key, position.toString(16), "(parseType)");
-        parsedResult = this.parseType(dv, position, value);
+        parsedResult = this.parseType(key, dv, position, value);
       } else {
         const { baseType, subType, length } = value;
-        if (this.DEBUG) console.log(key, position.toString(16), baseType, subType, length);
-        parsedResult = this[baseType](dv, position, subType!, length!);
+        parsedResult = this[baseType](key, dv, position, subType!, length!);
       }
       parsedObject[key] = parsedResult.data;
       position = parsedResult.newPosition;
@@ -50,7 +67,9 @@ export class DataParser implements Definition {
     };
   }
 
-  public parseType(dv: DataView, pos: number, typeDefinitionName: string): ParseFunctionReturn {
+  private parseType(key: string, dv: DataView, pos: number, typeDefinitionName: string): ParseFunctionReturn {
+    this._debugLog(key, typeDefinitionName, pos);
+
     const parsedObject: any = {};
     let position = pos;
     const definition = this.definitions![typeDefinitionName];
@@ -58,12 +77,11 @@ export class DataParser implements Definition {
       const value = definition[key];
       let parsedResult: ParseFunctionReturn;
       if (typeof value === "string") {
-        if (this.DEBUG) console.log(">", key, position.toString(16), "(parseType)");
-        parsedResult = this.parseType(dv, position, value);
-      } else {
+        parsedResult = this.parseType(key, dv, position, value);
+      } 
+      else {
         const { baseType, subType, length } = value;
-        if (this.DEBUG) console.log(">", key, position.toString(16), baseType, subType, length);
-        parsedResult = this[baseType](dv, position, subType!, length!);
+        parsedResult = this[baseType](key, dv, position, subType!, length!);
       }
       parsedObject[key] = parsedResult.data;
 
@@ -80,73 +98,83 @@ export class DataParser implements Definition {
    *      Parsers
    **/
 
-  private Float32(dv: DataView, pos: number): ParseFunctionReturn {
+  private Float32(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "Float32", pos);
+
     let data = dv.getFloat32(pos, true);
-    if(this.FIX_NEGATIVE_ZERO && isZeroNegative(data)){
-      data = 0;
-    }
-    if (this.DEBUG) console.debug("Float32", data);
     return { newPosition: pos + 4, data };
   }
 
-  private Float64(dv: DataView, pos: number): ParseFunctionReturn {
+  private Float64(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "Float64", pos);
+
     return { newPosition: pos + 8, data: dv.getFloat64(pos, true) };
   }
 
-  private Uint8(dv: DataView, pos: number): ParseFunctionReturn {
+  private Uint8(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "Uint8", pos);
+
     return { newPosition: pos + 1, data: dv.getUint8(pos) };
   }
 
-  private Uint16(dv: DataView, pos: number): ParseFunctionReturn {
+  private Uint16(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "Uint16", pos);
+
     return { newPosition: pos + 2, data: dv.getUint16(pos, true) };
   }
 
-  private Uint32(dv: DataView, pos: number): ParseFunctionReturn {
-    if (this.DEBUG) console.debug("Uint32", dv.getUint32(pos, true));
+  private Uint32(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "Uint32", pos);
+
     return { newPosition: pos + 4, data: dv.getUint32(pos, true) };
   }
 
-  private Uint64(dv: DataView, pos: number): ParseFunctionReturn {
-    if (this.DEBUG) console.debug("Uint64", Number(dv.getBigUint64(pos, true)));
+  private Uint64(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "Uint64", pos);
+
     return {
       newPosition: pos + 8,
       data: dv.getBigUint64(pos, true),
     };
   }
 
-  private CString(dv: DataView, pos: number, _subType: DataType | string, length: number): ParseFunctionReturn {
-    const u8 = new Uint8Array(dv.buffer, pos);
-    const end = length || u8.findIndex((v) => v === 0);
+  private CString(key: string, dv: DataView, pos: number, _subType: DataType | string, length: number): ParseFunctionReturn {
+    this._debugLog(key, "CString", pos, length);
 
-    if (this.DEBUG) console.debug("CString", String.fromCharCode.apply(null, new Uint8Array(u8.slice(0, end))));
+    const u8array = new Uint8Array(dv.buffer, pos);
+    const end = length || u8array.findIndex((v) => v === 0);
+
     return {
       newPosition: pos + end,
-      data: String.fromCharCode.apply(null, new Uint8Array(u8.slice(0, end))),
+      data: String.fromCharCode.apply(null, new Uint8Array(u8array.slice(0, end))),
     };
   }
 
-  private RefString(dv: DataView, pos: number): ParseFunctionReturn {
-    let ptr = pos + dv.getUint32(pos, true);
+  private RefString(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "RefString", pos);
 
+    let pointer = this.is64Bit ? pos + Number(dv.getBigUint64(pos, true)) : pos + dv.getUint32(pos, true);
     let data = "";
-    let num;
-    while (ptr + 1 < dv.byteLength && (num = dv.getUint8(ptr)) !== 0) {
-      ptr += 1;
-      data += String.fromCharCode(num);
+    let charcode;
+    while (pointer + 1 < dv.byteLength && (charcode = dv.getUint8(pointer)) !== 0) {
+      pointer += 1;
+      data += String.fromCharCode(charcode);
     }
 
     return {
-      newPosition: pos + 4,
+      newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
       data,
     };
   }
 
-  private FixedArray(dv: DataView, pos: number, type: DataType | string, length: number): ParseFunctionReturn {
+  private FixedArray(key: string, dv: DataView, pos: number, type: DataType | string, length: number): ParseFunctionReturn {
+    this._debugLog(key, "FixedArray", pos, length, type);
+
     // Some types can be mapped directly from their buffer into the return type
     if(typeof type != "string"){
       const arrayConstructor = getOptimisedArrayConstructor(type.baseType);
       if(arrayConstructor){
-        return this.optimisedArray(dv, pos, length, arrayConstructor);
+        return this.optimisedArray(key, dv, pos, length, arrayConstructor);
       }
     }
 
@@ -155,8 +183,8 @@ export class DataParser implements Definition {
     for (let itemIndex = 0; itemIndex < length; itemIndex++) {
       const parsedItem =
         typeof type === "string"
-          ? this.parseType(dv, newPosition, type)
-          : this[type.baseType](dv, newPosition, type.subType!, type.length!);
+          ? this.parseType(key, dv, newPosition, type)
+          : this[type.baseType](key, dv, newPosition, type.subType!, type.length!);
       data.push(parsedItem.data);
       newPosition = parsedItem.newPosition;
     }
@@ -167,146 +195,151 @@ export class DataParser implements Definition {
     };
   }
 
-  private DynArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
-    let arrayLength = dv.getUint32(pos, true);
-    let arrayOffset = dv.getUint32(pos + 4, true);
-    if (this.DEBUG) console.debug("DynArray", arrayLength, arrayOffset);
+  private DynArray(key: string, dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
+    this._debugLog(key, "DynArray", pos, undefined, type);
 
+    let arrayLength = dv.getUint32(pos, true);
+    let arrayOffset = this.is64Bit ? Number(dv.getBigUint64(pos + 4, true)) : dv.getUint32(pos + 4, true);
     if (arrayOffset === 0) {
       return {
-        newPosition: pos + 8,
+        newPosition: pos + (this.is64Bit ? 12 : 8),
         data: [],
       };
     }
     let arrayPtr = pos + 4 + arrayOffset;
 
     return {
-      newPosition: pos + 8,
-      data: this.FixedArray(dv, arrayPtr, type, arrayLength).data,
+      newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32) + 4,
+      data: this.FixedArray(key, dv, arrayPtr, type, arrayLength).data,
     };
   }
 
-  private RefArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
+  private RefArray(key: string, dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
+    this._debugLog(key, "RefArray", pos, undefined, type);
+
     let offset = pos;
-    const ret_arr: any = [];
+    const finalArray: any = [];
 
-    // Read array length
-    const arr_len = dv.getUint32(offset, true);
+    const arrayLength = dv.getUint32(offset, true);
     offset += 4;
 
-    // Read pointer to array data
-    const arr_ptr_offset = dv.getUint32(offset, true);
-    const arr_ptr = offset + arr_ptr_offset;
-    offset += 4;
+    const arrayOffset = this.is64Bit ? Number(dv.getBigUint64(offset, true)) : dv.getUint32(offset, true);
+    const arrayPointer = offset + arrayOffset;
+    offset += (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32);
 
-    if (arr_len === 0) {
-      return { newPosition: offset, data: ret_arr };
+    if (arrayLength === 0) {
+      return { newPosition: offset, data: finalArray };
     }
 
-     // Save original position to return later
-     const orgPos = offset;
-
-     // Go to pointer and read array of offsets
-     let curr_pos = arr_ptr;
-     const offsets = new Int32Array(arr_len);
-     for (let i = 0; i < arr_len; i++) {
-         offsets[i] = dv.getInt32(curr_pos + i * 4, true);
-     }
+    const savedPosition = offset;
+    let currentPosition = arrayPointer;
+    const offsets = new Array(arrayLength);
+    for (let i = 0; i < arrayLength; i++) {
+        offsets[i] = this.is64Bit ? Number(dv.getBigUint64(currentPosition + i * PTR_SIZE_64, true)) : dv.getInt32(currentPosition + i * PTR_SIZE_32, true);
+    }
 
     // Set pointer to read structures
-    let pointer = orgPos - 4;
-    const base_offset = dv.getUint32(pointer, true);
-    pointer += base_offset;
+    let pointer = savedPosition - (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32);
+    const baseOffset = this.is64Bit ? Number(dv.getBigUint64(pointer, true)): dv.getUint32(pointer, true);
+    pointer += baseOffset;
 
     for (let i = 0; i < offsets.length; i++) {
       if (offsets[i] !== 0) {
-        const struct_pos = pointer + i * 4 + offsets[i];
+        const structPosition = pointer + i * (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32) + offsets[i];
         if (typeof type === "string") {
-          ret_arr.push(this.parseType(dv, struct_pos, type).data);
+          finalArray.push(this.parseType(key, dv, structPosition, type).data);
         } else {
-          ret_arr.push(this[type.baseType](dv, struct_pos, type.subType!, type.length!).data);
+          finalArray.push(this[type.baseType](key, dv, structPosition, type.subType!, type.length!).data);
         }
       }
     }
 
-    return { newPosition: orgPos, data: ret_arr };
+    return { newPosition: savedPosition, data: finalArray };
 
   }
 
-  private Pointer(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
-    const offset = dv.getUint32(pos, true);
+  private Pointer(key: string, dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
+    this._debugLog(key, "Pointer", pos, undefined, type);
+
+    const offset = this.is64Bit ? Number(dv.getBigUint64(pos, true)) : dv.getUint32(pos, true);
     if (offset === 0) {
       return {
-        newPosition: pos + 4,
+        newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
         data: {},
       };
     }
 
     const parsedItem =
       typeof type === "string"
-        ? this.parseType(dv, pos + offset, type)
-        : this[type.baseType](dv, pos + offset, type.subType!, type.length!);
+        ? this.parseType(key, dv, pos + offset, type)
+        : this[type.baseType](key, dv, pos + offset, type.subType!, type.length!);
 
     return {
-      newPosition: pos + 4,
+      newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
       data: parsedItem.data,
     };
   }
 
-  private RefString16(dv: DataView, pos: number): ParseFunctionReturn {
-    let ptr = pos + dv.getUint32(pos, true);
+  private RefString16(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "RefString16", pos);
+
+    let pointer = pos + (this.is64Bit ? Number(dv.getBigUint64(pos, true)): dv.getUint32(pos, true));
 
     let data = "";
-    let num;
-    while (ptr + 2 < dv.byteLength && (num = dv.getUint16(ptr, true)) !== 0) {
-      ptr += 2;
-      data += String.fromCharCode(num);
+    let charcode;
+    while (pointer + 2 < dv.byteLength && (charcode = dv.getUint16(pointer, true)) !== 0) {
+      pointer += 2;
+      data += String.fromCharCode(charcode);
     }
 
     return {
-      newPosition: pos + 4,
+      newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
       data,
     };
   }
 
-  private Fileref(dv: DataView, pos: number): ParseFunctionReturn {
-    return this.Filename(dv, pos);
+  private Fileref(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "Fileref", pos);
+
+    return this.Filename(key, dv, pos);
   }
 
-  private Filename(dv: DataView, orgPos: number): ParseFunctionReturn {
-    // This implementation is based on the old Utils.getFileNameReader() function
-    let pos = orgPos;
-    try {
-      let ptr = pos + dv.getUint32(pos, true);
-      if(this.DEBUG) { console.log(ptr.toString(16)); }
+  private Filename(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "Filename", pos);
 
-      const m_lowPart = dv.getUint16(ptr, true);
-      ptr += 2;
-      const m_highPart = dv.getUint16(ptr, true);
-      ptr += 2;
-      const _m_terminator = dv.getUint16(ptr, true);
-      ptr += 2;
+    let position = pos;
+    try {
+      let pointer = position + (this.is64Bit ? Number(dv.getBigUint64(position, true)): dv.getUint32(position, true));
+
+      const m_lowPart = dv.getUint16(pointer, true);
+      pointer += 2;
+      const m_highPart = dv.getUint16(pointer, true);
+      pointer += 2;
+      const _m_terminator = dv.getUint16(pointer, true);
+      pointer += 2;
 
       /// Getting the file name...
       /// Both need to be >= than 256 (terminator is 0)
-      const ret = 0xff00 * (m_highPart - 0x100) + (m_lowPart - 0x100) + 1;
+      const filename = 0xff00 * (m_highPart - 0x100) + (m_lowPart - 0x100) + 1;
 
       return {
-        newPosition: orgPos + 4,
-        data: ret > 0 ? ret : 0,
+        newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
+        data: filename > 0 ? filename : 0,
       };
     } catch (e) {
       if (this.DEBUG) {
         console.error("Error while parsing filename", e);
       }
       return {
-        newPosition: orgPos + 4,
+        newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32),
         data: -1,
       };
     }
   }
 
-  private Unknown(dv: DataView, pos: number): ParseFunctionReturn {
+  private Unknown(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+    this._debugLog(key, "Unknown", pos);
+
     throw new Error("Could not parse unknown data");
   }
 
@@ -314,19 +347,12 @@ export class DataParser implements Definition {
    *      Parser utils & helpers
    **/
 
-  private optimisedArray(dv: DataView, pos: number, length: number, OptimisedArray: NonNullable<ReturnType<typeof getOptimisedArrayConstructor>>): ParseFunctionReturn {
+  private optimisedArray(key: string, dv: DataView, pos: number, length: number, OptimisedArray: NonNullable<ReturnType<typeof getOptimisedArrayConstructor>>): ParseFunctionReturn {
+    this._debugLog(key, "optimisedArray", pos);
+
     const byteLength = length * OptimisedArray.BYTES_PER_ELEMENT;
     const byteArray = new Uint8Array(dv.buffer.slice(pos, pos + byteLength));
     const data = new OptimisedArray(byteArray.buffer);
-
-    if (this.DEBUG) console.debug("OptimizedArray", data);
-    // if(this.FIX_NEGATIVE_ZERO){
-    //   for (let i = 0; i < data.length; i++) {
-    //     if(isZeroNegative(data[i])){
-    //       data[i] = 0;
-    //     }
-    //   }
-    // }
 
     return {
       newPosition: pos + length * OptimisedArray!.BYTES_PER_ELEMENT,
@@ -334,7 +360,21 @@ export class DataParser implements Definition {
     };
   }
 
-
+  private _debugLog(key: string, type: string, position: number, length?: number, subType?: DataType | string, value?: any) {
+    if (this.DEBUG) {
+      let log = `> ${key}: (${type}) pos: ${position}`;
+      if(length) log += `, length: ${length}`;
+      if(subType){
+        if(typeof subType === "string") log += `, subType: ${subType}` 
+        else {
+          if(subType.subType) log += `, subType: ${subType.baseType}<${subType.subType}>`;
+          else log += `, subType: ${subType.baseType}`;
+        }
+      }
+      if(value) log += `, value: ${value}`;
+      console.log(log);
+    }
+  }
 }
 
 function getOptimisedArrayConstructor(baseType: BaseType) {
@@ -356,10 +396,4 @@ function getOptimisedArrayConstructor(baseType: BaseType) {
   if(baseType === BaseType.Uint64){
     return BigUint64Array;
   }
-}
-
-function isZeroNegative(zero: number) {
-  const isZero = zero === 0;
-  const isNegative = 1 / zero === -Infinity;
-  return isNegative && isZero;
 }

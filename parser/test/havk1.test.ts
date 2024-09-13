@@ -11,6 +11,8 @@ test("matches for havk1", function () {
   const dv = new DataView(toArrayBuffer(chunkBuffer));
   const fileHead = parseFile(dv);
   const allChunks = parseAllChunks(dv, fileHead.newPosition);
+  const is64Bit = fileHead.data.flags == 5;
+
   expect(allChunks).toEqual([
     {
       chunkHeader: { chunkDataSize: 976, chunkHeaderSize: 16, chunkVersion: 14, offsetTableOffset: 848, type: "havk" },
@@ -19,7 +21,7 @@ test("matches for havk1", function () {
   ]);
   const havkChunk = allChunks.find((c) => c.chunkHeader.type === "havk");
   const def = HAVK.definitions[(`V${havkChunk!.chunkHeader.chunkVersion}`) as keyof typeof HAVK["definitions"]];
-  const parser = new DataParser(def);
+  const parser = new DataParser(def, is64Bit);
   //parser.DEBUG = true;
   const test = parser.parse(dv, havkChunk!.chunkPosition + havkChunk!.chunkHeader.chunkHeaderSize);
   expect(test.data).toMatchSnapshot("havk1");

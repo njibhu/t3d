@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modl4 matches for GEOM: modl4-geom 1`] = `
+{
+  "meshes": [],
+}
+`;
+
+exports[`modl4 matches for MODL: modl4-modl 1`] = `
+{
+  "actionOffsetNames": [],
+  "actionOffsets": [],
+  "boneOffsetData": [],
+  "boundingSphere": {
+    "center": Float32Array [
+      218.6875,
+      -0.1292724609375,
+      0,
+    ],
+    "radius": 219.69456481933594,
+  },
+  "clothData": [],
+  "cloudData": {},
+  "lightData": {},
+  "lightningData": {
+    "bolts": [
+      {
+        "bone": 1152921504607515106n,
+        "colorBegin": Uint32Array [
+          4286544752,
+          4285690482,
+          4286544752,
+        ],
+        "colorEnd": Uint32Array [
+          4285690482,
+          4286544752,
+          4285690482,
+        ],
+        "colorFalloff": Float32Array [
+          0,
+          1,
+        ],
+        "colorPeriod": 0.16666699945926666,
+        "flags": 0,
+        "flipbook": {},
+        "fps": 0,
+        "frequency": 3,
+        "groupMax": 1,
+        "groupMin": 1,
+        "lifetime": Float32Array [
+          1.5,
+          1.5,
+        ],
+        "nodeIndices": Uint16Array [
+          1,
+          0,
+        ],
+        "noise": 0,
+        "numSegments": 10,
+        "opacity": Float32Array [
+          1,
+          1,
+        ],
+        "opacityPreset": 2,
+        "probability": 100,
+        "texOffset": 1,
+        "texRange": Float32Array [
+          0,
+          1,
+        ],
+        "texScale": 300,
+        "texSpeed": -0.10000000149011612,
+        "thicknessPreset": 0,
+        "thicknessRange": Float32Array [
+          40,
+          45,
+        ],
+        "type": 0,
+        "variance": 0,
+        "variancePreset": 0,
+      },
+    ],
+    "nodes": [
+      {
+        "bone": 2305843185826157958n,
+        "childrenIndices": [],
+        "flags": 0,
+        "probability": 100,
+        "radius": Float32Array [
+          0,
+          1,
+        ],
+        "shape": 0,
+        "updatePos": 1,
+      },
+      {
+        "bone": 1152921681219310982n,
+        "childrenIndices": Uint16Array [
+          0,
+        ],
+        "flags": 2,
+        "probability": 100,
+        "radius": Float32Array [
+          0,
+          1,
+        ],
+        "shape": 0,
+        "updatePos": 1,
+      },
+    ],
+    "systems": [
+      {
+        "boltIndices": Uint16Array [
+          0,
+        ],
+        "bone": 1152921505048973107n,
+        "flags": 0,
+        "fvf": 1817,
+        "materialIndex": 0,
+      },
+    ],
+  },
+  "lodOverride": Float32Array [
+    3500,
+    7500,
+  ],
+  "obstacles": [],
+  "permutations": [
+    {
+      "materials": [
+        {
+          "constants": [
+            {
+              "constantFlags": 2,
+              "name": 1061534053,
+              "value": Float32Array [
+                0.10000000149011612,
+                0,
+                1.401298464324817e-45,
+                0,
+              ],
+            },
+            {
+              "constantFlags": 2,
+              "name": 1416822620,
+              "value": Float32Array [
+                1.0019999742507935,
+                0,
+                1.401298464324817e-45,
+                0,
+              ],
+            },
+            {
+              "constantFlags": 2,
+              "name": 805479253,
+              "value": Float32Array [
+                0.47916701436042786,
+                0,
+                1.401298464324817e-45,
+                0,
+              ],
+            },
+          ],
+          "filename": 543181,
+          "matConstLinks": [
+            {
+              "constantToken": 1061534053,
+              "linkToken": 0n,
+            },
+            {
+              "constantToken": 1416822620,
+              "linkToken": 0n,
+            },
+            {
+              "constantToken": 805479253,
+              "linkToken": 0n,
+            },
+          ],
+          "materialFlags": 520,
+          "materialId": 6,
+          "sortOrder": 0,
+          "texCoordCount": 2,
+          "texTransforms": [
+            {
+              "columns": 1,
+              "count": 1,
+              "flags": 0,
+              "fps": 0,
+              "rotate": 0,
+              "rotate_": 0,
+              "rows": 1,
+              "scale": Float32Array [
+                0,
+                0,
+              ],
+              "scaleFreq": Float32Array [
+                0,
+                0,
+              ],
+              "scroll": Float32Array [
+                -0.10000000149011612,
+                0,
+              ],
+              "scrollFreq": Float32Array [
+                0,
+                0,
+              ],
+              "uvIndex": 1,
+            },
+          ],
+          "textures": [
+            {
+              "blitId": 0n,
+              "filename": 1015139,
+              "textureFlags": 0,
+              "token": 27219515885689124n,
+              "uvAnimId": 0,
+              "uvPSInputIndex": 0,
+            },
+            {
+              "blitId": 0n,
+              "filename": 1015140,
+              "textureFlags": 0,
+              "token": 27219512631380144n,
+              "uvAnimId": 0,
+              "uvPSInputIndex": 1,
+            },
+          ],
+          "token": 774n,
+          "uvTransLinks": [],
+        },
+      ],
+      "token": 0n,
+    },
+  ],
+  "softBodyData": [],
+  "soundScript": 0,
+  "streakData": {},
+  "windData": {},
+}
+`;
+
+exports[`modl4 matches for ROOT: modl4-root 1`] = `
+{
+  "rootMotions": [],
+}
+`;

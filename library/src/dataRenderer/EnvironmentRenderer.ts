@@ -23,7 +23,8 @@ import DataRenderer from "./DataRenderer";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 import type { MeshBasicMaterial, Material } from "three";
-import type GW2File from "../format/file/GW2File";
+//import type GW2File from "../format/file/GW2File";
+import FileParser from "t3d-parser";
 
 /**
  *
@@ -41,7 +42,7 @@ import type GW2File from "../format/file/GW2File";
 export default class EnvironmentRenderer extends DataRenderer {
   static rendererName = "EnvironmentRenderer";
 
-  mapFile: GW2File;
+  mapFile: FileParser;
   constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "EnvironmentRenderer");
 

@@ -17,7 +17,8 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-import GW2File from "../format/file/GW2File";
+//import GW2File from "../format/file/GW2File";
+import FileParser from "t3d-parser";
 import * as MaterialUtils from "./MaterialUtils";
 import * as MathUtils from "./MathUtils";
 
@@ -289,6 +290,7 @@ export function renderGeomChunk(localReader: LocalReader, chunk: any, modelDataC
       materialFile = matFiles[mat.filename];
     }
 
+    console.log(`material file:`, materialFile);
     let finalMaterial = MaterialUtils.getMaterial(mat, materialFile, localReader, sharedTextures);
 
     /// IF we could not find a material abort OR use a wireframe placeholder.
@@ -391,9 +393,7 @@ export function loadMeshFromModelFile(filename: number, solidColor: any[], local
         throw "Could not find MFT entry for " + filename;
       }
 
-      const ds = new DataStream(inflatedData);
-
-      const modelFile = new GW2File(ds, 0);
+      const modelFile = new FileParser(inflatedData);
 
       // MODL for materials -> textures
       const modelDataChunk = modelFile.getChunk("modl")!;
@@ -404,7 +404,9 @@ export function loadMeshFromModelFile(filename: number, solidColor: any[], local
       /// Hacky fix for not being able to adjust for position
       const boundingSphere = modelDataChunk.data.boundingSphere;
       const bsc = boundingSphere.center;
-      boundingSphere.radius += Math.sqrt(bsc[0] * bsc[0] + Math.sqrt(bsc[1] * bsc[1] + bsc[2] * bsc[2]));
+      if(bsc){
+        boundingSphere.radius += Math.sqrt(bsc[0] * bsc[0] + Math.sqrt(bsc[1] * bsc[1] + bsc[2] * bsc[2]));
+      }
 
       /// Load all material files
       const allMats = modelDataChunk.data.permutations[0].materials;
@@ -426,8 +428,7 @@ export function loadMeshFromModelFile(filename: number, solidColor: any[], local
 
         localReader.loadFile(mat.filename, function (inflatedData) {
           if (inflatedData) {
-            const ds = new DataStream(inflatedData);
-            const materialFile = new GW2File(ds, 0);
+            const materialFile = new FileParser(inflatedData);
             matFiles[mat.filename] = materialFile;
           }
 
@@ -617,8 +618,7 @@ export function getFilesUsedByModel(filename: number, localReader: LocalReader, 
         throw "Could not find MFT entry for " + filename;
       }
 
-      const ds = new DataStream(inflatedData);
-      const modelFile = new GW2File(ds, 0);
+      const modelFile = new FileParser(inflatedData);
 
       // MODL for materials -> textures
       const modelDataChunk = modelFile.getChunk("modl")!;
