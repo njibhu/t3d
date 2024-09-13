@@ -20,7 +20,7 @@ describe("modl4", () => {
     const modlChunk = allChunks.find((c) => c.chunkHeader.type === "MODL");
     const def = MODL.definitions[`V${modlChunk!.chunkHeader.chunkVersion}` as keyof typeof MODL["definitions"]];
     const parser = new DataParser(def, is64Bit);
-    parser.DEBUG = true;
+    //parser.DEBUG = true;
     const test = parser.parse(dv, modlChunk!.chunkPosition + modlChunk!.chunkHeader.chunkHeaderSize);
     expect(test.data).toMatchSnapshot("modl4-modl")
   });
