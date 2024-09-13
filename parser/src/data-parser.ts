@@ -179,7 +179,7 @@ export class DataParser implements Definition {
 
   private DynArray(dv: DataView, pos: number, type: DataType | string): ParseFunctionReturn {
     let arrayLength = dv.getUint32(pos, true);
-    let arrayOffset = this.is64Bit ? Number(dv.getBigUint64(pos + PTR_SIZE_64, true)) : dv.getUint32(pos + PTR_SIZE_32, true);
+    let arrayOffset = this.is64Bit ? Number(dv.getBigUint64(pos + 4, true)) : dv.getUint32(pos + 4, true);
 
     if (this.DEBUG) console.debug("DynArray", arrayLength, arrayOffset);
 
@@ -192,7 +192,7 @@ export class DataParser implements Definition {
     let arrayPtr = pos + 4 + arrayOffset;
 
     return {
-      newPosition: (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32) + 4,
+      newPosition: pos + (this.is64Bit ? PTR_SIZE_64 : PTR_SIZE_32) + 4,
       data: this.FixedArray(dv, arrayPtr, type, arrayLength).data,
     };
   }
