@@ -14,6 +14,7 @@ const chunkBuffer = fs.readFileSync("./test/mapc1.bin", null);
 const dv = new DataView(toArrayBuffer(chunkBuffer));
 const fileHead = parseFile(dv);
 const allChunks = parseAllChunks(dv, fileHead.newPosition);
+const is64Bit = fileHead.data.flags == 5;
 
 test("contains the correct chunks", function () {
   const chunkTypes = allChunks.map((c) => c.chunkHeader.type);
@@ -43,7 +44,7 @@ test("contains the correct chunks", function () {
 test("matches for PARM", function () {
   const modlChunk = allChunks.find((c) => c.chunkHeader.type === "parm");
   const def = PARM.definitions[`V${modlChunk!.chunkHeader.chunkVersion}` as keyof typeof PARM["definitions"]];
-  const test = new DataParser(def).parse(dv, modlChunk!.chunkPosition + modlChunk!.chunkHeader.chunkHeaderSize);
+  const test = new DataParser(def, is64Bit).parse(dv, modlChunk!.chunkPosition + modlChunk!.chunkHeader.chunkHeaderSize);
   expect(test.data).toMatchSnapshot("mapc1-parm")
 });
 
@@ -51,7 +52,7 @@ test("matches for PARM", function () {
 test("matches for TRN", function () {
   const trnChunk = allChunks.find((c) => c.chunkHeader.type === "trn");
   const def = TRN.definitions[`V${trnChunk!.chunkHeader.chunkVersion}` as keyof typeof TRN["definitions"]];
-  const parser = new DataParser(def);
+  const parser = new DataParser(def, is64Bit);
   const test = parser.parse(dv, trnChunk!.chunkPosition + trnChunk!.chunkHeader.chunkHeaderSize);
   //fs.writeFileSync("./test/trn.json", JSON.stringify(test.data, (key, value) => typeof value === 'bigint' ? Number(value) : value, 2));
   expect(test.data).toMatchSnapshot("mapc1-trn")
@@ -61,8 +62,7 @@ test("matches for TRN", function () {
 test("matches for ENV", function () {
   const envChunk = allChunks.find((c) => c.chunkHeader.type === "env");
   const def = ENV.definitions[`V${envChunk!.chunkHeader.chunkVersion}` as keyof typeof ENV["definitions"]];
-  const parser = new DataParser(def);
-  parser.FIX_NEGATIVE_ZERO = true;
+  const parser = new DataParser(def, is64Bit);
   const test = parser.parse(dv, envChunk!.chunkPosition + envChunk!.chunkHeader.chunkHeaderSize);
   expect(test.data).toMatchSnapshot("mapc1-env")
 });
@@ -71,7 +71,15 @@ test("matches for ENV", function () {
 test("matches for PRP2", function () {
   const prp2Chunk = allChunks.find((c) => c.chunkHeader.type === "prp2");
   const def = PRP2.definitions[`V${prp2Chunk!.chunkHeader.chunkVersion}` as keyof typeof PRP2["definitions"]];
-  const parser = new DataParser(def);
+  const parser = new DataParser(def, is64Bit);
   const test = parser.parse(dv, prp2Chunk!.chunkPosition + prp2Chunk!.chunkHeader.chunkHeaderSize);
   expect(test.data).toMatchSnapshot("mapc1-prp2")
+});
+
+// EXP
+test("matches for EXP", function () {
+  const expChunk = allChunks.find((c) => c.chunkHeader.type === "exp");
+  const def = PARM.definitions[`V${expChunk!.chunkHeader.chunkVersion}` as keyof typeof PARM["definitions"]];
+  const test = new DataParser(def, is64Bit).parse(dv, expChunk!.chunkPosition + expChunk!.chunkHeader.chunkHeaderSize);
+  expect(test.data).toMatchSnapshot("mapc1-exp")
 });

@@ -92,9 +92,7 @@ export class DataParser implements Definition {
 
   private Float32(dv: DataView, pos: number): ParseFunctionReturn {
     let data = dv.getFloat32(pos, true);
-    if(this.FIX_NEGATIVE_ZERO && isZeroNegative(data)){
-      data = 0;
-    }
+
     if (this.DEBUG) console.debug("Float32", data);
     return { newPosition: pos + 4, data };
   }
@@ -331,21 +329,12 @@ export class DataParser implements Definition {
     const data = new OptimisedArray(byteArray.buffer);
 
     if (this.DEBUG) console.debug("OptimizedArray", data);
-    // if(this.FIX_NEGATIVE_ZERO){
-    //   for (let i = 0; i < data.length; i++) {
-    //     if(isZeroNegative(data[i])){
-    //       data[i] = 0;
-    //     }
-    //   }
-    // }
 
     return {
       newPosition: pos + length * OptimisedArray!.BYTES_PER_ELEMENT,
       data,
     };
   }
-
-
 }
 
 function getOptimisedArrayConstructor(baseType: BaseType) {
@@ -367,10 +356,4 @@ function getOptimisedArrayConstructor(baseType: BaseType) {
   if(baseType === BaseType.Uint64){
     return BigUint64Array;
   }
-}
-
-function isZeroNegative(zero: number) {
-  const isZero = zero === 0;
-  const isNegative = 1 / zero === -Infinity;
-  return isNegative && isZero;
 }

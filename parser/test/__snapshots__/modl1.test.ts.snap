@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches for ANIM: modl-anim 1`] = `
-Object {
-  "anim": Object {
-    "animation": Array [],
-    "pointers": Array [],
+{
+  "anim": {
+    "animation": [],
+    "pointers": [],
   },
-  "bank": Object {
-    "animations": Array [],
-    "compoundAnimations": Array [],
-    "fallbacks": Array [],
-    "imports": Array [],
+  "bank": {
+    "animations": [],
+    "compoundAnimations": [],
+    "fallbacks": [],
+    "imports": [],
   },
 }
 `;
 
 exports[`matches for COLL: modl-coll 1`] = `
-Object {
-  "animations": Array [],
-  "boxes": Array [],
-  "capsules": Array [],
-  "meshes": Array [
-    Object {
+{
+  "animations": [],
+  "boxes": [],
+  "capsules": [],
+  "meshes": [
+    {
       "indices": Uint16Array [
         0,
         1,
@@ -60,7 +60,7 @@ Object {
         7,
         6,
       ],
-      "navSeedPoints": Array [],
+      "navSeedPoints": [],
       "surfaces": Uint8Array [
         0,
         0,
@@ -75,7 +75,7 @@ Object {
         0,
         0,
       ],
-      "vertices": Array [
+      "vertices": [
         Float32Array [
           -22.3173828125,
           -24.67221450805664,
@@ -119,9 +119,9 @@ Object {
       ],
     },
   ],
-  "spheres": Array [],
-  "surfaces": Array [
-    Object {
+  "spheres": [],
+  "surfaces": [
+    {
       "tokens": BigUint64Array {
         "0": 1153747663552921079n,
       },
@@ -131,14 +131,14 @@ Object {
 `;
 
 exports[`matches for GEOM: modl-geom 1`] = `
-Object {
-  "meshes": Array [
-    Object {
+{
+  "meshes": [
+    {
       "boneBindings": BigUint64Array {
         "0": 5736378373288432n,
       },
-      "bounds": Array [
-        Object {
+      "bounds": [
+        {
           "boxExtent": Float32Array [
             22.243640899658203,
             22.27962303161621,
@@ -153,8 +153,8 @@ Object {
         },
       ],
       "flags": 0,
-      "geometry": Object {
-        "indices": Object {
+      "geometry": {
+        "indices": {
           "indices": Uint16Array [
             0,
             1,
@@ -1160,12 +1160,12 @@ Object {
             378,
           ],
         },
-        "lods": Array [],
+        "lods": [],
         "transforms": Uint32Array [
           1,
         ],
-        "verts": Object {
-          "mesh": Object {
+        "verts": {
+          "mesh": {
             "fvf": 65665,
             "vertices": Uint8Array [
               9,
@@ -11826,8 +11826,8 @@ Object {
         -23.848526000976562,
         -43.190677642822266,
       ],
-      "morphTargets": Array [],
-      "seamVertIndices": Array [],
+      "morphTargets": [],
+      "seamVertIndices": [],
       "visBone": 0n,
     },
   ],
@@ -11835,11 +11835,11 @@ Object {
 `;
 
 exports[`matches for MODL: modl-modl 1`] = `
-Object {
-  "actionOffsetNames": Array [],
-  "actionOffsets": Array [],
-  "boneOffsetData": Array [],
-  "boundingSphere": Object {
+{
+  "actionOffsetNames": [],
+  "actionOffsets": [],
+  "boneOffsetData": [],
+  "boundingSphere": {
     "center": Float32Array [
       0.043182373046875,
       -1.5693359375,
@@ -11847,29 +11847,29 @@ Object {
     ],
     "radius": 38.43932342529297,
   },
-  "clothData": Array [],
-  "cloudData": Object {},
-  "lightData": Object {},
-  "lightningData": Object {},
+  "clothData": [],
+  "cloudData": {},
+  "lightData": {},
+  "lightningData": {},
   "lodOverride": Float32Array [
     1980,
     3000,
   ],
-  "obstacles": Array [],
-  "permutations": Array [
-    Object {
-      "materials": Array [
-        Object {
-          "constants": Array [],
+  "obstacles": [],
+  "permutations": [
+    {
+      "materials": [
+        {
+          "constants": [],
           "filename": 15999,
-          "matConstLinks": Array [],
+          "matConstLinks": [],
           "materialFlags": 2572,
           "materialId": 6,
           "sortOrder": 0,
           "texCoordCount": 1,
-          "texTransforms": Array [],
-          "textures": Array [
-            Object {
+          "texTransforms": [],
+          "textures": [
+            {
               "blitId": 0n,
               "filename": 225758,
               "textureFlags": 0,
@@ -11877,7 +11877,7 @@ Object {
               "uvAnimId": 0,
               "uvPSInputIndex": 0,
             },
-            Object {
+            {
               "blitId": 0n,
               "filename": 225760,
               "textureFlags": 0,
@@ -11887,24 +11887,24 @@ Object {
             },
           ],
           "token": 190350863n,
-          "uvTransLinks": Array [],
+          "uvTransLinks": [],
         },
       ],
       "token": 0n,
     },
   ],
-  "softBodyData": Array [],
+  "softBodyData": [],
   "soundScript": 0,
-  "streakData": Object {},
-  "windData": Object {},
+  "streakData": {},
+  "windData": {},
 }
 `;
 
 exports[`matches for PRPS: modl-prps 1`] = `
-Object {
-  "fixedOffsetData": Array [],
-  "properties": Array [
-    Object {
+{
+  "fixedOffsetData": [],
+  "properties": [
+    {
       "id": 379207142n,
       "mergeIndex": 0,
       "strVal": 0,
@@ -11912,7 +11912,7 @@ Object {
       "type": 0,
       "val": 0n,
     },
-    Object {
+    {
       "id": 180361227609459n,
       "mergeIndex": 0,
       "strVal": 0,
@@ -11920,7 +11920,7 @@ Object {
       "type": 0,
       "val": 0n,
     },
-    Object {
+    {
       "id": 845692962836260211n,
       "mergeIndex": 0,
       "strVal": 0,

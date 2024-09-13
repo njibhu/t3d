@@ -1,64 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches for havk1: havk1 1`] = `
-Object {
-  "animations": Array [
-    Object {
-      "blockerIndices": Array [],
+{
+  "animations": [
+    {
+      "blockerIndices": [],
       "collisionIndices": Uint32Array [
         0,
       ],
       "sequence": 21154994n,
     },
-    Object {
-      "blockerIndices": Array [],
+    {
+      "blockerIndices": [],
       "collisionIndices": Uint32Array [
         0,
       ],
       "sequence": 135770290n,
     },
-    Object {
-      "blockerIndices": Array [],
+    {
+      "blockerIndices": [],
       "collisionIndices": Uint32Array [
         0,
       ],
       "sequence": 175158308n,
     },
-    Object {
-      "blockerIndices": Array [],
+    {
+      "blockerIndices": [],
       "collisionIndices": Uint32Array [
         0,
       ],
       "sequence": 272061484n,
     },
-    Object {
-      "blockerIndices": Array [],
-      "collisionIndices": Array [],
+    {
+      "blockerIndices": [],
+      "collisionIndices": [],
       "sequence": 27366411428n,
     },
-    Object {
-      "blockerIndices": Array [],
+    {
+      "blockerIndices": [],
       "collisionIndices": Uint32Array [
         0,
       ],
       "sequence": 192720390330n,
     },
-    Object {
-      "blockerIndices": Array [],
+    {
+      "blockerIndices": [],
       "collisionIndices": Uint32Array [
         0,
       ],
       "sequence": 188074801256444082n,
     },
-    Object {
-      "blockerIndices": Array [],
+    {
+      "blockerIndices": [],
       "collisionIndices": Uint32Array [
         0,
       ],
       "sequence": 188074801392735276n,
     },
   ],
-  "blockers": Array [],
+  "blockers": [],
   "boundsMax": Float32Array [
     0,
     0,
@@ -69,8 +69,8 @@ Object {
     0,
     0,
   ],
-  "collisions": Array [
-    Object {
+  "collisions": [
+    {
       "indices": Uint16Array [
         0,
         2,
@@ -133,7 +133,7 @@ Object {
         9,
         10,
       ],
-      "moppCodeData": Object {
+      "moppCodeData": {
         "moppData": Uint8Array [
           170,
           98,
@@ -294,7 +294,7 @@ Object {
       "surfaces": Uint16Array [
         65535,
       ],
-      "vertices": Array [
+      "vertices": [
         Float32Array [
           -0.0066716657020151615,
           0.07288872450590134,
@@ -358,8 +358,8 @@ Object {
       ],
     },
   ],
-  "geometries": Array [
-    Object {
+  "geometries": [
+    {
       "animations": Uint32Array [
         0,
         1,
@@ -374,9 +374,9 @@ Object {
       "quantizedExtents": 1,
     },
   ],
-  "navMeshes": Array [],
-  "obsModels": Array [],
-  "propModels": Array [],
-  "zoneModels": Array [],
+  "navMeshes": [],
+  "obsModels": [],
+  "propModels": [],
+  "zoneModels": [],
 }
 `;

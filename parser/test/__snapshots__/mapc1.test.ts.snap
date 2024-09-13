@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches for ENV: mapc1-env 1`] = `
-Object {
-  "dataGlobal": Object {
-    "audio": Array [
-      Object {
+{
+  "dataGlobal": {
+    "audio": [
+      {
         "token": 0n,
       },
-      Object {
+      {
         "token": 0n,
       },
     ],
     "bindTarget": 0n,
-    "clouds": Object {
-      "layers": Array [],
+    "clouds": {
+      "layers": [],
     },
-    "coloredLightRings": Array [],
-    "effect": Array [
-      Object {
+    "coloredLightRings": [],
+    "effect": [
+      {
         "clutTexturePath": 0,
-        "ext": Object {},
+        "ext": {},
         "flags": 0,
         "focalDepth": 6000,
         "focalRange": 4000,
@@ -56,9 +56,9 @@ Object {
           0,
         ],
       },
-      Object {
+      {
         "clutTexturePath": 0,
-        "ext": Object {},
+        "ext": {},
         "flags": 0,
         "focalDepth": 6000,
         "focalRange": 4000,
@@ -95,9 +95,9 @@ Object {
           0,
         ],
       },
-      Object {
+      {
         "clutTexturePath": 0,
-        "ext": Object {},
+        "ext": {},
         "flags": 0,
         "focalDepth": 6000,
         "focalRange": 4000,
@@ -135,7 +135,7 @@ Object {
         ],
       },
     ],
-    "ext": Object {
+    "ext": {
       "brightMax": 0.5,
       "brightMin": 0.30000001192092896,
       "brightScale": 1,
@@ -146,7 +146,7 @@ Object {
       "darkMin": 0.10000000149011612,
       "darkScale": 1,
       "dimTime": 5,
-      "ext2": Object {},
+      "ext2": {},
       "waterReflectionParams": Float32Array [
         0,
         0,
@@ -155,8 +155,8 @@ Object {
       ],
     },
     "flags": 1,
-    "haze": Array [
-      Object {
+    "haze": [
+      {
         "depthCue": 0,
         "distRange": Float32Array [
           0,
@@ -189,7 +189,7 @@ Object {
           0,
         ],
       },
-      Object {
+      {
         "depthCue": 0,
         "distRange": Float32Array [
           0,
@@ -222,7 +222,7 @@ Object {
           0,
         ],
       },
-      Object {
+      {
         "depthCue": 0,
         "distRange": Float32Array [
           0,
@@ -256,16 +256,16 @@ Object {
         ],
       },
     ],
-    "lighting": Array [
-      Object {
+    "lighting": [
+      {
         "backlightColor": Uint8Array [
           255,
           255,
           255,
         ],
         "backlightIntensity": 1,
-        "lights": Array [
-          Object {
+        "lights": [
+          {
             "color": Uint8Array [
               0,
               0,
@@ -278,7 +278,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -291,7 +291,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -304,7 +304,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -317,7 +317,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -330,7 +330,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -343,7 +343,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               5,
               5,
@@ -356,7 +356,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -372,15 +372,15 @@ Object {
         ],
         "shadowInfluence": 0,
       },
-      Object {
+      {
         "backlightColor": Uint8Array [
           255,
           255,
           255,
         ],
         "backlightIntensity": 1,
-        "lights": Array [
-          Object {
+        "lights": [
+          {
             "color": Uint8Array [
               0,
               0,
@@ -393,7 +393,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -406,7 +406,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -419,7 +419,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -432,7 +432,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -445,7 +445,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -458,7 +458,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               5,
               5,
@@ -471,7 +471,7 @@ Object {
             ],
             "intensity": 2,
           },
-          Object {
+          {
             "color": Uint8Array [
               0,
               0,
@@ -487,15 +487,15 @@ Object {
         ],
         "shadowInfluence": 0,
       },
-      Object {
+      {
         "backlightColor": Uint8Array [
           255,
           255,
           255,
         ],
         "backlightIntensity": 1,
-        "lights": Array [
-          Object {
+        "lights": [
+          {
             "color": Uint8Array [
               255,
               233,
@@ -508,7 +508,7 @@ Object {
             ],
             "intensity": 1.2999999523162842,
           },
-          Object {
+          {
             "color": Uint8Array [
               124,
               172,
@@ -521,7 +521,7 @@ Object {
             ],
             "intensity": 0.30000001192092896,
           },
-          Object {
+          {
             "color": Uint8Array [
               191,
               221,
@@ -534,7 +534,7 @@ Object {
             ],
             "intensity": 0.10000000149011612,
           },
-          Object {
+          {
             "color": Uint8Array [
               188,
               204,
@@ -547,7 +547,7 @@ Object {
             ],
             "intensity": 0.10000000149011612,
           },
-          Object {
+          {
             "color": Uint8Array [
               199,
               190,
@@ -560,7 +560,7 @@ Object {
             ],
             "intensity": 0.10000000149011612,
           },
-          Object {
+          {
             "color": Uint8Array [
               189,
               222,
@@ -573,7 +573,7 @@ Object {
             ],
             "intensity": 0.10000000149011612,
           },
-          Object {
+          {
             "color": Uint8Array [
               204,
               237,
@@ -586,7 +586,7 @@ Object {
             ],
             "intensity": 0.30000001192092896,
           },
-          Object {
+          {
             "color": Uint8Array [
               168,
               254,
@@ -603,7 +603,7 @@ Object {
         "shadowInfluence": 0,
       },
     ],
-    "lightingCharGroups": Array [],
+    "lightingCharGroups": [],
     "name": "",
     "nightMods": Uint8Array [
       255,
@@ -611,9 +611,9 @@ Object {
       255,
       133,
     ],
-    "particleFieldCutouts": Array [],
-    "particleFields": Array [
-      Object {
+    "particleFieldCutouts": [],
+    "particleFields": [
+      {
         "altitude": 0,
         "angle": Float32Array [
           0,
@@ -679,7 +679,7 @@ Object {
         "type": 0,
       },
     ],
-    "sky": Object {
+    "sky": {
       "dayBrightness": 0,
       "dayHazeBottom": 0,
       "dayHazeDensity": 0,
@@ -695,35 +695,35 @@ Object {
       "nightStarDensity": 1,
       "verticalOffset": 0,
     },
-    "skyCards": Object {
-      "cards": Array [],
+    "skyCards": {
+      "cards": [],
     },
-    "skyModeTex": Array [
-      Object {
+    "skyModeTex": [
+      {
         "texPathNE": 196571,
         "texPathSW": 196573,
         "texPathT": 196575,
       },
-      Object {
+      {
         "texPathNE": 196571,
         "texPathSW": 196573,
         "texPathT": 196575,
       },
-      Object {
+      {
         "texPathNE": 0,
         "texPathSW": 0,
         "texPathT": 0,
       },
-      Object {
+      {
         "texPathNE": 0,
         "texPathSW": 0,
         "texPathT": 0,
       },
     ],
-    "spawns": Object {},
+    "spawns": {},
     "starFile": 0,
-    "water": Array [
-      Object {
+    "water": [
+      {
         "animAmplitude": 0,
         "animChoppiness": 0,
         "animWind": Float32Array [
@@ -739,8 +739,8 @@ Object {
         "bumpSpeed1": 1,
         "bumpTile0": 1.7999999523162842,
         "bumpTile1": 2.5999999046325684,
-        "constantTokens": Array [],
-        "constantValues": Array [],
+        "constantTokens": [],
+        "constantValues": [],
         "depthAttenuation": 200,
         "distortAmount": 0.15000000596046448,
         "foamColor0": Uint8Array [
@@ -782,10 +782,10 @@ Object {
           103,
           0,
         ],
-        "textureFilenames": Array [],
+        "textureFilenames": [],
         "waterFlags": 1,
       },
-      Object {
+      {
         "animAmplitude": 0,
         "animChoppiness": 0,
         "animWind": Float32Array [
@@ -801,8 +801,8 @@ Object {
         "bumpSpeed1": 1,
         "bumpTile0": 1.7999999523162842,
         "bumpTile1": 2.5999999046325684,
-        "constantTokens": Array [],
-        "constantValues": Array [],
+        "constantTokens": [],
+        "constantValues": [],
         "depthAttenuation": 200,
         "distortAmount": 0.15000000596046448,
         "foamColor0": Uint8Array [
@@ -844,10 +844,10 @@ Object {
           103,
           0,
         ],
-        "textureFilenames": Array [],
+        "textureFilenames": [],
         "waterFlags": 1,
       },
-      Object {
+      {
         "animAmplitude": 0,
         "animChoppiness": 0,
         "animWind": Float32Array [
@@ -863,8 +863,8 @@ Object {
         "bumpSpeed1": 1,
         "bumpTile0": 1.7999999523162842,
         "bumpTile1": 2.5999999046325684,
-        "constantTokens": Array [],
-        "constantValues": Array [],
+        "constantTokens": [],
+        "constantValues": [],
         "depthAttenuation": 200,
         "distortAmount": 0.15000000596046448,
         "foamColor0": Uint8Array [
@@ -906,12 +906,12 @@ Object {
           103,
           0,
         ],
-        "textureFilenames": Array [],
+        "textureFilenames": [],
         "waterFlags": 1,
       },
     ],
-    "wind": Array [
-      Object {
+    "wind": [
+      {
         "azimuth": 0,
         "elevation": 0,
         "gust": 0,
@@ -920,7 +920,7 @@ Object {
         "noise": 0,
         "speed": 0,
       },
-      Object {
+      {
         "azimuth": 0,
         "elevation": 0,
         "gust": 0,
@@ -929,7 +929,7 @@ Object {
         "noise": 0,
         "speed": 0,
       },
-      Object {
+      {
         "azimuth": 0,
         "elevation": 0,
         "gust": 0,
@@ -940,12 +940,42 @@ Object {
       },
     ],
   },
-  "dataLocalArray": Array [],
+  "dataLocalArray": [],
+}
+`;
+
+exports[`matches for EXP: mapc1-exp 1`] = `
+{
+  "flags": 0,
+  "guid": Uint8Array [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    4,
+    0,
+    0,
+    0,
+  ],
+  "rect": Float32Array [
+    1.401298464324817e-45,
+    1.1210387714598537e-44,
+    0,
+    -4.986435153675473e-10,
+  ],
 }
 `;
 
 exports[`matches for PARM: mapc1-parm 1`] = `
-Object {
+{
   "flags": 0,
   "guid": Uint8Array [
     212,
@@ -975,8 +1005,8 @@ Object {
 `;
 
 exports[`matches for PRP2: mapc1-prp2 1`] = `
-Object {
-  "broadPhase": Object {
+{
+  "broadPhase": {
     "broadphaseData": Uint8Array [
       4,
       0,
@@ -1145,10 +1175,10 @@ Object {
     ],
   },
   "nextBroadId": 5,
-  "propAnimArray": Array [],
-  "propArray": Array [
-    Object {
-      "blitTextures": Array [
+  "propAnimArray": [],
+  "propArray": [
+    {
+      "blitTextures": [
         0,
         0,
         0,
@@ -1172,7 +1202,7 @@ Object {
         128,
         128,
       ],
-      "constants": Array [],
+      "constants": [],
       "filename": 197560,
       "flags": 1073741824,
       "guid": 1429030159836519941n,
@@ -1193,8 +1223,8 @@ Object {
       "scale": 11.593631744384766,
       "sortLayer": 0,
     },
-    Object {
-      "blitTextures": Array [
+    {
+      "blitTextures": [
         0,
         0,
         0,
@@ -1218,7 +1248,7 @@ Object {
         128,
         128,
       ],
-      "constants": Array [],
+      "constants": [],
       "filename": 197560,
       "flags": 1073741824,
       "guid": 1429030095412010500n,
@@ -1239,8 +1269,8 @@ Object {
       "scale": 11.593631744384766,
       "sortLayer": 0,
     },
-    Object {
-      "blitTextures": Array [
+    {
+      "blitTextures": [
         0,
         0,
         0,
@@ -1264,7 +1294,7 @@ Object {
         128,
         128,
       ],
-      "constants": Array [],
+      "constants": [],
       "filename": 197560,
       "flags": 1073741824,
       "guid": 1429029837713972744n,
@@ -1285,8 +1315,8 @@ Object {
       "scale": 11.593631744384766,
       "sortLayer": 0,
     },
-    Object {
-      "blitTextures": Array [
+    {
+      "blitTextures": [
         0,
         0,
         0,
@@ -1310,7 +1340,7 @@ Object {
         128,
         128,
       ],
-      "constants": Array [],
+      "constants": [],
       "filename": 197560,
       "flags": 1073741824,
       "guid": 1429029932203253257n,
@@ -1332,18 +1362,18 @@ Object {
       "sortLayer": 0,
     },
   ],
-  "propInstanceArray": Array [],
-  "propMetaArray": Array [],
-  "propToolArray": Array [],
-  "propVolumeArray": Array [],
+  "propInstanceArray": [],
+  "propMetaArray": [],
+  "propToolArray": [],
+  "propVolumeArray": [],
   "reserved": "",
 }
 `;
 
 exports[`matches for TRN: mapc1-trn 1`] = `
-Object {
-  "chunkArray": Array [
-    Object {
+{
+  "chunkArray": [
+    {
       "chunkFlags": 1,
       "surfaceIndexArray": Uint16Array [
         65535,
@@ -1351,9 +1381,9 @@ Object {
         65535,
         65535,
       ],
-      "surfaceTokenArray": Array [],
+      "surfaceTokenArray": [],
     },
-    Object {
+    {
       "chunkFlags": 1,
       "surfaceIndexArray": Uint16Array [
         65535,
@@ -1361,9 +1391,9 @@ Object {
         65535,
         65535,
       ],
-      "surfaceTokenArray": Array [],
+      "surfaceTokenArray": [],
     },
-    Object {
+    {
       "chunkFlags": 1,
       "surfaceIndexArray": Uint16Array [
         65535,
@@ -1371,9 +1401,9 @@ Object {
         65535,
         65535,
       ],
-      "surfaceTokenArray": Array [],
+      "surfaceTokenArray": [],
     },
-    Object {
+    {
       "chunkFlags": 1,
       "surfaceIndexArray": Uint16Array [
         65535,
@@ -1381,7 +1411,7 @@ Object {
         65535,
         65535,
       ],
-      "surfaceTokenArray": Array [],
+      "surfaceTokenArray": [],
     },
   ],
   "dims": Uint32Array [
@@ -6290,22 +6320,22 @@ Object {
     -100,
     -100,
   ],
-  "materials": Object {
-    "constArray": Array [],
+  "materials": {
+    "constArray": [],
     "farFade": Float32Array [
       1.6016785395294086e-37,
       1.3739229217335217e-37,
     ],
-    "materials": Array [
-      Object {
-        "faderMaterial": Object {
-          "constIndexArray": Array [],
+    "materials": [
+      {
+        "faderMaterial": {
+          "constIndexArray": [],
           "fvf": 1,
           "materialFile": 0,
-          "texIndexArray": Array [],
+          "texIndexArray": [],
         },
-        "hiResMaterial": Object {
-          "constIndexArray": Array [],
+        "hiResMaterial": {
+          "constIndexArray": [],
           "fvf": 777,
           "materialFile": 184796,
           "texIndexArray": Uint32Array [
@@ -6321,8 +6351,8 @@ Object {
             15,
           ],
         },
-        "loResMaterial": Object {
-          "constIndexArray": Array [],
+        "loResMaterial": {
+          "constIndexArray": [],
           "fvf": 777,
           "materialFile": 190649,
           "texIndexArray": Uint32Array [
@@ -6343,17 +6373,17 @@ Object {
           8,
           8,
         ],
-        "uvData": Object {},
+        "uvData": {},
       },
-      Object {
-        "faderMaterial": Object {
-          "constIndexArray": Array [],
+      {
+        "faderMaterial": {
+          "constIndexArray": [],
           "fvf": 1,
           "materialFile": 0,
-          "texIndexArray": Array [],
+          "texIndexArray": [],
         },
-        "hiResMaterial": Object {
-          "constIndexArray": Array [],
+        "hiResMaterial": {
+          "constIndexArray": [],
           "fvf": 777,
           "materialFile": 184796,
           "texIndexArray": Uint32Array [
@@ -6369,8 +6399,8 @@ Object {
             15,
           ],
         },
-        "loResMaterial": Object {
-          "constIndexArray": Array [],
+        "loResMaterial": {
+          "constIndexArray": [],
           "fvf": 777,
           "materialFile": 190649,
           "texIndexArray": Uint32Array [
@@ -6391,17 +6421,17 @@ Object {
           8,
           8,
         ],
-        "uvData": Object {},
+        "uvData": {},
       },
-      Object {
-        "faderMaterial": Object {
-          "constIndexArray": Array [],
+      {
+        "faderMaterial": {
+          "constIndexArray": [],
           "fvf": 1,
           "materialFile": 0,
-          "texIndexArray": Array [],
+          "texIndexArray": [],
         },
-        "hiResMaterial": Object {
-          "constIndexArray": Array [],
+        "hiResMaterial": {
+          "constIndexArray": [],
           "fvf": 777,
           "materialFile": 184796,
           "texIndexArray": Uint32Array [
@@ -6417,8 +6447,8 @@ Object {
             15,
           ],
         },
-        "loResMaterial": Object {
-          "constIndexArray": Array [],
+        "loResMaterial": {
+          "constIndexArray": [],
           "fvf": 777,
           "materialFile": 190649,
           "texIndexArray": Uint32Array [
@@ -6439,17 +6469,17 @@ Object {
           8,
           8,
         ],
-        "uvData": Object {},
+        "uvData": {},
       },
-      Object {
-        "faderMaterial": Object {
-          "constIndexArray": Array [],
+      {
+        "faderMaterial": {
+          "constIndexArray": [],
           "fvf": 1,
           "materialFile": 0,
-          "texIndexArray": Array [],
+          "texIndexArray": [],
         },
-        "hiResMaterial": Object {
-          "constIndexArray": Array [],
+        "hiResMaterial": {
+          "constIndexArray": [],
           "fvf": 777,
           "materialFile": 184796,
           "texIndexArray": Uint32Array [
@@ -6465,8 +6495,8 @@ Object {
             15,
           ],
         },
-        "loResMaterial": Object {
-          "constIndexArray": Array [],
+        "loResMaterial": {
+          "constIndexArray": [],
           "fvf": 777,
           "materialFile": 190649,
           "texIndexArray": Uint32Array [
@@ -6487,7 +6517,7 @@ Object {
           8,
           8,
         ],
-        "uvData": Object {},
+        "uvData": {},
       },
     ],
     "midFade": Float32Array [
@@ -6495,8 +6525,8 @@ Object {
       1.366579557261074e-37,
     ],
     "pagedImage": 197555,
-    "texFileArray": Array [
-      Object {
+    "texFileArray": [
+      {
         "filename": 0,
         "flags": 4,
         "flags_": Uint32Array [
@@ -6506,7 +6536,7 @@ Object {
         "layer": 0,
         "tokenName": 806294242,
       },
-      Object {
+      {
         "filename": 0,
         "flags": 4,
         "flags_": Uint32Array [
@@ -6516,7 +6546,7 @@ Object {
         "layer": 1,
         "tokenName": 805563772,
       },
-      Object {
+      {
         "filename": 0,
         "flags": 4,
         "flags_": Uint32Array [
@@ -6526,7 +6556,7 @@ Object {
         "layer": 0,
         "tokenName": 806294242,
       },
-      Object {
+      {
         "filename": 0,
         "flags": 4,
         "flags_": Uint32Array [
@@ -6536,7 +6566,7 @@ Object {
         "layer": 1,
         "tokenName": 805563772,
       },
-      Object {
+      {
         "filename": 0,
         "flags": 4,
         "flags_": Uint32Array [
@@ -6546,7 +6576,7 @@ Object {
         "layer": 0,
         "tokenName": 806294242,
       },
-      Object {
+      {
         "filename": 0,
         "flags": 4,
         "flags_": Uint32Array [
@@ -6556,7 +6586,7 @@ Object {
         "layer": 1,
         "tokenName": 805563772,
       },
-      Object {
+      {
         "filename": 0,
         "flags": 4,
         "flags_": Uint32Array [
@@ -6566,7 +6596,7 @@ Object {
         "layer": 0,
         "tokenName": 806294242,
       },
-      Object {
+      {
         "filename": 0,
         "flags": 4,
         "flags_": Uint32Array [
@@ -6576,7 +6606,7 @@ Object {
         "layer": 1,
         "tokenName": 805563772,
       },
-      Object {
+      {
         "filename": 197556,
         "flags": 1,
         "flags_": Uint32Array [
@@ -6586,7 +6616,7 @@ Object {
         "layer": 4294967295,
         "tokenName": 809947586,
       },
-      Object {
+      {
         "filename": 197558,
         "flags": 1,
         "flags_": Uint32Array [
@@ -6596,7 +6626,7 @@ Object {
         "layer": 4294967295,
         "tokenName": 869812410,
       },
-      Object {
+      {
         "filename": 197556,
         "flags": 1,
         "flags_": Uint32Array [
@@ -6606,7 +6636,7 @@ Object {
         "layer": 4294967295,
         "tokenName": 816383929,
       },
-      Object {
+      {
         "filename": 197558,
         "flags": 1,
         "flags_": Uint32Array [
@@ -6616,7 +6646,7 @@ Object {
         "layer": 4294967295,
         "tokenName": 1017848299,
       },
-      Object {
+      {
         "filename": 197556,
         "flags": 1,
         "flags_": Uint32Array [
@@ -6626,7 +6656,7 @@ Object {
         "layer": 4294967295,
         "tokenName": 822820272,
       },
-      Object {
+      {
         "filename": 197558,
         "flags": 1,
         "flags_": Uint32Array [
@@ -6636,7 +6666,7 @@ Object {
         "layer": 4294967295,
         "tokenName": 1165884188,
       },
-      Object {
+      {
         "filename": 197556,
         "flags": 1,
         "flags_": Uint32Array [
@@ -6646,7 +6676,7 @@ Object {
         "layer": 4294967295,
         "tokenName": 829256615,
       },
-      Object {
+      {
         "filename": 197558,
         "flags": 1,
         "flags_": Uint32Array [
