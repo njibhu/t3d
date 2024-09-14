@@ -7,7 +7,7 @@ export namespace V0_N {
   }
 
   export type MapRiver = {
-    guid: BigInt,
+    guid: bigint,
     xTiling: number,
     points: Array<Float32Array>,
     reaches: Array<MapRiverReach>
@@ -55,7 +55,7 @@ export namespace V1_N {
   }
 
   export type MapRiver = {
-    guid: BigInt,
+    guid: bigint,
     name: string,
     xTiling: number,
     points: Array<Float32Array>,
@@ -105,7 +105,7 @@ export namespace V2_N {
   }
 
   export type MapRiver = {
-    guid: BigInt,
+    guid: bigint,
     name: string,
     xTiling: number,
     points: Array<Float32Array>,
@@ -156,7 +156,7 @@ export namespace V3_N {
   }
 
   export type MapRiver = {
-    guid: BigInt,
+    guid: bigint,
     name: string,
     xTiling: number,
     points: Array<Float32Array>,
@@ -209,7 +209,7 @@ export namespace V4_N {
   }
 
   export type MapRiver = {
-    guid: BigInt,
+    guid: bigint,
     name: string,
     xTiling: number,
     points: Array<Float32Array>,
@@ -262,7 +262,7 @@ export namespace V5_N {
   }
 
   export type MapRiver = {
-    guid: BigInt,
+    guid: bigint,
     name: string,
     properties: Array<PackMapRiverProperty>,
     points: Array<Float32Array>,
@@ -271,7 +271,7 @@ export namespace V5_N {
 
   export type PackMapRiverProperty = {
     type: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 

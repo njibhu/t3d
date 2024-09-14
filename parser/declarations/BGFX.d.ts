@@ -22,7 +22,7 @@ export namespace V0_N {
   }
 
   export type AmatGfxSamplerConstant = {
-    token: BigInt,
+    token: bigint,
     stateIndex: number,
     textureIndex: number,
     textureSlot: number
@@ -42,8 +42,8 @@ export namespace V0_N {
   }
 
   export type AmatGfxEffect = {
-    token: BigInt,
-    renderState: BigInt,
+    token: bigint,
+    renderState: bigint,
     shaderPassFlags: number,
     pixelShaderIndex: number,
     vertexShaderVariants: Array<AmatGfxVertexShaderVariant>
@@ -82,7 +82,7 @@ export namespace V1_N {
   }
 
   export type AmatGfxSamplerConstant = {
-    token: BigInt,
+    token: bigint,
     stateIndex: number,
     textureIndex: number,
     textureSlot: number
@@ -102,8 +102,8 @@ export namespace V1_N {
   }
 
   export type AmatGfxEffect = {
-    token: BigInt,
-    renderState: BigInt,
+    token: bigint,
+    renderState: bigint,
     shaderPassFlags: number,
     pixelShaderIndex: number,
     vertexShaderVariants: Array<AmatGfxVertexShaderVariant>

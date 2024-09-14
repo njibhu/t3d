@@ -51,7 +51,7 @@ export const Uint32: DataType = {
 
 export const Uint64: DataType = {
   baseType: BaseType.Uint64,
-  declarationType: "BigInt",
+  declarationType: "bigint",
 };
 
 export function CString(length?: number): DataType {
@@ -71,7 +71,7 @@ export function RefString(): DataType {
 
 export function FixedArray(subType: DataType | string, length: number): DataType {
   const nativeClass = getNativeArray(subType);
-  if(nativeClass){
+  if (nativeClass) {
     return {
       baseType: BaseType.FixedArray,
       subType,
@@ -90,7 +90,7 @@ export function FixedArray(subType: DataType | string, length: number): DataType
 
 export function DynArray(subType: DataType | string): DataType {
   const nativeClass = getNativeArray(subType);
-  if(nativeClass){
+  if (nativeClass) {
     return {
       baseType: BaseType.DynArray,
       subType,
@@ -150,10 +150,10 @@ export function Unknown(): DataType {
 }
 
 function getNativeArray(type: DataType | string) {
-  if(typeof type === "string"){
+  if (typeof type === "string") {
     return undefined;
   }
-  switch(type.baseType){
+  switch (type.baseType) {
     case BaseType.Float32:
       return Float32Array;
     case BaseType.Float64:

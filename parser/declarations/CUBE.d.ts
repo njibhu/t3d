@@ -82,7 +82,7 @@ export namespace V3_N {
     filenameNightDefault: number,
     filenameDayScript: number,
     filenameNightScript: number,
-    envID: BigInt
+    envID: bigint
   }
 
   export type PackMapCubeMapParamsV3 = {
@@ -113,7 +113,7 @@ export namespace V4_N {
     filenameNightDefaultHiRes: number,
     filenameDayScriptHiRes: number,
     filenameNightScriptHiRes: number,
-    envID: BigInt
+    envID: bigint
   }
 
   export type PackMapCubeMapParamsV4 = {

@@ -314,8 +314,75 @@ export namespace V14_N {
 
 export type V14 = V14_N.PackMapTerrainV14;
 
-export type V10_U = V10 | V11 | V12 | V13 | V14;
-export type V11_U = V11 | V12 | V13 | V14;
-export type V12_U = V12 | V13 | V14;
-export type V13_U = V13 | V14;
-export type V14_U = V14;
+export namespace V15_N {
+  export type PackMapTerrainV15 = {
+    dims: Uint32Array,
+    swapDistance: number,
+    heightMapArray: Float32Array,
+    tileFlagArray: Uint32Array,
+    chunkArray: Array<PackMapTerrainChunkV14>,
+    materials: PackMapTerrainMaterialsV14,
+    verticesPerChunkSide: number
+  }
+
+  export type PackMapTerrainChunkV14 = {
+    chunkFlags: number,
+    surfaceIndexArray: Uint16Array,
+    surfaceTokenArray: BigUint64Array
+  }
+
+  export type PackMapTerrainMaterialsV14 = {
+    pagedImage: number,
+    constArray: Array<PackMapTerrainConstV14>,
+    texFileArray: Array<PackMapTerrainTexV14>,
+    materials: Array<PackMapTerrrainChunkMaterialV14>,
+    midFade: Float32Array,
+    farFade: Float32Array
+  }
+
+  export type PackMapTerrainConstV14 = {
+    tokenName: number,
+    value: Float32Array
+  }
+
+  export type PackMapTerrainTexV14 = {
+    tokenName: number,
+    flags: number,
+    filename: number,
+    flags_: Uint32Array,
+    layer: number
+  }
+
+  export type PackMapTerrrainChunkMaterialV14 = {
+    tiling: Uint8Array,
+    hiResMaterial: PackMapTerrainMaterialV14,
+    loResMaterial: PackMapTerrainMaterialV14,
+    faderMaterial: PackMapTerrainMaterialV14,
+    uvData: PackMapTerrainChunkUVDataV14
+  }
+
+  export type PackMapTerrainMaterialV14 = {
+    materialFile: number,
+    fvf: number,
+    constIndexArray: Uint32Array,
+    texIndexArray: Uint32Array
+  }
+
+  export type PackMapTerrainChunkUVDataV14 = {
+    translation: Float32Array,
+    xScaleRange: Float32Array,
+    yScaleRange: Float32Array,
+    scaleSpeed: Float32Array,
+    rotation: number
+  }
+
+}
+
+export type V15 = V15_N.PackMapTerrainV15;
+
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15;
+export type V11_U = V11 | V12 | V13 | V14 | V15;
+export type V12_U = V12 | V13 | V14 | V15;
+export type V13_U = V13 | V14 | V15;
+export type V14_U = V14 | V15;
+export type V15_U = V15;

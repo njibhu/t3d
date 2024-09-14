@@ -426,7 +426,7 @@ export namespace V9_N {
   }
 
   export type AmatDx9EffectV9 = {
-    token: BigInt,
+    token: bigint,
     renderStates: Uint32Array,
     samplerIndex: Uint32Array,
     pixelShader: number,
@@ -472,7 +472,7 @@ export namespace V10_N {
   }
 
   export type AmatDx9EffectV10 = {
-    token: BigInt,
+    token: bigint,
     renderStates: Uint32Array,
     samplerIndex: Uint32Array,
     pixelShader: number,
@@ -520,7 +520,7 @@ export namespace V11_N {
   }
 
   export type AmatDx9EffectV11 = {
-    token: BigInt,
+    token: bigint,
     renderStates: Uint32Array,
     samplerIndex: Uint32Array,
     pixelShader: number,

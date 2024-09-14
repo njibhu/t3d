@@ -18,8 +18,8 @@ export namespace V0_N {
   export type ModelTextureDataV0 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt
+    token: bigint,
+    blitId: bigint
   }
 
   export type ModelConstantDataV0 = {
@@ -37,7 +37,7 @@ export namespace V0_N {
   }
 
   export type ModelAnimationDataV0 = {
-    token: BigInt,
+    token: bigint,
     animation: PackGrannyAnimationTypeV0
   }
 
@@ -85,7 +85,7 @@ export namespace V0_N {
   }
 
   export type ModelFloatPropertyDataV0 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -114,8 +114,8 @@ export namespace V1_N {
   export type ModelTextureDataV1 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt
+    token: bigint,
+    blitId: bigint
   }
 
   export type ModelConstantDataV1 = {
@@ -133,7 +133,7 @@ export namespace V1_N {
   }
 
   export type ModelAnimationDataV1 = {
-    token: BigInt,
+    token: bigint,
     animation: PackGrannyAnimationTypeV0
   }
 
@@ -181,7 +181,7 @@ export namespace V1_N {
   }
 
   export type ModelFloatPropertyDataV1 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -192,14 +192,14 @@ export namespace V1_N {
   }
 
   export type ModelChunkCollisionMeshV1 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     vertices: Array<Float32Array>,
     indices: Uint16Array,
     surfaces: Uint8Array
   }
 
   export type ModelChunkCollisionCloudV1 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -234,8 +234,8 @@ export namespace V2_N {
   export type ModelTextureDataV2 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt
+    token: bigint,
+    blitId: bigint
   }
 
   export type ModelConstantDataV2 = {
@@ -253,7 +253,7 @@ export namespace V2_N {
   }
 
   export type ModelAnimationDataV2 = {
-    token: BigInt,
+    token: bigint,
     animation: PackGrannyAnimationTypeV0
   }
 
@@ -301,7 +301,7 @@ export namespace V2_N {
   }
 
   export type ModelFloatPropertyDataV2 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -312,14 +312,14 @@ export namespace V2_N {
   }
 
   export type ModelCollisionMeshV2 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     vertices: Array<Float32Array>,
     indices: Uint16Array,
     surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV2 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -336,7 +336,7 @@ export namespace V2_N {
 
   export type ModelParticleCloudV2 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flipbook: Array<ModelParticleFlipbookV2>,
@@ -359,7 +359,7 @@ export namespace V2_N {
 
   export type ModelParticleEmitterV2 = {
     acceleration: Array<Float32Array>,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -380,7 +380,7 @@ export namespace V2_N {
   }
 
   export type ModelParticleObstacleV2 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -415,8 +415,8 @@ export namespace V3_N {
   export type ModelTextureDataV3 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt
+    token: bigint,
+    blitId: bigint
   }
 
   export type ModelConstantDataV3 = {
@@ -434,7 +434,7 @@ export namespace V3_N {
   }
 
   export type ModelAnimationDataV3 = {
-    token: BigInt,
+    token: bigint,
     animation: PackGrannyAnimationTypeV0
   }
 
@@ -482,7 +482,7 @@ export namespace V3_N {
   }
 
   export type ModelFloatPropertyDataV3 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -495,14 +495,14 @@ export namespace V3_N {
   }
 
   export type ModelCollisionMeshV3 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     vertices: Array<Float32Array>,
     indices: Uint16Array,
     surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV3 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -530,7 +530,7 @@ export namespace V3_N {
 
   export type ModelParticleCloudV3 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flipbook: Array<ModelParticleFlipbookV3>,
@@ -553,7 +553,7 @@ export namespace V3_N {
 
   export type ModelParticleEmitterV3 = {
     acceleration: Array<Float32Array>,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -574,7 +574,7 @@ export namespace V3_N {
   }
 
   export type ModelParticleObstacleV3 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -609,8 +609,8 @@ export namespace V4_N {
   export type ModelTextureDataV4 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt
+    token: bigint,
+    blitId: bigint
   }
 
   export type ModelConstantDataV4 = {
@@ -629,7 +629,7 @@ export namespace V4_N {
   }
 
   export type ModelAnimationDataV4 = {
-    token: BigInt,
+    token: bigint,
     animation: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV4>
@@ -640,7 +640,7 @@ export namespace V4_N {
   }
 
   export type ModelVisTrackDataV4 = {
-    token: BigInt,
+    token: bigint,
     keys: Float32Array
   }
 
@@ -684,7 +684,7 @@ export namespace V4_N {
   }
 
   export type ModelFloatPropertyDataV4 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -697,14 +697,14 @@ export namespace V4_N {
   }
 
   export type ModelCollisionMeshV4 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     vertices: Array<Float32Array>,
     indices: Uint16Array,
     surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV4 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -732,7 +732,7 @@ export namespace V4_N {
 
   export type ModelParticleCloudV4 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flipbook: Array<ModelParticleFlipbookV4>,
@@ -755,7 +755,7 @@ export namespace V4_N {
 
   export type ModelParticleEmitterV4 = {
     acceleration: Array<Float32Array>,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -776,7 +776,7 @@ export namespace V4_N {
   }
 
   export type ModelParticleObstacleV4 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -811,8 +811,8 @@ export namespace V5_N {
   export type ModelTextureDataV5 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt
+    token: bigint,
+    blitId: bigint
   }
 
   export type ModelConstantDataV5 = {
@@ -832,7 +832,7 @@ export namespace V5_N {
   }
 
   export type ModelAnimationDataV5 = {
-    token: BigInt,
+    token: bigint,
     animation: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV5>
@@ -843,7 +843,7 @@ export namespace V5_N {
   }
 
   export type ModelVisTrackDataV5 = {
-    token: BigInt,
+    token: bigint,
     keys: Float32Array
   }
 
@@ -887,7 +887,7 @@ export namespace V5_N {
   }
 
   export type ModelFloatPropertyDataV5 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -900,14 +900,14 @@ export namespace V5_N {
   }
 
   export type ModelCollisionMeshV5 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     vertices: Array<Float32Array>,
     indices: Uint16Array,
     surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV5 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -935,7 +935,7 @@ export namespace V5_N {
 
   export type ModelParticleCloudV5 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -959,7 +959,7 @@ export namespace V5_N {
 
   export type ModelParticleEmitterV5 = {
     acceleration: Array<Float32Array>,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -980,7 +980,7 @@ export namespace V5_N {
   }
 
   export type ModelParticleObstacleV5 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -1017,8 +1017,8 @@ export namespace V6_N {
   export type ModelTextureDataV6 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt
+    token: bigint,
+    blitId: bigint
   }
 
   export type ModelConstantDataV6 = {
@@ -1038,7 +1038,7 @@ export namespace V6_N {
   }
 
   export type ModelAnimationDataV6 = {
-    token: BigInt,
+    token: bigint,
     animation: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV6>
@@ -1098,7 +1098,7 @@ export namespace V6_N {
   }
 
   export type ModelFloatPropertyDataV6 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -1111,14 +1111,14 @@ export namespace V6_N {
   }
 
   export type ModelCollisionMeshV6 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     vertices: Array<Float32Array>,
     indices: Uint16Array,
     surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV6 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -1146,7 +1146,7 @@ export namespace V6_N {
 
   export type ModelParticleCloudV6 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -1170,7 +1170,7 @@ export namespace V6_N {
 
   export type ModelParticleEmitterV6 = {
     acceleration: Array<Float32Array>,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -1192,7 +1192,7 @@ export namespace V6_N {
   }
 
   export type ModelParticleObstacleV6 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -1230,8 +1230,8 @@ export namespace V7_N {
   export type ModelTextureDataV7 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt
+    token: bigint,
+    blitId: bigint
   }
 
   export type ModelConstantDataV7 = {
@@ -1251,7 +1251,7 @@ export namespace V7_N {
   }
 
   export type ModelAnimationDataV7 = {
-    token: BigInt,
+    token: bigint,
     animation: PackGrannyAnimationTypeV0,
     moveSpeed: number,
     visTrackData: Array<ModelVisTrackDataV7>
@@ -1312,7 +1312,7 @@ export namespace V7_N {
   }
 
   export type ModelFloatPropertyDataV7 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -1325,14 +1325,14 @@ export namespace V7_N {
   }
 
   export type ModelCollisionMeshV7 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     vertices: Array<Float32Array>,
     indices: Uint16Array,
     surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV7 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -1360,7 +1360,7 @@ export namespace V7_N {
 
   export type ModelParticleCloudV7 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -1384,7 +1384,7 @@ export namespace V7_N {
 
   export type ModelParticleEmitterV7 = {
     acceleration: Array<Float32Array>,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -1406,7 +1406,7 @@ export namespace V7_N {
   }
 
   export type ModelParticleObstacleV7 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -1440,8 +1440,8 @@ export namespace V8_N {
   export type ModelTextureDataV8 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -1503,7 +1503,7 @@ export namespace V8_N {
   }
 
   export type ModelFloatPropertyDataV8 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -1515,7 +1515,7 @@ export namespace V8_N {
 
   export type ModelParticleCloudV8 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -1539,7 +1539,7 @@ export namespace V8_N {
 
   export type ModelParticleEmitterV8 = {
     acceleration: Array<Float32Array>,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -1561,7 +1561,7 @@ export namespace V8_N {
   }
 
   export type ModelParticleObstacleV8 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -1596,8 +1596,8 @@ export namespace V9_N {
   export type ModelTextureDataV9 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -1659,7 +1659,7 @@ export namespace V9_N {
   }
 
   export type ModelFloatPropertyDataV9 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -1671,7 +1671,7 @@ export namespace V9_N {
 
   export type ModelParticleCloudV9 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -1695,7 +1695,7 @@ export namespace V9_N {
 
   export type ModelParticleEmitterV9 = {
     acceleration: Array<Float32Array>,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -1717,7 +1717,7 @@ export namespace V9_N {
   }
 
   export type ModelParticleObstacleV9 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -1753,8 +1753,8 @@ export namespace V10_N {
   export type ModelTextureDataV10 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -1816,7 +1816,7 @@ export namespace V10_N {
   }
 
   export type ModelFloatPropertyDataV10 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -1828,7 +1828,7 @@ export namespace V10_N {
 
   export type ModelParticleCloudV10 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -1852,7 +1852,7 @@ export namespace V10_N {
 
   export type ModelParticleEmitterV10 = {
     acceleration: Array<Float32Array>,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -1874,7 +1874,7 @@ export namespace V10_N {
   }
 
   export type ModelParticleObstacleV10 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -1891,7 +1891,7 @@ export namespace V10_N {
 
   export type ModelStreakV10 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -1901,7 +1901,7 @@ export namespace V10_N {
   }
 
   export type ModelStreakAnchorV10 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -1933,8 +1933,8 @@ export namespace V11_N {
   export type ModelTextureDataV11 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -1996,7 +1996,7 @@ export namespace V11_N {
   }
 
   export type ModelFloatPropertyDataV11 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -2008,7 +2008,7 @@ export namespace V11_N {
 
   export type ModelParticleCloudV11 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -2020,7 +2020,7 @@ export namespace V11_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -2067,7 +2067,7 @@ export namespace V11_N {
   }
 
   export type ModelParticleObstacleV11 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -2084,7 +2084,7 @@ export namespace V11_N {
 
   export type ModelStreakV11 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -2094,7 +2094,7 @@ export namespace V11_N {
   }
 
   export type ModelStreakAnchorV11 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -2126,8 +2126,8 @@ export namespace V12_N {
   export type ModelTextureDataV12 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -2190,7 +2190,7 @@ export namespace V12_N {
   }
 
   export type ModelFloatPropertyDataV12 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -2202,7 +2202,7 @@ export namespace V12_N {
 
   export type ModelParticleCloudV12 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -2214,7 +2214,7 @@ export namespace V12_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -2261,7 +2261,7 @@ export namespace V12_N {
   }
 
   export type ModelParticleObstacleV12 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -2278,7 +2278,7 @@ export namespace V12_N {
 
   export type ModelStreakV12 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -2288,7 +2288,7 @@ export namespace V12_N {
   }
 
   export type ModelStreakAnchorV12 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -2320,8 +2320,8 @@ export namespace V13_N {
   export type ModelTextureDataV13 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -2384,7 +2384,7 @@ export namespace V13_N {
   }
 
   export type ModelFloatPropertyDataV13 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -2396,7 +2396,7 @@ export namespace V13_N {
 
   export type ModelParticleCloudV13 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -2408,7 +2408,7 @@ export namespace V13_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -2455,7 +2455,7 @@ export namespace V13_N {
   }
 
   export type ModelParticleObstacleV13 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -2472,7 +2472,7 @@ export namespace V13_N {
 
   export type ModelStreakV13 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -2482,7 +2482,7 @@ export namespace V13_N {
   }
 
   export type ModelStreakAnchorV13 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -2514,8 +2514,8 @@ export namespace V14_N {
   export type ModelTextureDataV14 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -2580,7 +2580,7 @@ export namespace V14_N {
   }
 
   export type ModelFloatPropertyDataV14 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -2592,7 +2592,7 @@ export namespace V14_N {
 
   export type ModelParticleCloudV14 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -2604,7 +2604,7 @@ export namespace V14_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -2651,7 +2651,7 @@ export namespace V14_N {
   }
 
   export type ModelParticleObstacleV14 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -2668,7 +2668,7 @@ export namespace V14_N {
 
   export type ModelStreakV14 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -2678,7 +2678,7 @@ export namespace V14_N {
   }
 
   export type ModelStreakAnchorV14 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -2713,8 +2713,8 @@ export namespace V15_N {
   export type ModelTextureDataV15 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -2782,7 +2782,7 @@ export namespace V15_N {
   }
 
   export type ModelFloatPropertyDataV15 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -2794,7 +2794,7 @@ export namespace V15_N {
 
   export type ModelParticleCloudV15 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -2806,7 +2806,7 @@ export namespace V15_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -2853,7 +2853,7 @@ export namespace V15_N {
   }
 
   export type ModelParticleObstacleV15 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -2870,7 +2870,7 @@ export namespace V15_N {
 
   export type ModelStreakV15 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -2880,7 +2880,7 @@ export namespace V15_N {
   }
 
   export type ModelStreakAnchorV15 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -2891,7 +2891,7 @@ export namespace V15_N {
   }
 
   export type ModelEffectLightV15 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     ranges: Float32Array
   }
@@ -2926,8 +2926,8 @@ export namespace V16_N {
   export type ModelTextureDataV16 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -2995,7 +2995,7 @@ export namespace V16_N {
   }
 
   export type ModelFloatPropertyDataV16 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -3007,7 +3007,7 @@ export namespace V16_N {
 
   export type ModelParticleCloudV16 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -3019,7 +3019,7 @@ export namespace V16_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -3066,7 +3066,7 @@ export namespace V16_N {
   }
 
   export type ModelParticleObstacleV16 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -3083,7 +3083,7 @@ export namespace V16_N {
 
   export type ModelStreakV16 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -3093,7 +3093,7 @@ export namespace V16_N {
   }
 
   export type ModelStreakAnchorV16 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -3104,7 +3104,7 @@ export namespace V16_N {
   }
 
   export type ModelEffectLightV16 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     ranges: Float32Array
   }
@@ -3140,8 +3140,8 @@ export namespace V17_N {
   export type ModelTextureDataV17 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -3217,7 +3217,7 @@ export namespace V17_N {
   }
 
   export type ModelFloatPropertyDataV17 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -3229,7 +3229,7 @@ export namespace V17_N {
 
   export type ModelParticleCloudV17 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -3241,7 +3241,7 @@ export namespace V17_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -3288,7 +3288,7 @@ export namespace V17_N {
   }
 
   export type ModelParticleObstacleV17 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -3305,7 +3305,7 @@ export namespace V17_N {
 
   export type ModelStreakV17 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -3315,7 +3315,7 @@ export namespace V17_N {
   }
 
   export type ModelStreakAnchorV17 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -3326,7 +3326,7 @@ export namespace V17_N {
   }
 
   export type ModelEffectLightV17 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     ranges: Float32Array
   }
@@ -3362,8 +3362,8 @@ export namespace V18_N {
   export type ModelTextureDataV18 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -3438,7 +3438,7 @@ export namespace V18_N {
 
   export type ModelTrackMaskV18 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -3451,7 +3451,7 @@ export namespace V18_N {
   }
 
   export type ModelFloatPropertyDataV18 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -3463,7 +3463,7 @@ export namespace V18_N {
 
   export type ModelParticleCloudV18 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -3475,7 +3475,7 @@ export namespace V18_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -3522,7 +3522,7 @@ export namespace V18_N {
   }
 
   export type ModelParticleObstacleV18 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -3539,7 +3539,7 @@ export namespace V18_N {
 
   export type ModelStreakV18 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -3549,7 +3549,7 @@ export namespace V18_N {
   }
 
   export type ModelStreakAnchorV18 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -3560,7 +3560,7 @@ export namespace V18_N {
   }
 
   export type ModelEffectLightV18 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -3600,8 +3600,8 @@ export namespace V19_N {
   export type ModelTextureDataV19 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -3676,7 +3676,7 @@ export namespace V19_N {
 
   export type ModelTrackMaskV19 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -3689,7 +3689,7 @@ export namespace V19_N {
   }
 
   export type ModelFloatPropertyDataV19 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -3701,7 +3701,7 @@ export namespace V19_N {
 
   export type ModelParticleCloudV19 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -3713,7 +3713,7 @@ export namespace V19_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -3760,7 +3760,7 @@ export namespace V19_N {
   }
 
   export type ModelParticleObstacleV19 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -3777,7 +3777,7 @@ export namespace V19_N {
 
   export type ModelStreakV19 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -3787,7 +3787,7 @@ export namespace V19_N {
   }
 
   export type ModelStreakAnchorV19 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -3798,7 +3798,7 @@ export namespace V19_N {
   }
 
   export type ModelEffectLightV19 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -3878,8 +3878,8 @@ export namespace V20_N {
   export type ModelTextureDataV20 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -3954,7 +3954,7 @@ export namespace V20_N {
 
   export type ModelTrackMaskV20 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -3967,7 +3967,7 @@ export namespace V20_N {
   }
 
   export type ModelFloatPropertyDataV20 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -3979,7 +3979,7 @@ export namespace V20_N {
 
   export type ModelParticleCloudV20 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -3991,7 +3991,7 @@ export namespace V20_N {
     acceleration: Array<Float32Array>,
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: Float32Array,
@@ -4038,7 +4038,7 @@ export namespace V20_N {
   }
 
   export type ModelParticleObstacleV20 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -4055,7 +4055,7 @@ export namespace V20_N {
 
   export type ModelStreakV20 = {
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     spawnFreq: number,
@@ -4065,7 +4065,7 @@ export namespace V20_N {
   }
 
   export type ModelStreakAnchorV20 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -4076,7 +4076,7 @@ export namespace V20_N {
   }
 
   export type ModelEffectLightV20 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -4114,7 +4114,7 @@ export namespace V20_N {
   }
 
   export type ModelClothBoneWeightV20 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -4156,8 +4156,8 @@ export namespace V21_N {
   export type ModelTextureDataV21 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -4233,7 +4233,7 @@ export namespace V21_N {
 
   export type ModelTrackMaskV21 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -4246,7 +4246,7 @@ export namespace V21_N {
   }
 
   export type ModelFloatPropertyDataV21 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -4258,7 +4258,7 @@ export namespace V21_N {
 
   export type ModelParticleCloudV21 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -4273,7 +4273,7 @@ export namespace V21_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -4320,7 +4320,7 @@ export namespace V21_N {
   }
 
   export type ModelParticleObstacleV21 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -4338,7 +4338,7 @@ export namespace V21_N {
   export type ModelStreakV21 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     noise: number,
@@ -4350,7 +4350,7 @@ export namespace V21_N {
   }
 
   export type ModelStreakAnchorV21 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -4361,7 +4361,7 @@ export namespace V21_N {
   }
 
   export type ModelEffectLightV21 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -4399,7 +4399,7 @@ export namespace V21_N {
   }
 
   export type ModelClothBoneWeightV21 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -4441,8 +4441,8 @@ export namespace V22_N {
   export type ModelTextureDataV22 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -4518,7 +4518,7 @@ export namespace V22_N {
 
   export type ModelTrackMaskV22 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -4531,7 +4531,7 @@ export namespace V22_N {
   }
 
   export type ModelFloatPropertyDataV22 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -4543,7 +4543,7 @@ export namespace V22_N {
 
   export type ModelParticleCloudV22 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -4558,7 +4558,7 @@ export namespace V22_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -4605,7 +4605,7 @@ export namespace V22_N {
   }
 
   export type ModelParticleObstacleV22 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -4623,7 +4623,7 @@ export namespace V22_N {
   export type ModelStreakV22 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     noise: number,
@@ -4635,7 +4635,7 @@ export namespace V22_N {
   }
 
   export type ModelStreakAnchorV22 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -4646,7 +4646,7 @@ export namespace V22_N {
   }
 
   export type ModelEffectLightV22 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -4684,7 +4684,7 @@ export namespace V22_N {
   }
 
   export type ModelClothBoneWeightV22 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -4727,8 +4727,8 @@ export namespace V23_N {
   export type ModelTextureDataV23 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -4804,7 +4804,7 @@ export namespace V23_N {
 
   export type ModelTrackMaskV23 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -4817,7 +4817,7 @@ export namespace V23_N {
   }
 
   export type ModelFloatPropertyDataV23 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -4828,7 +4828,7 @@ export namespace V23_N {
 
   export type ModelParticleCloudV23 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -4843,7 +4843,7 @@ export namespace V23_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -4890,7 +4890,7 @@ export namespace V23_N {
   }
 
   export type ModelObstacleDataV23 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -4908,7 +4908,7 @@ export namespace V23_N {
   export type ModelStreakV23 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     noise: number,
@@ -4920,7 +4920,7 @@ export namespace V23_N {
   }
 
   export type ModelStreakAnchorV23 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -4931,7 +4931,7 @@ export namespace V23_N {
   }
 
   export type ModelEffectLightV23 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -4969,7 +4969,7 @@ export namespace V23_N {
   }
 
   export type ModelClothBoneWeightV23 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -5012,8 +5012,8 @@ export namespace V24_N {
   export type ModelTextureDataV24 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -5089,7 +5089,7 @@ export namespace V24_N {
 
   export type ModelTrackMaskV24 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -5102,7 +5102,7 @@ export namespace V24_N {
   }
 
   export type ModelFloatPropertyDataV24 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -5113,7 +5113,7 @@ export namespace V24_N {
 
   export type ModelParticleCloudV24 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -5128,7 +5128,7 @@ export namespace V24_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -5176,7 +5176,7 @@ export namespace V24_N {
   }
 
   export type ModelObstacleDataV24 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -5194,7 +5194,7 @@ export namespace V24_N {
   export type ModelStreakV24 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     materialIndex: number,
     noise: number,
@@ -5206,7 +5206,7 @@ export namespace V24_N {
   }
 
   export type ModelStreakAnchorV24 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -5217,7 +5217,7 @@ export namespace V24_N {
   }
 
   export type ModelEffectLightV24 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -5255,7 +5255,7 @@ export namespace V24_N {
   }
 
   export type ModelClothBoneWeightV24 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -5298,8 +5298,8 @@ export namespace V25_N {
   export type ModelTextureDataV25 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -5375,7 +5375,7 @@ export namespace V25_N {
 
   export type ModelTrackMaskV25 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -5388,7 +5388,7 @@ export namespace V25_N {
   }
 
   export type ModelFloatPropertyDataV25 = {
-    token: BigInt,
+    token: bigint,
     value: number
   }
 
@@ -5399,7 +5399,7 @@ export namespace V25_N {
 
   export type ModelParticleCloudV25 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -5414,7 +5414,7 @@ export namespace V25_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -5462,7 +5462,7 @@ export namespace V25_N {
   }
 
   export type ModelObstacleDataV25 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -5480,7 +5480,7 @@ export namespace V25_N {
   export type ModelStreakV25 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -5493,7 +5493,7 @@ export namespace V25_N {
   }
 
   export type ModelStreakAnchorV25 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -5504,7 +5504,7 @@ export namespace V25_N {
   }
 
   export type ModelEffectLightV25 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -5542,7 +5542,7 @@ export namespace V25_N {
   }
 
   export type ModelClothBoneWeightV25 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -5585,8 +5585,8 @@ export namespace V26_N {
   export type ModelTextureDataV26 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -5662,7 +5662,7 @@ export namespace V26_N {
 
   export type ModelTrackMaskV26 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -5670,10 +5670,10 @@ export namespace V26_N {
   }
 
   export type ModelPropertyDataV26 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -5684,7 +5684,7 @@ export namespace V26_N {
 
   export type ModelParticleCloudV26 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -5699,7 +5699,7 @@ export namespace V26_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -5747,7 +5747,7 @@ export namespace V26_N {
   }
 
   export type ModelObstacleDataV26 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -5765,7 +5765,7 @@ export namespace V26_N {
   export type ModelStreakV26 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -5778,7 +5778,7 @@ export namespace V26_N {
   }
 
   export type ModelStreakAnchorV26 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -5789,7 +5789,7 @@ export namespace V26_N {
   }
 
   export type ModelEffectLightV26 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -5827,7 +5827,7 @@ export namespace V26_N {
   }
 
   export type ModelClothBoneWeightV26 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -5870,8 +5870,8 @@ export namespace V27_N {
   export type ModelTextureDataV27 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -5889,7 +5889,7 @@ export namespace V27_N {
     flags: number,
     visBoneIndices: Uint32Array,
     seamVertIndices: Uint32Array,
-    meshName: BigInt
+    meshName: bigint
   }
 
   export type ModelMeshLodDataV27 = {
@@ -5948,7 +5948,7 @@ export namespace V27_N {
 
   export type ModelTrackMaskV27 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -5956,10 +5956,10 @@ export namespace V27_N {
   }
 
   export type ModelPropertyDataV27 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -5970,7 +5970,7 @@ export namespace V27_N {
 
   export type ModelParticleCloudV27 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -5985,7 +5985,7 @@ export namespace V27_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -6033,7 +6033,7 @@ export namespace V27_N {
   }
 
   export type ModelObstacleDataV27 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -6051,7 +6051,7 @@ export namespace V27_N {
   export type ModelStreakV27 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -6064,7 +6064,7 @@ export namespace V27_N {
   }
 
   export type ModelStreakAnchorV27 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -6075,7 +6075,7 @@ export namespace V27_N {
   }
 
   export type ModelEffectLightV27 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -6113,7 +6113,7 @@ export namespace V27_N {
   }
 
   export type ModelClothBoneWeightV27 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -6156,8 +6156,8 @@ export namespace V28_N {
   export type ModelTextureDataV28 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -6175,7 +6175,7 @@ export namespace V28_N {
     flags: number,
     visBoneIndices: Uint32Array,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -6238,7 +6238,7 @@ export namespace V28_N {
 
   export type ModelTrackMaskV28 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -6246,10 +6246,10 @@ export namespace V28_N {
   }
 
   export type ModelPropertyDataV28 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -6260,7 +6260,7 @@ export namespace V28_N {
 
   export type ModelParticleCloudV28 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -6275,7 +6275,7 @@ export namespace V28_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -6323,7 +6323,7 @@ export namespace V28_N {
   }
 
   export type ModelObstacleDataV28 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -6341,7 +6341,7 @@ export namespace V28_N {
   export type ModelStreakV28 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -6354,7 +6354,7 @@ export namespace V28_N {
   }
 
   export type ModelStreakAnchorV28 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -6365,7 +6365,7 @@ export namespace V28_N {
   }
 
   export type ModelEffectLightV28 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -6403,7 +6403,7 @@ export namespace V28_N {
   }
 
   export type ModelClothBoneWeightV28 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -6448,8 +6448,8 @@ export namespace V29_N {
   export type ModelTextureDataV29 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -6461,12 +6461,12 @@ export namespace V29_N {
   }
 
   export type ModelMatConstLinkV29 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV29 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -6478,7 +6478,7 @@ export namespace V29_N {
     flags: number,
     visBoneIndices: Uint32Array,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -6541,7 +6541,7 @@ export namespace V29_N {
 
   export type ModelTrackMaskV29 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -6549,10 +6549,10 @@ export namespace V29_N {
   }
 
   export type ModelPropertyDataV29 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -6563,7 +6563,7 @@ export namespace V29_N {
 
   export type ModelParticleCloudV29 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -6578,7 +6578,7 @@ export namespace V29_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -6626,7 +6626,7 @@ export namespace V29_N {
   }
 
   export type ModelObstacleDataV29 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -6644,7 +6644,7 @@ export namespace V29_N {
   export type ModelStreakV29 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -6657,7 +6657,7 @@ export namespace V29_N {
   }
 
   export type ModelStreakAnchorV29 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -6668,7 +6668,7 @@ export namespace V29_N {
   }
 
   export type ModelEffectLightV29 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -6707,7 +6707,7 @@ export namespace V29_N {
   }
 
   export type ModelClothBoneWeightV29 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -6718,7 +6718,7 @@ export namespace V29_N {
   }
 
   export type ModelClothObstacleV29 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -6757,8 +6757,8 @@ export namespace V30_N {
   export type ModelTextureDataV30 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -6770,12 +6770,12 @@ export namespace V30_N {
   }
 
   export type ModelMatConstLinkV30 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV30 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -6787,7 +6787,7 @@ export namespace V30_N {
     flags: number,
     visBoneIndices: Uint32Array,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -6850,7 +6850,7 @@ export namespace V30_N {
 
   export type ModelTrackMaskV30 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -6858,11 +6858,11 @@ export namespace V30_N {
   }
 
   export type ModelPropertyDataV30 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -6873,7 +6873,7 @@ export namespace V30_N {
 
   export type ModelParticleCloudV30 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -6888,7 +6888,7 @@ export namespace V30_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -6936,7 +6936,7 @@ export namespace V30_N {
   }
 
   export type ModelObstacleDataV30 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -6954,7 +6954,7 @@ export namespace V30_N {
   export type ModelStreakV30 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -6967,7 +6967,7 @@ export namespace V30_N {
   }
 
   export type ModelStreakAnchorV30 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number
@@ -6978,7 +6978,7 @@ export namespace V30_N {
   }
 
   export type ModelEffectLightV30 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -7017,7 +7017,7 @@ export namespace V30_N {
   }
 
   export type ModelClothBoneWeightV30 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -7028,7 +7028,7 @@ export namespace V30_N {
   }
 
   export type ModelClothObstacleV30 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -7067,8 +7067,8 @@ export namespace V31_N {
   export type ModelTextureDataV31 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -7080,12 +7080,12 @@ export namespace V31_N {
   }
 
   export type ModelMatConstLinkV31 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV31 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -7097,7 +7097,7 @@ export namespace V31_N {
     flags: number,
     visBoneIndices: Uint32Array,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -7160,7 +7160,7 @@ export namespace V31_N {
 
   export type ModelTrackMaskV31 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -7168,11 +7168,11 @@ export namespace V31_N {
   }
 
   export type ModelPropertyDataV31 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -7183,7 +7183,7 @@ export namespace V31_N {
 
   export type ModelParticleCloudV31 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -7198,7 +7198,7 @@ export namespace V31_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -7246,7 +7246,7 @@ export namespace V31_N {
   }
 
   export type ModelObstacleDataV31 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -7264,7 +7264,7 @@ export namespace V31_N {
   export type ModelStreakV31 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -7276,7 +7276,7 @@ export namespace V31_N {
   }
 
   export type ModelStreakAnchorV31 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number,
@@ -7289,7 +7289,7 @@ export namespace V31_N {
   }
 
   export type ModelEffectLightV31 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -7328,7 +7328,7 @@ export namespace V31_N {
   }
 
   export type ModelClothBoneWeightV31 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -7339,7 +7339,7 @@ export namespace V31_N {
   }
 
   export type ModelClothObstacleV31 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -7379,8 +7379,8 @@ export namespace V32_N {
   export type ModelTextureDataV32 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -7392,12 +7392,12 @@ export namespace V32_N {
   }
 
   export type ModelMatConstLinkV32 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV32 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -7409,7 +7409,7 @@ export namespace V32_N {
     flags: number,
     visBoneIndices: Uint32Array,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -7472,7 +7472,7 @@ export namespace V32_N {
 
   export type ModelTrackMaskV32 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -7480,11 +7480,11 @@ export namespace V32_N {
   }
 
   export type ModelPropertyDataV32 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -7495,7 +7495,7 @@ export namespace V32_N {
 
   export type ModelParticleCloudV32 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -7510,7 +7510,7 @@ export namespace V32_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -7558,7 +7558,7 @@ export namespace V32_N {
   }
 
   export type ModelObstacleDataV32 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -7576,7 +7576,7 @@ export namespace V32_N {
   export type ModelStreakV32 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -7588,7 +7588,7 @@ export namespace V32_N {
   }
 
   export type ModelStreakAnchorV32 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number,
@@ -7601,7 +7601,7 @@ export namespace V32_N {
   }
 
   export type ModelEffectLightV32 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -7640,7 +7640,7 @@ export namespace V32_N {
   }
 
   export type ModelClothBoneWeightV32 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -7651,7 +7651,7 @@ export namespace V32_N {
   }
 
   export type ModelClothObstacleV32 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -7668,7 +7668,7 @@ export namespace V32_N {
   }
 
   export type ModelLightningBoltV32 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: number,
     colorEnd: number,
@@ -7692,7 +7692,7 @@ export namespace V32_N {
   }
 
   export type ModelLightningNodeV32 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -7738,8 +7738,8 @@ export namespace V33_N {
   export type ModelTextureDataV33 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -7751,12 +7751,12 @@ export namespace V33_N {
   }
 
   export type ModelMatConstLinkV33 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV33 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -7768,7 +7768,7 @@ export namespace V33_N {
     flags: number,
     visBoneIndices: Uint32Array,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -7831,7 +7831,7 @@ export namespace V33_N {
 
   export type ModelTrackMaskV33 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -7839,11 +7839,11 @@ export namespace V33_N {
   }
 
   export type ModelPropertyDataV33 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -7854,7 +7854,7 @@ export namespace V33_N {
 
   export type ModelParticleCloudV33 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -7869,7 +7869,7 @@ export namespace V33_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -7917,7 +7917,7 @@ export namespace V33_N {
   }
 
   export type ModelObstacleDataV33 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -7935,7 +7935,7 @@ export namespace V33_N {
   export type ModelStreakV33 = {
     acceleration: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -7947,7 +7947,7 @@ export namespace V33_N {
   }
 
   export type ModelStreakAnchorV33 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number,
@@ -7960,7 +7960,7 @@ export namespace V33_N {
   }
 
   export type ModelEffectLightV33 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -7999,7 +7999,7 @@ export namespace V33_N {
   }
 
   export type ModelClothBoneWeightV33 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -8010,7 +8010,7 @@ export namespace V33_N {
   }
 
   export type ModelClothObstacleV33 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -8027,7 +8027,7 @@ export namespace V33_N {
   }
 
   export type ModelLightningBoltV33 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: number,
     colorEnd: number,
@@ -8051,7 +8051,7 @@ export namespace V33_N {
   }
 
   export type ModelLightningNodeV33 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -8061,7 +8061,7 @@ export namespace V33_N {
   }
 
   export type ModelBoneConstraintV33 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -8121,8 +8121,8 @@ export namespace V34_N {
   export type ModelTextureDataV34 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -8134,24 +8134,24 @@ export namespace V34_N {
   }
 
   export type ModelMatConstLinkV34 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV34 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV34 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV34>,
     morphTargets: Array<ModelMeshMorphTargetV34>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -8214,7 +8214,7 @@ export namespace V34_N {
 
   export type ModelTrackMaskV34 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -8222,11 +8222,11 @@ export namespace V34_N {
   }
 
   export type ModelPropertyDataV34 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -8237,7 +8237,7 @@ export namespace V34_N {
 
   export type ModelParticleCloudV34 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -8252,7 +8252,7 @@ export namespace V34_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -8299,7 +8299,7 @@ export namespace V34_N {
   }
 
   export type ModelObstacleDataV34 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -8317,7 +8317,7 @@ export namespace V34_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -8328,7 +8328,7 @@ export namespace V34_N {
   }
 
   export type ModelStreakAnchorV34 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number,
@@ -8341,7 +8341,7 @@ export namespace V34_N {
   }
 
   export type ModelEffectLightV34 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -8379,7 +8379,7 @@ export namespace V34_N {
   }
 
   export type ModelClothBoneWeightV34 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -8390,7 +8390,7 @@ export namespace V34_N {
   }
 
   export type ModelClothObstacleV34 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -8407,7 +8407,7 @@ export namespace V34_N {
   }
 
   export type ModelLightningBoltV34 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: number,
     colorEnd: number,
@@ -8431,7 +8431,7 @@ export namespace V34_N {
   }
 
   export type ModelLightningNodeV34 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -8440,7 +8440,7 @@ export namespace V34_N {
   }
 
   export type ModelBoneConstraintV34 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -8500,8 +8500,8 @@ export namespace V35_N {
   export type ModelTextureDataV35 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -8513,24 +8513,24 @@ export namespace V35_N {
   }
 
   export type ModelMatConstLinkV35 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV35 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV35 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV35>,
     morphTargets: Array<ModelMeshMorphTargetV35>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -8593,7 +8593,7 @@ export namespace V35_N {
 
   export type ModelTrackMaskV35 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -8601,11 +8601,11 @@ export namespace V35_N {
   }
 
   export type ModelPropertyDataV35 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -8616,7 +8616,7 @@ export namespace V35_N {
 
   export type ModelParticleCloudV35 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -8631,7 +8631,7 @@ export namespace V35_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -8678,7 +8678,7 @@ export namespace V35_N {
   }
 
   export type ModelObstacleDataV35 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -8696,7 +8696,7 @@ export namespace V35_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -8707,7 +8707,7 @@ export namespace V35_N {
   }
 
   export type ModelStreakAnchorV35 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number,
@@ -8720,7 +8720,7 @@ export namespace V35_N {
   }
 
   export type ModelEffectLightV35 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -8758,7 +8758,7 @@ export namespace V35_N {
   }
 
   export type ModelClothBoneWeightV35 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -8769,7 +8769,7 @@ export namespace V35_N {
   }
 
   export type ModelClothObstacleV35 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -8786,7 +8786,7 @@ export namespace V35_N {
   }
 
   export type ModelLightningBoltV35 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -8812,7 +8812,7 @@ export namespace V35_N {
   }
 
   export type ModelLightningNodeV35 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -8822,7 +8822,7 @@ export namespace V35_N {
   }
 
   export type ModelBoneConstraintV35 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -8882,8 +8882,8 @@ export namespace V36_N {
   export type ModelTextureDataV36 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -8895,24 +8895,24 @@ export namespace V36_N {
   }
 
   export type ModelMatConstLinkV36 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV36 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV36 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV36>,
     morphTargets: Array<ModelMeshMorphTargetV36>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -8975,7 +8975,7 @@ export namespace V36_N {
 
   export type ModelTrackMaskV36 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -8983,11 +8983,11 @@ export namespace V36_N {
   }
 
   export type ModelPropertyDataV36 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -8998,7 +8998,7 @@ export namespace V36_N {
 
   export type ModelParticleCloudV36 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -9013,7 +9013,7 @@ export namespace V36_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -9060,7 +9060,7 @@ export namespace V36_N {
   }
 
   export type ModelObstacleDataV36 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -9078,7 +9078,7 @@ export namespace V36_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -9089,7 +9089,7 @@ export namespace V36_N {
   }
 
   export type ModelStreakAnchorV36 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number,
@@ -9102,7 +9102,7 @@ export namespace V36_N {
   }
 
   export type ModelEffectLightV36 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -9140,7 +9140,7 @@ export namespace V36_N {
   }
 
   export type ModelClothBoneWeightV36 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -9151,7 +9151,7 @@ export namespace V36_N {
   }
 
   export type ModelClothObstacleV36 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -9168,7 +9168,7 @@ export namespace V36_N {
   }
 
   export type ModelLightningBoltV36 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -9194,7 +9194,7 @@ export namespace V36_N {
   }
 
   export type ModelLightningNodeV36 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -9204,7 +9204,7 @@ export namespace V36_N {
   }
 
   export type ModelBoneConstraintV36 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -9232,7 +9232,7 @@ export namespace V36_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
 }
@@ -9272,8 +9272,8 @@ export namespace V37_N {
   export type ModelTextureDataV37 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -9285,24 +9285,24 @@ export namespace V37_N {
   }
 
   export type ModelMatConstLinkV37 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV37 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV37 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV37>,
     morphTargets: Array<ModelMeshMorphTargetV37>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -9364,7 +9364,7 @@ export namespace V37_N {
 
   export type ModelTrackMaskV37 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -9372,11 +9372,11 @@ export namespace V37_N {
   }
 
   export type ModelPropertyDataV37 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -9387,7 +9387,7 @@ export namespace V37_N {
 
   export type ModelParticleCloudV37 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -9402,7 +9402,7 @@ export namespace V37_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -9449,7 +9449,7 @@ export namespace V37_N {
   }
 
   export type ModelObstacleDataV37 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -9467,7 +9467,7 @@ export namespace V37_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -9478,7 +9478,7 @@ export namespace V37_N {
   }
 
   export type ModelStreakAnchorV37 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number,
@@ -9491,7 +9491,7 @@ export namespace V37_N {
   }
 
   export type ModelEffectLightV37 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -9529,7 +9529,7 @@ export namespace V37_N {
   }
 
   export type ModelClothBoneWeightV37 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -9540,7 +9540,7 @@ export namespace V37_N {
   }
 
   export type ModelClothObstacleV37 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -9557,7 +9557,7 @@ export namespace V37_N {
   }
 
   export type ModelLightningBoltV37 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -9583,7 +9583,7 @@ export namespace V37_N {
   }
 
   export type ModelLightningNodeV37 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -9593,7 +9593,7 @@ export namespace V37_N {
   }
 
   export type ModelBoneConstraintV37 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -9621,7 +9621,7 @@ export namespace V37_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
 }
@@ -9661,8 +9661,8 @@ export namespace V38_N {
   export type ModelTextureDataV38 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -9674,24 +9674,24 @@ export namespace V38_N {
   }
 
   export type ModelMatConstLinkV38 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV38 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV38 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV38>,
     morphTargets: Array<ModelMeshMorphTargetV38>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -9753,7 +9753,7 @@ export namespace V38_N {
 
   export type ModelTrackMaskV38 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -9761,11 +9761,11 @@ export namespace V38_N {
   }
 
   export type ModelPropertyDataV38 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -9776,7 +9776,7 @@ export namespace V38_N {
 
   export type ModelParticleCloudV38 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -9791,7 +9791,7 @@ export namespace V38_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -9838,7 +9838,7 @@ export namespace V38_N {
   }
 
   export type ModelObstacleDataV38 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -9856,7 +9856,7 @@ export namespace V38_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -9867,7 +9867,7 @@ export namespace V38_N {
   }
 
   export type ModelStreakAnchorV38 = {
-    bone: BigInt,
+    bone: bigint,
     color: number,
     falloff: number,
     lifetime: number,
@@ -9880,7 +9880,7 @@ export namespace V38_N {
   }
 
   export type ModelEffectLightV38 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -9918,7 +9918,7 @@ export namespace V38_N {
   }
 
   export type ModelClothBoneWeightV38 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -9929,7 +9929,7 @@ export namespace V38_N {
   }
 
   export type ModelClothObstacleV38 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -9946,7 +9946,7 @@ export namespace V38_N {
   }
 
   export type ModelLightningBoltV38 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -9972,7 +9972,7 @@ export namespace V38_N {
   }
 
   export type ModelLightningNodeV38 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -9982,7 +9982,7 @@ export namespace V38_N {
   }
 
   export type ModelBoneConstraintV38 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -10010,7 +10010,7 @@ export namespace V38_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
 }
@@ -10050,8 +10050,8 @@ export namespace V39_N {
   export type ModelTextureDataV39 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -10063,24 +10063,24 @@ export namespace V39_N {
   }
 
   export type ModelMatConstLinkV39 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV39 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV39 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV39>,
     morphTargets: Array<ModelMeshMorphTargetV39>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -10142,7 +10142,7 @@ export namespace V39_N {
 
   export type ModelTrackMaskV39 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -10150,11 +10150,11 @@ export namespace V39_N {
   }
 
   export type ModelPropertyDataV39 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -10165,7 +10165,7 @@ export namespace V39_N {
 
   export type ModelParticleCloudV39 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     flags: number,
@@ -10180,7 +10180,7 @@ export namespace V39_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -10227,7 +10227,7 @@ export namespace V39_N {
   }
 
   export type ModelObstacleDataV39 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -10245,7 +10245,7 @@ export namespace V39_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -10256,7 +10256,7 @@ export namespace V39_N {
   }
 
   export type ModelStreakAnchorV39 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -10270,7 +10270,7 @@ export namespace V39_N {
   }
 
   export type ModelEffectLightV39 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -10308,7 +10308,7 @@ export namespace V39_N {
   }
 
   export type ModelClothBoneWeightV39 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -10319,7 +10319,7 @@ export namespace V39_N {
   }
 
   export type ModelClothObstacleV39 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -10336,7 +10336,7 @@ export namespace V39_N {
   }
 
   export type ModelLightningBoltV39 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -10362,7 +10362,7 @@ export namespace V39_N {
   }
 
   export type ModelLightningNodeV39 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -10372,7 +10372,7 @@ export namespace V39_N {
   }
 
   export type ModelBoneConstraintV39 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -10400,7 +10400,7 @@ export namespace V39_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
 }
@@ -10440,8 +10440,8 @@ export namespace V40_N {
   export type ModelTextureDataV40 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -10453,24 +10453,24 @@ export namespace V40_N {
   }
 
   export type ModelMatConstLinkV40 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV40 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV40 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV40>,
     morphTargets: Array<ModelMeshMorphTargetV40>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -10532,7 +10532,7 @@ export namespace V40_N {
 
   export type ModelTrackMaskV40 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -10540,11 +10540,11 @@ export namespace V40_N {
   }
 
   export type ModelPropertyDataV40 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -10555,7 +10555,7 @@ export namespace V40_N {
 
   export type ModelParticleCloudV40 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -10571,7 +10571,7 @@ export namespace V40_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -10620,7 +10620,7 @@ export namespace V40_N {
   }
 
   export type ModelObstacleDataV40 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -10638,7 +10638,7 @@ export namespace V40_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -10649,7 +10649,7 @@ export namespace V40_N {
   }
 
   export type ModelStreakAnchorV40 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -10663,7 +10663,7 @@ export namespace V40_N {
   }
 
   export type ModelEffectLightV40 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -10701,7 +10701,7 @@ export namespace V40_N {
   }
 
   export type ModelClothBoneWeightV40 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -10712,7 +10712,7 @@ export namespace V40_N {
   }
 
   export type ModelClothObstacleV40 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -10729,7 +10729,7 @@ export namespace V40_N {
   }
 
   export type ModelLightningBoltV40 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -10755,7 +10755,7 @@ export namespace V40_N {
   }
 
   export type ModelLightningNodeV40 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -10765,7 +10765,7 @@ export namespace V40_N {
   }
 
   export type ModelBoneConstraintV40 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -10793,7 +10793,7 @@ export namespace V40_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
 }
@@ -10834,8 +10834,8 @@ export namespace V41_N {
   export type ModelTextureDataV41 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -10847,24 +10847,24 @@ export namespace V41_N {
   }
 
   export type ModelMatConstLinkV41 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV41 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV41 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV41>,
     morphTargets: Array<ModelMeshMorphTargetV41>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -10926,7 +10926,7 @@ export namespace V41_N {
 
   export type ModelTrackMaskV41 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -10934,11 +10934,11 @@ export namespace V41_N {
   }
 
   export type ModelPropertyDataV41 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -10949,7 +10949,7 @@ export namespace V41_N {
 
   export type ModelParticleCloudV41 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -10965,7 +10965,7 @@ export namespace V41_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -11014,7 +11014,7 @@ export namespace V41_N {
   }
 
   export type ModelObstacleDataV41 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -11032,7 +11032,7 @@ export namespace V41_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -11043,7 +11043,7 @@ export namespace V41_N {
   }
 
   export type ModelStreakAnchorV41 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -11057,7 +11057,7 @@ export namespace V41_N {
   }
 
   export type ModelEffectLightV41 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -11095,7 +11095,7 @@ export namespace V41_N {
   }
 
   export type ModelClothBoneWeightV41 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -11106,7 +11106,7 @@ export namespace V41_N {
   }
 
   export type ModelClothObstacleV41 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -11123,7 +11123,7 @@ export namespace V41_N {
   }
 
   export type ModelLightningBoltV41 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -11149,7 +11149,7 @@ export namespace V41_N {
   }
 
   export type ModelLightningNodeV41 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -11159,7 +11159,7 @@ export namespace V41_N {
   }
 
   export type ModelBoneConstraintV41 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -11187,7 +11187,7 @@ export namespace V41_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV41 = {
@@ -11237,8 +11237,8 @@ export namespace V42_N {
   export type ModelTextureDataV42 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -11250,24 +11250,24 @@ export namespace V42_N {
   }
 
   export type ModelMatConstLinkV42 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV42 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV42 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV42>,
     morphTargets: Array<ModelMeshMorphTargetV42>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -11329,7 +11329,7 @@ export namespace V42_N {
 
   export type ModelTrackMaskV42 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -11337,11 +11337,11 @@ export namespace V42_N {
   }
 
   export type ModelPropertyDataV42 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -11352,7 +11352,7 @@ export namespace V42_N {
 
   export type ModelParticleCloudV42 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -11368,7 +11368,7 @@ export namespace V42_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -11417,7 +11417,7 @@ export namespace V42_N {
   }
 
   export type ModelObstacleDataV42 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -11435,7 +11435,7 @@ export namespace V42_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -11446,7 +11446,7 @@ export namespace V42_N {
   }
 
   export type ModelStreakAnchorV42 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -11460,7 +11460,7 @@ export namespace V42_N {
   }
 
   export type ModelEffectLightV42 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -11498,7 +11498,7 @@ export namespace V42_N {
   }
 
   export type ModelClothBoneWeightV42 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -11509,7 +11509,7 @@ export namespace V42_N {
   }
 
   export type ModelClothObstacleV42 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -11520,14 +11520,14 @@ export namespace V42_N {
   }
 
   export type ModelLightningSystemV42 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     materialIndex: number
   }
 
   export type ModelLightningBoltV42 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -11553,7 +11553,7 @@ export namespace V42_N {
   }
 
   export type ModelLightningNodeV42 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -11563,7 +11563,7 @@ export namespace V42_N {
   }
 
   export type ModelBoneConstraintV42 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -11591,7 +11591,7 @@ export namespace V42_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV42 = {
@@ -11641,8 +11641,8 @@ export namespace V43_N {
   export type ModelTextureDataV43 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -11654,24 +11654,24 @@ export namespace V43_N {
   }
 
   export type ModelMatConstLinkV43 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV43 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV43 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV43>,
     morphTargets: Array<ModelMeshMorphTargetV43>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -11737,7 +11737,7 @@ export namespace V43_N {
 
   export type ModelTrackMaskV43 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -11745,11 +11745,11 @@ export namespace V43_N {
   }
 
   export type ModelPropertyDataV43 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -11760,7 +11760,7 @@ export namespace V43_N {
 
   export type ModelParticleCloudV43 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -11776,7 +11776,7 @@ export namespace V43_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -11825,7 +11825,7 @@ export namespace V43_N {
   }
 
   export type ModelObstacleDataV43 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -11843,7 +11843,7 @@ export namespace V43_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -11854,7 +11854,7 @@ export namespace V43_N {
   }
 
   export type ModelStreakAnchorV43 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -11868,7 +11868,7 @@ export namespace V43_N {
   }
 
   export type ModelEffectLightV43 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -11906,7 +11906,7 @@ export namespace V43_N {
   }
 
   export type ModelClothBoneWeightV43 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -11917,7 +11917,7 @@ export namespace V43_N {
   }
 
   export type ModelClothObstacleV43 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -11928,14 +11928,14 @@ export namespace V43_N {
   }
 
   export type ModelLightningSystemV43 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     materialIndex: number
   }
 
   export type ModelLightningBoltV43 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -11961,7 +11961,7 @@ export namespace V43_N {
   }
 
   export type ModelLightningNodeV43 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -11971,7 +11971,7 @@ export namespace V43_N {
   }
 
   export type ModelBoneConstraintV43 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -11999,7 +11999,7 @@ export namespace V43_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV43 = {
@@ -12049,8 +12049,8 @@ export namespace V44_N {
   export type ModelTextureDataV44 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -12062,24 +12062,24 @@ export namespace V44_N {
   }
 
   export type ModelMatConstLinkV44 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV44 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
 
   export type ModelMeshDataV44 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV44>,
     morphTargets: Array<ModelMeshMorphTargetV44>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -12145,7 +12145,7 @@ export namespace V44_N {
 
   export type ModelTrackMaskV44 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -12153,11 +12153,11 @@ export namespace V44_N {
   }
 
   export type ModelPropertyDataV44 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -12168,7 +12168,7 @@ export namespace V44_N {
 
   export type ModelParticleCloudV44 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -12184,7 +12184,7 @@ export namespace V44_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -12233,7 +12233,7 @@ export namespace V44_N {
   }
 
   export type ModelObstacleDataV44 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -12251,7 +12251,7 @@ export namespace V44_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -12262,7 +12262,7 @@ export namespace V44_N {
   }
 
   export type ModelStreakAnchorV44 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -12276,7 +12276,7 @@ export namespace V44_N {
   }
 
   export type ModelEffectLightV44 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -12314,7 +12314,7 @@ export namespace V44_N {
   }
 
   export type ModelClothBoneWeightV44 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -12325,7 +12325,7 @@ export namespace V44_N {
   }
 
   export type ModelClothObstacleV44 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -12336,14 +12336,14 @@ export namespace V44_N {
   }
 
   export type ModelLightningSystemV44 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     materialIndex: number
   }
 
   export type ModelLightningBoltV44 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -12369,7 +12369,7 @@ export namespace V44_N {
   }
 
   export type ModelLightningNodeV44 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -12379,7 +12379,7 @@ export namespace V44_N {
   }
 
   export type ModelBoneConstraintV44 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -12407,7 +12407,7 @@ export namespace V44_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV44 = {
@@ -12458,8 +12458,8 @@ export namespace V45_N {
   export type ModelTextureDataV45 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -12471,12 +12471,12 @@ export namespace V45_N {
   }
 
   export type ModelMatConstLinkV45 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV45 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -12492,13 +12492,13 @@ export namespace V45_N {
   }
 
   export type ModelMeshDataV45 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV45>,
     morphTargets: Array<ModelMeshMorphTargetV45>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -12564,7 +12564,7 @@ export namespace V45_N {
 
   export type ModelTrackMaskV45 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -12572,11 +12572,11 @@ export namespace V45_N {
   }
 
   export type ModelPropertyDataV45 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -12587,7 +12587,7 @@ export namespace V45_N {
 
   export type ModelParticleCloudV45 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -12603,7 +12603,7 @@ export namespace V45_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -12652,7 +12652,7 @@ export namespace V45_N {
   }
 
   export type ModelObstacleDataV45 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -12670,7 +12670,7 @@ export namespace V45_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -12681,7 +12681,7 @@ export namespace V45_N {
   }
 
   export type ModelStreakAnchorV45 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -12695,7 +12695,7 @@ export namespace V45_N {
   }
 
   export type ModelEffectLightV45 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -12733,7 +12733,7 @@ export namespace V45_N {
   }
 
   export type ModelClothBoneWeightV45 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -12744,7 +12744,7 @@ export namespace V45_N {
   }
 
   export type ModelClothObstacleV45 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -12755,14 +12755,14 @@ export namespace V45_N {
   }
 
   export type ModelLightningSystemV45 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     materialIndex: number
   }
 
   export type ModelLightningBoltV45 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -12788,7 +12788,7 @@ export namespace V45_N {
   }
 
   export type ModelLightningNodeV45 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -12798,7 +12798,7 @@ export namespace V45_N {
   }
 
   export type ModelBoneConstraintV45 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -12826,7 +12826,7 @@ export namespace V45_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV45 = {
@@ -12877,8 +12877,8 @@ export namespace V46_N {
   export type ModelTextureDataV46 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -12890,12 +12890,12 @@ export namespace V46_N {
   }
 
   export type ModelMatConstLinkV46 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV46 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -12911,13 +12911,13 @@ export namespace V46_N {
   }
 
   export type ModelMeshDataV46 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV46>,
     morphTargets: Array<ModelMeshMorphTargetV46>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -12983,7 +12983,7 @@ export namespace V46_N {
 
   export type ModelTrackMaskV46 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -12991,11 +12991,11 @@ export namespace V46_N {
   }
 
   export type ModelPropertyDataV46 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -13006,7 +13006,7 @@ export namespace V46_N {
 
   export type ModelParticleCloudV46 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -13022,7 +13022,7 @@ export namespace V46_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -13071,7 +13071,7 @@ export namespace V46_N {
   }
 
   export type ModelObstacleDataV46 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -13089,7 +13089,7 @@ export namespace V46_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -13100,7 +13100,7 @@ export namespace V46_N {
   }
 
   export type ModelStreakAnchorV46 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -13114,7 +13114,7 @@ export namespace V46_N {
   }
 
   export type ModelEffectLightV46 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -13152,7 +13152,7 @@ export namespace V46_N {
   }
 
   export type ModelClothBoneWeightV46 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -13163,7 +13163,7 @@ export namespace V46_N {
   }
 
   export type ModelClothObstacleV46 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -13174,14 +13174,14 @@ export namespace V46_N {
   }
 
   export type ModelLightningSystemV46 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     materialIndex: number
   }
 
   export type ModelLightningBoltV46 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -13207,7 +13207,7 @@ export namespace V46_N {
   }
 
   export type ModelLightningNodeV46 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -13217,7 +13217,7 @@ export namespace V46_N {
   }
 
   export type ModelBoneConstraintV46 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -13245,7 +13245,7 @@ export namespace V46_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV46 = {
@@ -13296,8 +13296,8 @@ export namespace V47_N {
   export type ModelTextureDataV47 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -13309,12 +13309,12 @@ export namespace V47_N {
   }
 
   export type ModelMatConstLinkV47 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV47 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -13330,13 +13330,13 @@ export namespace V47_N {
   }
 
   export type ModelMeshDataV47 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV47>,
     morphTargets: Array<ModelMeshMorphTargetV47>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array
   }
@@ -13348,7 +13348,7 @@ export namespace V47_N {
   export type ModelMeshMorphTargetV47 = {
     positions: Array<ModelMeshMorphVertV47>,
     normals: Array<ModelMeshMorphVertV47>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV47 = {
@@ -13405,7 +13405,7 @@ export namespace V47_N {
 
   export type ModelTrackMaskV47 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -13413,11 +13413,11 @@ export namespace V47_N {
   }
 
   export type ModelPropertyDataV47 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -13428,7 +13428,7 @@ export namespace V47_N {
 
   export type ModelParticleCloudV47 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -13444,7 +13444,7 @@ export namespace V47_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -13493,7 +13493,7 @@ export namespace V47_N {
   }
 
   export type ModelObstacleDataV47 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -13511,7 +13511,7 @@ export namespace V47_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -13522,7 +13522,7 @@ export namespace V47_N {
   }
 
   export type ModelStreakAnchorV47 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -13536,7 +13536,7 @@ export namespace V47_N {
   }
 
   export type ModelEffectLightV47 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -13574,7 +13574,7 @@ export namespace V47_N {
   }
 
   export type ModelClothBoneWeightV47 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -13585,7 +13585,7 @@ export namespace V47_N {
   }
 
   export type ModelClothObstacleV47 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -13596,14 +13596,14 @@ export namespace V47_N {
   }
 
   export type ModelLightningSystemV47 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     materialIndex: number
   }
 
   export type ModelLightningBoltV47 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -13629,7 +13629,7 @@ export namespace V47_N {
   }
 
   export type ModelLightningNodeV47 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -13639,7 +13639,7 @@ export namespace V47_N {
   }
 
   export type ModelBoneConstraintV47 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -13667,7 +13667,7 @@ export namespace V47_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV47 = {
@@ -13718,8 +13718,8 @@ export namespace V48_N {
   export type ModelTextureDataV48 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -13731,12 +13731,12 @@ export namespace V48_N {
   }
 
   export type ModelMatConstLinkV48 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV48 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -13752,13 +13752,13 @@ export namespace V48_N {
   }
 
   export type ModelMeshDataV48 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV48>,
     morphTargets: Array<ModelMeshMorphTargetV48>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>
@@ -13771,7 +13771,7 @@ export namespace V48_N {
   export type ModelMeshMorphTargetV48 = {
     positions: Array<ModelMeshMorphVertV48>,
     normals: Array<ModelMeshMorphVertV48>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV48 = {
@@ -13834,7 +13834,7 @@ export namespace V48_N {
 
   export type ModelTrackMaskV48 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -13842,11 +13842,11 @@ export namespace V48_N {
   }
 
   export type ModelPropertyDataV48 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -13857,7 +13857,7 @@ export namespace V48_N {
 
   export type ModelParticleCloudV48 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -13873,7 +13873,7 @@ export namespace V48_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -13922,7 +13922,7 @@ export namespace V48_N {
   }
 
   export type ModelObstacleDataV48 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -13940,7 +13940,7 @@ export namespace V48_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -13951,7 +13951,7 @@ export namespace V48_N {
   }
 
   export type ModelStreakAnchorV48 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -13965,7 +13965,7 @@ export namespace V48_N {
   }
 
   export type ModelEffectLightV48 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -14003,7 +14003,7 @@ export namespace V48_N {
   }
 
   export type ModelClothBoneWeightV48 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -14014,7 +14014,7 @@ export namespace V48_N {
   }
 
   export type ModelClothObstacleV48 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -14025,14 +14025,14 @@ export namespace V48_N {
   }
 
   export type ModelLightningSystemV48 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     materialIndex: number
   }
 
   export type ModelLightningBoltV48 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -14058,7 +14058,7 @@ export namespace V48_N {
   }
 
   export type ModelLightningNodeV48 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -14068,7 +14068,7 @@ export namespace V48_N {
   }
 
   export type ModelBoneConstraintV48 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -14096,7 +14096,7 @@ export namespace V48_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV48 = {
@@ -14148,8 +14148,8 @@ export namespace V49_N {
   export type ModelTextureDataV49 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -14161,12 +14161,12 @@ export namespace V49_N {
   }
 
   export type ModelMatConstLinkV49 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV49 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -14182,13 +14182,13 @@ export namespace V49_N {
   }
 
   export type ModelMeshDataV49 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV49>,
     morphTargets: Array<ModelMeshMorphTargetV49>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>
@@ -14201,7 +14201,7 @@ export namespace V49_N {
   export type ModelMeshMorphTargetV49 = {
     positions: Array<ModelMeshMorphVertV49>,
     normals: Array<ModelMeshMorphVertV49>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV49 = {
@@ -14264,7 +14264,7 @@ export namespace V49_N {
 
   export type ModelTrackMaskV49 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -14272,11 +14272,11 @@ export namespace V49_N {
   }
 
   export type ModelPropertyDataV49 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -14287,7 +14287,7 @@ export namespace V49_N {
 
   export type ModelParticleCloudV49 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -14303,7 +14303,7 @@ export namespace V49_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -14352,7 +14352,7 @@ export namespace V49_N {
   }
 
   export type ModelObstacleDataV49 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -14370,7 +14370,7 @@ export namespace V49_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -14381,7 +14381,7 @@ export namespace V49_N {
   }
 
   export type ModelStreakAnchorV49 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -14395,7 +14395,7 @@ export namespace V49_N {
   }
 
   export type ModelEffectLightV49 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -14433,7 +14433,7 @@ export namespace V49_N {
   }
 
   export type ModelClothBoneWeightV49 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -14444,7 +14444,7 @@ export namespace V49_N {
   }
 
   export type ModelClothObstacleV49 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -14455,14 +14455,14 @@ export namespace V49_N {
   }
 
   export type ModelLightningSystemV49 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     materialIndex: number
   }
 
   export type ModelLightningBoltV49 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -14488,7 +14488,7 @@ export namespace V49_N {
   }
 
   export type ModelLightningNodeV49 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -14498,7 +14498,7 @@ export namespace V49_N {
   }
 
   export type ModelBoneConstraintV49 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -14526,7 +14526,7 @@ export namespace V49_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV49 = {
@@ -14539,7 +14539,7 @@ export namespace V49_N {
   }
 
   export type ModelBoneOffsetDataV49 = {
-    bone: BigInt,
+    bone: bigint,
     offset: Float32Array
   }
 
@@ -14583,8 +14583,8 @@ export namespace V50_N {
   export type ModelTextureDataV50 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -14596,12 +14596,12 @@ export namespace V50_N {
   }
 
   export type ModelMatConstLinkV50 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV50 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -14617,13 +14617,13 @@ export namespace V50_N {
   }
 
   export type ModelMeshDataV50 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV50>,
     morphTargets: Array<ModelMeshMorphTargetV50>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>
@@ -14636,7 +14636,7 @@ export namespace V50_N {
   export type ModelMeshMorphTargetV50 = {
     positions: Array<ModelMeshMorphVertV50>,
     normals: Array<ModelMeshMorphVertV50>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV50 = {
@@ -14699,7 +14699,7 @@ export namespace V50_N {
 
   export type ModelTrackMaskV50 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -14707,11 +14707,11 @@ export namespace V50_N {
   }
 
   export type ModelPropertyDataV50 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -14722,7 +14722,7 @@ export namespace V50_N {
 
   export type ModelParticleCloudV50 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -14738,7 +14738,7 @@ export namespace V50_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -14787,7 +14787,7 @@ export namespace V50_N {
   }
 
   export type ModelObstacleDataV50 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -14805,7 +14805,7 @@ export namespace V50_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -14816,7 +14816,7 @@ export namespace V50_N {
   }
 
   export type ModelStreakAnchorV50 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -14830,7 +14830,7 @@ export namespace V50_N {
   }
 
   export type ModelEffectLightV50 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -14868,7 +14868,7 @@ export namespace V50_N {
   }
 
   export type ModelClothBoneWeightV50 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -14879,7 +14879,7 @@ export namespace V50_N {
   }
 
   export type ModelClothObstacleV50 = {
-    bone: BigInt,
+    bone: bigint,
     type: number
   }
 
@@ -14890,7 +14890,7 @@ export namespace V50_N {
   }
 
   export type ModelLightningSystemV50 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -14898,7 +14898,7 @@ export namespace V50_N {
   }
 
   export type ModelLightningBoltV50 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -14924,7 +14924,7 @@ export namespace V50_N {
   }
 
   export type ModelLightningNodeV50 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -14934,7 +14934,7 @@ export namespace V50_N {
   }
 
   export type ModelBoneConstraintV50 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -14962,7 +14962,7 @@ export namespace V50_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV50 = {
@@ -14975,7 +14975,7 @@ export namespace V50_N {
   }
 
   export type ModelBoneOffsetDataV50 = {
-    bone: BigInt,
+    bone: bigint,
     offset: Float32Array
   }
 
@@ -15005,7 +15005,7 @@ export namespace V51_N {
   }
 
   export type ModelPermutationDataV51 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV51>
   }
 
@@ -15025,8 +15025,8 @@ export namespace V51_N {
   export type ModelTextureDataV51 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -15038,12 +15038,12 @@ export namespace V51_N {
   }
 
   export type ModelMatConstLinkV51 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV51 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -15059,13 +15059,13 @@ export namespace V51_N {
   }
 
   export type ModelMeshDataV51 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV51>,
     morphTargets: Array<ModelMeshMorphTargetV51>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -15080,7 +15080,7 @@ export namespace V51_N {
   export type ModelMeshMorphTargetV51 = {
     positions: Array<ModelMeshMorphVertV51>,
     normals: Array<ModelMeshMorphVertV51>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV51 = {
@@ -15143,7 +15143,7 @@ export namespace V51_N {
 
   export type ModelTrackMaskV51 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -15151,11 +15151,11 @@ export namespace V51_N {
   }
 
   export type ModelPropertyDataV51 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -15166,7 +15166,7 @@ export namespace V51_N {
 
   export type ModelParticleCloudV51 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -15182,7 +15182,7 @@ export namespace V51_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -15231,7 +15231,7 @@ export namespace V51_N {
   }
 
   export type ModelObstacleDataV51 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -15249,7 +15249,7 @@ export namespace V51_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -15260,7 +15260,7 @@ export namespace V51_N {
   }
 
   export type ModelStreakAnchorV51 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -15274,7 +15274,7 @@ export namespace V51_N {
   }
 
   export type ModelEffectLightV51 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -15312,7 +15312,7 @@ export namespace V51_N {
   }
 
   export type ModelClothBoneWeightV51 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -15323,7 +15323,7 @@ export namespace V51_N {
   }
 
   export type ModelClothObstacleV51 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     depth: number,
     height: number,
@@ -15338,7 +15338,7 @@ export namespace V51_N {
   }
 
   export type ModelLightningSystemV51 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -15346,7 +15346,7 @@ export namespace V51_N {
   }
 
   export type ModelLightningBoltV51 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -15372,7 +15372,7 @@ export namespace V51_N {
   }
 
   export type ModelLightningNodeV51 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -15382,7 +15382,7 @@ export namespace V51_N {
   }
 
   export type ModelBoneConstraintV51 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -15410,7 +15410,7 @@ export namespace V51_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV51 = {
@@ -15423,7 +15423,7 @@ export namespace V51_N {
   }
 
   export type ModelBoneOffsetDataV51 = {
-    bone: BigInt,
+    bone: bigint,
     offset: Float32Array
   }
 
@@ -15453,7 +15453,7 @@ export namespace V52_N {
   }
 
   export type ModelPermutationDataV52 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV52>
   }
 
@@ -15473,8 +15473,8 @@ export namespace V52_N {
   export type ModelTextureDataV52 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -15486,12 +15486,12 @@ export namespace V52_N {
   }
 
   export type ModelMatConstLinkV52 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV52 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -15507,13 +15507,13 @@ export namespace V52_N {
   }
 
   export type ModelMeshDataV52 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV52>,
     morphTargets: Array<ModelMeshMorphTargetV52>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -15528,7 +15528,7 @@ export namespace V52_N {
   export type ModelMeshMorphTargetV52 = {
     positions: Array<ModelMeshMorphVertV52>,
     normals: Array<ModelMeshMorphVertV52>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV52 = {
@@ -15591,7 +15591,7 @@ export namespace V52_N {
 
   export type ModelTrackMaskV52 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -15599,11 +15599,11 @@ export namespace V52_N {
   }
 
   export type ModelPropertyDataV52 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -15614,7 +15614,7 @@ export namespace V52_N {
 
   export type ModelParticleCloudV52 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -15630,7 +15630,7 @@ export namespace V52_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -15679,7 +15679,7 @@ export namespace V52_N {
   }
 
   export type ModelObstacleDataV52 = {
-    bone: BigInt,
+    bone: bigint,
     dragCoef: number,
     flags: number,
     geoData: Float32Array,
@@ -15697,7 +15697,7 @@ export namespace V52_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -15708,7 +15708,7 @@ export namespace V52_N {
   }
 
   export type ModelStreakAnchorV52 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -15722,7 +15722,7 @@ export namespace V52_N {
   }
 
   export type ModelEffectLightV52 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -15763,7 +15763,7 @@ export namespace V52_N {
   }
 
   export type ModelClothBoneWeightV52 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -15780,7 +15780,7 @@ export namespace V52_N {
   }
 
   export type ModelClothObstacleV52 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     depth: number,
     height: number,
@@ -15795,7 +15795,7 @@ export namespace V52_N {
   }
 
   export type ModelLightningSystemV52 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -15803,7 +15803,7 @@ export namespace V52_N {
   }
 
   export type ModelLightningBoltV52 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -15829,7 +15829,7 @@ export namespace V52_N {
   }
 
   export type ModelLightningNodeV52 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -15839,7 +15839,7 @@ export namespace V52_N {
   }
 
   export type ModelBoneConstraintV52 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -15867,7 +15867,7 @@ export namespace V52_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV52 = {
@@ -15880,7 +15880,7 @@ export namespace V52_N {
   }
 
   export type ModelBoneOffsetDataV52 = {
-    bone: BigInt,
+    bone: bigint,
     offset: Float32Array
   }
 
@@ -15910,7 +15910,7 @@ export namespace V53_N {
   }
 
   export type ModelPermutationDataV53 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV53>
   }
 
@@ -15930,8 +15930,8 @@ export namespace V53_N {
   export type ModelTextureDataV53 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -15943,12 +15943,12 @@ export namespace V53_N {
   }
 
   export type ModelMatConstLinkV53 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV53 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -15964,13 +15964,13 @@ export namespace V53_N {
   }
 
   export type ModelMeshDataV53 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV53>,
     morphTargets: Array<ModelMeshMorphTargetV53>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -15985,7 +15985,7 @@ export namespace V53_N {
   export type ModelMeshMorphTargetV53 = {
     positions: Array<ModelMeshMorphVertV53>,
     normals: Array<ModelMeshMorphVertV53>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV53 = {
@@ -16048,7 +16048,7 @@ export namespace V53_N {
 
   export type ModelTrackMaskV53 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -16056,11 +16056,11 @@ export namespace V53_N {
   }
 
   export type ModelPropertyDataV53 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -16071,7 +16071,7 @@ export namespace V53_N {
 
   export type ModelParticleCloudV53 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -16087,7 +16087,7 @@ export namespace V53_N {
     accelerationDistSpeed: Float32Array,
     alignmentType: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -16136,7 +16136,7 @@ export namespace V53_N {
   }
 
   export type ModelObstacleDataV53 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -16164,7 +16164,7 @@ export namespace V53_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -16175,7 +16175,7 @@ export namespace V53_N {
   }
 
   export type ModelStreakAnchorV53 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -16189,7 +16189,7 @@ export namespace V53_N {
   }
 
   export type ModelEffectLightV53 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -16230,7 +16230,7 @@ export namespace V53_N {
   }
 
   export type ModelClothBoneWeightV53 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -16253,7 +16253,7 @@ export namespace V53_N {
   }
 
   export type ModelLightningSystemV53 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -16261,7 +16261,7 @@ export namespace V53_N {
   }
 
   export type ModelLightningBoltV53 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -16287,7 +16287,7 @@ export namespace V53_N {
   }
 
   export type ModelLightningNodeV53 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -16297,7 +16297,7 @@ export namespace V53_N {
   }
 
   export type ModelBoneConstraintV53 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -16325,7 +16325,7 @@ export namespace V53_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV53 = {
@@ -16338,7 +16338,7 @@ export namespace V53_N {
   }
 
   export type ModelBoneOffsetDataV53 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array
   }
@@ -16369,12 +16369,12 @@ export namespace V54_N {
   }
 
   export type ModelPermutationDataV54 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV54>
   }
 
   export type ModelMaterialDataV54 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -16390,8 +16390,8 @@ export namespace V54_N {
   export type ModelTextureDataV54 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -16403,12 +16403,12 @@ export namespace V54_N {
   }
 
   export type ModelMatConstLinkV54 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV54 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -16424,13 +16424,13 @@ export namespace V54_N {
   }
 
   export type ModelMeshDataV54 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV54>,
     morphTargets: Array<ModelMeshMorphTargetV54>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -16445,7 +16445,7 @@ export namespace V54_N {
   export type ModelMeshMorphTargetV54 = {
     positions: Array<ModelMeshMorphVertV54>,
     normals: Array<ModelMeshMorphVertV54>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV54 = {
@@ -16504,8 +16504,8 @@ export namespace V54_N {
   }
 
   export type ModelBoneSymmetryV54 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: bigint,
+    boneRight: bigint
   }
 
   export type ModelMeshBindingDataV54 = {
@@ -16514,7 +16514,7 @@ export namespace V54_N {
 
   export type ModelTrackMaskV54 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -16522,11 +16522,11 @@ export namespace V54_N {
   }
 
   export type ModelPropertyDataV54 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -16537,7 +16537,7 @@ export namespace V54_N {
 
   export type ModelParticleCloudV54 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -16552,7 +16552,7 @@ export namespace V54_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -16609,7 +16609,7 @@ export namespace V54_N {
   }
 
   export type ModelObstacleDataV54 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -16631,7 +16631,7 @@ export namespace V54_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -16642,7 +16642,7 @@ export namespace V54_N {
   }
 
   export type ModelStreakAnchorV54 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -16656,7 +16656,7 @@ export namespace V54_N {
   }
 
   export type ModelEffectLightV54 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -16698,7 +16698,7 @@ export namespace V54_N {
   }
 
   export type ModelClothBoneWeightV54 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -16721,7 +16721,7 @@ export namespace V54_N {
   }
 
   export type ModelLightningSystemV54 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -16729,7 +16729,7 @@ export namespace V54_N {
   }
 
   export type ModelLightningBoltV54 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -16755,7 +16755,7 @@ export namespace V54_N {
   }
 
   export type ModelLightningNodeV54 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -16765,7 +16765,7 @@ export namespace V54_N {
   }
 
   export type ModelBoneConstraintV54 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -16793,7 +16793,7 @@ export namespace V54_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV54 = {
@@ -16806,7 +16806,7 @@ export namespace V54_N {
   }
 
   export type ModelBoneOffsetDataV54 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array
   }
@@ -16837,12 +16837,12 @@ export namespace V55_N {
   }
 
   export type ModelPermutationDataV55 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV55>
   }
 
   export type ModelMaterialDataV55 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -16858,8 +16858,8 @@ export namespace V55_N {
   export type ModelTextureDataV55 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -16871,12 +16871,12 @@ export namespace V55_N {
   }
 
   export type ModelMatConstLinkV55 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV55 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -16892,13 +16892,13 @@ export namespace V55_N {
   }
 
   export type ModelMeshDataV55 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV55>,
     morphTargets: Array<ModelMeshMorphTargetV55>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -16913,7 +16913,7 @@ export namespace V55_N {
   export type ModelMeshMorphTargetV55 = {
     positions: Array<ModelMeshMorphVertV55>,
     normals: Array<ModelMeshMorphVertV55>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV55 = {
@@ -16972,8 +16972,8 @@ export namespace V55_N {
   }
 
   export type ModelBoneSymmetryV55 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: bigint,
+    boneRight: bigint
   }
 
   export type ModelMeshBindingDataV55 = {
@@ -16982,7 +16982,7 @@ export namespace V55_N {
 
   export type ModelTrackMaskV55 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -16990,11 +16990,11 @@ export namespace V55_N {
   }
 
   export type ModelPropertyDataV55 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -17005,7 +17005,7 @@ export namespace V55_N {
 
   export type ModelParticleCloudV55 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -17020,7 +17020,7 @@ export namespace V55_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -17077,7 +17077,7 @@ export namespace V55_N {
   }
 
   export type ModelObstacleDataV55 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -17099,7 +17099,7 @@ export namespace V55_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -17110,7 +17110,7 @@ export namespace V55_N {
   }
 
   export type ModelStreakAnchorV55 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -17124,7 +17124,7 @@ export namespace V55_N {
   }
 
   export type ModelEffectLightV55 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -17166,7 +17166,7 @@ export namespace V55_N {
   }
 
   export type ModelClothBoneWeightV55 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -17189,7 +17189,7 @@ export namespace V55_N {
   }
 
   export type ModelLightningSystemV55 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -17197,7 +17197,7 @@ export namespace V55_N {
   }
 
   export type ModelLightningBoltV55 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -17223,7 +17223,7 @@ export namespace V55_N {
   }
 
   export type ModelLightningNodeV55 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -17233,7 +17233,7 @@ export namespace V55_N {
   }
 
   export type ModelBoneConstraintV55 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -17261,7 +17261,7 @@ export namespace V55_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV55 = {
@@ -17274,7 +17274,7 @@ export namespace V55_N {
   }
 
   export type ModelBoneOffsetDataV55 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
@@ -17307,12 +17307,12 @@ export namespace V56_N {
   }
 
   export type ModelPermutationDataV56 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV56>
   }
 
   export type ModelMaterialDataV56 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -17328,8 +17328,8 @@ export namespace V56_N {
   export type ModelTextureDataV56 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -17341,12 +17341,12 @@ export namespace V56_N {
   }
 
   export type ModelMatConstLinkV56 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV56 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -17362,13 +17362,13 @@ export namespace V56_N {
   }
 
   export type ModelMeshDataV56 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV56>,
     morphTargets: Array<ModelMeshMorphTargetV56>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -17383,7 +17383,7 @@ export namespace V56_N {
   export type ModelMeshMorphTargetV56 = {
     positions: Array<ModelMeshMorphVertV56>,
     normals: Array<ModelMeshMorphVertV56>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV56 = {
@@ -17442,8 +17442,8 @@ export namespace V56_N {
   }
 
   export type ModelBoneSymmetryV56 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: bigint,
+    boneRight: bigint
   }
 
   export type ModelMeshBindingDataV56 = {
@@ -17452,7 +17452,7 @@ export namespace V56_N {
 
   export type ModelTrackMaskV56 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -17460,11 +17460,11 @@ export namespace V56_N {
   }
 
   export type ModelPropertyDataV56 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -17475,7 +17475,7 @@ export namespace V56_N {
 
   export type ModelParticleCloudV56 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -17490,7 +17490,7 @@ export namespace V56_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -17547,7 +17547,7 @@ export namespace V56_N {
   }
 
   export type ModelObstacleDataV56 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -17569,7 +17569,7 @@ export namespace V56_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -17580,7 +17580,7 @@ export namespace V56_N {
   }
 
   export type ModelStreakAnchorV56 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -17594,7 +17594,7 @@ export namespace V56_N {
   }
 
   export type ModelEffectLightV56 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -17636,7 +17636,7 @@ export namespace V56_N {
   }
 
   export type ModelClothBoneWeightV56 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -17659,7 +17659,7 @@ export namespace V56_N {
   }
 
   export type ModelLightningSystemV56 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -17667,7 +17667,7 @@ export namespace V56_N {
   }
 
   export type ModelLightningBoltV56 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -17693,7 +17693,7 @@ export namespace V56_N {
   }
 
   export type ModelLightningNodeV56 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -17703,7 +17703,7 @@ export namespace V56_N {
   }
 
   export type ModelBoneConstraintV56 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -17731,7 +17731,7 @@ export namespace V56_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV56 = {
@@ -17744,7 +17744,7 @@ export namespace V56_N {
   }
 
   export type ModelBoneOffsetDataV56 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
@@ -17778,12 +17778,12 @@ export namespace V57_N {
   }
 
   export type ModelPermutationDataV57 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV57>
   }
 
   export type ModelMaterialDataV57 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -17799,8 +17799,8 @@ export namespace V57_N {
   export type ModelTextureDataV57 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -17812,12 +17812,12 @@ export namespace V57_N {
   }
 
   export type ModelMatConstLinkV57 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV57 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -17833,13 +17833,13 @@ export namespace V57_N {
   }
 
   export type ModelMeshDataV57 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV57>,
     morphTargets: Array<ModelMeshMorphTargetV57>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -17854,7 +17854,7 @@ export namespace V57_N {
   export type ModelMeshMorphTargetV57 = {
     positions: Array<ModelMeshMorphVertV57>,
     normals: Array<ModelMeshMorphVertV57>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV57 = {
@@ -17913,8 +17913,8 @@ export namespace V57_N {
   }
 
   export type ModelBoneSymmetryV57 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: bigint,
+    boneRight: bigint
   }
 
   export type ModelMeshBindingDataV57 = {
@@ -17923,7 +17923,7 @@ export namespace V57_N {
 
   export type ModelTrackMaskV57 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -17931,11 +17931,11 @@ export namespace V57_N {
   }
 
   export type ModelPropertyDataV57 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -17946,7 +17946,7 @@ export namespace V57_N {
 
   export type ModelParticleCloudV57 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -17961,7 +17961,7 @@ export namespace V57_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -18018,7 +18018,7 @@ export namespace V57_N {
   }
 
   export type ModelObstacleDataV57 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -18040,7 +18040,7 @@ export namespace V57_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -18051,7 +18051,7 @@ export namespace V57_N {
   }
 
   export type ModelStreakAnchorV57 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -18065,7 +18065,7 @@ export namespace V57_N {
   }
 
   export type ModelEffectLightV57 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -18107,7 +18107,7 @@ export namespace V57_N {
   }
 
   export type ModelClothBoneWeightV57 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -18130,7 +18130,7 @@ export namespace V57_N {
   }
 
   export type ModelLightningSystemV57 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -18138,7 +18138,7 @@ export namespace V57_N {
   }
 
   export type ModelLightningBoltV57 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -18164,7 +18164,7 @@ export namespace V57_N {
   }
 
   export type ModelLightningNodeV57 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -18174,7 +18174,7 @@ export namespace V57_N {
   }
 
   export type ModelBoneConstraintV57 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -18202,7 +18202,7 @@ export namespace V57_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV57 = {
@@ -18215,15 +18215,15 @@ export namespace V57_N {
   }
 
   export type ModelBoneOffsetDataV57 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
   }
 
   export type ModelFixedOffsetDataV57 = {
-    name: BigInt,
-    parentBone: BigInt,
+    name: bigint,
+    parentBone: bigint,
     translation: Float32Array
   }
 
@@ -18255,12 +18255,12 @@ export namespace V58_N {
   }
 
   export type ModelPermutationDataV58 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV58>
   }
 
   export type ModelMaterialDataV58 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -18276,8 +18276,8 @@ export namespace V58_N {
   export type ModelTextureDataV58 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -18289,12 +18289,12 @@ export namespace V58_N {
   }
 
   export type ModelMatConstLinkV58 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV58 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -18310,13 +18310,13 @@ export namespace V58_N {
   }
 
   export type ModelMeshDataV58 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV58>,
     morphTargets: Array<ModelMeshMorphTargetV58>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -18331,7 +18331,7 @@ export namespace V58_N {
   export type ModelMeshMorphTargetV58 = {
     positions: Array<ModelMeshMorphVertV58>,
     normals: Array<ModelMeshMorphVertV58>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV58 = {
@@ -18390,8 +18390,8 @@ export namespace V58_N {
   }
 
   export type ModelBoneSymmetryV58 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: bigint,
+    boneRight: bigint
   }
 
   export type ModelMeshBindingDataV58 = {
@@ -18400,7 +18400,7 @@ export namespace V58_N {
 
   export type ModelTrackMaskV58 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -18408,11 +18408,11 @@ export namespace V58_N {
   }
 
   export type ModelPropertyDataV58 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -18423,7 +18423,7 @@ export namespace V58_N {
 
   export type ModelParticleCloudV58 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -18438,7 +18438,7 @@ export namespace V58_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -18495,7 +18495,7 @@ export namespace V58_N {
   }
 
   export type ModelObstacleDataV58 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -18517,7 +18517,7 @@ export namespace V58_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -18528,7 +18528,7 @@ export namespace V58_N {
   }
 
   export type ModelStreakAnchorV58 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -18542,7 +18542,7 @@ export namespace V58_N {
   }
 
   export type ModelEffectLightV58 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -18587,7 +18587,7 @@ export namespace V58_N {
   }
 
   export type ModelClothBoneWeightV58 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -18610,7 +18610,7 @@ export namespace V58_N {
   }
 
   export type ModelLightningSystemV58 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -18618,7 +18618,7 @@ export namespace V58_N {
   }
 
   export type ModelLightningBoltV58 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -18647,7 +18647,7 @@ export namespace V58_N {
   }
 
   export type ModelLightningNodeV58 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -18657,7 +18657,7 @@ export namespace V58_N {
   }
 
   export type ModelBoneConstraintV58 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -18685,7 +18685,7 @@ export namespace V58_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV58 = {
@@ -18698,15 +18698,15 @@ export namespace V58_N {
   }
 
   export type ModelBoneOffsetDataV58 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
   }
 
   export type ModelFixedOffsetDataV58 = {
-    name: BigInt,
-    parentBone: BigInt,
+    name: bigint,
+    parentBone: bigint,
     translation: Float32Array
   }
 
@@ -18738,12 +18738,12 @@ export namespace V59_N {
   }
 
   export type ModelPermutationDataV59 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV59>
   }
 
   export type ModelMaterialDataV59 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -18759,8 +18759,8 @@ export namespace V59_N {
   export type ModelTextureDataV59 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -18772,12 +18772,12 @@ export namespace V59_N {
   }
 
   export type ModelMatConstLinkV59 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV59 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -18793,13 +18793,13 @@ export namespace V59_N {
   }
 
   export type ModelMeshDataV59 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV59>,
     morphTargets: Array<ModelMeshMorphTargetV59>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -18814,7 +18814,7 @@ export namespace V59_N {
   export type ModelMeshMorphTargetV59 = {
     positions: Array<ModelMeshMorphVertV59>,
     normals: Array<ModelMeshMorphVertV59>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV59 = {
@@ -18873,8 +18873,8 @@ export namespace V59_N {
   }
 
   export type ModelBoneSymmetryV59 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: bigint,
+    boneRight: bigint
   }
 
   export type ModelMeshBindingDataV59 = {
@@ -18883,7 +18883,7 @@ export namespace V59_N {
 
   export type ModelTrackMaskV59 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -18891,11 +18891,11 @@ export namespace V59_N {
   }
 
   export type ModelPropertyDataV59 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -18906,7 +18906,7 @@ export namespace V59_N {
 
   export type ModelParticleCloudV59 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -18921,7 +18921,7 @@ export namespace V59_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -18978,7 +18978,7 @@ export namespace V59_N {
   }
 
   export type ModelObstacleDataV59 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -19000,7 +19000,7 @@ export namespace V59_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -19011,7 +19011,7 @@ export namespace V59_N {
   }
 
   export type ModelStreakAnchorV59 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -19025,7 +19025,7 @@ export namespace V59_N {
   }
 
   export type ModelEffectLightV59 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -19070,7 +19070,7 @@ export namespace V59_N {
   }
 
   export type ModelClothBoneWeightV59 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
@@ -19093,7 +19093,7 @@ export namespace V59_N {
   }
 
   export type ModelLightningSystemV59 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -19101,7 +19101,7 @@ export namespace V59_N {
   }
 
   export type ModelLightningBoltV59 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -19131,7 +19131,7 @@ export namespace V59_N {
   }
 
   export type ModelLightningNodeV59 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -19141,7 +19141,7 @@ export namespace V59_N {
   }
 
   export type ModelBoneConstraintV59 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -19169,7 +19169,7 @@ export namespace V59_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV59 = {
@@ -19182,15 +19182,15 @@ export namespace V59_N {
   }
 
   export type ModelBoneOffsetDataV59 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
   }
 
   export type ModelFixedOffsetDataV59 = {
-    name: BigInt,
-    parentBone: BigInt,
+    name: bigint,
+    parentBone: bigint,
     translation: Float32Array
   }
 
@@ -19222,12 +19222,12 @@ export namespace V60_N {
   }
 
   export type ModelPermutationDataV60 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV60>
   }
 
   export type ModelMaterialDataV60 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -19243,8 +19243,8 @@ export namespace V60_N {
   export type ModelTextureDataV60 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -19256,12 +19256,12 @@ export namespace V60_N {
   }
 
   export type ModelMatConstLinkV60 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV60 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -19277,13 +19277,13 @@ export namespace V60_N {
   }
 
   export type ModelMeshDataV60 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV60>,
     morphTargets: Array<ModelMeshMorphTargetV60>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -19298,7 +19298,7 @@ export namespace V60_N {
   export type ModelMeshMorphTargetV60 = {
     positions: Array<ModelMeshMorphVertV60>,
     normals: Array<ModelMeshMorphVertV60>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV60 = {
@@ -19357,8 +19357,8 @@ export namespace V60_N {
   }
 
   export type ModelBoneSymmetryV60 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: bigint,
+    boneRight: bigint
   }
 
   export type ModelMeshBindingDataV60 = {
@@ -19367,7 +19367,7 @@ export namespace V60_N {
 
   export type ModelTrackMaskV60 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -19375,11 +19375,11 @@ export namespace V60_N {
   }
 
   export type ModelPropertyDataV60 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -19390,7 +19390,7 @@ export namespace V60_N {
 
   export type ModelParticleCloudV60 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -19405,7 +19405,7 @@ export namespace V60_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -19462,7 +19462,7 @@ export namespace V60_N {
   }
 
   export type ModelObstacleDataV60 = {
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -19484,7 +19484,7 @@ export namespace V60_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -19495,7 +19495,7 @@ export namespace V60_N {
   }
 
   export type ModelStreakAnchorV60 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -19509,7 +19509,7 @@ export namespace V60_N {
   }
 
   export type ModelEffectLightV60 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -19555,12 +19555,12 @@ export namespace V60_N {
   }
 
   export type ModelClothBoneWeightV60 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV60 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -19585,7 +19585,7 @@ export namespace V60_N {
   }
 
   export type ModelLightningSystemV60 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -19593,7 +19593,7 @@ export namespace V60_N {
   }
 
   export type ModelLightningBoltV60 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -19623,7 +19623,7 @@ export namespace V60_N {
   }
 
   export type ModelLightningNodeV60 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -19633,7 +19633,7 @@ export namespace V60_N {
   }
 
   export type ModelBoneConstraintV60 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -19661,7 +19661,7 @@ export namespace V60_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV60 = {
@@ -19674,15 +19674,15 @@ export namespace V60_N {
   }
 
   export type ModelBoneOffsetDataV60 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
   }
 
   export type ModelFixedOffsetDataV60 = {
-    name: BigInt,
-    parentBone: BigInt,
+    name: bigint,
+    parentBone: bigint,
     translation: Float32Array
   }
 
@@ -19715,12 +19715,12 @@ export namespace V61_N {
   }
 
   export type ModelPermutationDataV61 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV61>
   }
 
   export type ModelMaterialDataV61 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -19736,8 +19736,8 @@ export namespace V61_N {
   export type ModelTextureDataV61 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -19749,12 +19749,12 @@ export namespace V61_N {
   }
 
   export type ModelMatConstLinkV61 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV61 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -19770,13 +19770,13 @@ export namespace V61_N {
   }
 
   export type ModelMeshDataV61 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV61>,
     morphTargets: Array<ModelMeshMorphTargetV61>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -19791,7 +19791,7 @@ export namespace V61_N {
   export type ModelMeshMorphTargetV61 = {
     positions: Array<ModelMeshMorphVertV61>,
     normals: Array<ModelMeshMorphVertV61>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV61 = {
@@ -19850,8 +19850,8 @@ export namespace V61_N {
   }
 
   export type ModelBoneSymmetryV61 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: bigint,
+    boneRight: bigint
   }
 
   export type ModelMeshBindingDataV61 = {
@@ -19860,7 +19860,7 @@ export namespace V61_N {
 
   export type ModelTrackMaskV61 = {
     trackMask: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -19868,11 +19868,11 @@ export namespace V61_N {
   }
 
   export type ModelPropertyDataV61 = {
-    id: BigInt,
+    id: bigint,
     type: number,
     mergeIndex: number,
     time: number,
-    val: BigInt,
+    val: bigint,
     strVal: number
   }
 
@@ -19883,7 +19883,7 @@ export namespace V61_N {
 
   export type ModelParticleCloudV61 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -19899,7 +19899,7 @@ export namespace V61_N {
     accelerationDistSpeed: Float32Array,
     affinity: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -19957,7 +19957,7 @@ export namespace V61_N {
 
   export type ModelObstacleDataV61 = {
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -19979,7 +19979,7 @@ export namespace V61_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -19990,7 +19990,7 @@ export namespace V61_N {
   }
 
   export type ModelStreakAnchorV61 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -20004,7 +20004,7 @@ export namespace V61_N {
   }
 
   export type ModelEffectLightV61 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -20050,12 +20050,12 @@ export namespace V61_N {
   }
 
   export type ModelClothBoneWeightV61 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV61 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -20078,7 +20078,7 @@ export namespace V61_N {
   }
 
   export type ModelEffectWindV61 = {
-    bone: BigInt,
+    bone: bigint,
     farDistance: number,
     intensity: number,
     nearDistance: number
@@ -20091,7 +20091,7 @@ export namespace V61_N {
   }
 
   export type ModelLightningSystemV61 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -20099,7 +20099,7 @@ export namespace V61_N {
   }
 
   export type ModelLightningBoltV61 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -20129,7 +20129,7 @@ export namespace V61_N {
   }
 
   export type ModelLightningNodeV61 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -20139,7 +20139,7 @@ export namespace V61_N {
   }
 
   export type ModelBoneConstraintV61 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -20167,7 +20167,7 @@ export namespace V61_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelSoftBodyDataV61 = {
@@ -20180,15 +20180,15 @@ export namespace V61_N {
   }
 
   export type ModelBoneOffsetDataV61 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
   }
 
   export type ModelFixedOffsetDataV61 = {
-    name: BigInt,
-    parentBone: BigInt,
+    name: bigint,
+    parentBone: bigint,
     translation: Float32Array
   }
 
@@ -20217,12 +20217,12 @@ export namespace V62_N {
   }
 
   export type ModelPermutationDataV62 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV62>
   }
 
   export type ModelMaterialDataV62 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -20238,8 +20238,8 @@ export namespace V62_N {
   export type ModelTextureDataV62 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -20251,12 +20251,12 @@ export namespace V62_N {
   }
 
   export type ModelMatConstLinkV62 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV62 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -20272,13 +20272,13 @@ export namespace V62_N {
   }
 
   export type ModelMeshDataV62 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV62>,
     morphTargets: Array<ModelMeshMorphTargetV62>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -20293,7 +20293,7 @@ export namespace V62_N {
   export type ModelMeshMorphTargetV62 = {
     positions: Array<ModelMeshMorphVertV62>,
     normals: Array<ModelMeshMorphVertV62>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV62 = {
@@ -20318,7 +20318,7 @@ export namespace V62_N {
 
   export type ModelParticleCloudV62 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -20334,7 +20334,7 @@ export namespace V62_N {
     accelerationDistSpeed: Float32Array,
     affinity: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -20392,7 +20392,7 @@ export namespace V62_N {
 
   export type ModelObstacleDataV62 = {
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -20414,7 +20414,7 @@ export namespace V62_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -20425,7 +20425,7 @@ export namespace V62_N {
   }
 
   export type ModelStreakAnchorV62 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -20439,7 +20439,7 @@ export namespace V62_N {
   }
 
   export type ModelEffectLightV62 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -20486,12 +20486,12 @@ export namespace V62_N {
   }
 
   export type ModelClothBoneWeightV62 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV62 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -20514,7 +20514,7 @@ export namespace V62_N {
   }
 
   export type ModelEffectWindV62 = {
-    bone: BigInt,
+    bone: bigint,
     farDistance: number,
     intensity: number,
     nearDistance: number
@@ -20527,7 +20527,7 @@ export namespace V62_N {
   }
 
   export type ModelLightningSystemV62 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -20535,7 +20535,7 @@ export namespace V62_N {
   }
 
   export type ModelLightningBoltV62 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -20565,7 +20565,7 @@ export namespace V62_N {
   }
 
   export type ModelLightningNodeV62 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -20584,7 +20584,7 @@ export namespace V62_N {
   }
 
   export type ModelBoneOffsetDataV62 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
@@ -20620,12 +20620,12 @@ export namespace V63_N {
   }
 
   export type ModelPermutationDataV63 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV63>
   }
 
   export type ModelMaterialDataV63 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -20641,8 +20641,8 @@ export namespace V63_N {
   export type ModelTextureDataV63 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -20654,12 +20654,12 @@ export namespace V63_N {
   }
 
   export type ModelMatConstLinkV63 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV63 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -20675,13 +20675,13 @@ export namespace V63_N {
   }
 
   export type ModelMeshDataV63 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV63>,
     morphTargets: Array<ModelMeshMorphTargetV63>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -20696,7 +20696,7 @@ export namespace V63_N {
   export type ModelMeshMorphTargetV63 = {
     positions: Array<ModelMeshMorphVertV63>,
     normals: Array<ModelMeshMorphVertV63>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV63 = {
@@ -20721,7 +20721,7 @@ export namespace V63_N {
 
   export type ModelParticleCloudV63 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -20737,7 +20737,7 @@ export namespace V63_N {
     accelerationDistSpeed: Float32Array,
     affinity: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -20795,7 +20795,7 @@ export namespace V63_N {
 
   export type ModelObstacleDataV63 = {
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -20817,7 +20817,7 @@ export namespace V63_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -20828,7 +20828,7 @@ export namespace V63_N {
   }
 
   export type ModelStreakAnchorV63 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -20842,7 +20842,7 @@ export namespace V63_N {
   }
 
   export type ModelEffectLightV63 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -20889,12 +20889,12 @@ export namespace V63_N {
   }
 
   export type ModelClothBoneWeightV63 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV63 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -20917,7 +20917,7 @@ export namespace V63_N {
   }
 
   export type ModelEffectWindV63 = {
-    bone: BigInt,
+    bone: bigint,
     farDistance: number,
     intensity: number,
     nearDistance: number
@@ -20930,7 +20930,7 @@ export namespace V63_N {
   }
 
   export type ModelLightningSystemV63 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -20938,7 +20938,7 @@ export namespace V63_N {
   }
 
   export type ModelLightningBoltV63 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -20968,7 +20968,7 @@ export namespace V63_N {
   }
 
   export type ModelLightningNodeV63 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -20987,7 +20987,7 @@ export namespace V63_N {
   }
 
   export type ModelBoneOffsetDataV63 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
@@ -21023,12 +21023,12 @@ export namespace V64_N {
   }
 
   export type ModelPermutationDataV64 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV64>
   }
 
   export type ModelMaterialDataV64 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -21044,8 +21044,8 @@ export namespace V64_N {
   export type ModelTextureDataV64 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -21057,12 +21057,12 @@ export namespace V64_N {
   }
 
   export type ModelMatConstLinkV64 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV64 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -21083,13 +21083,13 @@ export namespace V64_N {
   }
 
   export type ModelMeshDataV64 = {
-    visBone: BigInt,
+    visBone: bigint,
     lods: Array<ModelMeshLodDataV64>,
     morphTargets: Array<ModelMeshMorphTargetV64>,
     mesh: PackGrannyMeshType,
     flags: number,
     seamVertIndices: Uint32Array,
-    meshName: BigInt,
+    meshName: bigint,
     minBound: Float32Array,
     maxBound: Float32Array,
     bounds: Array<GrBoundData>,
@@ -21104,7 +21104,7 @@ export namespace V64_N {
   export type ModelMeshMorphTargetV64 = {
     positions: Array<ModelMeshMorphVertV64>,
     normals: Array<ModelMeshMorphVertV64>,
-    mesh: BigInt
+    mesh: bigint
   }
 
   export type ModelMeshMorphVertV64 = {
@@ -21129,7 +21129,7 @@ export namespace V64_N {
 
   export type ModelParticleCloudV64 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -21145,7 +21145,7 @@ export namespace V64_N {
     accelerationDistSpeed: Float32Array,
     affinity: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -21203,7 +21203,7 @@ export namespace V64_N {
 
   export type ModelObstacleDataV64 = {
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -21225,7 +21225,7 @@ export namespace V64_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -21236,7 +21236,7 @@ export namespace V64_N {
   }
 
   export type ModelStreakAnchorV64 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -21250,7 +21250,7 @@ export namespace V64_N {
   }
 
   export type ModelEffectLightV64 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -21285,7 +21285,7 @@ export namespace V64_N {
     flags: number,
     rigidness: number,
     translateWeight: number,
-    visBone: BigInt
+    visBone: bigint
   }
 
   export type PackVertexType = {
@@ -21298,12 +21298,12 @@ export namespace V64_N {
   }
 
   export type ModelClothBoneWeightV64 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV64 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -21326,7 +21326,7 @@ export namespace V64_N {
   }
 
   export type ModelEffectWindV64 = {
-    bone: BigInt,
+    bone: bigint,
     farDistance: number,
     intensity: number,
     nearDistance: number
@@ -21339,7 +21339,7 @@ export namespace V64_N {
   }
 
   export type ModelLightningSystemV64 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -21347,7 +21347,7 @@ export namespace V64_N {
   }
 
   export type ModelLightningBoltV64 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -21377,7 +21377,7 @@ export namespace V64_N {
   }
 
   export type ModelLightningNodeV64 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -21396,7 +21396,7 @@ export namespace V64_N {
   }
 
   export type ModelBoneOffsetDataV64 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
@@ -21431,12 +21431,12 @@ export namespace V65_N {
   }
 
   export type ModelPermutationDataV65 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV65>
   }
 
   export type ModelMaterialDataV65 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -21452,8 +21452,8 @@ export namespace V65_N {
   export type ModelTextureDataV65 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -21465,12 +21465,12 @@ export namespace V65_N {
   }
 
   export type ModelMatConstLinkV65 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV65 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -21497,7 +21497,7 @@ export namespace V65_N {
 
   export type ModelParticleCloudV65 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -21513,7 +21513,7 @@ export namespace V65_N {
     accelerationDistSpeed: Float32Array,
     affinity: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -21571,7 +21571,7 @@ export namespace V65_N {
 
   export type ModelObstacleDataV65 = {
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -21593,7 +21593,7 @@ export namespace V65_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -21604,7 +21604,7 @@ export namespace V65_N {
   }
 
   export type ModelStreakAnchorV65 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -21618,7 +21618,7 @@ export namespace V65_N {
   }
 
   export type ModelEffectLightV65 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -21653,7 +21653,7 @@ export namespace V65_N {
     flags: number,
     rigidness: number,
     translateWeight: number,
-    visBone: BigInt
+    visBone: bigint
   }
 
   export type PackVertexType = {
@@ -21666,12 +21666,12 @@ export namespace V65_N {
   }
 
   export type ModelClothBoneWeightV65 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV65 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -21694,7 +21694,7 @@ export namespace V65_N {
   }
 
   export type ModelEffectWindV65 = {
-    bone: BigInt,
+    bone: bigint,
     farDistance: number,
     intensity: number,
     nearDistance: number
@@ -21707,7 +21707,7 @@ export namespace V65_N {
   }
 
   export type ModelLightningSystemV65 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -21715,7 +21715,7 @@ export namespace V65_N {
   }
 
   export type ModelLightningBoltV65 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -21745,7 +21745,7 @@ export namespace V65_N {
   }
 
   export type ModelLightningNodeV65 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -21764,7 +21764,7 @@ export namespace V65_N {
   }
 
   export type ModelBoneOffsetDataV65 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
@@ -21799,12 +21799,12 @@ export namespace V66_N {
   }
 
   export type ModelPermutationDataV66 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV66>
   }
 
   export type ModelMaterialDataV66 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -21821,8 +21821,8 @@ export namespace V66_N {
   export type ModelTextureDataV66 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -21834,12 +21834,12 @@ export namespace V66_N {
   }
 
   export type ModelMatConstLinkV66 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV66 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -21866,7 +21866,7 @@ export namespace V66_N {
 
   export type ModelParticleCloudV66 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -21882,7 +21882,7 @@ export namespace V66_N {
     accelerationDistSpeed: Float32Array,
     affinity: number,
     alignmentDir: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -21940,7 +21940,7 @@ export namespace V66_N {
 
   export type ModelObstacleDataV66 = {
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -21962,7 +21962,7 @@ export namespace V66_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -21973,7 +21973,7 @@ export namespace V66_N {
   }
 
   export type ModelStreakAnchorV66 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -21987,7 +21987,7 @@ export namespace V66_N {
   }
 
   export type ModelEffectLightV66 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -22022,7 +22022,7 @@ export namespace V66_N {
     flags: number,
     rigidness: number,
     translateWeight: number,
-    visBone: BigInt
+    visBone: bigint
   }
 
   export type PackVertexType = {
@@ -22035,12 +22035,12 @@ export namespace V66_N {
   }
 
   export type ModelClothBoneWeightV66 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV66 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -22063,7 +22063,7 @@ export namespace V66_N {
   }
 
   export type ModelEffectWindV66 = {
-    bone: BigInt,
+    bone: bigint,
     farDistance: number,
     intensity: number,
     nearDistance: number
@@ -22076,7 +22076,7 @@ export namespace V66_N {
   }
 
   export type ModelLightningSystemV66 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -22084,7 +22084,7 @@ export namespace V66_N {
   }
 
   export type ModelLightningBoltV66 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -22114,7 +22114,7 @@ export namespace V66_N {
   }
 
   export type ModelLightningNodeV66 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -22133,7 +22133,7 @@ export namespace V66_N {
   }
 
   export type ModelBoneOffsetDataV66 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
@@ -22168,12 +22168,12 @@ export namespace V67_N {
   }
 
   export type ModelPermutationDataV66 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV66>
   }
 
   export type ModelMaterialDataV66 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -22190,8 +22190,8 @@ export namespace V67_N {
   export type ModelTextureDataV66 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -22203,12 +22203,12 @@ export namespace V67_N {
   }
 
   export type ModelMatConstLinkV66 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV66 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -22235,7 +22235,7 @@ export namespace V67_N {
 
   export type ModelParticleCloudV66 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -22250,7 +22250,7 @@ export namespace V67_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -22330,7 +22330,7 @@ export namespace V67_N {
 
   export type ModelObstacleDataV66 = {
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -22352,7 +22352,7 @@ export namespace V67_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -22363,7 +22363,7 @@ export namespace V67_N {
   }
 
   export type ModelStreakAnchorV66 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -22377,7 +22377,7 @@ export namespace V67_N {
   }
 
   export type ModelEffectLightV66 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -22412,7 +22412,7 @@ export namespace V67_N {
     flags: number,
     rigidness: number,
     translateWeight: number,
-    visBone: BigInt
+    visBone: bigint
   }
 
   export type PackVertexType = {
@@ -22425,12 +22425,12 @@ export namespace V67_N {
   }
 
   export type ModelClothBoneWeightV66 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV66 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -22453,7 +22453,7 @@ export namespace V67_N {
   }
 
   export type ModelEffectWindV66 = {
-    bone: BigInt,
+    bone: bigint,
     farDistance: number,
     intensity: number,
     nearDistance: number
@@ -22466,7 +22466,7 @@ export namespace V67_N {
   }
 
   export type ModelLightningSystemV66 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -22474,7 +22474,7 @@ export namespace V67_N {
   }
 
   export type ModelLightningBoltV66 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -22504,7 +22504,7 @@ export namespace V67_N {
   }
 
   export type ModelLightningNodeV66 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -22523,7 +22523,7 @@ export namespace V67_N {
   }
 
   export type ModelBoneOffsetDataV66 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
@@ -22558,12 +22558,12 @@ export namespace V68_N {
   }
 
   export type ModelPermutationDataV66 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV66>
   }
 
   export type ModelMaterialDataV66 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -22580,8 +22580,8 @@ export namespace V68_N {
   export type ModelTextureDataV66 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -22593,12 +22593,12 @@ export namespace V68_N {
   }
 
   export type ModelMatConstLinkV66 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV66 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -22625,7 +22625,7 @@ export namespace V68_N {
 
   export type ModelParticleCloudV66 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -22640,7 +22640,7 @@ export namespace V68_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -22718,7 +22718,7 @@ export namespace V68_N {
 
   export type ModelObstacleDataV66 = {
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -22740,7 +22740,7 @@ export namespace V68_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -22751,7 +22751,7 @@ export namespace V68_N {
   }
 
   export type ModelStreakAnchorV66 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -22765,7 +22765,7 @@ export namespace V68_N {
   }
 
   export type ModelEffectLightV66 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -22800,7 +22800,7 @@ export namespace V68_N {
     flags: number,
     rigidness: number,
     translateWeight: number,
-    visBone: BigInt
+    visBone: bigint
   }
 
   export type PackVertexType = {
@@ -22813,12 +22813,12 @@ export namespace V68_N {
   }
 
   export type ModelClothBoneWeightV66 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV66 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -22841,7 +22841,7 @@ export namespace V68_N {
   }
 
   export type ModelEffectWindV66 = {
-    bone: BigInt,
+    bone: bigint,
     farDistance: number,
     intensity: number,
     nearDistance: number
@@ -22854,7 +22854,7 @@ export namespace V68_N {
   }
 
   export type ModelLightningSystemV66 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -22862,7 +22862,7 @@ export namespace V68_N {
   }
 
   export type ModelLightningBoltV66 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -22892,7 +22892,7 @@ export namespace V68_N {
   }
 
   export type ModelLightningNodeV66 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -22911,7 +22911,7 @@ export namespace V68_N {
   }
 
   export type ModelBoneOffsetDataV66 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>
@@ -22946,12 +22946,12 @@ export namespace V69_N {
   }
 
   export type ModelPermutationDataV66 = {
-    token: BigInt,
+    token: bigint,
     materials: Array<ModelMaterialDataV66>
   }
 
   export type ModelMaterialDataV66 = {
-    token: BigInt,
+    token: bigint,
     materialId: number,
     filename: number,
     materialFlags: number,
@@ -22968,8 +22968,8 @@ export namespace V69_N {
   export type ModelTextureDataV66 = {
     filename: number,
     textureFlags: number,
-    token: BigInt,
-    blitId: BigInt,
+    token: bigint,
+    blitId: bigint,
     uvAnimId: number,
     uvPSInputIndex: number
   }
@@ -22981,12 +22981,12 @@ export namespace V69_N {
   }
 
   export type ModelMatConstLinkV66 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     constantToken: number
   }
 
   export type ModelUVTransLinkV66 = {
-    linkToken: BigInt,
+    linkToken: bigint,
     uvAnimId: number,
     type: number
   }
@@ -23013,7 +23013,7 @@ export namespace V69_N {
 
   export type ModelParticleCloudV66 = {
     acceleration: Float32Array,
-    bone: BigInt,
+    bone: bigint,
     drag: number,
     emitterIndices: Uint32Array,
     fvf: number,
@@ -23028,7 +23028,7 @@ export namespace V69_N {
     accelerationDistRange: Float32Array,
     accelerationDistSpeed: Float32Array,
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     colorBegin: Float32Array,
     colorEnd: Float32Array,
     colorPeriod: number,
@@ -23104,7 +23104,7 @@ export namespace V69_N {
 
   export type ModelObstacleDataV66 = {
     affinity: number,
-    bone: BigInt,
+    bone: bigint,
     type: number,
     response: number,
     flags: number,
@@ -23126,7 +23126,7 @@ export namespace V69_N {
     acceleration: Float32Array,
     velocity: Float32Array,
     anchorIndices: Uint32Array,
-    bone: BigInt,
+    bone: bigint,
     flags: number,
     jitter: number,
     materialIndex: number,
@@ -23137,7 +23137,7 @@ export namespace V69_N {
   }
 
   export type ModelStreakAnchorV66 = {
-    bone: BigInt,
+    bone: bigint,
     colorStart: number,
     colorEnd: number,
     falloff: number,
@@ -23151,7 +23151,7 @@ export namespace V69_N {
   }
 
   export type ModelEffectLightV66 = {
-    bone: BigInt,
+    bone: bigint,
     color: Uint8Array,
     farDistance: number,
     intensity: number,
@@ -23186,7 +23186,7 @@ export namespace V69_N {
     flags: number,
     rigidness: number,
     translateWeight: number,
-    visBone: BigInt
+    visBone: bigint
   }
 
   export type PackVertexType = {
@@ -23199,12 +23199,12 @@ export namespace V69_N {
   }
 
   export type ModelClothBoneWeightV66 = {
-    token: BigInt,
+    token: bigint,
     weight: number
   }
 
   export type ModelClothGroupBindingV66 = {
-    strippedToken: BigInt,
+    strippedToken: bigint,
     boneName: string,
     OBBMin: Float32Array,
     OBBMax: Float32Array
@@ -23227,7 +23227,7 @@ export namespace V69_N {
   }
 
   export type ModelEffectWindV66 = {
-    bone: BigInt,
+    bone: bigint,
     farDistance: number,
     intensity: number,
     nearDistance: number
@@ -23240,7 +23240,7 @@ export namespace V69_N {
   }
 
   export type ModelLightningSystemV66 = {
-    bone: BigInt,
+    bone: bigint,
     boltIndices: Uint16Array,
     flags: number,
     fvf: number,
@@ -23248,7 +23248,7 @@ export namespace V69_N {
   }
 
   export type ModelLightningBoltV66 = {
-    bone: BigInt,
+    bone: bigint,
     nodeIndices: Uint16Array,
     colorBegin: Uint32Array,
     colorEnd: Uint32Array,
@@ -23278,7 +23278,7 @@ export namespace V69_N {
   }
 
   export type ModelLightningNodeV66 = {
-    bone: BigInt,
+    bone: bigint,
     childrenIndices: Uint16Array,
     flags: number,
     probability: number,
@@ -23297,7 +23297,7 @@ export namespace V69_N {
   }
 
   export type ModelBoneOffsetDataV66 = {
-    bone: BigInt,
+    bone: bigint,
     translation: Float32Array,
     rotation: Float32Array,
     boneInverseOffset: Array<Float32Array>

@@ -6,7 +6,7 @@ export namespace V0_N {
 
   export type TextPackPassword = {
     textId: number,
-    password: BigInt
+    password: bigint
   }
 
 }

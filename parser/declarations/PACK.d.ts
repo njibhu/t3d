@@ -8,7 +8,7 @@ export namespace V0_N {
   export type MapVariant = {
     file: string,
     name: string,
-    token: BigInt,
+    token: bigint,
     flags: number
   }
 

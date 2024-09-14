@@ -5,7 +5,7 @@ export namespace V0_N {
   }
 
   export type PackMapLayerProp = {
-    guid: BigInt,
+    guid: bigint,
     layerIds: Uint32Array
   }
 
@@ -26,12 +26,12 @@ export namespace V1_N {
   }
 
   export type PackMapLayerProp = {
-    guid: BigInt,
+    guid: bigint,
     layerIds: Uint32Array
   }
 
   export type PackMapLayerLight = {
-    guid: BigInt,
+    guid: bigint,
     layerIds: Uint32Array
   }
 
