@@ -206,12 +206,12 @@ export namespace V4_N {
   }
 
   export type PackMapPhysicsObjectRefV4 = {
-    sequence: BigInt,
+    sequence: bigint,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV4 = {
-    token: BigInt,
+    token: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -329,12 +329,12 @@ export namespace V5_N {
   }
 
   export type PackMapPhysicsObjectRefV5 = {
-    sequence: BigInt,
+    sequence: bigint,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV5 = {
-    token: BigInt,
+    token: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -456,12 +456,12 @@ export namespace V6_N {
   }
 
   export type PackMapPhysicsObjectRefV6 = {
-    sequence: BigInt,
+    sequence: bigint,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV6 = {
-    token: BigInt,
+    token: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -589,12 +589,12 @@ export namespace V7_N {
   }
 
   export type PackMapPhysicsObjectRefV7 = {
-    sequence: BigInt,
+    sequence: bigint,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV7 = {
-    token: BigInt,
+    token: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -723,12 +723,12 @@ export namespace V8_N {
   }
 
   export type PackMapPhysicsObjectRefV8 = {
-    sequence: BigInt,
+    sequence: bigint,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV8 = {
-    token: BigInt,
+    token: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -787,12 +787,12 @@ export namespace V9_N {
   }
 
   export type PackMapPhysicsObjectRefV9 = {
-    sequence: BigInt,
+    sequence: bigint,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV9 = {
-    token: BigInt,
+    token: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -852,12 +852,12 @@ export namespace V10_N {
   }
 
   export type PackMapPhysicsObjectRefV10 = {
-    sequence: BigInt,
+    sequence: bigint,
     objectIndex: number
   }
 
   export type PackMapPhysicsModelPropV10 = {
-    token: BigInt,
+    token: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,

@@ -6,7 +6,7 @@ export namespace V0_N {
   export type KeyEntry = {
     assetType: number,
     assetId: number,
-    key: BigInt
+    key: bigint
   }
 
 }

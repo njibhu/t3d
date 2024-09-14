@@ -93,7 +93,10 @@ class GW2Chunk {
   headerLength: number;
   header: any;
 
-  constructor(public ds: InstanceType<typeof DataStream>, public addr: number) {
+  constructor(
+    public ds: InstanceType<typeof DataStream>,
+    public addr: number
+  ) {
     // Early returns if already called, it defines the DUPLICATE_SETTINGS variable
     genDuplicateSettings();
 

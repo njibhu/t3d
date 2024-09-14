@@ -72,4 +72,4 @@ export function getFileType(ds: any): string {
 
   // Unknown
   return "UNKNOWN";
-};
+}

@@ -16,7 +16,7 @@ export namespace V1_N {
   }
 
   export type PackMapWaterSurfaceV1 = {
-    guid: BigInt,
+    guid: bigint,
     waterSurfaceFlags: number,
     waterSurfaceZ: number,
     vertices: Array<Float32Array>

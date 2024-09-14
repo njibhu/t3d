@@ -52,7 +52,7 @@ export namespace V0_N {
   }
 
   export type ModelBoneConstraintV62 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -80,17 +80,17 @@ export namespace V0_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type ModelBoneSymmetryV62 = {
-    boneLeft: BigInt,
-    boneRight: BigInt
+    boneLeft: bigint,
+    boneRight: bigint
   }
 
   export type ModelTrackMaskV62 = {
     data: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {
@@ -156,7 +156,7 @@ export namespace V1_N {
   }
 
   export type ModelBoneConstraintV63 = {
-    token: BigInt,
+    token: bigint,
     flags: number,
     twistOffset: number,
     animBlend: number,
@@ -184,7 +184,7 @@ export namespace V1_N {
     angle: number,
     azimuth: number,
     distance: Float32Array,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyMirrorSpecType = {
@@ -193,7 +193,7 @@ export namespace V1_N {
 
   export type ModelTrackMaskV63 = {
     data: PackGrannyTrackMaskType,
-    token: BigInt
+    token: bigint
   }
 
   export type PackGrannyTrackMaskType = {

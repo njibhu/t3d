@@ -29,7 +29,7 @@ export namespace V0_N {
   }
 
   export type PackAnimMachineActionVariantV0 = {
-    token: BigInt,
+    token: bigint,
     actionBlock: PackAnimMachineActionBlockV0
   }
 
@@ -41,12 +41,12 @@ export namespace V0_N {
   }
 
   export type PackAnimMachineTransitionVariantV0 = {
-    token: BigInt,
+    token: bigint,
     actionBlock: PackAnimMachineActionBlockV0
   }
 
   export type PackAnimMachineStateVariantV0 = {
-    token: BigInt,
+    token: bigint,
     actionBlock: PackAnimMachineActionBlockV0,
     actionVariantBlock: PackAnimMachineActionVariantBlockV0,
     transitions: Array<PackAnimMachineTransitionV0>
@@ -93,7 +93,7 @@ export namespace V1_N {
   }
 
   export type PackAnimMachineActionVariantV1 = {
-    token: BigInt,
+    token: bigint,
     actionBlock: PackAnimMachineActionBlockV1
   }
 
@@ -105,12 +105,12 @@ export namespace V1_N {
   }
 
   export type PackAnimMachineTransitionVariantV1 = {
-    token: BigInt,
+    token: bigint,
     actionBlock: PackAnimMachineActionBlockV1
   }
 
   export type PackAnimMachineStateVariantV1 = {
-    token: BigInt,
+    token: bigint,
     actionBlock: PackAnimMachineActionBlockV1,
     actionVariantBlock: PackAnimMachineActionVariantBlockV1,
     transitions: Array<PackAnimMachineTransitionV1>

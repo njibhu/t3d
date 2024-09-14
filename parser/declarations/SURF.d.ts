@@ -27,8 +27,8 @@ export namespace V1_N {
   }
 
   export type MapSurfaceAttribute = {
-    Id: BigInt,
-    Sound: BigInt,
+    Id: bigint,
+    Sound: bigint,
     flags: number
   }
 
@@ -51,8 +51,8 @@ export namespace V2_N {
   }
 
   export type MapSurfaceAttribute = {
-    Id: BigInt,
-    Sound: BigInt,
+    Id: bigint,
+    Sound: bigint,
     flags: number
   }
 
@@ -68,12 +68,12 @@ export namespace V2_N {
   }
 
   export type MapSurfaceOverride = {
-    surfaceId: BigInt,
+    surfaceId: bigint,
     bitArray: Uint32Array
   }
 
   export type MapSurfacePropOverride = {
-    propId: BigInt,
+    propId: bigint,
     overrideArray: Array<MapSurfaceOverride>
   }
 

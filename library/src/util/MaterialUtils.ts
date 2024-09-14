@@ -30,7 +30,15 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
  * @namespace MaterialUtils
  */
 
-import type { Color, DataTexture, ShaderMaterial, Material, Texture, MeshPhongMaterial, MeshBasicMaterial } from "three";
+import type {
+  Color,
+  DataTexture,
+  ShaderMaterial,
+  Material,
+  Texture,
+  MeshPhongMaterial,
+  MeshBasicMaterial,
+} from "three";
 import type FileParser from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
 
@@ -227,13 +235,18 @@ interface ModelMaterialData {
  * @param  {Object} sharedTextures  Value Object for keeping the texture cache
  * @return {THREE.Material}         A THREE Material with the generated contents and settings.
  */
-export function getMaterial(material: ModelMaterialData, materialFile: FileParser, localReader: LocalReader, sharedTextures: any): Material | undefined {
+export function getMaterial(
+  material: ModelMaterialData,
+  materialFile: FileParser,
+  localReader: LocalReader,
+  sharedTextures: any
+): Material | undefined {
   if (!materialFile) return;
 
   const dxChunk = materialFile.getChunk("dx9s");
   let grChunk = materialFile.getChunk("grmt")!;
 
-  if(!dxChunk){
+  if (!dxChunk) {
     return new THREE.MeshBasicMaterial({
       side: THREE.FrontSide,
       color: 0xff0000,
@@ -242,7 +255,7 @@ export function getMaterial(material: ModelMaterialData, materialFile: FileParse
   }
 
   /// Append all textures to the custom material
-  const finalTextures : (Texture & {uvIdx?: number}) [] = [];
+  const finalTextures: (Texture & { uvIdx?: number })[] = [];
 
   // Some materials don't use textures..
   if (material && material.textures.length && dxChunk.data.techniques.length > 0) {
@@ -337,12 +350,12 @@ export function getMaterial(material: ModelMaterialData, materialFile: FileParse
     });
   } /// End if material and texture
 
-  let finalMaterial: (MeshPhongMaterial | MeshBasicMaterial) & { textureFilename?: string, normalMap?: Texture | null};
+  let finalMaterial: (MeshPhongMaterial | MeshBasicMaterial) & { textureFilename?: string; normalMap?: Texture | null };
 
   /// Create custom shader material if there are textures
   if (finalTextures) {
     // TODO: make this work!
-    //eslint-disable-next-line no-constant-condition
+    // eslint-disable-next-line no-constant-condition, no-constant-binary-expression
     if (false && finalTextures.length > 0) {
       //@ts-ignore
       finalMaterial = getUVMat(finalTextures, material.texCoordCount, grChunk.data.flags !== 16460);
@@ -382,7 +395,7 @@ export function getMaterial(material: ModelMaterialData, materialFile: FileParse
     finalMaterial = new THREE.MeshBasicMaterial({
       side: THREE.FrontSide,
       color: 0xff0000,
-      flatShading: true
+      flatShading: true,
     });
   }
 
@@ -526,7 +539,13 @@ export function getTexture(texURL: number, localReader: LocalReader, sharedTextu
 
  * @return {THREE.Texture} A texture that will be populated by the file data when it is loaded.
  */
-export function loadLocalTexture(localReader: LocalReader, fileId: number, mapping?: number, defaultColor?: number, onerror?: Function): Texture {
+export function loadLocalTexture(
+  localReader: LocalReader,
+  fileId: number,
+  mapping?: number,
+  defaultColor?: number,
+  onerror?: Function
+): Texture {
   if (defaultColor === undefined) {
     defaultColor = Math.floor(0xffffff * Math.random());
   }

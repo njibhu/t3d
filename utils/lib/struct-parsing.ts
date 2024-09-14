@@ -128,7 +128,7 @@ export class StructTabParser {
     }
 
     const members: { [name: string]: string } = {};
-    let definitions: { [name: string]: any } = {};
+    const definitions: { [name: string]: any } = {};
 
     while (this.rdataView.getUint16(currentAddress) != 0) {
       const { name, type, definition } = this.parseMember(currentAddress);
@@ -164,13 +164,13 @@ export class StructTabParser {
  * Sometimes some fields are defined multiple times.
  * To not break parsing, we just append an underscore to the field name.
  * This functions ensures that the field name is unique.
- * 
+ *
  * Also, yes, last ones need the underscore, not the first ones, because if we'd rename
  * the fields, it would change the order of the fields in the javascript object.
  * And that would break parsing. (Otherwise we'd need to unshift the fields)
  */
 function getUniqueKey(obj: Record<string, any>, name: string): string {
-  if (obj.hasOwnProperty(name)) {
+  if (Object.prototype.hasOwnProperty.call(obj, name)) {
     return getUniqueKey(obj, `${name}_`);
   } else {
     return name;

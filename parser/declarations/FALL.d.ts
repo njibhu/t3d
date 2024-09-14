@@ -4,7 +4,7 @@ export namespace V0_N {
   }
 
   export type PackAnimFallbackV0 = {
-    sourceAnim: BigInt,
+    sourceAnim: bigint,
     targetAnims: BigUint64Array
   }
 

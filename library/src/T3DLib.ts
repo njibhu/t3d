@@ -17,11 +17,11 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-declare var T3D: any;
+declare let T3D: any;
 
 /* INCLUDES */
 import LocalReader from "./LocalReader/LocalReader";
-import { version as _version } from "./version"
+import { version as _version } from "./version";
 import GW2File from "./format/file/GW2File";
 import GW2Chunk from "./format/file/GW2Chunk";
 import DataRenderer from "./dataRenderer/DataRenderer";
@@ -52,8 +52,9 @@ const _settings = {
   concurrentTasks: typeof navigator !== "undefined" ? navigator.hardwareConcurrency : 1,
 };
 
-type MapList = {name: string, maps: {fileName: number, name: string}[]}[];
+type MapList = { name: string; maps: { fileName: number; name: string }[] }[];
 
+// eslint-disable-next-line prefer-const
 T3D = {
   version: _version,
   GW2File: GW2File,
@@ -78,7 +79,7 @@ T3D = {
   /**
    * Creates a new instance of LocalReader with an pNaCl inflater connected to it.
    */
-  getLocalReader: function(file: File, callback: Function, t3dtoolsWorker: any, noIndexedDB: boolean) {
+  getLocalReader: function (file: File, callback: Function, t3dtoolsWorker: any, noIndexedDB: boolean) {
     const path = t3dtoolsWorker || _settings.t3dtoolsWorker;
 
     // Create the instance and init the threads
@@ -130,9 +131,13 @@ T3D = {
    * If the searchAll flag is not set to true, this process will only scan files
    * from the "T3D/MapFileList" property.
    **/
- 
-  getMapListAsync: function (localReader: LocalReader, callback: (mapList: {maps: MapList})=>unknown , searchAll: boolean) {
-    function restoreOuput(array: {name: string, category: string, baseId: number}[]) {
+
+  getMapListAsync: function (
+    localReader: LocalReader,
+    callback: (mapList: { maps: MapList }) => unknown,
+    searchAll: boolean
+  ) {
+    function restoreOuput(array: { name: string; category: string; baseId: number }[]) {
       const returnArray: MapList = [];
       for (const elt of array) {
         let category = returnArray.findIndex((i) => i.name === elt.category);
@@ -172,7 +177,13 @@ T3D = {
    * Utility method used for rendering map files. Loads a map file and applies
    * the provided renderers to it.
    **/
-  renderMapContentsAsync: function (localReader: LocalReader, fileName: number | string, renderers: any[], callback: Function, logger: typeof Logger) {
+  renderMapContentsAsync: function (
+    localReader: LocalReader,
+    fileName: number | string,
+    renderers: any[],
+    callback: Function,
+    logger: typeof Logger
+  ) {
     /// VO for storing result from renderers
     const context = {};
 
@@ -189,7 +200,7 @@ T3D = {
         const mapFile = new T3D.GW2File(ds, 0);
 
         /// Populate VO by running the renderers
-        runAllRenderers = function(i: any) {
+        runAllRenderers = function (i: any) {
           /// Run each renderer
           if (i < renderers.length) {
             T3D.runRenderer(
@@ -219,16 +230,20 @@ T3D = {
     }
   },
 
-
   /**
    * Utility method for applying a single renderer to a LocalReader insatnce.
    **/
-  runRenderer: function (renderClass: typeof DataRenderer, localReader: LocalReader, settings: any, context: any, cb: Function) {
+  runRenderer: function (
+    renderClass: typeof DataRenderer,
+    localReader: LocalReader,
+    settings: any,
+    context: any,
+    cb: Function
+  ) {
     const r = new renderClass(localReader, settings, context, undefined, renderClass.rendererName);
 
     r.renderAsync(cb);
   },
-
 
   getContextValue: function (context: any, clazz: typeof DataRenderer, propName: any, defaultValue: any): any {
     const output = context[clazz.rendererName];
@@ -238,15 +253,14 @@ T3D = {
     return defaultValue;
   },
 
-
   /**
-     * Check if the client web browser can render WebGL 3D content.
-     *
-     * @private
-     * @param  {boolean} return_context flag making this method return the canvas object instead of true
-     * @return {boolean} true if the client is WebGL enabled, false otherwise
-     */
-  hasWebGL: function (return_context: boolean): boolean | {name: any, gl: any} {
+   * Check if the client web browser can render WebGL 3D content.
+   *
+   * @private
+   * @param  {boolean} return_context flag making this method return the canvas object instead of true
+   * @return {boolean} true if the client is WebGL enabled, false otherwise
+   */
+  hasWebGL: function (return_context: boolean): boolean | { name: any; gl: any } {
     if (window.WebGLRenderingContext) {
       const canvas = document.createElement("canvas");
       const names = ["webgl", "experimental-webgl", "moz-webgl", "webkit-3d"];
@@ -264,7 +278,7 @@ T3D = {
             // else, return just true
             return true;
           }
-        } catch (e) {
+        } catch {
           //continue
         }
       }
@@ -278,12 +292,11 @@ T3D = {
   },
 
   //@ts-ignore
-  formats: formats.default
+  formats: formats.default,
 } as const;
 
 export default T3D;
 (globalThis as any).T3D = T3D;
-
 
 /* PRIVATE METHODS */
 

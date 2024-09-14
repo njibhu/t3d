@@ -83,7 +83,7 @@ export namespace V4_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
@@ -118,7 +118,7 @@ export namespace V5_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
@@ -143,7 +143,7 @@ export namespace V5_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
@@ -173,7 +173,7 @@ export namespace V6_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
@@ -198,7 +198,7 @@ export namespace V6_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
@@ -217,7 +217,7 @@ export namespace V6_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     minExt: Float32Array,
     maxExt: Float32Array,
     intensities: Float32Array,
@@ -244,7 +244,7 @@ export namespace V7_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
@@ -269,7 +269,7 @@ export namespace V7_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
@@ -288,7 +288,7 @@ export namespace V7_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     minExt: Float32Array,
     maxExt: Float32Array,
     intensities: Float32Array,
@@ -316,7 +316,7 @@ export namespace V8_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
@@ -341,7 +341,7 @@ export namespace V8_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
@@ -360,7 +360,7 @@ export namespace V8_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     minExt: Float32Array,
     maxExt: Float32Array,
     intensities: Float32Array,
@@ -389,7 +389,7 @@ export namespace V9_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
@@ -414,7 +414,7 @@ export namespace V9_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
@@ -433,7 +433,7 @@ export namespace V9_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -464,7 +464,7 @@ export namespace V10_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>
   }
@@ -489,7 +489,7 @@ export namespace V10_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>
   }
@@ -508,7 +508,7 @@ export namespace V10_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -541,7 +541,7 @@ export namespace V11_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -567,7 +567,7 @@ export namespace V11_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -587,7 +587,7 @@ export namespace V11_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -625,7 +625,7 @@ export namespace V12_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -651,7 +651,7 @@ export namespace V12_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -671,7 +671,7 @@ export namespace V12_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -709,7 +709,7 @@ export namespace V13_N {
   }
 
   export type PackMapLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -735,7 +735,7 @@ export namespace V13_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -755,7 +755,7 @@ export namespace V13_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -794,7 +794,7 @@ export namespace V14_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -820,7 +820,7 @@ export namespace V14_N {
   }
 
   export type PackMapProtalLight = {
-    guid: BigInt,
+    guid: bigint,
     fadeCamera: number,
     fadeLight: number,
     lighten: number,
@@ -830,7 +830,7 @@ export namespace V14_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -850,7 +850,7 @@ export namespace V14_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -889,7 +889,7 @@ export namespace V15_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -915,7 +915,7 @@ export namespace V15_N {
   }
 
   export type PackMapPortalLight = {
-    guid: BigInt,
+    guid: bigint,
     points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
@@ -929,7 +929,7 @@ export namespace V15_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapPointLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -949,7 +949,7 @@ export namespace V15_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -988,7 +988,7 @@ export namespace V16_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -1014,7 +1014,7 @@ export namespace V16_N {
   }
 
   export type PackMapPortalLight = {
-    guid: BigInt,
+    guid: bigint,
     points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
@@ -1028,7 +1028,7 @@ export namespace V16_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapSpotLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -1053,7 +1053,7 @@ export namespace V16_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -1092,7 +1092,7 @@ export namespace V17_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -1118,7 +1118,7 @@ export namespace V17_N {
   }
 
   export type PackMapPortalLight = {
-    guid: BigInt,
+    guid: bigint,
     points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
@@ -1132,7 +1132,7 @@ export namespace V17_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapSpotLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -1158,7 +1158,7 @@ export namespace V17_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -1197,7 +1197,7 @@ export namespace V18_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -1223,7 +1223,7 @@ export namespace V18_N {
   }
 
   export type PackMapPortalLight = {
-    guid: BigInt,
+    guid: bigint,
     points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
@@ -1237,7 +1237,7 @@ export namespace V18_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapSpotLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -1276,7 +1276,7 @@ export namespace V18_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,
@@ -1316,7 +1316,7 @@ export namespace V19_N {
   }
 
   export type PackMapPointLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -1342,7 +1342,7 @@ export namespace V19_N {
   }
 
   export type PackMapPortalLight = {
-    guid: BigInt,
+    guid: bigint,
     points: Array<Float32Array>,
     portalData: Array<PackMapPortalData>,
     broadId: number
@@ -1356,7 +1356,7 @@ export namespace V19_N {
   }
 
   export type PackMapSpotLightgroups = {
-    guid: BigInt,
+    guid: bigint,
     lights: Array<PackMapSpotLight>,
     curves: Array<PackMapCurve>,
     broadId: number
@@ -1395,7 +1395,7 @@ export namespace V19_N {
   }
 
   export type PackMapVolumeLight = {
-    guid: BigInt,
+    guid: bigint,
     position: Float32Array,
     extents: Float32Array,
     rotation: Float32Array,

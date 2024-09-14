@@ -29,13 +29,13 @@ export namespace V6_N {
   }
 
   export type PackMapCollideMeshRefV6 = {
-    sequence: BigInt,
+    sequence: bigint,
     meshIndex: number
   }
 
   export type PackMapCollideModelPropV6 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -88,13 +88,13 @@ export namespace V7_N {
   }
 
   export type PackMapCollideMeshRefV7 = {
-    sequence: BigInt,
+    sequence: bigint,
     meshIndex: number
   }
 
   export type PackMapCollideModelPropV7 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -143,13 +143,13 @@ export namespace V8_N {
   }
 
   export type PackMapCollideMeshRefV8 = {
-    sequence: BigInt,
+    sequence: bigint,
     meshIndex: number
   }
 
   export type PackMapCollideModelPropV8 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -199,7 +199,7 @@ export namespace V9_N {
   }
 
   export type PackMapCollideMeshRefV9 = {
-    sequence: BigInt,
+    sequence: bigint,
     meshIndex: number
   }
 
@@ -208,8 +208,8 @@ export namespace V9_N {
   }
 
   export type PackMapCollideModelPropV9 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -259,7 +259,7 @@ export namespace V10_N {
   }
 
   export type PackMapCollideMeshRefV10 = {
-    sequence: BigInt,
+    sequence: bigint,
     meshIndex: number
   }
 
@@ -268,8 +268,8 @@ export namespace V10_N {
   }
 
   export type PackMapCollideModelPropV10 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -319,7 +319,7 @@ export namespace V11_N {
   }
 
   export type PackMapCollideMeshRefV11 = {
-    sequence: BigInt,
+    sequence: bigint,
     meshIndex: number
   }
 
@@ -329,8 +329,8 @@ export namespace V11_N {
   }
 
   export type PackMapCollideModelPropV11 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -383,7 +383,7 @@ export namespace V12_N {
   }
 
   export type PackMapCollideMeshRefV12 = {
-    sequence: BigInt,
+    sequence: bigint,
     meshIndex: number
   }
 
@@ -393,8 +393,8 @@ export namespace V12_N {
   }
 
   export type PackMapCollideModelPropV12 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -445,7 +445,7 @@ export namespace V13_N {
   }
 
   export type PackMapCollideAnimationV13 = {
-    sequence: BigInt,
+    sequence: bigint,
     collisionIndices: Uint32Array,
     blockerIndices: Uint32Array
   }
@@ -461,8 +461,8 @@ export namespace V13_N {
   }
 
   export type PackMapCollideModelPropV13 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -516,7 +516,7 @@ export namespace V14_N {
   }
 
   export type PackMapCollideAnimationV14 = {
-    sequence: BigInt,
+    sequence: bigint,
     collisionIndices: Uint32Array,
     blockerIndices: Uint32Array
   }
@@ -533,8 +533,8 @@ export namespace V14_N {
   }
 
   export type PackMapCollideModelPropV14 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -584,7 +584,7 @@ export namespace V15_N {
   }
 
   export type PackMapCollideAnimationV15 = {
-    sequence: BigInt,
+    sequence: bigint,
     collisionIndices: Uint32Array,
     blockerIndices: Uint32Array
   }
@@ -601,8 +601,8 @@ export namespace V15_N {
   }
 
   export type PackMapCollideModelPropV15 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -617,7 +617,7 @@ export namespace V15_N {
   }
 
   export type PackMapCollideWaterVolumeV15 = {
-    guid: BigInt,
+    guid: bigint,
     flags: number,
     verticalRange: Float32Array,
     vertices: Array<Float32Array>
@@ -659,7 +659,7 @@ export namespace V16_N {
   }
 
   export type PackMapCollideAnimationV16 = {
-    sequence: BigInt,
+    sequence: bigint,
     collisionIndices: Uint32Array,
     blockerIndices: Uint32Array
   }
@@ -676,8 +676,8 @@ export namespace V16_N {
   }
 
   export type PackMapCollideModelPropV16 = {
-    token: BigInt,
-    sequence: BigInt,
+    token: bigint,
+    sequence: bigint,
     scale: number,
     translate: Float32Array,
     rotate: Float32Array,
@@ -692,7 +692,7 @@ export namespace V16_N {
   }
 
   export type PackMapCollideWaterVolumeV16 = {
-    guid: BigInt,
+    guid: bigint,
     name: string,
     flags: number,
     verticalRange: Float32Array,

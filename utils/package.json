@@ -14,12 +14,21 @@
   },
   "scripts": {
     "gen": "ts-node ./bin/rdata-extract.ts ../temp/GW2-64.exe ../parser/definitions",
-    "declarations": "ts-node ./bin/declaration-gen.ts ../parser/definitions ../parser/declarations"
+    "declarations": "ts-node ./bin/declaration-gen.ts ../parser/definitions ../parser/declarations",
+    "format:fix": "prettier --write ./lib && prettier --write ./bin",
+    "format:check": "prettier --check ./lib && prettier --check ./bin",
+    "lint:check": "eslint ./lib && eslint ./bin",
+    "lint:fix": "eslint ./lib --fix && eslint ./bin --fix",
+    "test": "exit 0"
   },
   "dependencies": {
     "@types/node": "12.12.17",
     "r2pipe-promise": "1.6.0",
-    "ts-node": "8.5.4",
-    "typescript": "3.7.3"
+    "ts-node": "8.9.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "8.5.0",
+    "@typescript-eslint/parser": "8.5.0",
+    "typescript": "5.6.2"
   }
 }

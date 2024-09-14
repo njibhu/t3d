@@ -1,13 +1,12 @@
 export type FileTypes = keyof typeof fileChunkMap;
 export type ChunkTypes = {
-  [K in FileTypes]: keyof typeof fileChunkMap[K];
+  [K in FileTypes]: keyof (typeof fileChunkMap)[K];
 }[FileTypes];
 export type DefinitionTypes = {
   [K in FileTypes]: {
-    [SubKey in keyof typeof fileChunkMap[K]]: typeof fileChunkMap[K][SubKey];
-  }[keyof typeof fileChunkMap[K]];
+    [SubKey in keyof (typeof fileChunkMap)[K]]: (typeof fileChunkMap)[K][SubKey];
+  }[keyof (typeof fileChunkMap)[K]];
 }[FileTypes];
-
 
 export const fileChunkMap = {
   cntc: { Main: "MAIN_4" },
@@ -23,7 +22,7 @@ export const fileChunkMap = {
     ROOT: "ROOT",
     GAME: "GAME",
     GEOM: "GEOM",
-    PRPS: "PRPS",	
+    PRPS: "PRPS",
   },
   //AFNT: {"AFNT"},
   CINP: { CSCN: "CSCN" },

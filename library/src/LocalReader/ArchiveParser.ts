@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-import * as  MathUtils from "../util/MathUtils";
+import * as MathUtils from "../util/MathUtils";
 
 /**
  * @file The ArchiveParser module is a set of helper tools to correctly read the Archive.
@@ -84,7 +84,7 @@ type ArchiveHeader = {
  * @param {DataStream} ds
  * @returns {ArchiveHeader} Returns undefined if the header couldn't be parsed
  */
-export function parseANDatHeader(ds: InstanceType<typeof DataStream>): ArchiveHeader|undefined {
+export function parseANDatHeader(ds: InstanceType<typeof DataStream>): ArchiveHeader | undefined {
   const header: Partial<ArchiveHeader> = {};
 
   // Header parsing
@@ -130,17 +130,19 @@ type MetaTable = Array<{
  * @returns {{header: {magic: String, nbOfEntries: number}, table: MetaTable, mftIndexOffset: number, mftIndexSize: number}|undefined}
  *   Returns undefined if it couldn't parse the table
  */
-export function parseMFTTable(ds: InstanceType<typeof DataStream>): {
-  header: {
-      magic: string;
-      nbOfEntries: number;
-  };
-  table: MetaTable;
-  mftIndexOffset: number;
-  mftIndexSize: number;
-} | undefined {
+export function parseMFTTable(ds: InstanceType<typeof DataStream>):
+  | {
+      header: {
+        magic: string;
+        nbOfEntries: number;
+      };
+      table: MetaTable;
+      mftIndexOffset: number;
+      mftIndexSize: number;
+    }
+  | undefined {
   // Parse the table header
-  const header: { magic?: string, nbOfEntries?: number } = {};
+  const header: { magic?: string; nbOfEntries?: number } = {};
   header.magic = ds.readString(4);
   ds.seek(ds.position + 8); // Skip uint64
   header.nbOfEntries = ds.readUint32();
@@ -171,7 +173,7 @@ export function parseMFTTable(ds: InstanceType<typeof DataStream>): {
   T3D.Logger.log(T3D.Logger.TYPE_DEBUG, "Loaded MFTTable");
 
   return {
-    header: header as { magic: string, nbOfEntries: number },
+    header: header as { magic: string; nbOfEntries: number },
     table: fullTable,
     // Register the MFTIndex table position and size
     mftIndexOffset: fullTable[2].offset,
@@ -222,7 +224,11 @@ export function parseMFTIndex(ds: InstanceType<typeof DataStream>, size: number)
  * @param {number} length
  * @returns {Promise<{ds: DataStream, len: number}>}
  */
-export function getFilePart(file: File, offset: number, length: number): Promise<{
+export function getFilePart(
+  file: File,
+  offset: number,
+  length: number
+): Promise<{
   ds: InstanceType<typeof DataStream>;
   len: number;
 }> {

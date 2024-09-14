@@ -204,7 +204,7 @@ export namespace V7_N {
     indices: Uint16Array,
     propIds: BigUint64Array,
     projection: number,
-    id: BigInt
+    id: bigint
   }
 
   export type PackMapDecalVertexV6 = {
@@ -243,8 +243,8 @@ export namespace V8_N {
     indices: Uint16Array,
     propIds: BigUint64Array,
     projection: number,
-    surfaceId: BigInt,
-    id: BigInt
+    surfaceId: bigint,
+    id: bigint
   }
 
   export type PackMapDecalVertexV7 = {
@@ -283,8 +283,8 @@ export namespace V9_N {
     indices: Uint16Array,
     propIds: BigUint64Array,
     projection: number,
-    surfaceId: BigInt,
-    id: BigInt
+    surfaceId: bigint,
+    id: bigint
   }
 
   export type PackMapDecalVertexV8 = {
@@ -327,8 +327,8 @@ export namespace V10_N {
     indices: Uint16Array,
     propIds: BigUint64Array,
     projection: number,
-    surfaceId: BigInt,
-    id: BigInt
+    surfaceId: bigint,
+    id: bigint
   }
 
   export type PackMapDecalVertexV9 = {

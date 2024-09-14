@@ -32,7 +32,7 @@ T3D.getLocalReader(
       try {
         const pngFileContent = await localReader.readFile(pngFile.mftId);
         fs.writeFileSync(`${outputFolder}/png/${pngFile.baseIdList[0]}.png`, Buffer.from(pngFileContent.buffer));
-      } catch (_err) {
+      } catch {
         continue;
       }
     }
@@ -45,7 +45,7 @@ T3D.getLocalReader(
       try {
         const ddsFileContent = await localReader.readFile(ddsFile.mftId);
         fs.writeFileSync(`${outputFolder}/dds/${ddsFile.baseIdList[0]}.dds`, Buffer.from(ddsFileContent.buffer));
-      } catch (_err) {
+      } catch {
         continue;
       }
     }
@@ -82,7 +82,7 @@ T3D.getLocalReader(
 function mkdir(folderName) {
   try {
     fs.mkdirSync(folderName);
-  } catch (_err) {
+  } catch {
     return;
   }
 }

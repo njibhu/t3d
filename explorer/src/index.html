@@ -16,12 +16,12 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
 !-->
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>T3D Explorer</title>
-    <link rel="stylesheet" href="https://d1h9a8s8eodvjz.cloudfront.net/fonts/menomonia/08-02-12/menomonia.css">
+    <link rel="stylesheet" href="https://d1h9a8s8eodvjz.cloudfront.net/fonts/menomonia/08-02-12/menomonia.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -38,43 +38,44 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
         <h1>Welcome to T3D Explorer</h1>
         <div class="filePicker">
           <input id="filePickerInput" type="file" hidden />
-          <button id='filePickerButton' class="mainButton">Select a Guild Wars 2 .dat file</button>
+          <button id="filePickerButton" class="mainButton">Select a Guild Wars 2 .dat file</button>
         </div>
         <main>
           <h3>This is a Guild Wars 2 fansite</h3>
           <p>
-          T3D Explorer lets you explore textured Guild Wars 2 map files in 3D, directly in your web browser.
-          The purpose of this project is to allow a unique look into Tyria - the amazing world of Guild Wars 2.
-          Some of the graphics are still missing such as animations, lighting, and various visual effects which
-          give Guild Wars 2 its immersive experience.
+            T3D Explorer lets you explore textured Guild Wars 2 map files in 3D, directly in your web browser. The
+            purpose of this project is to allow a unique look into Tyria - the amazing world of Guild Wars 2. Some of
+            the graphics are still missing such as animations, lighting, and various visual effects which give Guild
+            Wars 2 its immersive experience.
           </p>
-    
           <h3>Contacts</h3>
           <p>
-          T3D Explorer is part of the <a href="https://github.com/njibhu/t3d/">T3D project</a>. If you have questions don't
-          hesitate to contact me !
+            T3D Explorer is part of the <a href="https://github.com/njibhu/t3d/">T3D project</a>. If you have questions
+            don't hesitate to contact me !
+          </p>
           <ul>
-            <li>If you encounter a bug, submit an issue on <a
-                href="https://github.com/njibhu/t3d/issues"><strong>Github!</strong></a></li>
+            <li>
+              If you encounter a bug, submit an issue on
+              <a href="https://github.com/njibhu/t3d/issues"><strong>Github!</strong></a>
+            </li>
             <li>Via email: ev@njibhu.eu</li>
             <li>In-game: Aquila.4832</li>
             <li>Via Reddit: /u/Njibhu_</li>
           </ul>
-          </p>
         </main>
         <footer>
           <p>
-            T3D is powered by: 
+            T3D is powered by:
             <a href="http://threejs.org/" target="_blank">three.js</a>
             <a href="https://jquery.com/" target="_blank">jQuery</a>
             <a href="https://github.com/kig/DataStream.js" target="_blank">DataStream.js</a>
           </p>
           <h3>ArenaNet copyright notice</h3>
           <p>
-            © 2018 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo,
-            ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2,
-            and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other
-            trademarks are the property of their respective owners.
+            © 2018 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild
+            Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, and all associated logos
+            and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the
+            property of their respective owners.
           </p>
         </footer>
       </div>
@@ -86,13 +87,13 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
         <section id="mapSelectSection">
           <h3>Select which map to load:</h3>
           <div id="selectInputs">
-          <label>
-            <select id="categorySelect"></select>
-          </label>
-          <label>
-            <select id="mapSelect"></select>
-          </label>
-        </div>
+            <label>
+              <select id="categorySelect"></select>
+            </label>
+            <label>
+              <select id="mapSelect"></select>
+            </label>
+          </div>
         </section>
 
         <section id="renderSection">
@@ -104,7 +105,7 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
             </label>
             <label>
               <span>Props models:</span>
-              <input type="checkbox" id="loadProps" checked/>
+              <input type="checkbox" id="loadProps" checked />
             </label>
             <label>
               <span>Visible collisions:</span>
@@ -113,16 +114,12 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
           </div>
         </section>
         <section>
+          <p>Enabling <span>Zone models</span> allows you to view trees, plants and various 'nature' models.</p>
+          <p>Enabling <span>Props models</span> allows you to view most of the 3d models in a map.</p>
           <p>
-            Enabling <span>Zone models</span> allows you to view trees, plants and various 'nature' models.
-          </p>
-          <p>
-            Enabling <span>Props models</span> allows you to view most of the 3d models in a map.
-          </p>
-          <p>
-            Enabling <span>Visible collisions</span> allows you to view all the collision data in a map.
-            The collision data has no textures but will give you a hint of how the map looks with actual 3d models.
-            Consider enabling only Visible collisions to reduce map loading times.
+            Enabling <span>Visible collisions</span> allows you to view all the collision data in a map. The collision
+            data has no textures but will give you a hint of how the map looks with actual 3d models. Consider enabling
+            only Visible collisions to reduce map loading times.
           </p>
           <p>Missing maps ? <a id="scanMapLink">Scan the archive</a></p>
         </section>
@@ -131,12 +128,12 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
           <div id="renderSectionCheckboxes">
             <label>
               <span>Anti-aliasing:</span>
-              <input type="checkbox" id="enableAA" checked/>
+              <input type="checkbox" id="enableAA" checked />
             </label>
           </div>
         </section>
         <footer>
-          <button id='mapLoadButton' class="mainButton">Explore</button>
+          <button id="mapLoadButton" class="mainButton">Explore</button>
         </footer>
       </div>
 
@@ -159,7 +156,15 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
             <button id="takeScreenshot" class="control">Take screenshot</button>
             <label class="control" for="mvntSpeedRange">
               <span>Speed:</span>
-              <input class="range" type="range" id="mvntSpeedRange" name="mvntSpeedRange" min="500" max="10000" value="1000"/>
+              <input
+                class="range"
+                type="range"
+                id="mvntSpeedRange"
+                name="mvntSpeedRange"
+                min="500"
+                max="10000"
+                value="1000"
+              />
             </label>
             <label class="control" for="fogRange">
               <span>Fog:</span>
@@ -190,5 +195,4 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
       -->
     <script type="text/javascript" src="./index.js"></script>
   </body>
-
 </html>

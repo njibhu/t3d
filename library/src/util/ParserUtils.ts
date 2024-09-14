@@ -29,7 +29,6 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
-
 /**
  * Generates a function for reading an array using DataStream
  *
@@ -257,7 +256,7 @@ export function getFileNameReader(): Function {
       ds.seek(pos);
 
       return ret;
-    } catch (e) {
+    } catch {
       /// Go back to where we were
       ds.seek(pos);
 

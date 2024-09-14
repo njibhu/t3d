@@ -22,7 +22,6 @@ import FileParser from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 
-
 /**
  * Base class for data interpretors a.k.a. 'Renderers'
  *
@@ -62,14 +61,20 @@ export default class DataRenderer {
   static rendererName = "DataRenderer";
   protected logger: typeof Logger;
 
-  constructor(protected localReader: LocalReader, public settings: any, protected context: any, logger_?: typeof Logger, public rendererName = "DataRenderer") {
+  constructor(
+    protected localReader: LocalReader,
+    public settings: any,
+    protected context: any,
+    logger_?: typeof Logger,
+    public rendererName = "DataRenderer"
+  ) {
     /// Just storing parameters
     if (!settings) {
       settings = {};
     }
     this.context[rendererName] = {};
 
-    if (!logger_){
+    if (!logger_) {
       this.logger = T3D.Logger;
     } else {
       this.logger = logger_;

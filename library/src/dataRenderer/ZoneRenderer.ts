@@ -35,7 +35,7 @@ type ModelGroupEntry = {
   rotRangeZ: [number, number];
   scaleRange: [number, number];
   fadeRange: [number, number];
-}
+};
 
 /**
  *
@@ -115,7 +115,7 @@ export default class ZoneRenderer extends DataRenderer {
       const key = groupKeys[i]; /// key is model filename
       const group = modelGroups[key as any];
 
-      const meshGroups : any[] = [];
+      const meshGroups: any[] = [];
 
       /// Get model just once for this group
       const showUnmaterialed = false;
@@ -288,7 +288,7 @@ export default class ZoneRenderer extends DataRenderer {
     /// Zone Flags increases a linear position, used to step trough the Zone.
     let linearPos = 0;
 
-    const modelGroups : Record<number, ModelGroupEntry[]>= {};
+    const modelGroups: Record<number, ModelGroupEntry[]> = {};
 
     const terrainTiles = this.getOutput(T3D.TerrainRenderer).terrainTiles;
 

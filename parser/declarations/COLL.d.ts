@@ -8,14 +8,14 @@ export namespace V0_N {
   }
 
   export type ModelCollisionMeshV0 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     vertices: Array<Float32Array>,
     indices: Uint16Array,
     surfaces: Uint8Array
   }
 
   export type ModelCollisionCloudV0 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -56,7 +56,7 @@ export namespace V1_N {
   }
 
   export type ModelCollisionCloudV1 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -98,7 +98,7 @@ export namespace V2_N {
   }
 
   export type ModelCollisionCloudV8 = {
-    animationSequence: BigInt,
+    animationSequence: bigint,
     points: Array<Float32Array>,
     surface: number
   }
@@ -140,7 +140,7 @@ export namespace V3_N {
   }
 
   export type ModelCollisionAnimationV9 = {
-    animation: BigInt,
+    animation: bigint,
     objects: Array<ModelCollisionAnimatedObjectV9>
   }
 
@@ -200,7 +200,7 @@ export namespace V4_N {
   }
 
   export type ModelCollisionAnimationV10 = {
-    animation: BigInt,
+    animation: bigint,
     objects: Array<ModelCollisionAnimatedObjectV10>,
     targetPoints: Array<Float32Array>
   }

@@ -21,18 +21,26 @@
     "url": "git+https://github.com/njibhu/t3d.git"
   },
   "scripts": {
-    "build": "npx tsc --outDir build/tsc src/main.ts && npx browserify build/tsc/src/main.js -o build/t3d-parser.js "
+    "build": "rollup -c",
+    "test": "jest",
+    "lint:check": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "format:fix": "prettier --write ./src",
+    "format:check": "prettier --check ./src"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@types/jest": "26.0.15",
-    "browserify": "17.0.0",
-    "jest": "26.6.1",
-    "lodash": "4.17.20",
-    "ts-jest": "26.4.2",
-    "ts-node": "8.9.1",
-    "typescript": "5.5.4"
+    "@types/jest": "29.5.13",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "eslint": "9.10.0",
+    "jest": "29.7.0",
+    "rollup": "4.21.3",
+    "ts-jest": "29.2.5",
+    "tslib": "2.7.0",
+    "typescript": "5.6.2",
+    "typescript-eslint": "8.5.0"
   }
 }

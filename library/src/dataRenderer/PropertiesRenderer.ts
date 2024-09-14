@@ -27,7 +27,6 @@ import type { Matrix4 } from "three";
 //import type GW2File from "../format/file/GW2File";
 import type FileParser from "t3d-parser";
 
-
 /**
  *
  * A renderer that generates property models for a map.
@@ -138,7 +137,7 @@ export default class PropertiesRenderer extends DataRenderer {
       this.textureCache,
       this.showUnmaterialized,
       // We don't care about cached meshes since we know we only ask for each meshes once.
-      (meshes, _isCached, _boundingSphere) => {
+      (meshes) => {
         if (meshes) {
           this.placeModelOnScene(modelName, meshes /*, boundingSphere*/);
         }

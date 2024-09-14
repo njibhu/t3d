@@ -87,4 +87,3 @@ export default class SingleModelRenderer extends DataRenderer {
     );
   }
 }
-

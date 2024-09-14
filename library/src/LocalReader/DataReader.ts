@@ -32,10 +32,12 @@ export default class DataReader {
    * @param {number} settings.workersNb Amount of concurrent spawned workers
    * @param {string} settings.workerPath Path to the worker script
    */
-  constructor(public settings: {
-    workersNb: number;
-    workerPath: string;
-  }) {
+  constructor(
+    public settings: {
+      workersNb: number;
+      workerPath: string;
+    }
+  ) {
     this._workerPool = [];
     this._workerLoad = [];
     this._inflateCallbacks = [];
@@ -52,7 +54,13 @@ export default class DataReader {
    * @param {number} [capLength] Output size
    * @returns {Promise<{buffer: ArrayBuffer, dxtType: number, imageWidth: number, imageHeight: number}>}
    */
-  inflate(ds: InstanceType<typeof DataStream>, size: number, mftId: number, isImage?: boolean, capLength?: number): Promise<{
+  inflate(
+    ds: InstanceType<typeof DataStream>,
+    size: number,
+    mftId: number,
+    isImage?: boolean,
+    capLength?: number
+  ): Promise<{
     buffer: ArrayBuffer;
     dxtType: number;
     imageWidth: number;

@@ -370,7 +370,7 @@ export namespace V11_N {
   }
 
   export type MapEditLayerItem = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     layerFlags: number
   }
@@ -399,7 +399,7 @@ export namespace V11_N {
   }
 
   export type MapEditSnapPoint = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     flags: number,
     position: Float32Array,
@@ -431,7 +431,7 @@ export namespace V12_N {
   }
 
   export type MapEditLayerItem = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     layerFlags: number
   }
@@ -460,7 +460,7 @@ export namespace V12_N {
   }
 
   export type MapEditSnapPoint = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     flags: number,
     position: Float32Array,
@@ -493,7 +493,7 @@ export namespace V13_N {
   }
 
   export type MapEditLayerItem = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     layerFlags: Uint32Array
   }
@@ -522,7 +522,7 @@ export namespace V13_N {
   }
 
   export type MapEditSnapPoint = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     flags: number,
     position: Float32Array,
@@ -555,7 +555,7 @@ export namespace V14_N {
   }
 
   export type MapEditLayerItem = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     layerFlags: Uint32Array
   }
@@ -608,7 +608,7 @@ export namespace V14_N {
   }
 
   export type MapEditSnapPoint = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     flags: number,
     position: Float32Array,
@@ -642,7 +642,7 @@ export namespace V15_N {
   }
 
   export type MapEditLayerItem = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     layerFlags: Uint32Array
   }
@@ -695,7 +695,7 @@ export namespace V15_N {
   }
 
   export type MapEditSnapPoint = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     flags: number,
     position: Float32Array,
@@ -705,8 +705,8 @@ export namespace V15_N {
 
   export type MapEditMeasureSpan = {
     name: string,
-    substrateId0: BigInt,
-    substrateId1: BigInt,
+    substrateId0: bigint,
+    substrateId1: bigint,
     substrateModuleId0: number,
     substrateModuleId1: number,
     position0: Float32Array,
@@ -740,7 +740,7 @@ export namespace V16_N {
   }
 
   export type MapEditLayerItem = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     layerFlags: Uint32Array
   }
@@ -794,13 +794,13 @@ export namespace V16_N {
   }
 
   export type PackMapEditNavmeshGenPropMode = {
-    propId: BigInt,
+    propId: bigint,
     mode: number,
-    animSequence: BigInt
+    animSequence: bigint
   }
 
   export type MapEditSnapPoint = {
-    guid: BigInt,
+    guid: bigint,
     moduleId: number,
     flags: number,
     position: Float32Array,
@@ -810,8 +810,8 @@ export namespace V16_N {
 
   export type MapEditMeasureSpan = {
     name: string,
-    substrateId0: BigInt,
-    substrateId1: BigInt,
+    substrateId0: bigint,
+    substrateId1: bigint,
     substrateModuleId0: number,
     substrateModuleId1: number,
     position0: Float32Array,
