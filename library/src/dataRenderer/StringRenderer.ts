@@ -57,10 +57,7 @@ export default class StringRenderer extends DataRenderer {
     const self = this;
 
     /// Get file id
-    // eslint-disable-next-line no-unused-vars
-    const fileId = this.settings.id;
-    // eslint-disable-next-line no-unused-vars
-    const showUnmaterialed = true;
+    // const fileId = this.settings.id;
 
     /// Load the string file
 

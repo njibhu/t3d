@@ -1,3 +1,4 @@
+/* eslint-disable */
 const DataStream = require("DataStream.js");
 global.DataStream = DataStream;
 

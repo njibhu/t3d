@@ -68,7 +68,12 @@ const fvfFormat = {
  * @param  {Number} dy       Mesh height.
  * @return {THREE.Mesh}      The generated mesh.
  */
-export function renderRect(rect: {x1: number, x2: number, y1: number, y2: number}, yPos: number, material: Material, dy?: number): Mesh {
+export function renderRect(
+  rect: { x1: number; x2: number; y1: number; y2: number },
+  yPos: number,
+  material: Material,
+  dy?: number
+): Mesh {
   const dx = rect.x1 - rect.x2;
   const dz = rect.y1 - rect.y2;
   if (!dy) dy = 1;
@@ -96,7 +101,16 @@ export function renderRect(rect: {x1: number, x2: number, y1: number, y2: number
   return plane;
 }
 
-type FinalMesh = Mesh & {materialFlags?: any, materialFilename?: number, materialName?: any, numLods?: number, lodOverride?: any, flags?: any, numUV?: number, boundingSphere?: any};
+type FinalMesh = Mesh & {
+  materialFlags?: any;
+  materialFilename?: number;
+  materialName?: any;
+  numLods?: number;
+  lodOverride?: any;
+  flags?: any;
+  numUV?: number;
+  boundingSphere?: any;
+};
 
 /**
  * Returns a THREE representation of the data contained by a GW2 model file.
@@ -111,7 +125,13 @@ type FinalMesh = Mesh & {materialFlags?: any, materialFilename?: number, materia
  *
  * @return {Array} Each geometry in the model file represented by a textured THREE.Mesh object
  */
-export function renderGeomChunk(localReader: LocalReader, chunk: any, modelDataChunk: any, sharedTextures: any, showUnmaterialed: boolean): FinalMesh[] {
+export function renderGeomChunk(
+  localReader: LocalReader,
+  chunk: any,
+  modelDataChunk: any,
+  sharedTextures: any,
+  showUnmaterialed: boolean
+): FinalMesh[] {
   const rawMeshes = chunk.data.meshes;
   const meshes: any[] = [];
   const mats = modelDataChunk.data.permutations[0].materials;
@@ -307,8 +327,15 @@ export function renderGeomChunk(localReader: LocalReader, chunk: any, modelDataC
     }
 
     /// Create the final mesh from the BufferedGeometry and MeshBasicMaterial
-    const finalMesh: Mesh & {materialFlags?: any, materialFilename?: number, materialName?: any, numLods?: number, lodOverride?: any, flags?: any, numUV?: number} 
-      = new THREE.Mesh(geom, finalMaterial);
+    const finalMesh: Mesh & {
+      materialFlags?: any;
+      materialFilename?: number;
+      materialName?: any;
+      numLods?: number;
+      lodOverride?: any;
+      flags?: any;
+      numUV?: number;
+    } = new THREE.Mesh(geom, finalMaterial);
 
     /// Set material info on the returned mesh
     if (mat) {
@@ -382,7 +409,14 @@ export function getInstancedMesh(meshes: any[], size: number, filterFlags?: numb
  *
  */
 
-export function loadMeshFromModelFile(filename: number, solidColor: any[], localReader: LocalReader, sharedTextures: any, showUnmaterialed: boolean, callback: (meshes: FinalMesh[], boundingSphere?: any ) => unknown): void {
+export function loadMeshFromModelFile(
+  filename: number,
+  solidColor: any[],
+  localReader: LocalReader,
+  sharedTextures: any,
+  showUnmaterialed: boolean,
+  callback: (meshes: FinalMesh[], boundingSphere?: any) => unknown
+): void {
   // Short handles prop attributes
   const finalMeshes: FinalMesh[] = [];
 
@@ -404,14 +438,13 @@ export function loadMeshFromModelFile(filename: number, solidColor: any[], local
       /// Hacky fix for not being able to adjust for position
       const boundingSphere = modelDataChunk.data.boundingSphere;
       const bsc = boundingSphere.center;
-      if(bsc){
+      if (bsc) {
         boundingSphere.radius += Math.sqrt(bsc[0] * bsc[0] + Math.sqrt(bsc[1] * bsc[1] + bsc[2] * bsc[2]));
       }
 
       /// Load all material files
       const allMats = modelDataChunk.data.permutations[0].materials;
 
-      //eslint-disable-next-line no-inner-declarations
       function loadMaterialIndex(mIdx: number, matCallback: Function) {
         if (mIdx >= allMats.length) {
           matCallback();
@@ -570,7 +603,15 @@ export function loadMeshFromModelFile(filename: number, solidColor: any[], local
  *
  * The third argument is the bounding spehere of this model file.
  */
-export function getMeshesForFilename(filename: number, color: any, localReader: LocalReader, sharedMeshes: any, sharedTextures: any, showUnmaterialed: boolean, callback: (meshes: FinalMesh[], isCached: boolean, boundingSphere?: any ) => unknown): void {
+export function getMeshesForFilename(
+  filename: number,
+  color: any,
+  localReader: LocalReader,
+  sharedMeshes: any,
+  sharedTextures: any,
+  showUnmaterialed: boolean,
+  callback: (meshes: FinalMesh[], isCached: boolean, boundingSphere?: any) => unknown
+): void {
   /// If this file has already been loaded, just return a reference to the meshes.
   /// isCached will be set to true to inform the caller the meshes will probably
   /// have to be cloned in some way.
@@ -581,21 +622,25 @@ export function getMeshesForFilename(filename: number, color: any, localReader: 
   /// If this file has never been loaded, load it using loadMeshFromModelFile
   /// the resulting mesh array will be cached within this model's scope.
   else {
-    loadMeshFromModelFile(filename, color, localReader, sharedTextures, showUnmaterialed, function (
-      meshes,
-      boundingSphere
-    ) {
-      /// Cache result if any.
-      if (meshes) {
-        sharedMeshes[filename] = {
-          meshes: meshes,
-          boundingSphere: boundingSphere,
-        };
-      }
+    loadMeshFromModelFile(
+      filename,
+      color,
+      localReader,
+      sharedTextures,
+      showUnmaterialed,
+      function (meshes, boundingSphere) {
+        /// Cache result if any.
+        if (meshes) {
+          sharedMeshes[filename] = {
+            meshes: meshes,
+            boundingSphere: boundingSphere,
+          };
+        }
 
-      /// Allways fire callback.
-      callback(meshes, false, boundingSphere);
-    });
+        /// Allways fire callback.
+        callback(meshes, false, boundingSphere);
+      }
+    );
   }
 }
 
@@ -608,7 +653,11 @@ export function getMeshesForFilename(filename: number, color: any, localReader: 
  * @param  {LocalReader}   localReader LocalReader instance to read from
  * @param  {Function} callback   First argument is list of used file IDs
  */
-export function getFilesUsedByModel(filename: number, localReader: LocalReader, callback: (fileIds: number[]) => unknown): void {
+export function getFilesUsedByModel(
+  filename: number,
+  localReader: LocalReader,
+  callback: (fileIds: number[]) => unknown
+): void {
   const fileIds = [filename];
 
   /// Load model file

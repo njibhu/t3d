@@ -26,7 +26,7 @@ import FileParser from "t3d-parser";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
-import type {  Material } from "three";
+import type { Material } from "three";
 
 /**
  *
@@ -50,13 +50,13 @@ export default class TerrainRenderer extends DataRenderer {
 
   mapFile: FileParser;
   mapRect: { x1: number; x2: number; y1: number; y2: number } | undefined | null;
-  
+
   constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "TerrainRenderer");
     this.mapFile = this.settings.mapFile;
   }
 
-  drawWater(rect: {x1: number, x2: number, y1: number, y2: number}): any {
+  drawWater(rect: { x1: number; x2: number; y1: number; y2: number }): any {
     /// Add Water
     const material = new THREE.MeshBasicMaterial({
       color: 0x5bb1e8,

@@ -58,7 +58,13 @@ export default class EnvironmentRenderer extends DataRenderer {
     });
   }
 
-  loadTextureWithFallback(targetMatIndices: number[], materialArray: Material[], filename: number, fallbackFilename: string, hazeColorAsInt: number): void {
+  loadTextureWithFallback(
+    targetMatIndices: number[],
+    materialArray: Material[],
+    filename: number,
+    fallbackFilename: string,
+    hazeColorAsInt: number
+  ): void {
     const self = this;
 
     function writeMat(mat: Material) {
@@ -119,7 +125,7 @@ export default class EnvironmentRenderer extends DataRenderer {
       if (hasLight) return;
 
       /// Directional lights
-      /* eslint-disable-next-line no-unused-vars */
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       let sumDirLightIntensity = 0;
 
       light.lights.forEach(function (dirLightData: any /*, idx*/) {
@@ -157,7 +163,6 @@ export default class EnvironmentRenderer extends DataRenderer {
 
           directionalLight.position.set(lightDir[0], lightDir[1], lightDir[2]).normalize();
 
-          // eslint-disable-next-line no-unused-vars
           sumDirLightIntensity += intensity;
 
           self.getOutput().lights.push(directionalLight);
@@ -209,7 +214,8 @@ export default class EnvironmentRenderer extends DataRenderer {
     const bounds = parameterChunkData.rect;
     const mapW = Math.abs(bounds[0] - bounds[2]);
     const mapD = Math.abs(bounds[1] - bounds[3]);
-    // eslint-disable-next-line no-unused-vars
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const boundSide = Math.max(mapW, mapD);
 
     const materialArray: Material[] = [];
@@ -279,7 +285,7 @@ export default class EnvironmentRenderer extends DataRenderer {
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
   renderAsync(callback: Function): void {
-    if(!this.mapFile) {
+    if (!this.mapFile) {
       throw new Error("No map file available for EnvironmentRenderer");
     }
     const environmentChunkData = this.mapFile.getChunk("env")!.data;

@@ -13,12 +13,7 @@ const progressCache: Record<string, number | undefined> = {};
  * @param {Number} maxIndex Maximum index of items to load
  * @param {String} progressName Name of the resource being loaded
  */
-export function progress(
-  logger: typeof Logger, 
-  currentIndex: number, 
-  maxIndex: number, 
-  progressName: string
-): void {
+export function progress(logger: typeof Logger, currentIndex: number, maxIndex: number, progressName: string): void {
   const percent = Math.round((1000.0 * currentIndex) / maxIndex) / 10.0;
   // Make sure we don't spam logs
   if (progressCache[progressName] !== percent) {

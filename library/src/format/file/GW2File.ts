@@ -46,7 +46,11 @@ class GW2File {
   chunks: Chunk[] = [];
   header: any;
 
-  constructor(public ds: InstanceType<typeof DataStream>, public addr: number, noChunks: boolean = false) {
+  constructor(
+    public ds: InstanceType<typeof DataStream>,
+    public addr: number,
+    noChunks: boolean = false
+  ) {
     /**
      * @property {Object} header Chunk header data.
      */

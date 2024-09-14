@@ -50,7 +50,7 @@ export default class HavokRenderer extends DataRenderer {
   havokChunkData: any;
 
   constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
-    super(localReader, settings, context, logger, "HavokRenderer")
+    super(localReader, settings, context, logger, "HavokRenderer");
 
     this.mapFile = this.settings.mapFile;
 
@@ -298,4 +298,3 @@ export default class HavokRenderer extends DataRenderer {
     self.renderModels(propModels, "prop", renderPropModelsCB);
   }
 }
-

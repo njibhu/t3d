@@ -90,7 +90,7 @@ export function arr32To64(arr: number[]): number {
  * @param  {Function} comparator A comparator function between the objects in arr_in
  * @return {Array}            Sorted and unique value.
  */
-export function sort_unique(arr_in: any[], comparator: (a:any, b:any) => number): any[] {
+export function sort_unique(arr_in: any[], comparator: (a: any, b: any) => number): any[] {
   const arr = Array.prototype.sort.call(arr_in, comparator);
 
   const u = {};

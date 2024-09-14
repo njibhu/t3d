@@ -72,7 +72,6 @@ class LocalReader {
 
   constructor(public settings: LocalReaderSettings) {
     this.dataReader = new DataReader(settings);
-    this.persistantStore;
     this.file = undefined;
     this.indexTable = [];
     this.fileMetaTable = [];
@@ -116,7 +115,7 @@ class LocalReader {
     fileLength?: number,
     extractLength?: number
   ): Promise<LocalFile> {
-    if(!this.file) throw new Error("No file loaded");
+    if (!this.file) throw new Error("No file loaded");
 
     //let buffer, dxtType, imageWidth, imageHeight;
     const meta = this.getFileMeta(mftId);
@@ -158,7 +157,7 @@ class LocalReader {
     // This is a way for platforms not supporting indexDB to provide their own persistant storage.
     oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>
   ): Promise<Array<FileItem>> {
-    if(!this.file) throw new Error("No file loaded");
+    if (!this.file) throw new Error("No file loaded");
     const self = this;
 
     let persistantList = oldFileList || [];
@@ -217,12 +216,12 @@ class LocalReader {
       if (result.change !== "none") persistantNeedsUpdate = true;
 
       // Tasks to do only every %
-      if (((index as unknown) as number) % Math.floor(iterateList.length / 100) === 0) {
+      if ((index as unknown as number) % Math.floor(iterateList.length / 100) === 0) {
         // Print progress
         T3D.Logger.log(
           T3D.Logger.TYPE_PROGRESS,
           "Finding types",
-          ((index as unknown) as number) / Math.floor(iterateList.length / 100)
+          (index as unknown as number) / Math.floor(iterateList.length / 100)
         );
 
         // Update the persistant storage if needed
@@ -414,7 +413,7 @@ class LocalReader {
     }
   }
 
-  async _readFileType(baseId: number): Promise<{ fileType: string; crc: number; size: number }| undefined> {
+  async _readFileType(baseId: number): Promise<{ fileType: string; crc: number; size: number } | undefined> {
     if (!this._fileTypeCache) this._fileTypeCache = [];
 
     const mftId = this.getFileIndex(baseId);
