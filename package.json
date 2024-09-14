@@ -8,13 +8,12 @@
     "explorer",
     "library",
     "parser",
-    "t3dtools.js",
     "utils"
   ],
   "devDependencies": {
-    "prettier": "2.1.2",
-    "eslint": "7.9.0"
-
+    "@eslint/js": "9.10.0",
+    "eslint": "9.10.0",
+    "prettier": "3.3.3"
   },
   "scripts": {},
   "dependencies": {
