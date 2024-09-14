@@ -1,4 +1,4 @@
-name: Lint and format
+name: Pull requests checks
 
 on:
   pull_request:
@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Run lint check
-        run: npm run lint:check -ws
+        run: npm run lint:check
 
   format:
     runs-on: ubuntu-latest
@@ -40,4 +40,22 @@ jobs:
         run: npm ci
 
       - name: Run format check
-        run: npm run format:check -ws
+        run: npm run format:check
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run format check
+        run: npm run test -ws
