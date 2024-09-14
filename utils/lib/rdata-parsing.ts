@@ -76,6 +76,7 @@ export class RDataParser {
           if (versions > 0 && versions < 100) {
             if (this.isANStructTab(structPtr, versions)) {
               const currentChunk = {
+                // eslint-disable-next-line no-control-regex
                 name: ascii.replace(/\u0000/, ""),
                 versions: versions,
                 offset: structPtr,
@@ -87,7 +88,7 @@ export class RDataParser {
               }
             }
           }
-        } catch (error) {
+        } catch {
           continue;
         }
       }

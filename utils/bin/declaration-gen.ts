@@ -34,7 +34,7 @@ async function run() {
     if (!modulePath.endsWith(".ts")) throw new Error(`${modulePath} is not a typescript file`);
 
     const module: DefinitionModule[] = require(modulePath).definitionArray;
-    let declarations: any[] = [];
+    const declarations: any[] = [];
     for (const version of module) {
       declarations.push({ version: version.version, definitions: parseVersion(version), root: version.name });
     }
