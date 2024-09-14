@@ -2,7 +2,7 @@
   "name": "t3d-lib",
   "version": "2.3.0",
   "scripts": {
-    "build": "gulp",
+    "build": "rollup -c",
     "version": "npm run build; git add build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "DataStream.js": "github:kig/DataStream.js",
-    "t3d-parser": "^2.3.0",
+    "t3d-parser": "*",
     "three": "0.123.0",
     "vblob": "1.0.2",
     "web-worker": "1.0.0"
@@ -20,21 +20,11 @@
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
-    "browserify": "16.5.1",
-    "eslint": "7.9.0",
-    "gulp": "4.0.2",
-    "gulp-sourcemaps": "2.6.5",
-    "gulp-uglify": "3.0.2",
-    "gulplog": "1.0.0",
-    "prettier": "2.1.2",
-    "rollup": "^4.21.2",
-    "tsify": "5.0.4",
-    "typescript": "4.5.2",
-    "uglify-es": "3.3.9",
-    "vinyl-buffer": "1.0.1",
-    "vinyl-source-stream": "2.0.0"
+    "rollup": "4.21.3",
+    "tslib": "2.7.0",
+    "typescript": "5.5.4"
   },
-  "main": "src/T3DLib.js",
+  "main": "src/T3DLib.ts",
   "prettier": {
     "useTabs": false,
     "trailingComma": "es5",
