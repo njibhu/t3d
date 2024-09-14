@@ -16,7 +16,10 @@
     "globals": "15.9.0",
     "prettier": "3.3.3"
   },
-  "scripts": {},
+  "scripts": {
+    "lint:check": "npm run lint:check -ws",
+    "format:check": "npm run format:check -ws"
+  },
   "dependencies": {
     "DataStream.js": "github:kig/DataStream.js",
     "jquery": "3.5.0",

@@ -4,9 +4,9 @@
   "scripts": {
     "build": "rollup -c",
     "version": "npm run build; git add build",
-    "lint": "eslint src",
+    "lint:check": "eslint src",
     "lint:fix": "eslint src --fix",
-    "format": "prettier --write ./src",
+    "format:fix": "prettier --write ./src",
     "format:check": "prettier --check ./src",
     "test": "exit 0"
   },
