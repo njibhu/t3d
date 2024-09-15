@@ -3,8 +3,6 @@
   "version": "2.3.0",
   "description": "Parser for binary archives",
   "author": "Njibhu <manu@njibhu.eu>",
-  "homepage": "https://github.com/njibhu/t3d#readme",
-  "license": "MIT",
   "main": "src/main.ts",
   "directories": {
     "lib": "lib",

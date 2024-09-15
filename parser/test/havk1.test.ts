@@ -7,7 +7,7 @@ import { parseFile, parseAllChunks } from "../src/utils";
 import { toArrayBuffer } from "./test-helper";
 
 test("matches for havk1", function () {
-  const chunkBuffer = fs.readFileSync("./test/havk1.bin", null);
+  const chunkBuffer = fs.readFileSync("./test/content/havk1.bin", null);
   const dv = new DataView(toArrayBuffer(chunkBuffer));
   const fileHead = parseFile(dv);
   const allChunks = parseAllChunks(dv, fileHead.newPosition);

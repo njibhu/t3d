@@ -11,7 +11,7 @@ import * as ANIM from "../definitions/ANIM";
 import * as COLL from "../definitions/COLL";
 import * as GEOM from "../definitions/GEOM";
 
-const chunkBuffer = fs.readFileSync("./test/modl1.bin", null);
+const chunkBuffer = fs.readFileSync("./test/content/modl1.bin", null);
 const dv = new DataView(toArrayBuffer(chunkBuffer));
 const fileHead = parseFile(dv);
 const allChunks = parseAllChunks(dv, fileHead.newPosition);
