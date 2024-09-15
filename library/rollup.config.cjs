@@ -3,6 +3,7 @@
 const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const typescript = require('@rollup/plugin-typescript');
+const json = require("@rollup/plugin-json");
 
 module.exports = {
     input: './src/T3DLib.ts',
@@ -17,8 +18,9 @@ module.exports = {
     },
     external: ["t3d-parser"],
     plugins: [
-        resolve(),
-        commonjs(),
-        typescript(),
+      resolve(),
+      commonjs(),
+      typescript(),
+      json(),
     ]
 }

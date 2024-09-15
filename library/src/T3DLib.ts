@@ -21,7 +21,6 @@ declare let T3D: any;
 
 /* INCLUDES */
 import LocalReader from "./LocalReader/LocalReader";
-import { version as _version } from "./version";
 import DataRenderer from "./dataRenderer/DataRenderer";
 import EnvironmentRenderer from "./dataRenderer/EnvironmentRenderer";
 import HavokRenderer from "./dataRenderer/HavokRenderer";
@@ -41,6 +40,9 @@ import PersistantStore from "./LocalReader/PersistantStore";
 import * as FileTypes from "./LocalReader/FileTypes";
 
 import { FileParser } from "t3d-parser";
+
+// @ts-expect-error - Handled by rollup
+import { version as _version } from "../package.json";
 
 /* PRIVATE VARS */
 const _settings = {
