@@ -16,7 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
-import * as ArchiveParser from "./ArchiveParser";
+import { ArchiveParser, ParsingUtils } from "t3d-parser";
 import PersistantStore from "./PersistantStore";
 import DataReader from "./DataReader";
 import MapFileList from "../MapFileList";
@@ -44,24 +44,14 @@ interface LocalFile {
 }
 
 /**
- *   "Meta" informations to deal with files in the archive.
- */
-interface FileMetaData {
-  offset: number;
-  size: number;
-  compressed: number;
-  crc: number;
-}
-
-/**
  * A statefull class that handles reading and inflating data from a local GW2 dat file.
  */
 class LocalReader {
   private dataReader: DataReader;
   private persistantStore?: PersistantStore;
   private file?: File;
-  private indexTable: Array<number>;
-  private fileMetaTable: Array<{ offset: number; size: number; compressed: number; crc: number }>;
+  private indexTable: Awaited<ReturnType<typeof ArchiveParser.readArchive>>["indexTable"];
+  private fileMetaTable: Awaited<ReturnType<typeof ArchiveParser.readArchive>>["metaTable"];
   private persistantData: Array<{
     baseId: number;
     size: number;
@@ -101,7 +91,7 @@ class LocalReader {
   /**
    *   Returns the metadata of a file stored in the archive
    */
-  getFileMeta(mftId: number): FileMetaData {
+  getFileMeta(mftId: number) {
     return this.fileMetaTable[mftId];
   }
 
@@ -122,7 +112,7 @@ class LocalReader {
     if (!meta) throw new Error("Unexistant file");
 
     // Slice up the data
-    const { ds, len } = await ArchiveParser.getFilePart(this.file, meta.offset, fileLength || meta.size);
+    const buffer = await ParsingUtils.sliceFile(this.file, Number(meta.offset), fileLength || meta.size);
 
     // If needed we decompress, if not we keep raw
     if (raw || meta.compressed) {
@@ -133,7 +123,7 @@ class LocalReader {
         imageHeight: undefined,
       };
       await this.dataReader
-        .inflate(ds, len, mftId, isImage, extractLength || 0)
+        .inflate(buffer, buffer.byteLength, mftId, isImage, extractLength || 0)
         .then((result) => {
           data = result;
         })
@@ -146,7 +136,7 @@ class LocalReader {
           };
         });
       return data;
-    } else return { buffer: (ds as any).buffer };
+    } else return { buffer };
   }
 
   /**
@@ -425,7 +415,7 @@ class LocalReader {
     } else {
       const fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
       if (fileBuffer === undefined) return undefined;
-      fileType = FileTypes.getFileType(new DataStream(fileBuffer));
+      fileType = FileTypes.getFileType(fileBuffer);
     }
     return { fileType: fileType, crc: metaData.crc, size: metaData.size };
   }

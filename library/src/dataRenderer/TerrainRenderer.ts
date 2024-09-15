@@ -21,8 +21,7 @@ import DataRenderer from "./DataRenderer";
 import * as RenderUtils from "../util/RenderUtils";
 import * as MaterialUtils from "../util/MaterialUtils";
 import * as TerrainShader from "../util/TerrainShader";
-//import GW2File from "../format/file/GW2File";
-import FileParser from "t3d-parser";
+import { FileParser } from "t3d-parser";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
@@ -41,7 +40,7 @@ import type { Material } from "three";
  * @extends DataRenderer
  * @param  {LocalReader} localReader  The LocalReader instance to read data from.
  * @param  {Object} settings     Any settings used by this renderer.
- * *Must* specify "mapFile", a GW2File.
+ * *Must* specify "mapFile", a FileParser.
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */

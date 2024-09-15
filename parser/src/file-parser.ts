@@ -1,68 +1,66 @@
-import { CString, Uint16, Uint32 } from "../src/types";
-import { DataParser } from "./data-parser";
+import * as allDefs from "../definitions/index";
+import { DataParser, Definition } from "./data-parser";
+import type { ChunkHead, FileHead } from "./interfaces";
+import { parseFile, parseAllChunks } from "./utils";
+import { fileChunkMap } from "./chunk-packs";
+import type { FileTypes, ChunkTypes, DefinitionTypes } from "./chunk-packs";
 
-export interface FileHead {
-  identifier: string;
-  flags: number;
-  unknownField2: number;
-  pkFileVersion: number;
-  type: string;
-}
+export default class FileParser {
+  private chunks: { header: ChunkHead; data: any }[] = [];
+  private dataView: DataView;
+  private chunkOffset: number;
+  public header: FileHead;
 
-const FILE_HEAD = {
-  definitions: {},
-  root: {
-    identifier: CString(2),
-    flags: Uint16,
-    unknownField2: Uint16,
-    pkFileVersion: Uint16,
-    type: CString(4),
-  },
-};
-
-export interface ChunkHead {
-  type: string;
-  chunkDataSize: number;
-  chunkVersion: number;
-  chunkHeaderSize: number;
-  offsetTableOffset: number;
-}
-
-const CHUNK_HEAD = {
-  definitions: {},
-  root: {
-    type: CString(4),
-    chunkDataSize: Uint32,
-    chunkVersion: Uint16,
-    chunkHeaderSize: Uint16,
-    offsetTableOffset: Uint32,
-  },
-};
-
-export function parseFile(dataView: DataView): { newPosition: number; data: FileHead } {
-  const fileHeaderParser = new DataParser(FILE_HEAD);
-  const result = fileHeaderParser.parse(dataView, 0);
-  result.data.type = result.data.type.replace("\u0000", "");
-  return result;
-}
-
-export function parseChunkHead(dataView: DataView, pos: number): { newPosition: number; data: ChunkHead } {
-  const chunkHeadParser = new DataParser(CHUNK_HEAD);
-  const result = chunkHeadParser.parse(dataView, pos);
-  result.data.type = result.data.type.replace("\u0000", "");
-  return result;
-}
-
-export function parseAllChunks(
-  dataView: DataView,
-  firstChunkPosition: number
-): { chunkPosition: number; chunkHeader: ChunkHead }[] {
-  const chunks = [];
-  let pos = firstChunkPosition;
-  while (pos < dataView.byteLength) {
-    const chunk = parseChunkHead(dataView, pos);
-    chunks.push({ chunkPosition: pos, chunkHeader: chunk.data });
-    pos = chunk.newPosition - 8 + chunk.data.chunkDataSize;
+  constructor(buffer: ArrayBuffer, parseOnlyHead: boolean = false) {
+    this.dataView = new DataView(buffer);
+    const { newPosition, data } = parseFile(this.dataView);
+    this.header = data;
+    this.chunkOffset = newPosition;
+    if (!parseOnlyHead) {
+      this.readChunks();
+    }
   }
-  return chunks;
+
+  private readChunks() {
+    // This method is appending chunks, so we clear the array to prevent bugs if the method is called multiple times
+    this.chunks = [];
+
+    const chunksMetadata = parseAllChunks(this.dataView, this.chunkOffset);
+    const fileType = this.header.type as FileTypes;
+
+    for (const metadata of chunksMetadata) {
+      const chunkType = metadata.chunkHeader.type as ChunkTypes;
+      // If the chunk is not defined in the fileChunkMap, we skip it
+      if (!fileChunkMap[fileType] || !(fileChunkMap as any)[fileType][chunkType]) {
+        console.error(
+          `Chunk ${chunkType} is not defined in the fileChunkMap for file type ${fileType}. The chunk will not be parsed.`
+        );
+        continue;
+      }
+      const definitionName: DefinitionTypes = (fileChunkMap as any)[fileType][chunkType];
+      const definitions: (typeof allDefs)[keyof typeof allDefs]["definitions"] = allDefs[definitionName].definitions;
+      const def: Definition = definitions[`V${metadata.chunkHeader.chunkVersion}` as keyof typeof definitions];
+      // TODO - Add version compatibility checks
+      console.log(
+        `Parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}, flags ${this.header.flags}`
+      );
+      const parserResult = new DataParser(def, this.header.flags === 5).parse(
+        this.dataView,
+        metadata.chunkPosition + metadata.chunkHeader.chunkHeaderSize
+      );
+      this.chunks.push({
+        header: metadata.chunkHeader,
+        data: parserResult.data,
+      });
+    }
+  }
+
+  public getChunk(chunkName: string /*, versionCompatibility: */) {
+    for (let i = 0; i < this.chunks.length; i++) {
+      if (this.chunks[i].header.type.toLowerCase() === chunkName.toLowerCase()) {
+        return this.chunks[i];
+      }
+    }
+    return null;
+  }
 }

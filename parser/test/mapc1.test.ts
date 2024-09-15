@@ -1,7 +1,7 @@
 import * as fs from "fs";
 
 import { DataParser } from "../src/data-parser";
-import { parseFile, parseAllChunks } from "../src/file-parser";
+import { parseFile, parseAllChunks } from "../src/utils";
 
 import { toArrayBuffer } from "./test-helper";
 

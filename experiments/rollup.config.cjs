@@ -27,7 +27,6 @@ module.exports = {
         { src: '../node_modules/three/examples/js/exporters/OBJExporter.js', dest: 'dist/static' },
         { src: '../node_modules/three/examples/js/exporters/GLTFExporter.js', dest: 'dist/static' },
         { src: '../node_modules/jquery/dist/jquery.js', dest: 'dist/static' },
-        { src: '../node_modules/DataStream.js/DataStream.js', dest: 'dist/static' },
         { src: '../library/build/T3D.js', dest: 'dist/static' },
         { src: '../library/build/T3D.js.map', dest: 'dist/static' },
         { src: '../parser/build/t3d-parser.js', dest: 'dist/static' },

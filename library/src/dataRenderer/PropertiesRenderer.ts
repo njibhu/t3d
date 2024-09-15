@@ -24,8 +24,7 @@ import * as LogsUtils from "../util/Logs";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 import type { Matrix4 } from "three";
-//import type GW2File from "../format/file/GW2File";
-import type FileParser from "t3d-parser";
+import type { FileParser } from "t3d-parser";
 
 /**
  *
@@ -36,7 +35,7 @@ import type FileParser from "t3d-parser";
  * @extends DataRenderer
  * @param  {LocalReader} localReader  The LocalReader instance to read data from.
  * @param  {Object} settings     Any settings used by this renderer.
- * *Must* specify "mapFile", a GW2File.
+ * *Must* specify "mapFile", a FileParser.
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */

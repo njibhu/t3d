@@ -150,8 +150,7 @@ class AppRenderer {
     // Cache mapFile for later use
     if (parseInt(this.mapData.id)) {
       this.localReader.loadFile(this.mapData.id, (arrayBuffer) => {
-        const ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
-        this.mapData.mapFile = new T3D.GW2File(ds, 0);
+        this.mapData.mapFile = new T3DParser.FileParser(arrayBuffer);
       });
     }
   }

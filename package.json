@@ -21,7 +21,6 @@
     "format:check": "npm run format:check -ws"
   },
   "dependencies": {
-    "DataStream.js": "github:kig/DataStream.js",
     "jquery": "3.5.0",
     "three": "0.123.0",
     "w2ui": "1.4.3"

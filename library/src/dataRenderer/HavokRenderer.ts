@@ -21,8 +21,7 @@ import DataRenderer from "./DataRenderer";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
-//import type GW2File from "../format/file/GW2File";
-import type FileParser from "t3d-parser";
+import type { FileParser } from "t3d-parser";
 import type { Material, Mesh } from "three";
 
 /**
@@ -34,7 +33,7 @@ import type { Material, Mesh } from "three";
  * @extends DataRenderer
  * @param  {LocalReader} localReader  The LocalReader instance to read data from.
  * @param  {Object} settings     Any settings used by this renderer.
- * *Must* specify "mapFile", a GW2File. If "visible" is specified and true, the generated meshes will be textured
+ * *Must* specify "mapFile", a FileParser. If "visible" is specified and true, the generated meshes will be textured
  * with a MeshNormalMaterial, otherwise they will not be visible.
  * @param  {Object} context      Shared value object between renderers.
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.

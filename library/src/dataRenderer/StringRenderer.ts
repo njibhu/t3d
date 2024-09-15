@@ -65,32 +65,30 @@ export default class StringRenderer extends DataRenderer {
     this.getOutput().strings = [];
 
     this.localReader.loadFile(this.settings.id, function (inflatedData) {
-      const ds = new DataStream(inflatedData!);
-      const end = ds.byteLength - 2;
+      const dataView = new DataView(inflatedData!);
+      const end = dataView.byteLength - 2;
 
       /// skip past fcc
-      ds.seek(4);
-
-      const entryHeaderDef = ["size", "uint16", "decryptionOffset", "uint16", "bitsPerSymbol", "uint16"];
-
+      let cursor = 4;
       let entryIndex = 0;
+      while (end - cursor > 6) {
+        const size = dataView.getUint16(cursor, true);
+        cursor += 2;
+        const decryptionOffset = dataView.getUint16(cursor, true);
+        cursor += 2;
+        const bitsPerSymbol = dataView.getUint16(cursor, true);
+        cursor += 2;
 
-      while (end - ds.position > 6) {
-        const entry = ds.readStruct(entryHeaderDef);
+        const entry = { size, decryptionOffset, bitsPerSymbol };
         entry.size -= 6;
-
         if (entry.size > 0) {
           const isEncrypted = entry.decryptionOffset !== 0 || entry.bitsPerSymbol !== 0x10;
-
           /// UTF-16
           if (!isEncrypted) {
-            const value = ds.readUCS2String(entry.size / 2);
-            self.getOutput().strings.push({
-              value: value,
-              recid: entryIndex,
-            });
+            const value = new Uint16Array(inflatedData!, cursor, entry.size / 2);
+            cursor += entry.size;
+            self.getOutput().strings.push({ value: String.fromCharCode(...value), recid: entryIndex });
           }
-
           /// Other... ignored
           else {
             //continue
@@ -100,8 +98,7 @@ export default class StringRenderer extends DataRenderer {
         entryIndex++;
       }
 
-      ds.seek(ds.byteLength - 2);
-      self.getOutput().language = ds.readUint16();
+      self.getOutput().language = dataView.getUint16(end, true);
       callback();
     });
   }

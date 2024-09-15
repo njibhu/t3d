@@ -28,7 +28,6 @@ module.exports = {
         `../node_modules/three/examples/js/controls/PointerLockControls.js`,
         `../node_modules/three/examples/js/libs/stats.min.js`,
         `../node_modules/jquery/dist/jquery.js`,
-        `../node_modules/DataStream.js/DataStream.js`,
         `../library/build/T3D.js`,
         `../library/build/T3D.js.map`,
         `../parser/build/t3d-parser.js`,

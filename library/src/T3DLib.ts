@@ -22,8 +22,6 @@ declare let T3D: any;
 /* INCLUDES */
 import LocalReader from "./LocalReader/LocalReader";
 import { version as _version } from "./version";
-import GW2File from "./format/file/GW2File";
-import GW2Chunk from "./format/file/GW2Chunk";
 import DataRenderer from "./dataRenderer/DataRenderer";
 import EnvironmentRenderer from "./dataRenderer/EnvironmentRenderer";
 import HavokRenderer from "./dataRenderer/HavokRenderer";
@@ -37,14 +35,12 @@ import Logger from "./Logger";
 import MapFileList from "./MapFileList";
 import * as MaterialUtils from "./util/MaterialUtils";
 import * as MathUtils from "./util/MathUtils";
-import * as ParserUtils from "./util/ParserUtils";
 import * as RenderUtils from "./util/RenderUtils";
 
 import PersistantStore from "./LocalReader/PersistantStore";
 import * as FileTypes from "./LocalReader/FileTypes";
 
-//@ts-ignore
-import * as formats from "./format/chunks/AllFormats";
+import { FileParser } from "t3d-parser";
 
 /* PRIVATE VARS */
 const _settings = {
@@ -57,8 +53,6 @@ type MapList = { name: string; maps: { fileName: number; name: string }[] }[];
 // eslint-disable-next-line prefer-const
 T3D = {
   version: _version,
-  GW2File: GW2File,
-  GW2Chunk: GW2Chunk,
   DataRenderer: DataRenderer,
   EnvironmentRenderer: EnvironmentRenderer,
   HavokRenderer: HavokRenderer,
@@ -71,7 +65,6 @@ T3D = {
   MapFileList: MapFileList,
   MaterialUtils: MaterialUtils,
   MathUtils: MathUtils,
-  ParserUtils: ParserUtils,
   RenderUtils: RenderUtils,
   PersistantStore: PersistantStore,
   FileTypes: FileTypes,
@@ -193,11 +186,8 @@ T3D = {
     if (parseInt(fileName as any)) {
       /// File name is baseId, load using local reader.
       localReader.loadFile(parseInt(fileName as any), function (arrayBuffer) {
-        /// Set up datastream
-        const ds = new DataStream(arrayBuffer!, 0, DataStream.LITTLE_ENDIAN);
-
         /// Initiate Map file object. Connect callback
-        const mapFile = new T3D.GW2File(ds, 0);
+        const mapFile = new FileParser(arrayBuffer!);
 
         /// Populate VO by running the renderers
         runAllRenderers = function (i: any) {
@@ -290,9 +280,6 @@ T3D = {
     // WebGL not supported
     return false;
   },
-
-  //@ts-ignore
-  formats: formats.default,
 } as const;
 
 export default T3D;
@@ -315,8 +302,8 @@ function checkRequirements() {
     numErrors++;
   }
 
-  if (typeof DataStream === "undefined") {
-    T3D.Logger.log(T3D.Logger.TYPE_ERROR, "T3D core functionality requires DataStream library.");
+  if (typeof FileParser === "undefined") {
+    T3D.Logger.log(T3D.Logger.TYPE_ERROR, "T3D core functionality requires t3d-parser library.");
     numErrors++;
   }
 
