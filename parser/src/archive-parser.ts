@@ -45,7 +45,7 @@ function parseANDatHeader(buffer: ArrayBuffer): ArchiveHeader | undefined {
 
 function parseMFTTable(buffer: ArrayBuffer): MFTTable | undefined {
   const dataView = new DataView(buffer);
-  const headerParse = new DataParser({ root: ArchiveDefinitions.MFT_TABLE_HEADER }, false, true).parse(dataView);
+  const headerParse = new DataParser({ root: ArchiveDefinitions.MFT_TABLE_HEADER }, false).parse(dataView);
   const header: MFTTable["header"] = headerParse.data;
   if (header.magic !== "Mft\u001A") {
     console.error("MFTTable header is not valid", header.magic);
