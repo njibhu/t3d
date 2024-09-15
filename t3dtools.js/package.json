@@ -4,5 +4,5 @@
   "main": "t3dtools.js",
   "scripts": {},
   "author": "T3D Contributors",
-  "license": "GPL-3.0"
+  "license": "MIT"
 }

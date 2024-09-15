@@ -9,7 +9,7 @@ import * as MODL from "../definitions/MODL";
 import * as GEOM from "../definitions/GEOM";
 import * as ROOT from "../definitions/ROOT";
 
-const chunkBuffer = fs.readFileSync("./test/modl3.bin", null);
+const chunkBuffer = fs.readFileSync("./test/content/modl3.bin", null);
 const dv = new DataView(toArrayBuffer(chunkBuffer));
 const fileHead = parseFile(dv);
 const allChunks = parseAllChunks(dv, fileHead.newPosition);

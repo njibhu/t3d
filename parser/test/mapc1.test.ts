@@ -10,7 +10,7 @@ import * as TRN from "../definitions/TRN";
 import * as ENV from "../definitions/ENV";
 import * as PRP2 from "../definitions/PRP2";
 
-const chunkBuffer = fs.readFileSync("./test/mapc1.bin", null);
+const chunkBuffer = fs.readFileSync("./test/content/mapc1.bin", null);
 const dv = new DataView(toArrayBuffer(chunkBuffer));
 const fileHead = parseFile(dv);
 const allChunks = parseAllChunks(dv, fileHead.newPosition);
