@@ -19,23 +19,16 @@ along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Organized thread pool of extractors
- * @class DataReader
  */
 export default class DataReader {
   _workerPool: any[];
   _workerLoad: any[];
   _inflateCallbacks: any[];
 
-  /**
-   * @constructor
-   * @param {Object} settings
-   * @param {number} settings.workersNb Amount of concurrent spawned workers
-   * @param {string} settings.workerPath Path to the worker script
-   */
   constructor(
     public settings: {
-      workersNb: number;
-      workerPath: string;
+      workersNb: number; // Amount of concurrent spawned workers
+      workerPath: string; // Path to the worker script
     }
   ) {
     this._workerPool = [];
@@ -46,16 +39,8 @@ export default class DataReader {
     }
   }
 
-  /**
-   * @param {DataStream} ds
-   * @param {number} size
-   * @param {number} mftId
-   * @param {boolean} [isImage] Parses the output as a dxt texture
-   * @param {number} [capLength] Output size
-   * @returns {Promise<{buffer: ArrayBuffer, dxtType: number, imageWidth: number, imageHeight: number}>}
-   */
   inflate(
-    ds: InstanceType<typeof DataStream>,
+    buffer: ArrayBuffer,
     size: number,
     mftId: number,
     isImage?: boolean,
@@ -67,7 +52,7 @@ export default class DataReader {
     imageHeight: number;
   }> {
     return new Promise((resolve, reject) => {
-      const arrayBuffer = ds.buffer;
+      const arrayBuffer = buffer;
 
       // If no capLength then inflate the whole file
       if (!capLength || capLength < 0) {

@@ -9,7 +9,7 @@ module.exports = {
     output: {
         file: './build/t3d-parser.js',
         format: 'iife',
-        name: 'FileParser',
+        name: 'T3DParser',
         sourcemap: true
     },
     plugins: [

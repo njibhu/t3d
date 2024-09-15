@@ -17,8 +17,7 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-//import GW2File from "../format/file/GW2File";
-import FileParser from "t3d-parser";
+import { FileParser } from "t3d-parser";
 import * as MaterialUtils from "./MaterialUtils";
 import * as MathUtils from "./MathUtils";
 
@@ -148,7 +147,7 @@ export function renderGeomChunk(
 
     const geom = new THREE.BufferGeometry();
 
-    const vertDS = new DataStream(rawVerts.buffer);
+    const vertsDataView = new DataView(rawVerts.buffer);
 
     // Dirty step length for now:
     const stride = rawVerts.length / numVerts;
@@ -217,13 +216,13 @@ export function renderGeomChunk(
     /// Read data from each vertex data entry
     for (let i = 0; i < numVerts; i++) {
       /// Go to vertex memory position
-      vertDS.seek(i * stride);
+      const cursor = i * stride;
 
       /// Read position data
       /// (we just hope all meshes has 32 bit position...)
-      const x = vertDS.readFloat32();
-      const z = vertDS.readFloat32();
-      const y = vertDS.readFloat32();
+      const x = vertsDataView.getFloat32(cursor, true);
+      const z = vertsDataView.getFloat32(cursor + 4, true);
+      const y = vertsDataView.getFloat32(cursor + 8, true);
 
       /// Write position data, transformed to Tyria3D coordinate system.
       vertices[i * 3 + 0] = x; // - c.x;
@@ -233,17 +232,17 @@ export function renderGeomChunk(
       /// Read data at UV position
       if (hasUV) {
         for (let uvIdx = 0; uvIdx < numUV; uvIdx++) {
-          vertDS.seek(i * stride + distToUV + uvIdx * (isUV32 ? 8 : 4));
+          const uvCursor = i * stride + distToUV + uvIdx * (isUV32 ? 8 : 4);
 
           /// Add one UV pair:
 
           let u, v;
           if (isUV32) {
-            u = vertDS.readUint32();
-            v = vertDS.readUint32();
+            u = vertsDataView.getFloat32(uvCursor, true);
+            v = vertsDataView.getFloat32(uvCursor + 4, true);
           } else {
-            u = MathUtils.f16(vertDS.readUint16());
-            v = MathUtils.f16(vertDS.readUint16());
+            u = MathUtils.f16(vertsDataView.getUint16(cursor, true));
+            v = MathUtils.f16(vertsDataView.getUint16(cursor + 2, true));
           }
 
           /// Push to correct UV array

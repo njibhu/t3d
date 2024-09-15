@@ -11,7 +11,6 @@
     "test": "exit 0"
   },
   "dependencies": {
-    "DataStream.js": "github:kig/DataStream.js",
     "t3d-parser": "*",
     "three": "0.123.0",
     "vblob": "1.0.2",

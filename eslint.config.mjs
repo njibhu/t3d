@@ -10,7 +10,6 @@ export default [
         ...globals.node,
         Stats: "readonly",
         THREE: "readonly",
-        DataStream: "readonly",
         T3D: "writable",
         $: "readonly",
         w2ui: "readonly",

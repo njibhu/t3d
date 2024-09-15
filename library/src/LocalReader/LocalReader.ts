@@ -16,7 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
-import * as ArchiveParser from "./ArchiveParser";
+import { ArchiveParser, ParsingUtils } from "t3d-parser";
 import PersistantStore from "./PersistantStore";
 import DataReader from "./DataReader";
 import MapFileList from "../MapFileList";
@@ -122,7 +122,7 @@ class LocalReader {
     if (!meta) throw new Error("Unexistant file");
 
     // Slice up the data
-    const { ds, len } = await ArchiveParser.getFilePart(this.file, meta.offset, fileLength || meta.size);
+    const buffer = await ParsingUtils.sliceFile(this.file, meta.offset, fileLength || meta.size);
 
     // If needed we decompress, if not we keep raw
     if (raw || meta.compressed) {
@@ -133,7 +133,7 @@ class LocalReader {
         imageHeight: undefined,
       };
       await this.dataReader
-        .inflate(ds, len, mftId, isImage, extractLength || 0)
+        .inflate(buffer, buffer.byteLength, mftId, isImage, extractLength || 0)
         .then((result) => {
           data = result;
         })
@@ -146,7 +146,7 @@ class LocalReader {
           };
         });
       return data;
-    } else return { buffer: (ds as any).buffer };
+    } else return { buffer };
   }
 
   /**
@@ -425,7 +425,7 @@ class LocalReader {
     } else {
       const fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
       if (fileBuffer === undefined) return undefined;
-      fileType = FileTypes.getFileType(new DataStream(fileBuffer));
+      fileType = FileTypes.getFileType(fileBuffer);
     }
     return { fileType: fileType, crc: metaData.crc, size: metaData.size };
   }

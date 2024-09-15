@@ -10,7 +10,10 @@ module.exports = {
         file: './build/T3D.js',
         format: 'iife',
         name: 'T3D',
-        sourcemap: true
+        sourcemap: true,
+        globals: {
+          "t3d-parser": "T3DParser"
+        }
     },
     external: ["t3d-parser"],
     plugins: [

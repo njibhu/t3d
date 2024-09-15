@@ -17,16 +17,16 @@ You should have received a copy of the GNU General Public License
 along with the Tyria 3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-import FileParser from "t3d-parser";
+import { FileParser } from "t3d-parser";
 
 /**
  * Parse the beginning of a file to find its type
  *
  * @memberof FileTypes
- * @param {DataStream} ds
  */
-export function getFileType(ds: any): string {
-  const first4 = ds.readCString(4);
+export function getFileType(buffer: ArrayBuffer): string {
+  const dataView = new DataView(buffer);
+  const first4 = String.fromCharCode(dataView.getUint8(0), dataView.getUint8(1), dataView.getUint8(2), dataView.getUint8(3));
 
   // Parse textures
   switch (first4) {
@@ -54,7 +54,7 @@ export function getFileType(ds: any): string {
 
   // PackFiles
   if (first4.indexOf("PF") === 0) {
-    const file = new FileParser(ds.buffer, true); /// true for "plz no load chunkz"
+    const file = new FileParser(buffer, true); /// true for "plz no load chunkz"
     return "PF_" + file.header.type;
   }
 
@@ -67,7 +67,7 @@ export function getFileType(ds: any): string {
   // Raw asnd chunk (without pack file)
   if (first4.indexOf("asnd") === 0) return "CHUNK_ASND";
 
-  // TODO: parse all datastream and if all bytes are valid unicode symbols then
+  // TODO: parse all buffers and if all bytes are valid unicode symbols then
   // return TEXT_UNKNOWN;
 
   // Unknown

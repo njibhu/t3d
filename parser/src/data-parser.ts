@@ -24,14 +24,12 @@ export class DataParser implements Definition {
   public readonly chunkName: string;
   public readonly version: number;
 
-  public DEBUG: boolean;
-
   constructor(
     definition: Definition,
-    public is64Bit = false
+    public is64Bit = false,
+    public DEBUG = false
   ) {
     Object.assign(this, definition);
-    this.DEBUG = false;
   }
 
   public safeParse(dv: DataView, position = 0): { data: any; error: any | null } {

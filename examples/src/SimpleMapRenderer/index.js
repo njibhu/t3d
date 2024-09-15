@@ -187,8 +187,7 @@ function onRendererDone(context) {
 function loadMapFile(fileId, callback) {
   if (parseInt(fileId)) {
     mapRenderer.localReader.loadFile(fileId, function (arrayBuffer) {
-      const ds = new DataStream(arrayBuffer, 0, DataStream.LITTLE_ENDIAN);
-      const mapFile = new T3D.GW2File(ds, 0);
+      const mapFile = new FileParser(arrayBuffer);
       callback(mapFile);
     });
   }

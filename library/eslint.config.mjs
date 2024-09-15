@@ -23,7 +23,6 @@ export default tseslint.config(
         Atomics: "readonly",
         SharedArrayBuffer: "readonly",
         THREE: "readonly",
-        DataStream: "readonly",
         T3D: "writable",
         $: "readonly",
         w2ui: "readonly",
