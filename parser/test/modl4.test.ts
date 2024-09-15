@@ -8,6 +8,7 @@ import {  toArrayBuffer } from "./test-helper";
 import * as MODL from "../definitions/MODL";
 import * as GEOM from "../definitions/GEOM";
 import * as ROOT from "../definitions/ROOT";
+import * as SKEL from "../definitions/SKEL";
 
 const chunkBuffer = fs.readFileSync("./test/content/modl4.bin", null);
 const dv = new DataView(toArrayBuffer(chunkBuffer));
@@ -44,5 +45,13 @@ describe("modl4", () => {
     //parser.DEBUG = true;
     const test = parser.parse(dv, rootChunk!.chunkPosition + rootChunk!.chunkHeader.chunkHeaderSize);
     expect(test.data).toMatchSnapshot("modl4-root")
+  });
+
+  //SKEL
+  test("matches for SKEL", function () {
+    const skelChunk = allChunks.find((c) => c.chunkHeader.type === "SKEL");
+    const def = SKEL.definitions[`V${skelChunk!.chunkHeader.chunkVersion}` as keyof typeof SKEL["definitions"]];
+    const test = new DataParser(def, is64Bit).parse(dv, skelChunk!.chunkPosition + skelChunk!.chunkHeader.chunkHeaderSize);
+    expect(test.data).toMatchSnapshot("modl2-skel")
   });
 });

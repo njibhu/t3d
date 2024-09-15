@@ -245,3 +245,516 @@ exports[`modl4 matches for ROOT: modl4-root 1`] = `
   "rootMotions": [],
 }
 `;
+
+exports[`modl4 matches for SKEL: modl2-skel 1`] = `
+{
+  "fileReference": 0,
+  "overrides": {},
+  "skeletonData": {
+    "boneConstraints": [],
+    "boneFlags": [],
+    "emitterBones": [],
+    "grannyModel": {
+      "ExtendedData": {},
+      "ExtendedData_": {},
+      "InitialPlacement": {
+        "Flags": 0,
+        "Orientation": Float32Array [
+          0,
+          0,
+          0,
+          1,
+        ],
+        "Position": Float32Array [
+          0,
+          0,
+          0,
+        ],
+        "ScaleShear": [
+          Float32Array [
+            1,
+            0,
+            0,
+          ],
+          Float32Array [
+            0,
+            1,
+            0,
+          ],
+          Float32Array [
+            0,
+            0,
+            1,
+          ],
+        ],
+      },
+      "MeshBindings": [
+        {
+          "Mesh": 124,
+        },
+      ],
+      "Name": "(merged)",
+      "Skeleton": {
+        "Bones": [
+          {
+            "ExtendedData": {},
+            "ExtendedData_": {},
+            "InverseWorld4x4": [
+              Float32Array [
+                1,
+                0,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                1,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                1,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+            ],
+            "LODError": 1111.4105224609375,
+            "LocalTransform": {
+              "Flags": 0,
+              "Orientation": Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+              "Position": Float32Array [
+                0,
+                0,
+                0,
+              ],
+              "ScaleShear": [
+                Float32Array [
+                  1,
+                  0,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  1,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  0,
+                  1,
+                ],
+              ],
+            },
+            "Name": "ArenaExport",
+            "ParentIndex": 4294967295,
+          },
+          {
+            "ExtendedData": {},
+            "ExtendedData_": {},
+            "InverseWorld4x4": [
+              Float32Array [
+                1,
+                0,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                1,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                1,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+            ],
+            "LODError": 555.7052612304688,
+            "LocalTransform": {
+              "Flags": 0,
+              "Orientation": Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+              "Position": Float32Array [
+                0,
+                0,
+                0,
+              ],
+              "ScaleShear": [
+                Float32Array [
+                  1,
+                  0,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  1,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  0,
+                  1,
+                ],
+              ],
+            },
+            "Name": "System01",
+            "ParentIndex": 0,
+          },
+          {
+            "ExtendedData": {},
+            "ExtendedData_": {},
+            "InverseWorld4x4": [
+              Float32Array [
+                1,
+                0,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                1,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                1,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+            ],
+            "LODError": 555.7052612304688,
+            "LocalTransform": {
+              "Flags": 0,
+              "Orientation": Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+              "Position": Float32Array [
+                0,
+                0,
+                0,
+              ],
+              "ScaleShear": [
+                Float32Array [
+                  1,
+                  0,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  1,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  0,
+                  1,
+                ],
+              ],
+            },
+            "Name": "Bolt01",
+            "ParentIndex": 0,
+          },
+          {
+            "ExtendedData": {},
+            "ExtendedData_": {},
+            "InverseWorld4x4": [
+              Float32Array [
+                1,
+                0,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                1,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                1,
+                0,
+              ],
+              Float32Array [
+                -437.56231689453125,
+                0,
+                0,
+                1,
+              ],
+            ],
+            "LODError": 0,
+            "LocalTransform": {
+              "Flags": 1,
+              "Orientation": Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+              "Position": Float32Array [
+                437.56231689453125,
+                0,
+                0,
+              ],
+              "ScaleShear": [
+                Float32Array [
+                  1,
+                  0,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  1,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  0,
+                  1,
+                ],
+              ],
+            },
+            "Name": "fluxend",
+            "ParentIndex": 0,
+          },
+          {
+            "ExtendedData": {},
+            "ExtendedData_": {},
+            "InverseWorld4x4": [
+              Float32Array [
+                1,
+                0,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                1,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                1,
+                0,
+              ],
+              Float32Array [
+                -437.56231689453125,
+                0,
+                0,
+                1,
+              ],
+            ],
+            "LODError": 0,
+            "LocalTransform": {
+              "Flags": 0,
+              "Orientation": Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+              "Position": Float32Array [
+                0,
+                0,
+                0,
+              ],
+              "ScaleShear": [
+                Float32Array [
+                  1,
+                  0,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  1,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  0,
+                  1,
+                ],
+              ],
+            },
+            "Name": "FluxNode02",
+            "ParentIndex": 3,
+          },
+          {
+            "ExtendedData": {},
+            "ExtendedData_": {},
+            "InverseWorld4x4": [
+              Float32Array [
+                1,
+                0,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                1,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                1,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+            ],
+            "LODError": 0,
+            "LocalTransform": {
+              "Flags": 0,
+              "Orientation": Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+              "Position": Float32Array [
+                0,
+                0,
+                0,
+              ],
+              "ScaleShear": [
+                Float32Array [
+                  1,
+                  0,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  1,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  0,
+                  1,
+                ],
+              ],
+            },
+            "Name": "fluxStart",
+            "ParentIndex": 0,
+          },
+          {
+            "ExtendedData": {},
+            "ExtendedData_": {},
+            "InverseWorld4x4": [
+              Float32Array [
+                1,
+                0,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                1,
+                0,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                1,
+                0,
+              ],
+              Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+            ],
+            "LODError": 0,
+            "LocalTransform": {
+              "Flags": 0,
+              "Orientation": Float32Array [
+                0,
+                0,
+                0,
+                1,
+              ],
+              "Position": Float32Array [
+                0,
+                0,
+                0,
+              ],
+              "ScaleShear": [
+                Float32Array [
+                  1,
+                  0,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  1,
+                  0,
+                ],
+                Float32Array [
+                  0,
+                  0,
+                  1,
+                ],
+              ],
+            },
+            "Name": "FluxNode01",
+            "ParentIndex": 5,
+          },
+        ],
+        "ExtendedData": {},
+        "ExtendedData_": {},
+        "LODType": 1,
+        "Name": "2104730455",
+      },
+    },
+    "mirrorSpec": {
+      "mirrorSpec": [],
+    },
+    "trackMasks": [],
+  },
+}
+`;
