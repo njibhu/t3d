@@ -14,7 +14,7 @@ export const ChunkDefinitions = {
     chunkVersion: Uint16,
     chunkHeaderSize: Uint16,
     offsetTableOffset: Uint32,
-  }
+  },
 };
 
 export const ArchiveDefinitions = {

@@ -150,7 +150,7 @@ class AppRenderer {
     // Cache mapFile for later use
     if (parseInt(this.mapData.id)) {
       this.localReader.loadFile(this.mapData.id, (arrayBuffer) => {
-        this.mapData.mapFile = new FileParser(arrayBuffer);
+        this.mapData.mapFile = new T3DParser.FileParser(arrayBuffer);
       });
     }
   }

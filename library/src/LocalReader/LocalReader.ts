@@ -44,24 +44,14 @@ interface LocalFile {
 }
 
 /**
- *   "Meta" informations to deal with files in the archive.
- */
-interface FileMetaData {
-  offset: number;
-  size: number;
-  compressed: number;
-  crc: number;
-}
-
-/**
  * A statefull class that handles reading and inflating data from a local GW2 dat file.
  */
 class LocalReader {
   private dataReader: DataReader;
   private persistantStore?: PersistantStore;
   private file?: File;
-  private indexTable: Array<number>;
-  private fileMetaTable: Array<{ offset: number; size: number; compressed: number; crc: number }>;
+  private indexTable: Awaited<ReturnType<typeof ArchiveParser.readArchive>>["indexTable"];
+  private fileMetaTable: Awaited<ReturnType<typeof ArchiveParser.readArchive>>["metaTable"];
   private persistantData: Array<{
     baseId: number;
     size: number;
@@ -101,7 +91,7 @@ class LocalReader {
   /**
    *   Returns the metadata of a file stored in the archive
    */
-  getFileMeta(mftId: number): FileMetaData {
+  getFileMeta(mftId: number) {
     return this.fileMetaTable[mftId];
   }
 
@@ -122,7 +112,7 @@ class LocalReader {
     if (!meta) throw new Error("Unexistant file");
 
     // Slice up the data
-    const buffer = await ParsingUtils.sliceFile(this.file, meta.offset, fileLength || meta.size);
+    const buffer = await ParsingUtils.sliceFile(this.file, Number(meta.offset), fileLength || meta.size);
 
     // If needed we decompress, if not we keep raw
     if (raw || meta.compressed) {

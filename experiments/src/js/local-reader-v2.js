@@ -12,7 +12,7 @@ $("#filePicker").change(function (evt) {
       await Promise.all(
         myFiles.map((elt) =>
           localReader.readFile(elt.mftId).then((r) => {
-            myFilesData[elt.mftId] = new FileParser(r.buffer);
+            myFilesData[elt.mftId] = new T3DParser.FileParser(r.buffer);
             console.log("Done with", elt.mftId);
           })
         )

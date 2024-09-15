@@ -187,7 +187,7 @@ function onRendererDone(context) {
 function loadMapFile(fileId, callback) {
   if (parseInt(fileId)) {
     mapRenderer.localReader.loadFile(fileId, function (arrayBuffer) {
-      const mapFile = new FileParser(arrayBuffer);
+      const mapFile = new T3DParser.FileParser(arrayBuffer);
       callback(mapFile);
     });
   }

@@ -4,7 +4,9 @@ import { sliceFile } from "./utils";
 import type { ArchiveHeader, MFTTable } from "./interfaces";
 
 // Public functions
-export async function readArchive(file: File): Promise<{ archiveHeader: ArchiveHeader, metaTable: MFTTable["table"], indexTable: Array<number>}> {
+export async function readArchive(
+  file: File
+): Promise<{ archiveHeader: ArchiveHeader; metaTable: MFTTable["table"]; indexTable: Array<number> }> {
   try {
     const archiveHeader = parseANDatHeader(await sliceFile(file, 0, 40));
     if (!archiveHeader) {
@@ -14,7 +16,10 @@ export async function readArchive(file: File): Promise<{ archiveHeader: ArchiveH
     if (!mftData) {
       throw new Error("Invalid MFT table");
     }
-    const indexTable = parseMFTIndex(await sliceFile(file, mftData.mftIndexOffset, mftData.mftIndexSize), mftData.mftIndexSize);
+    const indexTable = parseMFTIndex(
+      await sliceFile(file, mftData.mftIndexOffset, mftData.mftIndexSize),
+      mftData.mftIndexSize
+    );
 
     return {
       archiveHeader,
@@ -26,7 +31,6 @@ export async function readArchive(file: File): Promise<{ archiveHeader: ArchiveH
     throw error;
   }
 }
-
 
 // Private functions
 function parseANDatHeader(buffer: ArrayBuffer): ArchiveHeader | undefined {
@@ -47,11 +51,11 @@ function parseMFTTable(buffer: ArrayBuffer): MFTTable | undefined {
     console.error("MFTTable header is not valid", header.magic);
     return undefined;
   }
-  
+
   const fullTable: MFTTable["table"] = [];
   let cursor = headerParse.newPosition;
-  for(let i = 1; i < header.nbOfEntries; i++) {
-    const item = new DataParser({ root: ArchiveDefinitions.MFT_TABLE_ENTRY}, false).parse(dataView, cursor);
+  for (let i = 1; i < header.nbOfEntries; i++) {
+    const item = new DataParser({ root: ArchiveDefinitions.MFT_TABLE_ENTRY }, false).parse(dataView, cursor);
     cursor = item.newPosition;
     fullTable[i] = item.data;
   }

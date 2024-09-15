@@ -71,7 +71,7 @@ export default class StringRenderer extends DataRenderer {
       /// skip past fcc
       let cursor = 4;
       let entryIndex = 0;
-      while(end - cursor > 6) {
+      while (end - cursor > 6) {
         const size = dataView.getUint16(cursor, true);
         cursor += 2;
         const decryptionOffset = dataView.getUint16(cursor, true);
@@ -79,15 +79,15 @@ export default class StringRenderer extends DataRenderer {
         const bitsPerSymbol = dataView.getUint16(cursor, true);
         cursor += 2;
 
-        const entry = {size, decryptionOffset, bitsPerSymbol};
+        const entry = { size, decryptionOffset, bitsPerSymbol };
         entry.size -= 6;
-        if(entry.size > 0){
+        if (entry.size > 0) {
           const isEncrypted = entry.decryptionOffset !== 0 || entry.bitsPerSymbol !== 0x10;
           /// UTF-16
-          if(!isEncrypted){
+          if (!isEncrypted) {
             const value = new Uint16Array(inflatedData!, cursor, entry.size / 2);
             cursor += entry.size;
-            self.getOutput().strings.push({value: String.fromCharCode(...value), recid: entryIndex});
+            self.getOutput().strings.push({ value: String.fromCharCode(...value), recid: entryIndex });
           }
           /// Other... ignored
           else {

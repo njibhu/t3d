@@ -134,7 +134,12 @@ export default class DataRenderer {
       /// Check if this is an PF or ATEX file
       // Binareis are MZ
       const dataView = new DataView(inflatedData!);
-      const first4 = String.fromCharCode(dataView.getUint8(0), dataView.getUint8(1), dataView.getUint8(2), dataView.getUint8(3));
+      const first4 = String.fromCharCode(
+        dataView.getUint8(0),
+        dataView.getUint8(1),
+        dataView.getUint8(2),
+        dataView.getUint8(3)
+      );
 
       /// Do special stuff for different fcc signatures
       ///

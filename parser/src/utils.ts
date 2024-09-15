@@ -2,20 +2,19 @@ import { DataParser } from "./data-parser";
 import { ChunkDefinitions } from "./struct-definitions";
 import type { ChunkHead, FileHead } from "./interfaces";
 
-const __IS_NODE_RUNTIME = typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
+const __IS_NODE_RUNTIME = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
 
 export function sliceFile(file: File, offset: number, length: number): Promise<ArrayBuffer> {
-  if(__IS_NODE_RUNTIME) {
+  if (__IS_NODE_RUNTIME) {
     // @ts-expect-error - Node specific code
-    return import('node:fs').then((fs) => {
+    return import("node:fs").then((fs) => {
       const fd = fs.openSync(file);
       const buffer = Buffer.alloc(length);
       fs.readSync(fd, buffer, 0, length, offset);
       fs.closeSync(fd);
       return buffer.buffer;
     });
-  } 
-  else {
+  } else {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
 
@@ -31,14 +30,14 @@ export function sliceFile(file: File, offset: number, length: number): Promise<A
 }
 
 export function parseFile(dataView: DataView): { newPosition: number; data: FileHead } {
-  const fileHeaderParser = new DataParser({ root: ChunkDefinitions.FILE_HEAD});
+  const fileHeaderParser = new DataParser({ root: ChunkDefinitions.FILE_HEAD });
   const result = fileHeaderParser.parse(dataView, 0);
   result.data.type = result.data.type.replace("\u0000", "");
   return result;
 }
 
 export function parseChunkHead(dataView: DataView, pos: number): { newPosition: number; data: ChunkHead } {
-  const chunkHeadParser = new DataParser({ root: ChunkDefinitions.CHUNK_HEAD});
+  const chunkHeadParser = new DataParser({ root: ChunkDefinitions.CHUNK_HEAD });
   const result = chunkHeadParser.parse(dataView, pos);
   result.data.type = result.data.type.replace("\u0000", "");
   return result;

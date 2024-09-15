@@ -23,7 +23,7 @@ export interface ArchiveHeader {
   mftOffset: bigint;
   mftSize: number;
   flags: number;
-};
+}
 
 export interface MFTTable {
   header: {

@@ -26,7 +26,12 @@ import { FileParser } from "t3d-parser";
  */
 export function getFileType(buffer: ArrayBuffer): string {
   const dataView = new DataView(buffer);
-  const first4 = String.fromCharCode(dataView.getUint8(0), dataView.getUint8(1), dataView.getUint8(2), dataView.getUint8(3));
+  const first4 = String.fromCharCode(
+    dataView.getUint8(0),
+    dataView.getUint8(1),
+    dataView.getUint8(2),
+    dataView.getUint8(3)
+  );
 
   // Parse textures
   switch (first4) {

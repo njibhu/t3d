@@ -11,6 +11,7 @@ export default [
         Stats: "readonly",
         THREE: "readonly",
         T3D: "writable",
+        T3DParser: "readonly",
         $: "readonly",
         w2ui: "readonly",
         w2popup: "readonly",
