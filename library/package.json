@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "t3d-parser": "*",
-    "three": "0.123.0",
+    "three": "0.125.0",
     "vblob": "1.0.2",
     "web-worker": "1.0.0"
   },
