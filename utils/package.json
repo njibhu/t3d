@@ -15,6 +15,7 @@
   "scripts": {
     "gen": "ts-node ./bin/rdata-extract.ts ../temp/GW2-64.exe ../parser/definitions",
     "declarations": "ts-node ./bin/declaration-gen.ts ../parser/definitions ../parser/declarations",
+    "imhex": "ts-node ./bin/pattern-imhex.ts",
     "format:fix": "prettier --write ./lib && prettier --write ./bin",
     "format:check": "prettier --check ./lib && prettier --check ./bin",
     "lint:check": "eslint ./lib && eslint ./bin",

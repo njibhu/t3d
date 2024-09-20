@@ -2,6 +2,7 @@
     "compilerOptions": {
       "noImplicitAny": true,
       "strictNullChecks": true,
-      "target": "es5"
+      "target": "es2023",
+      "module": "nodenext"
     },
 }
