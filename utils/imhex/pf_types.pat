@@ -1,32 +1,40 @@
+#include "std/io.pat"
+
 bool x64Mode in;
 u64 chunkMaxAddres in;
 
 struct Pointer<T> {
   if(x64Mode) {
-    u64 offset;
-    if(offset != 0 && $ + offset < chunkMaxAddres) {
-      T data @ $ + offset - 8;
+    u64 __offset;
+    if(__offset == 0){} // Skip null pointers
+    else if($ + __offset < chunkMaxAddres) {
+      T data @ $ + __offset - 8 [[inline]];
     } else {
-      std::print("Pointer out of range");
+      T data @ $ - (9 + (0xffffffffffffffff - __offset)) [[inline]];
     }
   } else {
-    u32 offset;
-    T data @ $ + offset;
+    u32 __offset;
+    if(__offset == 0){} // Skip null pointers
+    else if($ + __offset < chunkMaxAddres) {
+      T data @ $ + __offset - 4 [[inline]];
+    } else {
+      T data @ $ - (5 + (0xffffffff - __offset)) [[inline]];
+    }
   }
 };
 
 struct FixedArray<T, auto Length> {
-  T array[Length];
+  T array[Length] [[inline]];
 };
 
 struct DynArray<T> {
-  u32 length;
-  Pointer<FixedArray<T, parent.length>> array;
+  u32 __length;
+  Pointer<FixedArray<T, parent.__length>> array [[inline]];
 };
 
 struct RefArray<T> {
-  u32 length;
-  Pointer<FixedArray<Pointer<T>, parent.length>> array;
+  u32 __length;
+  Pointer<FixedArray<Pointer<T>, parent.__length>> array [[inline]];
 };
 
 struct String {
