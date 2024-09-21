@@ -216,7 +216,7 @@ class UI {
    * and NOT the map one
    */
   fillMapChoiceSelect() {
-    const categoryList = this.mapFileList.reduce((categories, map) => {
+    const categoryList = this.mapFileList.sort((a, b) => a.categoryIndex - b.categoryIndex).reduce((categories, map) => {
       if (categories.indexOf(map.category) === -1) {
         categories.push(map.category);
       }
