@@ -291,6 +291,67 @@ const V14 = {
   }
 };
 
-export const latest = V14;
-export const definitions = { V10, V11, V12, V13, V14 };
+const V15 = {
+  chunkName: "trn",
+  name: "PackMapTerrainV15",
+  version: 15,
+  definitions: {
+    PackMapTerrainChunkV14: {
+      chunkFlags: Uint32,
+      surfaceIndexArray: DynArray(Uint16),
+      surfaceTokenArray: DynArray(Uint64)
+    },
+    PackMapTerrainMaterialsV14: {
+      pagedImage: Filename(),
+      constArray: DynArray("PackMapTerrainConstV14"),
+      texFileArray: DynArray("PackMapTerrainTexV14"),
+      materials: DynArray("PackMapTerrrainChunkMaterialV14"),
+      midFade: FixedArray(Float32, 2),
+      farFade: FixedArray(Float32, 2)
+    },
+    PackMapTerrainConstV14: {
+      tokenName: Uint32,
+      value: FixedArray(Float32, 4)
+    },
+    PackMapTerrainTexV14: {
+      tokenName: Uint32,
+      flags: Uint32,
+      filename: Filename(),
+      flags_: FixedArray(Uint32, 2),
+      layer: Uint32
+    },
+    PackMapTerrrainChunkMaterialV14: {
+      tiling: FixedArray(Uint8, 3),
+      hiResMaterial: "PackMapTerrainMaterialV14",
+      loResMaterial: "PackMapTerrainMaterialV14",
+      faderMaterial: "PackMapTerrainMaterialV14",
+      uvData: Pointer("PackMapTerrainChunkUVDataV14")
+    },
+    PackMapTerrainMaterialV14: {
+      materialFile: Filename(),
+      fvf: Uint32,
+      constIndexArray: DynArray(Uint32),
+      texIndexArray: DynArray(Uint32)
+    },
+    PackMapTerrainChunkUVDataV14: {
+      translation: FixedArray(Float32, 2),
+      xScaleRange: FixedArray(Float32, 2),
+      yScaleRange: FixedArray(Float32, 2),
+      scaleSpeed: FixedArray(Float32, 2),
+      rotation: Float32
+    }
+  },
+  root: {
+    dims: FixedArray(Uint32, 2),
+    swapDistance: Float32,
+    heightMapArray: DynArray(Float32),
+    tileFlagArray: DynArray(Uint32),
+    chunkArray: DynArray("PackMapTerrainChunkV14"),
+    materials: Pointer("PackMapTerrainMaterialsV14"),
+    verticesPerChunkSide: Uint32
+  }
+};
+
+export const latest = V15;
+export const definitions = { V10, V11, V12, V13, V14, V15 };
 export const definitionArray = Object.values(definitions);
