@@ -1,8 +1,9 @@
 {
   "name": "t3d-parser",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "Parser for binary archives",
   "author": "Njibhu <manu@njibhu.eu>",
+  "license": "GPL-3.0",
   "main": "src/main.ts",
   "directories": {
     "lib": "lib",

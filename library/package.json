@@ -1,6 +1,7 @@
 {
   "name": "t3d-lib",
-  "version": "2.3.0",
+  "version": "3.0.0",
+  "license": "GPL-3.0",
   "scripts": {
     "build": "rollup -c",
     "version": "npm run build; git add build",
