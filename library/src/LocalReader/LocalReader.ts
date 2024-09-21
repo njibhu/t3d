@@ -253,7 +253,7 @@ class LocalReader {
     const mapArray = [];
     // If the archive hasn't been completely scanned we do a partial scan for the map files.
     // It should be fast
-    if (!this.persistantData) {
+    if (this.persistantData.length === 0) {
       await this.readMapList();
     }
 
