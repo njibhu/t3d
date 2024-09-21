@@ -7,7 +7,7 @@ module.exports = [
     input: 'src/empty.js',  // Dummy input since we are just copying files
     output: {
       dir: 'dist/static',
-      format: 'es',
+      format: 'iife',
     },
     plugins: [
       copy({

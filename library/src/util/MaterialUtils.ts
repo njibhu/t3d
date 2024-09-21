@@ -22,6 +22,8 @@ import type {
 } from "three";
 import type { FileParser } from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
+import { ChunkHead } from "t3d-parser/src/interfaces";
+import type { DX9S, GRMT } from "t3d-parser/declarations";
 
 /**
  * Builds a custom vertex shader for a given number of uv cannels.
@@ -186,7 +188,7 @@ export function getUVMat(textures: any[], numUV: number, alphaTest: number): Sha
 
 interface ModelMaterialData {
   textures: {
-    token: string;
+    token: bigint;
     filename: number;
     uvPSInputIndex: number;
   }[];
@@ -218,15 +220,11 @@ export function getMaterial(
 ): Material | undefined {
   if (!materialFile) return;
 
-  const dxChunk = materialFile.getChunk("dx9s");
-  let grChunk = materialFile.getChunk("grmt")!;
+  const dxChunk = materialFile.getChunk("dx9s") as { header: ChunkHead; data: DX9S.V2_U };
+  let grChunk = materialFile.getChunk("grmt")! as { header: ChunkHead; data: GRMT.V5_U };
 
   if (!dxChunk) {
-    return new THREE.MeshBasicMaterial({
-      side: THREE.FrontSide,
-      color: 0xff0000,
-      flatShading: true,
-    });
+    return getSimpleMaterial(material, materialFile, localReader, sharedTextures);
   }
 
   /// Append all textures to the custom material
@@ -261,7 +259,7 @@ export function getMaterial(
     // var samplerIdx = effect.samplerIndex[0];
 
     const samplerTextures = [];
-    let textureToken: string; // UINT64
+    let textureToken: number; // UINT64
     let samplerTex: ModelMaterialData["textures"][number] | null;
     for (let i = 0; i < effect.samplerIndex.length; i++) {
       const samplerIdx = effect.samplerIndex[i];
@@ -270,8 +268,8 @@ export function getMaterial(
       /// SHOULD NEVER HAPPEN, hide mesh!
       if (!sampler) continue; // return;
 
-      textureToken = sampler && grChunk.data.texTokens[sampler.textureIndex];
-      if (!textureToken) textureToken = "0-0";
+      textureToken = sampler && Number(grChunk.data.texTokens[sampler.textureIndex]);
+      if (!textureToken) textureToken = 0;
       /* else
         textureToken =textureToken.val; */
 
@@ -280,7 +278,7 @@ export function getMaterial(
 
       material.textures.forEach(function (tex /*, index*/) {
         /// Seems like only 1st part of token is used...
-        if (!samplerTex && tex.token.split("-")[0] === textureToken.split("-")[0]) {
+        if (!samplerTex && Number(tex.token) === textureToken) {
           // console.log("TEX match",tex.token, textureToken)
           samplerTex = tex;
         }
@@ -325,7 +323,7 @@ export function getMaterial(
     });
   } /// End if material and texture
 
-  let finalMaterial: (MeshPhongMaterial | MeshBasicMaterial) & { textureFilename?: string; normalMap?: Texture | null };
+  let finalMaterial: (MeshPhongMaterial | MeshBasicMaterial) & { textureFilename?: number; normalMap?: Texture | null };
 
   /// Create custom shader material if there are textures
   if (finalTextures) {
@@ -335,14 +333,14 @@ export function getMaterial(
       //@ts-ignore
       finalMaterial = getUVMat(finalTextures, material.texCoordCount, grChunk.data.flags !== 16460);
     } else {
-      let ft: any = false;
-      let nt: any = false;
+      let ft: ModelMaterialData["textures"][number] | undefined;
+      let nt: ModelMaterialData["textures"][number] | undefined;
       material.textures.forEach(function (t) {
         // Flag for diffuse map
-        if (!ft && t.token.split("-")[0] === "1733499172") ft = t;
+        if (!ft && Number(t.token) === 1733499172) ft = t;
 
         // Flag for normal map
-        if (!nt && t.token.split("-")[0] === "404146670") nt = t;
+        if (!nt && Number(t.token) === 404146670) nt = t;
       });
 
       if (!ft || ft.filename <= 0) return;
@@ -465,6 +463,55 @@ export function getMaterial(
       finalMaterial.alphaTest = 0.05;
     }
   } /// End if material
+
+  return finalMaterial;
+}
+
+export function getSimpleMaterial(
+  material: ModelMaterialData,
+  materialFile: FileParser,
+  localReader: LocalReader,
+  sharedTextures: any
+): Material | undefined {
+  if (!materialFile) return;
+
+  const grChunk = materialFile.getChunk("grmt")! as { header: ChunkHead; data: GRMT.V5_U };
+
+  let ft: ModelMaterialData["textures"][number] | undefined;
+  let nt: ModelMaterialData["textures"][number] | undefined;
+  material.textures.forEach(function (t) {
+    console.log(t);
+    // Flag for diffuse map
+    if (!ft && Number(t.token) === 1733499172) ft = t;
+    if (!ft && t.token === 27219515885689124n) ft = t;
+
+    // Flag for normal map
+    if (!nt && Number(t.token) === 404146670) nt = t;
+    if (!nt && t.token === 850610087184878n) nt = t;
+  });
+
+  console.log(ft);
+  if (!ft || ft.filename <= 0) {
+    return;
+  }
+
+  const finalMaterial = new THREE.MeshPhongMaterial({
+    side: THREE.FrontSide,
+    map: getTexture(ft.filename, localReader, sharedTextures),
+  });
+
+  if (nt) {
+    const normalMap = getTexture(nt.filename, localReader, sharedTextures);
+    normalMap.flipY = true;
+    finalMaterial.normalMap = normalMap;
+  }
+
+  (finalMaterial as any).textureFilename = ft.filename;
+  if (grChunk.data.flags !== 16460) {
+    finalMaterial.alphaTest = 0.05;
+  }
+
+  finalMaterial.needsUpdate = true;
 
   return finalMaterial;
 }

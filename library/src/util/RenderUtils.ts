@@ -4,6 +4,8 @@ import * as MathUtils from "./MathUtils";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type { InstancedMesh, Material, Mesh } from "three";
+import type { GEOM, MODL } from "t3d-parser/declarations";
+import { ChunkHead } from "t3d-parser/src/interfaces";
 
 // TODO: Remove this local cache!!
 const matFiles: { [key: string]: any } = {};
@@ -107,8 +109,8 @@ type FinalMesh = Mesh & {
  */
 export function renderGeomChunk(
   localReader: LocalReader,
-  chunk: any,
-  modelDataChunk: any,
+  chunk: { header: ChunkHead; data: GEOM.V0_U },
+  modelDataChunk: { header: ChunkHead; data: MODL.V51_U },
   sharedTextures: any,
   showUnmaterialed: boolean
 ): FinalMesh[] {
@@ -116,7 +118,7 @@ export function renderGeomChunk(
   const meshes: any[] = [];
   const mats = modelDataChunk.data.permutations[0].materials;
 
-  rawMeshes.forEach(function (rawMesh: any) {
+  rawMeshes.forEach(function (rawMesh) {
     const rawGeom = rawMesh.geometry;
     const fvf: number = rawGeom.verts.mesh.fvf; // rawGeom.fvf;
 
@@ -197,7 +199,7 @@ export function renderGeomChunk(
     /// Read data from each vertex data entry
     for (let i = 0; i < numVerts; i++) {
       /// Go to vertex memory position
-      const cursor = i * stride;
+      let cursor = i * stride;
 
       /// Read position data
       /// (we just hope all meshes has 32 bit position...)
@@ -213,14 +215,14 @@ export function renderGeomChunk(
       /// Read data at UV position
       if (hasUV) {
         for (let uvIdx = 0; uvIdx < numUV; uvIdx++) {
-          const uvCursor = i * stride + distToUV + uvIdx * (isUV32 ? 8 : 4);
+          cursor = i * stride + distToUV + uvIdx * (isUV32 ? 8 : 4);
 
           /// Add one UV pair:
 
           let u, v;
           if (isUV32) {
-            u = vertsDataView.getFloat32(uvCursor, true);
-            v = vertsDataView.getFloat32(uvCursor + 4, true);
+            u = vertsDataView.getFloat32(cursor, true);
+            v = vertsDataView.getFloat32(cursor + 4, true);
           } else {
             u = MathUtils.f16(vertsDataView.getUint16(cursor, true));
             v = MathUtils.f16(vertsDataView.getUint16(cursor + 2, true));
