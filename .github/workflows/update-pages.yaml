@@ -1,0 +1,50 @@
+name: Publish github pages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Install deps, build and publish
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with: 
+          fetch-depth: 0
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 20
+      - name: Install root packages
+        run: npm ci
+      - name: Build parser
+        run: |
+          npm run build -w parser
+      - name: Build library
+        run: |
+          npm run build -w library
+      - name: Build examples and copy to pages
+        run: |
+          npm run build -w examples
+          cp -r ./examples/dist ./pages
+          mv ./pages/dist ./pages/examples
+      - name: Build explorer and copy to pages
+        run: |
+          npm run build -w explorer
+          cp -r ./explorer/dist ./pages
+          mv ./pages/dist ./pages/explorer
+      - name: Build browser and copy to pages
+        run: |
+          npm run build -w browser
+          cp -r ./browser/dist ./pages
+          mv ./pages/dist ./pages/browser
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
