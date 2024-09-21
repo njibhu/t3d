@@ -17,8 +17,8 @@ const mapMap = {
         { fileName: "283574.data", name: "(30-40) Fields of Ruin [MapRegrownHawke]" },
         { fileName: "282668.data", name: "(40-50) Iron Marches [MapRegrownGullet]" },
         { fileName: "280025.data", name: "(50-60) Blazeridge Steppes [MapRegrownBrand]" },
-        { fileName: "281313.data", name: "(60-70) Fireheart Rise [MapRegrownFlame]" }
-      ]
+        { fileName: "281313.data", name: "(60-70) Fireheart Rise [MapRegrownFlame]" },
+      ],
     },
     {
       name: "Core - Kryta [Valley]",
@@ -39,8 +39,8 @@ const mapMap = {
         { fileName: "287870.data", name: "(35-45) Harathi Hinterlands [MapValleyHeadland]" },
         { fileName: "286945.data", name: "(45-55) Bloodtide Coast [MapValleyCoast]" },
         { fileName: "295005.data", name: "(45-55) Chantry of Secrets [MapValleyWhisper]" },
-        { fileName: "520479.data", name: "(80) Southsun Cove, Crab Toss, Southsun Survival [MapEventValleyLost]" }
-      ]
+        { fileName: "520479.data", name: "(80) Southsun Cove, Crab Toss, Southsun Survival [MapEventValleyLost]" },
+      ],
     },
     {
       name: "Core - Shiverpeak Mountains [Alpine]",
@@ -57,8 +57,8 @@ const mapMap = {
         { fileName: "278717.data", name: "(50-60) Timberline Falls [MapAlpineTimberland]" },
         { fileName: "846866.data", name: "(50-60) Timberline Falls" },
         { fileName: "276252.data", name: "(70-80) Frostgorge Sound [MapAlpineGlacier]" },
-        { fileName: "295282.data", name: "(HoM) Eye of the North [MapAlpineMonument]" }
-      ]
+        { fileName: "295282.data", name: "(HoM) Eye of the North [MapAlpineMonument]" },
+      ],
     },
     {
       name: "Core - Tarnished Coast [Wetland]",
@@ -71,27 +71,36 @@ const mapMap = {
         { fileName: "195493.data", name: "(1-15) Metrica Province [MapWetlandRiverside]" },
         { fileName: "293307.data", name: "(15-25) Brisban Wildlands [MapWetlandGrotto]" },
         { fileName: "292254.data", name: "(55-65) Sparkfly Fen [MapWetlandGlade]" },
-        { fileName: "291064.data", name: "(60-70) Mount Maelstrom [MapWetlandCape]" }
-      ]
+        { fileName: "291064.data", name: "(60-70) Mount Maelstrom [MapWetlandCape]" },
+      ],
     },
     {
       name: "Core - Ruins of Orr [Risen]",
       maps: [
         { fileName: "284829.data", name: "(70-75) Straits of Devastation [MapRisenBeachhead]" },
         { fileName: "285089.data", name: "(75-80) Malchor's Leap [MapRisenCliff]" },
-        { fileName: "285634.data", name: "(80) Cursed Shore [MapRisenShore]" }
-      ]
+        { fileName: "285634.data", name: "(80) Cursed Shore [MapRisenShore]" },
+      ],
     },
     {
       name: "Core - Personal Story",
       maps: [
-        { fileName: "295962.data", name: "(20-60) A Vision of Darkness, A Light in the Darkness <The Grove, Cursed Shore> [MapWetlandDestiny]" },
+        {
+          fileName: "295962.data",
+          name: "(20-60) A Vision of Darkness, A Light in the Darkness <The Grove, Cursed Shore> [MapWetlandDestiny]",
+        },
         { fileName: "1019669.data", name: "(40-60) Old Lion's Arch [MapValleyArchOrig]" },
         { fileName: "294938.data", name: "(60) Claw Island [MapValleyClaw]" },
-        { fileName: "1018612.data", name: "(70) Forging the Pact <Timberline Falls> [MapAlpineTimberlandBeforeConcordiaVines]" },
-        { fileName: "295179.data", name: "(80) Temple of the Forgotten God <Straits of Devastation> [MapRisenBeachheadAbaddon]" },
-        { fileName: "473765.data", name: "(80) Victory or Death <The Ruined City of Arah> [MapRisenDragonStory]" }
-      ]
+        {
+          fileName: "1018612.data",
+          name: "(70) Forging the Pact <Timberline Falls> [MapAlpineTimberlandBeforeConcordiaVines]",
+        },
+        {
+          fileName: "295179.data",
+          name: "(80) Temple of the Forgotten God <Straits of Devastation> [MapRisenBeachheadAbaddon]",
+        },
+        { fileName: "473765.data", name: "(80) Victory or Death <The Ruined City of Arah> [MapRisenDragonStory]" },
+      ],
     },
     {
       name: "Core - Dungeon",
@@ -105,26 +114,41 @@ const mapMap = {
         { fileName: "284039.data", name: "(70-75) Citadel of Flame [MapRegrownShaman]" },
         { fileName: "276520.data", name: "(76-80) Honor of the Waves [MapAlpineIceberg]" },
         { fileName: "293606.data", name: "(78-80) Crucible of Eternity [MapWetlandWeapon]" },
-        { fileName: "473930.data", name: "(80) The Ruined City of Arah [MapRisenDragonRepeat]" }
-      ]
+        { fileName: "473930.data", name: "(80) The Ruined City of Arah [MapRisenDragonRepeat]" },
+      ],
     },
     {
       name: "(LW1) Living World Season 1: Scarlet's War - (SM) Strike Mission",
       maps: [
-        { fileName: "2771534.data", name: "(Lounge) Memory of Old Lion's Arch <Old Lion's Arch> [MapValleyArchProbed]" },
+        {
+          fileName: "2771534.data",
+          name: "(Lounge) Memory of Old Lion's Arch <Old Lion's Arch> [MapValleyArchProbed]",
+        },
         { fileName: "568778.data", name: "(LW1.E1) Cragstead <Wayfarer Foothills, Diessa Plateau> [MapAlpineEnclave]" },
         { fileName: "580061.data", name: "(LW1.E1) Molten Furnace [MapFlameFrost]" },
-        { fileName: "2690992.data", name: "(LW1.E2) Memorials on the Pyre, The Scene of the Crime <Old Lion's Arch> [MapValleyArchDragon]" },
+        {
+          fileName: "2690992.data",
+          name: "(LW1.E2) Memorials on the Pyre, The Scene of the Crime <Old Lion's Arch> [MapValleyArchDragon]",
+        },
         { fileName: "595722.data", name: "(LW1.E2) Aetherblade Retreat [MapValleyArchDungeon]" },
         { fileName: "2711089.data", name: "(LW1.E3) Scarlet's Playhouse <The Crown Pavilion> [MapJubileeArena-2]" },
-        { fileName: "672138.data", name: "(LW1.E4) The Nightmare Unveiled <Kessex Hills> [MapValleyWildernessKraitTowerInstance]" },
+        {
+          fileName: "672138.data",
+          name: "(LW1.E4) The Nightmare Unveiled <Kessex Hills> [MapValleyWildernessKraitTowerInstance]",
+        },
         { fileName: "679089.data", name: "(LW1.E4) The Tower of Nightmares [MapValleyWildernessKraitTowerInterior]" },
-        { fileName: "2469960.data", name: "(LW1.E5) The Twisted Marionette <Lornar's Pass> [MapAlpineSlopeMarionette]" },
+        {
+          fileName: "2469960.data",
+          name: "(LW1.E5) The Twisted Marionette <Lornar's Pass> [MapAlpineSlopeMarionette]",
+        },
         { fileName: "2770873.data", name: "(LW1.E5) The Battle For Lion's Arch <Old Lion's Arch> [MapValleyArch2]" },
-        { fileName: "2773298.data", name: "(LW1.E5) North Evacuation Camp <Gendarran Fields> [MapValleySettlementFeb2014]" },
+        {
+          fileName: "2773298.data",
+          name: "(LW1.E5) North Evacuation Camp <Gendarran Fields> [MapValleySettlementFeb2014]",
+        },
         { fileName: "814803.data", name: "(LW1.E5) Lion's Arch: Honored Guests <Old Lion's Arch> [MapValleyArch3]" },
-        { fileName: "2771205.data", name: "(SM) Old Lion's Court <The Battle For Lion's Arch> [MapValleyArch2Strike]" }
-      ]
+        { fileName: "2771205.data", name: "(SM) Old Lion's Court <The Battle For Lion's Arch> [MapValleyArch2Strike]" },
+      ],
     },
     {
       name: "(LW2) Living World Season 2: Glint's Prophecy",
@@ -134,8 +158,11 @@ const mapMap = {
         { fileName: "909361.data", name: "(LW2.E5, LW2.E6, LW2.E7, LW2.E8) The Silverwastes [MapSandCastle]" },
         { fileName: "996202.data", name: "(LW2.E5, LW2.E6, LW2.E7, LW2.E8) The Silverwastes [MapSandcastleToFleet]" },
         { fileName: "908730.data", name: "(LW2.E5.4) Hidden Arcana <The Durmand Priory> [MapSandGrain]" },
-        { fileName: "922320.data", name: "(LW2.E7.2) Meeting the Asura <Metrica Province> [MapWetlandRiversideAsuraFirstContact]" }
-      ]
+        {
+          fileName: "922320.data",
+          name: "(LW2.E7.2) Meeting the Asura <Metrica Province> [MapWetlandRiversideAsuraFirstContact]",
+        },
+      ],
     },
     {
       name: "(X1) Guild Wars 2: Heart of Thorns (HoT) - (Z) Zone - Maguuma Jungle [Jungle]",
@@ -144,8 +171,8 @@ const mapMap = {
         { fileName: "1263739.data", name: "(Z.2) Auric Basin [MapJungleGold]" },
         { fileName: "1264291.data", name: "(Z.3) Tangled Depths [MapJungleRoots]" },
         { fileName: "1262310.data", name: "(Z.4) Dragon's Stand [MapJungleArmy]" },
-        { fileName: "1262460.data", name: "(X1.16) Hearts and Minds [MapJungleArmyNightmare]" }
-      ]
+        { fileName: "1262460.data", name: "(X1.16) Hearts and Minds [MapJungleArmyNightmare]" },
+      ],
     },
     {
       name: "(LW3) Living World Season 3: Glint's Legacy",
@@ -160,29 +187,44 @@ const mapMap = {
         { fileName: "1682763.data", name: "(LW3.E5.5) Heart of the Volcano [MapLavaLampInstance2]" },
         { fileName: "1734839.data", name: "(LW3.E6.1) White Mantle Hideout [MapS0E6AspectHunt]" },
         { fileName: "1735440.data", name: "(LW3.E6.2) Shining Blade Headquarters [MapValleyBlade]" },
-        { fileName: "1735346.data", name: "(LW3.E6) Siren's Landing [MapReclaimed]" }
-      ]
+        { fileName: "1735346.data", name: "(LW3.E6) Siren's Landing [MapReclaimed]" },
+      ],
     },
     {
       name: "(X2) Guild Wars 2: Path of Fire (PoF) - (Z) Zone - Crystal Desert [Desert]",
       maps: [
         { fileName: "1794574.data", name: "(Z.1) Crystal Oasis [MapDesertOasis]" },
         { fileName: "1833034.data", name: "(Z.2) Desert Highlands [MapDesertHighlands]" },
-        { fileName: "1840368.data", name: "(X2.7, X2.OS) Facing the Truth: The Sanctum, The Dark Library [MapDesertSanctum]" },
+        {
+          fileName: "1840368.data",
+          name: "(X2.7, X2.OS) Facing the Truth: The Sanctum, The Dark Library [MapDesertSanctum]",
+        },
         { fileName: "1840103.data", name: "(Z.3) Elon Riverlands [MapDesertRiver]" },
-        { fileName: "1833726.data", name: "(X2.8, X2.9) The Way Forward, The Departing <Elon Riverlands> [MapDesertMists]" },
+        {
+          fileName: "1833726.data",
+          name: "(X2.8, X2.9) The Way Forward, The Departing <Elon Riverlands> [MapDesertMists]",
+        },
         { fileName: "1842533.data", name: "(Z.4) The Desolation [MapDesertTorment]" },
-        { fileName: "1839188.data", name: "(Z.5) Domain of Vabbi [MapDesertPalace]" }
-      ]
+        { fileName: "1839188.data", name: "(Z.5) Domain of Vabbi [MapDesertPalace]" },
+      ],
     },
     {
       name: "(LW4) Living World Season 4: Rise of Kralkatorrik",
       maps: [
-        { fileName: "1903523.data", name: "(LW4.E1.1) Eye of the Brandstorm <Crystal Oasis> [MapDesertOasisInstanceS4E1]" },
+        {
+          fileName: "1903523.data",
+          name: "(LW4.E1.1) Eye of the Brandstorm <Crystal Oasis> [MapDesertOasisInstanceS4E1]",
+        },
         { fileName: "1902235.data", name: "(LW4.E1) Domain of Istan [MapDesertJewel]" },
         { fileName: "1901428.data", name: "(LW4.E1.6) Fahranur, the First City [MapDesertCity]" },
-        { fileName: "1954984.data", name: "(LW4.E2.1) Tracking the Scientist <Desert Highlands> [MapDesertArchipelago_Chapter1]" },
-        { fileName: "1955224.data", name: "(LW4.E2.2) The Test Subject <Sandswept Isles> [MapDesertArchipelago_Chapter2]" },
+        {
+          fileName: "1954984.data",
+          name: "(LW4.E2.1) Tracking the Scientist <Desert Highlands> [MapDesertArchipelago_Chapter1]",
+        },
+        {
+          fileName: "1955224.data",
+          name: "(LW4.E2.2) The Test Subject <Sandswept Isles> [MapDesertArchipelago_Chapter2]",
+        },
         { fileName: "1957526.data", name: "(LW4.E2) Sandswept Isles [MapDesertArchipelagoLargeMap]" },
         { fileName: "1955471.data", name: "(LW4.E2.5) The Charge <Sandswept Isles> [MapDesertArchipelago_Chapter5]" },
         { fileName: "1955642.data", name: "(LW4.E2.5) ??? <Divinity's Reach> [MapDesertArchipelago_Chapter5Boss_1]" },
@@ -196,14 +238,17 @@ const mapMap = {
         { fileName: "2093791.data", name: "(LW4.E5.1) Scion & Champion <Hidden Arcana> [MapThe_Begining]" },
         { fileName: "2092435.data", name: "(LW4.E5) Thunderhead Peaks [MapAlpineKeep]" },
         { fileName: "2092812.data", name: "(LW4.E5.3) The Crystal Blooms <Thunderhead Peaks> [MapAlpineKeepInstance]" },
-        { fileName: "2093450.data", name: "(LW4.E5.5) The Crystal Dragon <The Crystal Blooms> [MapAlpineKeepInstanceKralk]" },
+        {
+          fileName: "2093450.data",
+          name: "(LW4.E5.5) The Crystal Dragon <The Crystal Blooms> [MapAlpineKeepInstanceKralk]",
+        },
         { fileName: "2124612.data", name: "(LW4.PP) Mists Rift [MapBrandedMistfight]" },
         { fileName: "2146312.data", name: "(LW4.E6.1) The End <Thunderhead Peaks> [MapDesertDragonfallCh01]" },
         { fileName: "2146346.data", name: "(LW4.E6.1) Dragonflight [MapDesertDragonfallCh02]" },
         { fileName: "2146125.data", name: "(LW4.E6) Dragonfall [MapDesertDragonfall]" },
         { fileName: "2146510.data", name: "(LW4.E6.5) Descent [MapDesertDragonfallFinalInstance]" },
-        { fileName: "2146376.data", name: "(LW4.E6.5) Epilogue [MapDesertDragonfallEpilogue]" }
-      ]
+        { fileName: "2146376.data", name: "(LW4.E6.5) Epilogue [MapDesertDragonfallEpilogue]" },
+      ],
     },
     {
       name: "(LW5) Living World Season 5: The Icebrood Saga (IBS) - (SM) Strike Mission, (DRM) Dragon Response Missions",
@@ -222,11 +267,23 @@ const mapMap = {
         { fileName: "2318029.data", name: "(LW5.E3, LW5.E4) Drizzlewood Coast [MapAlpineCascades02]" },
         { fileName: "2299088.data", name: "(SM.7) Cold War <Drizzlewood Coast> [MapAlpineCascadesStrike]" },
         { fileName: "2369582.data", name: "(LW5.E5.1) Primordus Rising <Rata Sum> [MapWetlandComplexE5Story]" },
-        { fileName: "2370614.data", name: "(LW5.E5.3, DRM.1) Metrica Province <Metrica Province> [MapWetlandRiversideS5E5]" },
-        { fileName: "2370017.data", name: "(LW5.E5.3, DRM.2) Brisban Wildlands <Brisban Wildlands> [MapWetlandGrottoS5E5]" },
-        { fileName: "2369116.data", name: "(LW5.E5.3, DRM.3) Gendarran Fields <Gendarran Fields> [MapValleySettlementS5E5]" },
+        {
+          fileName: "2370614.data",
+          name: "(LW5.E5.3, DRM.1) Metrica Province <Metrica Province> [MapWetlandRiversideS5E5]",
+        },
+        {
+          fileName: "2370017.data",
+          name: "(LW5.E5.3, DRM.2) Brisban Wildlands <Brisban Wildlands> [MapWetlandGrottoS5E5]",
+        },
+        {
+          fileName: "2369116.data",
+          name: "(LW5.E5.3, DRM.3) Gendarran Fields <Gendarran Fields> [MapValleySettlementS5E5]",
+        },
         { fileName: "2366776.data", name: "(LW5.E5.4, DRM.4) Fields of Ruin <Fields of Ruin> [MapRegrownHawkeS5E5]" },
-        { fileName: "2364032.data", name: "(LW5.E5.4, DRM.5) Thunderhead Peaks <Thunderhead Peaks> [MapAlpineKeepS5E5]" },
+        {
+          fileName: "2364032.data",
+          name: "(LW5.E5.4, DRM.5) Thunderhead Peaks <Thunderhead Peaks> [MapAlpineKeepS5E5]",
+        },
         { fileName: "2368400.data", name: "(LW5.E5.5, DRM.6) Lake Doric <Lake Doric> [MapValleyPortS5E5]" },
         { fileName: "2365787.data", name: "(LW5.E5.5, DRM.7) Snowden Drifts <Snowden Drifts> [MapAlpinePowderS5E5]" },
         { fileName: "2369398.data", name: "(LW5.E5.6, DRM.8) Caledon Forest <Caledon Forest> [MapWetlandBayouS5E5]" },
@@ -234,8 +291,8 @@ const mapMap = {
         { fileName: "2367211.data", name: "(LW5.E5.8, DRM.9) Bloodtide Coast <Bloodtide Coast> [MapValleyCoastS5E5]" },
         { fileName: "2366368.data", name: "(LW5.E5.9, DRM.10) Fireheart Rise <Fireheart Rise> [MapRegrownFlameS5E5]" },
         { fileName: "2434582.data", name: "(LW5.E5) Dragonstorm [MapDragonFight]" },
-        { fileName: "2434675.data", name: "(LW5.E5.11) Champion's End <Dragonstorm> [MapDragonFightStoryInstance]" }
-      ]
+        { fileName: "2434675.data", name: "(LW5.E5.11) Champion's End <Dragonstorm> [MapDragonFightStoryInstance]" },
+      ],
     },
     {
       name: "(X3) Guild Wars 2: End of Dragons (EoD) - (Z) Zone, (SM) Strike Mission - Cantha [Cantha]",
@@ -249,29 +306,41 @@ const mapMap = {
         { fileName: "2645805.data", name: "(X3.7) Deepest Secrets: Yong Reactor [MapCanthaKainengCH5Reactor]" },
         { fileName: "2640407.data", name: "(Lobby) Arborstone <The Echovald Wilds> [MapCanthaArborstone]" },
         { fileName: "2641850.data", name: "(Z.3) The Echovald Wilds [MapCanthaEchovald]" },
-        { fileName: "2642769.data", name: "(SM.2) Xunlai Jade Junkyard <The Echovald Wilds> [MapCanthaEchovaldStrikeMissions]" },
+        {
+          fileName: "2642769.data",
+          name: "(SM.2) Xunlai Jade Junkyard <The Echovald Wilds> [MapCanthaEchovaldStrikeMissions]",
+        },
         { fileName: "2646104.data", name: "(SM.3) Kaineng Overlook <New Kaineng City> [MapCanthaKainengMinSecStrike]" },
         { fileName: "2644196.data", name: "(Z.4) Dragon's End [MapCanthaJadeSea]" },
         { fileName: "2702043.data", name: "(SM.4) Harvest Temple <Dragon's End> [MapCanthaJadeSeaStrikeMission]" },
         { fileName: "3012212.data", name: "(Z.5) Gyala Delve [MapCanthaDeep]" },
         { fileName: "3043972.data", name: "(Z.5) Gyala Delve [MapCanthaDeepQR2]" },
-        { fileName: "3100947.data", name: "(X3.18) Forward <Seitung Province> [MapCanthaShingJeaExpac4AureneInstance]" }
-      ]
+        {
+          fileName: "3100947.data",
+          name: "(X3.18) Forward <Seitung Province> [MapCanthaShingJeaExpac4AureneInstance]",
+        },
+      ],
     },
     {
       name: "(X4) Guild Wars 2: Secrets of the Obscure (SotO) - (Z) Zone, (SM) Strike Mission - Skies of Tyria [Sky]",
       maps: [
-        { fileName: "3134712.data", name: "(X4.1) Commander without a Cause: Gendarran Fields <Gendarran Fields> [MapValleySettlementExpac4StealthMission]" },
+        {
+          fileName: "3134712.data",
+          name: "(X4.1) Commander without a Cause: Gendarran Fields <Gendarran Fields> [MapValleySettlementExpac4StealthMission]",
+        },
         { fileName: "3134778.data", name: "(Z.1) Skywatch Archipelago [MapSkyRise]" },
-        { fileName: "3135285.data", name: "(SM.1) Cosmic Observatory <Skywatch Archipelago> [MapSkyRiseStrikeObservatory]" },
+        {
+          fileName: "3135285.data",
+          name: "(SM.1) Cosmic Observatory <Skywatch Archipelago> [MapSkyRiseStrikeObservatory]",
+        },
         { fileName: "3135660.data", name: "(Lobby) The Wizard's Tower [MapSkyTower]" },
         { fileName: "3135805.data", name: "(Z.2) Amnytas [MapSkySpire]" },
         { fileName: "3136072.data", name: "(SM.2) Temple of Febe [MapCerusArena]" },
         { fileName: "3193573.data", name: "(?) Convergences [MapBountyIslands]" },
         { fileName: "3194054.data", name: "(Z.3) Inner Nayos [MapDream]" },
         { fileName: "3264516.data", name: "(Z.3) Inner Nayos [MapDream2]" },
-        { fileName: "3316196.data", name: "(Z.3) Inner Nayos [MapDream3]" }
-      ]
+        { fileName: "3316196.data", name: "(Z.3) Inner Nayos [MapDream3]" },
+      ],
     },
     {
       name: "(GH) Guild Halls",
@@ -279,8 +348,8 @@ const mapMap = {
         { fileName: "1255378.data", name: "(GH.1-2) Gilded Hollow [MapGuildCavern]" },
         { fileName: "1256064.data", name: "(GH.1-2) Lost Precipice [MapGuildHeights]" },
         { fileName: "1843274.data", name: "(GH.3) Windswept Haven [MapGuildPyramid]" },
-        { fileName: "2648082.data", name: "(GH.4) Isle of Reflection [MapGuildIsle]" }
-      ]
+        { fileName: "2648082.data", name: "(GH.4) Isle of Reflection [MapGuildIsle]" },
+      ],
     },
     {
       name: "Cooperative - (FotM) Fractals of the Mists",
@@ -292,8 +361,14 @@ const mapMap = {
         { fileName: "1426653.data", name: "(FotM.0-9) Cliffside <Fractals of the Mists> [MapInfiniteCliffside]" },
         { fileName: "1472382.data", name: "(FotM.0-9) Snowblind <Fractals of the Mists> [MapInfiniteSnowblind]" },
         { fileName: "1472406.data", name: "(FotM.0-9) Swampland <Fractals of the Mists> [MapInfiniteSwamp]" },
-        { fileName: "1498798.data", name: "(FotM.10-14) Aetherblade, Captain Mai Trin Boss <Aetherblade Retreat> [MapValleyArchDungeonUpdated02]" },
-        { fileName: "1905739.data", name: "(FotM.10-14) Molten Furnace, Molten Boss <Molten Furnace> [MapFlameFrostFractalExtended]" },
+        {
+          fileName: "1498798.data",
+          name: "(FotM.10-14) Aetherblade, Captain Mai Trin Boss <Aetherblade Retreat> [MapValleyArchDungeonUpdated02]",
+        },
+        {
+          fileName: "1905739.data",
+          name: "(FotM.10-14) Molten Furnace, Molten Boss <Molten Furnace> [MapFlameFrostFractalExtended]",
+        },
         { fileName: "697450.data", name: "(FotM.10-14) Thaumanova Reactor [MapInfiniteReactor]" },
         { fileName: "1472361.data", name: "(FotM.15) Chaos Isles [MapInfiniteChaos]" },
         { fileName: "1605344.data", name: "(FotM.16) Nightmare [MapInfiniteToxic]" },
@@ -303,21 +378,24 @@ const mapMap = {
         { fileName: "2094098.data", name: "(FotM.20) Siren's Reef [MapInfiniteCove]" },
         { fileName: "2333932.data", name: "(FotM.21) Sunqua Peak [MapFractalElementalIslands]" },
         { fileName: "3100195.data", name: "(FotM.22) Silent Surf [MapLuxonFractal]" },
-        { fileName: "3317434.data", name: "(FotM.23) Lonely Tower [MapSkyRiseFractalEparch]" }
-      ]
+        { fileName: "3317434.data", name: "(FotM.23) Lonely Tower [MapSkyRiseFractalEparch]" },
+      ],
     },
     {
       name: "Cooperative - (R) Raids",
       maps: [
-        { fileName: "1427048.data", name: "(Lobby, R.0) Lion's Arch Aerodrome, Special Forces Training Area [MapValleyArchRaidLobby]" },
+        {
+          fileName: "1427048.data",
+          name: "(Lobby, R.0) Lion's Arch Aerodrome, Special Forces Training Area [MapValleyArchRaidLobby]",
+        },
         { fileName: "1151420.data", name: "(R.1) Spirit Vale [MapRaidJungle01]" },
         { fileName: "1383309.data", name: "(R.2) Salvation Pass [MapE1R2]" },
         { fileName: "1454070.data", name: "(R.3) Stronghold of the Faithful [MapE1R3]" },
         { fileName: "1645215.data", name: "(R.4) Bastion of the Penitent [MapE1R4]" },
         { fileName: "1906329.data", name: "(R.5) Hall of Chains [MapE1R5]" },
         { fileName: "2045250.data", name: "(R.6) Mythwright Gambit [MapE2R2]" },
-        { fileName: "2157962.data", name: "(R.7) The Key of Ahdashim [MapE2R3]" }
-      ]
+        { fileName: "2157962.data", name: "(R.7) The Key of Ahdashim [MapE2R3]" },
+      ],
     },
     {
       name: "Competitive - Player vs. Player (PvP) - (CQ) Conquest, (MB) Murderball, (SH) Stronghold, (TDM) Team Deathmatch",
@@ -356,18 +434,21 @@ const mapMap = {
         { fileName: "871093.data", name: "(SH) Battle of Champion's Dusk [MapPvPStrongholdCityMercs]" },
         { fileName: "1712986.data", name: "(TDM.1) Hall of the Mists [MapHallway2v2]" },
         { fileName: "1712945.data", name: "(TDM.3) Asura Arena [Mapasura2v2]" },
-        { fileName: "2187125.data", name: "(TDM.4) Auric Span [MapJungle2v2]" }
-      ]
+        { fileName: "2187125.data", name: "(TDM.4) Auric Span [MapJungle2v2]" },
+      ],
     },
     {
       name: "Competitive - World vs. World (WvW) - (MW) Mist War, (EotM) Edge of the Mists",
-      maps: [      
+      maps: [
         { fileName: "2113077.data", name: "(Lounge) Armistice Bastion [MapWvwLounge]" },
         { fileName: "131235.data", name: "(MW) Eternal Battlegrounds, Obsidian Sanctum" },
         { fileName: "195806.data", name: "(MW) Eternal Battlegrounds, Obsidian Sanctum [MapWvWCenter]" },
         { fileName: "1798709.data", name: "(MW) Eternal Battlegrounds, Obsidian Sanctum [MapWvWCenterGliding]" },
         { fileName: "1885693.data", name: "(MW) Eternal Battlegrounds, Obsidian Sanctum [MapWvWCenter4]" },
-        { fileName: "2263889.data", name: "(MW) Eternal Battlegrounds, Obsidian Sanctum [MapWvWCenterWallChange10_19]" },
+        {
+          fileName: "2263889.data",
+          name: "(MW) Eternal Battlegrounds, Obsidian Sanctum [MapWvWCenterWallChange10_19]",
+        },
         { fileName: "131574.data", name: "(MW) Alpine Borderlands" },
         { fileName: "641501.data", name: "(MW) Alpine Borderlands [MapWvWRedHomeLake01]" },
         { fileName: "1799855.data", name: "(MW) Alpine Borderlands [MapWvWRedHomeLake01gliding]" },
@@ -376,15 +457,15 @@ const mapMap = {
         { fileName: "1647236.data", name: "(MW) Desert Borderlands [MapWvWDesertHomeUpdateMIDrework]" },
         { fileName: "1799442.data", name: "(MW) Desert Borderlands [MapWvWDesertHome4]" },
         { fileName: "2112733.data", name: "(MW) Desert Borderlands [MapWvWDesertHome]" },
-        { fileName: "736241.data", name: "(EotM) Edge of the Mists [MapWvWIslands]" }
-      ]
+        { fileName: "736241.data", name: "(EotM) Edge of the Mists [MapWvWIslands]" },
+      ],
     },
     {
       name: "Festival - (LNY) Lunar New Year",
       maps: [
         { fileName: "1625212.data", name: "(City) Divinity's Reach <Divinity's Reach> [MapValleyDivinityLNY]" },
-        { fileName: "595582.data", name: "(LNY) Dragon Ball Arena [MapDragonBall]" }
-      ]
+        { fileName: "595582.data", name: "(LNY) Dragon Ball Arena [MapDragonBall]" },
+      ],
     },
     {
       name: "Festival - (SAB) Super Adventure Festival - Super Adventure Box [SAB]",
@@ -395,14 +476,12 @@ const mapMap = {
         { fileName: "635555.data", name: "(SAB.1) World 1 [MapSABWorld1]" },
         { fileName: "635960.data", name: "(SAB.2) World 2 [MapSABWorld2]" },
         { fileName: "3024941.data", name: "(SAB.3) World 3 [MapSABWorld3-0]" },
-        { fileName: "3281398.data", name: "(SAB.3) World 3 [MapSABWorld3-1]" }
-      ]
+        { fileName: "3281398.data", name: "(SAB.3) World 3 [MapSABWorld3-1]" },
+      ],
     },
     {
       name: "Festival - (DB) Dragon Bash",
-      maps: [
-        { fileName: "2164993.data", name: "(City) Hoelbrak <Hoelbrak> [MapAlpineHallDragonBash]" }
-      ]
+      maps: [{ fileName: "2164993.data", name: "(City) Hoelbrak <Hoelbrak> [MapAlpineHallDragonBash]" }],
     },
     {
       name: "Festival - (FotFW) Festival of the Four Winds",
@@ -410,8 +489,8 @@ const mapMap = {
         { fileName: "606255.data", name: "(FotFW) Labyrinthine Cliffs [MapEvenKiteCity]" },
         { fileName: "605983.data", name: "(FotFW) Sanctum Sprint [MapEvenTriathlonKiteCity]" },
         { fileName: "617120.data", name: "(FotFW) Aspect Arena [MapEvenPVPKiteCity]" },
-        { fileName: "622681.data", name: "(FotFW) The Crown Pavilion <Divinity's Reach> [MapJubileeArena]" }
-      ]
+        { fileName: "622681.data", name: "(FotFW) The Crown Pavilion <Divinity's Reach> [MapJubileeArena]" },
+      ],
     },
     {
       name: "Festival - (HW) Halloween - Mad King's Realm [MadKing]",
@@ -422,19 +501,22 @@ const mapMap = {
         { fileName: "2499169.data", name: "(HW) Mad King's Labyrinth, Lunatic Inquisition [MapMadKingMaze2021]" },
         { fileName: "506739.data", name: "(HW) Mad King's Clock Tower [MapMadKingTower]" },
         { fileName: "506539.data", name: "(HW) Mad King's Raceway, Reaper's Rumble [MapMadKingField]" },
-        { fileName: "506592.data", name: "(HW) Ascent to Madness [MapMadKingBoss]" }
-      ]
+        { fileName: "506592.data", name: "(HW) Ascent to Madness [MapMadKingBoss]" },
+      ],
     },
     {
       name: "Festival - (WD) Wintersday - (SM) Strike Mission - Wintersday Celebration [Wintersday]",
       maps: [
-        { fileName: "705746.data", name: "(City) Divinity's Reach <Divinity's Reach> [MapWintersDayValleyDivinity2013]" },
+        {
+          fileName: "705746.data",
+          name: "(City) Divinity's Reach <Divinity's Reach> [MapWintersDayValleyDivinity2013]",
+        },
         { fileName: "1917775.data", name: "(City) Divinity's Reach <Divinity's Reach> [MapValleyDivinityholiday]" },
         { fileName: "529718.data", name: "(WD) Bell Choir Ensemble, Snowball Mayhem [MapWintersdaySnowGlobe]" },
         { fileName: "529896.data", name: "(WD) Tixx's Infinirarium, Toypocalypse [MapWintersdayAirship]" },
         { fileName: "529945.data", name: "(WD) Winter Wonderland [MapWintersdayFrostyland]" },
-        { fileName: "2076921.data", name: "(SM) Secret Lair of the Snowmen [MapFrozenTyrant]" }
-      ]
+        { fileName: "2076921.data", name: "(SM) Secret Lair of the Snowmen [MapFrozenTyrant]" },
+      ],
     },
     {
       name: "Miscellaneous",
@@ -463,9 +545,9 @@ const mapMap = {
         { fileName: "2257438.data", name: "[MapTest]" },
         { fileName: "2649061.data", name: "<Grothmar Valley> [MapRegrownBlood_CinematicEOD]" },
         { fileName: "2644298.data", name: "[MapJadeSeaWhirlpool]" },
-        { fileName: "2689589.data", name: "<Desert Highlands> [MapDesertHighlandsE3]" }
-      ]
-    }
+        { fileName: "2689589.data", name: "<Desert Highlands> [MapDesertHighlandsE3]" },
+      ],
+    },
   ],
 } as const;
 
