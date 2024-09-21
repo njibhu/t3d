@@ -252,7 +252,7 @@ export class DataParser implements Definition {
     for (let i = 0; i < arrayLength; i++) {
       const offset = this.offset(dv, currentPosition + i * this.PTR_SIZE);
 
-      offsets.push(Number(offset));
+      offsets.push(offset);
     }
 
     // Set pointer to read structures
@@ -352,21 +352,21 @@ export class DataParser implements Definition {
    **/
 
   private offset(dv: DataView, pos: number): number {
-    if(this.is64Bit) {
+    if (this.is64Bit) {
       const offset = dv.getBigUint64(pos, true);
-      if(offset === BigInt(0)) {
+      if (offset === BigInt(0)) {
         return 0;
-      } else if(offset > BigInt(dv.byteLength)) {
+      } else if (offset > BigInt(dv.byteLength)) {
         // Parse negative offset
-        return -(Number(BigInt('0xFFFFFFFFFFFFFFFF') - offset) + 1);
+        return -(Number(BigInt("0xFFFFFFFFFFFFFFFF") - offset) + 1);
       } else {
         return Number(offset);
       }
     } else {
       const offset = dv.getUint32(pos, true);
-      if(offset > dv.byteLength) {
+      if (offset > dv.byteLength) {
         // Parse negative offset
-        return -((0xFFFFFFFF - offset) + 1);
+        return -(0xffffffff - offset + 1);
       } else {
         return offset;
       }

@@ -48,8 +48,10 @@ export default class FileParser {
         this.dataView,
         metadata.chunkPosition + metadata.chunkHeader.chunkHeaderSize
       );
-      if(parserResult.error) {
-        console.error(`Error parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}: ${parserResult.error}`);
+      if (parserResult.error) {
+        console.error(
+          `Error parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}: ${parserResult.error}`
+        );
       }
       this.chunks.push({
         header: metadata.chunkHeader,

@@ -51,7 +51,7 @@ export const fileChunkMap = {
     audi: "AUDI",
     lght: "LGHT",
     exp: "EXP",
-    watr: "WATR"
+    watr: "WATR",
   },
   emoc: { anim: "ANIM_3" },
   // STAR: { STAR: "" },
