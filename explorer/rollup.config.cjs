@@ -7,6 +7,7 @@ module.exports = {
   output: {
     dir: 'dist/',
     format: 'iife',
+    sourcemap: true,
   },
   plugins: [
     resolve(),
