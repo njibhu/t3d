@@ -248,9 +248,9 @@ class LocalReader {
    *   Returns a list of all the maps with their name and category.
    *   Uncategorized maps are available only if readFileList have been used before.
    */
-  async getMapList(): Promise<Array<{ name: string; category: string; baseId: number }>> {
+  async getMapList(): Promise<Array<{ name: string; category: string; baseId: number; categoryIndex: number }>> {
     const self = this;
-    const mapArray = [];
+    const mapArray: Array<{ name: string; category: string; baseId: number; categoryIndex: number }> = [];
     // If the archive hasn't been completely scanned we do a partial scan for the map files.
     // It should be fast
     if (this.persistantData.length === 0) {
@@ -273,6 +273,7 @@ class LocalReader {
             name: fileMap.name,
             category: category.name,
             baseId: map.baseId,
+            categoryIndex: MapFileList.maps.indexOf(category),
           });
           found = true;
           break;

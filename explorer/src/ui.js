@@ -216,12 +216,14 @@ class UI {
    * and NOT the map one
    */
   fillMapChoiceSelect() {
-    const categoryList = this.mapFileList.reduce((categories, map) => {
-      if (categories.indexOf(map.category) === -1) {
-        categories.push(map.category);
-      }
-      return categories;
-    }, []);
+    const categoryList = this.mapFileList
+      .sort((a, b) => a.categoryIndex - b.categoryIndex)
+      .reduce((categories, map) => {
+        if (categories.indexOf(map.category) === -1) {
+          categories.push(map.category);
+        }
+        return categories;
+      }, []);
     for (const category of categoryList) {
       const opt = document.createElement("option");
       opt.value = category;
