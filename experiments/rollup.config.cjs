@@ -5,7 +5,7 @@ module.exports = {
   input: globSync('src/js/*.js'),
   output: {
     dir: 'dist/js',
-    format: 'es',
+    format: 'iife',
   },
   plugins: [
     copy({
