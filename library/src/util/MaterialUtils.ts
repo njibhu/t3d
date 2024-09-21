@@ -220,8 +220,8 @@ export function getMaterial(
 ): Material | undefined {
   if (!materialFile) return;
 
-  const dxChunk = materialFile.getChunk("dx9s") as { header: ChunkHead, data: DX9S.V2_U };
-  let grChunk = materialFile.getChunk("grmt")! as { header: ChunkHead, data: GRMT.V5_U };
+  const dxChunk = materialFile.getChunk("dx9s") as { header: ChunkHead; data: DX9S.V2_U };
+  let grChunk = materialFile.getChunk("grmt")! as { header: ChunkHead; data: GRMT.V5_U };
 
   if (!dxChunk) {
     return getSimpleMaterial(material, materialFile, localReader, sharedTextures);
@@ -475,7 +475,7 @@ export function getSimpleMaterial(
 ): Material | undefined {
   if (!materialFile) return;
 
-  const grChunk = materialFile.getChunk("grmt")! as { header: ChunkHead, data: GRMT.V5_U };
+  const grChunk = materialFile.getChunk("grmt")! as { header: ChunkHead; data: GRMT.V5_U };
 
   let ft: ModelMaterialData["textures"][number] | undefined;
   let nt: ModelMaterialData["textures"][number] | undefined;
@@ -483,11 +483,11 @@ export function getSimpleMaterial(
     console.log(t);
     // Flag for diffuse map
     if (!ft && Number(t.token) === 1733499172) ft = t;
-    if(!ft && t.token === 27219515885689124n) ft = t;
+    if (!ft && t.token === 27219515885689124n) ft = t;
 
     // Flag for normal map
     if (!nt && Number(t.token) === 404146670) nt = t;
-    if(!nt && t.token === 850610087184878n) nt = t;
+    if (!nt && t.token === 850610087184878n) nt = t;
   });
 
   console.log(ft);

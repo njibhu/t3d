@@ -4,7 +4,7 @@ import * as MathUtils from "./MathUtils";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type { InstancedMesh, Material, Mesh } from "three";
-import type { GEOM, MODL } from "t3d-parser/declarations"
+import type { GEOM, MODL } from "t3d-parser/declarations";
 import { ChunkHead } from "t3d-parser/src/interfaces";
 
 // TODO: Remove this local cache!!
@@ -109,8 +109,8 @@ type FinalMesh = Mesh & {
  */
 export function renderGeomChunk(
   localReader: LocalReader,
-  chunk: { header: ChunkHead, data: GEOM.V0_U },
-  modelDataChunk: { header: ChunkHead, data: MODL.V51_U },
+  chunk: { header: ChunkHead; data: GEOM.V0_U },
+  modelDataChunk: { header: ChunkHead; data: MODL.V51_U },
   sharedTextures: any,
   showUnmaterialed: boolean
 ): FinalMesh[] {
