@@ -10,6 +10,7 @@ export type DefinitionTypes = {
 
 export const fileChunkMap = {
   cntc: { Main: "MAIN_4" },
+  cmpc: { comp: "COMP" },
   hvkC: { havk: "HAVK" },
   ASND: { ASND: "ASND" },
   AMAT: { GRMT: "GRMT", DX9S: "DX9S", BGFX: "BGFX" },
@@ -50,6 +51,7 @@ export const fileChunkMap = {
     audi: "AUDI",
     lght: "LGHT",
     exp: "EXP",
+    watr: "WATR",
   },
   emoc: { anim: "ANIM_3" },
   // STAR: { STAR: "" },

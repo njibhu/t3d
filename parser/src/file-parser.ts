@@ -44,10 +44,15 @@ export default class FileParser {
       console.log(
         `Parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}, flags ${this.header.flags}`
       );
-      const parserResult = new DataParser(def, this.header.flags === 5).parse(
+      const parserResult = new DataParser(def, this.header.flags === 5).safeParse(
         this.dataView,
         metadata.chunkPosition + metadata.chunkHeader.chunkHeaderSize
       );
+      if (parserResult.error) {
+        console.error(
+          `Error parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}: ${parserResult.error}`
+        );
+      }
       this.chunks.push({
         header: metadata.chunkHeader,
         data: parserResult.data,
