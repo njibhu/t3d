@@ -20,7 +20,8 @@
     "format:check": "prettier --check ./lib && prettier --check ./bin",
     "lint:check": "eslint ./lib && eslint ./bin",
     "lint:fix": "eslint ./lib --fix && eslint ./bin --fix",
-    "test": "exit 0"
+    "test": "exit 0",
+    "build": "exit 0"
   },
   "dependencies": {
     "@types/node": "12.12.17",

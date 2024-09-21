@@ -285,6 +285,7 @@ class LocalReader {
           name: map.baseId.toString(),
           category: "Uncategorized",
           baseId: map.baseId,
+          categoryIndex: 99999,
         });
       }
     }
