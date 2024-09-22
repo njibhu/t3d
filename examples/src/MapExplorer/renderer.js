@@ -1,3 +1,5 @@
+const CANVAS_CLEAR_COLOR = 0x342920; // For happy rendering, always use Van Dyke Brown.
+
 class AppRenderer {
   constructor(logger) {
     this.logger = logger;
@@ -44,7 +46,6 @@ class AppRenderer {
   init() {
     const canvasWidth = window.innerWidth;
     const canvasHeight = window.innerHeight;
-    const canvasClearColor = 0x342920; // For happy rendering, always use Van Dyke Brown.
     const fov = 60;
     const aspect = canvasWidth / canvasHeight;
     const fogDistance = Number($("#fogRange").val());
@@ -88,7 +89,7 @@ class AppRenderer {
     this.renderer.autoClear = false;
     document.body.appendChild(this.renderer.domElement);
     this.renderer.setSize(canvasWidth, canvasHeight);
-    this.renderer.setClearColor(canvasClearColor);
+    this.renderer.setClearColor(CANVAS_CLEAR_COLOR);
 
     window.addEventListener("resize", () => {
       const SCREEN_HEIGHT = window.innerHeight;
@@ -287,7 +288,7 @@ class AppRenderer {
 
     // Render first skyCamera
     this.skyCamera.quaternion.copy(this.camera.quaternion);
-    this.renderer.clear(this.renderer.getClearColor());
+    this.renderer.clear();
     this.renderer.render(this.skyScene, this.skyCamera);
 
     this.renderer.render(this.scene, this.camera);
