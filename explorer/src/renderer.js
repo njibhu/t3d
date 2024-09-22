@@ -124,7 +124,7 @@ class AppRenderer {
     newWindow.document.title = "T3D Explorer Screenshot";
     const image = new Image();
 
-    this._threeContext.renderer.clear(this._threeContext.renderer.getClearColor());
+    this._threeContext.renderer.clear();
     // Render first skyCamera
     this._threeContext.renderer.render(this._threeContext.skyScene, this._threeContext.skyCamera);
     this._threeContext.renderer.render(this._threeContext.scene, this._threeContext.camera);
@@ -261,7 +261,7 @@ class AppRenderer {
     window.requestAnimationFrame(() => this._render());
     this._threeContext.controls.update(this._threeContext.clock.getDelta());
 
-    this._threeContext.renderer.clear(this._threeContext.renderer.getClearColor());
+    this._threeContext.renderer.clear();
 
     // Render first skyCamera
     this._threeContext.skyCamera.quaternion.copy(this._threeContext.camera.quaternion);
