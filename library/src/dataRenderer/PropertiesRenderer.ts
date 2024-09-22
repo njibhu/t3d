@@ -133,8 +133,11 @@ export default class PropertiesRenderer extends DataRenderer {
    * @param {number} modelName The baseId of the model
    * @param {*} meshes The 3d models of the model
    */
-  placeModelOnScene(modelName: number, meshes: any): void {
+  placeModelOnScene(modelName: number, meshes: RenderUtils.FinalMesh[]): void {
     const model = this.models[modelName];
+    if(meshes.length === 0) {
+      return;
+    }
     const instancedMesh = RenderUtils.getInstancedMesh(meshes, model.size);
     let instancedIndex = 0;
     for (const prop of model.props) {

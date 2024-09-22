@@ -3,9 +3,10 @@ import * as MaterialUtils from "./MaterialUtils";
 import * as MathUtils from "./MathUtils";
 
 import type LocalReader from "../LocalReader/LocalReader";
-import type { InstancedMesh, Material, Mesh } from "three";
+import type { InstancedMesh, Material, Mesh, BufferGeometry } from "three";
 import type { GEOM, MODL } from "t3d-parser/declarations";
 import { ChunkHead } from "t3d-parser/src/interfaces";
+import { BufferGeometryUtils } from 'three/examples/jsm/utils/BufferGeometryUtils';
 
 // TODO: Remove this local cache!!
 const matFiles: { [key: string]: any } = {};
@@ -83,7 +84,7 @@ export function renderRect(
   return plane;
 }
 
-type FinalMesh = Mesh & {
+export type FinalMesh = Mesh & {
   materialFlags?: any;
   materialFilename?: number;
   materialName?: any;
@@ -351,19 +352,37 @@ export function renderGeomChunk(
  * @param {Number} filterFlags When undefined, it will render all LODs. When using 0, only show most detailed LOD
  * @returns {Mesh} a Three instanced mesh
  */
-export function getInstancedMesh(meshes: any[], size: number, filterFlags?: number): InstancedMesh {
+export function getInstancedMesh(meshes: FinalMesh[], size: number, filterFlags?: number): InstancedMesh {
+  const geometries: BufferGeometry[] = [];
   const meshMaterials: Material[] = [];
-  const mergedGeometry = new THREE.Geometry();
-  meshes.forEach((mesh, index) => {
+
+  meshes.forEach((mesh) => {
     // If filterFlags is set, we ignore any mesh without the correct flag
     if (filterFlags !== undefined && mesh.flags !== filterFlags) {
       return;
     }
-    meshMaterials.push(mesh.material);
-    // It's only possible to merge geometries of the same type
-    const meshGeometry = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
-    mergedGeometry.merge(meshGeometry, mesh.matrix, index);
+
+    if(Array.isArray(mesh.material)) {
+      meshMaterials.push(mesh.material[0]);
+    } else {
+      meshMaterials.push(mesh.material);
+    }
+
+    // Ensure the mesh's geometry is a BufferGeometry
+    const meshGeometry = mesh.geometry as BufferGeometry;
+
+    // Clone the geometry (since merge might modify it) and apply the mesh's transformation matrix
+    const clonedGeometry = meshGeometry.clone();
+    clonedGeometry.applyMatrix4(mesh.matrix);
+
+    geometries.push(clonedGeometry);
   });
+
+  console.log(`geometries:`, geometries.length);
+  // Merge all geometries using BufferGeometryUtils
+  const mergedGeometry = BufferGeometryUtils.mergeBufferGeometries(geometries, false);
+
+  // Create the instanced mesh
   const finalMesh = new THREE.InstancedMesh(mergedGeometry, meshMaterials, size);
   finalMesh.updateMatrix();
   finalMesh.matrixAutoUpdate = false;
