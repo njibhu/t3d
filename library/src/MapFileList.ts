@@ -343,6 +343,15 @@ const mapMap = {
       ],
     },
     {
+      name: "(X5) Guild Wars 2: Janthir Wilds",
+      maps: [
+        { fileName: "3399578.data", name: "(H) Homestead" },
+        { fileName: "3406364.data", name: "(X5.1) Prologue: The Tyrian Alliance: Lion's Arch" },
+        { fileName: "3414888.data", name: "(Z.1) Lowland Shore" },
+        { fileName: "3415804.data", name: "(Z.2) Janthir Syntri" },
+      ],
+    },
+    {
       name: "(GH) Guild Halls",
       maps: [
         { fileName: "1255378.data", name: "(GH.1-2) Gilded Hollow [MapGuildCavern]" },
