@@ -3,10 +3,9 @@ import * as MaterialUtils from "./MaterialUtils";
 import * as MathUtils from "./MathUtils";
 
 import type LocalReader from "../LocalReader/LocalReader";
-import type { InstancedMesh, Material, Mesh, BufferGeometry } from "three";
+import type { InstancedMesh, Material, Mesh } from "three";
 import type { GEOM, MODL } from "t3d-parser/declarations";
 import { ChunkHead } from "t3d-parser/src/interfaces";
-import { BufferGeometryUtils } from 'three/examples/jsm/utils/BufferGeometryUtils';
 
 // TODO: Remove this local cache!!
 const matFiles: { [key: string]: any } = {};
@@ -345,49 +344,18 @@ export function renderGeomChunk(
   return meshes;
 }
 
-/**
- * Merge multiple meshes together and return an instancedMesh for it
- * @param {Array} meshes Three Meshes to be merged into a single mesh
- * @param {Number} size Size of the instanced mesh
- * @param {Number} filterFlags When undefined, it will render all LODs. When using 0, only show most detailed LOD
- * @returns {Mesh} a Three instanced mesh
- */
-export function getInstancedMesh(meshes: FinalMesh[], size: number, filterFlags?: number): InstancedMesh {
-  const geometries: BufferGeometry[] = [];
-  const meshMaterials: Material[] = [];
+export function getInstancedMeshes(meshes: any[], size: number, filterFlags?: number): InstancedMesh[] {
+  const instancedMeshes: InstancedMesh[] = [];
 
-  meshes.forEach((mesh) => {
+  for(const mesh of meshes){
     // If filterFlags is set, we ignore any mesh without the correct flag
     if (filterFlags !== undefined && mesh.flags !== filterFlags) {
-      return;
-    }
+      continue;
+    }   
+    instancedMeshes.push(new THREE.InstancedMesh(mesh.geometry, mesh.material, size));
+  }
 
-    if(Array.isArray(mesh.material)) {
-      meshMaterials.push(mesh.material[0]);
-    } else {
-      meshMaterials.push(mesh.material);
-    }
-
-    // Ensure the mesh's geometry is a BufferGeometry
-    const meshGeometry = mesh.geometry as BufferGeometry;
-
-    // Clone the geometry (since merge might modify it) and apply the mesh's transformation matrix
-    const clonedGeometry = meshGeometry.clone();
-    clonedGeometry.applyMatrix4(mesh.matrix);
-
-    geometries.push(clonedGeometry);
-  });
-
-  console.log(`geometries:`, geometries.length);
-  // Merge all geometries using BufferGeometryUtils
-  const mergedGeometry = BufferGeometryUtils.mergeBufferGeometries(geometries, false);
-
-  // Create the instanced mesh
-  const finalMesh = new THREE.InstancedMesh(mergedGeometry, meshMaterials, size);
-  finalMesh.updateMatrix();
-  finalMesh.matrixAutoUpdate = false;
-
-  return finalMesh;
+  return instancedMeshes;
 }
 
 /**
@@ -591,7 +559,7 @@ export function loadMeshFromModelFile(
  * @param  {Number} filename The fileId or baseId of the Model file to load
  * @param  {Array} color RGBA array of 4 integers
  * @param  {LocalReader} localReader The LocalReader object used to read data from the GW2 .dat file.
- * @param {Object} sharedMeshes  Value Object for keeping the texture cache.
+ * @param {Object} sharedMeshes  Value Object for keeping the mesh cache.
  * @param {Object} sharedTextures  Value Object for keeping the texture cache.
  * @param {boolean} showUnmaterialed If false does not render any models with missing materials.
  * @param  {Function} callback Fired once all meshes have been loaded.

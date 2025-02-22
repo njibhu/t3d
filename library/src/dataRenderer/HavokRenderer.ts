@@ -202,7 +202,7 @@ export default class HavokRenderer extends DataRenderer {
         vertices.push(v[0], v[2], -v[1]);
       }
 
-      geom.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+      geom.setAttribute('position', new THREE.BufferAttribute(new Float32Array(vertices), 3));
 
       // Pass faces (indices)
       const indices = [];
@@ -218,7 +218,7 @@ export default class HavokRenderer extends DataRenderer {
         }
       }
 
-      geom.setIndex(new THREE.BufferAttribute(indices, 1));
+      geom.setIndex(new THREE.BufferAttribute(new Uint16Array(indices), 1));
       // Compute face normals (optional: you can compute vertex normals too)
       geom.computeVertexNormals();
 

@@ -138,17 +138,19 @@ export default class PropertiesRenderer extends DataRenderer {
     if(meshes.length === 0) {
       return;
     }
-    const instancedMesh = RenderUtils.getInstancedMesh(meshes, model.size);
+    const instancedMeshes = RenderUtils.getInstancedMeshes(meshes, model.size);
     let instancedIndex = 0;
     for (const prop of model.props) {
-      instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(prop));
-      instancedIndex += 1;
-      for (const transform of prop.transforms || []) {
-        instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(transform));
+      for(const instancedMesh of instancedMeshes) {
+        instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(prop));
         instancedIndex += 1;
-      }
+        for (const transform of prop.transforms || []) {
+          instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(transform));
+          instancedIndex += 1;
+        }
+      };
     }
-    this.getOutput().meshes.push(instancedMesh);
+    this.getOutput().meshes.push(...instancedMeshes);
   }
 }
 
