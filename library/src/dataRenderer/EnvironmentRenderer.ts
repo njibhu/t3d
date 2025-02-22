@@ -210,13 +210,13 @@ export default class EnvironmentRenderer extends DataRenderer {
     const boxSize = 1024; // boundSide * 2;
     const skyGeometry = new THREE.BoxGeometry(boxSize, boxSize / 2, boxSize); // Width Height Depth
 
-    const uvAttribute = skyGeometry.getAttribute('uv');
+    const uvAttribute = skyGeometry.getAttribute("uv");
     const uvArray = uvAttribute.array as Float32Array;
 
     /// Ugly way of fixing UV maps for the skybox (I think)
     for (let i = 0; i < uvArray.length; i += 2) {
       const face = Math.floor(i / 12); // 6 vertices per face, 2 UVs per vertex
-    
+
       // PX - WEST   NX - EAST
       if (face === 0 || face === 1) {
         uvArray[i] = 1 - uvArray[i]; // Flip x
@@ -231,7 +231,7 @@ export default class EnvironmentRenderer extends DataRenderer {
         uvArray[i] = 1 - uvArray[i]; // Flip x
       }
     }
-    
+
     uvAttribute.needsUpdate = true;
 
     /// Generate final skybox

@@ -347,11 +347,11 @@ export function renderGeomChunk(
 export function getInstancedMeshes(meshes: any[], size: number, filterFlags?: number): InstancedMesh[] {
   const instancedMeshes: InstancedMesh[] = [];
 
-  for(const mesh of meshes){
+  for (const mesh of meshes) {
     // If filterFlags is set, we ignore any mesh without the correct flag
     if (filterFlags !== undefined && mesh.flags !== filterFlags) {
       continue;
-    }   
+    }
     instancedMeshes.push(new THREE.InstancedMesh(mesh.geometry, mesh.material, size));
   }
 

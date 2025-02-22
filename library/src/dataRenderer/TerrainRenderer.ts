@@ -7,7 +7,7 @@ import { FileParser } from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 import type { Material } from "three";
-import { SceneUtils } from 'three/examples/jsm/utils/SceneUtils';
+import { SceneUtils } from "three/examples/jsm/utils/SceneUtils";
 
 /**
  *

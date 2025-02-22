@@ -202,7 +202,7 @@ export default class HavokRenderer extends DataRenderer {
         vertices.push(v[0], v[2], -v[1]);
       }
 
-      geom.setAttribute('position', new THREE.BufferAttribute(new Float32Array(vertices), 3));
+      geom.setAttribute("position", new THREE.BufferAttribute(new Float32Array(vertices), 3));
 
       // Pass faces (indices)
       const indices = [];
