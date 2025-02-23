@@ -85,7 +85,9 @@ export function generateDataTexture(width: number, height: number, color: Color)
     data[stride + 3] = a;
   }
   // used the buffer to create a DataTexture
-  return new THREE.DataTexture(data, width, height, THREE.RGBAFormat);
+  const texture = new THREE.DataTexture(data, width, height, THREE.RGBAFormat);
+  texture.needsUpdate = true;
+  return texture;
 }
 
 /**
@@ -453,7 +455,7 @@ export function getMaterial(
     if (!(grChunk.data.flags & lightMask)) {
       // debugger;
       // console.log("no light");
-      finalMaterial = new THREE.MeshBasicMaterial({
+      finalMaterial = new THREE.MeshStandardMaterial({
         side: THREE.FrontSide,
         map: finalMaterial.map,
       });
