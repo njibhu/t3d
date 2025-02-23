@@ -139,9 +139,9 @@ export default class PropertiesRenderer extends DataRenderer {
       return;
     }
     const instancedMeshes = RenderUtils.getInstancedMeshes(meshes, model.size);
-    let instancedIndex = 0;
-    for (const prop of model.props) {
-      for (const instancedMesh of instancedMeshes) {
+    for (const instancedMesh of instancedMeshes) {
+      let instancedIndex = 0;
+      for (const prop of model.props) {
         instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(prop));
         instancedIndex += 1;
         for (const transform of prop.transforms || []) {
@@ -150,7 +150,9 @@ export default class PropertiesRenderer extends DataRenderer {
         }
       }
     }
-    this.getOutput().meshes.push(...instancedMeshes);
+    for (const instancedMesh of instancedMeshes) {
+      this.getOutput().meshes.push(instancedMesh);
+    }
   }
 }
 
