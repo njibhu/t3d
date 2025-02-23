@@ -269,5 +269,6 @@ function setupController() {
 
 function render() {
   window.requestAnimationFrame(render);
+  mapRenderer.controls.update();
   mapRenderer.renderer.render(mapRenderer.scene, mapRenderer.camera);
 }
