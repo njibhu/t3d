@@ -523,9 +523,9 @@ export function loadMeshFromModelFile(
             return;
           }
 
-          // NO lods
-          if (mesh.flags === 4 || mesh.flags === 1 || mesh.flags === 0) {
-            // return;
+          // NO lods (Flag 0 = normal)
+          if (mesh.flags === 1 || mesh.flags === 4) {
+            return;
           }
 
           // Add to final colection
