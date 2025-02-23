@@ -15,10 +15,13 @@
   "author": "T3D Contributors",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "26.0.1",
+    "@rollup/plugin-node-resolve": "15.2.3",
     "glob": "11.0.0",
     "http-server": "14.1.1",
     "rollup": "4.21.3",
-    "rollup-plugin-copy": "3.5.0"
+    "rollup-plugin-copy": "3.5.0",
+    "rollup-plugin-delete": "2.2.0"
   },
   "dependencies": {
     "pngjs": "7.0.0"

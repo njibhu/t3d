@@ -1,7 +1,10 @@
+import { FlyControls } from "three/examples/jsm/controls/FlyControls.js";
+import { MapControls } from "three/examples/jsm/controls/MapControls.js";
+
 const CANVAS_CLEAR_COLOR = 0x342920;
 const FOG_LENGTH = 5000;
 
-class AppRenderer {
+export default class AppRenderer {
   constructor(stats) {
     this.localReader = undefined;
     this._threeContext = {};
@@ -138,17 +141,9 @@ class AppRenderer {
     }
 
     if (controllerType === "orbital") {
-      this._threeContext.controls = new THREE.OrbitControls(
-        this._threeContext.camera,
-        this._threeContext.renderer.domElement
-      );
-
-      this._threeContext.controls.enableZoom = true;
+      this._threeContext.controls = new MapControls(this._threeContext.camera, this._threeContext.renderer.domElement);
     } else if (controllerType === "fly") {
-      this._threeContext.controls = new THREE.FlyControls(
-        this._threeContext.camera,
-        this._threeContext.renderer.domElement
-      );
+      this._threeContext.controls = new FlyControls(this._threeContext.camera, this._threeContext.renderer.domElement);
 
       this._threeContext.controls.movementSpeed = this.movementSpeed;
       this._threeContext.controls.rollSpeed = Math.PI / 6;
@@ -335,5 +330,3 @@ class AppRenderer {
     }
   }
 }
-
-module.exports = AppRenderer;

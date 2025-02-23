@@ -1,4 +1,4 @@
-class UI {
+export default class UI {
   constructor(appRenderer) {
     this.appRenderer = appRenderer;
 
@@ -101,7 +101,7 @@ class UI {
     this.showingProgress = true;
     $("#loading-ui").fadeIn();
     this.appRenderer.loadMap(mapId, renderOptions, () => {
-      this.appRenderer.setupController(this.autoLoad.cameraType || "fly");
+      this.appRenderer.setupController(this.autoLoad.cameraType || "orbital");
       this.appRenderer.move(this.autoLoad.x, this.autoLoad.y, this.autoLoad.z);
       this.appRenderer.rotate(this.autoLoad.rx, this.autoLoad.ry, this.autoLoad.rz);
       // Don't forget to cleanup autoLoad, if not it might break map choice UI
@@ -296,5 +296,3 @@ function deparam(queryString) {
     return {};
   }
 }
-
-module.exports = UI;

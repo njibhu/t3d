@@ -1,6 +1,8 @@
+import { FlyControls } from "three/examples/jsm/controls/FlyControls.js";
+
 const CANVAS_CLEAR_COLOR = 0x342920; // For happy rendering, always use Van Dyke Brown.
 
-class AppRenderer {
+export default class AppRenderer {
   constructor(logger) {
     this.logger = logger;
 
@@ -269,7 +271,7 @@ class AppRenderer {
       this.controls.dispose();
     }
 
-    const controls = new THREE.FlyControls(this.camera, this.renderer.domElement);
+    const controls = new FlyControls(this.camera, this.renderer.domElement);
 
     controls.movementSpeed = Number($("#mvntSpeedRange").val()) | 1000;
     controls.domElement = this.renderer.domElement;
@@ -280,7 +282,7 @@ class AppRenderer {
   }
 
   _render() {
-    global.stats.update();
+    globalThis.stats.update();
     window.requestAnimationFrame(() => this._render());
 
     const delta = this.clock.getDelta();
@@ -344,5 +346,3 @@ class AppRenderer {
     this.camera.rotation.x = (-90 * Math.PI) / 180;
   }
 }
-
-module.exports = AppRenderer;

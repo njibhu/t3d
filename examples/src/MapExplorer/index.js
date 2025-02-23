@@ -1,10 +1,11 @@
-const AppRenderer = require("./renderer");
+import AppRenderer from "./renderer";
+import Stats from "three/examples/jsm/libs/stats.module.js";
 
 const stats = new Stats();
 $("body").append(stats.domElement);
 $(stats.domElement).hide();
 stats.toggle = () => $(stats.domElement).toggle();
-global.stats = stats;
+globalThis.stats = stats;
 
 /// Extend Original Logger
 const myLogger = {

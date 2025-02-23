@@ -1,3 +1,5 @@
+import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
+
 let localReader = undefined;
 let mapId = undefined;
 
@@ -91,7 +93,7 @@ function onRendererDone(context) {
     scene.add(elem);
   }
 
-  const exporter = new THREE.GLTFExporter();
+  const exporter = new GLTFExporter();
   exporter.parse(scene, (gltf) => {
     const blob = new Blob([JSON.stringify(gltf)], { type: "text/plain" });
     const filename = mapId + ".gltf";

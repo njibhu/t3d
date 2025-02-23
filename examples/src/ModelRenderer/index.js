@@ -1,3 +1,5 @@
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+
 /// This is an example application for the T3D library
 /// Skip down to onButtonClick to get to the juicy part
 /// This will be updated sooner or later, perhaps with a
@@ -164,7 +166,7 @@ function setupScene() {
   _renderer.setClearColor(canvasClearColor);
 
   /// Add THREE orbit controls, for simple orbiting, panning and zooming
-  const orbit = new THREE.OrbitControls(_camera, _renderer.domElement);
+  const orbit = new OrbitControls(_camera, _renderer.domElement);
   orbit.enableZoom = true;
 
   /// Note: constant continous rendering from page load
