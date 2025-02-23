@@ -219,25 +219,22 @@ export default class TerrainRenderer extends DataRenderer {
       const uniforms = THREE.UniformsUtils.merge([THREE.UniformsLib["lights"]]);
 
       /// TODO: READ FROM VO, don't default to hard coded scale
-      uniforms.uvScale = { type: "v2", value: new THREE.Vector2(8.0, 8.0) };
+      uniforms.uvScale = { value: new THREE.Vector2(8.0, 8.0) };
       uniforms.offset = {
-        type: "v2",
         value: new THREE.Vector2(pageOffetX, pageOffetY),
       };
 
       uniforms.texturePicker = {
-        type: "t",
         value: chunkTextures[pageTexName],
       };
       uniforms.texturePicker2 = {
-        type: "t",
         value: chunkTextures[pageTexName2],
       };
 
-      uniforms.texture1 = { type: "t", value: chunkTextures[fileNames[0]] };
-      uniforms.texture2 = { type: "t", value: chunkTextures[fileNames[1]] };
-      uniforms.texture3 = { type: "t", value: chunkTextures[fileNames[2]] };
-      uniforms.texture4 = { type: "t", value: chunkTextures[fileNames[3]] };
+      uniforms.texture1 = { value: chunkTextures[fileNames[0]] };
+      uniforms.texture2 = { value: chunkTextures[fileNames[1]] };
+      uniforms.texture3 = { value: chunkTextures[fileNames[2]] };
+      uniforms.texture4 = { value: chunkTextures[fileNames[3]] };
 
       if (self.settings && self.settings.export) {
         mat = new THREE.MeshBasicMaterial({ visible: true });
