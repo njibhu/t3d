@@ -1,6 +1,7 @@
 const copy = require('rollup-plugin-copy');
 const commonjs = require('@rollup/plugin-commonjs');
 const resolve = require('@rollup/plugin-node-resolve');
+const del = require('rollup-plugin-delete');
 
 module.exports = {
   input: "src/index.js",
@@ -10,6 +11,7 @@ module.exports = {
     sourcemap: true,
   },
   plugins: [
+    del({ targets: 'dist/*' }),
     resolve(),
     commonjs(),
     copy({
@@ -24,10 +26,6 @@ module.exports = {
         `../t3dtools.js/t3dworker.js`,
         `../t3dtools.js/t3dworker.wasm`,
         `../node_modules/three/build/three.js`,
-        `../node_modules/three/examples/js/controls/FlyControls.js`,
-        `../node_modules/three/examples/js/controls/OrbitControls.js`,
-        `../node_modules/three/examples/js/controls/PointerLockControls.js`,
-        `../node_modules/three/examples/js/libs/stats.min.js`,
         `../node_modules/jquery/dist/jquery.js`,
         `../library/build/T3D.js`,
         `../library/build/T3D.js.map`,

@@ -1,5 +1,6 @@
-const AppRenderer = require("./renderer");
-const UI = require("./ui");
+import Stats from "three/examples/jsm/libs/stats.module.js";
+import AppRenderer from "./renderer";
+import UI from "./ui";
 
 const stats = new Stats();
 $("body").append(stats.domElement);
@@ -13,6 +14,6 @@ ui.init();
 
 // Allow user to access appRenderer
 // This is not used by the app itself
-global.appRenderer = appRenderer;
-global.ui = ui;
-global.stats = stats;
+globalThis.appRenderer = appRenderer;
+globalThis.ui = ui;
+globalThis.stats = stats;

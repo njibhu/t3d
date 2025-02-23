@@ -1,3 +1,5 @@
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+
 /// This example is very inspired by the ModelRenderer example but updated
 /// using the latest version of the API. This global object for the app contains
 /// all the important data.
@@ -259,7 +261,7 @@ function setupScene() {
 
 function setupController() {
   if (!mapRenderer.controls) {
-    const controls = new THREE.OrbitControls(mapRenderer.camera, mapRenderer.renderer.domElement);
+    const controls = new OrbitControls(mapRenderer.camera, mapRenderer.renderer.domElement);
     controls.enableZoom = true;
     mapRenderer.controls = controls;
   }

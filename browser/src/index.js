@@ -1,3 +1,6 @@
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { OBJExporter } from "three/examples/jsm/exporters/OBJExporter.js";
+
 window.onload = () => {
   /// T3D
   let _lr;
@@ -790,7 +793,7 @@ window.onload = () => {
     const fileId = _fileId;
 
     /// Run T3D hacked version of OBJExporter
-    const result = new THREE.OBJExporter().parse(_scene, fileId);
+    const result = new OBJExporter().parse(_scene, fileId);
 
     /// Download obj
     const blob = new Blob([result], { type: "octet/stream" });
@@ -849,7 +852,7 @@ window.onload = () => {
     _renderer.setClearColor(canvasClearColor);
 
     /// Add THREE orbit controls, for simple orbiting, panning and zooming
-    _controls = new THREE.OrbitControls(_camera, _renderer.domElement);
+    _controls = new OrbitControls(_camera, _renderer.domElement);
     _controls.enableZoom = true;
 
     /// Sems w2ui delays resizing :/
