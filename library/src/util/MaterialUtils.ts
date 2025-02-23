@@ -86,7 +86,6 @@ export function generateDataTexture(width: number, height: number, color: Color)
   }
   // used the buffer to create a DataTexture
   const texture = new THREE.DataTexture(data, width, height, THREE.RGBAFormat);
-  texture.needsUpdate = true;
   return texture;
 }
 
@@ -594,6 +593,7 @@ export function loadLocalTexture(
   /// Only allow non-zero fileId, otherwise jsut return static texture
   if (parseInt(String(fileId)) <= 0) {
     if (onerror) onerror();
+    texture.needsUpdate = true;
     return texture;
   }
 
@@ -604,6 +604,7 @@ export function loadLocalTexture(
       /// Require infalted data to be returned.
       if (!inflatedData) {
         if (onerror) onerror();
+        texture.needsUpdate = true;
         return;
       }
 
