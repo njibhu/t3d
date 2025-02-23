@@ -7,6 +7,7 @@ import { FileParser } from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 import type { Material } from "three";
+import { SceneUtils } from "three/examples/jsm/utils/SceneUtils";
 
 /**
  *
@@ -285,7 +286,7 @@ export default class TerrainRenderer extends DataRenderer {
       let chunk;
       chunk = new THREE.Mesh(chunkGeo, customMaterial);
       if (Array.isArray(mat)) {
-        chunk = THREE.SceneUtils.createMultiMaterialObject(chunkGeo as any, mat);
+        chunk = SceneUtils.createMultiMaterialObject(chunkGeo as any, mat);
       } else {
         chunk = new THREE.Mesh(chunkGeo, mat);
       }

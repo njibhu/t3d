@@ -210,37 +210,30 @@ export default class EnvironmentRenderer extends DataRenderer {
     const boxSize = 1024; // boundSide * 2;
     const skyGeometry = new THREE.BoxGeometry(boxSize, boxSize / 2, boxSize); // Width Height Depth
 
-    /// Ugly way of fixing UV maps for the skybox (I think)
-    skyGeometry.faceVertexUvs[0].forEach((vecs, idx) => {
-      const face = Math.floor(idx / 2);
+    const uvAttribute = skyGeometry.getAttribute("uv");
+    const uvArray = uvAttribute.array as Float32Array;
 
-      // PX NX
-      // PY NY
-      // PZ NZ
+    /// Ugly way of fixing UV maps for the skybox
+    for (let i = 0; i < uvArray.length; i += 2) {
+      const face = Math.floor(i / 8); // 4 vertices per face, 2 UVs per vertex
 
-      /// PX - WEST   NX - EAST
+      // PX - WEST   NX - EAST
       if (face === 0 || face === 1) {
-        vecs.forEach((vec2) => {
-          vec2.x = 1 - vec2.x;
-          vec2.y /= 2.0;
-          vec2.y += 0.5;
-        });
+        uvArray[i] = 1 - uvArray[i]; // Flip x
+        uvArray[i + 1] /= 2.0;
+        uvArray[i + 1] += 0.5; // Adjust y
       }
 
-      /// NZ - SOUTH   PZ - NORTH
+      // NZ - SOUTH   PZ - NORTH
       else if (face === 5 || face === 4) {
-        vecs.forEach((vec2) => {
-          vec2.y /= -2.0;
-          vec2.y += 0.5;
-        });
+        uvArray[i + 1] /= -2.0;
+        uvArray[i + 1] += 0.5; // Adjust y
       } else {
-        vecs.forEach((vec2) => {
-          vec2.x = 1 - vec2.x;
-        });
+        uvArray[i] = 1 - uvArray[i]; // Flip x
       }
-    });
+    }
 
-    skyGeometry.uvsNeedUpdate = true;
+    uvAttribute.needsUpdate = true;
 
     /// Generate final skybox
     const skyBox = new THREE.Mesh(skyGeometry, materialArray);

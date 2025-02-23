@@ -192,32 +192,37 @@ export default class HavokRenderer extends DataRenderer {
     const index = collision.index;
 
     if (!this.meshes[index]) {
-      const geom = new THREE.Geometry();
+      const geom = new THREE.BufferGeometry();
 
-      /// Pass vertices
+      // Pass vertices
+      const vertices = [];
       for (let i = 0; i < collision.vertices.length; i++) {
         const v = collision.vertices[i];
-        // "x","float32","z","float32","y","float32"]
-        geom.vertices.push(new THREE.Vector3(v[0], v[2], -v[1]));
+        // Push x, z, -y as in the original
+        vertices.push(v[0], v[2], -v[1]);
       }
 
-      /// Pass faces
+      geom.setAttribute("position", new THREE.BufferAttribute(new Float32Array(vertices), 3));
+
+      // Pass faces (indices)
+      const indices = [];
       for (let i = 0; i < collision.indices.length; i += 3) {
         const f1 = collision.indices[i];
         const f2 = collision.indices[i + 1];
         const f3 = collision.indices[i + 2];
 
         if (f1 <= collision.vertices.length && f2 <= collision.vertices.length && f3 <= collision.vertices.length) {
-          geom.faces.push(new THREE.Face3(f1, f2, f3));
+          indices.push(f1, f2, f3);
         } else {
           this.logger.log(T3D.Logger.TYPE_ERROR, "Errorus index in havok model geometry.");
         }
       }
 
-      /// Prepare geometry and pass new mesh
-      geom.computeFaceNormals();
-      // geom.computeVertexNormals();
+      geom.setIndex(new THREE.BufferAttribute(new Uint16Array(indices), 1));
+      // Compute face normals (optional: you can compute vertex normals too)
+      geom.computeVertexNormals();
 
+      // Create and store the mesh
       this.meshes[index] = new THREE.Mesh(geom, mat);
 
       return this.meshes[index];

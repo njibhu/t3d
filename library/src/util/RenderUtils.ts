@@ -83,7 +83,7 @@ export function renderRect(
   return plane;
 }
 
-type FinalMesh = Mesh & {
+export type FinalMesh = Mesh & {
   materialFlags?: any;
   materialFilename?: number;
   materialName?: any;
@@ -344,31 +344,18 @@ export function renderGeomChunk(
   return meshes;
 }
 
-/**
- * Merge multiple meshes together and return an instancedMesh for it
- * @param {Array} meshes Three Meshes to be merged into a single mesh
- * @param {Number} size Size of the instanced mesh
- * @param {Number} filterFlags When undefined, it will render all LODs. When using 0, only show most detailed LOD
- * @returns {Mesh} a Three instanced mesh
- */
-export function getInstancedMesh(meshes: any[], size: number, filterFlags?: number): InstancedMesh {
-  const meshMaterials: Material[] = [];
-  const mergedGeometry = new THREE.Geometry();
-  meshes.forEach((mesh, index) => {
+export function getInstancedMeshes(meshes: any[], size: number, filterFlags?: number): InstancedMesh[] {
+  const instancedMeshes: InstancedMesh[] = [];
+
+  for (const mesh of meshes) {
     // If filterFlags is set, we ignore any mesh without the correct flag
     if (filterFlags !== undefined && mesh.flags !== filterFlags) {
-      return;
+      continue;
     }
-    meshMaterials.push(mesh.material);
-    // It's only possible to merge geometries of the same type
-    const meshGeometry = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
-    mergedGeometry.merge(meshGeometry, mesh.matrix, index);
-  });
-  const finalMesh = new THREE.InstancedMesh(mergedGeometry, meshMaterials, size);
-  finalMesh.updateMatrix();
-  finalMesh.matrixAutoUpdate = false;
+    instancedMeshes.push(new THREE.InstancedMesh(mesh.geometry, mesh.material, size));
+  }
 
-  return finalMesh;
+  return instancedMeshes;
 }
 
 /**
@@ -572,7 +559,7 @@ export function loadMeshFromModelFile(
  * @param  {Number} filename The fileId or baseId of the Model file to load
  * @param  {Array} color RGBA array of 4 integers
  * @param  {LocalReader} localReader The LocalReader object used to read data from the GW2 .dat file.
- * @param {Object} sharedMeshes  Value Object for keeping the texture cache.
+ * @param {Object} sharedMeshes  Value Object for keeping the mesh cache.
  * @param {Object} sharedTextures  Value Object for keeping the texture cache.
  * @param {boolean} showUnmaterialed If false does not render any models with missing materials.
  * @param  {Function} callback Fired once all meshes have been loaded.
