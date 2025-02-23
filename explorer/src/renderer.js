@@ -325,7 +325,7 @@ export default class AppRenderer {
       this._threeContext.camera.rotation.x = (-90 * Math.PI) / 180;
     } else {
       this._threeContext.camera.position.x = 0;
-      this._threeContext.camera.position.y = 0;
+      this._threeContext.camera.position.y = bounds ? bounds.y2 : 0;
       this._threeContext.camera.position.z = 0;
     }
   }
