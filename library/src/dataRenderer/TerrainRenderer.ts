@@ -7,7 +7,7 @@ import { FileParser } from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 import type { Material } from "three";
-import { SceneUtils } from "three/examples/jsm/utils/SceneUtils";
+import { createMultiMaterialObject } from "three/examples/jsm/utils/SceneUtils.js";
 
 /**
  *
@@ -253,7 +253,7 @@ export default class TerrainRenderer extends DataRenderer {
       allMats.push(mat);
 
       /// -1 for faces -> vertices , -2 for ignoring outer faces
-      const chunkGeo = new THREE.PlaneBufferGeometry(cdx, cdy, chunkW - 3, chunkW - 3);
+      const chunkGeo = new THREE.PlaneGeometry(cdx, cdy, chunkW - 3, chunkW - 3);
 
       let cn = 0;
 
@@ -277,16 +277,14 @@ export default class TerrainRenderer extends DataRenderer {
       mS.elements[5] = -1;
       chunkGeo.applyMatrix4(mS);
 
-      /// Compute face normals for lighting, not used when textured
-      //@ts-ignore
-      chunkGeo.computeFaceNormals();
+      /// Compute normals for lighting
       chunkGeo.computeVertexNormals();
 
       /// Build chunk mesh!
       let chunk;
       chunk = new THREE.Mesh(chunkGeo, customMaterial);
       if (Array.isArray(mat)) {
-        chunk = SceneUtils.createMultiMaterialObject(chunkGeo as any, mat);
+        chunk = createMultiMaterialObject(chunkGeo as any, mat);
       } else {
         chunk = new THREE.Mesh(chunkGeo, mat);
       }

@@ -18,7 +18,7 @@ import type {
   Material,
   Texture,
   MeshPhongMaterial,
-  MeshBasicMaterial,
+  MeshStandardMaterial,
 } from "three";
 import type { FileParser } from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
@@ -323,7 +323,7 @@ export function getMaterial(
     });
   } /// End if material and texture
 
-  let finalMaterial: (MeshPhongMaterial | MeshBasicMaterial) & { textureFilename?: number; normalMap?: Texture | null };
+  let finalMaterial: (MeshPhongMaterial | MeshStandardMaterial) & { textureFilename?: number; normalMap?: Texture | null };
 
   /// Create custom shader material if there are textures
   if (finalTextures) {
@@ -365,7 +365,7 @@ export function getMaterial(
 
   /// Fallback material is monocolored red
   else {
-    finalMaterial = new THREE.MeshBasicMaterial({
+    finalMaterial = new THREE.MeshStandardMaterial({
       side: THREE.FrontSide,
       color: 0xff0000,
       flatShading: true,
@@ -612,8 +612,8 @@ export function loadLocalTexture(
       /// Use RGBA for all textures for now...
       /// TODO: don't use alpha for some formats!
       texture.format =
-        //eslint-disable-next-line no-constant-condition
-        dxtType === 3 || dxtType === 5 || true ? THREE.RGBAFormat : THREE.RGBFormat;
+        //dxtType === 3 || dxtType === 5 ? THREE.RGBAFormat : THREE.RGBFormat;
+        THREE.RGBAFormat;
 
       /// Update texture with the loaded image.
       //@ts-ignore
