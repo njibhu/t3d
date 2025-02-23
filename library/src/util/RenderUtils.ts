@@ -352,7 +352,8 @@ export function getInstancedMeshes(meshes: any[], size: number, filterFlags?: nu
     if (filterFlags !== undefined && mesh.flags !== filterFlags) {
       continue;
     }
-    instancedMeshes.push(new THREE.InstancedMesh(mesh.geometry, mesh.material, size));
+    const im = new THREE.InstancedMesh(mesh.geometry, mesh.material, size);
+    instancedMeshes.push(im);
   }
 
   return instancedMeshes;
