@@ -213,9 +213,9 @@ export default class EnvironmentRenderer extends DataRenderer {
     const uvAttribute = skyGeometry.getAttribute("uv");
     const uvArray = uvAttribute.array as Float32Array;
 
-    /// Ugly way of fixing UV maps for the skybox (I think)
+    /// Ugly way of fixing UV maps for the skybox
     for (let i = 0; i < uvArray.length; i += 2) {
-      const face = Math.floor(i / 12); // 6 vertices per face, 2 UVs per vertex
+      const face = Math.floor(i / 8); // 4 vertices per face, 2 UVs per vertex
 
       // PX - WEST   NX - EAST
       if (face === 0 || face === 1) {
@@ -223,6 +223,7 @@ export default class EnvironmentRenderer extends DataRenderer {
         uvArray[i + 1] /= 2.0;
         uvArray[i + 1] += 0.5; // Adjust y
       }
+
       // NZ - SOUTH   PZ - NORTH
       else if (face === 5 || face === 4) {
         uvArray[i + 1] /= -2.0;
