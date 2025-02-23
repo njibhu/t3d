@@ -325,7 +325,10 @@ export function getMaterial(
     });
   } /// End if material and texture
 
-  let finalMaterial: (MeshPhongMaterial | MeshStandardMaterial) & { textureFilename?: number; normalMap?: Texture | null };
+  let finalMaterial: (MeshPhongMaterial | MeshStandardMaterial) & {
+    textureFilename?: number;
+    normalMap?: Texture | null;
+  };
 
   /// Create custom shader material if there are textures
   if (finalTextures) {
