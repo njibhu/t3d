@@ -131,7 +131,7 @@ export default class UI {
     });
     this.appRenderer.loadMap(mapId, renderOptions, () => {
       // Reset the position of the camera if we already loaded a previous map
-      this.appRenderer.setupController();
+      this.appRenderer.setupController("orbital");
       this.onMapLoaded();
     });
   }
