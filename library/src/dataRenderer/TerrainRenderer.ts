@@ -7,7 +7,7 @@ import { FileParser } from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 import type { Material } from "three";
-import { SceneUtils } from "three/examples/jsm/utils/SceneUtils";
+import { createMultiMaterialObject } from "three/examples/jsm/utils/SceneUtils.js";
 
 /**
  *
@@ -219,25 +219,22 @@ export default class TerrainRenderer extends DataRenderer {
       const uniforms = THREE.UniformsUtils.merge([THREE.UniformsLib["lights"]]);
 
       /// TODO: READ FROM VO, don't default to hard coded scale
-      uniforms.uvScale = { type: "v2", value: new THREE.Vector2(8.0, 8.0) };
+      uniforms.uvScale = { value: new THREE.Vector2(8.0, 8.0) };
       uniforms.offset = {
-        type: "v2",
         value: new THREE.Vector2(pageOffetX, pageOffetY),
       };
 
       uniforms.texturePicker = {
-        type: "t",
         value: chunkTextures[pageTexName],
       };
       uniforms.texturePicker2 = {
-        type: "t",
         value: chunkTextures[pageTexName2],
       };
 
-      uniforms.texture1 = { type: "t", value: chunkTextures[fileNames[0]] };
-      uniforms.texture2 = { type: "t", value: chunkTextures[fileNames[1]] };
-      uniforms.texture3 = { type: "t", value: chunkTextures[fileNames[2]] };
-      uniforms.texture4 = { type: "t", value: chunkTextures[fileNames[3]] };
+      uniforms.texture1 = { value: chunkTextures[fileNames[0]] };
+      uniforms.texture2 = { value: chunkTextures[fileNames[1]] };
+      uniforms.texture3 = { value: chunkTextures[fileNames[2]] };
+      uniforms.texture4 = { value: chunkTextures[fileNames[3]] };
 
       if (self.settings && self.settings.export) {
         mat = new THREE.MeshBasicMaterial({ visible: true });
@@ -253,7 +250,7 @@ export default class TerrainRenderer extends DataRenderer {
       allMats.push(mat);
 
       /// -1 for faces -> vertices , -2 for ignoring outer faces
-      const chunkGeo = new THREE.PlaneBufferGeometry(cdx, cdy, chunkW - 3, chunkW - 3);
+      const chunkGeo = new THREE.PlaneGeometry(cdx, cdy, chunkW - 3, chunkW - 3);
 
       let cn = 0;
 
@@ -277,16 +274,14 @@ export default class TerrainRenderer extends DataRenderer {
       mS.elements[5] = -1;
       chunkGeo.applyMatrix4(mS);
 
-      /// Compute face normals for lighting, not used when textured
-      //@ts-ignore
-      chunkGeo.computeFaceNormals();
+      /// Compute normals for lighting
       chunkGeo.computeVertexNormals();
 
       /// Build chunk mesh!
       let chunk;
       chunk = new THREE.Mesh(chunkGeo, customMaterial);
       if (Array.isArray(mat)) {
-        chunk = SceneUtils.createMultiMaterialObject(chunkGeo as any, mat);
+        chunk = createMultiMaterialObject(chunkGeo as any, mat);
       } else {
         chunk = new THREE.Mesh(chunkGeo, mat);
       }

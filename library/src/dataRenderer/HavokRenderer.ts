@@ -48,7 +48,7 @@ export default class HavokRenderer extends DataRenderer {
   renderModels(models: any, title: any, callback: Function): void {
     let mat;
     if (this.settings && this.settings.visible) {
-      mat = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
+      mat = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide, flatShading: true });
     } else if (this.settings && this.settings.export) {
       mat = new THREE.MeshBasicMaterial({ visible: true });
     } else {

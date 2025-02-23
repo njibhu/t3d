@@ -18,7 +18,7 @@ import type {
   Material,
   Texture,
   MeshPhongMaterial,
-  MeshBasicMaterial,
+  MeshStandardMaterial,
 } from "three";
 import type { FileParser } from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
@@ -85,7 +85,9 @@ export function generateDataTexture(width: number, height: number, color: Color)
     data[stride + 3] = a;
   }
   // used the buffer to create a DataTexture
-  return new THREE.DataTexture(data, width, height, THREE.RGBAFormat);
+  const texture = new THREE.DataTexture(data, width, height, THREE.RGBAFormat);
+  texture.needsUpdate = true;
+  return texture;
 }
 
 /**
@@ -323,7 +325,10 @@ export function getMaterial(
     });
   } /// End if material and texture
 
-  let finalMaterial: (MeshPhongMaterial | MeshBasicMaterial) & { textureFilename?: number; normalMap?: Texture | null };
+  let finalMaterial: (MeshPhongMaterial | MeshStandardMaterial) & {
+    textureFilename?: number;
+    normalMap?: Texture | null;
+  };
 
   /// Create custom shader material if there are textures
   if (finalTextures) {
@@ -365,7 +370,7 @@ export function getMaterial(
 
   /// Fallback material is monocolored red
   else {
-    finalMaterial = new THREE.MeshBasicMaterial({
+    finalMaterial = new THREE.MeshStandardMaterial({
       side: THREE.FrontSide,
       color: 0xff0000,
       flatShading: true,
@@ -453,7 +458,7 @@ export function getMaterial(
     if (!(grChunk.data.flags & lightMask)) {
       // debugger;
       // console.log("no light");
-      finalMaterial = new THREE.MeshBasicMaterial({
+      finalMaterial = new THREE.MeshStandardMaterial({
         side: THREE.FrontSide,
         map: finalMaterial.map,
       });
@@ -612,8 +617,8 @@ export function loadLocalTexture(
       /// Use RGBA for all textures for now...
       /// TODO: don't use alpha for some formats!
       texture.format =
-        //eslint-disable-next-line no-constant-condition
-        dxtType === 3 || dxtType === 5 || true ? THREE.RGBAFormat : THREE.RGBFormat;
+        //dxtType === 3 || dxtType === 5 ? THREE.RGBAFormat : THREE.RGBFormat;
+        THREE.RGBAFormat;
 
       /// Update texture with the loaded image.
       //@ts-ignore
