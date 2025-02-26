@@ -7,6 +7,7 @@
 
 #include <cstdio>
 #include <cstring>
+#include <emscripten.h>
 
 #include "gw2DatTools/compression/inflateDatFileBuffer.h"
 #include "gw2DatTools/compression/inflateTextureFileBuffer.h"
@@ -14,6 +15,11 @@
 #include "gw2formats/TextureFile.h"
 #include "squish/squish.h"
 #include "3dcx.h"
+
+
+#define BCDEC_IMPLEMENTATION
+#define BCDEC_BC4BC5_PRECISE
+#include "bcdec.h"
 
 extern "C" {
     //Help to make fast rebuilds
@@ -62,6 +68,7 @@ extern "C"{
         uint32_t mipCount = file.mipMapCount();
 
         if(mipCount==0){
+            emscripten_log(EM_LOG_CONSOLE | EM_LOG_ERROR, "(t3dtools.js) - workImage: No mipmap levels found!");
             pErrors = IMG_NO_MIPMAP_FOUND;
             return pOutputBuffer;
         }    
@@ -79,7 +86,7 @@ extern "C"{
 
         // Decompress mipmap
         uint32_t size = buffer.size();
-    
+
         uint32_t inflatedImageSize = buffer.size();
         std::vector<uint8_t> imageBuffer;
 
@@ -92,16 +99,22 @@ extern "C"{
         //mipmapFormat = 0x35545844;
 
         ///Inflate mipmap 0 (highest quality)
+        uint32_t formatFourCC = mipmapFormat;
+        if(mipmapFormat == 0x58374342){ // BC7
+            formatFourCC = 0x58434433;
+        } else if (mipmapFormat == 0x4c545844){ // DXTL
+            formatFourCC = 0x35545844;
+        } 
+
         gw2dt::compression::inflateTextureBlockBuffer(
             width, height,
-            mipmapFormat == 0x4c545844 ? 0x35545844 : mipmapFormat,
+            formatFourCC,
             mipmap.size(),
             mipmap.data(),
             size,
             buffer.data()
         );
 
-        
 
         int bitmapSize=0;
 
@@ -121,12 +134,17 @@ extern "C"{
                 bitmapSize = width*height*4;
                 dxtFormat = squish::kDxt3;
                 break;
-            
+
             case 0x4c545844: // DXTL
             case 0x35545844: // DXT5
                 oDxtType=5;
                 bitmapSize = width*height*4;
                 dxtFormat = squish::kDxt5;
+                break;
+
+            case 0x58374342: // BC7
+                oDxtType=7;
+                bitmapSize = width*height*4;
                 break;
 
             case 0x58434433: // 3DCX
@@ -137,6 +155,7 @@ extern "C"{
                 //std::stringstream message;
                 //message << "Unknown mipmap format " << mipmapFormat << " extracted size " << mipmap.uncompressedSize();
                 //throw gw2dt::exception::Exception(message.str());
+                emscripten_log(EM_LOG_CONSOLE | EM_LOG_ERROR, "(t3dtools.js) - workImage: Unknown mipmap format %d", mipmapFormat);
                 pErrors = IMG_UNKNOWN_MIPMAP_FORMAT;
                 return pOutputBuffer;
             }
@@ -145,8 +164,8 @@ extern "C"{
         ///DXT
         squish::u8 pixels[bitmapSize];  // uncompressed pixles
         
-        /// NOT 3DCX
-        if(mipmapFormat != 0x58434433){          
+        /// NOT 3DCX NOR BC7
+        if(mipmapFormat != 0x58434433 && mipmapFormat != 0x58374342){          
 
             /// DXTL
             if( mipmapFormat == 0x4c545844 ){
@@ -161,6 +180,21 @@ extern "C"{
                 pixels[i + 1] =  ( pixels[i + 1] * pixels[i + 3] )  / 0xff;
                 pixels[i + 2] =  ( pixels[i + 2] * pixels[i + 3] )  / 0xff;
                             
+                }
+            }
+        } 
+        
+        // BC7
+        else if(mipmapFormat == 0x58374342){
+            uint8_t *src, *dst;
+            src = buffer.data();
+            dst = pixels;
+
+            for(int y = 0; y < height; y += 4){
+                for(int x = 0; x < width; x += 4){
+                    dst = pixels + (y * width + x) * 4;
+                    bcdec_bc7(src, dst, width * 4);
+                    src += BCDEC_BC7_BLOCK_SIZE;
                 }
             }
         }

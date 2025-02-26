@@ -34,9 +34,11 @@ The t3dworker is Web-Worker ready module allowing to offload heavy work off the 
 
 ## How to build it ?
 
-- You need CMake and emscripten
+- You need CMake and emscripten (easiest to build on WSL if you're on windows)
 - run `cmake .`
 - run `emmake make`
+
+- Or in a single command: `cmake --build . --clean-first`
 
 ## What can be done next:
 

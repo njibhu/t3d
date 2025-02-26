@@ -111,6 +111,7 @@ uint32 MipMapData::uncompressedSize() const
     case fcc::DXT3:
     case fcc::DXT4:
     case fcc::DXT5:
+    case fcc::BC7X:
     case fcc::DXTL:
     case fcc::DXTN:
     case fcc::_3DCX:
