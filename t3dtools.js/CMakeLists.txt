@@ -44,9 +44,11 @@ add_library(libsquish STATIC
 
 string(CONCAT ALL_LINK_OPTIONS
 	" --pre-js src/pre.js"
-	" -s EXPORTED_FUNCTIONS='[\"_inflate\", \"_workImage\"]'"
-	" -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"ccall\", \"setValue\", \"writeArrayToMemory\", \"getValue\"]'"
+	" -s EXPORTED_FUNCTIONS='[\"_inflate\", \"_workImage\", \"_malloc\", \"_free\"]'"
+	" -s EXPORTED_RUNTIME_METHODS='[\"ccall\", \"setValue\", \"writeArrayToMemory\", \"getValue\"]'"
 	" -s ALLOW_MEMORY_GROWTH=1"
+  " -s NO_DISABLE_EXCEPTION_CATCHING"
+  " -s ASSERTIONS"
 )
 
 string(CONCAT T3DTOOLS_LINK_OPTIONS
@@ -56,15 +58,17 @@ string(CONCAT T3DTOOLS_LINK_OPTIONS
 
 string(CONCAT T3DWORKER_LINK_OPTIONS
 	${ALL_LINK_OPTIONS}
-	" --post-js src/t3dlib_worker.js -s BINARYEN_ASYNC_COMPILATION=0"
+	" --post-js src/t3dlib_worker.js -s WASM_ASYNC_COMPILATION=0"
 )
 
 add_executable(t3dtools.js src/t3dtools.cc)
 target_sources(t3dtools.js PUBLIC src/3dcx.cc)
 target_link_libraries(t3dtools.js gw2DatTools gw2Formats libsquish)
 set_target_properties(t3dtools.js PROPERTIES LINK_FLAGS ${T3DTOOLS_LINK_OPTIONS})
+set_target_properties(t3dtools.js PROPERTIES ADDITIONAL_CLEAN_FILES t3dtools.wasm)
 
 add_executable(t3dworker.js src/t3dtools.cc)
 target_sources(t3dworker.js PUBLIC src/3dcx.cc)
 target_link_libraries(t3dworker.js gw2DatTools gw2Formats libsquish)
 set_target_properties(t3dworker.js PROPERTIES LINK_FLAGS ${T3DWORKER_LINK_OPTIONS})
+set_target_properties(t3dworker.js PROPERTIES ADDITIONAL_CLEAN_FILES t3dworker.wasm)

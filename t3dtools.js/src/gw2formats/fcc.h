@@ -45,6 +45,7 @@ enum FourCC
     ATEX  = 0x58455441,
     ATTX  = 0x58545441,
     audi  = 0x69647561,
+    BC7X  = 0x58374342,
     BIDX  = 0x58444942,
     BKCK  = 0x4b434b42,
     bxm2  = 0x326d7862,
