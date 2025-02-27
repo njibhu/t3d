@@ -1,0 +1,120 @@
+<!--
+Copyright © 2024 T3D project contributors.
+
+This file is part of the T3D Project.
+
+T3D Project is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+T3D Project is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
+!-->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>T3D API - Examples : Map Rendering</title>
+    <style type="text/css">
+      body {
+        background: rgb(251, 241, 244); /*titanium white*/
+        font-family: sans-serif;
+      }
+      label,
+      button {
+        display: block;
+      }
+      label span {
+        font-weight: bold;
+        display: inline-block;
+      }
+      input {
+        width: 200px;
+      }
+      .range {
+        width: 75px;
+      }
+      #log {
+        font-family: monospace;
+        font-size: 12px;
+        float: right;
+        width: 250px;
+        overflow: auto;
+      }
+      #keys {
+        font-family: monospace;
+        font-size: 12px;
+        position: fixed;
+        bottom: 0;
+        padding: 10px;
+        overflow: auto;
+      }
+      .barFloat {
+        display: inline-block;
+        padding: 5px;
+      }
+      .btnfloat {
+        display: inline-block;
+        margin-right: 5px;
+      }
+      #topBar {
+        background-color: lightgray;
+      }
+      canvas {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="uiContainer">
+      <div id="topBar">
+        <label class="barFloat">
+          <span>Load Gw2.dat:</span>
+          <input id="filePicker" type="file" />
+        </label>
+
+        <label class="barFloat">
+          <span>Select Map:</span>
+          <select id="fileMapSelect" disabled></select>
+        </label>
+
+        <div class="barFloat">
+          <button id="loadMapBtn" class="btnfloat" disabled>Load map</button>
+          <button id="loadCollBtn" class="btnfloat" disabled>Load collisions</button>
+          <button id="loadPropsBtn" class="btnfloat" disabled>Load props</button>
+          <button id="loadZoneBtn" class="btnfloat" disabled>Load zone props</button>
+          <label class="btnfloat" for="mvntSpeedRange">Speed:</label>
+          <input
+            class="range"
+            type="range"
+            id="mvntSpeedRange"
+            name="mvntSpeedRange"
+            min="500"
+            max="10000"
+            value="1000"
+            disabled
+          />
+          <label class="btnfloat" for="fogRange">Fog:</label>
+          <input class="range" type="range" id="fogRange" name="fogRange" min="0" max="100000" value="25000" disabled />
+          <button id="controllerReset" class="btnfloat" disabled>Unstuck Cam</button>
+        </div>
+      </div>
+      <div id="log"></div>
+      <p id="keys">Move: W/A/S/D - Tilt: Q/E - Up: R - Down: F - Look: Press mouse / Arrow keys</p>
+    </div>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/three.js"></script>
+    <script src="../static/t3d-parser.js"></script>
+    <script src="../static/T3D.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>
