@@ -349,6 +349,8 @@ const mapMap = {
         { fileName: "3406364.data", name: "(X5.1) Prologue: The Tyrian Alliance: Lion's Arch" },
         { fileName: "3414888.data", name: "(Z.1) Lowland Shore" },
         { fileName: "3415804.data", name: "(Z.2) Janthir Syntri" },
+        { fileName: "3559095.data", name: "(?) Godspawn: Mount Balrior" },
+        { fileName: "3560860.data", name: "(?) Mists Vault" },
       ],
     },
     {
