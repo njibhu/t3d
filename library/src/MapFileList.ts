@@ -325,17 +325,17 @@ const mapMap = {
       name: "(X4) Guild Wars 2: Secrets of the Obscure (SotO) - (Z) Zone, (SM) Strike Mission - Skies of Tyria [Sky]",
       maps: [
         {
-          fileName: "3134712.data",
+          fileName: "3136072.data",
           name: "(X4.1) Commander without a Cause: Gendarran Fields <Gendarran Fields> [MapValleySettlementExpac4StealthMission]",
         },
-        { fileName: "3134778.data", name: "(Z.1) Skywatch Archipelago [MapSkyRise]" },
+        { fileName: "3134712.data", name: "(Z.1) Skywatch Archipelago [MapSkyRise]" },
         {
-          fileName: "3135285.data",
+          fileName: "3134778.data",
           name: "(SM.1) Cosmic Observatory <Skywatch Archipelago> [MapSkyRiseStrikeObservatory]",
         },
         { fileName: "3135660.data", name: "(Lobby) The Wizard's Tower [MapSkyTower]" },
-        { fileName: "3135805.data", name: "(Z.2) Amnytas [MapSkySpire]" },
-        { fileName: "3136072.data", name: "(SM.2) Temple of Febe [MapCerusArena]" },
+        { fileName: "3135285.data", name: "(Z.2) Amnytas [MapSkySpire]" },
+        { fileName: "3135805.data", name: "(SM.2) Temple of Febe [MapCerusArena]" },
         { fileName: "3193573.data", name: "(?) Convergences [MapBountyIslands]" },
         { fileName: "3194054.data", name: "(Z.3) Inner Nayos [MapDream]" },
         { fileName: "3264516.data", name: "(Z.3) Inner Nayos [MapDream2]" },
