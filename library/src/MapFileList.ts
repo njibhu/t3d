@@ -1,3 +1,4 @@
+// prettier-ignore
 const mapMap = {
   /**
    * @property maps
