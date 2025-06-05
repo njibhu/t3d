@@ -169,8 +169,9 @@ window.onload = () => {
       .append($("<div class='fileTab' id='fileTabsString'>" + "<div id='stringOutput' />" + "</div>").hide())
       .append($("<div class='fileTab' id='fileTabsModel'>" + "<div id='modelOutput'/>" + "</div>").hide())
       .append(
-        $("<div class='fileTab' id='fileTabsSound'>" + "<div class='tabOutput' id='soundOutput'/>" + "</div>").hide()
-      );
+        $("<div class='fileTab' id='fileTabsSound'>" + "<div class='tabOutput' id='soundOutput'/>" + "</div>").hide())
+      .append(
+        $("<div class='fileTab' id='fileTabsDialog'>" + "<div class='tabOutput' id='dialogOutput'/>" + "</div>").hide());
 
     $("#fileTabs").w2tabs({
       name: "fileTabs",
@@ -230,6 +231,15 @@ window.onload = () => {
             $("#fileTabsSound").show();
           },
         },
+        {
+          id: "tabDialog",
+          caption: "Dialog",
+          disabled: true,
+          onClick: function() {
+            $(".fileTab").hide();
+            $("#fileTabsDialog").show();
+          },
+        }
       ],
     });
 
@@ -459,6 +469,7 @@ window.onload = () => {
     w2ui.fileTabs.disable("tabString");
     w2ui.fileTabs.disable("tabModel");
     w2ui.fileTabs.disable("tabSound");
+    w2ui.fileTabs.disable("tabDialog");
 
     /// Remove old models from the scene
     if (_models) {
@@ -498,8 +509,7 @@ window.onload = () => {
 
     $("#contextToolbar").append(
       $("<button>Download raw</button>").click(function () {
-        const blob = new Blob([rawData], { type: "octet/stream" });
-        saveData(blob, fileName + ".raw");
+        downloadData(rawData, fileName + ".raw");
       })
     );
 
@@ -554,8 +564,7 @@ window.onload = () => {
         .show()
         .append(
           $("<button>Download Image</button>").click(function () {
-            const blob = new Blob([rawData], { type: "octet/stream" });
-            saveData(blob, fileId + ".png");
+            downloadData(rawData, fileId + ".png");
           })
         );
     }
@@ -589,8 +598,7 @@ window.onload = () => {
         .show()
         .append(
           $("<button>Download Image</button>").click(function () {
-            const blob = new Blob([rawData], { type: "octet/stream" });
-            saveData(blob, fileId + ".riff");
+            downloadData(rawData, fileId + ".riff");
           })
         );
     }
@@ -607,6 +615,39 @@ window.onload = () => {
       if (packfile.header.type === "MODL") {
         /// Render model
         renderFileModel(fileId);
+      } else if (packfile.header.type === "ABNK") {
+        const chunk = packfile.getChunk("BKCK");
+
+        /// Enable and select dialog tab
+        w2ui.fileTabs.enable("tabDialog");
+        w2ui.fileTabs.click("tabDialog");
+
+        /// Print some random data about this sound
+        $("#dialogOutput").html(
+          "<div id='dialogSamples'/>" 
+        );
+        for (const sample of chunk.data.asndFile) {
+          if (sample.voiceId === 0) {
+            continue;
+          }
+          const soundUintArray = sample.audioData;
+          let data = $("<div/>");
+          data.append(
+            $("<button>Download MP3</button>").click(function () {
+              downloadData(soundUintArray, fileName + "_" + sample.voiceId + ".mp3");
+            })
+          )
+          .append(
+            $("<button>Play MP3</button>").click(function () {
+              playSound(soundUintArray);
+            })
+          )
+          .append(
+            $("<button>Stop MP3</button>").click(stopPlayingSound)
+          );
+          data.append($("<span>Voice id: " + sample.voiceId + " duration: " + sample.length + "</span>"));
+          $("#dialogSamples").append(data);
+        }
       } else if (packfile.header.type === "ASND") {
         /// Get a chunk, this is really the job of a renderer but whatevs
         const chunk = packfile.getChunk("ASND");
@@ -628,42 +669,16 @@ window.onload = () => {
           .show()
           .append(
             $("<button>Download MP3</button>").click(function () {
-              const blob = new Blob([soundUintArray], { type: "octet/stream" });
-              saveData(blob, fileName + ".mp3");
+              downloadData(soundUintArray, fileName + ".mp3");
             })
           )
           .append(
             $("<button>Play MP3</button>").click(function () {
-              if (!_audioContext) {
-                _audioContext = new AudioContext();
-              }
-
-              /// Stop previous sound
-              try {
-                _audioSource.stop();
-              } catch (e) {
-                console.error(e);
-              }
-
-              /// Create new buffer for current sound
-              _audioSource = _audioContext.createBufferSource();
-              _audioSource.connect(_audioContext.destination);
-
-              /// Decode and start playing
-              _audioContext.decodeAudioData(soundUintArray.buffer, function (res) {
-                _audioSource.buffer = res;
-                _audioSource.start();
-              });
+              playSound(soundUintArray);
             })
           )
           .append(
-            $("<button>Stop MP3</button>").click(function () {
-              try {
-                _audioSource.stop();
-              } catch (e) {
-                console.error(e);
-              }
-            })
+            $("<button>Stop MP3</button>").click(stopPlayingSound)
           );
       } else {
         /// Select PF tab
@@ -796,8 +811,45 @@ window.onload = () => {
     const result = new OBJExporter().parse(_scene, fileId);
 
     /// Download obj
-    const blob = new Blob([result], { type: "octet/stream" });
-    saveData(blob, "export." + fileId + ".obj");
+    downloadData(result, "export." + fileId + ".obj");
+  }
+
+  const downloadData = (dataArray, filename) => {
+    const blob = new Blob([dataArray], { type: "octet/stream" });
+    saveData(blob, filename);
+  }
+
+  const playSound = (soundUintArray) => {
+    if (!_audioContext) {
+      _audioContext = new AudioContext();
+    }
+
+    /// Stop previous sound
+    try {
+      _audioSource.stop();
+    } catch (e) {
+      console.error(e);
+    }
+
+    /// Create new buffer for current sound
+    _audioSource = _audioContext.createBufferSource();
+    _audioSource.connect(_audioContext.destination);
+
+    /// Decode and start playing
+    var dst = new ArrayBuffer(soundUintArray.byteLength);
+    new Uint8Array(dst).set(new Uint8Array(soundUintArray));
+    _audioContext.decodeAudioData(dst, function (res) {
+      _audioSource.buffer = res;
+      _audioSource.start();
+    });
+  }
+
+  const stopPlayingSound = () => {
+    try {
+      _audioSource.stop();
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   /// Utility for downloading files to client
