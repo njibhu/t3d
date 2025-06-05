@@ -238,7 +238,7 @@ const mapMap = {
         { fileName: "2639738.data", name: "(Story Mission) Lornar's Pass [MapAlpineSlopeX03]" },
         { fileName: "2639795.data", name: "(Story Mission) Aetherblade Armada [MapCanthaArmada]" },
         { fileName: "2645805.data", name: "(Story Mission) Yong Reactor [MapCanthaKainengCH5Reactor]" },
-        { fileName: "3100947.data", name: "(Story Mission) Seitung Province [MapCanthaShingJeaExpac4AureneInstance]" },
+        { fileName: "3100195.data", name: "(Story Mission) Seitung Province [MapCanthaShingJeaExpac4AureneInstance]" },
       ],
     },
     {
@@ -261,6 +261,7 @@ const mapMap = {
         { fileName: "3414888.data", name: "(Zone #1) Lowland Shore [MapWildDelta]" },
         { fileName: "3415804.data", name: "(Zone #2) Janthir Syntri [MapWildIsland]" },
         { fileName: "3598092.data", name: "(Zone #3) Mistburned Barrens [MapWildRuins]" },
+        { fileName: "3638621.data", name: "(Zone #4) Bava Nisos [MapWildMaw]" },
         { fileName: "3406364.data", name: "(Story Mission) Lion's Arch [MapValleyArchEx5Intro]" },
       ],
     },
@@ -294,8 +295,9 @@ const mapMap = {
         { fileName: "2005713.data", name: "(FotM #19) Deepstone [MapInfiniteLabyrinth]" },
         { fileName: "2094098.data", name: "(FotM #20) Siren's Reef [MapInfiniteCove]" },
         { fileName: "2333932.data", name: "(FotM #21) Sunqua Peak [MapFractalElementalIslands]" },
-        { fileName: "3100195.data", name: "(FotM #22) Silent Surf [MapLuxonFractal]" },
+        { fileName: "3100947.data", name: "(FotM #22) Silent Surf [MapLuxonFractal]" },
         { fileName: "3317434.data", name: "(FotM #23) Lonely Tower [MapSkyRiseFractalEparch]" },
+        { fileName: "3635285.data", name: "(FotM #24) Kinfall [MapWildBjora]" },
       ],
     },
     {
@@ -346,6 +348,7 @@ const mapMap = {
         { fileName: "1712945.data", name: "(Team Deathmatch #3) Asura Arena [Mapasura2v2]" },
         { fileName: "2187125.data", name: "(Team Deathmatch #4) Auric Span [MapJungle2v2]" },
         { fileName: "3424867.data", name: "(Push #1) Push Prototype—BETA [MapPVPConquestNornia]" },
+        { fileName: "3621310.data", name: "(Push #1) Push Prototype—BETA [MapPushCartKaineng]" },
       ],
     },
     {
