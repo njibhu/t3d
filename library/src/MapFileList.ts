@@ -266,6 +266,14 @@ const mapMap = {
       ],
     },
     {
+      name: "(X6) Visions of Eternity - Zones",
+      maps: [
+        { fileName: "3719751.data", name: "(Zone #1) Shipwreck Strand [MapMagicCoast]" },
+        { fileName: "3721199.data", name: "(Zone #2) Starlit Weald [MapMagicForest]" },
+        { fileName: "3719841.data", name: "(Story Mission) The Unending Ocean [MapMagicCoast_Story01Ocean]" },
+      ],
+    },
+    {
       name: "Guild Halls & Homesteads",
       maps: [
         { fileName: "1256064.data", name: "(Guild Hall #1) Lost Precipice [MapGuildHeights]" },
@@ -273,6 +281,7 @@ const mapMap = {
         { fileName: "1843274.data", name: "(Guild Hall #3) Windswept Haven [MapGuildPyramid]" },
         { fileName: "2648082.data", name: "(Guild Hall #4) Isle of Reflection [MapGuildIsle]" },
         { fileName: "3399578.data", name: "(Homestead #1) Hearth's Glow [MapHomesteadBoreal]" },
+        { fileName: "3718508.data", name: "(Homestead #2) Comosus Isle [MapMagic]" },
       ],
     },
     {
@@ -347,8 +356,8 @@ const mapMap = {
         { fileName: "1712986.data", name: "(Team Deathmatch #1) Hall of the Mists [MapHallway2v2]" },
         { fileName: "1712945.data", name: "(Team Deathmatch #3) Asura Arena [Mapasura2v2]" },
         { fileName: "2187125.data", name: "(Team Deathmatch #4) Auric Span [MapJungle2v2]" },
-        { fileName: "3424867.data", name: "(Push #1) Push Prototype—BETA [MapPVPConquestNornia]" },
-        { fileName: "3621310.data", name: "(Push #1) Push Prototype—BETA [MapPushCartKaineng]" },
+        { fileName: "3424867.data", name: "(Push #0) Push Prototype—BETA [MapPVPConquestNornia]" },
+        { fileName: "3621310.data", name: "(Push #1) Sunjiang Backstreets [MapPushCartKaineng]" },
       ],
     },
     {
