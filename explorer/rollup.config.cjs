@@ -1,23 +1,23 @@
-const copy = require('rollup-plugin-copy');
-const commonjs = require('@rollup/plugin-commonjs');
-const resolve = require('@rollup/plugin-node-resolve');
-const del = require('rollup-plugin-delete');
+const copy = require("rollup-plugin-copy");
+const commonjs = require("@rollup/plugin-commonjs");
+const resolve = require("@rollup/plugin-node-resolve");
+const del = require("rollup-plugin-delete");
 
 module.exports = {
   input: "src/index.js",
   output: {
-    dir: 'dist/',
-    format: 'iife',
+    dir: "dist/",
+    format: "iife",
     sourcemap: true,
   },
   plugins: [
-    del({ targets: 'dist/*' }),
+    del({ targets: "dist/*" }),
     resolve(),
     commonjs(),
     copy({
       targets: [
-        { src: 'src/*.html', dest: 'dist/' },
-        { src: 'src/*.css', dest: 'dist/' },
+        { src: "src/*.html", dest: "dist/" },
+        { src: "src/*.css", dest: "dist/" },
       ],
     }),
     // Static dependencies
@@ -35,8 +35,9 @@ module.exports = {
         `./external-assets/gw2/Background2_3840_2026.jpg`,
         `./external-assets/gw2/Background3_4096x2027.jpg`,
         `./external-assets/gw2/Background4_2498x1403.png`,
+        `./external-assets/gw2/Background5_2560_1440.jpg`,
         `./external-assets/github/GitHub-Mark-120px-plus.png`,
-      ].map(src => ({ src, dest: 'dist/static' })),
+      ].map((src) => ({ src, dest: "dist/static" })),
     }),
   ],
 };
