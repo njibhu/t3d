@@ -1,0 +1,197 @@
+<!--
+Copyright © 2024 T3D project contributors.
+
+This file is part of the T3D Project.
+
+T3D Project is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+T3D Project is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
+!-->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>T3D Explorer</title>
+    <link rel="stylesheet" href="https://d1h9a8s8eodvjz.cloudfront.net/fonts/menomonia/08-02-12/menomonia.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <a id="repoLink" href="https://github.com/njibhu/t3d"></a>
+    <!--
+      Root app container
+    -->
+    <div id="explorer" class="background">
+      <!--
+        Intro UI (Presentation, copyright notice and select file)
+      -->
+      <div id="intro" class="uiPanel">
+        <h1>Welcome to T3D Explorer</h1>
+        <div class="filePicker">
+          <input id="filePickerInput" type="file" hidden />
+          <button id="filePickerButton" class="mainButton">Select a Guild Wars 2 .dat file</button>
+        </div>
+        <main>
+          <h3>This is a Guild Wars 2 fansite</h3>
+          <p>
+            T3D Explorer lets you explore textured Guild Wars 2 map files in 3D, directly in your web browser. The
+            purpose of this project is to allow a unique look into Tyria - the amazing world of Guild Wars 2. Some of
+            the graphics are still missing such as animations, lighting, and various visual effects which give Guild
+            Wars 2 its immersive experience.
+          </p>
+          <h3>Contacts</h3>
+          <p>
+            T3D Explorer is part of the <a href="https://github.com/njibhu/t3d/">T3D project</a>. If you have questions
+            don't hesitate to contact me !
+          </p>
+          <ul>
+            <li>
+              If you encounter a bug, submit an issue on
+              <a href="https://github.com/njibhu/t3d/issues"><strong>Github!</strong></a>
+            </li>
+            <li>Via email: ev@njibhu.eu</li>
+            <li>In-game: Aquila.4832</li>
+            <li>Via Reddit: /u/Njibhu_</li>
+          </ul>
+        </main>
+        <footer>
+          <p>
+            T3D is powered by:
+            <a href="http://threejs.org/" target="_blank">three.js</a>
+            <a href="https://jquery.com/" target="_blank">jQuery</a>
+          </p>
+          <h3>ArenaNet copyright notice</h3>
+          <p>
+            © 2018 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild
+            Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, and all associated logos
+            and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the
+            property of their respective owners.
+          </p>
+        </footer>
+      </div>
+
+      <!--
+        Map selector UI
+      -->
+      <div id="choose-map" class="uiPanel" hidden>
+        <section id="mapSelectSection">
+          <h3>Select which map to load:</h3>
+          <div id="selectInputs">
+            <label>
+              <select id="categorySelect"></select>
+            </label>
+            <label>
+              <select id="mapSelect"></select>
+            </label>
+          </div>
+        </section>
+
+        <section id="renderSection">
+          <h3>Select what to display on the map:</h3>
+          <div id="renderSectionCheckboxes">
+            <label>
+              <span>Zone models:</span>
+              <input type="checkbox" id="loadZone" />
+            </label>
+            <label>
+              <span>Props models:</span>
+              <input type="checkbox" id="loadProps" checked />
+            </label>
+            <label>
+              <span>Visible collisions:</span>
+              <input type="checkbox" id="loadColl" />
+            </label>
+          </div>
+        </section>
+        <section>
+          <p>Enabling <span>Zone models</span> allows you to view trees, plants and various 'nature' models.</p>
+          <p>Enabling <span>Props models</span> allows you to view most of the 3d models in a map.</p>
+          <p>
+            Enabling <span>Visible collisions</span> allows you to view all the collision data in a map. The collision
+            data has no textures but will give you a hint of how the map looks with actual 3d models. Consider enabling
+            only Visible collisions to reduce map loading times.
+          </p>
+          <p>Missing maps ? <a id="scanMapLink">Scan the archive</a></p>
+        </section>
+        <section>
+          <h3>Render options:</h3>
+          <div id="renderSectionCheckboxes">
+            <label>
+              <span>Anti-aliasing:</span>
+              <input type="checkbox" id="enableAA" checked />
+            </label>
+          </div>
+        </section>
+        <footer>
+          <button id="mapLoadButton" class="mainButton">Explore</button>
+        </footer>
+      </div>
+
+      <!--
+        Map loading progress bar
+      -->
+      <div id="loading-ui" class="uiPanel" hidden>
+        <h3 id="loadingName">Loading...</h3>
+        <h3 id="loadingValue"></h3>
+      </div>
+
+      <!--
+        Controls UI
+      -->
+      <div id="controls" hidden>
+        <div id="topBar">
+          <div class="barFloat">
+            <button id="goToMapSelectButton" class="control">Map selection</button>
+            <button id="switchControllerType" class="control">Change camera</button>
+            <button id="takeScreenshot" class="control">Take screenshot</button>
+            <label class="control" for="mvntSpeedRange">
+              <span>Speed:</span>
+              <input
+                class="range"
+                type="range"
+                id="mvntSpeedRange"
+                name="mvntSpeedRange"
+                min="500"
+                max="10000"
+                value="1000"
+              />
+            </label>
+            <label class="control" for="fogRange">
+              <span>Fog:</span>
+              <input class="range" type="range" id="fogRange" name="fogRange" min="0" max="100000" value="25000" />
+            </label>
+          </div>
+        </div>
+        <div id="helper">
+          <label>?</label>
+          <p id="keys">
+            <u>Map Camera:</u> Move: Mouse drag - Rotate: Right click drag<br /><u>Fly Camera:</u> Move: W/A/S/D - Tilt:
+            Q/E - Up: R - Down: F - Look: Press mouse / Arrow keys
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--
+        Third parties
+      -->
+    <script src="static/jquery.js"></script>
+    <script src="static/three.js"></script>
+    <script src="static/t3d-parser.js"></script>
+    <script src="static/T3D.js"></script>
+
+    <!--
+        App
+      -->
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>
