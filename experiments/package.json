@@ -17,7 +17,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "26.0.1",
     "@rollup/plugin-node-resolve": "15.2.3",
-    "glob": "11.0.0",
+    "glob": "11.1.0",
     "http-server": "14.1.1",
     "rollup": "4.21.3",
     "rollup-plugin-copy": "3.5.0",
