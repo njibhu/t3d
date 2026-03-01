@@ -1,5 +1,3 @@
-declare let T3D: any;
-
 /* INCLUDES */
 import LocalReader from "./LocalReader/LocalReader";
 import DataRenderer from "./dataRenderer/DataRenderer";
@@ -33,8 +31,7 @@ const _settings = {
 
 type MapList = { name: string; maps: { fileName: number; name: string }[] }[];
 
-// eslint-disable-next-line prefer-const
-T3D = {
+const T3D = {
   version: _version,
   DataRenderer: DataRenderer,
   EnvironmentRenderer: EnvironmentRenderer,
@@ -266,7 +263,25 @@ T3D = {
 } as const;
 
 export default T3D;
-(globalThis as any).T3D = T3D;
+export {
+  DataRenderer,
+  EnvironmentRenderer,
+  HavokRenderer,
+  PropertiesRenderer,
+  SingleModelRenderer,
+  TerrainRenderer,
+  ZoneRenderer,
+  StringRenderer,
+  Logger,
+  MapFileList,
+  MaterialUtils,
+  MathUtils,
+  RenderUtils,
+  PersistantStore,
+  FileTypes,
+  LocalReader,
+  FileParser,
+};
 
 /* PRIVATE METHODS */
 
@@ -282,16 +297,6 @@ function checkRequirements() {
 
   if (!globalThis.window || !window.indexedDB) {
     T3D.Logger.log(T3D.Logger.TYPE_ERROR, "T3D persistant storing and loading requires indexedDB support.");
-    numErrors++;
-  }
-
-  if (typeof FileParser === "undefined") {
-    T3D.Logger.log(T3D.Logger.TYPE_ERROR, "T3D core functionality requires t3d-parser library.");
-    numErrors++;
-  }
-
-  if (typeof THREE === "undefined") {
-    T3D.Logger.log(T3D.Logger.TYPE_WARNING, "T3D mesh generation requires three.js library.");
     numErrors++;
   }
 

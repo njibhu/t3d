@@ -3,6 +3,7 @@ import PersistantStore from "./PersistantStore";
 import DataReader from "./DataReader";
 import MapFileList from "../MapFileList";
 import * as FileTypes from "./FileTypes";
+import Logger from "../Logger";
 
 interface LocalReaderSettings {
   noIndexedDB?: boolean; // Do not use indexedDB (persistant storage, default is true)
@@ -190,8 +191,8 @@ class LocalReader {
       // Tasks to do only every %
       if ((index as unknown as number) % Math.floor(iterateList.length / 100) === 0) {
         // Print progress
-        T3D.Logger.log(
-          T3D.Logger.TYPE_PROGRESS,
+        Logger.log(
+          Logger.TYPE_PROGRESS,
           "Finding types",
           (index as unknown as number) / Math.floor(iterateList.length / 100)
         );

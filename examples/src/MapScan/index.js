@@ -1,3 +1,6 @@
+import $ from "jquery";
+import T3D from "t3d-lib";
+
 $("#filePicker").change(onLoad);
 
 function onLoad(event) {

@@ -1,3 +1,6 @@
+import $ from "jquery";
+import T3D from "t3d-lib";
+import * as THREE from "three";
 import { FlyControls } from "three/examples/jsm/controls/FlyControls.js";
 import { MapControls } from "three/examples/jsm/controls/MapControls.js";
 

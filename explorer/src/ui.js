@@ -1,3 +1,6 @@
+import $ from "jquery";
+import T3D from "t3d-lib";
+
 export default class UI {
   constructor(appRenderer) {
     this.appRenderer = appRenderer;

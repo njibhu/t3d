@@ -4,13 +4,24 @@
   "description": "Parser for binary archives",
   "author": "Njibhu <manu@njibhu.eu>",
   "license": "GPL-3.0",
-  "main": "src/main.ts",
+  "main": "build/t3d-parser.mjs",
+  "module": "build/t3d-parser.mjs",
+  "exports": {
+    ".": "./build/t3d-parser.mjs",
+    "./src/*": "./src/*",
+    "./declarations/*": "./declarations/*",
+    "./definitions/*": "./definitions/*"
+  },
+  "types": "src/main.ts",
   "directories": {
     "lib": "lib",
     "test": "tests"
   },
   "files": [
-    "lib"
+    "build",
+    "src",
+    "declarations",
+    "definitions"
   ],
   "publishConfig": {
     "registry": "https://registry.yarnpkg.com"

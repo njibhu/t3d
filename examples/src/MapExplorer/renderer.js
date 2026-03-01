@@ -1,3 +1,7 @@
+import $ from "jquery";
+import T3D from "t3d-lib";
+import { FileParser } from "t3d-parser";
+import * as THREE from "three";
 import { FlyControls } from "three/examples/jsm/controls/FlyControls.js";
 
 const CANVAS_CLEAR_COLOR = 0x342920; // For happy rendering, always use Van Dyke Brown.
@@ -153,7 +157,7 @@ export default class AppRenderer {
     // Cache mapFile for later use
     if (parseInt(this.mapData.id)) {
       this.localReader.loadFile(this.mapData.id, (arrayBuffer) => {
-        this.mapData.mapFile = new T3DParser.FileParser(arrayBuffer);
+        this.mapData.mapFile = new FileParser(arrayBuffer);
       });
     }
   }

@@ -17,12 +17,14 @@
     "prettier": "3.3.3"
   },
   "scripts": {
+    "build": "npm run build -w parser && npm run build -w library && npm run build -w browser && npm run build -w explorer && npm run build -w examples && npm run build -w experiments",
+    "test": "npm run test -ws",
     "lint:check": "npm run lint:check -ws",
     "format:check": "npm run format:check -ws"
   },
   "dependencies": {
     "jquery": "3.5.0",
-    "three": "0.160.0",
+    "three": "0.161.0",
     "w2ui": "1.4.3"
   }
 }

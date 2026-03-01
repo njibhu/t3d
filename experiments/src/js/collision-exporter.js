@@ -1,3 +1,6 @@
+import $ from "jquery";
+import T3D from "t3d-lib";
+import * as THREE from "three";
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
 
 let localReader = undefined;

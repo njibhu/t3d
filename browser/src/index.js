@@ -1,7 +1,14 @@
+import $, { ensureW2UI } from "./w2ui-global.js";
+import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { OBJExporter } from "three/examples/jsm/exporters/OBJExporter.js";
+import T3D from "t3d-lib";
 
-window.onload = () => {
+const w2ui = Object.create(null);
+
+window.onload = async () => {
+  await ensureW2UI();
+
   /// T3D
   let _lr;
   let _context;
@@ -22,7 +29,7 @@ window.onload = () => {
         SET MAIN UP GRID
         */
     const pstyle = "border: 1px solid #dfdfdf; padding: 0;";
-    $("#layout").w2layout({
+    w2ui.layout = $("#layout").w2layout({
       name: "layout",
       panels: [
         {
@@ -68,7 +75,7 @@ window.onload = () => {
     });
 
     /// Grid inside main left
-    $().w2layout({
+    w2ui.leftLayout = $().w2layout({
       name: "leftLayout",
       panels: [
         {
@@ -94,12 +101,12 @@ window.onload = () => {
             */
     w2ui["leftLayout"].content(
       "left",
-      $().w2sidebar({
+      (w2ui.sidebar = $().w2sidebar({
         name: "sidebar",
         img: null,
         nodes: [{ id: "All", text: "All", img: "icon-folder", group: false }],
         onClick: onFilterClick,
-      })
+      }))
     );
 
     /*
@@ -107,7 +114,7 @@ window.onload = () => {
             */
     w2ui["leftLayout"].content(
       "main",
-      $().w2grid({
+      (w2ui.grid = $().w2grid({
         name: "grid",
         show: {
           toolbar: true,
@@ -148,7 +155,7 @@ window.onload = () => {
         onClick: function (event) {
           viewFileByMFT(event.recid);
         },
-      })
+      }))
     );
 
     /*
@@ -172,7 +179,7 @@ window.onload = () => {
         $("<div class='fileTab' id='fileTabsSound'>" + "<div class='tabOutput' id='soundOutput'/>" + "</div>").hide()
       );
 
-    $("#fileTabs").w2tabs({
+    w2ui.fileTabs = $("#fileTabs").w2tabs({
       name: "fileTabs",
       active: "tabRaw",
       tabs: [
@@ -235,7 +242,7 @@ window.onload = () => {
 
     /// Set up grid for strings view
     ///Create grid
-    $("#stringOutput").w2grid({
+    w2ui.stringGrid = $("#stringOutput").w2grid({
       name: "stringGrid",
       selectType: "cell",
       show: {
@@ -254,7 +261,7 @@ window.onload = () => {
     setupScene();
 
     /// Ask for file
-    w2popup.open({
+    $().w2popup({
       speed: 0,
       title: "Load A GW2 dat",
       modal: true,
@@ -363,7 +370,7 @@ window.onload = () => {
         }
 
         /// Close the pop
-        w2popup.close();
+        $().w2popup("close");
 
         /// Select the "All" category
         w2ui.sidebar.click("All");
