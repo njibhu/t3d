@@ -1,5 +1,7 @@
 import * as RenderUtils from "../util/RenderUtils";
 import DataRenderer from "./DataRenderer";
+import * as THREE from "three";
+import TerrainRenderer from "./TerrainRenderer";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
@@ -270,7 +272,7 @@ export default class ZoneRenderer extends DataRenderer {
 
     const modelGroups: Record<number, ModelGroupEntry[]> = {};
 
-    const terrainTiles = this.getOutput(T3D.TerrainRenderer).terrainTiles;
+    const terrainTiles = this.getOutput(TerrainRenderer).terrainTiles;
 
     for (let i = 0; i < zone.flags.length; i += 2) {
       /// Step forward
@@ -385,7 +387,7 @@ export default class ZoneRenderer extends DataRenderer {
     function stepZone(i: number) {
       const pct = Math.round((100.0 * i) / zones.length);
       if (lastPct !== pct) {
-        self.logger.log(T3D.Logger.TYPE_PROGRESS, "Loading 3D Models (Zone)", pct);
+        self.logger.log(self.logger.TYPE_PROGRESS, "Loading 3D Models (Zone)", pct);
         lastPct = pct;
       }
 

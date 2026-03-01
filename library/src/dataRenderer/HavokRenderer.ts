@@ -1,4 +1,5 @@
 import DataRenderer from "./DataRenderer";
+import * as THREE from "three";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
@@ -95,7 +96,7 @@ export default class HavokRenderer extends DataRenderer {
     for (; i < offset + chunkSize && i < models.length; i++) {
       const p = Math.round((i * 100) / models.length);
       if (p !== this.lastP) {
-        this.logger.log(T3D.Logger.TYPE_PROGRESS, "Loading Collision Models (" + title + ")", p);
+        this.logger.log(this.logger.TYPE_PROGRESS, "Loading Collision Models (" + title + ")", p);
         this.lastP = p;
       }
 
@@ -214,7 +215,7 @@ export default class HavokRenderer extends DataRenderer {
         if (f1 <= collision.vertices.length && f2 <= collision.vertices.length && f3 <= collision.vertices.length) {
           indices.push(f1, f2, f3);
         } else {
-          this.logger.log(T3D.Logger.TYPE_ERROR, "Errorus index in havok model geometry.");
+          this.logger.log(this.logger.TYPE_ERROR, "Errorus index in havok model geometry.");
         }
       }
 

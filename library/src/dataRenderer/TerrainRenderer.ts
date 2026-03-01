@@ -2,6 +2,8 @@ import DataRenderer from "./DataRenderer";
 import * as RenderUtils from "../util/RenderUtils";
 import * as MaterialUtils from "../util/MaterialUtils";
 import * as TerrainShader from "../util/TerrainShader";
+import * as THREE from "three";
+import EnvironmentRenderer from "./EnvironmentRenderer";
 import { FileParser } from "t3d-parser";
 
 import type LocalReader from "../LocalReader/LocalReader";
@@ -209,7 +211,7 @@ export default class TerrainRenderer extends DataRenderer {
       };
 
       /// Get haze color from environment rednerer
-      const envOutput = self.getOutput(T3D.EnvironmentRenderer);
+      const envOutput = self.getOutput(EnvironmentRenderer);
       if (envOutput.hazeColor) {
         fog.color.r = envOutput.hazeColor[2] / 255.0;
         fog.color.g = envOutput.hazeColor[1] / 255.0;
@@ -355,7 +357,7 @@ export default class TerrainRenderer extends DataRenderer {
 
       const pct = Math.floor((100 * (cy * xChunks + cx)) / (xChunks * yChunks));
 
-      self.logger.log(T3D.Logger.TYPE_PROGRESS, "Loading Terrain", pct);
+      self.logger.log(self.logger.TYPE_PROGRESS, "Loading Terrain", pct);
 
       renderChunk(cx, cy);
       setTimeout(stepChunk, 1, cx + 1, cy);

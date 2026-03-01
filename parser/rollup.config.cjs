@@ -7,9 +7,8 @@ const typescript = require('@rollup/plugin-typescript');
 module.exports = {
     input: './src/main.ts',
     output: {
-        file: './build/t3d-parser.js',
-        format: 'iife',
-        name: 'T3DParser',
+        file: './build/t3d-parser.mjs',
+        format: 'es',
         sourcemap: true,
         banner: `/*
 Copyright © 2024 T3D project contributors.

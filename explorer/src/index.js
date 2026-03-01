@@ -1,3 +1,4 @@
+import $ from "jquery";
 import Stats from "three/examples/jsm/libs/stats.module.js";
 import AppRenderer from "./renderer";
 import UI from "./ui";

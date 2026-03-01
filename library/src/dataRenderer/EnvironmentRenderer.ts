@@ -1,5 +1,6 @@
 import * as MaterialUtils from "../util/MaterialUtils";
 import DataRenderer from "./DataRenderer";
+import * as THREE from "three";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";

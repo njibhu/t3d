@@ -1,3 +1,5 @@
+import $ from "jquery";
+import T3D from "t3d-lib";
 import AppRenderer from "./renderer";
 import Stats from "three/examples/jsm/libs/stats.module.js";
 

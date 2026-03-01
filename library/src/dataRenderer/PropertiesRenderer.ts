@@ -1,6 +1,7 @@
 import * as RenderUtils from "../util/RenderUtils";
 import DataRenderer from "./DataRenderer";
 import * as LogsUtils from "../util/Logs";
+import * as THREE from "three";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
@@ -85,7 +86,7 @@ export default class PropertiesRenderer extends DataRenderer {
   }
 
   getFileIdsAsync(callback: Function): void {
-    this.logger.log(T3D.Logger.TYPE_WARNING, "PropertiesRenderer.getFileIdsAsync is not implemented");
+    this.logger.log(this.logger.TYPE_WARNING, "PropertiesRenderer.getFileIdsAsync is not implemented");
     callback([]);
   }
 

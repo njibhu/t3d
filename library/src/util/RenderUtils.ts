@@ -1,6 +1,7 @@
 import { FileParser } from "t3d-parser";
 import * as MaterialUtils from "./MaterialUtils";
 import * as MathUtils from "./MathUtils";
+import * as THREE from "three";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type { InstancedMesh, Material, Mesh } from "three";

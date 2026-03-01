@@ -2,6 +2,12 @@
   "name": "t3d-lib",
   "version": "3.0.0",
   "license": "GPL-3.0",
+  "main": "build/T3D.mjs",
+  "module": "build/T3D.mjs",
+  "exports": {
+    ".": "./build/T3D.mjs"
+  },
+  "types": "src/T3DLib.ts",
   "scripts": {
     "build": "rollup -c",
     "version": "npm run build; git add build",
@@ -13,7 +19,7 @@
   },
   "dependencies": {
     "t3d-parser": "*",
-    "three": "0.160.0",
+    "three": "0.161.0",
     "vblob": "1.0.2",
     "web-worker": "1.0.0"
   },
@@ -22,14 +28,13 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@types/three": "0.160.0",
+    "@types/three": "0.161.0",
     "@typescript-eslint/eslint-plugin": "8.5.0",
     "@typescript-eslint/parser": "8.5.0",
     "rollup": "4.21.3",
     "tslib": "2.7.0",
     "typescript": "5.5.4"
   },
-  "main": "src/T3DLib.ts",
   "prettier": {
     "useTabs": false,
     "trailingComma": "es5",

@@ -20,8 +20,10 @@ import type {
   MeshPhongMaterial,
   MeshStandardMaterial,
 } from "three";
+import * as THREE from "three";
 import type { FileParser } from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
+import Logger from "../Logger";
 import { ChunkHead } from "t3d-parser/src/interfaces";
 import type { DX9S, GRMT } from "t3d-parser/declarations";
 
@@ -451,7 +453,7 @@ export function getMaterial(
     const knownFileFlags = [24652, 16460, 16452, 16448, 8268, 3392, 2380, 2368, 332, 324, 320, 76, 68, 64];
 
     if (knownFileFlags.indexOf(grChunk.data.flags) < 0) {
-      T3D.Logger.log(T3D.Logger.TYPE_WARNING, "unknown GR flag", grChunk.data.flags);
+      Logger.log(Logger.TYPE_WARNING, "unknown GR flag", grChunk.data.flags);
     }
 
     if (!(grChunk.data.flags & lightMask)) {

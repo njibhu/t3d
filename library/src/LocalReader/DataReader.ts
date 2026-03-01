@@ -1,6 +1,8 @@
 /**
  * Organized thread pool of extractors
  */
+import Logger from "../Logger";
+
 export default class DataReader {
   _workerPool: any[];
   _workerLoad: any[];
@@ -42,11 +44,7 @@ export default class DataReader {
 
       // Buffer length size check
       if (arrayBuffer.byteLength < 12) {
-        T3D.Logger.log(
-          T3D.Logger.TYPE_WARNING,
-          `not inflating, length is too short (${arrayBuffer.byteLength})`,
-          mftId
-        );
+        Logger.log(Logger.TYPE_WARNING, `not inflating, length is too short (${arrayBuffer.byteLength})`, mftId);
         reject(new Error("Couldn't inflate " + mftId + " (mftId)"));
         return;
       }
@@ -87,7 +85,7 @@ export default class DataReader {
 
       // If error
       if (typeof message_event.data === "string") {
-        T3D.Logger.log(T3D.Logger.TYPE_WARNING, "Inflater threw an error", message_event.data);
+        Logger.log(Logger.TYPE_WARNING, "Inflater threw an error", message_event.data);
         mftId = parseInt(message_event.data.split(":")[0]);
         for (const callback of self._inflateCallbacks[mftId]) {
           callback.reject();
@@ -112,7 +110,7 @@ export default class DataReader {
 
         // Unknown error
         else {
-          T3D.Logger.log(T3D.Logger.TYPE_ERROR, "Inflater threw an error", message_event.data);
+          Logger.log(Logger.TYPE_ERROR, "Inflater threw an error", message_event.data);
         }
       }
     };

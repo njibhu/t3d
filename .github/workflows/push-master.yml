@@ -18,35 +18,30 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2-beta
         with:
-          node-version: 12
+          node-version: 20
       - name: Install root packages
-        run: npm install
-      - name: Generate library
+        run: npm ci
+      - name: Build parser
         run: |
-          pushd library
-          npm run build
-          popd
-      - name: Generate examples and copy to pages
+          npm run build -w parser
+      - name: Build library
         run: |
-          pushd examples
-          npm run build
-          cp -r dist ../pages
-          mv ../pages/dist ../pages/examples
-          popd
-      - name: Generate explorer and copy to pages
+          npm run build -w library
+      - name: Build examples and copy to pages
         run: |
-          pushd explorer
-          npm run build
-          cp -r dist ../pages
-          mv ../pages/dist ../pages/explorer
-          popd
-      - name: Generate browser and copy to pages
+          npm run build -w examples
+          cp -r ./examples/dist ./pages
+          mv ./pages/dist ./pages/examples
+      - name: Build explorer and copy to pages
         run: |
-          pushd browser
-          npm run build
-          cp -r dist ../pages
-          mv ../pages/dist ../pages/browser
-          popd
+          npm run build -w explorer
+          cp -r ./explorer/dist ./pages
+          mv ./pages/dist ./pages/explorer
+      - name: Build browser and copy to pages
+        run: |
+          npm run build -w browser
+          cp -r ./browser/dist ./pages
+          mv ./pages/dist ./pages/browser
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
