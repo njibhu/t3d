@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <title>cntc chunk analysis</title>
+    <meta content="" />
+    <style></style>
+  </head>
+
+  <body>
+    <label>
+      <input id="filePicker" type="file" />
+    </label>
+    <script src="./static/jquery.js"></script>
+    <script src="./static/DataStream.js"></script>
+    <script src="./static/T3D.js"></script>
+    <script>
+      function parseGuid(uarr) {
+        function hexnum(num) {
+          return num.toString(16).length == 2 ? num.toString(16).toUpperCase() : "0" + num.toString(16).toUpperCase();
+        }
+        return (
+          "" +
+          hexnum(uarr[3]) +
+          hexnum(uarr[2]) +
+          hexnum(uarr[1]) +
+          hexnum(uarr[0]) +
+          "-" +
+          hexnum(uarr[5]) +
+          hexnum(uarr[4]) +
+          "-" +
+          hexnum(uarr[7]) +
+          hexnum(uarr[6]) +
+          "-" +
+          hexnum(uarr[8]) +
+          hexnum(uarr[9]) +
+          "-" +
+          hexnum(uarr[10]) +
+          hexnum(uarr[11]) +
+          hexnum(uarr[12]) +
+          hexnum(uarr[13]) +
+          hexnum(uarr[14]) +
+          hexnum(uarr[15])
+        );
+      }
+
+      function parseId(uarr) {
+        let ds = new DataStream(uarr);
+        ds.seek(32);
+        return ds.readUint32();
+      }
+
+      var _lr;
+      $("#filePicker").change(function (evt) {
+        var file = evt.target.files[0];
+        T3D.getLocalReader(
+          file,
+          async function (lr) {
+            _lr = lr;
+            res = await lr.readFileList();
+            console.log("Sorting the files");
+
+            //Get the cntc files
+            let myFiles = res.filter((i) => {
+              return i.fileType == "PF_cntc" && i.baseIdList[0] < 1000000;
+            });
+
+            let items = [];
+            console.log(items);
+
+            console.log("Work:");
+            let fileWork = 0;
+            for (let elt of myFiles) {
+              console.log((fileWork += 1));
+              let r = await lr.readFile(elt.mftId);
+              let file = new T3D.GW2File(new DataStream(r.buffer), 0);
+              let mainChunk = file.getChunk("Main").data;
+
+              const entriesAmount = mainChunk.indexEntries.length;
+              for (let i = 0; i < entriesAmount; i++) {
+                let begin = mainChunk.indexEntries[i].offset;
+                let end = mainChunk.indexEntries[i + 1]
+                  ? mainChunk.indexEntries[i + 1].offset
+                  : mainChunk.content.length;
+                let contentSlice = mainChunk.content.slice(begin, end);
+
+                if (mainChunk.indexEntries[i].type == 27) {
+                  let itemId = parseId(contentSlice);
+                  let guid = parseGuid(contentSlice);
+                  items.push(itemId);
+                  if (itemId == 85192) {
+                    console.log("ITEM FOUND:", itemId, guid);
+                  }
+                }
+              }
+            }
+          },
+          "./static/t3dworker.js"
+        );
+      });
+    </script>
+  </body>
+</html>
