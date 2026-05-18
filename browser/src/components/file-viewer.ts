@@ -200,6 +200,8 @@ export class FileViewer {
         this.addAction("Download PNG", () => triggerDownload(new Blob([rawData]), `${fileId}.png`));
       } else if (texKind === "riff") {
         this.addAction("Download RIFF", () => triggerDownload(new Blob([rawData]), `${fileId}.riff`));
+      } else if (texKind === "dds") {
+        this.addAction("Download DDS", () => triggerDownload(new Blob([rawData]), `${fileId}.dds`));
       }
     }
 
