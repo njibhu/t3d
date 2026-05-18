@@ -29,6 +29,10 @@ export interface VTOptions<T> {
   rowHeight?: number;
   getRowKey: (row: T) => number | string;
   onRowClick?: (row: T, event: MouseEvent) => void;
+  /// Fired when the user moves the highlight via keyboard (arrow keys,
+  /// Home, End, PageUp/Down). The consumer typically uses this to load the
+  /// file represented by the row.
+  onRowActivate?: (row: T) => void;
 }
 
 type SortDir = "asc" | "desc";
@@ -43,6 +47,7 @@ export class VirtualTable<T> {
   private rowHeight: number;
   private getRowKey: (row: T) => number | string;
   private onRowClick?: (row: T, event: MouseEvent) => void;
+  private onRowActivate?: (row: T) => void;
 
   /// DOM refs
   private headerWrap!: HTMLDivElement;
@@ -70,6 +75,7 @@ export class VirtualTable<T> {
     this.rowHeight = opts.rowHeight ?? 28;
     this.getRowKey = opts.getRowKey;
     this.onRowClick = opts.onRowClick;
+    this.onRowActivate = opts.onRowActivate;
 
     this.columnPxWidths = this.columns.map((c) => {
       const m = /^(\d+(?:\.\d+)?)px$/.exec(c.width);
@@ -174,15 +180,31 @@ export class VirtualTable<T> {
     this.scroller.appendChild(this.bodyTable);
     this.root.appendChild(this.scroller);
 
-    /// Delegated click handler on the body table.
-    this.bodyTable.addEventListener("click", (ev) => {
+    /// Delegated row activation. We listen to both `click` (primary button)
+    /// and `auxclick` (middle button = open in new tab) so Ctrl/⌘+click and
+    /// middle-click both reach the consumer.
+    const onActivate = (ev: MouseEvent): void => {
       const target = ev.target as HTMLElement;
       const tr = target.closest("tr") as HTMLTableRowElement | null;
       if (!tr || tr.classList.contains("vt-spacer-top") || tr.classList.contains("vt-spacer-bot")) return;
       const ind = Number(tr.dataset.ind);
       if (!Number.isFinite(ind)) return;
       const row = this.data[this.order[ind]];
-      if (row != null && this.onRowClick) this.onRowClick(row, ev);
+      if (row == null) return;
+      /// Focus the scroller so subsequent arrow keys drive selection.
+      this.scroller.focus({ preventScroll: true });
+      if (this.onRowClick) this.onRowClick(row, ev);
+    };
+    this.bodyTable.addEventListener("click", onActivate);
+    this.bodyTable.addEventListener("auxclick", (ev) => {
+      if (ev.button === 1) {
+        ev.preventDefault();
+        onActivate(ev);
+      }
+    });
+    /// Suppress the middle-click "autoscroll" cursor on Windows/Linux
+    this.bodyTable.addEventListener("mousedown", (ev) => {
+      if (ev.button === 1) ev.preventDefault();
     });
 
     this.scroller.addEventListener(
@@ -192,6 +214,76 @@ export class VirtualTable<T> {
       },
       { passive: true }
     );
+
+    /// Keyboard navigation. We hijack arrow/Home/End/PageUp/Down so they
+    /// move the selection (and load the file via onRowActivate) instead of
+    /// the browser's default scroll-the-container behaviour.
+    this.scroller.addEventListener("keydown", (ev) => this.onKeyDown(ev));
+  }
+
+  private onKeyDown(ev: KeyboardEvent): void {
+    const n = this.order.length;
+    if (n === 0) return;
+    /// Find the current order index from the selected key. If nothing is
+    /// selected yet, start at the top.
+    let idx = -1;
+    if (this.selectedKey != null) {
+      for (let i = 0; i < n; i++) {
+        const r = this.data[this.order[i]];
+        if (r != null && this.getRowKey(r) === this.selectedKey) {
+          idx = i;
+          break;
+        }
+      }
+    }
+
+    const viewportRows = Math.max(1, Math.floor(this.scroller.clientHeight / this.rowHeight));
+    let next = idx;
+    switch (ev.key) {
+      case "ArrowDown":
+        next = idx < 0 ? 0 : Math.min(n - 1, idx + 1);
+        break;
+      case "ArrowUp":
+        next = idx < 0 ? 0 : Math.max(0, idx - 1);
+        break;
+      case "PageDown":
+        next = idx < 0 ? 0 : Math.min(n - 1, idx + viewportRows);
+        break;
+      case "PageUp":
+        next = idx < 0 ? 0 : Math.max(0, idx - viewportRows);
+        break;
+      case "Home":
+        next = 0;
+        break;
+      case "End":
+        next = n - 1;
+        break;
+      default:
+        return;
+    }
+    ev.preventDefault();
+    if (next === idx) return;
+    const row = this.data[this.order[next]];
+    if (row == null) return;
+    const newKey = this.getRowKey(row);
+    this.setSelection(newKey);
+    this.ensureRowVisible(next);
+    if (this.onRowActivate) this.onRowActivate(row);
+  }
+
+  /// Ensure the given order index is within the visible scroll window.
+  /// If above: scroll so the row is at the top. If below: scroll so it
+  /// sits at the bottom. Otherwise: no-op.
+  private ensureRowVisible(orderIdx: number): void {
+    const top = orderIdx * this.rowHeight;
+    const bottom = top + this.rowHeight;
+    const viewTop = this.scroller.scrollTop;
+    const viewBottom = viewTop + this.scroller.clientHeight;
+    if (top < viewTop) {
+      this.scroller.scrollTop = top;
+    } else if (bottom > viewBottom) {
+      this.scroller.scrollTop = bottom - this.scroller.clientHeight;
+    }
   }
 
   /* ---------- row builders ---------- */

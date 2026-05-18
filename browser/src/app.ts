@@ -64,7 +64,10 @@ export class App {
     });
     const jumpBtn = document.createElement("button");
     jumpBtn.textContent = "Load";
-    jumpBtn.addEventListener("click", () => this.openByBaseId(parseInt(jumpInput.value, 10), false));
+    jumpBtn.title = "Load (Ctrl/⌘+click for new tab)";
+    jumpBtn.addEventListener("click", (e) =>
+      this.openByBaseId(parseInt(jumpInput.value, 10), e.ctrlKey || e.metaKey)
+    );
 
     toolbar.append(jumpInput, jumpBtn);
 
@@ -159,6 +162,12 @@ export class App {
       ],
       getRowKey: (r) => r.mftId,
       onRowClick: (r, ev) => this.onRowClick(r, ev),
+      /// Keyboard nav (arrows / Home / End / PageUp/Down). Loads the row
+      /// into the active tab, like a normal click.
+      onRowActivate: (r) => {
+        const baseId = r.baseIds[0];
+        if (baseId != null) this.openByBaseId(baseId, false);
+      },
     });
     this.fileTableHostEl.appendChild(this.table.root);
     /// fix layout
@@ -234,9 +243,11 @@ export class App {
       );
     }
     this.table.setData(rows);
+    const isMac = navigator.platform.toLowerCase().includes("mac");
+    const modKey = isMac ? "⌘" : "Ctrl";
     this.fileTableFooterEl.textContent = `${rows.length.toLocaleString()} files${
       this.currentFilter === "All" ? "" : ` · filter: ${this.currentFilter}`
-    }`;
+    } · ${modKey}/middle-click for new tab`;
   }
 
   /* ---------- tabs ---------- */
@@ -244,7 +255,9 @@ export class App {
   private onRowClick(row: FileRow, ev: MouseEvent): void {
     const baseId = row.baseIds[0];
     if (baseId == null) return;
-    const newTab = ev.ctrlKey || ev.metaKey;
+    /// Ctrl/⌘-click or middle-click opens in a new tab (matches browser
+    /// conventions). Regular click replaces the active tab.
+    const newTab = ev.ctrlKey || ev.metaKey || ev.button === 1;
     this.openByBaseId(baseId, newTab);
   }
 

@@ -367,6 +367,50 @@ body {
   cursor: pointer;
   font-size: 11px;
 }
+.pack-chunk button:hover {
+  background: var(--t3d-row-hover);
+}
+.pack-chunk-preview {
+  margin: 8px 0;
+  padding: 8px 10px;
+  background: var(--t3d-bg);
+  border: 1px solid var(--t3d-border);
+  border-radius: 3px;
+  color: var(--t3d-text);
+  font-family: var(--t3d-mono);
+  font-size: 11px;
+  line-height: 1.4;
+  max-height: 280px;
+  overflow: auto;
+  white-space: pre;
+  cursor: text;
+  /* One click selects the whole preview so Ctrl+C copies it all */
+  user-select: all;
+  -webkit-user-select: all;
+}
+.pack-chunk-preview-placeholder {
+  color: var(--t3d-text-muted);
+  font-style: italic;
+  cursor: pointer;
+  /* Disable select-all so the first click registers as a normal click */
+  user-select: none;
+  -webkit-user-select: none;
+}
+.pack-chunk-preview-placeholder:hover {
+  background: var(--t3d-bg-panel-2);
+  color: var(--t3d-text);
+}
+.pack-chunk-hint {
+  margin: 4px 0 8px 0;
+  color: var(--t3d-text-muted);
+  font-size: 11px;
+  font-style: italic;
+}
+.pack-chunk-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
 
 .texture-view {
   display: flex;
@@ -395,19 +439,33 @@ body {
 .sound-view {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  max-width: 600px;
 }
-.sound-view .controls {
-  display: flex;
-  gap: 8px;
+.sound-view .info {
+  color: var(--t3d-text-muted);
+  font-size: 12px;
 }
-.sound-view button {
+.sound-view audio {
+  width: 100%;
+  height: 40px;
+  /* Native controls; this filter darkens the default white player background
+     in Chromium-based browsers to fit the theme without losing the controls. */
+  filter: invert(0.85) hue-rotate(180deg);
+  border-radius: 4px;
+}
+.sound-view .download-btn {
+  align-self: flex-start;
   background: var(--t3d-bg-panel-2);
   border: 1px solid var(--t3d-border);
   color: var(--t3d-text);
   padding: 6px 12px;
   border-radius: 3px;
   cursor: pointer;
+  font-size: 12px;
+}
+.sound-view .download-btn:hover {
+  background: var(--t3d-row-hover);
 }
 
 /* Dialog (native <dialog>) */

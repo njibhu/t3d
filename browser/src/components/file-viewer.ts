@@ -5,11 +5,13 @@ import { detectTextureKind, renderTextureView } from "../views/texture-view";
 import { StringView } from "../views/string-view";
 import { SoundView } from "../views/sound-view";
 import { ModelView } from "../views/model-view";
+import { HexView } from "../views/hex-view";
 
-type TabKind = "raw" | "pack" | "texture" | "string" | "model" | "sound";
+type TabKind = "raw" | "hex" | "pack" | "texture" | "string" | "model" | "sound";
 
 const TAB_LABELS: Record<TabKind, string> = {
   raw: "Raw",
+  hex: "Hex",
   pack: "Pack File",
   texture: "Texture",
   string: "String",
@@ -40,6 +42,7 @@ export class FileViewer {
   private stringView?: StringView;
   private soundView?: SoundView;
   private modelView?: ModelView;
+  private hexView?: HexView;
 
   /// Renderer context for this file (kept isolated per viewer)
   private context: any = {};
@@ -147,18 +150,49 @@ export class FileViewer {
     this.fileName = `${fileId}${image || !packfile ? "." + fcc : "." + packfile.header.type}`;
     this.titleEl.textContent = this.fileName;
 
-    /// Always: Raw tab + download
+    /// Decide the primary tab up-front from the file shape so we activate
+    /// it once, instead of activating Raw and then jumping when the real
+    /// content tab finishes loading.
+    const texInput = { rawData, image };
+    const texKind = detectTextureKind(texInput);
+    const isModel = packfile?.header.type === "MODL";
+    const isSound = packfile?.header.type === "ASND";
+    const isStrings = !packfile && fcc === "strs";
+    const primary: TabKind = isModel
+      ? "model"
+      : texKind
+      ? "texture"
+      : isSound
+      ? "sound"
+      : isStrings
+      ? "string"
+      : packfile
+      ? "pack"
+      : "raw";
+
+    /// Build tabs in display order (raw, hex, pack, texture, string, model,
+    /// sound) so they appear in a stable position in the strip.
+
+    /// Raw — always present
     const rawTab = this.ensureTab("raw");
     renderRawView(rawTab.pane, rawString);
     this.addAction("Download raw", () => {
       const blob = new Blob([rawData], { type: "octet/stream" });
       triggerDownload(blob, this.fileName + ".raw");
     });
-    this.activateTab("raw");
 
-    /// Texture detection
-    const texInput = { rawData, image };
-    const texKind = detectTextureKind(texInput);
+    /// Hex — always present
+    const hexTab = this.ensureTab("hex");
+    this.hexView = new HexView(hexTab.pane);
+    this.hexView.setData(rawData);
+
+    /// Pack
+    if (packfile) {
+      const p = this.ensureTab("pack");
+      renderPackView(p.pane, packfile, this.fileName);
+    }
+
+    /// Texture
     if (texKind) {
       const t = this.ensureTab("texture");
       renderTextureView(t.pane, texInput, texKind);
@@ -167,22 +201,29 @@ export class FileViewer {
       } else if (texKind === "riff") {
         this.addAction("Download RIFF", () => triggerDownload(new Blob([rawData]), `${fileId}.riff`));
       }
-      this.activateTab("texture");
     }
 
-    /// Pack file
-    if (packfile) {
-      const p = this.ensureTab("pack");
-      renderPackView(p.pane, packfile);
+    /// Pre-create the model/sound/string tabs so they appear in the strip
+    /// immediately. Their content will fill in as the async renderer completes,
+    /// but the tab itself is already there and active.
+    if (isModel) {
+      const m = this.ensureTab("model");
+      if (!this.modelView) this.modelView = new ModelView(m.pane);
+    } else if (isSound) {
+      this.ensureTab("sound");
+    } else if (isStrings) {
+      this.ensureTab("string");
+    }
 
-      if (packfile.header.type === "MODL") {
-        await this.loadModel();
-      } else if (packfile.header.type === "ASND") {
-        this.loadSound(packfile);
-      } else if (!texKind) {
-        this.activateTab("pack");
-      }
-    } else if (fcc === "strs") {
+    /// Activate the primary tab exactly once.
+    this.activateTab(primary);
+
+    /// Kick off async content loaders
+    if (isModel) {
+      void this.loadModel();
+    } else if (isSound) {
+      this.loadSound(packfile);
+    } else if (isStrings) {
       this.loadStrings();
     }
   }
@@ -197,10 +238,7 @@ export class FileViewer {
       T3D.runRenderer(SingleModelRenderer, this.reader, { id: this.fileId }, this.context, resolve);
     });
     const meshes = T3D.getContextValue<any[]>(this.context, SingleModelRenderer, "meshes", []);
-    const m = this.ensureTab("model");
-    if (!this.modelView) this.modelView = new ModelView(m.pane);
-    this.modelView.canvas.setModels(meshes);
-    this.activateTab("model");
+    this.modelView!.canvas.setModels(meshes);
     this.addAction("Export OBJ", () => {
       const blob = this.modelView!.canvas.exportOBJ(String(this.fileId));
       triggerDownload(blob, `export.${this.fileId}.obj`);
@@ -210,20 +248,18 @@ export class FileViewer {
   private loadSound(packfile: any): void {
     const chunk = packfile.getChunk("ASND");
     if (!chunk) return;
-    const s = this.ensureTab("sound");
+    const s = this.tabs.get("sound")!;
     if (!this.soundView) this.soundView = new SoundView(s.pane);
     this.soundView.render(chunk.data, this.fileName);
-    this.activateTab("sound");
   }
 
   private loadStrings(): void {
     this.context = {};
     T3D.runRenderer(StringRenderer, this.reader, { id: this.fileId }, this.context, () => {
       const strings = T3D.getContextValue<any[]>(this.context, StringRenderer, "strings", []);
-      const s = this.ensureTab("string");
+      const s = this.tabs.get("string")!;
       if (!this.stringView) this.stringView = new StringView(s.pane);
       this.stringView.setData(strings);
-      this.activateTab("string");
     });
   }
 }

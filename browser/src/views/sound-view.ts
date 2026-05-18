@@ -5,8 +5,8 @@ export interface SoundData {
 
 export class SoundView {
   private host: HTMLElement;
-  private ctx?: AudioContext;
-  private source?: AudioBufferSourceNode;
+  private blobUrl?: string;
+  private audio?: HTMLAudioElement;
 
   constructor(host: HTMLElement) {
     this.host = host;
@@ -14,63 +14,59 @@ export class SoundView {
   }
 
   render(data: SoundData, fileName: string): void {
+    this.disposeUrl();
     this.host.replaceChildren();
+
     const wrap = document.createElement("div");
     wrap.className = "sound-view";
 
     const info = document.createElement("div");
-    info.innerHTML = `Length: ${data.length} seconds<br/>Size: ${data.audioData.length} bytes`;
+    info.className = "info";
+    info.innerHTML = `Length: ${data.length}s &middot; ${formatBytes(data.audioData.length)}`;
     wrap.appendChild(info);
 
-    const controls = document.createElement("div");
-    controls.className = "controls";
+    /// Native <audio controls> gives us play/pause, scrubbable progress,
+    /// time display and volume for free.
+    /// Copy into a plain ArrayBuffer so the Blob ctor's BlobPart typing is happy
+    /// (the audioData Uint8Array may be backed by a SharedArrayBuffer).
+    const buf = data.audioData.slice().buffer as ArrayBuffer;
+    const blob = new Blob([buf], { type: "audio/mpeg" });
+    this.blobUrl = URL.createObjectURL(blob);
+    this.audio = document.createElement("audio");
+    this.audio.controls = true;
+    this.audio.preload = "metadata";
+    this.audio.src = this.blobUrl;
+    wrap.appendChild(this.audio);
 
     const dlBtn = document.createElement("button");
+    dlBtn.className = "download-btn";
     dlBtn.textContent = "Download MP3";
-    dlBtn.addEventListener("click", () => {
-      const blob = new Blob([data.audioData], { type: "octet/stream" });
-      triggerDownload(blob, `${fileName}.mp3`);
-    });
+    dlBtn.addEventListener("click", () => triggerDownload(blob, `${fileName}.mp3`));
+    wrap.appendChild(dlBtn);
 
-    const playBtn = document.createElement("button");
-    playBtn.textContent = "Play";
-    playBtn.addEventListener("click", () => this.play(data.audioData));
-
-    const stopBtn = document.createElement("button");
-    stopBtn.textContent = "Stop";
-    stopBtn.addEventListener("click", () => this.stop());
-
-    controls.append(dlBtn, playBtn, stopBtn);
-    wrap.appendChild(controls);
     this.host.appendChild(wrap);
   }
 
-  private play(audioData: Uint8Array): void {
-    if (!this.ctx) this.ctx = new AudioContext();
-    this.stop();
-    const src = this.ctx.createBufferSource();
-    src.connect(this.ctx.destination);
-    /// decodeAudioData detaches the buffer — copy to be safe across replays
-    const buf = audioData.slice().buffer;
-    this.ctx.decodeAudioData(buf, (decoded) => {
-      src.buffer = decoded;
-      src.start();
-    });
-    this.source = src;
-  }
-
-  private stop(): void {
-    try {
-      this.source?.stop();
-    } catch {
-      /* ignore */
+  private disposeUrl(): void {
+    if (this.audio) {
+      this.audio.pause();
+      this.audio.src = "";
+    }
+    if (this.blobUrl) {
+      URL.revokeObjectURL(this.blobUrl);
+      this.blobUrl = undefined;
     }
   }
 
   dispose(): void {
-    this.stop();
-    this.ctx?.close().catch(() => {});
+    this.disposeUrl();
   }
+}
+
+function formatBytes(n: number): string {
+  if (n < 1024) return n + " B";
+  if (n < 1024 * 1024) return (n / 1024).toFixed(1) + " KB";
+  return (n / 1024 / 1024).toFixed(2) + " MB";
 }
 
 function triggerDownload(blob: Blob, fileName: string): void {
