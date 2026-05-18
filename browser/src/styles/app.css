@@ -1,4 +1,5 @@
-:root {
+:root,
+:root.theme-dark {
   --t3d-bg: #1e1f23;
   --t3d-bg-panel: #2a2c31;
   --t3d-bg-panel-2: #34373d;
@@ -9,11 +10,29 @@
   --t3d-accent-dim: #8b6826;
   --t3d-row-hover: #353841;
   --t3d-row-selected: #4a3a1c;
+  --t3d-audio-filter: invert(0.85) hue-rotate(180deg);
   --t3d-toolbar-height: 44px;
   --t3d-tab-height: 36px;
   --t3d-row-height: 28px;
   --t3d-font: "Segoe UI", system-ui, -apple-system, sans-serif;
   --t3d-mono: ui-monospace, "Cascadia Code", "Consolas", monospace;
+  color-scheme: dark;
+}
+
+:root.theme-light {
+  --t3d-bg: #f7f7f8;
+  --t3d-bg-panel: #ececef;
+  --t3d-bg-panel-2: #dcdde1;
+  --t3d-border: #c5c7cc;
+  --t3d-text: #1e1f23;
+  --t3d-text-muted: #5b5e66;
+  --t3d-accent: #b07320;
+  --t3d-accent-dim: #d49a3a;
+  --t3d-row-hover: #e1e3e8;
+  --t3d-row-selected: #f3e2bf;
+  /* Audio element looks fine on a light bg without inverting */
+  --t3d-audio-filter: none;
+  color-scheme: light;
 }
 
 html,
@@ -84,6 +103,13 @@ body {
 }
 .toolbar button.primary:hover {
   background: var(--t3d-accent);
+}
+.toolbar button.theme-toggle {
+  margin-left: 6px;
+  width: 30px;
+  padding: 5px 0;
+  font-size: 14px;
+  line-height: 1;
 }
 
 .main-split {
@@ -589,8 +615,9 @@ body {
   width: 100%;
   height: 40px;
   /* Native controls; this filter darkens the default white player background
-     in Chromium-based browsers to fit the theme without losing the controls. */
-  filter: invert(0.85) hue-rotate(180deg);
+     in Chromium-based browsers to fit the theme without losing the controls.
+     Theme-aware via the --t3d-audio-filter custom property. */
+  filter: var(--t3d-audio-filter);
   border-radius: 4px;
 }
 .sound-view .download-btn {

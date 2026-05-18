@@ -87,6 +87,10 @@ export class App {
     });
     toolbar.appendChild(openBtn);
 
+    /// Theme toggle (top right). Persists in localStorage; defaults to the
+    /// OS preference via prefers-color-scheme.
+    toolbar.appendChild(this.buildThemeToggle());
+
     this.root.appendChild(toolbar);
 
     /// Main split
@@ -424,6 +428,42 @@ export class App {
         this.closeTab(this.activeTabId);
       }
     });
+  }
+
+  private buildThemeToggle(): HTMLButtonElement {
+    const btn = document.createElement("button");
+    btn.className = "theme-toggle";
+    btn.type = "button";
+
+    /// Resolve the initial theme: stored preference if any, otherwise OS.
+    const stored = localStorage.getItem("t3d-browser:theme") as "light" | "dark" | null;
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    let theme: "light" | "dark" = stored ?? (prefersDark ? "dark" : "light");
+
+    const apply = (t: "light" | "dark"): void => {
+      theme = t;
+      document.documentElement.classList.toggle("theme-light", t === "light");
+      document.documentElement.classList.toggle("theme-dark", t === "dark");
+      /// Sun glyph in dark mode (click to go light), moon in light mode.
+      btn.textContent = t === "dark" ? "☀" : "☾";
+      btn.title = `Switch to ${t === "dark" ? "light" : "dark"} theme`;
+      btn.setAttribute("aria-label", btn.title);
+    };
+    apply(theme);
+
+    btn.addEventListener("click", () => {
+      const next = theme === "dark" ? "light" : "dark";
+      apply(next);
+      localStorage.setItem("t3d-browser:theme", next);
+    });
+
+    /// Track OS-preference changes when the user hasn't explicitly chosen.
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (ev) => {
+      if (localStorage.getItem("t3d-browser:theme")) return;
+      apply(ev.matches ? "dark" : "light");
+    });
+
+    return btn;
   }
 
   private wireSplitter(splitter: HTMLElement, mainSplit: HTMLElement): void {

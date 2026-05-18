@@ -81,7 +81,7 @@
 .vt-table tr[data-line]:not(.vt-spacer-top):not(.vt-spacer-bot):not(.vt-sizer) {
   height: var(--t3d-row-height);
   cursor: pointer;
-  border-bottom: 1px solid #2a2c31;
+  border-bottom: 1px solid var(--t3d-border);
 }
 .vt-table tr[data-line]:hover:not(.vt-spacer-top):not(.vt-spacer-bot):not(.vt-sizer) {
   background: var(--t3d-row-hover);
