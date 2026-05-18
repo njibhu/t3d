@@ -126,7 +126,22 @@ export class App {
     this.fileTableFooterEl.className = "file-table-footer";
 
     fileTableContainer.append(searchBar, this.fileTableHostEl, this.fileTableFooterEl);
-    leftPane.append(this.sidebarEl, fileTableContainer);
+
+    /// Horizontal splitter between the sidebar (file-type filters) and the file table
+    const leftSplitter = document.createElement("div");
+    leftSplitter.className = "left-splitter";
+    leftSplitter.setAttribute("role", "separator");
+    leftSplitter.setAttribute("aria-orientation", "horizontal");
+    leftSplitter.title = "Drag to resize · double-click to reset";
+    this.wireHSplitter(leftSplitter, leftPane);
+
+    leftPane.append(this.sidebarEl, leftSplitter, fileTableContainer);
+
+    /// Restore persisted sidebar height
+    const savedH = parseInt(localStorage.getItem("t3d-browser:sidebarH") ?? "", 10);
+    if (Number.isFinite(savedH)) {
+      leftPane.style.setProperty("--sidebar-h", clampSidebarHeight(savedH) + "px");
+    }
 
     /// Right pane: file tabs strip + viewer host
     const rightPane = document.createElement("div");
@@ -143,8 +158,22 @@ export class App {
     this.viewerHostEl.appendChild(empty);
     rightPane.append(this.tabsStrip.root, this.viewerHostEl);
 
-    mainSplit.append(leftPane, rightPane);
+    /// Draggable splitter between left and right panes
+    const splitter = document.createElement("div");
+    splitter.className = "main-splitter";
+    splitter.setAttribute("role", "separator");
+    splitter.setAttribute("aria-orientation", "vertical");
+    splitter.title = "Drag to resize · double-click to reset";
+    this.wireSplitter(splitter, mainSplit);
+
+    mainSplit.append(leftPane, splitter, rightPane);
     this.root.appendChild(mainSplit);
+
+    /// Restore persisted width
+    const saved = parseInt(localStorage.getItem("t3d-browser:leftPaneW") ?? "", 10);
+    if (Number.isFinite(saved)) {
+      mainSplit.style.setProperty("--left-pane-w", clampPaneWidth(saved) + "px");
+    }
 
     /// Build the virtual table (data fills in after archive load)
     this.table = new VirtualTable<FileRow>({
@@ -397,6 +426,91 @@ export class App {
     });
   }
 
+  private wireSplitter(splitter: HTMLElement, mainSplit: HTMLElement): void {
+    let dragging = false;
+    let startX = 0;
+    let startW = 0;
+
+    const getCurrentWidth = (): number => {
+      const set = mainSplit.style.getPropertyValue("--left-pane-w");
+      if (set) return parseInt(set, 10);
+      /// fall back to the computed first track width
+      const cs = getComputedStyle(mainSplit);
+      const tracks = cs.gridTemplateColumns.split(/\s+/);
+      return parseInt(tracks[0] ?? "320", 10) || 320;
+    };
+
+    splitter.addEventListener("pointerdown", (ev) => {
+      dragging = true;
+      startX = ev.clientX;
+      startW = getCurrentWidth();
+      splitter.setPointerCapture(ev.pointerId);
+      document.body.style.cursor = "col-resize";
+      document.body.style.userSelect = "none";
+    });
+    splitter.addEventListener("pointermove", (ev) => {
+      if (!dragging) return;
+      const next = clampPaneWidth(startW + (ev.clientX - startX));
+      mainSplit.style.setProperty("--left-pane-w", next + "px");
+    });
+    const endDrag = (ev: PointerEvent): void => {
+      if (!dragging) return;
+      dragging = false;
+      splitter.releasePointerCapture(ev.pointerId);
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+      localStorage.setItem("t3d-browser:leftPaneW", String(getCurrentWidth()));
+    };
+    splitter.addEventListener("pointerup", endDrag);
+    splitter.addEventListener("pointercancel", endDrag);
+    splitter.addEventListener("dblclick", () => {
+      mainSplit.style.removeProperty("--left-pane-w");
+      localStorage.removeItem("t3d-browser:leftPaneW");
+    });
+  }
+
+  private wireHSplitter(splitter: HTMLElement, leftPane: HTMLElement): void {
+    let dragging = false;
+    let startY = 0;
+    let startH = 0;
+
+    const getCurrentHeight = (): number => {
+      const set = leftPane.style.getPropertyValue("--sidebar-h");
+      if (set) return parseInt(set, 10);
+      const cs = getComputedStyle(leftPane);
+      const tracks = cs.gridTemplateRows.split(/\s+/);
+      return parseInt(tracks[0] ?? "180", 10) || 180;
+    };
+
+    splitter.addEventListener("pointerdown", (ev) => {
+      dragging = true;
+      startY = ev.clientY;
+      startH = getCurrentHeight();
+      splitter.setPointerCapture(ev.pointerId);
+      document.body.style.cursor = "row-resize";
+      document.body.style.userSelect = "none";
+    });
+    splitter.addEventListener("pointermove", (ev) => {
+      if (!dragging) return;
+      const next = clampSidebarHeight(startH + (ev.clientY - startY));
+      leftPane.style.setProperty("--sidebar-h", next + "px");
+    });
+    const endDrag = (ev: PointerEvent): void => {
+      if (!dragging) return;
+      dragging = false;
+      splitter.releasePointerCapture(ev.pointerId);
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+      localStorage.setItem("t3d-browser:sidebarH", String(getCurrentHeight()));
+    };
+    splitter.addEventListener("pointerup", endDrag);
+    splitter.addEventListener("pointercancel", endDrag);
+    splitter.addEventListener("dblclick", () => {
+      leftPane.style.removeProperty("--sidebar-h");
+      localStorage.removeItem("t3d-browser:sidebarH");
+    });
+  }
+
   private toast(msg: string): void {
     const t = document.createElement("div");
     t.className = "toast";
@@ -418,4 +532,17 @@ function rowKeyForBaseId(baseId: number, store: ArchiveStore): number | null {
   if (!reader) return null;
   const mftId = reader.getFileIndex(baseId);
   return mftId ?? null;
+}
+
+function clampPaneWidth(px: number): number {
+  const min = 240;
+  const max = Math.max(min, Math.min(900, window.innerWidth - 320));
+  return Math.max(min, Math.min(max, px));
+}
+
+function clampSidebarHeight(px: number): number {
+  const min = 80;
+  /// Leave at least ~200px for the file table below
+  const max = Math.max(min, window.innerHeight - 320);
+  return Math.max(min, Math.min(max, px));
 }

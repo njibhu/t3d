@@ -87,17 +87,50 @@ body {
 }
 
 .main-split {
+  --left-pane-w: 320px;
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: var(--left-pane-w) 5px 1fr;
   overflow: hidden;
 }
 
+.main-splitter {
+  background: var(--t3d-border);
+  cursor: col-resize;
+  position: relative;
+  /* Slight hover halo so the 5px target is easier to grab */
+}
+.main-splitter::after {
+  content: "";
+  position: absolute;
+  inset: 0 -3px;
+}
+.main-splitter:hover,
+.main-splitter:active {
+  background: var(--t3d-accent);
+}
+
 .left-pane {
+  --sidebar-h: 180px;
   display: grid;
-  grid-template-rows: minmax(120px, 200px) 1fr;
+  grid-template-rows: var(--sidebar-h) 5px 1fr;
   border-right: 1px solid var(--t3d-border);
   background: var(--t3d-bg-panel);
   overflow: hidden;
+}
+
+.left-splitter {
+  background: var(--t3d-border);
+  cursor: row-resize;
+  position: relative;
+}
+.left-splitter::after {
+  content: "";
+  position: absolute;
+  inset: -3px 0;
+}
+.left-splitter:hover,
+.left-splitter:active {
+  background: var(--t3d-accent);
 }
 
 .sidebar {
