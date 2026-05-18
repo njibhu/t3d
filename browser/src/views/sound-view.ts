@@ -1,3 +1,6 @@
+import { triggerDownload } from "../util/download";
+import { formatBytes } from "../util/format";
+
 export interface SoundData {
   audioData: Uint8Array;
   length: number;
@@ -25,13 +28,11 @@ export class SoundView {
     info.innerHTML = `Length: ${data.length}s &middot; ${formatBytes(data.audioData.length)}`;
     wrap.appendChild(info);
 
-    /// Native <audio controls> gives us play/pause, scrubbable progress,
-    /// time display and volume for free.
-    /// Copy into a plain ArrayBuffer so the Blob ctor's BlobPart typing is happy
-    /// (the audioData Uint8Array may be backed by a SharedArrayBuffer).
-    const buf = data.audioData.slice().buffer as ArrayBuffer;
-    const blob = new Blob([buf], { type: "audio/mpeg" });
+    // The audioData buffer may live in a SharedArrayBuffer, which Blob's
+    // typing refuses. Slicing copies into a plain ArrayBuffer.
+    const blob = new Blob([data.audioData.slice().buffer as ArrayBuffer], { type: "audio/mpeg" });
     this.blobUrl = URL.createObjectURL(blob);
+
     this.audio = document.createElement("audio");
     this.audio.controls = true;
     this.audio.preload = "metadata";
@@ -47,6 +48,10 @@ export class SoundView {
     this.host.appendChild(wrap);
   }
 
+  dispose(): void {
+    this.disposeUrl();
+  }
+
   private disposeUrl(): void {
     if (this.audio) {
       this.audio.pause();
@@ -57,25 +62,4 @@ export class SoundView {
       this.blobUrl = undefined;
     }
   }
-
-  dispose(): void {
-    this.disposeUrl();
-  }
-}
-
-function formatBytes(n: number): string {
-  if (n < 1024) return n + " B";
-  if (n < 1024 * 1024) return (n / 1024).toFixed(1) + " KB";
-  return (n / 1024 / 1024).toFixed(2) + " MB";
-}
-
-function triggerDownload(blob: Blob, fileName: string): void {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = fileName;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
 }

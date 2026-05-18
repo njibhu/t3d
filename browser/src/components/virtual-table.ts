@@ -1,22 +1,16 @@
 /**
- * Verbatim port of w2ui v1.4.3's w2grid record-rendering algorithm.
- *
- * Reference: node_modules/w2ui/w2ui-1.4.3.js
- *   - getRecordsHTML : lines 6127-6154
- *   - scroll         : lines 6166-6296
- *   - getRecordHTML  : lines 6298-6418
- *
- * Variable names and control flow track w2ui closely so the diff against the
- * reference stays readable. Names like `buffered`, `show_extra`, `tr1`, `tr2`,
- * `rec_start`, `range_start`, `range_end` are deliberate.
+ * Spacer-row virtualisation. The body is one `<table>`; two `<tr>` spacers
+ * bracket the rendered window, their heights computed from the unrendered
+ * rows above and below. Native `scrollHeight` reflects the full virtual
+ * list because the spacers contribute their inline heights, so the browser
+ * scrollbar behaves correctly even for hundreds of thousands of rows.
  */
 
 export interface VTColumn<T> {
   field: keyof T | string;
   caption: string;
-  /// Either a fixed pixel width ("80px") or "auto" / "1fr". Anything that
-  /// isn't `<n>px` is treated as "auto" — the table-layout: fixed engine
-  /// will distribute the remainder of the table width across auto columns.
+  /** Either a fixed pixel width ("80px") or "auto"/"1fr". Non-px values let
+   * the `table-layout: fixed` engine distribute the remaining width. */
   width: string;
   align?: "left" | "right";
   sortable?: boolean;
@@ -29,9 +23,7 @@ export interface VTOptions<T> {
   rowHeight?: number;
   getRowKey: (row: T) => number | string;
   onRowClick?: (row: T, event: MouseEvent) => void;
-  /// Fired when the user moves the highlight via keyboard (arrow keys,
-  /// Home, End, PageUp/Down). The consumer typically uses this to load the
-  /// file represented by the row.
+  /** Fired when keyboard navigation moves the highlight to a new row. */
   onRowActivate?: (row: T) => void;
 }
 
@@ -41,28 +33,21 @@ export class VirtualTable<T> {
   readonly root: HTMLDivElement;
 
   private columns: VTColumn<T>[];
-  /// Pixel widths to apply to <col>/sizing cells; null means "auto"
+  /** Resolved px widths used by the sizing row; null where the column is auto. */
   private columnPxWidths: (number | null)[];
-  /// w2ui's recordHeight, renamed
   private rowHeight: number;
   private getRowKey: (row: T) => number | string;
   private onRowClick?: (row: T, event: MouseEvent) => void;
   private onRowActivate?: (row: T) => void;
 
-  /// DOM refs
-  private headerWrap!: HTMLDivElement;
-  private headerTable!: HTMLTableElement;
   private headerRow!: HTMLTableRowElement;
   private scroller!: HTMLDivElement;
-  private bodyTable!: HTMLTableElement;
   private tableBody!: HTMLTableSectionElement;
   private spacerTop!: HTMLTableRowElement;
   private spacerBot!: HTMLTableRowElement;
 
-  /// Source data and the visible-order index
   private data: T[] = [];
-  /// Index into this.data, in the current sort + filter order. We work on
-  /// this throughout; w2ui's `this.records[i]` becomes `this.data[this.order[i]]`.
+  /** Indices into `data`, in the current sort+filter order. */
   private order: number[] = [];
 
   private sortField: string | null = null;
@@ -90,7 +75,7 @@ export class VirtualTable<T> {
     this.buildBody();
   }
 
-  /* ---------- public API ---------- */
+  // ---- public API ----
 
   setData(rows: T[]): void {
     this.data = rows;
@@ -106,8 +91,7 @@ export class VirtualTable<T> {
     while (tr && tr !== this.spacerBot) {
       const ind = Number(tr.dataset.ind);
       const row = Number.isFinite(ind) ? this.data[this.order[ind]] : null;
-      const isSel = row != null && this.getRowKey(row) === key;
-      tr.classList.toggle("selected", isSel);
+      tr.classList.toggle("selected", row != null && this.getRowKey(row) === key);
       tr = tr.nextElementSibling as HTMLTableRowElement | null;
     }
   }
@@ -131,27 +115,20 @@ export class VirtualTable<T> {
     return this.data.length;
   }
 
-  /* ---------- build (DOM skeleton) ---------- */
-
   private buildHeader(): void {
-    this.headerWrap = document.createElement("div");
-    this.headerWrap.className = "vt-header-wrap";
+    const wrap = document.createElement("div");
+    wrap.className = "vt-header-wrap";
 
-    this.headerTable = document.createElement("table");
-    this.headerTable.className = "vt-header-table";
+    const table = document.createElement("table");
+    table.className = "vt-header-table";
 
     const thead = document.createElement("thead");
-
-    /// Sizing row (zero-height; sets column widths for the header table)
     thead.appendChild(this.buildSizingRow());
 
-    /// Actual header row with sortable <th>s
     this.headerRow = document.createElement("tr");
     this.headerRow.className = "vt-header-row";
-    for (let i = 0; i < this.columns.length; i++) {
-      const col = this.columns[i];
+    for (const col of this.columns) {
       const th = document.createElement("th");
-      th.dataset.col = String(i);
       if (col.align === "right") th.classList.add("num");
       th.textContent = col.caption;
       const indicator = document.createElement("span");
@@ -163,9 +140,9 @@ export class VirtualTable<T> {
       this.headerRow.appendChild(th);
     }
     thead.appendChild(this.headerRow);
-    this.headerTable.appendChild(thead);
-    this.headerWrap.appendChild(this.headerTable);
-    this.root.appendChild(this.headerWrap);
+    table.appendChild(thead);
+    wrap.appendChild(table);
+    this.root.appendChild(wrap);
   }
 
   private buildBody(): void {
@@ -173,107 +150,73 @@ export class VirtualTable<T> {
     this.scroller.className = "vt-scroller";
     this.scroller.tabIndex = 0;
 
-    this.bodyTable = document.createElement("table");
-    this.bodyTable.className = "vt-table";
+    const table = document.createElement("table");
+    table.className = "vt-table";
     this.tableBody = document.createElement("tbody");
-    this.bodyTable.appendChild(this.tableBody);
-    this.scroller.appendChild(this.bodyTable);
+    table.appendChild(this.tableBody);
+    this.scroller.appendChild(table);
     this.root.appendChild(this.scroller);
 
-    /// Delegated row activation. We listen to both `click` (primary button)
-    /// and `auxclick` (middle button = open in new tab) so Ctrl/⌘+click and
-    /// middle-click both reach the consumer.
-    const onActivate = (ev: MouseEvent): void => {
-      const target = ev.target as HTMLElement;
-      const tr = target.closest("tr") as HTMLTableRowElement | null;
+    const activateFromEvent = (ev: MouseEvent): void => {
+      const tr = (ev.target as HTMLElement).closest("tr") as HTMLTableRowElement | null;
       if (!tr || tr.classList.contains("vt-spacer-top") || tr.classList.contains("vt-spacer-bot")) return;
       const ind = Number(tr.dataset.ind);
       if (!Number.isFinite(ind)) return;
       const row = this.data[this.order[ind]];
       if (row == null) return;
-      /// Focus the scroller so subsequent arrow keys drive selection.
       this.scroller.focus({ preventScroll: true });
-      if (this.onRowClick) this.onRowClick(row, ev);
+      this.onRowClick?.(row, ev);
     };
-    this.bodyTable.addEventListener("click", onActivate);
-    this.bodyTable.addEventListener("auxclick", (ev) => {
-      if (ev.button === 1) {
-        ev.preventDefault();
-        onActivate(ev);
-      }
+    table.addEventListener("click", activateFromEvent);
+    // Middle-click opens in a new tab (consumer reads ev.button). Suppress
+    // the default browser auto-scroll cursor on mousedown.
+    table.addEventListener("auxclick", (ev) => {
+      if (ev.button !== 1) return;
+      ev.preventDefault();
+      activateFromEvent(ev);
     });
-    /// Suppress the middle-click "autoscroll" cursor on Windows/Linux
-    this.bodyTable.addEventListener("mousedown", (ev) => {
+    table.addEventListener("mousedown", (ev) => {
       if (ev.button === 1) ev.preventDefault();
     });
 
-    this.scroller.addEventListener(
-      "scroll",
-      () => {
-        this.scroll(false);
-      },
-      { passive: true }
-    );
-
-    /// Keyboard navigation. We hijack arrow/Home/End/PageUp/Down so they
-    /// move the selection (and load the file via onRowActivate) instead of
-    /// the browser's default scroll-the-container behaviour.
+    this.scroller.addEventListener("scroll", () => this.scroll(false), { passive: true });
     this.scroller.addEventListener("keydown", (ev) => this.onKeyDown(ev));
   }
 
   private onKeyDown(ev: KeyboardEvent): void {
     const n = this.order.length;
     if (n === 0) return;
-    /// Find the current order index from the selected key. If nothing is
-    /// selected yet, start at the top.
-    let idx = -1;
-    if (this.selectedKey != null) {
-      for (let i = 0; i < n; i++) {
-        const r = this.data[this.order[i]];
-        if (r != null && this.getRowKey(r) === this.selectedKey) {
-          idx = i;
-          break;
-        }
-      }
-    }
 
+    const current = this.findOrderIndexOfSelection();
     const viewportRows = Math.max(1, Math.floor(this.scroller.clientHeight / this.rowHeight));
-    let next = idx;
+    let next = current;
     switch (ev.key) {
-      case "ArrowDown":
-        next = idx < 0 ? 0 : Math.min(n - 1, idx + 1);
-        break;
-      case "ArrowUp":
-        next = idx < 0 ? 0 : Math.max(0, idx - 1);
-        break;
-      case "PageDown":
-        next = idx < 0 ? 0 : Math.min(n - 1, idx + viewportRows);
-        break;
-      case "PageUp":
-        next = idx < 0 ? 0 : Math.max(0, idx - viewportRows);
-        break;
-      case "Home":
-        next = 0;
-        break;
-      case "End":
-        next = n - 1;
-        break;
-      default:
-        return;
+      case "ArrowDown": next = current < 0 ? 0 : Math.min(n - 1, current + 1); break;
+      case "ArrowUp":   next = current < 0 ? 0 : Math.max(0, current - 1); break;
+      case "PageDown":  next = current < 0 ? 0 : Math.min(n - 1, current + viewportRows); break;
+      case "PageUp":    next = current < 0 ? 0 : Math.max(0, current - viewportRows); break;
+      case "Home":      next = 0; break;
+      case "End":       next = n - 1; break;
+      default: return;
     }
     ev.preventDefault();
-    if (next === idx) return;
+    if (next === current) return;
     const row = this.data[this.order[next]];
     if (row == null) return;
-    const newKey = this.getRowKey(row);
-    this.setSelection(newKey);
+    this.setSelection(this.getRowKey(row));
     this.ensureRowVisible(next);
-    if (this.onRowActivate) this.onRowActivate(row);
+    this.onRowActivate?.(row);
   }
 
-  /// Ensure the given order index is within the visible scroll window.
-  /// If above: scroll so the row is at the top. If below: scroll so it
-  /// sits at the bottom. Otherwise: no-op.
+  private findOrderIndexOfSelection(): number {
+    if (this.selectedKey == null) return -1;
+    for (let i = 0; i < this.order.length; i++) {
+      const r = this.data[this.order[i]];
+      if (r != null && this.getRowKey(r) === this.selectedKey) return i;
+    }
+    return -1;
+  }
+
   private ensureRowVisible(orderIdx: number): void {
     const top = orderIdx * this.rowHeight;
     const bottom = top + this.rowHeight;
@@ -286,17 +229,16 @@ export class VirtualTable<T> {
     }
   }
 
-  /* ---------- row builders ---------- */
+  // ---- DOM row builders ----
 
-  /// w2ui's <tr line="0"> sizing template. Cells are zero-height but their
-  /// widths drive column layout for the entire table (table-layout: fixed).
+  /** Zero-height row whose cell widths pin the column layout under
+   *  `table-layout: fixed`. Both header and body tables include one. */
   private buildSizingRow(): HTMLTableRowElement {
     const tr = document.createElement("tr");
     tr.className = "vt-sizer";
     tr.dataset.line = "0";
     for (let i = 0; i < this.columns.length; i++) {
       const td = document.createElement("td");
-      td.dataset.col = String(i);
       td.style.height = "0";
       const w = this.columnPxWidths[i];
       if (w != null) td.style.width = w + "px";
@@ -305,7 +247,8 @@ export class VirtualTable<T> {
     return tr;
   }
 
-  /// w2ui's <tr id="…_rec_top|bottom" line="top|bottom" style="height: <h>px">
+  /** Empty row whose inline `height` represents the unrendered range above
+   *  or below the rendered window. */
   private buildSpacerRow(which: "top" | "bottom", heightPx: number): HTMLTableRowElement {
     const tr = document.createElement("tr");
     tr.className = which === "top" ? "vt-spacer-top" : "vt-spacer-bot";
@@ -317,7 +260,6 @@ export class VirtualTable<T> {
     return tr;
   }
 
-  /// w2ui's getRecordHTML(ind, lineNum) but for real rows only (ind >= 0).
   private buildRow(ind: number, lineNum: number): HTMLTableRowElement {
     const tr = document.createElement("tr");
     tr.dataset.line = String(lineNum);
@@ -325,147 +267,129 @@ export class VirtualTable<T> {
     tr.style.height = this.rowHeight + "px";
 
     const row = this.data[this.order[ind]];
-    const isSel = this.selectedKey != null && this.getRowKey(row) === this.selectedKey;
-    if (isSel) tr.classList.add("selected");
+    if (this.selectedKey != null && this.getRowKey(row) === this.selectedKey) {
+      tr.classList.add("selected");
+    }
 
-    for (let c = 0; c < this.columns.length; c++) {
-      const col = this.columns[c];
+    for (const col of this.columns) {
       const td = document.createElement("td");
-      td.dataset.col = String(c);
       if (col.align === "right") td.classList.add("num");
       const raw = col.get ? col.get(row) : (row as any)[col.field as string];
-      const text = col.format ? col.format(raw, row) : raw == null ? "" : String(raw);
-      td.textContent = text;
+      td.textContent = col.format ? col.format(raw, row) : raw == null ? "" : String(raw);
       tr.appendChild(td);
     }
     return tr;
   }
 
-  /* ---------- getRecordsHTML (verbatim port of w2ui:6127-6154) ---------- */
+  // ---- initial render + incremental scroll ----
+
+  /** A "buffered" threshold below which virtualisation isn't worth the work:
+   *  the whole list is rendered at once and `scroll()` becomes a no-op. */
+  private static readonly DIRECT_RENDER_THRESHOLD = 300;
+
+  /** Overscan above and below the visible window. Larger for short lists so
+   *  fast wheel-scrolls don't briefly outrun the renderer. */
+  private overscanFor(buffered: number): number {
+    return buffered > VirtualTable.DIRECT_RENDER_THRESHOLD ? 30 : 300;
+  }
 
   private getRecordsHTML(): void {
     const buffered = this.order.length;
-    const recordsH = this.scroller.clientHeight;
-    /// w2ui:6131 "larger number works better with chrome, smaller with FF."
-    const show_extra = buffered > 300 ? 30 : 300;
-    let limit = Math.floor(recordsH / this.rowHeight) + show_extra + 1;
-    if (limit > buffered) limit = buffered;
+    const overscan = this.overscanFor(buffered);
+    const limit = Math.min(buffered, Math.floor(this.scroller.clientHeight / this.rowHeight) + overscan + 1);
 
-    /// Rebuild <tbody> from scratch
     this.tableBody.replaceChildren();
-
-    /// Always need first record for resizing purposes (w2ui:6135-6136)
     this.tableBody.appendChild(this.buildSizingRow());
 
-    /// First empty row with height (w2ui:6138-6140)
     this.spacerTop = this.buildSpacerRow("top", 0);
     this.tableBody.appendChild(this.spacerTop);
 
-    /// Rendered rows 1..limit (w2ui:6141-6143). w2ui uses lineNum = i+1.
+    // Rendered window is 1-indexed (lineNum=1..limit); see buildRow.
     for (let i = 0; i < limit; i++) {
       if (this.data[this.order[i]] == null) continue;
       this.tableBody.appendChild(this.buildRow(i, i + 1));
     }
 
-    /// Bottom spacer (w2ui:6144-6146)
     this.spacerBot = this.buildSpacerRow("bottom", (buffered - limit) * this.rowHeight);
     this.tableBody.appendChild(this.spacerBot);
-
   }
-
-  /* ---------- scroll (verbatim port of w2ui:6166-6296) ---------- */
 
   private scroll(force: boolean): void {
     const buffered = this.order.length;
-    const records = this.scroller;
-    const recordsH = records.clientHeight;
-    /// w2ui:6172
-    if (buffered === 0 || recordsH === 0) return;
-    /// w2ui:6173
-    const show_extra = buffered > 300 ? 30 : 300;
+    const viewH = this.scroller.clientHeight;
+    if (buffered === 0 || viewH === 0) return;
+    if (!force && buffered <= VirtualTable.DIRECT_RENDER_THRESHOLD) return;
 
-    /// Skip the footer update and "extra records loaded" block (we're local-only).
-    /// w2ui:6189: "only for local data source, else no extra records loaded".
-    /// In our case `!url` is true and `total <= 300` means we don't need virt.
-    if (!force && buffered <= 300) return;
+    const overscan = this.overscanFor(buffered);
+    let windowStart = Math.floor(this.scroller.scrollTop / this.rowHeight) - overscan;
+    let windowEnd = windowStart + Math.floor(viewH / this.rowHeight) + overscan * 2 + 1;
+    if (windowStart < 1) windowStart = 1;
+    if (windowEnd > buffered) windowEnd = buffered;
 
-    /// w2ui:6191-6195
-    let start = Math.floor(records.scrollTop / this.rowHeight) - show_extra;
-    let end = start + Math.floor(recordsH / this.rowHeight) + show_extra * 2 + 1;
-    if (start < 1) start = 1;
-    if (end > buffered) end = buffered;
+    const topSpacer = this.spacerTop;
+    const botSpacer = this.spacerBot;
+    const firstLine = parseInt((topSpacer.nextElementSibling as HTMLElement | null)?.dataset.line ?? "");
+    const lastLine = parseInt((botSpacer.previousElementSibling as HTMLElement | null)?.dataset.line ?? "");
 
-    /// w2ui:6196-6202
-    const tr1 = this.spacerTop;
-    const tr2 = this.spacerBot;
-    const firstEl = tr1.nextElementSibling as HTMLTableRowElement | null;
-    const lastEl = tr2.previousElementSibling as HTMLTableRowElement | null;
-    const first = firstEl ? parseInt(firstEl.dataset.line ?? "") : NaN;
-    const last = lastEl ? parseInt(lastEl.dataset.line ?? "") : NaN;
-
-    /// w2ui:6204 — scroll DOWN if first < start || first == 1 || pull_refresh
-    if (force || !(first >= start) || first === 1) {
-      /// w2ui:6206 early-out
-      if (!force && end <= last + show_extra - 2 && end !== buffered) return;
-
-      /// Remove from top (w2ui:6209-6213)
-      while (true) {
-        const tmp = tr1.nextElementSibling as HTMLTableRowElement | null;
-        if (!tmp || tmp === tr2) break;
-        const tmpLine = parseInt(tmp.dataset.line ?? "");
-        if (Number.isFinite(tmpLine) && tmpLine < start) tmp.remove();
-        else break;
-      }
-      /// Add at bottom (w2ui:6215-6222)
-      const tmp = tr2.previousElementSibling as HTMLTableRowElement | null;
-      let rec_start: number;
-      const rsLine = tmp ? tmp.dataset.line ?? "" : "";
-      if (rsLine === "top" || !Number.isFinite(parseInt(rsLine))) {
-        rec_start = start - 1;
-      } else {
-        rec_start = parseInt(rsLine);
-      }
-      for (let i = rec_start + 1; i <= end; i++) {
-        if (this.data[this.order[i - 1]] == null) continue;
-        tr2.before(this.buildRow(i - 1, i));
-      }
+    const isScrollDown = force || !(firstLine >= windowStart) || firstLine === 1;
+    if (isScrollDown) {
+      if (!force && windowEnd <= lastLine + overscan - 2 && windowEnd !== buffered) return;
+      this.trimAboveWindow(topSpacer, botSpacer, windowStart);
+      this.appendAfter(botSpacer, this.lineAtEdge(botSpacer.previousElementSibling, windowStart - 1) + 1, windowEnd);
     } else {
-      /// SCROLL UP (w2ui:6225)
-      /// w2ui:6226 early-out
-      if (start >= first - show_extra + 2 && start > 1) return;
-
-      /// Remove from bottom (w2ui:6228-6232)
-      while (true) {
-        const tmp = tr2.previousElementSibling as HTMLTableRowElement | null;
-        if (!tmp || tmp === tr1) break;
-        const tmpLine = parseInt(tmp.dataset.line ?? "");
-        if (Number.isFinite(tmpLine) && tmpLine > end) tmp.remove();
-        else break;
-      }
-      /// Add at top (w2ui:6234-6241)
-      const tmp = tr1.nextElementSibling as HTMLTableRowElement | null;
-      let rec_start: number;
-      const rsLine = tmp ? tmp.dataset.line ?? "" : "";
-      if (rsLine === "bottom" || !Number.isFinite(parseInt(rsLine))) {
-        rec_start = end + 1;
-      } else {
-        rec_start = parseInt(rsLine);
-      }
-      for (let i = rec_start - 1; i >= start; i--) {
-        if (this.data[this.order[i - 1]] == null) continue;
-        tr1.after(this.buildRow(i - 1, i));
-      }
+      if (windowStart >= firstLine - overscan + 2 && windowStart > 1) return;
+      this.trimBelowWindow(topSpacer, botSpacer, windowEnd);
+      this.prependBefore(topSpacer, this.lineAtEdge(topSpacer.nextElementSibling, windowEnd + 1) - 1, windowStart);
     }
 
-    /// Resize spacers (w2ui:6246-6250)
-    const h1 = (start - 1) * this.rowHeight;
-    let h2 = (buffered - end) * this.rowHeight;
-    if (h2 < 0) h2 = 0;
-    tr1.style.height = h1 + "px";
-    tr2.style.height = h2 + "px";
+    topSpacer.style.height = (windowStart - 1) * this.rowHeight + "px";
+    botSpacer.style.height = Math.max(0, buffered - windowEnd) * this.rowHeight + "px";
   }
 
-  /* ---------- sort ---------- */
+  /** Read the line number from a sibling next to a spacer. Returns `fallback`
+   *  if the sibling is the other spacer (i.e. the rendered window is empty). */
+  private lineAtEdge(sibling: Element | null, fallback: number): number {
+    const line = (sibling as HTMLElement | null)?.dataset.line ?? "";
+    if (line === "top" || line === "bottom") return fallback;
+    const n = parseInt(line);
+    return Number.isFinite(n) ? n : fallback;
+  }
+
+  private trimAboveWindow(topSpacer: Element, botSpacer: Element, windowStart: number): void {
+    while (true) {
+      const sibling = topSpacer.nextElementSibling as HTMLElement | null;
+      if (!sibling || sibling === botSpacer) break;
+      const line = parseInt(sibling.dataset.line ?? "");
+      if (Number.isFinite(line) && line < windowStart) sibling.remove();
+      else break;
+    }
+  }
+
+  private trimBelowWindow(topSpacer: Element, botSpacer: Element, windowEnd: number): void {
+    while (true) {
+      const sibling = botSpacer.previousElementSibling as HTMLElement | null;
+      if (!sibling || sibling === topSpacer) break;
+      const line = parseInt(sibling.dataset.line ?? "");
+      if (Number.isFinite(line) && line > windowEnd) sibling.remove();
+      else break;
+    }
+  }
+
+  private appendAfter(botSpacer: Element, fromLine: number, toLine: number): void {
+    for (let line = fromLine; line <= toLine; line++) {
+      if (this.data[this.order[line - 1]] == null) continue;
+      botSpacer.before(this.buildRow(line - 1, line));
+    }
+  }
+
+  private prependBefore(topSpacer: Element, fromLine: number, toLine: number): void {
+    for (let line = fromLine; line >= toLine; line--) {
+      if (this.data[this.order[line - 1]] == null) continue;
+      topSpacer.after(this.buildRow(line - 1, line));
+    }
+  }
+
+  // ---- sort ----
 
   private toggleSort(field: string): void {
     if (this.sortField === field) {

@@ -2,9 +2,11 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { OBJExporter } from "three/examples/jsm/exporters/OBJExporter.js";
 
-/// Per-viewer WebGL canvas owner.
-/// Each FileViewer that opens a Model tab gets its own ModelCanvas,
-/// which lazily creates a WebGLRenderer and disposes on close.
+/**
+ * WebGL viewer for a single model file. Each instance owns its own GL
+ * context so multiple model tabs don't share a render target; the renderer
+ * is created lazily on first `mount` and torn down by `dispose`.
+ */
 export class ModelCanvas {
   private renderer: THREE.WebGLRenderer | null = null;
   private camera: THREE.PerspectiveCamera;
@@ -14,26 +16,23 @@ export class ModelCanvas {
   private rafId = 0;
   private resizeObserver?: ResizeObserver;
   private models: THREE.Object3D[] = [];
-  /// Animation runs only when active and mounted.
   private playing = false;
 
   constructor() {
     this.scene = new THREE.Scene();
     this.scene.add(new THREE.AmbientLight(0x555555));
-    const d1 = new THREE.DirectionalLight(0xffffff, 0.8);
-    d1.position.set(0, 0, 1);
-    this.scene.add(d1);
-    const d2 = new THREE.DirectionalLight(0xffffff, 0.8);
-    d2.position.set(1, 0, 0);
-    this.scene.add(d2);
-    const d3 = new THREE.DirectionalLight(0xffffff, 0.8);
-    d3.position.set(0, 1, 0);
-    this.scene.add(d3);
-
+    for (const dir of [
+      [0, 0, 1],
+      [1, 0, 0],
+      [0, 1, 0],
+    ] as const) {
+      const light = new THREE.DirectionalLight(0xffffff, 0.8);
+      light.position.set(dir[0], dir[1], dir[2]);
+      this.scene.add(light);
+    }
     this.camera = new THREE.PerspectiveCamera(60, 1, 0.1, 500000);
   }
 
-  /// Attach the canvas to a host element. Creates the renderer on first attach.
   mount(host: HTMLElement): void {
     if (this.host === host && this.renderer) return;
     this.host = host;
@@ -62,26 +61,28 @@ export class ModelCanvas {
   }
 
   setModels(models: THREE.Object3D[]): void {
-    /// remove old
     for (const m of this.models) this.scene.remove(m);
     this.models = models;
-    let biggest: any = null;
+
+    let largest: { mesh: THREE.Object3D; radius: number } | null = null;
     for (const m of models) {
       this.scene.add(m);
-      const r = (m as any).boundingSphere?.radius ?? 0;
-      if (!biggest || biggest.r < r) biggest = { m, r };
+      const radius = (m as any).boundingSphere?.radius ?? 0;
+      if (!largest || largest.radius < radius) largest = { mesh: m, radius };
     }
+
     this.controls?.reset();
-    let dist = biggest ? biggest.r / Math.tan((Math.PI * 60) / 360) : 100;
-    dist = 1.2 * Math.max(100, dist);
-    dist = Math.min(1000, dist);
-    this.camera.position.set(dist * Math.SQRT2, 50, 0);
-    if (biggest) this.camera.lookAt(biggest.m.position);
+    // Frame the largest mesh: distance fits its bounding sphere in a 60° fov
+    // with a small margin; clamp so tiny meshes don't end up too close and
+    // city-sized ones don't end up beyond a comfortable view.
+    const distance = Math.min(1000, Math.max(100, (largest ? largest.radius / Math.tan(Math.PI / 6) : 100) * 1.2));
+    this.camera.position.set(distance * Math.SQRT2, 50, 0);
+    if (largest) this.camera.lookAt(largest.mesh.position);
   }
 
-  exportOBJ(_name: string): Blob {
-    const result = new OBJExporter().parse(this.scene as any);
-    return new Blob([result], { type: "octet/stream" });
+  exportOBJ(): Blob {
+    const text = new OBJExporter().parse(this.scene as any);
+    return new Blob([text], { type: "octet/stream" });
   }
 
   private resize(): void {

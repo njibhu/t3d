@@ -6,8 +6,8 @@ interface HexRow {
   offset: number;
 }
 
-/// Simple xxd-style hex dump. Virtualised through VirtualTable so a 100 MB
-/// file renders the same as a 1 KB one — only the visible rows are built.
+/** xxd-style hex dump. Rows are built on demand by the virtual table, so the
+ *  cost is bounded by the viewport regardless of file size. */
 export class HexView {
   private table: VirtualTable<HexRow>;
   private bytes: Uint8Array = new Uint8Array(0);
@@ -55,9 +55,10 @@ export class HexView {
   private formatHex(offset: number): string {
     const end = Math.min(offset + BYTES_PER_LINE, this.bytes.length);
     let out = "";
+    // xxd splits each 16-byte line into two 8-byte groups separated by an
+    // extra space, which makes column alignment readable.
     for (let i = offset; i < end; i++) {
       out += this.bytes[i].toString(16).padStart(2, "0");
-      /// Group bytes in two halves, like xxd
       out += i === offset + 7 ? "  " : " ";
     }
     return out.trimEnd();

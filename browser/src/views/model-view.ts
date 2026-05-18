@@ -1,16 +1,14 @@
 import { ModelCanvas } from "../components/model-canvas";
 
 export class ModelView {
-  private host: HTMLElement;
-  private mount: HTMLDivElement;
   readonly canvas: ModelCanvas;
+  private mount: HTMLDivElement;
 
   constructor(host: HTMLElement) {
-    this.host = host;
-    this.host.className = "view-pane";
+    host.className = "view-pane";
     this.mount = document.createElement("div");
     this.mount.className = "model-view";
-    this.host.replaceChildren(this.mount);
+    host.replaceChildren(this.mount);
     this.canvas = new ModelCanvas();
   }
 

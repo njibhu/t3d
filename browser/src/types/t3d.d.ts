@@ -1,6 +1,8 @@
-/// Type-only declarations for the t3d-lib bundle. Vite resolves the runtime
-/// import to ../../library/build/T3D.mjs via its config alias; TypeScript
-/// resolves it to this file via tsconfig paths.
+/**
+ * Type-only declarations for the `t3d-lib` import path. Vite aliases this
+ * to the library's built ESM bundle at runtime (see vite.config.ts);
+ * TypeScript resolves it to this file via the `paths` entry in tsconfig.
+ */
 
 export interface FileMeta {
   offset: bigint | number;

@@ -1,24 +1,16 @@
-import { FileViewer } from "./file-viewer";
-
-export interface TabEntry {
-  fileId: number;
-  viewer: FileViewer;
-  chip: HTMLDivElement;
-}
-
-export type TabsStripCallbacks = {
+export interface FileTabsStripCallbacks {
   onActivate: (fileId: number) => void;
   onClose: (fileId: number) => void;
-};
+}
 
 export class FileTabsStrip {
   readonly root: HTMLDivElement;
-  private cb: TabsStripCallbacks;
+  private callbacks: FileTabsStripCallbacks;
   private chipsByFileId = new Map<number, HTMLDivElement>();
   private activeFileId: number | null = null;
 
-  constructor(cb: TabsStripCallbacks) {
-    this.cb = cb;
+  constructor(callbacks: FileTabsStripCallbacks) {
+    this.callbacks = callbacks;
     this.root = document.createElement("div");
     this.root.className = "file-tabs-strip";
   }
@@ -26,7 +18,6 @@ export class FileTabsStrip {
   addChip(fileId: number, label: string): HTMLDivElement {
     const chip = document.createElement("div");
     chip.className = "file-tab-chip";
-    chip.dataset.fileId = String(fileId);
 
     const labelEl = document.createElement("span");
     labelEl.className = "label";
@@ -38,11 +29,11 @@ export class FileTabsStrip {
     close.title = "Close tab";
     close.addEventListener("click", (e) => {
       e.stopPropagation();
-      this.cb.onClose(fileId);
+      this.callbacks.onClose(fileId);
     });
 
     chip.append(labelEl, close);
-    chip.addEventListener("click", () => this.cb.onActivate(fileId));
+    chip.addEventListener("click", () => this.callbacks.onActivate(fileId));
 
     this.root.appendChild(chip);
     this.chipsByFileId.set(fileId, chip);
@@ -51,14 +42,11 @@ export class FileTabsStrip {
 
   setLabel(fileId: number, label: string): void {
     const chip = this.chipsByFileId.get(fileId);
-    if (!chip) return;
-    const labelEl = chip.querySelector(".label");
-    if (labelEl) labelEl.textContent = label;
+    chip?.querySelector(".label")?.replaceChildren(label);
   }
 
   removeChip(fileId: number): void {
-    const chip = this.chipsByFileId.get(fileId);
-    chip?.remove();
+    this.chipsByFileId.get(fileId)?.remove();
     this.chipsByFileId.delete(fileId);
     if (this.activeFileId === fileId) this.activeFileId = null;
   }
@@ -69,12 +57,7 @@ export class FileTabsStrip {
       chip.classList.toggle("active", id === fileId);
     }
     if (fileId != null) {
-      const chip = this.chipsByFileId.get(fileId);
-      chip?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+      this.chipsByFileId.get(fileId)?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
     }
-  }
-
-  get count(): number {
-    return this.chipsByFileId.size;
   }
 }

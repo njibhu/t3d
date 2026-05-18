@@ -1,12 +1,13 @@
 import T3D, {
+  EnvironmentRenderer,
+  FileParser,
+  HavokRenderer,
   LocalReader,
+  PropertiesRenderer,
   SingleModelRenderer,
   StringRenderer,
-  EnvironmentRenderer,
   TerrainRenderer,
-  PropertiesRenderer,
   ZoneRenderer,
-  HavokRenderer,
 } from "t3d-lib";
 import { renderRawView } from "../views/raw-view";
 import { renderPackView } from "../views/pack-view";
@@ -15,8 +16,9 @@ import { StringView } from "../views/string-view";
 import { SoundView } from "../views/sound-view";
 import { ModelView } from "../views/model-view";
 import { HexView } from "../views/hex-view";
-import { MapView, MapLayerOptions } from "../views/map-view";
+import { DEFAULT_MAP_LAYERS, MapView, MapLayerOptions } from "../views/map-view";
 import { onProgress } from "../store/progress-bus";
+import { triggerDownload } from "../util/download";
 
 type TabKind = "raw" | "hex" | "pack" | "texture" | "string" | "model" | "map" | "sound";
 
@@ -41,23 +43,24 @@ export class FileViewer {
   readonly fileId: number;
   fileName = "";
 
+  /** Resolves once `load()` has populated `fileName` and built the initial
+   *  tabs. Awaitable for consumers that want to update labels/chrome after
+   *  the file's shape is known. */
+  readonly ready: Promise<void>;
+
   private reader: LocalReader;
   private titleEl!: HTMLHeadingElement;
   private actionsEl!: HTMLDivElement;
   private tabsEl!: HTMLDivElement;
   private viewHost!: HTMLDivElement;
-  /// Map: tabKind → { tab element, pane element }
   private tabs = new Map<TabKind, { tab: HTMLDivElement; pane: HTMLDivElement }>();
   private activeTab: TabKind | null = null;
 
-  /// Lazily-created views
   private stringView?: StringView;
   private soundView?: SoundView;
   private modelView?: ModelView;
-  private hexView?: HexView;
   private mapView?: MapView;
 
-  /// Renderer context for this file (kept isolated per viewer)
   private context: any = {};
 
   constructor(init: FileViewerInit) {
@@ -66,7 +69,7 @@ export class FileViewer {
     this.root = document.createElement("div");
     this.root.className = "file-viewer";
     this.buildSkeleton();
-    void this.load();
+    this.ready = this.load();
   }
 
   private buildSkeleton(): void {
@@ -110,7 +113,7 @@ export class FileViewer {
 
   private activateTab(kind: TabKind): void {
     if (this.activeTab === kind) return;
-    /// Pause GL-backed tabs we're leaving
+    // GL-backed tabs pause their render loop while not visible.
     if (this.activeTab === "model") this.modelView?.deactivate();
     if (this.activeTab === "map") this.mapView?.deactivate();
     this.activeTab = kind;
@@ -123,14 +126,11 @@ export class FileViewer {
     if (kind === "map") this.mapView?.activate();
   }
 
-  /// Notify the viewer that it became visible (file-tab activated).
-  /// Resumes any GL-backed render loop on the currently active sub-tab.
   onShow(): void {
     if (this.activeTab === "model") this.modelView?.activate();
     if (this.activeTab === "map") this.mapView?.activate();
   }
 
-  /// Notify the viewer that it became hidden. Pause expensive work.
   onHide(): void {
     this.modelView?.deactivate();
     this.mapView?.deactivate();
@@ -149,14 +149,10 @@ export class FileViewer {
     this.actionsEl.appendChild(btn);
   }
 
-  /* -------------- loading + dispatch -------------- */
+  // ---- loading + dispatch ----
 
   private async load(): Promise<void> {
-    /// Run DataRenderer, same as v1 (browser/src/index.js:474).
-    /// DataRenderer outputs: fileId, rawData, rawString, file (packfile), image
-    await new Promise<void>((resolve) => {
-      T3D.runRenderer(T3D.DataRenderer, this.reader, { id: this.fileId }, this.context, resolve);
-    });
+    await runRenderer(T3D.DataRenderer, this.reader, { id: this.fileId }, this.context);
 
     const fileId = T3D.getContextValue<number>(this.context, T3D.DataRenderer, "fileId");
     const rawData = T3D.getContextValue<ArrayBuffer>(this.context, T3D.DataRenderer, "rawData");
@@ -168,70 +164,49 @@ export class FileViewer {
     this.fileName = `${fileId}${image || !packfile ? "." + fcc : "." + packfile.header.type}`;
     this.titleEl.textContent = this.fileName;
 
-    /// Decide the primary tab up-front from the file shape so we activate
-    /// it once, instead of activating Raw and then jumping when the real
-    /// content tab finishes loading.
+    // Decide the primary tab up-front from the file shape so we activate it
+    // exactly once. Otherwise Raw flashes briefly before the real tab loads.
     const texInput = { rawData, image };
     const texKind = detectTextureKind(texInput);
     const isModel = packfile?.header.type === "MODL";
     const isMap = packfile?.header.type === "mapc";
     const isSound = packfile?.header.type === "ASND";
     const isStrings = !packfile && fcc === "strs";
-    const primary: TabKind = isModel
-      ? "model"
-      : isMap
-      ? "map"
-      : texKind
-      ? "texture"
-      : isSound
-      ? "sound"
-      : isStrings
-      ? "string"
-      : packfile
-      ? "pack"
+    const primary: TabKind = isModel ? "model"
+      : isMap ? "map"
+      : texKind ? "texture"
+      : isSound ? "sound"
+      : isStrings ? "string"
+      : packfile ? "pack"
       : "raw";
 
-    /// Build tabs in display order (raw, hex, pack, texture, string, model,
-    /// sound) so they appear in a stable position in the strip.
-
-    /// Raw — always present
+    // Build tabs in their display order (Raw, Hex, Pack, Texture, then the
+    // type-specific tab) so the strip is stable across file kinds.
     const rawTab = this.ensureTab("raw");
     renderRawView(rawTab.pane, rawString);
-    this.addAction("Download raw", () => {
-      const blob = new Blob([rawData], { type: "octet/stream" });
-      triggerDownload(blob, this.fileName + ".raw");
-    });
+    this.addAction("Download raw", () => triggerDownload(new Blob([rawData]), this.fileName + ".raw"));
 
-    /// Hex — always present
     const hexTab = this.ensureTab("hex");
-    this.hexView = new HexView(hexTab.pane);
-    this.hexView.setData(rawData);
+    new HexView(hexTab.pane).setData(rawData);
 
-    /// Pack
     if (packfile) {
       const p = this.ensureTab("pack");
       renderPackView(p.pane, packfile, this.fileName);
     }
 
-    /// Texture
     if (texKind) {
       const t = this.ensureTab("texture");
       renderTextureView(t.pane, texInput, texKind);
-      if (texKind === "png") {
-        this.addAction("Download PNG", () => triggerDownload(new Blob([rawData]), `${fileId}.png`));
-      } else if (texKind === "riff") {
-        this.addAction("Download RIFF", () => triggerDownload(new Blob([rawData]), `${fileId}.riff`));
-      } else if (texKind === "dds") {
-        this.addAction("Download DDS", () => triggerDownload(new Blob([rawData]), `${fileId}.dds`));
-      }
+      if (texKind === "png") this.addAction("Download PNG", () => triggerDownload(new Blob([rawData]), `${fileId}.png`));
+      else if (texKind === "riff") this.addAction("Download RIFF", () => triggerDownload(new Blob([rawData]), `${fileId}.riff`));
+      else if (texKind === "dds") this.addAction("Download DDS", () => triggerDownload(new Blob([rawData]), `${fileId}.dds`));
     }
 
-    /// Pre-create the model/map/sound/string tabs so they appear in the strip
-    /// immediately. Their content will fill in as the async renderer completes,
-    /// but the tab itself is already there and active.
+    // Pre-create the type-specific tab so its chip is in the strip before
+    // the (often slow) renderer for it finishes.
     if (isModel) {
       const m = this.ensureTab("model");
-      if (!this.modelView) this.modelView = new ModelView(m.pane);
+      this.modelView ??= new ModelView(m.pane);
     } else if (isMap) {
       const m = this.ensureTab("map");
       if (!this.mapView) {
@@ -244,50 +219,37 @@ export class FileViewer {
       this.ensureTab("string");
     }
 
-    /// Activate the primary tab exactly once.
     this.activateTab(primary);
 
-    /// Kick off async content loaders
-    if (isModel) {
-      void this.loadModel();
-    } else if (isMap) {
-      this.loadMap({ zone: false, props: true, collisions: false });
-    } else if (isSound) {
-      this.loadSound(packfile);
-    } else if (isStrings) {
-      this.loadStrings();
-    }
+    if (isModel) void this.loadModel();
+    else if (isMap) this.loadMap({ ...DEFAULT_MAP_LAYERS });
+    else if (isSound) this.loadSound(packfile);
+    else if (isStrings) void this.loadStrings();
   }
 
   private async loadModel(): Promise<void> {
+    const view = this.modelView;
+    if (!view) return;
     const packfile = T3D.getContextValue<any>(this.context, T3D.DataRenderer, "file");
-    const hasModel = packfile.chunks.find((c: any) => c.header.type === "MODL");
-    if (!hasModel) return;
-    /// Reset context for the model renderer
+    if (!packfile.chunks.some((c: any) => c.header.type === "MODL")) return;
+
     this.context = {};
-    await new Promise<void>((resolve) => {
-      T3D.runRenderer(SingleModelRenderer, this.reader, { id: this.fileId }, this.context, resolve);
-    });
-    const meshes = T3D.getContextValue<any[]>(this.context, SingleModelRenderer, "meshes", []);
-    this.modelView!.canvas.setModels(meshes);
-    this.addAction("Export OBJ", () => {
-      const blob = this.modelView!.canvas.exportOBJ(String(this.fileId));
-      triggerDownload(blob, `export.${this.fileId}.obj`);
-    });
+    await runRenderer(SingleModelRenderer, this.reader, { id: this.fileId }, this.context);
+    view.canvas.setModels(T3D.getContextValue<any[]>(this.context, SingleModelRenderer, "meshes", []));
+    this.addAction("Export OBJ", () => triggerDownload(view.canvas.exportOBJ(), `export.${this.fileId}.obj`));
   }
 
   private loadMap(layers: MapLayerOptions): void {
-    if (!this.mapView) return;
-    this.mapView.setStatus("Loading terrain & environment…");
-    this.mapView.setProgress("Starting", 0);
+    const view = this.mapView;
+    if (!view) return;
+    view.setStatus("Loading terrain & environment…");
+    view.setProgress("Starting", 0);
 
-    /// Forward T3D library progress events (TYPE_PROGRESS) to the map view
-    /// while this load is in flight. Unsubscribed when the load completes.
-    const unsub = onProgress((label, pct) => {
-      this.mapView?.setProgress(label, pct);
-    });
+    // Library progress events feed the map view's progress strip while the
+    // (potentially long) render is in flight.
+    const unsubscribe = onProgress((label, pct) => view.setProgress(label, pct));
 
-    const renderers: { renderClass: typeof EnvironmentRenderer; settings: any }[] = [
+    const renderers: { renderClass: typeof T3D.DataRenderer; settings: any }[] = [
       { renderClass: EnvironmentRenderer, settings: {} },
       { renderClass: TerrainRenderer, settings: {} },
     ];
@@ -296,38 +258,35 @@ export class FileViewer {
     if (layers.collisions) renderers.push({ renderClass: HavokRenderer, settings: { visible: true } });
 
     T3D.renderMapContentsAsync(this.reader, this.fileId, renderers, (ctx) => {
-      unsub();
-      this.mapView!.canvas.applyMapContext(ctx, layers);
-      this.mapView!.onLoaded(layers);
+      unsubscribe();
+      view.canvas.applyMapContext(ctx, layers);
+      view.onLoaded(layers);
     });
   }
 
-  private loadSound(packfile: any): void {
+  private loadSound(packfile: FileParser): void {
     const chunk = packfile.getChunk("ASND");
     if (!chunk) return;
-    const s = this.tabs.get("sound")!;
-    if (!this.soundView) this.soundView = new SoundView(s.pane);
+    const pane = this.tabs.get("sound")!.pane;
+    this.soundView ??= new SoundView(pane);
     this.soundView.render(chunk.data, this.fileName);
   }
 
-  private loadStrings(): void {
+  private async loadStrings(): Promise<void> {
     this.context = {};
-    T3D.runRenderer(StringRenderer, this.reader, { id: this.fileId }, this.context, () => {
-      const strings = T3D.getContextValue<any[]>(this.context, StringRenderer, "strings", []);
-      const s = this.tabs.get("string")!;
-      if (!this.stringView) this.stringView = new StringView(s.pane);
-      this.stringView.setData(strings);
-    });
+    await runRenderer(StringRenderer, this.reader, { id: this.fileId }, this.context);
+    const strings = T3D.getContextValue<any[]>(this.context, StringRenderer, "strings", []);
+    const pane = this.tabs.get("string")!.pane;
+    this.stringView ??= new StringView(pane);
+    this.stringView.setData(strings);
   }
 }
 
-function triggerDownload(blob: Blob, fileName: string): void {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = fileName;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
+function runRenderer(
+  cls: typeof T3D.DataRenderer,
+  reader: LocalReader,
+  settings: Record<string, unknown>,
+  context: Record<string, unknown>
+): Promise<void> {
+  return new Promise((resolve) => T3D.runRenderer(cls, reader, settings, context, resolve));
 }
