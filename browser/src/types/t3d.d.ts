@@ -42,6 +42,11 @@ export class DataRenderer {
 }
 export class SingleModelRenderer extends DataRenderer {}
 export class StringRenderer extends DataRenderer {}
+export class EnvironmentRenderer extends DataRenderer {}
+export class TerrainRenderer extends DataRenderer {}
+export class PropertiesRenderer extends DataRenderer {}
+export class ZoneRenderer extends DataRenderer {}
+export class HavokRenderer extends DataRenderer {}
 
 export const Logger: {
   TYPE_PROGRESS: number;
@@ -57,6 +62,11 @@ interface T3DStatic {
   DataRenderer: typeof DataRenderer;
   SingleModelRenderer: typeof SingleModelRenderer;
   StringRenderer: typeof StringRenderer;
+  EnvironmentRenderer: typeof EnvironmentRenderer;
+  TerrainRenderer: typeof TerrainRenderer;
+  PropertiesRenderer: typeof PropertiesRenderer;
+  ZoneRenderer: typeof ZoneRenderer;
+  HavokRenderer: typeof HavokRenderer;
   Logger: typeof Logger;
   getLocalReader(
     file: File,
@@ -71,6 +81,13 @@ interface T3DStatic {
     settings: any,
     context: any,
     cb: () => void
+  ): void;
+  renderMapContentsAsync(
+    localReader: LocalReader,
+    fileName: number | string,
+    renderers: Array<{ renderClass: typeof DataRenderer; settings: any }>,
+    callback: (context: any) => void,
+    logger?: typeof Logger
   ): void;
   getContextValue<T = any>(context: any, clazz: typeof DataRenderer, propName: string, defaultValue?: T): T;
 }

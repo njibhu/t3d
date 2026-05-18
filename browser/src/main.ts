@@ -1,6 +1,12 @@
 import { App } from "./app";
 /// Importing t3d-lib registers globalThis.T3D, which the library uses internally.
-import "t3d-lib";
+import T3D from "t3d-lib";
+/// Side-effect import: installs the progress fan-out dispatcher.
+import "./store/progress-bus";
+
+/// Surface library errors/warnings in DevTools so renderer failures aren't silent.
+T3D.Logger.logFunctions[T3D.Logger.TYPE_ERROR] = (...args: any[]) => console.error("[T3D]", ...args);
+T3D.Logger.logFunctions[T3D.Logger.TYPE_WARNING] = (...args: any[]) => console.warn("[T3D]", ...args);
 
 const root = document.getElementById("app");
 if (!root) throw new Error("Missing #app root");

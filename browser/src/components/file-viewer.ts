@@ -1,4 +1,13 @@
-import T3D, { LocalReader, SingleModelRenderer, StringRenderer } from "t3d-lib";
+import T3D, {
+  LocalReader,
+  SingleModelRenderer,
+  StringRenderer,
+  EnvironmentRenderer,
+  TerrainRenderer,
+  PropertiesRenderer,
+  ZoneRenderer,
+  HavokRenderer,
+} from "t3d-lib";
 import { renderRawView } from "../views/raw-view";
 import { renderPackView } from "../views/pack-view";
 import { detectTextureKind, renderTextureView } from "../views/texture-view";
@@ -6,8 +15,10 @@ import { StringView } from "../views/string-view";
 import { SoundView } from "../views/sound-view";
 import { ModelView } from "../views/model-view";
 import { HexView } from "../views/hex-view";
+import { MapView, MapLayerOptions } from "../views/map-view";
+import { onProgress } from "../store/progress-bus";
 
-type TabKind = "raw" | "hex" | "pack" | "texture" | "string" | "model" | "sound";
+type TabKind = "raw" | "hex" | "pack" | "texture" | "string" | "model" | "map" | "sound";
 
 const TAB_LABELS: Record<TabKind, string> = {
   raw: "Raw",
@@ -16,6 +27,7 @@ const TAB_LABELS: Record<TabKind, string> = {
   texture: "Texture",
   string: "String",
   model: "Model",
+  map: "Map",
   sound: "Sound",
 };
 
@@ -43,6 +55,7 @@ export class FileViewer {
   private soundView?: SoundView;
   private modelView?: ModelView;
   private hexView?: HexView;
+  private mapView?: MapView;
 
   /// Renderer context for this file (kept isolated per viewer)
   private context: any = {};
@@ -97,8 +110,9 @@ export class FileViewer {
 
   private activateTab(kind: TabKind): void {
     if (this.activeTab === kind) return;
-    /// Pause previous model rendering if leaving the model tab
+    /// Pause GL-backed tabs we're leaving
     if (this.activeTab === "model") this.modelView?.deactivate();
+    if (this.activeTab === "map") this.mapView?.deactivate();
     this.activeTab = kind;
     for (const [k, { tab, pane }] of this.tabs) {
       const active = k === kind;
@@ -106,21 +120,25 @@ export class FileViewer {
       pane.hidden = !active;
     }
     if (kind === "model") this.modelView?.activate();
+    if (kind === "map") this.mapView?.activate();
   }
 
   /// Notify the viewer that it became visible (file-tab activated).
-  /// Resumes the model render loop if applicable.
+  /// Resumes any GL-backed render loop on the currently active sub-tab.
   onShow(): void {
     if (this.activeTab === "model") this.modelView?.activate();
+    if (this.activeTab === "map") this.mapView?.activate();
   }
 
   /// Notify the viewer that it became hidden. Pause expensive work.
   onHide(): void {
     this.modelView?.deactivate();
+    this.mapView?.deactivate();
   }
 
   dispose(): void {
     this.modelView?.dispose();
+    this.mapView?.dispose();
     this.soundView?.dispose();
   }
 
@@ -156,10 +174,13 @@ export class FileViewer {
     const texInput = { rawData, image };
     const texKind = detectTextureKind(texInput);
     const isModel = packfile?.header.type === "MODL";
+    const isMap = packfile?.header.type === "mapc";
     const isSound = packfile?.header.type === "ASND";
     const isStrings = !packfile && fcc === "strs";
     const primary: TabKind = isModel
       ? "model"
+      : isMap
+      ? "map"
       : texKind
       ? "texture"
       : isSound
@@ -205,12 +226,18 @@ export class FileViewer {
       }
     }
 
-    /// Pre-create the model/sound/string tabs so they appear in the strip
+    /// Pre-create the model/map/sound/string tabs so they appear in the strip
     /// immediately. Their content will fill in as the async renderer completes,
     /// but the tab itself is already there and active.
     if (isModel) {
       const m = this.ensureTab("model");
       if (!this.modelView) this.modelView = new ModelView(m.pane);
+    } else if (isMap) {
+      const m = this.ensureTab("map");
+      if (!this.mapView) {
+        this.mapView = new MapView(m.pane);
+        this.mapView.setOnReload((layers) => this.loadMap(layers));
+      }
     } else if (isSound) {
       this.ensureTab("sound");
     } else if (isStrings) {
@@ -223,6 +250,8 @@ export class FileViewer {
     /// Kick off async content loaders
     if (isModel) {
       void this.loadModel();
+    } else if (isMap) {
+      this.loadMap({ zone: false, props: true, collisions: false });
     } else if (isSound) {
       this.loadSound(packfile);
     } else if (isStrings) {
@@ -244,6 +273,32 @@ export class FileViewer {
     this.addAction("Export OBJ", () => {
       const blob = this.modelView!.canvas.exportOBJ(String(this.fileId));
       triggerDownload(blob, `export.${this.fileId}.obj`);
+    });
+  }
+
+  private loadMap(layers: MapLayerOptions): void {
+    if (!this.mapView) return;
+    this.mapView.setStatus("Loading terrain & environment…");
+    this.mapView.setProgress("Starting", 0);
+
+    /// Forward T3D library progress events (TYPE_PROGRESS) to the map view
+    /// while this load is in flight. Unsubscribed when the load completes.
+    const unsub = onProgress((label, pct) => {
+      this.mapView?.setProgress(label, pct);
+    });
+
+    const renderers: { renderClass: typeof EnvironmentRenderer; settings: any }[] = [
+      { renderClass: EnvironmentRenderer, settings: {} },
+      { renderClass: TerrainRenderer, settings: {} },
+    ];
+    if (layers.zone) renderers.push({ renderClass: ZoneRenderer, settings: { visible: true } });
+    if (layers.props) renderers.push({ renderClass: PropertiesRenderer, settings: { visible: true } });
+    if (layers.collisions) renderers.push({ renderClass: HavokRenderer, settings: { visible: true } });
+
+    T3D.renderMapContentsAsync(this.reader, this.fileId, renderers, (ctx) => {
+      unsub();
+      this.mapView!.canvas.applyMapContext(ctx, layers);
+      this.mapView!.onLoaded(layers);
     });
   }
 

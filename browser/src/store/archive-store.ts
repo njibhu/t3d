@@ -1,4 +1,5 @@
 import T3D, { LocalReader } from "t3d-lib";
+import { onProgress } from "./progress-bus";
 
 export interface FileRow {
   mftId: number;
@@ -32,11 +33,9 @@ export class ArchiveStore extends EventTarget {
     return this.localReader !== null;
   }
 
-  async openArchive(file: File, onProgress?: (label: string, pct: number) => void): Promise<void> {
-    /// Wire progress logger
-    T3D.Logger.logFunctions[T3D.Logger.TYPE_PROGRESS] = (label: string, pct: number) => {
-      if (onProgress) onProgress(label, pct);
-    };
+  async openArchive(file: File, onProgressCb?: (label: string, pct: number) => void): Promise<void> {
+    /// Subscribe to library progress while opening, then unsubscribe.
+    const unsub = onProgressCb ? onProgress(onProgressCb) : () => {};
 
     await new Promise<void>((resolve, reject) => {
       try {
@@ -60,6 +59,7 @@ export class ArchiveStore extends EventTarget {
 
     this.allRowsCache = null;
     this.rowByMft.clear();
+    unsub();
     this.dispatchEvent(new Event("archive-loaded"));
   }
 
