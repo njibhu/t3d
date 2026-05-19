@@ -1,0 +1,102 @@
+.vt-root {
+  display: grid;
+  grid-template-rows: var(--t3d-row-height) 1fr;
+  overflow: hidden;
+  height: 100%;
+  background: var(--t3d-bg);
+  font-family: var(--t3d-mono);
+  font-size: 12px;
+}
+
+.vt-header-wrap {
+  overflow: hidden;
+  background: var(--t3d-bg-panel-2);
+  border-bottom: 1px solid var(--t3d-border);
+}
+
+.vt-header-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  user-select: none;
+}
+
+.vt-header-table th {
+  padding: 0 8px;
+  text-align: left;
+  border-right: 1px solid var(--t3d-border);
+  color: var(--t3d-text-muted);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: var(--t3d-row-height);
+}
+.vt-header-table th:hover {
+  color: var(--t3d-text);
+  background: var(--t3d-row-hover);
+}
+.vt-header-table th.num {
+  text-align: right;
+}
+.vt-header-table th .sort-indicator {
+  margin-left: 4px;
+  color: var(--t3d-accent);
+  font-size: 9px;
+}
+
+.vt-scroller {
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+.vt-scroller:focus {
+  outline: none;
+}
+.vt-scroller:focus-visible {
+  outline: 2px solid var(--t3d-accent);
+  outline-offset: -2px;
+}
+
+.vt-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vt-table td {
+  padding: 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-right: 1px solid transparent;
+}
+.vt-table td.num {
+  text-align: right;
+}
+
+/* Body rows: any <tr> that isn't a spacer or sizer */
+.vt-table tr[data-line]:not(.vt-spacer-top):not(.vt-spacer-bot):not(.vt-sizer) {
+  height: var(--t3d-row-height);
+  cursor: pointer;
+  border-bottom: 1px solid var(--t3d-border);
+}
+.vt-table tr[data-line]:hover:not(.vt-spacer-top):not(.vt-spacer-bot):not(.vt-sizer) {
+  background: var(--t3d-row-hover);
+}
+.vt-table tr.selected {
+  background: var(--t3d-row-selected);
+  color: var(--t3d-accent);
+}
+
+/* Spacer rows: only express a height. No padding, no borders. */
+.vt-table tr.vt-spacer-top td,
+.vt-table tr.vt-spacer-bot td,
+.vt-table tr.vt-sizer td {
+  padding: 0;
+  border: 0;
+}
