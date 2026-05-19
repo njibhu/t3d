@@ -1,3 +1,6 @@
+import $ from "jquery";
+import T3D from "t3d-lib";
+import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 /// This is an example application for the T3D library

@@ -1,4 +1,6 @@
 /// Indexed DB versioning
+import Logger from "../Logger";
+
 const DB_VERSION = 4;
 
 /**
@@ -32,8 +34,8 @@ class PersistantStore {
 
       /// onblocked is fired when the db needs an upgrade but an older version is opened in another tab
       request.onblocked = () => {
-        T3D.Logger.log(
-          T3D.Logger.TYPE_ERROR,
+        Logger.log(
+          Logger.TYPE_ERROR,
           "The T3D persistant database cannot be upgraded while the app is opened somewhere else."
         );
       };
@@ -65,7 +67,7 @@ class PersistantStore {
       };
 
       request.onerror = () => {
-        T3D.Logger.log(T3D.Logger.TYPE_ERROR, "The T3D persistant database could not be opened.");
+        Logger.log(Logger.TYPE_ERROR, "The T3D persistant database could not be opened.");
         reject();
       };
     });

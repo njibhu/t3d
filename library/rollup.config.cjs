@@ -8,13 +8,9 @@ const json = require("@rollup/plugin-json");
 module.exports = {
     input: './src/T3DLib.ts',
     output: {
-        file: './build/T3D.js',
-        format: 'iife',
-        name: 'T3D',
+        file: './build/T3D.mjs',
+        format: 'es',
         sourcemap: true,
-        globals: {
-          "t3d-parser": "T3DParser"
-        },
         banner: `/*
 Copyright © 2024 T3D project contributors.
 
@@ -35,7 +31,7 @@ along with the T3D Library. If not, see <http://www.gnu.org/licenses/>.
 */
 `
     },
-    external: ["t3d-parser"],
+    external: (id) => id === "three" || id.startsWith("three/") || id === "t3d-parser" || id.startsWith("t3d-parser/"),
     plugins: [
       resolve(),
       commonjs(),

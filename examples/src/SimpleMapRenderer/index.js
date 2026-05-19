@@ -1,3 +1,7 @@
+import $ from "jquery";
+import T3D from "t3d-lib";
+import { FileParser } from "t3d-parser";
+import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 /// This example is very inspired by the ModelRenderer example but updated
@@ -189,7 +193,7 @@ function onRendererDone(context) {
 function loadMapFile(fileId, callback) {
   if (parseInt(fileId)) {
     mapRenderer.localReader.loadFile(fileId, function (arrayBuffer) {
-      const mapFile = new T3DParser.FileParser(arrayBuffer);
+      const mapFile = new FileParser(arrayBuffer);
       callback(mapFile);
     });
   }

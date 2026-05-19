@@ -1,6 +1,6 @@
 import { FileParser } from "t3d-parser";
 import type LocalReader from "../LocalReader/LocalReader";
-import type Logger from "../Logger";
+import Logger from "../Logger";
 
 /**
  * Base class for data interpretors a.k.a. 'Renderers'
@@ -51,7 +51,7 @@ export default class DataRenderer {
     this.context[rendererName] = {};
 
     if (!logger_) {
-      this.logger = T3D.Logger;
+      this.logger = Logger;
     } else {
       this.logger = logger_;
     }
