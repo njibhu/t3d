@@ -19,10 +19,10 @@ const PTR_SIZE_64 = 8;
 
 export class DataParser implements Definition {
   public readonly definitions: Definition["definitions"];
-  public readonly root: Definition["root"];
-  public readonly name: string;
-  public readonly chunkName: string;
-  public readonly version: number;
+  public readonly root!: Definition["root"];
+  public readonly name!: string;
+  public readonly chunkName!: string;
+  public readonly version!: number;
   public readonly PTR_SIZE: 4 | 8;
 
   constructor(
@@ -154,7 +154,7 @@ export class DataParser implements Definition {
 
     return {
       newPosition: pos + end,
-      data: String.fromCharCode.apply(null, new Uint8Array(u8array.slice(0, end))),
+      data: String.fromCharCode(...Array.from(u8array.slice(0, end))),
     };
   }
 
@@ -341,7 +341,7 @@ export class DataParser implements Definition {
     };
   }
 
-  private Unknown(key: string, dv: DataView, pos: number): ParseFunctionReturn {
+  private Unknown(key: string, _dv: DataView, pos: number): ParseFunctionReturn {
     this._debugLog(key, BaseType.Unknown, pos);
 
     throw new Error("Could not parse unknown data");

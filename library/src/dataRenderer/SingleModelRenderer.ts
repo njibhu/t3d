@@ -18,7 +18,7 @@ import type Logger from "../Logger";
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 export default class SingleModelRenderer extends DataRenderer {
-  static rendererName = "SingleModelRenderer";
+  static override rendererName = "SingleModelRenderer";
 
   constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "SingleModelRenderer");
@@ -32,7 +32,7 @@ export default class SingleModelRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback: Function): void {
+  override renderAsync(callback: Function): void {
     const self = this;
 
     /// Get file id
@@ -53,7 +53,7 @@ export default class SingleModelRenderer extends DataRenderer {
       meshCache,
       textureCache,
       showUnmaterialed,
-      function (meshes, isCached, boundingSphere) {
+      function (meshes, _isCached, boundingSphere) {
         if (meshes) {
           meshes.forEach(function (mesh) {
             mesh.boundingSphere = boundingSphere;

@@ -125,7 +125,7 @@ export function buildPS(textures: any[], numUv: number, alphaTest: number, light
   }
 
   let uniforms = "";
-  textures.forEach(function (t, idx) {
+  textures.forEach(function (_t, idx) {
     uniforms += "uniform sampler2D texture" + (idx + 1) + ";\n";
   });
   /* uniforms += "uniform sampler2D texture1;\n";
@@ -570,7 +570,7 @@ export function getTexture(texURL: number, localReader: LocalReader, sharedTextu
 export function loadLocalTexture(
   localReader: LocalReader,
   fileId: number,
-  mapping?: number,
+  _mapping?: number,
   defaultColor?: number,
   onerror?: Function
 ): Texture {
@@ -602,7 +602,7 @@ export function loadLocalTexture(
   /// Load file using LocalReader.
   localReader.loadFile(
     fileId,
-    function (inflatedData, dxtType, imageWidth, imageHeigth) {
+    function (inflatedData, _dxtType, imageWidth, imageHeigth) {
       /// Require infalted data to be returned.
       if (!inflatedData) {
         if (onerror) onerror();

@@ -2,14 +2,15 @@ import { DataParser } from "./data-parser";
 import { ChunkDefinitions } from "./struct-definitions";
 import type { ChunkHead, FileHead } from "./interfaces";
 
-const __IS_NODE_RUNTIME = typeof process !== "undefined" && process.versions != null && process.versions.node != null;
+const maybeProcess = (globalThis as typeof globalThis & { process?: { versions?: { node?: unknown } } }).process;
+const __IS_NODE_RUNTIME = maybeProcess?.versions?.node != null;
 
 export function sliceFile(file: File, offset: number, length: number): Promise<ArrayBuffer> {
   if (__IS_NODE_RUNTIME) {
     // @ts-expect-error - Node specific code
     return import("node:fs").then((fs) => {
       const fd = fs.openSync(file);
-      const buffer = Buffer.alloc(length);
+      const buffer = new Uint8Array(length);
       fs.readSync(fd, buffer, 0, length, offset);
       fs.closeSync(fd);
       return buffer.buffer;

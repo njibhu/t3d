@@ -21,7 +21,7 @@ import { FileParser } from "t3d-parser";
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 export default class EnvironmentRenderer extends DataRenderer {
-  static rendererName = "EnvironmentRenderer";
+  static override rendererName = "EnvironmentRenderer";
 
   mapFile: FileParser;
   constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
@@ -172,7 +172,7 @@ export default class EnvironmentRenderer extends DataRenderer {
     this.getOutput().hasLight = hasLight || ambientTotal > 0;
   }
 
-  parseSkybox(environmentChunkData: any, parameterChunkData: any, hazeColorAsInt: number) {
+  parseSkybox(environmentChunkData: any, _parameterChunkData: any, hazeColorAsInt: number) {
     /// set up output array
     this.getOutput().skyCubeTexture = null;
     this.getOutput().skyBox = null;
@@ -190,14 +190,6 @@ export default class EnvironmentRenderer extends DataRenderer {
         texPathT: 187558,
       };
     }
-
-    /// Calculate bounds
-    const bounds = parameterChunkData.rect;
-    const mapW = Math.abs(bounds[0] - bounds[2]);
-    const mapD = Math.abs(bounds[1] - bounds[3]);
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const boundSide = Math.max(mapW, mapD);
 
     const materialArray: Material[] = [];
 
@@ -258,7 +250,7 @@ export default class EnvironmentRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback: Function): void {
+  override renderAsync(callback: Function): void {
     if (!this.mapFile) {
       throw new Error("No map file available for EnvironmentRenderer");
     }

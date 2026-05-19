@@ -22,7 +22,7 @@ import type { FileParser } from "t3d-parser";
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 export default class PropertiesRenderer extends DataRenderer {
-  static rendererName = "PropertiesRenderer";
+  static override rendererName = "PropertiesRenderer";
 
   showUnmaterialized: boolean;
   mapFile: FileParser;
@@ -50,7 +50,7 @@ export default class PropertiesRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback: Function): void {
+  override renderAsync(callback: Function): void {
     this.getOutput().meshes = [];
 
     const propertiesChunkData = this.mapFile.getChunk("prp2")!.data;

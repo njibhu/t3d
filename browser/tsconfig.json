@@ -20,7 +20,11 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "types": ["vite/client"],
     "paths": {
-      "t3d-lib": ["./src/types/t3d.d.ts"]
+      "t3d-lib": ["../library/src/T3DLib.ts"],
+      "t3d-parser": ["../parser/src/main.ts"],
+      "t3d-parser/declarations": ["../parser/declarations/index.ts"],
+      "t3d-parser/src/interfaces": ["../parser/src/interfaces.ts"],
+      "t3d-parser/*": ["../parser/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"]

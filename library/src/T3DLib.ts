@@ -19,9 +19,7 @@ import PersistantStore from "./LocalReader/PersistantStore";
 import * as FileTypes from "./LocalReader/FileTypes";
 
 import { FileParser } from "t3d-parser";
-
-// @ts-expect-error - Handled by rollup
-import { version as _version } from "../package.json";
+import packageJson from "../package.json";
 
 /* PRIVATE VARS */
 const _settings = {
@@ -32,7 +30,7 @@ const _settings = {
 type MapList = { name: string; maps: { fileName: number; name: string }[] }[];
 
 const T3D = {
-  version: _version,
+  version: packageJson.version,
   DataRenderer: DataRenderer,
   EnvironmentRenderer: EnvironmentRenderer,
   HavokRenderer: HavokRenderer,
@@ -52,7 +50,7 @@ const T3D = {
   /**
    * Creates a new instance of LocalReader with an pNaCl inflater connected to it.
    */
-  getLocalReader: function (file: File, callback: Function, t3dtoolsWorker: any, noIndexedDB: boolean) {
+  getLocalReader: function (file: File, callback: Function, t3dtoolsWorker: any, noIndexedDB?: boolean) {
     const path = t3dtoolsWorker || _settings.t3dtoolsWorker;
 
     // Create the instance and init the threads
@@ -81,7 +79,7 @@ const T3D = {
    * yout application to spend time indexing the .dat and have a priori knowledge
    * about the required file Id's you should not use this method.
    **/
-  getFileListAsync: function (localReader: LocalReader, callback: Function) {
+  getFileListAsync: function (localReader: LocalReader, callback: (files: Record<string, number[]>) => void) {
     localReader.readFileList().then((result) => {
       const returnObj: any = {};
       for (const fileEntry of result) {
@@ -154,8 +152,8 @@ const T3D = {
     localReader: LocalReader,
     fileName: number | string,
     renderers: any[],
-    callback: Function,
-    logger: typeof Logger
+    callback: (context: any) => void,
+    logger?: typeof Logger
   ) {
     /// VO for storing result from renderers
     const context = {};
@@ -215,12 +213,12 @@ const T3D = {
     r.renderAsync(cb);
   },
 
-  getContextValue: function (context: any, clazz: typeof DataRenderer, propName: any, defaultValue: any): any {
+  getContextValue: function <T = any>(context: any, clazz: typeof DataRenderer, propName: any, defaultValue?: T): T {
     const output = context[clazz.rendererName];
     if (output) {
-      return output[propName] ? output[propName] : defaultValue;
+      return (output[propName] ? output[propName] : defaultValue) as T;
     }
-    return defaultValue;
+    return defaultValue as T;
   },
 
   /**
