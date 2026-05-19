@@ -135,7 +135,8 @@ TextureFile::TextureFile(const byte* p_data, uint32 p_size)
 
     auto fourcc = *reinterpret_cast<const uint32*>(p_data);
     if (fourcc != fcc::ATEX && fourcc != fcc::ATEC && fourcc != fcc::ATEP &&
-        fourcc != fcc::ATET && fourcc != fcc::ATEU && fourcc != fcc::ATTX)
+        fourcc != fcc::ATET && fourcc != fcc::ATEU && fourcc != fcc::ATTX &&
+        fourcc != fcc::CTEX && fourcc != fcc::CTEU)
     {
         std::stringstream message;
         message << "Invalid header " << fourcc;
@@ -210,7 +211,8 @@ bool TextureFile::assign(const byte* p_data, uint32 p_size)
 
     auto fourcc = *reinterpret_cast<const uint32*>(p_data);
     if (fourcc != fcc::ATEX && fourcc != fcc::ATEC && fourcc != fcc::ATEP &&
-        fourcc != fcc::ATET && fourcc != fcc::ATEU && fourcc != fcc::ATTX)
+        fourcc != fcc::ATET && fourcc != fcc::ATEU && fourcc != fcc::ATTX &&
+        fourcc != fcc::CTEX && fourcc != fcc::CTEU)
     {
         return false;
     }

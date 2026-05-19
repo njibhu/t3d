@@ -44,6 +44,8 @@ enum FourCC
     ATEU  = 0x55455441,
     ATEX  = 0x58455441,
     ATTX  = 0x58545441,
+    CTEX  = 0x58455443,
+    CTEU  = 0x55455443,
     audi  = 0x69647561,
     BC7X  = 0x58374342,
     BIDX  = 0x58444942,
