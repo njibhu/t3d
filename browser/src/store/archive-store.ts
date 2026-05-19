@@ -120,9 +120,12 @@ export class ArchiveStore {
       }
     }
 
-    if (packChildren.length) out.push({ kind: "group", id: SIDEBAR_GROUP.pack, label: "Pack Files", children: packChildren });
-    if (textureChildren.length) out.push({ kind: "group", id: SIDEBAR_GROUP.texture, label: "Texture files", children: textureChildren });
-    if (unsortedChildren.length) out.push({ kind: "group", id: SIDEBAR_GROUP.unsorted, label: "Unsorted", children: unsortedChildren });
+    if (packChildren.length)
+      out.push({ kind: "group", id: SIDEBAR_GROUP.pack, label: "Pack Files", children: packChildren });
+    if (textureChildren.length)
+      out.push({ kind: "group", id: SIDEBAR_GROUP.texture, label: "Texture files", children: textureChildren });
+    if (unsortedChildren.length)
+      out.push({ kind: "group", id: SIDEBAR_GROUP.unsorted, label: "Unsorted", children: unsortedChildren });
     return out;
   }
 }

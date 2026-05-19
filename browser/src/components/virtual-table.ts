@@ -191,13 +191,26 @@ export class VirtualTable<T> {
     const viewportRows = Math.max(1, Math.floor(this.scroller.clientHeight / this.rowHeight));
     let next = current;
     switch (ev.key) {
-      case "ArrowDown": next = current < 0 ? 0 : Math.min(n - 1, current + 1); break;
-      case "ArrowUp":   next = current < 0 ? 0 : Math.max(0, current - 1); break;
-      case "PageDown":  next = current < 0 ? 0 : Math.min(n - 1, current + viewportRows); break;
-      case "PageUp":    next = current < 0 ? 0 : Math.max(0, current - viewportRows); break;
-      case "Home":      next = 0; break;
-      case "End":       next = n - 1; break;
-      default: return;
+      case "ArrowDown":
+        next = current < 0 ? 0 : Math.min(n - 1, current + 1);
+        break;
+      case "ArrowUp":
+        next = current < 0 ? 0 : Math.max(0, current - 1);
+        break;
+      case "PageDown":
+        next = current < 0 ? 0 : Math.min(n - 1, current + viewportRows);
+        break;
+      case "PageUp":
+        next = current < 0 ? 0 : Math.max(0, current - viewportRows);
+        break;
+      case "Home":
+        next = 0;
+        break;
+      case "End":
+        next = n - 1;
+        break;
+      default:
+        return;
     }
     ev.preventDefault();
     if (next === current) return;

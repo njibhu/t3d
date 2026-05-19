@@ -172,13 +172,19 @@ export class FileViewer {
     const isMap = packfile?.header.type === "mapc";
     const isSound = packfile?.header.type === "ASND";
     const isStrings = !packfile && fcc === "strs";
-    const primary: TabKind = isModel ? "model"
-      : isMap ? "map"
-      : texKind ? "texture"
-      : isSound ? "sound"
-      : isStrings ? "string"
-      : packfile ? "pack"
-      : "raw";
+    const primary: TabKind = isModel
+      ? "model"
+      : isMap
+        ? "map"
+        : texKind
+          ? "texture"
+          : isSound
+            ? "sound"
+            : isStrings
+              ? "string"
+              : packfile
+                ? "pack"
+                : "raw";
 
     // Build tabs in their display order (Raw, Hex, Pack, Texture, then the
     // type-specific tab) so the strip is stable across file kinds.
@@ -197,9 +203,12 @@ export class FileViewer {
     if (texKind) {
       const t = this.ensureTab("texture");
       renderTextureView(t.pane, texInput, texKind);
-      if (texKind === "png") this.addAction("Download PNG", () => triggerDownload(new Blob([rawData]), `${fileId}.png`));
-      else if (texKind === "riff") this.addAction("Download RIFF", () => triggerDownload(new Blob([rawData]), `${fileId}.riff`));
-      else if (texKind === "dds") this.addAction("Download DDS", () => triggerDownload(new Blob([rawData]), `${fileId}.dds`));
+      if (texKind === "png")
+        this.addAction("Download PNG", () => triggerDownload(new Blob([rawData]), `${fileId}.png`));
+      else if (texKind === "riff")
+        this.addAction("Download RIFF", () => triggerDownload(new Blob([rawData]), `${fileId}.riff`));
+      else if (texKind === "dds")
+        this.addAction("Download DDS", () => triggerDownload(new Blob([rawData]), `${fileId}.dds`));
     }
 
     // Pre-create the type-specific tab so its chip is in the strip before
