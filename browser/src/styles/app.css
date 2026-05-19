@@ -444,10 +444,14 @@ body {
   font-family: var(--t3d-mono);
   font-size: 11px;
   line-height: 1.4;
+  /* Roughly 5 visible lines (5 × 11px × 1.4 + padding); huge JSON would
+     otherwise compute to an awkwardly small height during initial layout. */
+  min-height: calc(5 * 1.4em + 16px);
   max-height: 280px;
   overflow: auto;
   white-space: pre;
   cursor: text;
+  box-sizing: border-box;
   /* One click selects the whole preview so Ctrl+C copies it all */
   user-select: all;
   -webkit-user-select: all;
