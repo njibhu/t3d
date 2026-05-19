@@ -1,6 +1,6 @@
 /**
- * Type-only declarations for the `t3d-lib` import path. Vite aliases this
- * to the library's built ESM bundle at runtime (see vite.config.ts);
+ * This is a temporary workaround which will be removed very soon after all the UMD imports are replaced with ESM imports everywhere.
+ * Vite aliases this to the library's built ESM bundle at runtime (see vite.config.ts);
  * TypeScript resolves it to this file via the `paths` entry in tsconfig.
  */
 
