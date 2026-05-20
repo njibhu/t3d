@@ -140,7 +140,7 @@ export default class DataRenderer {
         /// Load file using LocalReader.
         self.localReader.loadFile(
           self.settings.id,
-          function (inflatedData, dxtType, imageWidth, imageHeigth) {
+          function (inflatedData, _dxtType, imageWidth, imageHeigth) {
             /// Create image using returned data.
             const image = {
               data: new Uint8Array(inflatedData!),

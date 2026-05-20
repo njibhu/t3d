@@ -119,7 +119,7 @@ export function renderGeomChunk(
   const meshes: any[] = [];
   const mats = modelDataChunk.data.permutations[0].materials;
 
-  rawMeshes.forEach(function (rawMesh) {
+  rawMeshes.forEach(function (rawMesh: GEOM.V0_U["meshes"][number]) {
     const rawGeom = rawMesh.geometry;
     const fvf: number = rawGeom.verts.mesh.fvf; // rawGeom.fvf;
 
@@ -382,7 +382,7 @@ export function getInstancedMeshes(meshes: any[], size: number, filterFlags?: nu
 
 export function loadMeshFromModelFile(
   filename: number,
-  solidColor: any[],
+  _solidColor: any[],
   localReader: LocalReader,
   sharedTextures: any,
   showUnmaterialed: boolean,

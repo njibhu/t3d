@@ -21,7 +21,7 @@ import type { Material, Mesh } from "three";
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 export default class HavokRenderer extends DataRenderer {
-  static rendererName = "HavokRenderer";
+  static override rendererName = "HavokRenderer";
   mapFile: FileParser;
   lastP: number;
   seed: number;
@@ -241,7 +241,7 @@ export default class HavokRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback: Function) {
+  override renderAsync(callback: Function) {
     const self = this;
 
     // TODO:The design of this method pretty much requires one instance

@@ -24,7 +24,7 @@ export default class DataReader {
 
   inflate(
     buffer: ArrayBuffer,
-    size: number,
+    _size: number,
     mftId: number,
     isImage?: boolean,
     capLength?: number

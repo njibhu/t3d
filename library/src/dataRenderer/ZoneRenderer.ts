@@ -33,7 +33,7 @@ type ModelGroupEntry = {
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 export default class ZoneRenderer extends DataRenderer {
-  static rendererName = "ZoneRenderer";
+  static override rendererName = "ZoneRenderer";
   meshCache: any;
   textureCache: any;
 
@@ -365,7 +365,7 @@ export default class ZoneRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback: Function) {
+  override renderAsync(callback: Function) {
     const self = this;
 
     /// Set up output array

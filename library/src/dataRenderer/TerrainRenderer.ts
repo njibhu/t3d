@@ -29,7 +29,7 @@ import { createMultiMaterialObject } from "three/examples/jsm/utils/SceneUtils.j
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 export default class TerrainRenderer extends DataRenderer {
-  static rendererName = "TerrainRenderer";
+  static override rendererName = "TerrainRenderer";
 
   mapFile: FileParser;
   mapRect: { x1: number; x2: number; y1: number; y2: number } | undefined | null;
@@ -378,7 +378,7 @@ export default class TerrainRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback: Function) {
+  override renderAsync(callback: Function) {
     /// Load all paged Images, requires inflation of other pack files!
     const pagedImageId = this.mapFile.getChunk("trn")!.data.materials.pagedImage;
     //@ts-ignore

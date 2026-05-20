@@ -17,7 +17,7 @@ import type Logger from "../Logger";
  * @param  {Logger} logger       The logging class to use for progress, warnings, errors et cetera.
  */
 export default class StringRenderer extends DataRenderer {
-  static rendererName = "StringRenderer";
+  static override rendererName = "StringRenderer";
 
   constructor(localReader: LocalReader, settings: any, context: any, logger: typeof Logger) {
     super(localReader, settings, context, logger, "StringRenderer");
@@ -34,7 +34,7 @@ export default class StringRenderer extends DataRenderer {
    * @async
    * @param  {Function} callback Fires when renderer is finished, does not take arguments.
    */
-  renderAsync(callback: Function): void {
+  override renderAsync(callback: Function): void {
     const self = this;
 
     /// Get file id

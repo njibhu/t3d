@@ -6,7 +6,7 @@ import { fileChunkMap } from "./chunk-packs";
 import type { FileTypes, ChunkTypes, DefinitionTypes } from "./chunk-packs";
 
 export default class FileParser {
-  private chunks: { header: ChunkHead; data: any }[] = [];
+  public chunks: { header: ChunkHead; data: any }[] = [];
   private dataView: DataView;
   private chunkOffset: number;
   public header: FileHead;
