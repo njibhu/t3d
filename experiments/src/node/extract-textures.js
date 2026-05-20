@@ -4,7 +4,7 @@
  */
 
 const fs = require("fs");
-const T3D = require("../../../library/src/T3D-node");
+const T3D = require("../../../library/build/T3D-node.cjs");
 
 const PNG = require("pngjs").PNG;
 

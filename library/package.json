@@ -2,10 +2,14 @@
   "name": "t3d-lib",
   "version": "3.0.0",
   "license": "GPL-3.0",
-  "main": "build/T3D.mjs",
+  "main": "build/T3D-node.cjs",
   "module": "build/T3D.mjs",
   "exports": {
-    ".": "./build/T3D.mjs"
+    ".": {
+      "require": "./build/T3D-node.cjs",
+      "import": "./build/T3D.mjs",
+      "default": "./build/T3D.mjs"
+    }
   },
   "types": "src/T3DLib.ts",
   "scripts": {

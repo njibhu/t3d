@@ -5,7 +5,7 @@
  */
 
 const fs = require("fs");
-const T3D = require("../../../library/src/T3D-node");
+const T3D = require("../../../library/build/T3D-node.cjs");
 require("../../dist/static/GLTFExporter");
 
 if (process.argv.length < 4) {
