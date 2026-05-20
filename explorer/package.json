@@ -2,24 +2,26 @@
   "name": "t3d-explorer",
   "version": "3.0.0",
   "description": "",
-  "main": "src/index.html",
-  "author": "Tyria 3D contributors",
+  "type": "module",
+  "author": "T3D Contributors",
   "license": "GPL-3.0",
   "scripts": {
-    "dev": "http-server dist",
-    "build": "npx rollup -c",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
     "lint:check": "eslint src",
     "lint:fix": "eslint src --fix",
     "format:fix": "prettier --write ./src",
     "format:check": "prettier --check ./src",
     "test": "exit 0"
   },
+  "dependencies": {
+    "three": "0.161.0"
+  },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "26.0.1",
-    "@rollup/plugin-node-resolve": "15.2.3",
-    "http-server": "14.1.1",
-    "rollup": "4.21.3",
-    "rollup-plugin-copy": "3.5.0",
-    "rollup-plugin-delete": "2.2.0"
+    "@types/three": "0.161.0",
+    "typescript": "5.5.4",
+    "vite": "5.4.8",
+    "vite-plugin-static-copy": "1.0.6"
   }
 }
