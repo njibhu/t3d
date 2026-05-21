@@ -7423,36 +7423,348 @@ export namespace V32_N {
 
 export type V32 = V32_N.ScriptFileDataV32;
 
-export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V14_U = V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V15_U = V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V16_U = V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V17_U = V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V18_U = V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V19_U = V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V20_U = V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V21_U = V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V22_U = V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V23_U = V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V24_U = V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V25_U = V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V26_U = V26 | V27 | V28 | V29 | V30 | V31 | V32;
-export type V27_U = V27 | V28 | V29 | V30 | V31 | V32;
-export type V28_U = V28 | V29 | V30 | V31 | V32;
-export type V29_U = V29 | V30 | V31 | V32;
-export type V30_U = V30 | V31 | V32;
-export type V31_U = V31 | V32;
-export type V32_U = V32;
+export namespace V33_N {
+  export type ScriptFileDataV33 = {
+    musicCue: bigint,
+    reverbOverride: bigint,
+    snapshot: bigint,
+    audioSettings: AudioSettingsDataV31,
+    handler: Array<HandlerDataV31>,
+    metaSound: Array<MetaSoundDataV31>,
+    scriptRef: Array<ScriptRefDataV31>,
+    triggerKey: Array<TriggerKeyDataV31>,
+    property: Array<PropertyDataV31>,
+    flags: number,
+    soundPoolCount: number,
+    fadeInTime: number,
+    soundPoolDelay: number,
+    volume: number,
+    musicCuePriority: number,
+    musicMutePriority: number,
+    soundPoolMode: number,
+    interpolation: number,
+    radialLimit: number,
+    scaleBucketRange: RangeDataV31,
+    multipointGranularity: number
+  }
+
+  export type AudioSettingsDataV31 = {
+    defaultSnapshot: bigint,
+    effectsBuss: bigint,
+    distanceScale: number,
+    dopplerScale: number,
+    echoLevel: number,
+    focusTransition: number,
+    memoryPool: number,
+    reverbLevel: number,
+    minChannelsLQ: number,
+    maxChannelsLQ: number,
+    buss: Array<BussDataV31>,
+    category: Array<CategoryDataV31>,
+    material: Array<MaterialDataV31>,
+    musicCondition: Array<MusicConditionDataV31>,
+    musicPlaylist: Array<MusicPlaylistDataV31>,
+    property: Array<PropertyDataV31>,
+    reverb: Array<ReverbDataV31>,
+    scriptRef: Array<ScriptRefDataV31>,
+    snapshot: Array<SnapshotDataV31>,
+    bankIndexFileName: number,
+    bankScriptFileName: number,
+    musicScriptFileName: number,
+    musicExternal: Array<MusicExternalDataV31>
+  }
+
+  export type BussDataV31 = {
+    name: bigint,
+    output: bigint,
+    flags: number,
+    normalizeFadeTime: number,
+    normalizeThreshold: number,
+    normalizeMaxAmp: number,
+    compressorThreshold: number,
+    compressorAttack: number,
+    compressorRelease: number,
+    compressorGainMakeup: number,
+    dynamicData: BussDynamicDataV31
+  }
+
+  export type BussDynamicDataV31 = {
+    name: bigint,
+    flags: number,
+    volume: number,
+    dsp: Array<DspDataV31>
+  }
+
+  export type DspDataV31 = {
+    type: number,
+    flags: number,
+    property: Float32Array
+  }
+
+  export type CategoryDataV31 = {
+    name: bigint,
+    volumeGroupName: bigint,
+    outputBussName: bigint,
+    attenuation: AttenuationDataV31,
+    dynamicData: CategoryDynamicDataV31,
+    focusReserve: number,
+    muteFadeTime: number,
+    flags: number,
+    maxAudible: number,
+    maxAudibleBehavior: number,
+    priority: number
+  }
+
+  export type AttenuationDataV31 = {
+    doppler: number,
+    lowPass: DynamicParamDataV31,
+    highPass: DynamicParamDataV31,
+    pan3D: DynamicParamDataV31,
+    reverb: DynamicParamDataV31,
+    spread3D: DynamicParamDataV31,
+    volumeA: DynamicParamDataV31,
+    volumeB: DynamicParamDataV31,
+    lfe: DynamicParamDataV31
+  }
+
+  export type DynamicParamDataV31 = {
+    envelopeData: EnvelopeDataV31,
+    randomParamData: RandomParamDataV31,
+    value: number,
+    type: number
+  }
+
+  export type EnvelopeDataV31 = {
+    inputOffset: number,
+    inputOffsetProperty: bigint,
+    inputParameter: bigint,
+    inputScale: number,
+    inputScaleProperty: bigint,
+    inputType: number,
+    outputOffset: number,
+    outputOffsetProperty: bigint,
+    outputScale: number,
+    outputScaleProperty: bigint,
+    envelopePoint: Array<EnvelopePointDataV31>
+  }
+
+  export type EnvelopePointDataV31 = {
+    offset: number,
+    value: number
+  }
+
+  export type RandomParamDataV31 = {
+    time: RangeDataV31,
+    value: RangeDataV31
+  }
+
+  export type RangeDataV31 = {
+    max: number,
+    min: number,
+    min_: number
+  }
+
+  export type CategoryDynamicDataV31 = {
+    name: bigint,
+    volume: number,
+    nonFocusGain: number,
+    lowPass: number,
+    highPass: number,
+    reverbDirect: number,
+    reverbRoom: number,
+    flags: number,
+    minAudible: number,
+    maxAudibleLQ: number,
+    maxAudibleHG: number
+  }
+
+  export type MaterialDataV31 = {
+    name: bigint,
+    flags: number,
+    absorptionLF: number,
+    absorptionMF: number,
+    absorptionHF: number,
+    occlusion: number
+  }
+
+  export type MusicConditionDataV31 = {
+    name: bigint,
+    flags: number,
+    byteCode: Uint8Array
+  }
+
+  export type MusicPlaylistDataV31 = {
+    category: bigint,
+    name: bigint,
+    primaryPlaylistId: bigint,
+    secondaryPlaylistId: bigint,
+    fileName: Array<FileNameDataV31>,
+    fadeInTime: number,
+    fadeOutTime: number,
+    flags: number,
+    initialSilence: RangeDataV31,
+    intervalSilence: RangeDataV31,
+    maxPlayLength: RangeDataV31,
+    volume: DynamicParamDataV31,
+    fileIterateMode: number
+  }
+
+  export type FileNameDataV31 = {
+    condition: bigint,
+    language: bigint,
+    volume: number,
+    weight: number,
+    fileName: number,
+    audioType: number,
+    noteBase: number,
+    noteMin: number,
+    noteMax: number
+  }
+
+  export type PropertyDataV31 = {
+    name: bigint,
+    tokenValue: bigint,
+    floatValue: number
+  }
+
+  export type ReverbDataV31 = {
+    name: bigint,
+    flags: number,
+    room: number,
+    roomHF: number,
+    roomLF: number,
+    decayTime: number,
+    decayHFRatio: number,
+    reflections: number,
+    reflectionsDelay: number,
+    reverb: number,
+    reverbDelay: number,
+    referenceHF: number,
+    referenceLF: number,
+    diffusion: number,
+    density: number,
+    echoDelay: number,
+    echoDecayRatio: number,
+    echoWetMix: number,
+    echoDryMix: number
+  }
+
+  export type ScriptRefDataV31 = {
+    name: bigint,
+    fileName: number
+  }
+
+  export type SnapshotDataV31 = {
+    name: bigint,
+    blendInTime: number,
+    blendOutTime: number,
+    flags: number,
+    buss: Array<BussDynamicDataV31>,
+    category: Array<CategoryDynamicDataV31>,
+    priority: number
+  }
+
+  export type MusicExternalDataV31 = {
+    name: bigint,
+    externalPlaylist: string
+  }
+
+  export type HandlerDataV31 = {
+    name: bigint,
+    flags: number,
+    byteCode: Uint8Array
+  }
+
+  export type MetaSoundDataV31 = {
+    category: bigint,
+    endCue: bigint,
+    name: bigint,
+    offsetBone: bigint,
+    playlistId: bigint,
+    dsp: Array<DspDataV31>,
+    attenuation: AttenuationDataV31,
+    fileName: Array<FileNameDataV31>,
+    channelFadeIn: number,
+    channelFadeOut: number,
+    endCueOffset: number,
+    fadeInTime: number,
+    fadeOutTime: number,
+    modelScaleSizeFactor: number,
+    positionOffset: Float32Array,
+    channelMax: number,
+    flags: number,
+    loopCount: number,
+    depth: DynamicParamDataV31,
+    pan: DynamicParamDataV31,
+    pitch: DynamicParamDataV31,
+    pitchMS: DynamicParamDataV31,
+    volume: DynamicParamDataV31,
+    volumeMS: DynamicParamDataV31,
+    initialDelay: RangeDataV31,
+    playLength: RangeDataV31,
+    positionOffsetAngle: RangeDataV31,
+    positionRange: RangeDataV31,
+    repeatCount: RangeDataV31,
+    repeatTime: RangeDataV31,
+    replayDelay: RangeDataV31,
+    startTimeOffset: RangeDataV31,
+    channelMode: number,
+    channelPriority: number,
+    fileIterateMode: number,
+    loopMode: number,
+    musicPriority: number,
+    playbackMode: number,
+    positionMode: number,
+    repeatTimeFrom: number
+  }
+
+  export type TriggerKeyDataV31 = {
+    name: bigint,
+    triggerMarker: Array<TriggerMarkerDataV31>
+  }
+
+  export type TriggerMarkerDataV31 = {
+    cue: bigint,
+    end: bigint,
+    time: number,
+    type: number
+  }
+
+}
+
+export type V33 = V33_N.ScriptFileDataV33;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V2_U = V2 | V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V3_U = V3 | V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V4_U = V4 | V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V5_U = V5 | V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V6_U = V6 | V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V7_U = V7 | V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V8_U = V8 | V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V9_U = V9 | V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V10_U = V10 | V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V11_U = V11 | V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V12_U = V12 | V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V13_U = V13 | V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V14_U = V14 | V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V15_U = V15 | V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V16_U = V16 | V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V17_U = V17 | V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V18_U = V18 | V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V19_U = V19 | V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V20_U = V20 | V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V21_U = V21 | V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V22_U = V22 | V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V23_U = V23 | V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V24_U = V24 | V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V25_U = V25 | V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V26_U = V26 | V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V27_U = V27 | V28 | V29 | V30 | V31 | V32 | V33;
+export type V28_U = V28 | V29 | V30 | V31 | V32 | V33;
+export type V29_U = V29 | V30 | V31 | V32 | V33;
+export type V30_U = V30 | V31 | V32 | V33;
+export type V31_U = V31 | V32 | V33;
+export type V32_U = V32 | V33;
+export type V33_U = V33;

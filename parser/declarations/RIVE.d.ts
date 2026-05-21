@@ -264,28 +264,56 @@ export namespace V5_N {
   export type MapRiver = {
     guid: bigint,
     name: string,
-    properties: Array<PackMapRiverProperty>,
+    properties: Array<PackMapRiverPropertyV5>,
     points: Array<Float32Array>,
     reaches: Array<MapRiverReach>
   }
 
-  export type PackMapRiverProperty = {
+  export type PackMapRiverPropertyV5 = {
     type: number,
     val: bigint,
     strVal: number
   }
 
   export type MapRiverReach = {
-    properties: Array<PackMapRiverProperty>
+    properties: Array<PackMapRiverPropertyV5>
   }
 
 }
 
 export type V5 = V5_N.PackMapRivers;
 
-export type V0_U = V0 | V1 | V2 | V3 | V4 | V5;
-export type V1_U = V1 | V2 | V3 | V4 | V5;
-export type V2_U = V2 | V3 | V4 | V5;
-export type V3_U = V3 | V4 | V5;
-export type V4_U = V4 | V5;
-export type V5_U = V5;
+export namespace V6_N {
+  export type PackMapRivers = {
+    rivers: Array<MapRiver>
+  }
+
+  export type MapRiver = {
+    guid: bigint,
+    name: string,
+    properties: Array<PackMapRiverPropertyV6>,
+    points: Array<Float32Array>,
+    reaches: Array<MapRiverReach>
+  }
+
+  export type PackMapRiverPropertyV6 = {
+    type: number,
+    val: bigint,
+    strVal: number
+  }
+
+  export type MapRiverReach = {
+    properties: Array<PackMapRiverPropertyV6>
+  }
+
+}
+
+export type V6 = V6_N.PackMapRivers;
+
+export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6;
+export type V1_U = V1 | V2 | V3 | V4 | V5 | V6;
+export type V2_U = V2 | V3 | V4 | V5 | V6;
+export type V3_U = V3 | V4 | V5 | V6;
+export type V4_U = V4 | V5 | V6;
+export type V5_U = V5 | V6;
+export type V6_U = V6;

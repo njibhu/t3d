@@ -61,7 +61,7 @@ export namespace V3_N {
 export type V3 = V3_N.AmatGrV3;
 
 export namespace V4_N {
-  export type AmatGr = {
+  export type AmatGrV4 = {
     texArrayRange: number,
     texCount: number,
     texTransformRange: number,
@@ -76,10 +76,10 @@ export namespace V4_N {
 
 }
 
-export type V4 = V4_N.AmatGr;
+export type V4 = V4_N.AmatGrV4;
 
 export namespace V5_N {
-  export type AmatGr = {
+  export type AmatGrV5 = {
     texArrayRange: number,
     texCount: number,
     texTransformRange: number,
@@ -95,10 +95,10 @@ export namespace V5_N {
 
 }
 
-export type V5 = V5_N.AmatGr;
+export type V5 = V5_N.AmatGrV5;
 
 export namespace V6_N {
-  export type AmatGr = {
+  export type AmatGrV6 = {
     texArrayRange: number,
     texCount: number,
     sortOrder: number,
@@ -111,7 +111,7 @@ export namespace V6_N {
 
 }
 
-export type V6 = V6_N.AmatGr;
+export type V6 = V6_N.AmatGrV6;
 
 export type V0_U = V0 | V1 | V2 | V3 | V4 | V5 | V6;
 export type V1_U = V1 | V2 | V3 | V4 | V5 | V6;

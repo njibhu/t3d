@@ -2,110 +2,223 @@ import { Uint32, Uint8, DynArray, Uint64 } from "../src/types";
 
 const V0 = {
   chunkName: "BGFX",
-  name: "AmatGfxMaterial",
+  name: "AmatMaterialV0",
   version: 0,
   definitions: {
-    AmatGfxShader: {
+    AmatShaderV0: {
       isPixelShader: Uint32,
-      dxShader: "AmatGfxShaderBinary",
-      osxShader: "AmatGfxShaderBinary"
+      dx11Shader: "AmatShaderBinaryV0",
+      osxShader: "AmatShaderBinaryV0"
     },
-    AmatGfxShaderBinary: {
+    AmatShaderBinaryV0: {
       data: DynArray(Uint8),
-      constants: DynArray("AmatGfxShaderConstant"),
-      samplers: DynArray("AmatGfxSamplerConstant")
+      constants: DynArray("AmatShaderConstantV0"),
+      samplers: DynArray("AmatSamplerConstantV0")
     },
-    AmatGfxShaderConstant: {
+    AmatShaderConstantV0: {
       token: Uint32
     },
-    AmatGfxSamplerConstant: {
+    AmatSamplerConstantV0: {
       token: Uint64,
       stateIndex: Uint32,
       textureIndex: Uint32,
       textureSlot: Uint32
     },
-    AmatGfxSamplerState: {
+    AmatSamplerStateV0: {
       state: Uint32
     },
-    AmatGfxTechnique: {
+    AmatTechniqueV0: {
       quality: Uint32,
-      passes: DynArray("AmatGfxPass")
+      passes: DynArray("AmatPassV0")
     },
-    AmatGfxPass: {
-      effects: DynArray("AmatGfxEffect")
+    AmatPassV0: {
+      effects: DynArray("AmatEffectV0")
     },
-    AmatGfxEffect: {
+    AmatEffectV0: {
       token: Uint64,
       renderState: Uint64,
       shaderPassFlags: Uint32,
       pixelShaderIndex: Uint32,
-      vertexShaderVariants: DynArray("AmatGfxVertexShaderVariant")
+      vertexShaderVariants: DynArray("AmatVertexShaderVariantV0")
     },
-    AmatGfxVertexShaderVariant: {
+    AmatVertexShaderVariantV0: {
       variant: Uint32,
       vertexShaderIndex: Uint32
     }
   },
   root: {
-    shaders: DynArray("AmatGfxShader"),
-    samplers: DynArray("AmatGfxSamplerState"),
-    techniques: DynArray("AmatGfxTechnique")
+    shaders: DynArray("AmatShaderV0"),
+    samplers: DynArray("AmatSamplerStateV0"),
+    techniques: DynArray("AmatTechniqueV0")
   }
 };
 
 const V1 = {
   chunkName: "BGFX",
-  name: "AmatGfxMaterial",
+  name: "AmatMaterialV1",
   version: 1,
   definitions: {
-    AmatGfxShader: {
+    AmatShaderV1: {
       isPixelShader: Uint32,
-      dxShader: "AmatGfxShaderBinary",
-      osxShader: "AmatGfxShaderBinary"
+      dx11Shader: "AmatShaderBinaryV1",
+      osxShader: "AmatShaderBinaryV1"
     },
-    AmatGfxShaderBinary: {
+    AmatShaderBinaryV1: {
       data: DynArray(Uint8),
-      constants: DynArray("AmatGfxShaderConstant"),
-      samplers: DynArray("AmatGfxSamplerConstant")
+      constants: DynArray("AmatShaderConstantV1"),
+      samplers: DynArray("AmatSamplerConstantV1")
     },
-    AmatGfxShaderConstant: {
+    AmatShaderConstantV1: {
       token: Uint32
     },
-    AmatGfxSamplerConstant: {
+    AmatSamplerConstantV1: {
       token: Uint64,
       stateIndex: Uint32,
       textureIndex: Uint32,
       textureSlot: Uint32
     },
-    AmatGfxSamplerState: {
+    AmatSamplerStateV1: {
       state: Uint32
     },
-    AmatGfxTechnique: {
+    AmatTechniqueV1: {
       quality: Uint32,
-      passes: DynArray("AmatGfxPass")
+      passes: DynArray("AmatPassV1")
     },
-    AmatGfxPass: {
-      effects: DynArray("AmatGfxEffect")
+    AmatPassV1: {
+      effects: DynArray("AmatEffectV1")
     },
-    AmatGfxEffect: {
+    AmatEffectV1: {
       token: Uint64,
       renderState: Uint64,
       shaderPassFlags: Uint32,
       pixelShaderIndex: Uint32,
-      vertexShaderVariants: DynArray("AmatGfxVertexShaderVariant")
+      vertexShaderVariants: DynArray("AmatVertexShaderVariantV1")
     },
-    AmatGfxVertexShaderVariant: {
+    AmatVertexShaderVariantV1: {
       variant: Uint32,
       vertexShaderIndex: Uint32
     }
   },
   root: {
-    shaders: DynArray("AmatGfxShader"),
-    samplers: DynArray("AmatGfxSamplerState"),
-    techniques: DynArray("AmatGfxTechnique")
+    shaders: DynArray("AmatShaderV1"),
+    samplers: DynArray("AmatSamplerStateV1"),
+    techniques: DynArray("AmatTechniqueV1")
   }
 };
 
-export const latest = V1;
-export const definitions = { V0, V1 };
+const V2 = {
+  chunkName: "BGFX",
+  name: "AmatMaterialV2",
+  version: 2,
+  definitions: {
+    AmatShaderV2: {
+      isPixelShader: Uint32,
+      dx11Shader: "AmatShaderBinaryV2",
+      pbrShader: "AmatShaderBinaryV2"
+    },
+    AmatShaderBinaryV2: {
+      data: DynArray(Uint8),
+      constants: DynArray("AmatShaderConstantV2"),
+      samplers: DynArray("AmatSamplerConstantV2")
+    },
+    AmatShaderConstantV2: {
+      token: Uint32
+    },
+    AmatSamplerConstantV2: {
+      token: Uint64,
+      stateIndex: Uint32,
+      textureIndex: Uint32,
+      textureSlot: Uint32
+    },
+    AmatSamplerStateV2: {
+      state: Uint32
+    },
+    AmatTechniqueV2: {
+      quality: Uint32,
+      passes: DynArray("AmatPassV2")
+    },
+    AmatPassV2: {
+      effects: DynArray("AmatEffectV2")
+    },
+    AmatEffectV2: {
+      token: Uint64,
+      renderState: Uint64,
+      shaderPassFlags: Uint32,
+      pixelShaderIndex: Uint32,
+      vertexShaderVariants: DynArray("AmatVertexShaderVariantV2")
+    },
+    AmatVertexShaderVariantV2: {
+      variant: Uint32,
+      vertexShaderIndex: Uint32
+    }
+  },
+  root: {
+    shaders: DynArray("AmatShaderV2"),
+    samplers: DynArray("AmatSamplerStateV2"),
+    techniques: DynArray("AmatTechniqueV2")
+  }
+};
+
+const V3 = {
+  chunkName: "BGFX",
+  name: "AmatMaterialV3",
+  version: 3,
+  definitions: {
+    AmatShaderV3: {
+      isPixelShader: Uint32,
+      dx11Shader: "AmatShaderBinaryV3",
+      pbrShader: "AmatShaderBinaryV3"
+    },
+    AmatShaderBinaryV3: {
+      data: DynArray(Uint8),
+      constants: DynArray("AmatShaderConstantV2"),
+      samplers: DynArray("AmatSamplerConstantV2"),
+      bindings: DynArray("AmatShaderBindingV3")
+    },
+    AmatShaderConstantV2: {
+      token: Uint32
+    },
+    AmatSamplerConstantV2: {
+      token: Uint64,
+      stateIndex: Uint32,
+      textureIndex: Uint32,
+      textureSlot: Uint32
+    },
+    AmatShaderBindingV3: {
+      token: Uint64,
+      type: Uint8,
+      access: Uint8,
+      byte: Uint8
+    },
+    AmatSamplerStateV2: {
+      state: Uint32
+    },
+    AmatTechniqueV2: {
+      quality: Uint32,
+      passes: DynArray("AmatPassV2")
+    },
+    AmatPassV2: {
+      effects: DynArray("AmatEffectV2")
+    },
+    AmatEffectV2: {
+      token: Uint64,
+      renderState: Uint64,
+      shaderPassFlags: Uint32,
+      pixelShaderIndex: Uint32,
+      vertexShaderVariants: DynArray("AmatVertexShaderVariantV2")
+    },
+    AmatVertexShaderVariantV2: {
+      variant: Uint32,
+      vertexShaderIndex: Uint32
+    }
+  },
+  root: {
+    shaders: DynArray("AmatShaderV3"),
+    samplers: DynArray("AmatSamplerStateV2"),
+    techniques: DynArray("AmatTechniqueV2")
+  }
+};
+
+export const latest = V3;
+export const definitions = { V0, V1, V2, V3 };
 export const definitionArray = Object.values(definitions);
