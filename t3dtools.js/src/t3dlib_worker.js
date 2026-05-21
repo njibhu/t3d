@@ -32,7 +32,7 @@ self.addEventListener(
     }
 
     if (!error) {
-      self.postMessage([handle, result.data.buffer, result.dxtType, result.imgW, result.imgH]);
+      self.postMessage([handle, result.data.buffer, result.dxtType, result.imgW, result.imgH], [result.data.buffer]);
     }
   },
   false

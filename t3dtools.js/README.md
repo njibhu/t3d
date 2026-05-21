@@ -43,5 +43,4 @@ The t3dworker is Web-Worker ready module allowing to offload heavy work off the 
 ## What can be done next:
 
 - Change all the exceptions to error checks since exceptions are anyway ignored by emscripten.
-- Remove as much as possible the data copy (see src/pre.js)
 - Use a SharedArrayBuffer instead of passing the data around in channels.

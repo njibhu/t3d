@@ -65,7 +65,7 @@ export default class DataReader {
       // Add the load to the worker
       const workerId = this._getBestWorkerIndex();
       this._workerLoad[workerId] += 1;
-      this._workerPool[workerId].postMessage([mftId, arrayBuffer, isImage === true, capLength]);
+      this._workerPool[workerId].postMessage([mftId, arrayBuffer, isImage === true, capLength], [arrayBuffer]);
     });
   }
 
@@ -87,15 +87,21 @@ export default class DataReader {
       if (typeof message_event.data === "string") {
         Logger.log(Logger.TYPE_WARNING, "Inflater threw an error", message_event.data);
         mftId = parseInt(message_event.data.split(":")[0]);
-        for (const callback of self._inflateCallbacks[mftId]) {
-          callback.reject();
+        const callbacks = self._inflateCallbacks[mftId];
+        delete self._inflateCallbacks[mftId];
+        if (callbacks) {
+          for (const callback of callbacks) {
+            callback.reject(new Error(message_event.data));
+          }
         }
       } else {
-        mftId = message_event.data[0];
+        const data = message_event.data;
+        mftId = data[0];
+        const callbacks = self._inflateCallbacks[mftId];
+        delete self._inflateCallbacks[mftId];
         // On success
-        if (self._inflateCallbacks[mftId]) {
-          for (const callback of self._inflateCallbacks[mftId]) {
-            const data = message_event.data;
+        if (callbacks) {
+          for (const callback of callbacks) {
             // Array buffer, dxtType, imageWidth, imageHeight
             callback.resolve({
               buffer: data[1],
@@ -104,13 +110,11 @@ export default class DataReader {
               imageHeight: data[4],
             });
           }
-          // Remove triggered listeners
-          self._inflateCallbacks[mftId] = null;
         }
 
         // Unknown error
         else {
-          Logger.log(Logger.TYPE_ERROR, "Inflater threw an error", message_event.data);
+          Logger.log(Logger.TYPE_ERROR, "Inflater threw an error", data);
         }
       }
     };
@@ -118,6 +122,20 @@ export default class DataReader {
 
   // Get the worker with the less load
   _getBestWorkerIndex(): number {
-    return this._workerLoad.indexOf(Math.min(...this._workerLoad));
+    if (this._workerLoad.length === 0) {
+      throw new Error("No workers initialized");
+    }
+
+    let bestWorkerIndex = 0;
+    let bestWorkerLoad = this._workerLoad[0];
+
+    for (let i = 1; i < this._workerLoad.length; i++) {
+      if (this._workerLoad[i] < bestWorkerLoad) {
+        bestWorkerLoad = this._workerLoad[i];
+        bestWorkerIndex = i;
+      }
+    }
+
+    return bestWorkerIndex;
   }
 }
