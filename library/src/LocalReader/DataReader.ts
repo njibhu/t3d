@@ -8,6 +8,24 @@ interface ScanCallback {
   reject: (err: Error) => void;
 }
 
+interface ScanJob {
+  kind: "scan";
+  id: number;
+  mftId: number;
+  offset: number;
+  length: number;
+  capLength: number;
+  compressed: boolean;
+}
+
+interface InflateJob {
+  kind: "inflate";
+  mftId: number;
+  buffer: ArrayBuffer;
+  isImage: boolean;
+  capLength: number;
+}
+
 export default class DataReader {
   _workerPool: any[];
   _workerLoad: any[];
@@ -15,6 +33,8 @@ export default class DataReader {
   _scanCallbacks: Array<ScanCallback[] | undefined>;
   _scanByMft: Map<number, number>;
   _nextScanId: number;
+  _pendingScanJobs: ScanJob[];
+  _pendingInflateJobs: InflateJob[];
 
   constructor(
     public settings: {
@@ -28,6 +48,8 @@ export default class DataReader {
     this._scanCallbacks = [];
     this._scanByMft = new Map();
     this._nextScanId = 1;
+    this._pendingScanJobs = [];
+    this._pendingInflateJobs = [];
     for (let i = 0; i < settings.workersNb; i++) {
       this._startWorker(settings.workerPath);
     }
@@ -60,11 +82,8 @@ export default class DataReader {
       const id = this._nextScanId++;
       this._scanCallbacks[id] = [{ resolve, reject }];
       this._scanByMft.set(mftId, id);
-
-      const workerId = this._getBestWorkerIndex("scan");
-      this._workerLoad[workerId] += 1;
-      this._workerPool[workerId].postMessage({
-        type: "scan",
+      this._enqueueScanJob({
+        kind: "scan",
         id,
         mftId,
         offset,
@@ -115,10 +134,13 @@ export default class DataReader {
         this._inflateCallbacks[mftId] = [{ resolve: resolve, reject: reject }];
       }
 
-      // Add the load to the worker
-      const workerId = this._getBestWorkerIndex("read");
-      this._workerLoad[workerId] += 1;
-      this._workerPool[workerId].postMessage([mftId, arrayBuffer, isImage === true, capLength], [arrayBuffer]);
+      this._enqueueInflateJob({
+        kind: "inflate",
+        mftId,
+        buffer: arrayBuffer,
+        isImage: isImage === true,
+        capLength,
+      });
     });
   }
 
@@ -132,12 +154,13 @@ export default class DataReader {
     }
 
     worker.onmessage = function (message_event) {
-      self._workerLoad[selfWorkerId] -= 1;
+      self._workerLoad[selfWorkerId] = 0;
       const data = message_event.data;
 
       // Scan protocol — object messages with a `type` field.
       if (data && !Array.isArray(data) && typeof data === "object" && data.type) {
         self._handleScanResponse(data);
+        self._drainQueues(selfWorkerId);
         return;
       }
 
@@ -170,6 +193,8 @@ export default class DataReader {
           Logger.log(Logger.TYPE_ERROR, "Inflater threw an error", data);
         }
       }
+
+      self._drainQueues(selfWorkerId);
     };
   }
 
@@ -196,23 +221,64 @@ export default class DataReader {
     }
   }
 
-  // Get the worker with the less load
-  _getBestWorkerIndex(jobType: "scan" | "read" = "read"): number {
-    if (this._workerLoad.length === 0) {
-      throw new Error("No workers initialized");
+  private _enqueueScanJob(job: ScanJob): void {
+    const workerId = this._findIdleWorkerIndex();
+    if (workerId !== -1 && this._pendingInflateJobs.length === 0) {
+      this._dispatchScanJob(workerId, job);
+      return;
+    }
+    this._pendingScanJobs.push(job);
+  }
+
+  private _enqueueInflateJob(job: InflateJob): void {
+    const workerId = this._findIdleWorkerIndex();
+    if (workerId !== -1) {
+      this._dispatchInflateJob(workerId, job);
+      return;
+    }
+    this._pendingInflateJobs.push(job);
+  }
+
+  private _drainQueues(workerId: number): void {
+    if (this._workerLoad[workerId] !== 0) return;
+
+    const inflateJob = this._pendingInflateJobs.shift();
+    if (inflateJob) {
+      this._dispatchInflateJob(workerId, inflateJob);
+      return;
     }
 
-    const limit = jobType === "scan" && this._workerLoad.length > 1 ? this._workerLoad.length - 1 : this._workerLoad.length;
-    let bestWorkerIndex = 0;
-    let bestWorkerLoad = this._workerLoad[0];
-
-    for (let i = 1; i < limit; i++) {
-      if (this._workerLoad[i] < bestWorkerLoad) {
-        bestWorkerLoad = this._workerLoad[i];
-        bestWorkerIndex = i;
-      }
+    const scanJob = this._pendingScanJobs.shift();
+    if (scanJob) {
+      this._dispatchScanJob(workerId, scanJob);
     }
+  }
 
-    return bestWorkerIndex;
+  private _dispatchScanJob(workerId: number, job: ScanJob): void {
+    this._workerLoad[workerId] = 1;
+    this._workerPool[workerId].postMessage({
+      type: "scan",
+      id: job.id,
+      mftId: job.mftId,
+      offset: job.offset,
+      length: job.length,
+      capLength: job.capLength,
+      compressed: job.compressed,
+    });
+  }
+
+  private _dispatchInflateJob(workerId: number, job: InflateJob): void {
+    this._workerLoad[workerId] = 1;
+    this._workerPool[workerId].postMessage(
+      [job.mftId, job.buffer, job.isImage, job.capLength],
+      [job.buffer]
+    );
+  }
+
+  private _findIdleWorkerIndex(): number {
+    for (let i = 0; i < this._workerLoad.length; i++) {
+      if (this._workerLoad[i] === 0) return i;
+    }
+    return -1;
   }
 }

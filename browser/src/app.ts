@@ -265,8 +265,10 @@ export class App {
   // ---- archive lifecycle ----
 
   private onStoreChanged(): void {
+    let scanChanged = false;
     if (this.lastScanRevision !== this.store.scanRevision) {
       this.lastScanRevision = this.store.scanRevision;
+      scanChanged = true;
       this.renderScanStatus();
     }
     if (!this.store.isLoaded || !this.store.reader) return;
@@ -285,6 +287,8 @@ export class App {
     } else if (this.lastRowsRevision !== this.store.rowsRevision) {
       this.lastRowsRevision = this.store.rowsRevision;
       this.refreshTable(true);
+    } else if (scanChanged) {
+      this.updateFileTableFooter(this.searchRows(this.store.getFilteredRows(this.currentFilter)).length);
     }
   }
 
@@ -349,7 +353,10 @@ export class App {
     if (this.activeTabId != null) {
       this.table.setSelection(this.mftIdForBaseId(this.activeTabId));
     }
+    this.updateFileTableFooter(rows.length);
+  }
 
+  private updateFileTableFooter(rowCount: number): void {
     const modKey = navigator.platform.toLowerCase().includes("mac") ? "⌘" : "Ctrl";
     const filterTag = this.currentFilter === SIDEBAR_GROUP.all ? "" : ` · filter: ${this.currentFilter}`;
     const scan = this.store.currentScanState;
@@ -362,7 +369,7 @@ export class App {
             ? " · scan complete"
             : "";
     this.fileTableFooterEl.textContent =
-      `${rows.length.toLocaleString()} files${filterTag}${scanTag} · ${modKey}/middle-click for new tab`;
+      `${rowCount.toLocaleString()} files${filterTag}${scanTag} · ${modKey}/middle-click for new tab`;
   }
 
   private searchRows(rows: FileRow[]): FileRow[] {
