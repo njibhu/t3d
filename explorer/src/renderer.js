@@ -160,6 +160,9 @@ export default class AppRenderer {
   }
 
   cleanupMap() {
+    if (this._mapContext) {
+      T3D.disposeRenderContext(this._mapContext);
+    }
     this._mapContext = undefined;
     this._renderOptions = undefined;
     this.loadedMapID = undefined;

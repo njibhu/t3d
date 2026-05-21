@@ -10,6 +10,7 @@ import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
 import type { Material } from "three";
 import { createMultiMaterialObject } from "three/examples/jsm/utils/SceneUtils.js";
+import { trackObject3DResources } from "../util/RenderContextUtils";
 
 const LEGACY_CHUNK_SEGMENTS = 32;
 const LEGACY_CHUNK_SAMPLE_WIDTH = 35;
@@ -65,6 +66,18 @@ function makeSolidColorTexture(color: ArrayLike<number>): THREE.DataTexture {
   imageData[3] = a;
   texture.needsUpdate = true;
   return texture;
+}
+
+export interface TerrainHeightSampler {
+  xChunks: number;
+  yChunks: number;
+  chunkWidth: number;
+  chunkDepth: number;
+  chunkSegments: number;
+  mapX: number;
+  mapY: number;
+  oddRows: boolean;
+  chunkHeights: Float32Array[];
 }
 
 /**
@@ -181,6 +194,7 @@ export default class TerrainRenderer extends DataRenderer {
     /// Load textures from PIMG and inject as material maps (textures)
     const chunkTextures: any = {};
     const generatedPickerTextures: Record<string, THREE.Texture> = {};
+    const chunkHeights: Float32Array[] = new Array(xChunks * yChunks);
 
     const resolvePickerTexture = function (page: any): THREE.Texture {
       const pageTextureKey = getPageTextureKey(page);
@@ -351,6 +365,7 @@ export default class TerrainRenderer extends DataRenderer {
       const chunkGeo = new THREE.PlaneGeometry(cdx, cdy, chunkSegments, chunkSegments);
 
       let cn = 0;
+      const chunkHeightData = new Float32Array((chunkSegments + 1) * (chunkSegments + 1));
 
       /// Render chunk
 
@@ -358,8 +373,10 @@ export default class TerrainRenderer extends DataRenderer {
       for (let y = 0; y < chunkSampleWidth; y++) {
         for (let x = 0; x < chunkSampleWidth; x++) {
           if (x !== 0 && x !== chunkSampleWidth - 1 && y !== 0 && y !== chunkSampleWidth - 1) {
+            const height = terrainData.heightMapArray[n];
             //@ts-ignore
-            chunkGeo.getAttribute("position").array[cn * 3 + 2] = terrainData.heightMapArray[n];
+            chunkGeo.getAttribute("position").array[cn * 3 + 2] = height;
+            chunkHeightData[cn] = -height;
             cn++;
           }
 
@@ -431,6 +448,8 @@ export default class TerrainRenderer extends DataRenderer {
       /// Add to list of stuff to render
       /// TODO: Perhaps use some kind of props for each entry instead?
       self.getOutput().terrainTiles.push(chunk);
+      chunkHeights[chunkIndex] = chunkHeightData;
+      trackObject3DResources(self.context, chunk);
     }; /// End render chunk function
 
     const stepChunk = function (cx: number, cy: number) {
@@ -442,9 +461,21 @@ export default class TerrainRenderer extends DataRenderer {
       if (cy >= yChunks) {
         /// Draw water surface using map bounds
         self.getOutput().water = self.drawWater(self.mapRect!);
+        trackObject3DResources(self.context, self.getOutput().water);
 
         /// Set bounds in output VO
         self.getOutput().bounds = self.mapRect;
+        self.getOutput().heightSampler = {
+          xChunks,
+          yChunks,
+          chunkWidth: cdx,
+          chunkDepth: cdy,
+          chunkSegments,
+          mapX: parameterData.rect[0],
+          mapY: parameterData.rect[1],
+          oddRows: terrainData.numChunksD_2 % 2 !== 0,
+          chunkHeights,
+        } satisfies TerrainHeightSampler;
 
         /// Fire call back, we're done rendering.
         callback();
@@ -515,4 +546,47 @@ export default class TerrainRenderer extends DataRenderer {
 
     return fileIds;
   }
+
+  static sampleHeightAt(sampler: TerrainHeightSampler | undefined, worldX: number, worldZ: number): number {
+    if (!sampler) return 0;
+
+    const localX = (worldX - sampler.mapX) / sampler.chunkWidth;
+    const chunkOriginY = sampler.oddRows ? sampler.mapY - sampler.chunkDepth : sampler.mapY;
+    const localY = (worldZ - chunkOriginY) / sampler.chunkDepth;
+    const chunkX = Math.floor(localX);
+    const chunkY = Math.floor(localY);
+
+    if (chunkX < 0 || chunkY < 0 || chunkX >= sampler.xChunks || chunkY >= sampler.yChunks) {
+      return 0;
+    }
+
+    const chunkHeights = sampler.chunkHeights[chunkY * sampler.xChunks + chunkX];
+    if (!chunkHeights) {
+      return 0;
+    }
+
+    const gridX = clamp((localX - chunkX) * sampler.chunkSegments, 0, sampler.chunkSegments);
+    const gridY = clamp((localY - chunkY) * sampler.chunkSegments, 0, sampler.chunkSegments);
+
+    const x0 = Math.floor(gridX);
+    const y0 = Math.floor(gridY);
+    const x1 = Math.min(sampler.chunkSegments, x0 + 1);
+    const y1 = Math.min(sampler.chunkSegments, y0 + 1);
+    const tx = gridX - x0;
+    const ty = gridY - y0;
+    const stride = sampler.chunkSegments + 1;
+
+    const h00 = chunkHeights[y0 * stride + x0];
+    const h10 = chunkHeights[y0 * stride + x1];
+    const h01 = chunkHeights[y1 * stride + x0];
+    const h11 = chunkHeights[y1 * stride + x1];
+
+    const hx0 = THREE.MathUtils.lerp(h00, h10, tx);
+    const hx1 = THREE.MathUtils.lerp(h01, h11, tx);
+    return THREE.MathUtils.lerp(hx0, hx1, ty);
+  }
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
 }

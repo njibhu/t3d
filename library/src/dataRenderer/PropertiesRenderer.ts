@@ -81,51 +81,42 @@ export default class PropertiesRenderer extends DataRenderer {
       return models;
     }, {});
     this.modelsList = Object.keys(this.models);
+    const concurrency = RenderUtils.getMaxConcurrentModelLoads(this.localReader, this.settings.maxConcurrentModelLoads);
 
-    this.renderModel(0, callback);
+    RenderUtils.runWithConcurrency(this.modelsList, concurrency, async (modelName, index) => {
+      LogsUtils.progress(this.logger, index, this.modelsList.length, "Loading 3D Models (Props)");
+      const numericModelName = parseInt(modelName);
+      const { meshes } = await RenderUtils.getMeshesForFilenameAsync(
+        numericModelName,
+        this.models[numericModelName].props[0].color,
+        this.localReader,
+        this.meshCache,
+        this.textureCache,
+        this.showUnmaterialized
+      );
+
+      if (meshes) {
+        this.placeModelOnScene(numericModelName, meshes);
+      }
+    })
+      .then(() => {
+        this.meshCache = {};
+        this.textureCache = {};
+        this.models = {};
+        callback();
+      })
+      .catch((error) => {
+        this.logger.log(this.logger.TYPE_ERROR, error);
+        this.meshCache = {};
+        this.textureCache = {};
+        this.models = {};
+        callback();
+      });
   }
 
   getFileIdsAsync(callback: Function): void {
     this.logger.log(this.logger.TYPE_WARNING, "PropertiesRenderer.getFileIdsAsync is not implemented");
     callback([]);
-  }
-
-  /**
-   * PRIVATE METHODS
-   */
-
-  /**
-   * To optimize the rendering on the GPU we render each model only once and use instances for
-   * any other place using the same model. This allows us to have a much lower amount of draw calls
-   * and usage of GPU memory compared to a naive approach having a mesh for each model.
-   */
-  renderModel(index: number, callback: Function): void {
-    if (index >= this.modelsList.length) {
-      this.meshCache = {};
-      this.textureCache = {};
-      this.models = {};
-      return callback();
-    }
-
-    LogsUtils.progress(this.logger, index, this.modelsList.length, "Loading 3D Models (Props)");
-
-    const modelName = parseInt(this.modelsList[index]);
-    RenderUtils.getMeshesForFilename(
-      modelName,
-      this.models[modelName].props[0].color,
-      this.localReader,
-      this.meshCache,
-      this.textureCache,
-      this.showUnmaterialized,
-      // We don't care about cached meshes since we know we only ask for each meshes once.
-      (meshes) => {
-        if (meshes) {
-          this.placeModelOnScene(modelName, meshes /*, boundingSphere*/);
-        }
-
-        this.renderModel(index + 1, callback);
-      }
-    );
   }
 
   /**
@@ -139,20 +130,15 @@ export default class PropertiesRenderer extends DataRenderer {
     if (meshes.length === 0) {
       return;
     }
+    const matrices = collectPropMatrices(model.props);
     const instancedMeshes = RenderUtils.getInstancedMeshes(meshes, model.size);
     for (const instancedMesh of instancedMeshes) {
-      let instancedIndex = 0;
-      for (const prop of model.props) {
-        instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(prop));
-        instancedIndex += 1;
-        for (const transform of prop.transforms || []) {
-          instancedMesh.setMatrixAt(instancedIndex, getMatrixForProp(transform));
-          instancedIndex += 1;
-        }
+      for (let instancedIndex = 0; instancedIndex < matrices.length; instancedIndex++) {
+        instancedMesh.setMatrixAt(instancedIndex, matrices[instancedIndex]);
       }
       instancedMesh.instanceMatrix.needsUpdate = true;
-      instancedMesh.computeBoundingBox();
       instancedMesh.computeBoundingSphere();
+      RenderUtils.trackMeshResources(this.context, instancedMesh as any);
     }
     for (const instancedMesh of instancedMeshes) {
       this.getOutput().meshes.push(instancedMesh);
@@ -161,17 +147,33 @@ export default class PropertiesRenderer extends DataRenderer {
 }
 
 /**
- * Return a Matrix4 for a given prop defining the Scale Rotation and Location of a model
+ * Return a Matrix4 for a given prop defining the Scale Rotation and Location of a model.
  * @param {Object} propData
  * @returns {THREE.Matrix4}
  */
-function getMatrixForProp(propData: any): Matrix4 {
-  const matrix = new THREE.Matrix4();
-  matrix.makeRotationFromEuler(
-    new THREE.Euler(propData.rotation[0], -propData.rotation[2], -propData.rotation[1], "ZXY")
-  );
-  matrix.scale(new THREE.Vector3(propData.scale, propData.scale, propData.scale));
-  matrix.setPosition(propData.position[0], -propData.position[2], -propData.position[1]);
+const scratchEuler = new THREE.Euler(0, 0, 0, "ZXY");
+const scratchQuaternion = new THREE.Quaternion();
+const scratchScale = new THREE.Vector3();
+const scratchPosition = new THREE.Vector3();
 
-  return matrix;
+export function writeMatrixForProp(propData: any, target: Matrix4): Matrix4 {
+  scratchEuler.set(propData.rotation[0], -propData.rotation[2], -propData.rotation[1], "ZXY");
+  scratchQuaternion.setFromEuler(scratchEuler);
+  scratchScale.set(propData.scale, propData.scale, propData.scale);
+  scratchPosition.set(propData.position[0], -propData.position[2], -propData.position[1]);
+  target.compose(scratchPosition, scratchQuaternion, scratchScale);
+  return target;
+}
+
+export function collectPropMatrices(props: any[]): Matrix4[] {
+  const matrices: Matrix4[] = [];
+
+  for (const prop of props) {
+    matrices.push(writeMatrixForProp(prop, new THREE.Matrix4()));
+    for (const transform of prop.transforms || []) {
+      matrices.push(writeMatrixForProp(transform, new THREE.Matrix4()));
+    }
+  }
+
+  return matrices;
 }

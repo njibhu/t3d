@@ -58,6 +58,7 @@ export default class SingleModelRenderer extends DataRenderer {
           meshes.forEach(function (mesh) {
             mesh.boundingSphere = boundingSphere;
             self.getOutput().meshes.push(mesh);
+            RenderUtils.trackMeshResources(self.context, mesh);
           });
         }
 

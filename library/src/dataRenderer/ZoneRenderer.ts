@@ -5,18 +5,11 @@ import TerrainRenderer from "./TerrainRenderer";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
-import type { BufferGeometry } from "three";
+import type { InstancedMesh, Matrix4 } from "three";
 import type { FileParser } from "t3d-parser";
 
 type ModelGroupEntry = {
-  x: number;
-  y: number;
-  z: number;
-  rotRangeX: [number, number];
-  rotRangeY: [number, number];
-  rotRangeZ: [number, number];
-  scaleRange: [number, number];
-  fadeRange: [number, number];
+  matrix: THREE.Matrix4;
 };
 
 /**
@@ -67,164 +60,39 @@ export default class ZoneRenderer extends DataRenderer {
     /// Create empty mesh cache
     self.meshCache = {};
     self.textureCache = {};
-
-    /*
-     * ---Keeping this out of the doc for now---
-     * Steps trough each model and renders it to the scene, allowing for efficient caching.
-     * @param  {Number} i - Current index within the models array
-     */
-    // var lastPct = -1;
     const groupKeys = Object.keys(modelGroups);
-    function stepModels(i: number) {
-      /* var pct = Math.round(100.0*i / groupKeys.length);
-      if(lastPct!=pct){
-        console.log("Rendering ZONE models "+pct);
-        lastPct = pct;
-      } */
+    const concurrency = RenderUtils.getMaxConcurrentModelLoads(this.localReader, this.settings.maxConcurrentModelLoads);
 
-      if (i >= groupKeys.length) {
-        /// Empty mesh cache
-        self.meshCache = {};
-        self.textureCache = {};
-
-        /// Tell caller this zone is done loading
-        renderZoneCallback();
-        return;
-      }
-
-      /// Read model at index
-      /// var model = models[i];
-      const key = groupKeys[i]; /// key is model filename
-      const group = modelGroups[key as any];
-
-      const meshGroups: any[] = [];
-
-      /// Get model just once for this group
-      const showUnmaterialed = false;
-      RenderUtils.getMeshesForFilename(
+    RenderUtils.runWithConcurrency(groupKeys, concurrency, async (key) => {
+      const { meshes } = await RenderUtils.getMeshesForFilenameAsync(
         key as any,
         null,
         self.localReader,
         self.meshCache,
         self.textureCache,
-        showUnmaterialed,
-
-        function (meshes /*, isCached*/) {
-          /// If there were meshes, add them to the scene with correct scaling rotation etc.
-          if (meshes /* && meshes.length == 3 */) {
-            /// Add one copy per model instance
-            /// TODO: add rotation!
-            /// TODO: fine tune position?
-            /// TODO: POTIMIZE!
-
-            group.forEach(function (model, instanceIdx) {
-              //let isCached = true;
-              //let scale = 1.0;
-
-              /// For each Mesh in the model
-              meshes.forEach(function (mesh, meshIdx) {
-                if (mesh.materialFlags === 525 /* || mesh.materialFlags == 520 || mesh.materialFlags == 521 */) {
-                  // console.log("Skipping lod");
-                  return;
-                }
-
-                const move = { x: 0, y: 0, z: 0 };
-
-                /// Add to big mesh
-                if (!meshGroups[meshIdx]) {
-                  const mg: BufferGeometry = mesh.geometry.clone() as any;
-                  meshGroups[meshIdx] = {
-                    readVerts: mg.getAttribute("position").array,
-                    verts: new Float32Array(group.length * mg.getAttribute("position").array.length),
-
-                    readIndices: mg.getIndex()!.array,
-                    indices: new Uint32Array(group.length * mg.getIndex()!.array.length),
-
-                    readUVs: mg.getAttribute("uv").array,
-                    uvs: new Float32Array(group.length * mg.getAttribute("uv").array.length),
-
-                    readNormals: mg.getAttribute("normal").array,
-                    normals: new Float32Array(group.length * mg.getAttribute("normal").array.length),
-
-                    material: mesh.material,
-                    // material:new THREE.MeshBasicMaterial( {color: 0xffcccc, wireframe:true} ),
-                    /* material : new THREE.PointCloudMaterial ({
-                        color: 0xFF0000,
-                        size: 20
-                      }), */
-                    position: { x: model.x, y: model.y, z: model.z },
-                  };
-                } else {
-                  /// Translate
-                  move.x = model.x - meshGroups[meshIdx].position.x;
-                  move.y = model.z - meshGroups[meshIdx].position.z;
-                  move.z = model.y - meshGroups[meshIdx].position.y;
-                }
-
-                /// Add geom verts
-                const readVerts = meshGroups[meshIdx].readVerts;
-                const writeVerts = meshGroups[meshIdx].verts;
-                const stride = readVerts.length;
-
-                for (let i = 0, j = instanceIdx * stride; i < stride; i += 3, j += 3) {
-                  writeVerts[j + 0] = readVerts[i + 0] + move.x;
-                  writeVerts[j + 1] = readVerts[i + 1] + move.y;
-                  writeVerts[j + 2] = readVerts[i + 2] + move.z;
-                }
-
-                const readIndices = meshGroups[meshIdx].readIndices;
-                const writeIndices = meshGroups[meshIdx].indices;
-                const strideIndices = readIndices.length;
-                const shift = (stride * instanceIdx) / 3;
-
-                for (let i = 0, j = instanceIdx * strideIndices; i < strideIndices; i++, j++) {
-                  writeIndices[j] = readIndices[i] + shift;
-                }
-
-                const readUVs = meshGroups[meshIdx].readUVs;
-                const writeUvs = meshGroups[meshIdx].uvs;
-                const uvStride = readUVs.length;
-                for (let i = 0, j = instanceIdx * uvStride; i < uvStride; i++, j++) {
-                  writeUvs[j] = readUVs[i];
-                }
-
-                const readNormals = meshGroups[meshIdx].readNormals;
-                const writeNormals = meshGroups[meshIdx].normals;
-                const normalStride = readNormals.length;
-                for (let i = 0, j = instanceIdx * normalStride; i < normalStride; i++, j++) {
-                  writeNormals[j] = readNormals[i];
-                }
-              });
-            }); // End for each model in group
-          } /// End if meshes
-
-          /// Add each cluster of merged meshes to scene
-          meshGroups.forEach(function (meshGroup) {
-            const mergedGeom = new THREE.BufferGeometry();
-
-            mergedGeom.setAttribute("position", new THREE.BufferAttribute(meshGroup.verts, 3));
-            // mergedGeom.setAttribute( 'index', new THREE.BufferAttribute( meshGroup.indices, 1) );
-            mergedGeom.setIndex(new THREE.BufferAttribute(meshGroup.indices, 1));
-            mergedGeom.setAttribute("normal", new THREE.BufferAttribute(meshGroup.normals, 3));
-            mergedGeom.setAttribute("uv", new THREE.BufferAttribute(meshGroup.uvs, 2));
-
-            //@ts-ignore
-            mergedGeom.buffersNeedUpdate = true;
-
-            const mesh = new THREE.Mesh(mergedGeom, meshGroup.material);
-            mesh.position.set(meshGroup.position.x, meshGroup.position.z, meshGroup.position.y);
-
-            self.getOutput().meshes.push(mesh);
-          }); // End for each meshgroup
-
-          /// Rendering is done, render next.
-          stepModels(i + 1);
-        }
+        false
       );
-    } /// End function stepModels
 
-    /// Begin stepping trough the models, rendering them.
-    stepModels(0);
+      if (!meshes || meshes.length === 0) {
+        return;
+      }
+
+      const objects = this.createZoneObjects(modelGroups[key as any], meshes);
+      for (const object of objects) {
+        self.getOutput().meshes.push(object);
+      }
+    })
+      .then(() => {
+        self.meshCache = {};
+        self.textureCache = {};
+        renderZoneCallback();
+      })
+      .catch((error) => {
+        self.logger.log(self.logger.TYPE_ERROR, error);
+        self.meshCache = {};
+        self.textureCache = {};
+        renderZoneCallback();
+      });
   }
 
   /**
@@ -272,7 +140,7 @@ export default class ZoneRenderer extends DataRenderer {
 
     const modelGroups: Record<number, ModelGroupEntry[]> = {};
 
-    const terrainTiles = this.getOutput(TerrainRenderer).terrainTiles;
+    const terrainSampler = this.getOutput(TerrainRenderer).heightSampler;
 
     for (let i = 0; i < zone.flags.length; i += 2) {
       /// Step forward
@@ -294,22 +162,8 @@ export default class ZoneRenderer extends DataRenderer {
           const modelX = (linearPos % zdx) * c + zoneRect.x1;
           const modelY = Math.floor(linearPos / zdx) * c + zoneRect.y1;
 
-          /// Get Z from intersection with terrain
-          let modelZ: any = null;
-
-          const startZ = 100000;
-
-          const raycaster = new THREE.Raycaster(new THREE.Vector3(modelX, startZ, modelY), new THREE.Vector3(0, -1, 0));
-
-          /// TODO: OPT?
-          terrainTiles.forEach(function (chunk: any) {
-            if (modelZ === null) {
-              const intersections = raycaster.intersectObject(chunk);
-              if (intersections.length > 0) {
-                modelZ = startZ - intersections[0].distance;
-              }
-            }
-          });
+          /// Get terrain height directly from the sampled terrain grid.
+          const modelZ = TerrainRenderer.sampleHeightAt(terrainSampler, modelX, modelY);
 
           /// Get model id
           /// TODO: check with modelIdx = flag & 0xf;
@@ -321,18 +175,6 @@ export default class ZoneRenderer extends DataRenderer {
           // let layerFlags = layer.layerFlags; // NOrmaly 128, 128
 
           // TODO: flip z,y?
-          const rotRangeX = layer.rotRangeX; // max min
-          const rotRangeY = layer.rotRangeY; // max min
-          const rotRangeZ = layer.rotRangeZ; // max min
-          const scaleRange = layer.scaleRange; // max min
-          const fadeRange = layer.fadeRange; // max min
-
-          // Unused
-          // tiling: 3
-          // type: 1
-          // width: 2
-          // radiusGround: 2
-
           /// Create modelGroup (this zone only)
           if (!modelGroups[modelFilename]) {
             modelGroups[modelFilename] = [];
@@ -340,14 +182,7 @@ export default class ZoneRenderer extends DataRenderer {
 
           /// Add entry to model group
           modelGroups[modelFilename].push({
-            x: modelX,
-            y: modelY,
-            z: modelZ,
-            rotRangeX: rotRangeX,
-            rotRangeY: rotRangeY,
-            rotRangeZ: rotRangeZ,
-            scaleRange: scaleRange,
-            fadeRange: fadeRange,
+            matrix: new THREE.Matrix4().makeTranslation(modelX, modelZ, modelY),
           });
         } /// End if layer
       } /// End if flag != 0
@@ -402,6 +237,35 @@ export default class ZoneRenderer extends DataRenderer {
 
     stepZone(0);
   }
+
+  private createZoneObjects(placements: ModelGroupEntry[], meshes: RenderUtils.FinalMesh[]): THREE.Object3D[] {
+    const placementMatrices = placements.map((placement) => placement.matrix);
+    const objects: THREE.Object3D[] = [];
+
+    for (const instancedMesh of createInstancedZoneMeshes(meshes, placementMatrices)) {
+      RenderUtils.trackMeshResources(this.context, instancedMesh as any);
+      objects.push(instancedMesh);
+    }
+
+    return objects;
+  }
+}
+
+function createInstancedZoneMeshes(meshes: RenderUtils.FinalMesh[], matrices: Matrix4[]): InstancedMesh[] {
+  if (meshes.length === 0 || matrices.length === 0) {
+    return [];
+  }
+
+  const instancedMeshes = RenderUtils.getInstancedMeshes(meshes, matrices.length);
+  for (const instancedMesh of instancedMeshes) {
+    for (let matrixIndex = 0; matrixIndex < matrices.length; matrixIndex++) {
+      instancedMesh.setMatrixAt(matrixIndex, matrices[matrixIndex]);
+    }
+    instancedMesh.instanceMatrix.needsUpdate = true;
+    instancedMesh.computeBoundingSphere();
+  }
+
+  return instancedMeshes;
 }
 
 /*
