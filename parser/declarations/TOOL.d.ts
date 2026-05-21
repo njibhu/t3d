@@ -63,17 +63,17 @@ export namespace V1_N {
 export type V1 = V1_N.AmatToolParamsV1;
 
 export namespace V2_N {
-  export type AmatToolParams = {
+  export type AmatToolParamsV2 = {
     description: string,
     flags: number,
     text: string,
     texCoordCount: number,
     texTransformCount: number,
-    constants: Array<AmatToolConstant>,
-    textures: Array<AmatToolTexture>
+    constants: Array<AmatToolConstantV2>,
+    textures: Array<AmatToolTextureV2>
   }
 
-  export type AmatToolConstant = {
+  export type AmatToolConstantV2 = {
     token: number,
     displayName: string,
     defaultValue: Float32Array,
@@ -82,7 +82,7 @@ export namespace V2_N {
     maxValue: Float32Array
   }
 
-  export type AmatToolTexture = {
+  export type AmatToolTextureV2 = {
     texName: string,
     texDefaultFile: string,
     flags: number,
@@ -92,21 +92,21 @@ export namespace V2_N {
 
 }
 
-export type V2 = V2_N.AmatToolParams;
+export type V2 = V2_N.AmatToolParamsV2;
 
 export namespace V3_N {
-  export type AmatToolParams = {
+  export type AmatToolParamsV3 = {
     description: string,
     flags: number,
     texCoordCount: number,
     texTransformCount: number,
     decompressedTextCount: number,
     compressedText: Uint8Array,
-    constants: Array<AmatToolConstant>,
-    textures: Array<AmatToolTexture>
+    constants: Array<AmatToolConstantV3>,
+    textures: Array<AmatToolTextureV3>
   }
 
-  export type AmatToolConstant = {
+  export type AmatToolConstantV3 = {
     token: number,
     displayName: string,
     defaultValue: Float32Array,
@@ -115,7 +115,7 @@ export namespace V3_N {
     maxValue: Float32Array
   }
 
-  export type AmatToolTexture = {
+  export type AmatToolTextureV3 = {
     texName: string,
     texDefaultFile: string,
     flags: number,
@@ -124,7 +124,7 @@ export namespace V3_N {
 
 }
 
-export type V3 = V3_N.AmatToolParams;
+export type V3 = V3_N.AmatToolParamsV3;
 
 export type V0_U = V0 | V1 | V2 | V3;
 export type V1_U = V1 | V2 | V3;

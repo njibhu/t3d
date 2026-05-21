@@ -251,17 +251,17 @@ const V5 = {
     MapRiver: {
       guid: Uint64,
       name: RefString16(),
-      properties: DynArray("PackMapRiverProperty"),
+      properties: DynArray("PackMapRiverPropertyV5"),
       points: DynArray(FixedArray(Float32, 3)),
       reaches: DynArray("MapRiverReach")
     },
-    PackMapRiverProperty: {
+    PackMapRiverPropertyV5: {
       type: Uint32,
       val: Uint64,
       strVal: Filename()
     },
     MapRiverReach: {
-      properties: DynArray("PackMapRiverProperty")
+      properties: DynArray("PackMapRiverPropertyV5")
     }
   },
   root: {
@@ -269,6 +269,32 @@ const V5 = {
   }
 };
 
-export const latest = V5;
-export const definitions = { V0, V1, V2, V3, V4, V5 };
+const V6 = {
+  chunkName: "rive",
+  name: "PackMapRivers",
+  version: 6,
+  definitions: {
+    MapRiver: {
+      guid: Uint64,
+      name: RefString16(),
+      properties: DynArray("PackMapRiverPropertyV6"),
+      points: DynArray(FixedArray(Float32, 3)),
+      reaches: DynArray("MapRiverReach")
+    },
+    PackMapRiverPropertyV6: {
+      type: Uint32,
+      val: Uint64,
+      strVal: Filename()
+    },
+    MapRiverReach: {
+      properties: DynArray("PackMapRiverPropertyV6")
+    }
+  },
+  root: {
+    rivers: DynArray("MapRiver")
+  }
+};
+
+export const latest = V6;
+export const definitions = { V0, V1, V2, V3, V4, V5, V6 };
 export const definitionArray = Object.values(definitions);

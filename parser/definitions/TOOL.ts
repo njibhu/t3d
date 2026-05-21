@@ -66,10 +66,10 @@ const V1 = {
 
 const V2 = {
   chunkName: "TOOL",
-  name: "AmatToolParams",
+  name: "AmatToolParamsV2",
   version: 2,
   definitions: {
-    AmatToolConstant: {
+    AmatToolConstantV2: {
       token: Uint32,
       displayName: RefString16(),
       defaultValue: FixedArray(Float32, 4),
@@ -77,7 +77,7 @@ const V2 = {
       minValue: FixedArray(Float32, 4),
       maxValue: FixedArray(Float32, 4)
     },
-    AmatToolTexture: {
+    AmatToolTextureV2: {
       texName: RefString16(),
       texDefaultFile: RefString16(),
       flags: Uint32,
@@ -91,17 +91,17 @@ const V2 = {
     text: RefString(),
     texCoordCount: Uint8,
     texTransformCount: Uint8,
-    constants: DynArray("AmatToolConstant"),
-    textures: DynArray("AmatToolTexture")
+    constants: DynArray("AmatToolConstantV2"),
+    textures: DynArray("AmatToolTextureV2")
   }
 };
 
 const V3 = {
   chunkName: "TOOL",
-  name: "AmatToolParams",
+  name: "AmatToolParamsV3",
   version: 3,
   definitions: {
-    AmatToolConstant: {
+    AmatToolConstantV3: {
       token: Uint32,
       displayName: RefString16(),
       defaultValue: FixedArray(Float32, 4),
@@ -109,7 +109,7 @@ const V3 = {
       minValue: FixedArray(Float32, 4),
       maxValue: FixedArray(Float32, 4)
     },
-    AmatToolTexture: {
+    AmatToolTextureV3: {
       texName: RefString16(),
       texDefaultFile: RefString16(),
       flags: Uint32,
@@ -123,8 +123,8 @@ const V3 = {
     texTransformCount: Uint8,
     decompressedTextCount: Uint32,
     compressedText: DynArray(Uint8),
-    constants: DynArray("AmatToolConstant"),
-    textures: DynArray("AmatToolTexture")
+    constants: DynArray("AmatToolConstantV3"),
+    textures: DynArray("AmatToolTextureV3")
   }
 };
 

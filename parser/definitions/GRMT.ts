@@ -64,7 +64,7 @@ const V3 = {
 
 const V4 = {
   chunkName: "GRMT",
-  name: "AmatGr",
+  name: "AmatGrV4",
   version: 4,
   root: {
     texArrayRange: Uint8,
@@ -82,7 +82,7 @@ const V4 = {
 
 const V5 = {
   chunkName: "GRMT",
-  name: "AmatGr",
+  name: "AmatGrV5",
   version: 5,
   root: {
     texArrayRange: Uint8,
@@ -101,7 +101,7 @@ const V5 = {
 
 const V6 = {
   chunkName: "GRMT",
-  name: "AmatGr",
+  name: "AmatGrV6",
   version: 6,
   root: {
     texArrayRange: Uint8,
