@@ -62,6 +62,7 @@ class LocalReader {
     this.fileMetaTable = metaTable;
     this.indexTable = indexTable;
     this.file = file;
+    this.dataReader.init(file);
   }
 
   /**
@@ -95,7 +96,7 @@ class LocalReader {
     if (!meta) throw new Error("Unexistant file");
 
     // Slice up the data
-    const buffer = await ParsingUtils.sliceFile(this.file, Number(meta.offset), fileLength || meta.size);
+    const buffer = await ParsingUtils.sliceFile(this.file, meta.offset, fileLength || meta.size);
 
     // If needed we decompress, if not we keep raw
     if (raw || meta.compressed) {
@@ -152,67 +153,67 @@ class LocalReader {
       if (!(index in self.indexTable)) iterateList.push(index as any);
     }
 
-    // Spawn the decompression tasks
-    const taskArray: Promise<any>[] = [];
-    for (let i = 0; i < 1; i++) {
-      taskArray[i] = Promise.resolve({ task: i });
-    }
-
-    // Helps us to know when we need to update the persistant store
+    // Run up to `concurrency` _readFileType calls in flight at once. The pool
+    // matches the worker count so every decompression worker can be kept busy.
+    const concurrency = Math.max(1, this.settings.workersNb || 1);
+    const inFlight = new Set<Promise<void>>();
     let persistantNeedsUpdate = false;
+    let pendingIdbWrite: Promise<void> | null = null;
+    const progressStep = Math.max(1, Math.floor(iterateList.length / 100));
+    // Only persist progress every ~10% — full-array structured clone on every
+    // 1% used to dominate once the scan went parallel.
+    const idbWriteStep = progressStep * 10;
 
-    // Iterate through the array
-    for (const index in iterateList) {
-      const baseId = iterateList[index];
-
-      // First use a synchronous function to know if we need to scan the file
+    for (let i = 0; i < iterateList.length; i++) {
+      const baseId = iterateList[i];
       const result = this._needsScan(baseId, persistantList);
+
       if (result.scan === true) {
-        const taskId = (await Promise.race(taskArray)).task;
-        taskArray[taskId] = this._readFileType(baseId).then((scanResult) => {
-          // Put the result into our persistant storage
-          persistantList[baseId] = {
-            baseId: baseId,
-            size: scanResult!.size,
-            crc: scanResult!.crc,
-            fileType: scanResult!.fileType,
-          };
-          return { task: taskId };
+        if (inFlight.size >= concurrency) {
+          await Promise.race(inFlight);
+        }
+        const task = this._readFileType(baseId).then((scanResult) => {
+          if (scanResult) {
+            persistantList[baseId] = {
+              baseId: baseId,
+              size: scanResult.size,
+              crc: scanResult.crc,
+              fileType: scanResult.fileType,
+            };
+          }
         });
+        const tracked = task.finally(() => inFlight.delete(tracked));
+        inFlight.add(tracked);
       }
       if (result.change === "removed") {
-        // Update the persistant storage
         delete persistantList[baseId];
       }
-
-      // Handle persistant storage update
       if (result.change !== "none") persistantNeedsUpdate = true;
 
-      // Tasks to do only every %
-      if ((index as unknown as number) % Math.floor(iterateList.length / 100) === 0) {
-        // Print progress
-        Logger.log(
-          Logger.TYPE_PROGRESS,
-          "Finding types",
-          (index as unknown as number) / Math.floor(iterateList.length / 100)
-        );
+      if (i % progressStep === 0) {
+        Logger.log(Logger.TYPE_PROGRESS, "Finding types", i / progressStep);
+      }
 
-        // Update the persistant storage if needed
-        if (self.persistantStore && persistantNeedsUpdate) {
-          persistantNeedsUpdate = false;
-          self.persistantStore
-            .putListing(persistantId, persistantList, self.file!.name, false)
-            .then((res) => (persistantId = res));
-        }
+      // Throttled IDB write — only when no write is pending so we don't pile
+      // them up. The final write below catches anything we skipped.
+      if (i % idbWriteStep === 0 && self.persistantStore && persistantNeedsUpdate && !pendingIdbWrite) {
+        persistantNeedsUpdate = false;
+        pendingIdbWrite = self.persistantStore
+          .putListing(persistantId, persistantList, self.file!.name, false)
+          .then((res) => {
+            persistantId = res;
+          })
+          .finally(() => {
+            pendingIdbWrite = null;
+          });
       }
     }
 
-    await Promise.all(taskArray).then(() => {
-      // Finally update the listing as complete
-      if (self.persistantStore) {
-        self.persistantStore.putListing(persistantId, persistantList, self.file!.name, true);
-      }
-    });
+    await Promise.all(inFlight);
+    if (pendingIdbWrite) await pendingIdbWrite;
+    if (self.persistantStore) {
+      await self.persistantStore.putListing(persistantId, persistantList, self.file!.name, true);
+    }
     this.persistantData = persistantList;
     return this.getFileList();
   }
@@ -394,15 +395,26 @@ class LocalReader {
     const mftId = this.getFileIndex(baseId);
     const metaData = this.getFileMeta(mftId);
 
-    let fileType;
     if (this._fileTypeCache[baseId] !== undefined) {
-      fileType = this._fileTypeCache[baseId];
-    } else {
-      const fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
-      if (fileBuffer === undefined) return undefined;
-      fileType = FileTypes.getFileType(fileBuffer);
+      return { fileType: this._fileTypeCache[baseId], crc: metaData.crc, size: metaData.size };
     }
-    return { fileType: fileType, crc: metaData.crc, size: metaData.size };
+
+    // Read length: 32 raw bytes is enough for the magic-byte signatures (4)
+    // and the PF FileParser header (12). For compressed files we need a larger
+    // compressed window so the wasm inflate has enough input to produce ≥4
+    // decompressed bytes — 1000 matches the previous cap.
+    const compressed = !!metaData.compressed;
+    const length = Math.min(metaData.size, compressed ? 1000 : 32);
+    if (length < 4) return undefined;
+
+    let fileBuffer: ArrayBuffer;
+    try {
+      fileBuffer = await this.dataReader.scan(mftId, metaData.offset, length, 32, compressed);
+    } catch {
+      return undefined;
+    }
+    if (fileBuffer.byteLength < 4) return undefined;
+    return { fileType: FileTypes.getFileType(fileBuffer), crc: metaData.crc, size: metaData.size };
   }
 }
 

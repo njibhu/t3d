@@ -16,17 +16,7 @@ export function sliceFile(file: File, offset: number, length: number): Promise<A
       return buffer.buffer;
     });
   } else {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        resolve(reader.result as ArrayBuffer);
-      };
-
-      reader.onerror = reject;
-
-      reader.readAsArrayBuffer(file.slice(Number(offset), Number(offset) + Number(length)));
-    });
+    return file.slice(Number(offset), Number(offset) + Number(length)).arrayBuffer();
   }
 }
 

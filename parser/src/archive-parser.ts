@@ -52,18 +52,27 @@ function parseMFTTable(buffer: ArrayBuffer): MFTTable | undefined {
     return undefined;
   }
 
-  const fullTable: MFTTable["table"] = [];
+  // Hot loop — runs for every MFT entry (~1M for a full Gw2.dat). Inlined
+  // DataView reads avoid per-entry DataParser allocation and BigInt creation.
+  const entrySize = 24;
+  const fullTable: MFTTable["table"] = new Array(header.nbOfEntries);
   let cursor = headerParse.newPosition;
   for (let i = 1; i < header.nbOfEntries; i++) {
-    const item = new DataParser({ root: ArchiveDefinitions.MFT_TABLE_ENTRY }, false).parse(dataView, cursor);
-    cursor = item.newPosition;
-    fullTable[i] = item.data;
+    const offsetLow = dataView.getUint32(cursor, true);
+    const offsetHigh = dataView.getUint32(cursor + 4, true);
+    fullTable[i] = {
+      offset: offsetHigh * 0x100000000 + offsetLow,
+      size: dataView.getUint32(cursor + 8, true),
+      compressed: dataView.getUint16(cursor + 12, true),
+      crc: dataView.getUint32(cursor + 20, true),
+    };
+    cursor += entrySize;
   }
 
   return {
     header,
     table: fullTable,
-    mftIndexOffset: Number(fullTable[2].offset),
+    mftIndexOffset: fullTable[2].offset,
     mftIndexSize: fullTable[2].size,
   };
 }

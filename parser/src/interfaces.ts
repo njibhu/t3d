@@ -31,7 +31,7 @@ export interface MFTTable {
     nbOfEntries: number;
   };
   table: Array<{
-    offset: bigint;
+    offset: number;
     size: number;
     compressed: number;
     crc: number;
