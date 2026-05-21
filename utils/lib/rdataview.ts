@@ -35,6 +35,10 @@ export class RDataView {
     return left + 2 ** 32 * right;
   }
 
+  public getBytes(address: number, length: number): number[] {
+    return Array.from({ length }, (_, index) => this.getUint8(address + index));
+  }
+
   public isAscii(address: number): boolean {
     const parsedAddress = this.getUint8(address);
 
@@ -75,6 +79,11 @@ export class RDataView {
    */
   public getAddress(address: number): number {
     const parsedAddress = this.getUint64(address);
+
+    return this.toRelativeAddress(parsedAddress);
+  }
+
+  public toRelativeAddress(parsedAddress: number): number {
 
     if (parsedAddress === 0) {
       return 0;

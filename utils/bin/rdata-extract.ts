@@ -4,15 +4,55 @@ import { RDataParser } from "../lib/rdata-parsing";
 import { StructTabParser } from "../lib/struct-parsing";
 import { getNameForChunk } from "../lib/chunk-mapping";
 import { generateIndex } from "../lib/exports-list";
-import { writeFileSync } from "fs";
+import { appendFileSync, writeFileSync } from "fs";
 
 async function run() {
-  const filePath = process.argv[2];
-  const destinationFolder = process.argv[3];
+  const args = process.argv.slice(2);
+  let debugStructsLogPath: string | undefined;
+  const positionalArgs: string[] = [];
+
+  for (let index = 0; index < args.length; index += 1) {
+    const arg = args[index];
+
+    if (arg === "--debug-structs") {
+      debugStructsLogPath = args[index + 1];
+      index += 1;
+      continue;
+    }
+
+    if (arg.startsWith("--debug-structs=")) {
+      debugStructsLogPath = arg.slice("--debug-structs=".length);
+      continue;
+    }
+
+    positionalArgs.push(arg);
+  }
+
+  const filePath = positionalArgs[0];
+  const destinationFolder = positionalArgs[1];
 
   if (!filePath) {
     console.error("Require path to executable file");
     process.exit(1);
+  }
+
+  if (!destinationFolder) {
+    console.error("Require path to destination folder");
+    process.exit(1);
+  }
+
+  if (args.includes("--debug-structs") && !debugStructsLogPath) {
+    console.error("Require a log file path after --debug-structs");
+    process.exit(1);
+  }
+
+  const debugLogger = debugStructsLogPath
+    ? (message: string) => appendFileSync(debugStructsLogPath as string, `${message}\n`)
+    : undefined;
+
+  if (debugStructsLogPath) {
+    writeFileSync(debugStructsLogPath, "");
+    console.error(`Struct parser debug logging enabled: ${debugStructsLogPath}`);
   }
 
   console.log("Opening exe file...");
@@ -30,7 +70,11 @@ async function run() {
     const dataView = new DataView(arrayBuffer.buffer);
 
     const simpleParser = new RDataParser(dataView, vaddr, vaddr + vsize);
-    const structParser = new StructTabParser(dataView, vaddr, vaddr + vsize);
+    const structParser = new StructTabParser(dataView, vaddr, vaddr + vsize, {
+      debug: Boolean(debugStructsLogPath),
+      continueOnUnknownMembers: Boolean(debugStructsLogPath),
+      logger: debugLogger,
+    });
     const chunks = simpleParser.listChunks();
 
     for (const chunk of chunks) {
