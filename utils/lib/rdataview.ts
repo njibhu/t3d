@@ -84,7 +84,6 @@ export class RDataView {
   }
 
   public toRelativeAddress(parsedAddress: number): number {
-
     if (parsedAddress === 0) {
       return 0;
     }

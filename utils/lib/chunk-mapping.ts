@@ -110,9 +110,7 @@ export function getNameForChunk(
 
   const normalizedRootName = firstRoot.name.replace(/'/g, "");
   const rootName =
-    chunkName === "BGFX" && normalizedRootName === "AmatGfxMaterial"
-      ? "AmatMaterialV0"
-      : normalizedRootName;
+    chunkName === "BGFX" && normalizedRootName === "AmatGfxMaterial" ? "AmatMaterialV0" : normalizedRootName;
 
   if (!chunkMapping[rootName]) {
     console.error(`No mapping found for ${chunkName} ${firstRoot.name}`);

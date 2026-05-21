@@ -115,9 +115,12 @@ export class StructTabParser {
 
     const typeName = typeFactory();
     this.debug(
-      [`Resolved simple type at ${toHex(address)}`, `path=${this.formatPath(pathSegments)}`, `typeId=${typeId}`, `=> ${typeName}`].join(
-        " "
-      )
+      [
+        `Resolved simple type at ${toHex(address)}`,
+        `path=${this.formatPath(pathSegments)}`,
+        `typeId=${typeId}`,
+        `=> ${typeName}`,
+      ].join(" ")
     );
 
     // Add public types to be imported into the public typesSet
@@ -139,7 +142,9 @@ export class StructTabParser {
     const hasCustomSubType =
       subTypeAddress > 0 ? this.rdataView.getUint8(this.rdataView.getAddress(subTypeAddress + 8)) != 0 : true;
     const memberDefinition =
-      subTypeAddress > 0 ? this.parseStruct(subTypeAddress, this.extendSubtypePath(structPath, memberName, typeId)) : undefined;
+      subTypeAddress > 0
+        ? this.parseStruct(subTypeAddress, this.extendSubtypePath(structPath, memberName, typeId))
+        : undefined;
     const subTypeAmount = subTypeAddress > 0 ? this.rdataView.getUint32(address + 24) : undefined;
     const typeFactory = anetTypes[typeId];
 
@@ -185,8 +190,14 @@ export class StructTabParser {
       throw new TypeError(`Unknown member type id ${typeId} for ${memberName} at ${toHex(address)}`);
     }
 
-    const memberType = typeFactory(hasCustomSubType, memberDefinition ? memberDefinition.name : undefined, subTypeAmount);
-    this.debug(`Resolved member ${memberName} at ${toHex(address)} path=${this.formatPath(memberPath)} => ${memberType}`);
+    const memberType = typeFactory(
+      hasCustomSubType,
+      memberDefinition ? memberDefinition.name : undefined,
+      subTypeAmount
+    );
+    this.debug(
+      `Resolved member ${memberName} at ${toHex(address)} path=${this.formatPath(memberPath)} => ${memberType}`
+    );
 
     // Add public types to be imported into the public typesSet
     if (!memberType.startsWith("'")) {
@@ -225,7 +236,9 @@ export class StructTabParser {
     let currentAddress = address;
     const structMetadata = this.inspectStruct(address);
     const structPath =
-      structMetadata.kind === "struct" && structMetadata.structName ? [...pathSegments, structMetadata.structName] : pathSegments;
+      structMetadata.kind === "struct" && structMetadata.structName
+        ? [...pathSegments, structMetadata.structName]
+        : pathSegments;
 
     this.debug(
       [
@@ -299,9 +312,7 @@ export class StructTabParser {
     const structName = structMetadata.structName ?? "";
 
     if (unknownMembers.length > 0) {
-      const unknownSummary = unknownMembers
-        .map((member) => `${member.name}:${member.unknownTypeId}`)
-        .join(", ");
+      const unknownSummary = unknownMembers.map((member) => `${member.name}:${member.unknownTypeId}`).join(", ");
       this.debug(
         [
           `Struct contains unknown members`,
