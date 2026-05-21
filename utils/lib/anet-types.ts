@@ -31,7 +31,7 @@ export enum AType {
   Fileref = 27, //0x1B
   Unknown28 = 28,
   CustomType2 = 29,
-  QWord36 = 36, //0x24
+  DWord36 = 36, //0x24
   QWord37 = 37, //0x25
 }
 
@@ -116,7 +116,7 @@ export const anetTypes: {
   // 0x1D
   [AType.CustomType2]: (customSubType, subTypeName): string => (customSubType ? `'${subTypeName}'` : `${subTypeName}`),
   // 0x24
-  [AType.QWord36]: () => "Uint64",
+  [AType.DWord36]: () => "Uint32",
   // 0x25
   [AType.QWord37]: () => "Uint64",
 };
