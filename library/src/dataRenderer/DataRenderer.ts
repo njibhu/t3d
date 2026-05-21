@@ -126,7 +126,8 @@ export default class DataRenderer {
       /// Do special stuff for different fcc signatures
       ///
       /// fourcc != fcc::ATEX && fourcc != fcc::ATEC && fourcc != fcc::ATEP &&
-      /// fourcc != fcc::ATET && fourcc != fcc::ATEU && fourcc != fcc::ATTX)
+      /// fourcc != fcc::ATET && fourcc != fcc::ATEU && fourcc != fcc::ATTX &&
+      /// fourcc != fcc::CTEX && fourcc != fcc::CTEU)
       ///
       if (
         first4 === "ATEX" ||
@@ -134,7 +135,9 @@ export default class DataRenderer {
         first4 === "ATEP" ||
         first4 === "ATET" ||
         first4 === "ATEU" ||
-        first4 === "ATTX"
+        first4 === "ATTX" ||
+        first4 === "CTEX" ||
+        first4 === "CTEU"
       ) {
         /// TODO: MOVE TO GW2 texture file!!
         /// Load file using LocalReader.

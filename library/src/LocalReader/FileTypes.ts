@@ -28,6 +28,10 @@ export function getFileType(buffer: ArrayBuffer): string {
       return "TEXTURE_ATEX";
     case "ATTX":
       return "TEXTURE_ATTX";
+    case "CTEX":
+      return "TEXTURE_CTEX";
+    case "CTEU":
+      return "TEXTURE_CTEU";
   }
 
   if (first4.indexOf("DDS") === 0) return "TEXTURE_DDS";
