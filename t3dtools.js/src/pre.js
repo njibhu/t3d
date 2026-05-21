@@ -20,6 +20,9 @@ var ErrorCode =
     4: 'IMG_UNKNOWN_MIPMAP_FORMAT'
 };
 
+var U16_SIZE = Uint16Array.BYTES_PER_ELEMENT;
+var U32_SIZE = Uint32Array.BYTES_PER_ELEMENT;
+
 /**
  * This function is a multitool to replace the t3dgw2tools binary.
  * @method inflate
@@ -37,6 +40,8 @@ var ErrorCode =
  */
 function inflate(inputBuffer, extractSize, isImage){   
     var allocations = [];
+    var output = 0;
+    var image_output = 0;
 
     if(!(inputBuffer instanceof Uint8Array)) {
         inputBuffer = new Uint8Array(inputBuffer);
@@ -50,11 +55,10 @@ function inflate(inputBuffer, extractSize, isImage){
     var inflate_value = {};
 
     //Copy (js) input buffer into C++ memory
-    var input = safe_allocate(inputBuffer.length, allocations);
-    Module.writeArrayToMemory(inputBuffer, input);
+    var input = copyToHeap(inputBuffer, allocations);
 
     //Make an integer reference to get the size of the extracted buffer
-    var pOutputSize = safe_allocate(4, allocations);
+    var pOutputSize = safe_allocate(U32_SIZE, allocations);
     Module.setValue(pOutputSize, extractSize, 'i32');
 
     //Make an integer reference to check for errors
@@ -62,7 +66,7 @@ function inflate(inputBuffer, extractSize, isImage){
 
     //Call the C++ code, returns the adress of the output buffer
     try {
-        var output = Module.ccall('inflate', 'i8*', ['i32', 'i8*', 'i32*', 'i8*'], [inputBuffer.length, input, pOutputSize, pErrors]);
+        output = Module.ccall('inflate', 'i8*', ['i32', 'i8*', 'i32*', 'i8*'], [inputBuffer.length, input, pOutputSize, pErrors]);
     } catch (err) {
         cleanup([input, pOutputSize, pErrors, output]);
         throw err;
@@ -78,14 +82,14 @@ function inflate(inputBuffer, extractSize, isImage){
 
     if(isImage){
         //Make 3 integers for image data (DxtType, width, height)
-        var pDxtType = safe_allocate(2, allocations);
-        var pImgW = safe_allocate(2, allocations);
-        var pImgH = safe_allocate(2, allocations);
+        var pDxtType = safe_allocate(U16_SIZE, allocations);
+        var pImgW = safe_allocate(U16_SIZE, allocations);
+        var pImgH = safe_allocate(U16_SIZE, allocations);
 
         //workImage(uint32_t inputSize, const uint8_t* pInputBuffer, 
         //uint32_t& orOutputSize, int& oDxtType, int& oImgW, int& oImgH, uint8_t& pErrors)
         try {
-            var image_output = Module.ccall('workImage', 'i8*', ['i32', 'i8*', 'i32*', 'i32*', 'i16*', 'i16*', 'i16*', 'i8*'],
+            image_output = Module.ccall('workImage', 'i8*', ['i32', 'i8*', 'i32*', 'i32*', 'i16*', 'i16*', 'i16*', 'i8*'],
         [extractSize, output, pOutputSize, pDxtType, pImgW, pImgH, pErrors]);
         } catch (err) {
             cleanup([input, pOutputSize, pErrors, output, pDxtType, pImgW, pImgH, image_output]);
@@ -113,12 +117,7 @@ function inflate(inputBuffer, extractSize, isImage){
         cleanup([pDxtType, pImgW, pImgH]);
     }
 
-    var outputBuffer = new Uint8Array(extractSize);
-    for(var i=0; i<extractSize; i++){
-        outputBuffer[i] = Module.getValue(output + i, 'i8');
-    }
-
-    inflate_value['data'] = outputBuffer;
+    inflate_value['data'] = copyFromHeap(output, extractSize);
 
     //Cleaning memory
     cleanup([input, output, pOutputSize, pErrors]);
@@ -145,22 +144,22 @@ function inflateImage(inputBuffer) {
     }
 
     var allocations = [];
+    var output = 0;
 
     var inflate_value = {};
-    var input = safe_allocate(inputBuffer.length, allocations);
-    Module.writeArrayToMemory(inputBuffer, input);
+    var input = copyToHeap(inputBuffer, allocations);
 
     //Make 3 integers for image data (DxtType, width, height)
-    var pDxtType = safe_allocate(2, allocations);
-    var pImgW = safe_allocate(2, allocations);
-    var pImgH = safe_allocate(2, allocations);
-    var pOutputSize = safe_allocate(4, allocations);
+    var pDxtType = safe_allocate(U16_SIZE, allocations);
+    var pImgW = safe_allocate(U16_SIZE, allocations);
+    var pImgH = safe_allocate(U16_SIZE, allocations);
+    var pOutputSize = safe_allocate(U32_SIZE, allocations);
     var pErrors = safe_allocate(1, allocations);
 
     //workImage(uint32_t inputSize, const uint8_t* pInputBuffer, 
     //uint32_t& orOutputSize, int& oDxtType, int& oImgW, int& oImgH, uint8_t& pErrors)
     try {
-        var output = Module.ccall('workImage', 'i8*', ['i32', 'i8*', 'i32*', 'i32*', 'i16*', 'i16*', 'i16*', 'i8*'],
+        output = Module.ccall('workImage', 'i8*', ['i32', 'i8*', 'i32*', 'i32*', 'i16*', 'i16*', 'i16*', 'i8*'],
         [inputBuffer.length, input, pOutputSize, pDxtType, pImgW, pImgH, pErrors]);
     } catch(err) {
         cleanup([input, pDxtType, pImgW, pImgH, pOutputSize, pErrors, output]);
@@ -175,19 +174,24 @@ function inflateImage(inputBuffer) {
     }
 
     //Get the data from the pointers
-    extractSize = Module.getValue(pOutputSize, 'i32');
+    var extractSize = Module.getValue(pOutputSize, 'i32');
     inflate_value['dxtType'] = Module.getValue(pDxtType, 'i16');
     inflate_value['imgW'] = Module.getValue(pImgW, 'i16');
     inflate_value['imgH'] = Module.getValue(pImgH, 'i16');
 
-    var outputBuffer = new Uint8Array(extractSize);
-    for(var i=0; i<extractSize; i++){
-        outputBuffer[i] = Module.getValue(output + i, 'i8');
-    }
-
-    inflate_value['data'] = outputBuffer;
+    inflate_value['data'] = copyFromHeap(output, extractSize);
     cleanup([input, pDxtType, pImgW, pImgH, pOutputSize, pErrors, output]); 
     return inflate_value;
+}
+
+function copyToHeap(inputBuffer, allocations_array) {
+    var input = safe_allocate(inputBuffer.length, allocations_array);
+    Module.HEAPU8.set(inputBuffer, input);
+    return input;
+}
+
+function copyFromHeap(offset, size) {
+    return Module.HEAPU8.slice(offset, offset + size);
 }
 
 //Registers all the allocation to make it easy to deallocate if there is a problem
@@ -206,9 +210,10 @@ function safe_allocate(size, allocations_array){
 //Cleanup the allocation array
 function cleanup(array) {
     for (let elt of array) {
-        Module._free(elt);
+        if (elt) {
+            Module._free(elt);
+        }
     }
-    array = [];
 }
 
 Module['inflate'] = inflate;

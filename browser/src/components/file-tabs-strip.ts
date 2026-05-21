@@ -51,6 +51,12 @@ export class FileTabsStrip {
     if (this.activeFileId === fileId) this.activeFileId = null;
   }
 
+  clear(): void {
+    this.root.replaceChildren();
+    this.chipsByFileId.clear();
+    this.activeFileId = null;
+  }
+
   setActive(fileId: number | null): void {
     this.activeFileId = fileId;
     for (const [id, chip] of this.chipsByFileId) {

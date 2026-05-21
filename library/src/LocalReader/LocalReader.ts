@@ -11,12 +11,35 @@ interface LocalReaderSettings {
   workersNb: number; // amount of threads spawned for decompression.
 }
 
-interface FileItem {
+export interface FileItem {
   mftId: number;
   baseIdList: number[];
   size: number;
   crc: number;
   fileType: string;
+}
+
+export interface ScanEntry {
+  mftId: number;
+  baseIdList: number[];
+  size: number;
+  crc: number;
+  fileType: string;
+}
+
+export interface ScanProgress {
+  scanned: number;
+  total: number;
+  label: string;
+  pct: number;
+}
+
+export interface ScanCallbacks {
+  onStart?: (totalCandidates: number) => void;
+  onEntry?: (entry: ScanEntry) => void;
+  onProgress?: (progress: ScanProgress) => void;
+  onComplete?: (finalList: Array<FileItem>) => void;
+  onError?: (error: Error) => void;
 }
 
 interface LocalFile {
@@ -62,6 +85,7 @@ class LocalReader {
     this.fileMetaTable = metaTable;
     this.indexTable = indexTable;
     this.file = file;
+    this.dataReader.init(file);
   }
 
   /**
@@ -95,7 +119,7 @@ class LocalReader {
     if (!meta) throw new Error("Unexistant file");
 
     // Slice up the data
-    const buffer = await ParsingUtils.sliceFile(this.file, Number(meta.offset), fileLength || meta.size);
+    const buffer = await ParsingUtils.sliceFile(this.file, meta.offset, fileLength || meta.size);
 
     // If needed we decompress, if not we keep raw
     if (raw || meta.compressed) {
@@ -130,91 +154,131 @@ class LocalReader {
     // This is a way for platforms not supporting indexDB to provide their own persistant storage.
     oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>
   ): Promise<Array<FileItem>> {
+    return this._readFileListInternal(oldFileList);
+  }
+
+  async readFileListIncremental(
+    callbacks: ScanCallbacks,
+    oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>
+  ): Promise<Array<FileItem>> {
+    return this._readFileListInternal(oldFileList, callbacks);
+  }
+
+  private async _readFileListInternal(
+    oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>,
+    callbacks?: ScanCallbacks
+  ): Promise<Array<FileItem>> {
     if (!this.file) throw new Error("No file loaded");
     const self = this;
 
     let persistantList = oldFileList || [];
     let persistantId: number | undefined;
 
-    // Load previously saved data
-    if (this.persistantStore) {
-      const lastListing = await this.persistantStore.getLastListing(this.file.name);
-      persistantList = lastListing.array;
-      // If the last scan was not completed then we will just update it..
-      if (!lastListing.complete) {
-        persistantId = lastListing.key;
-      }
-    }
-
-    // Create a list of all the baseIds we need to inspect
-    const iterateList = Object.keys(self.indexTable).map((i) => Number(i));
-    for (const index in persistantList) {
-      if (!(index in self.indexTable)) iterateList.push(index as any);
-    }
-
-    // Spawn the decompression tasks
-    const taskArray: Promise<any>[] = [];
-    for (let i = 0; i < 1; i++) {
-      taskArray[i] = Promise.resolve({ task: i });
-    }
-
-    // Helps us to know when we need to update the persistant store
-    let persistantNeedsUpdate = false;
-
-    // Iterate through the array
-    for (const index in iterateList) {
-      const baseId = iterateList[index];
-
-      // First use a synchronous function to know if we need to scan the file
-      const result = this._needsScan(baseId, persistantList);
-      if (result.scan === true) {
-        const taskId = (await Promise.race(taskArray)).task;
-        taskArray[taskId] = this._readFileType(baseId).then((scanResult) => {
-          // Put the result into our persistant storage
-          persistantList[baseId] = {
-            baseId: baseId,
-            size: scanResult!.size,
-            crc: scanResult!.crc,
-            fileType: scanResult!.fileType,
-          };
-          return { task: taskId };
-        });
-      }
-      if (result.change === "removed") {
-        // Update the persistant storage
-        delete persistantList[baseId];
-      }
-
-      // Handle persistant storage update
-      if (result.change !== "none") persistantNeedsUpdate = true;
-
-      // Tasks to do only every %
-      if ((index as unknown as number) % Math.floor(iterateList.length / 100) === 0) {
-        // Print progress
-        Logger.log(
-          Logger.TYPE_PROGRESS,
-          "Finding types",
-          (index as unknown as number) / Math.floor(iterateList.length / 100)
-        );
-
-        // Update the persistant storage if needed
-        if (self.persistantStore && persistantNeedsUpdate) {
-          persistantNeedsUpdate = false;
-          self.persistantStore
-            .putListing(persistantId, persistantList, self.file!.name, false)
-            .then((res) => (persistantId = res));
+    try {
+      // Load previously saved data
+      if (this.persistantStore) {
+        const lastListing = await this.persistantStore.getLastListing(this.file.name);
+        persistantList = lastListing.array;
+        // If the last scan was not completed then we will just update it..
+        if (!lastListing.complete) {
+          persistantId = lastListing.key;
         }
       }
-    }
 
-    await Promise.all(taskArray).then(() => {
-      // Finally update the listing as complete
-      if (self.persistantStore) {
-        self.persistantStore.putListing(persistantId, persistantList, self.file!.name, true);
+      const reverseIndex = this.getReverseIndex();
+
+      // Create a list of all the baseIds we need to inspect
+      const iterateList = Object.keys(self.indexTable).map((i) => Number(i));
+      for (const index in persistantList) {
+        if (!(index in self.indexTable)) iterateList.push(index as any);
       }
-    });
-    this.persistantData = persistantList;
-    return this.getFileList();
+
+      callbacks?.onStart?.(iterateList.length);
+
+      // Run up to `concurrency` _readFileType calls in flight at once. The pool
+      // matches the worker count so every decompression worker can be kept busy.
+      const concurrency = Math.max(1, this.settings.workersNb || 1);
+      const inFlight = new Set<Promise<void>>();
+      let persistantNeedsUpdate = false;
+      let pendingIdbWrite: Promise<void> | null = null;
+      const progressStep = Math.max(1, Math.floor(iterateList.length / 100));
+      // Only persist progress every ~10% — full-array structured clone on every
+      // 1% used to dominate once the scan went parallel.
+      const idbWriteStep = progressStep * 10;
+
+      for (let i = 0; i < iterateList.length; i++) {
+        const baseId = iterateList[i];
+        const result = this._needsScan(baseId, persistantList);
+
+        if (result.scan === true) {
+          if (inFlight.size >= concurrency) {
+            await Promise.race(inFlight);
+          }
+          const task = this._readFileType(baseId).then((scanResult) => {
+            if (scanResult) {
+              persistantList[baseId] = {
+                baseId: baseId,
+                size: scanResult.size,
+                crc: scanResult.crc,
+                fileType: scanResult.fileType,
+              };
+              const entry = this._toScanEntry(baseId, persistantList[baseId], reverseIndex);
+              if (entry) callbacks?.onEntry?.(entry);
+            }
+          });
+          const tracked = task.finally(() => inFlight.delete(tracked));
+          inFlight.add(tracked);
+        } else if (result.change === "none" && persistantList[baseId]) {
+          const entry = this._toScanEntry(baseId, persistantList[baseId], reverseIndex);
+          if (entry) callbacks?.onEntry?.(entry);
+        }
+        if (result.change === "removed") {
+          delete persistantList[baseId];
+        }
+        if (result.change !== "none") persistantNeedsUpdate = true;
+
+        const scanned = i + 1;
+        if (i % progressStep === 0 || scanned === iterateList.length) {
+          const pct = Math.floor((scanned / Math.max(1, iterateList.length)) * 100);
+          if (!callbacks?.onProgress) {
+            Logger.log(Logger.TYPE_PROGRESS, "Finding types", pct);
+          }
+          callbacks?.onProgress?.({
+            scanned,
+            total: iterateList.length,
+            label: "Finding types",
+            pct,
+          });
+        }
+
+        // Throttled IDB write — only when no write is pending so we don't pile
+        // them up. The final write below catches anything we skipped.
+        if (i % idbWriteStep === 0 && self.persistantStore && persistantNeedsUpdate && !pendingIdbWrite) {
+          persistantNeedsUpdate = false;
+          pendingIdbWrite = self.persistantStore
+            .putListing(persistantId, persistantList, self.file!.name, false)
+            .then((res) => {
+              persistantId = res;
+            })
+            .finally(() => {
+              pendingIdbWrite = null;
+            });
+        }
+      }
+
+      await Promise.all(inFlight);
+      if (pendingIdbWrite) await pendingIdbWrite;
+      if (self.persistantStore) {
+        await self.persistantStore.putListing(persistantId, persistantList, self.file!.name, true);
+      }
+      this.persistantData = persistantList;
+      const finalList = this.getFileList();
+      callbacks?.onComplete?.(finalList);
+      return finalList;
+    } catch (err) {
+      callbacks?.onError?.(err as Error);
+      throw err;
+    }
   }
 
   /**
@@ -394,15 +458,43 @@ class LocalReader {
     const mftId = this.getFileIndex(baseId);
     const metaData = this.getFileMeta(mftId);
 
-    let fileType;
     if (this._fileTypeCache[baseId] !== undefined) {
-      fileType = this._fileTypeCache[baseId];
-    } else {
-      const fileBuffer = (await this.readFile(mftId, false, false, Math.min(metaData.size, 1000), 32)).buffer;
-      if (fileBuffer === undefined) return undefined;
-      fileType = FileTypes.getFileType(fileBuffer);
+      return { fileType: this._fileTypeCache[baseId], crc: metaData.crc, size: metaData.size };
     }
-    return { fileType: fileType, crc: metaData.crc, size: metaData.size };
+
+    // Read length: 32 raw bytes is enough for the magic-byte signatures (4)
+    // and the PF FileParser header (12). For compressed files we need a larger
+    // compressed window so the wasm inflate has enough input to produce ≥4
+    // decompressed bytes — 1000 matches the previous cap.
+    const compressed = !!metaData.compressed;
+    const length = Math.min(metaData.size, compressed ? 1000 : 32);
+    if (length < 4) return undefined;
+
+    let fileBuffer: ArrayBuffer;
+    try {
+      fileBuffer = await this.dataReader.scan(mftId, metaData.offset, length, 32, compressed);
+    } catch {
+      return undefined;
+    }
+    if (fileBuffer.byteLength < 4) return undefined;
+    return { fileType: FileTypes.getFileType(fileBuffer), crc: metaData.crc, size: metaData.size };
+  }
+
+  private _toScanEntry(
+    baseId: number,
+    item: { baseId: number; size: number; crc: number; fileType: string },
+    reverseIndex: number[][]
+  ): ScanEntry | null {
+    const mftId = this.getFileIndex(baseId);
+    const meta = this.getFileMeta(mftId);
+    if (!meta || meta.size <= 0 || mftId <= 15) return null;
+    return {
+      mftId,
+      baseIdList: reverseIndex[mftId] ?? [],
+      size: item.size,
+      crc: item.crc,
+      fileType: item.fileType,
+    };
   }
 }
 

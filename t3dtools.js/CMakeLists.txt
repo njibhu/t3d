@@ -2,6 +2,11 @@ cmake_minimum_required (VERSION 3.2)
 
 project (t3dtools)
 
+# CMake 3.27+ may ask the linker to emit dependency files via
+# --dependency-file. wasm-ld does not support that flag reliably, so
+# disable linker-generated depfiles and let CMake track inputs itself.
+set(CMAKE_LINK_DEPENDS_USE_LINKER FALSE)
+
 SET(CMAKE_C_COMPILER emcc)
 SET(CMAKE_CXX_COMPILER em++)
 SET(CMAKE_AR emar)

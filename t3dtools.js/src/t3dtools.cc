@@ -7,6 +7,8 @@
 
 #include <cstdio>
 #include <cstring>
+#include <cstdlib>
+#include <vector>
 #include <emscripten.h>
 
 #include "gw2DatTools/compression/inflateDatFileBuffer.h"
@@ -50,8 +52,8 @@ extern "C"{
             pErrors = INFLATER_EXCEPTION;
             return pOutputBuffer;
         }
-        catch (std::exception) {
-            pErrors = INFLATER_EXCEPTION;
+        catch (const std::exception&) {
+            pErrors = STD_EXCEPTION;
             return pOutputBuffer;
         }
 
@@ -60,181 +62,173 @@ extern "C"{
 
     uint8_t* workImage(uint32_t inputSize, const uint8_t* pInputBuffer, uint32_t& orOutputSize, uint16_t& oDxtType, uint16_t& oImgW, uint16_t& oImgH, uint8_t& pErrors)
     {
+        pErrors = OK;
         uint8_t* pOutputBuffer = nullptr;
-        /// Read image file
-        gw2f::TextureFile file(pInputBuffer, inputSize);
+        BGR* po_colors = nullptr;
+        uint8* po_alphas = nullptr;
 
-        /// Get mipmap info
-        uint32_t mipCount = file.mipMapCount();
+        try {
+            /// Read image file
+            gw2f::TextureFile file(pInputBuffer, inputSize);
 
-        if(mipCount==0){
-            emscripten_log(EM_LOG_CONSOLE | EM_LOG_ERROR, "(t3dtools.js) - workImage: No mipmap levels found!");
-            pErrors = IMG_NO_MIPMAP_FOUND;
-            return pOutputBuffer;
-        }    
-        auto& mipmap = file.mipMapLevel(0); //std::min(2/*0*/, mipCount)
+            /// Get mipmap info
+            uint32_t mipCount = file.mipMapCount();
 
-
-        uint16_t width = mipmap.width();
-        uint16_t height = mipmap.height();    
-
-        // Allocate output buffer, if needed
-        std::vector<uint8_t> buffer;
-        if (buffer.size() < mipmap.uncompressedSize()) {
-            buffer.resize(mipmap.uncompressedSize());
-        }
-
-        // Decompress mipmap
-        uint32_t size = buffer.size();
-
-        uint32_t inflatedImageSize = buffer.size();
-        std::vector<uint8_t> imageBuffer;
-
-        uint8_t* textureBuffer = nullptr;
-
-
-        /// Translate DXT to bitmap
-        uint32_t mipmapFormat = mipmap.format();
-
-        //mipmapFormat = 0x35545844;
-
-        ///Inflate mipmap 0 (highest quality)
-        uint32_t formatFourCC = mipmapFormat;
-        if(mipmapFormat == 0x58374342){ // BC7
-            formatFourCC = 0x58434433;
-        } else if (mipmapFormat == 0x4c545844){ // DXTL
-            formatFourCC = 0x35545844;
-        } 
-
-        gw2dt::compression::inflateTextureBlockBuffer(
-            width, height,
-            formatFourCC,
-            mipmap.size(),
-            mipmap.data(),
-            size,
-            buffer.data()
-        );
-
-
-        int bitmapSize=0;
-
-        int dxtFormat=0;
-
-        switch(mipmapFormat)
-        {
-            case 0x31545844: // DXT1
-                oDxtType=1;
-                //bitmapSize = width*height*3;
-                bitmapSize = width*height*4;
-                dxtFormat = squish::kDxt1;
-                break;
-
-            case 0x33545844: // DXT3
-                oDxtType=3;
-                bitmapSize = width*height*4;
-                dxtFormat = squish::kDxt3;
-                break;
-
-            case 0x4c545844: // DXTL
-            case 0x35545844: // DXT5
-                oDxtType=5;
-                bitmapSize = width*height*4;
-                dxtFormat = squish::kDxt5;
-                break;
-
-            case 0x58374342: // BC7
-                oDxtType=7;
-                bitmapSize = width*height*4;
-                break;
-
-            case 0x58434433: // 3DCX
-                bitmapSize = width*height*4;
-                break;
-
-            default:{
-                //std::stringstream message;
-                //message << "Unknown mipmap format " << mipmapFormat << " extracted size " << mipmap.uncompressedSize();
-                //throw gw2dt::exception::Exception(message.str());
-                emscripten_log(EM_LOG_CONSOLE | EM_LOG_ERROR, "(t3dtools.js) - workImage: Unknown mipmap format %d", mipmapFormat);
-                pErrors = IMG_UNKNOWN_MIPMAP_FORMAT;
+            if(mipCount==0){
+                emscripten_log(EM_LOG_CONSOLE | EM_LOG_ERROR, "(t3dtools.js) - workImage: No mipmap levels found!");
+                pErrors = IMG_NO_MIPMAP_FOUND;
                 return pOutputBuffer;
             }
-        }
+            auto& mipmap = file.mipMapLevel(0); //std::min(2/*0*/, mipCount)
 
-        ///DXT
-        squish::u8 pixels[bitmapSize];  // uncompressed pixles
-        
-        /// NOT 3DCX NOR BC7
-        if(mipmapFormat != 0x58434433 && mipmapFormat != 0x58374342){          
+            uint16_t width = mipmap.width();
+            uint16_t height = mipmap.height();
 
-            /// DXTL
-            if( mipmapFormat == 0x4c545844 ){
+            std::vector<uint8_t> buffer(mipmap.uncompressedSize());
+            uint32_t size = static_cast<uint32_t>(buffer.size());
+
+            /// Translate DXT to bitmap
+            uint32_t mipmapFormat = mipmap.format();
+
+            ///Inflate mipmap 0 (highest quality)
+            uint32_t formatFourCC = mipmapFormat;
+            if(mipmapFormat == 0x58374342){ // BC7
+                formatFourCC = 0x58434433;
+            } else if (mipmapFormat == 0x4c545844){ // DXTL
+                formatFourCC = 0x35545844;
             }
-            
-            squish::DecompressImage( pixels, width, height, buffer.data(), dxtFormat);
 
-            /// DXTL
-            if( mipmapFormat == 0x4c545844 ){
-                for (uint i = 0; i < width * height * 4; i+=4) {
-                pixels[i + 0] =  ( pixels[i + 0] * pixels[i + 3] )  / 0xff;
-                pixels[i + 1] =  ( pixels[i + 1] * pixels[i + 3] )  / 0xff;
-                pixels[i + 2] =  ( pixels[i + 2] * pixels[i + 3] )  / 0xff;
-                            
+            gw2dt::compression::inflateTextureBlockBuffer(
+                width, height,
+                formatFourCC,
+                mipmap.size(),
+                mipmap.data(),
+                size,
+                buffer.data()
+            );
+
+            uint32_t bitmapSize = 0;
+            int dxtFormat = 0;
+
+            switch(mipmapFormat)
+            {
+                case 0x31545844: // DXT1
+                    oDxtType=1;
+                    bitmapSize = static_cast<uint32_t>(width) * static_cast<uint32_t>(height) * 4u;
+                    dxtFormat = squish::kDxt1;
+                    break;
+
+                case 0x33545844: // DXT3
+                    oDxtType=3;
+                    bitmapSize = static_cast<uint32_t>(width) * static_cast<uint32_t>(height) * 4u;
+                    dxtFormat = squish::kDxt3;
+                    break;
+
+                case 0x4c545844: // DXTL
+                case 0x35545844: // DXT5
+                    oDxtType=5;
+                    bitmapSize = static_cast<uint32_t>(width) * static_cast<uint32_t>(height) * 4u;
+                    dxtFormat = squish::kDxt5;
+                    break;
+
+                case 0x58374342: // BC7
+                    oDxtType=7;
+                    bitmapSize = static_cast<uint32_t>(width) * static_cast<uint32_t>(height) * 4u;
+                    break;
+
+                case 0x58434433: // 3DCX
+                    bitmapSize = static_cast<uint32_t>(width) * static_cast<uint32_t>(height) * 4u;
+                    break;
+
+                default:{
+                    emscripten_log(EM_LOG_CONSOLE | EM_LOG_ERROR, "(t3dtools.js) - workImage: Unknown mipmap format %d", mipmapFormat);
+                    pErrors = IMG_UNKNOWN_MIPMAP_FORMAT;
+                    return pOutputBuffer;
                 }
             }
-        } 
-        
-        // BC7
-        else if(mipmapFormat == 0x58374342){
-            uint8_t *src, *dst;
-            src = buffer.data();
-            dst = pixels;
 
-            for(int y = 0; y < height; y += 4){
-                for(int x = 0; x < width; x += 4){
-                    dst = pixels + (y * width + x) * 4;
-                    bcdec_bc7(src, dst, width * 4);
-                    src += BCDEC_BC7_BLOCK_SIZE;
-                }
+            pOutputBuffer = static_cast<uint8_t*>(malloc(bitmapSize));
+            if (pOutputBuffer == nullptr) {
+                pErrors = STD_EXCEPTION;
+                return nullptr;
             }
-        }
 
-        /// 3DCX
-        else{
-            BGR* po_colors = nullptr;
-            uint8* po_alphas = nullptr;
-            process3DCX(
-                reinterpret_cast<RGBA*>(buffer.data()),
-                width,
-                height,
-                po_colors,
-                po_alphas);
+            /// NOT 3DCX NOR BC7
+            if(mipmapFormat != 0x58434433 && mipmapFormat != 0x58374342){
+                squish::DecompressImage(pOutputBuffer, width, height, buffer.data(), dxtFormat);
 
-            //Loop through image and set all pixels
-            for (int y = height - 1; y >= 0 ; y--) {
-                for (int x = 0; x<width; x++)
-                {
-                    pixels[ (x+y*width)*4 + 0] = (*po_colors).b;
-                    pixels[ (x+y*width)*4 + 1] = (*po_colors).g;
-                    pixels[ (x+y*width)*4 + 2] = (*po_colors).r;
-                    pixels[ (x+y*width)*4 + 3] = 255;
-                    po_colors++;
+                /// DXTL
+                if( mipmapFormat == 0x4c545844 ){
+                    for (uint32_t i = 0; i < bitmapSize; i += 4) {
+                        pOutputBuffer[i + 0] =  ( pOutputBuffer[i + 0] * pOutputBuffer[i + 3] )  / 0xff;
+                        pOutputBuffer[i + 1] =  ( pOutputBuffer[i + 1] * pOutputBuffer[i + 3] )  / 0xff;
+                        pOutputBuffer[i + 2] =  ( pOutputBuffer[i + 2] * pOutputBuffer[i + 3] )  / 0xff;
+                    }
                 }
             }
 
+            // BC7
+            else if(mipmapFormat == 0x58374342){
+                uint8_t* src = buffer.data();
+
+                for(int y = 0; y < height; y += 4){
+                    for(int x = 0; x < width; x += 4){
+                        uint8_t* dst = pOutputBuffer + (y * width + x) * 4;
+                        bcdec_bc7(src, dst, width * 4);
+                        src += BCDEC_BC7_BLOCK_SIZE;
+                    }
+                }
+            }
+
+            /// 3DCX
+            else{
+                process3DCX(
+                    reinterpret_cast<const RGBA*>(buffer.data()),
+                    width,
+                    height,
+                    po_colors,
+                    po_alphas);
+
+                BGR* colors = po_colors;
+                //Loop through image and set all pixels
+                for (int y = height - 1; y >= 0 ; y--) {
+                    for (int x = 0; x<width; x++)
+                    {
+                        pOutputBuffer[(x+y*width)*4 + 0] = (*colors).b;
+                        pOutputBuffer[(x+y*width)*4 + 1] = (*colors).g;
+                        pOutputBuffer[(x+y*width)*4 + 2] = (*colors).r;
+                        pOutputBuffer[(x+y*width)*4 + 3] = 255;
+                        colors++;
+                    }
+                }
+
+                free(po_colors);
+                po_colors = nullptr;
+            }
+
+            /// Set width height and mem size for image
+            orOutputSize = bitmapSize;
+            oImgH = height;
+            oImgW = width;
+
+            pErrors = OK;
+            return pOutputBuffer;
         }
-
-        pOutputBuffer = new uint8_t[bitmapSize];
-        /// Pass bitmap back
-        memcpy(pOutputBuffer,pixels,bitmapSize);
-        
-
-        /// Set width height and mem size for image
-        orOutputSize = bitmapSize;
-        oImgH = height;
-        oImgW = width;
-
-        pErrors = OK;
-        return pOutputBuffer;  
+        catch (const gw2dt::exception::Exception&) {
+            if (po_colors != nullptr) {
+                free(po_colors);
+            }
+            free(pOutputBuffer);
+            pErrors = INFLATER_EXCEPTION;
+            return nullptr;
+        }
+        catch (const std::exception&) {
+            if (po_colors != nullptr) {
+                free(po_colors);
+            }
+            free(pOutputBuffer);
+            pErrors = STD_EXCEPTION;
+            return nullptr;
+        }
     }
 }

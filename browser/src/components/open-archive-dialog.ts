@@ -19,7 +19,7 @@ export function showOpenArchiveDialog(store: ArchiveStore): Promise<void> {
       const file = input.files?.[0];
       if (!file) return;
       input.disabled = true;
-      prog.textContent = "Opening archive…";
+      prog.textContent = "Opening archive...";
       try {
         await store.openArchive(file, (label, pct) => {
           prog.textContent = `${label}: ${pct}%`;

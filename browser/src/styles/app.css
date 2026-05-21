@@ -73,6 +73,32 @@ body {
   flex: 1;
 }
 
+.scan-status {
+  max-width: min(42vw, 420px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--t3d-border);
+  background: var(--t3d-bg);
+  color: var(--t3d-text-muted);
+  font-family: var(--t3d-mono);
+  font-size: 11px;
+}
+.scan-status.scanning {
+  border-color: var(--t3d-accent);
+  color: var(--t3d-accent);
+}
+.scan-status.complete {
+  border-color: var(--t3d-border);
+  color: var(--t3d-text-muted);
+}
+.scan-status.error {
+  border-color: #c55;
+  color: #ff9e9e;
+}
+
 .toolbar input[type="text"],
 .toolbar input[type="number"] {
   background: var(--t3d-bg);

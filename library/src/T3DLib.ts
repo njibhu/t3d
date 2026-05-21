@@ -1,5 +1,6 @@
 /* INCLUDES */
 import LocalReader from "./LocalReader/LocalReader";
+import type { ScanCallbacks, ScanEntry, ScanProgress } from "./LocalReader/LocalReader";
 import DataRenderer from "./dataRenderer/DataRenderer";
 import EnvironmentRenderer from "./dataRenderer/EnvironmentRenderer";
 import HavokRenderer from "./dataRenderer/HavokRenderer";
@@ -90,6 +91,10 @@ const T3D = {
       }
       callback(returnObj);
     });
+  },
+
+  getFileListIncremental: function (localReader: LocalReader, callbacks: ScanCallbacks) {
+    return localReader.readFileListIncremental(callbacks);
   },
 
   /**
@@ -280,6 +285,7 @@ export {
   LocalReader,
   FileParser,
 };
+export type { ScanCallbacks, ScanEntry, ScanProgress };
 
 /* PRIVATE METHODS */
 
