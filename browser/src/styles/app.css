@@ -74,6 +74,8 @@ body {
 }
 
 .scan-status {
+  appearance: none;
+  -webkit-appearance: none;
   max-width: min(42vw, 420px);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -85,7 +87,21 @@ body {
   color: var(--t3d-text-muted);
   font-family: var(--t3d-mono);
   font-size: 11px;
+  line-height: 1.2;
+  box-shadow: none;
 }
+
+.scan-status.actionable {
+  cursor: pointer;
+}
+
+.scan-status.actionable:hover,
+.scan-status.actionable:focus-visible {
+  border-color: var(--t3d-accent);
+  color: var(--t3d-accent);
+  outline: none;
+}
+
 .scan-status.scanning {
   border-color: var(--t3d-accent);
   color: var(--t3d-accent);
