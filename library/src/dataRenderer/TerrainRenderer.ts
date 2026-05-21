@@ -133,7 +133,8 @@ export default class TerrainRenderer extends DataRenderer {
 
     const { chunkSegments, chunkSampleWidth } = getChunkResolution(terrainData);
     const expectedSamplesPerChunk = chunkSampleWidth * chunkSampleWidth;
-    const samplesPerChunk = terrainData.chunkArray.length > 0 ? terrainData.heightMapArray.length / terrainData.chunkArray.length : 0;
+    const samplesPerChunk =
+      terrainData.chunkArray.length > 0 ? terrainData.heightMapArray.length / terrainData.chunkArray.length : 0;
 
     if (samplesPerChunk !== expectedSamplesPerChunk) {
       self.logger.log(
@@ -220,7 +221,6 @@ export default class TerrainRenderer extends DataRenderer {
       strippedPages.forEach(function (page: any) {
         /// Only load layer 0 and 1
         if (page.layer <= 1) {
-          const filename = page.filename;
           //let color = page.solidColor;
           const coord = page.coord;
 
