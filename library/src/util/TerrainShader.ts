@@ -2,6 +2,8 @@
 
 export function getFragmentShader(): string {
   return [
+    "uniform float terrainContrast;",
+    "uniform float ambientFloor;",
     "uniform vec2 uvScale;",
     "uniform vec2 offset;",
     "uniform sampler2D texturePicker;",
@@ -12,10 +14,12 @@ export function getFragmentShader(): string {
     "uniform sampler2D texture4;",
 
     "#include <common>",
+    "#include <fog_pars_fragment>",
+    "#include <lights_pars_begin>",
     "#include <logdepthbuf_pars_fragment>",
 
     "varying vec2 vUv;",
-    "varying vec3 vecNormal;",
+    "varying vec3 vViewNormal;",
 
     "vec3 blend(",
     "vec4 texture1, float a1, vec4 texture2, float a2,",
@@ -64,9 +68,20 @@ export function getFragmentShader(): string {
     "t4, tp1.r",
     ");",
     "color *= 0.5+tp2.r;",
+    "vec3 normal = normalize(vViewNormal);",
+    "vec3 lighting = ambientLightColor * ambientFloor;",
+    "#if NUM_DIR_LIGHTS > 0",
+    "for (int i = 0; i < NUM_DIR_LIGHTS; i++) {",
+    "  float lightDot = max(dot(normal, directionalLights[i].direction), 0.0);",
+    "  float wrapped = mix(0.35, 1.0, pow(lightDot, max(0.35, terrainContrast)));",
+    "  lighting += directionalLights[i].color * wrapped;",
+    "}",
+    "#endif",
+    "color *= max(lighting, vec3(ambientFloor));",
     "gl_FragColor = vec4(color,1.0);",
 
     "#include <logdepthbuf_fragment>",
+    "#include <fog_fragment>",
 
     "}",
   ].join("\n");
@@ -75,19 +90,21 @@ export function getFragmentShader(): string {
 export function getVertexShader(): string {
   return [
     "varying vec2 vUv;",
-    "varying vec3 vecNormal;",
+    "varying vec3 vViewNormal;",
 
     "#include <common>",
+    "#include <fog_pars_vertex>",
     "#include <logdepthbuf_pars_vertex>",
 
     "void main()",
     "{",
     "vUv =  uv;",
     "vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );",
-    "vecNormal = (modelMatrix * vec4(normal, 0.0)).xyz;",
+    "vViewNormal = normalize(normalMatrix * normal);",
     "gl_Position = projectionMatrix * mvPosition;",
 
     "#include <logdepthbuf_vertex>",
+    "#include <fog_vertex>",
 
     "}",
   ].join("\n");

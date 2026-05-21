@@ -96,7 +96,6 @@ export default class TerrainRenderer extends DataRenderer {
   }
 
   drawWater(rect: { x1: number; x2: number; y1: number; y2: number }): any {
-    /// Add Water
     const material = new THREE.MeshBasicMaterial({
       color: 0x5bb1e8,
       wireframe: false,
@@ -104,7 +103,9 @@ export default class TerrainRenderer extends DataRenderer {
     });
 
     material.transparent = true;
-    return RenderUtils.renderRect(rect, 0, material);
+    const water = RenderUtils.renderRect(rect, 0, material);
+    this.getOutput().waterMeshes = [water];
+    return water;
   }
 
   parseNumChunks(terrainData: any): void {
@@ -314,7 +315,7 @@ export default class TerrainRenderer extends DataRenderer {
         fog.color.b = envOutput.hazeColor[0] / 255.0;
       }
 
-      const uniforms = THREE.UniformsUtils.merge([THREE.UniformsLib["lights"]]);
+      const uniforms = THREE.UniformsUtils.merge([THREE.UniformsLib["lights"], THREE.UniformsLib["fog"]]);
 
       /// TODO: READ FROM VO, don't default to hard coded scale
       uniforms.uvScale = { value: new THREE.Vector2(8.0, 8.0) };
@@ -333,6 +334,8 @@ export default class TerrainRenderer extends DataRenderer {
       uniforms.texture2 = { value: chunkTextures[fileNames[1]] };
       uniforms.texture3 = { value: chunkTextures[fileNames[2]] };
       uniforms.texture4 = { value: chunkTextures[fileNames[3]] };
+      uniforms.terrainContrast = { value: 0.85 };
+      uniforms.ambientFloor = { value: 0.55 };
 
       if (self.settings && self.settings.export) {
         mat = new THREE.MeshBasicMaterial({ visible: true });
@@ -341,7 +344,11 @@ export default class TerrainRenderer extends DataRenderer {
           uniforms: uniforms,
           fragmentShader: TerrainShader.getFragmentShader(),
           vertexShader: TerrainShader.getVertexShader(),
+          fog: true,
+          lights: true,
         });
+        (mat as THREE.ShaderMaterial).userData.t3dTerrainShader = true;
+        (mat as THREE.ShaderMaterial).userData.t3dTerrainUniforms = uniforms;
       }
 
       /// Store referenceto each material

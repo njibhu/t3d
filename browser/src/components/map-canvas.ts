@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { MapControls } from "three/examples/jsm/controls/MapControls.js";
+import T3D from "t3d-lib";
 
 const FOG_LENGTH = 5000;
 
@@ -23,27 +24,21 @@ export class MapCanvas {
 
   private mapMeshes: THREE.Object3D[] = [];
   private skyMeshes: THREE.Object3D[] = [];
+  private sceneLights: THREE.Light[] = [];
 
   private fog = 25000;
+  private fogHazeStrength = 1;
+  private environmentProfile: any = null;
+  private fogProfile: any = null;
 
   constructor() {
     this.scene = new THREE.Scene();
     this.skyScene = new THREE.Scene();
 
-    this.scene.add(new THREE.AmbientLight(0x555555));
-    for (const dir of [
-      [0, 0, 1],
-      [0, 1, 0],
-      [1, 0, 0],
-    ] as const) {
-      const light = new THREE.DirectionalLight(0xffffff, 1.25);
-      light.position.set(dir[0], dir[1], dir[2]);
-      this.scene.add(light);
-    }
-
     this.scene.fog = new THREE.Fog(0xffffff, this.fog, this.fog + FOG_LENGTH);
     this.camera = new THREE.PerspectiveCamera(60, 1, 0.1, this.fog + FOG_LENGTH);
     this.skyCamera = new THREE.PerspectiveCamera(60, 1, 0.1, 100000);
+    this.applySceneEnvironment();
   }
 
   mount(host: HTMLElement): void {
@@ -94,6 +89,9 @@ export class MapCanvas {
       this.skyScene.add(skyBox);
       this.skyMeshes.push(skyBox);
     }
+    this.environmentProfile = pickFromContext<any | null>(context, "EnvironmentRenderer", "environmentLights", null);
+    this.fogProfile = pickFromContext<any | null>(context, "EnvironmentRenderer", "fogProfile", null);
+    this.applySceneEnvironment();
 
     // The library hands us hazeColor as BGR bytes, not RGB.
     const hazeBgr = pickFromContext<number[] | null>(context, "EnvironmentRenderer", "hazeColor", null);
@@ -142,11 +140,15 @@ export class MapCanvas {
 
   private setFog(value: number): void {
     this.fog = value;
+    const fogScale = T3D.EnvironmentUtils.getFogDistanceScale(this.fogProfile, this.fogHazeStrength);
+    const fogNear = this.fog * fogScale;
+    const fogFar = fogNear + FOG_LENGTH;
     if (this.scene.fog instanceof THREE.Fog) {
-      this.scene.fog.near = this.fog;
-      this.scene.fog.far = this.fog + FOG_LENGTH;
+      this.scene.fog.color.copy(T3D.EnvironmentUtils.blendFogColor(this.fogProfile, this.fogHazeStrength));
+      this.scene.fog.near = fogNear;
+      this.scene.fog.far = fogFar;
     }
-    this.camera.far = this.fog + FOG_LENGTH;
+    this.camera.far = fogFar;
     this.camera.updateProjectionMatrix();
   }
 
@@ -189,6 +191,15 @@ export class MapCanvas {
     this.renderer?.forceContextLoss();
     this.renderer = null;
     this.host = null;
+  }
+
+  private applySceneEnvironment(): void {
+    this.sceneLights = T3D.EnvironmentUtils.applyEnvironmentToScene(this.scene, this.sceneLights, this.environmentProfile, {
+      useEnvironmentLighting: true,
+      directionalIntensityScale: 1,
+      ambientIntensityScale: 1,
+    });
+    this.setFog(this.fog);
   }
 }
 

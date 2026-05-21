@@ -184,13 +184,32 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 0 0 6px 6px;
   height: max-content;
-  width: max-content;
+  width: min(96vw, 1500px);
   pointer-events: auto;
 }
 
+.barFloat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+}
+
 .control {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin: 5px 0;
+}
+
+.range {
+  width: 120px;
+}
+
+.toggle {
+  padding: 0 6px;
+  border-radius: 6px;
+  background: rgba(34, 49, 68, 0.08);
 }
 
 #controls input {
