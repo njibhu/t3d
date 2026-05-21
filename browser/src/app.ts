@@ -43,7 +43,7 @@ export class App {
   private fileTableFooterEl!: HTMLDivElement;
   private fileTableSearchInputEl!: HTMLInputElement;
   private viewerHostEl!: HTMLDivElement;
-  private scanStatusEl!: HTMLDivElement;
+  private scanStatusButtonEl!: HTMLButtonElement;
   private tabsStrip!: FileTabsStrip;
   private table!: VirtualTable<FileRow>;
 
@@ -85,10 +85,17 @@ export class App {
     spacer.className = "spacer";
     toolbar.appendChild(spacer);
 
-    this.scanStatusEl = document.createElement("div");
-    this.scanStatusEl.className = "scan-status";
-    this.scanStatusEl.hidden = true;
-    toolbar.appendChild(this.scanStatusEl);
+    this.scanStatusButtonEl = document.createElement("button");
+    this.scanStatusButtonEl.type = "button";
+    this.scanStatusButtonEl.className = "scan-status";
+    this.scanStatusButtonEl.hidden = true;
+    this.scanStatusButtonEl.title = "Retrigger full type scan";
+    this.scanStatusButtonEl.setAttribute("aria-label", "Retrigger full type scan");
+    this.scanStatusButtonEl.addEventListener("click", async () => {
+      if (this.scanStatusButtonEl.disabled) return;
+      await this.store.retriggerFullScan();
+    });
+    toolbar.appendChild(this.scanStatusButtonEl);
 
     const openBtn = document.createElement("button");
     openBtn.textContent = "Open archive…";
@@ -516,21 +523,23 @@ export class App {
   private renderScanStatus(): void {
     const scan = this.store.currentScanState;
     if (!this.store.isLoaded || scan.status === "idle") {
-      this.scanStatusEl.hidden = true;
-      this.scanStatusEl.textContent = "";
-      this.scanStatusEl.className = "scan-status";
+      this.scanStatusButtonEl.hidden = true;
+      this.scanStatusButtonEl.textContent = "";
+      this.scanStatusButtonEl.className = "scan-status";
+      this.scanStatusButtonEl.disabled = true;
       return;
     }
 
-    this.scanStatusEl.hidden = false;
-    this.scanStatusEl.className = `scan-status ${scan.status}`;
+    this.scanStatusButtonEl.hidden = false;
+    this.scanStatusButtonEl.className = `scan-status ${scan.status}${scan.status === "scanning" ? "" : " actionable"}`;
+    this.scanStatusButtonEl.disabled = scan.status === "scanning";
     if (scan.status === "scanning") {
       const total = Math.max(scan.total, scan.scanned);
-      this.scanStatusEl.textContent = `${scan.progressLabel} ${scan.progressPct}% (${scan.scanned.toLocaleString()}/${total.toLocaleString()})`;
+      this.scanStatusButtonEl.textContent = `${scan.progressLabel} ${scan.progressPct}% (${scan.scanned.toLocaleString()}/${total.toLocaleString()})`;
     } else if (scan.status === "complete") {
-      this.scanStatusEl.textContent = "Type scan complete";
+      this.scanStatusButtonEl.textContent = "Type scan complete";
     } else if (scan.status === "error") {
-      this.scanStatusEl.textContent = scan.errorMessage ? `Type scan failed: ${scan.errorMessage}` : "Type scan failed";
+      this.scanStatusButtonEl.textContent = scan.errorMessage ? `Type scan failed: ${scan.errorMessage}` : "Type scan failed";
     }
   }
 

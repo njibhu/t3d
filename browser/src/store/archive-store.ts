@@ -121,6 +121,11 @@ export class ArchiveStore {
     void this.startBackgroundScan(token);
   }
 
+  async retriggerFullScan(): Promise<void> {
+    if (!this.localReader || this.scanState.status === "scanning") return;
+    await this.startBackgroundScan(this.openToken, { forceRescan: true });
+  }
+
   getAllRows(): FileRow[] {
     if (this.allRowsCache) return this.allRowsCache;
     const rows = [...this.rowsByMftId.values()];
@@ -174,7 +179,7 @@ export class ArchiveStore {
     return out;
   }
 
-  private async startBackgroundScan(token: number): Promise<void> {
+  private async startBackgroundScan(token: number, options?: { forceRescan?: boolean }): Promise<void> {
     if (!this.localReader) return;
 
     this.scanState = {
@@ -189,55 +194,59 @@ export class ArchiveStore {
     this.notify(true);
 
     try {
-      await T3D.getFileListIncremental(this.localReader, {
-        onStart: (total) => {
-          if (token !== this.openToken) return;
-          this.scanState = { ...this.scanState, status: "scanning", total, scanned: 0, progressPct: 0 };
-          this.scanVersion += 1;
-          this.notify(true);
+      await T3D.getFileListIncremental(
+        this.localReader,
+        {
+          onStart: (total) => {
+            if (token !== this.openToken) return;
+            this.scanState = { ...this.scanState, status: "scanning", total, scanned: 0, progressPct: 0 };
+            this.scanVersion += 1;
+            this.notify(true);
+          },
+          onEntry: (entry: ScanEntry) => {
+            if (token !== this.openToken) return;
+            this.applyScanEntry(entry);
+          },
+          onProgress: (progress: ScanProgress) => {
+            if (token !== this.openToken) return;
+            this.scanState = {
+              ...this.scanState,
+              status: "scanning",
+              scanned: progress.scanned,
+              total: progress.total,
+              progressLabel: progress.label,
+              progressPct: progress.pct,
+            };
+            this.scanVersion += 1;
+            this.notify();
+          },
+          onComplete: () => {
+            if (token !== this.openToken) return;
+            this.scanState = {
+              ...this.scanState,
+              status: "complete",
+              scanned: this.scanState.total || this.scanState.scanned,
+              progressLabel: "Type scan complete",
+              progressPct: 100,
+              errorMessage: null,
+            };
+            this.scanVersion += 1;
+            this.notify(true);
+          },
+          onError: (error: Error) => {
+            if (token !== this.openToken) return;
+            this.scanState = {
+              ...this.scanState,
+              status: "error",
+              progressLabel: "Type scan failed",
+              errorMessage: error.message,
+            };
+            this.scanVersion += 1;
+            this.notify(true);
+          },
         },
-        onEntry: (entry: ScanEntry) => {
-          if (token !== this.openToken) return;
-          this.applyScanEntry(entry);
-        },
-        onProgress: (progress: ScanProgress) => {
-          if (token !== this.openToken) return;
-          this.scanState = {
-            ...this.scanState,
-            status: "scanning",
-            scanned: progress.scanned,
-            total: progress.total,
-            progressLabel: progress.label,
-            progressPct: progress.pct,
-          };
-          this.scanVersion += 1;
-          this.notify();
-        },
-        onComplete: () => {
-          if (token !== this.openToken) return;
-          this.scanState = {
-            ...this.scanState,
-            status: "complete",
-            scanned: this.scanState.total || this.scanState.scanned,
-            progressLabel: "Type scan complete",
-            progressPct: 100,
-            errorMessage: null,
-          };
-          this.scanVersion += 1;
-          this.notify(true);
-        },
-        onError: (error: Error) => {
-          if (token !== this.openToken) return;
-          this.scanState = {
-            ...this.scanState,
-            status: "error",
-            progressLabel: "Type scan failed",
-            errorMessage: error.message,
-          };
-          this.scanVersion += 1;
-          this.notify(true);
-        },
-      });
+        options
+      );
     } catch (error) {
       if (token !== this.openToken) return;
       this.scanState = {

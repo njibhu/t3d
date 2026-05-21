@@ -42,6 +42,10 @@ export interface ScanCallbacks {
   onError?: (error: Error) => void;
 }
 
+export interface ScanOptions {
+  forceRescan?: boolean;
+}
+
 interface LocalFile {
   buffer?: ArrayBuffer;
   dxtType?: number;
@@ -152,31 +156,35 @@ class LocalReader {
    */
   async readFileList(
     // This is a way for platforms not supporting indexDB to provide their own persistant storage.
-    oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>
+    oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>,
+    options?: ScanOptions
   ): Promise<Array<FileItem>> {
-    return this._readFileListInternal(oldFileList);
+    return this._readFileListInternal(oldFileList, undefined, options);
   }
 
   async readFileListIncremental(
     callbacks: ScanCallbacks,
-    oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>
+    oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>,
+    options?: ScanOptions
   ): Promise<Array<FileItem>> {
-    return this._readFileListInternal(oldFileList, callbacks);
+    return this._readFileListInternal(oldFileList, callbacks, options);
   }
 
   private async _readFileListInternal(
     oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>,
-    callbacks?: ScanCallbacks
+    callbacks?: ScanCallbacks,
+    options?: ScanOptions
   ): Promise<Array<FileItem>> {
     if (!this.file) throw new Error("No file loaded");
     const self = this;
+    const forceRescan = options?.forceRescan === true;
 
     let persistantList = oldFileList || [];
     let persistantId: number | undefined;
 
     try {
       // Load previously saved data
-      if (this.persistantStore) {
+      if (this.persistantStore && !forceRescan) {
         const lastListing = await this.persistantStore.getLastListing(this.file.name);
         persistantList = lastListing.array;
         // If the last scan was not completed then we will just update it..
@@ -208,13 +216,13 @@ class LocalReader {
 
       for (let i = 0; i < iterateList.length; i++) {
         const baseId = iterateList[i];
-        const result = this._needsScan(baseId, persistantList);
+        const result = this._needsScan(baseId, persistantList, forceRescan);
 
         if (result.scan === true) {
           if (inFlight.size >= concurrency) {
             await Promise.race(inFlight);
           }
-          const task = this._readFileType(baseId).then((scanResult) => {
+          const task = this._readFileType(baseId, forceRescan).then((scanResult) => {
             if (scanResult) {
               persistantList[baseId] = {
                 baseId: baseId,
@@ -423,7 +431,8 @@ class LocalReader {
   // Private
   _needsScan(
     baseId: number,
-    persistantData: Array<{ baseId: number; crc: number; size: number; fileType: string }>
+    persistantData: Array<{ baseId: number; crc: number; size: number; fileType: string }>,
+    forceRescan = false
   ): { scan: boolean; change: string } {
     if (baseId <= 0) return { change: "none", scan: false };
 
@@ -442,6 +451,10 @@ class LocalReader {
     else if (!(baseId in persistantData)) {
       return { change: "added", scan: true };
     }
+    // Force a full type refresh even when the archive entry itself is unchanged.
+    else if (forceRescan) {
+      return { change: "forced", scan: true };
+    }
     // If the size or crc don't match
     else if (metaData.size !== persistantData[baseId].size || metaData.crc !== persistantData[baseId].crc) {
       return { change: "modified", scan: true };
@@ -452,13 +465,16 @@ class LocalReader {
     }
   }
 
-  async _readFileType(baseId: number): Promise<{ fileType: string; crc: number; size: number } | undefined> {
+  async _readFileType(
+    baseId: number,
+    forceRescan = false
+  ): Promise<{ fileType: string; crc: number; size: number } | undefined> {
     if (!this._fileTypeCache) this._fileTypeCache = [];
 
     const mftId = this.getFileIndex(baseId);
     const metaData = this.getFileMeta(mftId);
 
-    if (this._fileTypeCache[baseId] !== undefined) {
+    if (!forceRescan && this._fileTypeCache[baseId] !== undefined) {
       return { fileType: this._fileTypeCache[baseId], crc: metaData.crc, size: metaData.size };
     }
 
@@ -477,7 +493,9 @@ class LocalReader {
       return undefined;
     }
     if (fileBuffer.byteLength < 4) return undefined;
-    return { fileType: FileTypes.getFileType(fileBuffer), crc: metaData.crc, size: metaData.size };
+    const fileType = FileTypes.getFileType(fileBuffer);
+    this._fileTypeCache[baseId] = fileType;
+    return { fileType, crc: metaData.crc, size: metaData.size };
   }
 
   private _toScanEntry(
