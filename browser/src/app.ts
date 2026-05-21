@@ -539,7 +539,9 @@ export class App {
     } else if (scan.status === "complete") {
       this.scanStatusButtonEl.textContent = "Type scan complete";
     } else if (scan.status === "error") {
-      this.scanStatusButtonEl.textContent = scan.errorMessage ? `Type scan failed: ${scan.errorMessage}` : "Type scan failed";
+      this.scanStatusButtonEl.textContent = scan.errorMessage
+        ? `Type scan failed: ${scan.errorMessage}`
+        : "Type scan failed";
     }
   }
 
