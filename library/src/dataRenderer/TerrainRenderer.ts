@@ -34,6 +34,39 @@ function getChunkResolution(terrainData: any): { chunkSegments: number; chunkSam
   };
 }
 
+function getPageTextureKey(page: any): string {
+  const coord = page.coord ?? [0, 0];
+  return `${page.layer}:${coord[0]},${coord[1]}`;
+}
+
+function getSolidColorKey(color: ArrayLike<number>): string {
+  return Array.from(color).join(",");
+}
+
+function getPageSolidColorValue(page: any): number[] | null {
+  if (!page?.solidColor) return null;
+
+  const solidColor = Array.from(page.solidColor as ArrayLike<number>);
+  if (solidColor.length !== 4) return null;
+
+  if (page.filename > 0) return null;
+
+  if (page.flags || solidColor.some((value) => value !== 0)) {
+    return solidColor;
+  }
+
+  return null;
+}
+
+function makeSolidColorTexture(color: ArrayLike<number>): THREE.DataTexture {
+  const [r = 0, g = 0, b = 0, a = 255] = Array.from(color);
+  const texture = MaterialUtils.generateDataTexture(1, 1, new THREE.Color(r / 255, g / 255, b / 255));
+  const imageData = texture.image.data as Uint8Array;
+  imageData[3] = a;
+  texture.needsUpdate = true;
+  return texture;
+}
+
 /**
  *
  * A renderer that generates the meshes for the terrain of a map.
@@ -146,6 +179,38 @@ export default class TerrainRenderer extends DataRenderer {
 
     /// Load textures from PIMG and inject as material maps (textures)
     const chunkTextures: any = {};
+    const generatedPickerTextures: Record<string, THREE.Texture> = {};
+
+    const resolvePickerTexture = function (page: any): THREE.Texture {
+      const pageTextureKey = getPageTextureKey(page);
+      if (generatedPickerTextures[pageTextureKey]) {
+        return generatedPickerTextures[pageTextureKey];
+      }
+
+      if (page.filename > 0) {
+        const texture = MaterialUtils.loadLocalTexture(self.localReader, page.filename);
+        generatedPickerTextures[pageTextureKey] = texture;
+        return texture;
+      }
+
+      const solidColor = getPageSolidColorValue(page);
+      if (solidColor) {
+        const solidColorKey = `solid:${getSolidColorKey(solidColor)}`;
+        if (!generatedPickerTextures[solidColorKey]) {
+          generatedPickerTextures[solidColorKey] = makeSolidColorTexture(solidColor);
+        }
+        generatedPickerTextures[pageTextureKey] = generatedPickerTextures[solidColorKey];
+        return generatedPickerTextures[pageTextureKey];
+      }
+
+      const fallbackColor = page.layer === 1 ? [128, 128, 128, 255] : [0, 0, 0, 255];
+      const fallbackKey = `fallback:${page.layer}:${getSolidColorKey(fallbackColor)}`;
+      if (!generatedPickerTextures[fallbackKey]) {
+        generatedPickerTextures[fallbackKey] = makeSolidColorTexture(fallbackColor);
+      }
+      generatedPickerTextures[pageTextureKey] = generatedPickerTextures[fallbackKey];
+      return generatedPickerTextures[pageTextureKey];
+    };
 
     /// Load textures
     if (pimgData) {
@@ -164,8 +229,7 @@ export default class TerrainRenderer extends DataRenderer {
 
           /// Add texture to list, note that coord name is used, not actual file name
           if (!chunkTextures[matName]) {
-            /// Load local texture, here we use file name!
-            const chunkTex = MaterialUtils.loadLocalTexture(self.localReader, filename);
+            const chunkTex = resolvePickerTexture(page);
 
             if (chunkTex) {
               /// Set repeat, antistropy and repeat Y
