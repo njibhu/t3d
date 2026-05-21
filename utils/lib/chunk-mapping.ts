@@ -2,7 +2,7 @@ const chunkMapping: { [key: string]: string } = {
   AmatGrV0: "GRMT",
   AmatDx9MaterialV0: "DX9S",
   AmatToolParamsV0: "TOOL",
-  AmatGfxMaterial: "BGFX",
+  AmatMaterialV0: "BGFX",
   PackShaderCacheV0: "CDHS",
   PagedImageTableDataV0: "PGTB",
   PagedImageEmbeddedPagesDataV0: "DATA",
@@ -108,10 +108,14 @@ export function getNameForChunk(
     throw new Error(`Couldn't get first version of chunk ${chunkName}`);
   }
 
-  if (!chunkMapping[firstRoot.name.replace(/'/g, "")]) {
+  const normalizedRootName = firstRoot.name.replace(/'/g, "");
+  const rootName =
+    chunkName === "BGFX" && normalizedRootName === "AmatGfxMaterial" ? "AmatMaterialV0" : normalizedRootName;
+
+  if (!chunkMapping[rootName]) {
     console.error(`No mapping found for ${chunkName} ${firstRoot.name}`);
     return undefined;
   } else {
-    return chunkMapping[firstRoot.name.replace(/'/g, "")];
+    return chunkMapping[rootName];
   }
 }
