@@ -1,5 +1,5 @@
-import T3D, { LocalReader } from "t3d-lib";
-import { onProgress } from "./progress-bus";
+import T3D from "t3d-lib";
+import type { LocalReader, ScanEntry, ScanProgress } from "t3d-lib";
 
 export interface FileRow {
   mftId: number;
@@ -12,6 +12,15 @@ export type SidebarNode =
   | { kind: "single"; id: string; label: string }
   | { kind: "group"; id: string; label: string; children: { id: string; label: string }[] };
 
+export interface ArchiveScanState {
+  status: "idle" | "scanning" | "complete" | "error";
+  scanned: number;
+  total: number;
+  progressLabel: string;
+  progressPct: number;
+  errorMessage: string | null;
+}
+
 const WORKER_PATH = "./static/t3dworker.js";
 
 /** Synthetic sidebar IDs that group multiple file types. Real file-type
@@ -23,11 +32,28 @@ export const SIDEBAR_GROUP = {
   unsorted: "unsortedGroup",
 } as const;
 
+type StoreListener = () => void;
+
 export class ArchiveStore {
   private localReader: LocalReader | null = null;
-  private fileListByType: Record<string, number[]> = {};
-  private reverseIndex: number[][] = [];
+  private fileListByType: Record<string, Set<number>> = {};
+  private rowsByMftId = new Map<number, FileRow>();
   private allRowsCache: FileRow[] | null = null;
+  private listeners = new Set<StoreListener>();
+  private notifyQueued = false;
+  private notifyTimer: number | null = null;
+  private openToken = 0;
+  private rowVersion = 0;
+  private sidebarVersion = 0;
+  private scanVersion = 0;
+  private scanState: ArchiveScanState = {
+    status: "idle",
+    scanned: 0,
+    total: 0,
+    progressLabel: "",
+    progressPct: 0,
+    errorMessage: null,
+  };
 
   get reader(): LocalReader | null {
     return this.localReader;
@@ -37,52 +63,67 @@ export class ArchiveStore {
     return this.localReader !== null;
   }
 
-  async openArchive(file: File, onProgressCb?: (label: string, pct: number) => void): Promise<void> {
-    const unsubscribe = onProgressCb ? onProgress(onProgressCb) : () => {};
+  get currentScanState(): ArchiveScanState {
+    return this.scanState;
+  }
 
-    await new Promise<void>((resolve, reject) => {
+  get rowsRevision(): number {
+    return this.rowVersion;
+  }
+
+  get sidebarRevision(): number {
+    return this.sidebarVersion;
+  }
+
+  get scanRevision(): number {
+    return this.scanVersion;
+  }
+
+  subscribe(listener: StoreListener): () => void {
+    this.listeners.add(listener);
+    return () => this.listeners.delete(listener);
+  }
+
+  async openArchive(file: File, onReadyCb?: (label: string, pct: number) => void): Promise<void> {
+    const token = ++this.openToken;
+    onReadyCb?.("Opening archive", 0);
+
+    this.localReader = await new Promise<LocalReader>((resolve, reject) => {
       try {
         // Intentionally omitting the 4th arg: the library reads `noIndexedDB`
-        // with a double-negative (`if (noIndexedDB !== false) …`), so passing
+        // with a double-negative (`if (noIndexedDB !== false) ...`), so passing
         // `false` here actually disables the cache and forces a full rescan.
-        this.localReader = T3D.getLocalReader(file, () => resolve(), WORKER_PATH);
+        T3D.getLocalReader(file, (reader: LocalReader) => resolve(reader), WORKER_PATH);
       } catch (err) {
         reject(err);
       }
     });
 
-    await new Promise<void>((resolve) => {
-      T3D.getFileListAsync(this.localReader!, (files) => {
-        this.fileListByType = files;
-        this.reverseIndex = this.localReader!.getReverseIndex();
-        resolve();
-      });
-    });
+    if (token !== this.openToken) return;
 
+    this.fileListByType = {};
+    this.rowsByMftId.clear();
     this.allRowsCache = null;
-    unsubscribe();
+    this.rowVersion += 1;
+    this.sidebarVersion += 1;
+    this.scanState = {
+      status: "idle",
+      scanned: 0,
+      total: 0,
+      progressLabel: "Archive ready",
+      progressPct: 100,
+      errorMessage: null,
+    };
+    this.scanVersion += 1;
+    this.notify(true);
+    onReadyCb?.("Archive ready", 100);
+
+    void this.startBackgroundScan(token);
   }
 
   getAllRows(): FileRow[] {
     if (this.allRowsCache) return this.allRowsCache;
-    if (!this.localReader) return [];
-
-    const rows: FileRow[] = [];
-    for (const fileType in this.fileListByType) {
-      for (const mftId of this.fileListByType[fileType]) {
-        const meta = this.localReader.getFileMeta(mftId);
-        const fileSize = meta ? meta.size : 0;
-        // MFT slots 0..15 are reserved metadata, never user-facing files.
-        if (fileSize > 0 && mftId > 15) {
-          rows.push({
-            mftId,
-            baseIds: this.reverseIndex[mftId] ?? [],
-            type: fileType,
-            fileSize,
-          });
-        }
-      }
-    }
+    const rows = [...this.rowsByMftId.values()];
     rows.sort((a, b) => a.mftId - b.mftId);
     this.allRowsCache = rows;
     return rows;
@@ -105,6 +146,7 @@ export class ArchiveStore {
     const unsortedChildren: { id: string; label: string }[] = [];
 
     for (const fileType of Object.keys(this.fileListByType).sort()) {
+      if (!this.fileListByType[fileType]?.size) continue;
       if (fileType.startsWith("TEXTURE")) {
         textureChildren.push({ id: fileType, label: fileType });
       } else if (fileType.startsWith("PF")) {
@@ -120,13 +162,152 @@ export class ArchiveStore {
       }
     }
 
-    if (packChildren.length)
+    if (packChildren.length) {
       out.push({ kind: "group", id: SIDEBAR_GROUP.pack, label: "Pack Files", children: packChildren });
-    if (textureChildren.length)
+    }
+    if (textureChildren.length) {
       out.push({ kind: "group", id: SIDEBAR_GROUP.texture, label: "Texture files", children: textureChildren });
-    if (unsortedChildren.length)
+    }
+    if (unsortedChildren.length) {
       out.push({ kind: "group", id: SIDEBAR_GROUP.unsorted, label: "Unsorted", children: unsortedChildren });
+    }
     return out;
+  }
+
+  private async startBackgroundScan(token: number): Promise<void> {
+    if (!this.localReader) return;
+
+    this.scanState = {
+      status: "scanning",
+      scanned: 0,
+      total: 0,
+      progressLabel: "Finding types",
+      progressPct: 0,
+      errorMessage: null,
+    };
+    this.scanVersion += 1;
+    this.notify(true);
+
+    try {
+      await T3D.getFileListIncremental(this.localReader, {
+        onStart: (total) => {
+          if (token !== this.openToken) return;
+          this.scanState = { ...this.scanState, status: "scanning", total, scanned: 0, progressPct: 0 };
+          this.scanVersion += 1;
+          this.notify(true);
+        },
+        onEntry: (entry: ScanEntry) => {
+          if (token !== this.openToken) return;
+          this.applyScanEntry(entry);
+        },
+        onProgress: (progress: ScanProgress) => {
+          if (token !== this.openToken) return;
+          this.scanState = {
+            ...this.scanState,
+            status: "scanning",
+            scanned: progress.scanned,
+            total: progress.total,
+            progressLabel: progress.label,
+            progressPct: progress.pct,
+          };
+          this.scanVersion += 1;
+          this.notify();
+        },
+        onComplete: () => {
+          if (token !== this.openToken) return;
+          this.scanState = {
+            ...this.scanState,
+            status: "complete",
+            scanned: this.scanState.total || this.scanState.scanned,
+            progressLabel: "Type scan complete",
+            progressPct: 100,
+            errorMessage: null,
+          };
+          this.scanVersion += 1;
+          this.notify(true);
+        },
+        onError: (error: Error) => {
+          if (token !== this.openToken) return;
+          this.scanState = {
+            ...this.scanState,
+            status: "error",
+            progressLabel: "Type scan failed",
+            errorMessage: error.message,
+          };
+          this.scanVersion += 1;
+          this.notify(true);
+        },
+      });
+    } catch (error) {
+      if (token !== this.openToken) return;
+      this.scanState = {
+        ...this.scanState,
+        status: "error",
+        progressLabel: "Type scan failed",
+        errorMessage: (error as Error).message,
+      };
+      this.scanVersion += 1;
+      this.notify(true);
+    }
+  }
+
+  private applyScanEntry(entry: ScanEntry): void {
+    const prev = this.rowsByMftId.get(entry.mftId);
+    let sidebarChanged = false;
+    if (prev?.type && prev.type !== entry.fileType) {
+      const prevGroup = this.fileListByType[prev.type];
+      prevGroup?.delete(entry.mftId);
+      if (prevGroup?.size === 0) {
+        delete this.fileListByType[prev.type];
+        sidebarChanged = true;
+      }
+    }
+
+    const typeGroup = this.fileListByType[entry.fileType];
+    if (!typeGroup) {
+      this.fileListByType[entry.fileType] = new Set<number>();
+      sidebarChanged = true;
+    }
+    const nextTypeGroup = this.fileListByType[entry.fileType]!;
+    nextTypeGroup.add(entry.mftId);
+    if (
+      prev &&
+      prev.type === entry.fileType &&
+      prev.fileSize === entry.size &&
+      prev.baseIds.length === entry.baseIdList.length &&
+      prev.baseIds.every((id, index) => id === entry.baseIdList[index])
+    ) {
+      return;
+    }
+    this.rowsByMftId.set(entry.mftId, {
+      mftId: entry.mftId,
+      baseIds: entry.baseIdList,
+      type: entry.fileType,
+      fileSize: entry.size,
+    });
+    this.allRowsCache = null;
+    this.rowVersion += 1;
+    if (sidebarChanged) this.sidebarVersion += 1;
+    this.notify();
+  }
+
+  private notify(immediate = false): void {
+    if (immediate) {
+      if (this.notifyTimer != null) {
+        clearTimeout(this.notifyTimer);
+        this.notifyTimer = null;
+      }
+      this.notifyQueued = false;
+      for (const listener of this.listeners) listener();
+      return;
+    }
+    if (this.notifyQueued) return;
+    this.notifyQueued = true;
+    this.notifyTimer = window.setTimeout(() => {
+      this.notifyQueued = false;
+      this.notifyTimer = null;
+      for (const listener of this.listeners) listener();
+    }, 100);
   }
 }
 

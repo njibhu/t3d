@@ -1,3 +1,4 @@
+import type { LocalReader } from "t3d-lib";
 import { ArchiveStore, FileRow, SIDEBAR_GROUP, SidebarNode } from "./store/archive-store";
 import { VirtualTable } from "./components/virtual-table";
 import { FileViewer } from "./components/file-viewer";
@@ -32,12 +33,17 @@ function buildEmptyPlaceholder(): HTMLDivElement {
 export class App {
   private root: HTMLElement;
   private store = new ArchiveStore();
+  private loadedReader: LocalReader | null = null;
+  private lastRowsRevision = -1;
+  private lastSidebarRevision = -1;
+  private lastScanRevision = -1;
 
   private sidebarEl!: HTMLDivElement;
   private fileTableHostEl!: HTMLDivElement;
   private fileTableFooterEl!: HTMLDivElement;
   private fileTableSearchInputEl!: HTMLInputElement;
   private viewerHostEl!: HTMLDivElement;
+  private scanStatusEl!: HTMLDivElement;
   private tabsStrip!: FileTabsStrip;
   private table!: VirtualTable<FileRow>;
 
@@ -53,9 +59,9 @@ export class App {
 
   async init(): Promise<void> {
     this.buildShell();
+    this.store.subscribe(() => this.onStoreChanged());
     this.attachKeyboardShortcuts();
     await showOpenArchiveDialog(this.store);
-    this.onArchiveLoaded();
   }
 
   // ---- shell construction ----
@@ -79,12 +85,16 @@ export class App {
     spacer.className = "spacer";
     toolbar.appendChild(spacer);
 
+    this.scanStatusEl = document.createElement("div");
+    this.scanStatusEl.className = "scan-status";
+    this.scanStatusEl.hidden = true;
+    toolbar.appendChild(this.scanStatusEl);
+
     const openBtn = document.createElement("button");
     openBtn.textContent = "Open archive…";
     openBtn.addEventListener("click", async () => {
       try {
         await showOpenArchiveDialog(this.store);
-        this.onArchiveLoaded();
       } catch {
         // user cancelled or error already shown
       }
@@ -254,20 +264,52 @@ export class App {
 
   // ---- archive lifecycle ----
 
+  private onStoreChanged(): void {
+    if (this.lastScanRevision !== this.store.scanRevision) {
+      this.lastScanRevision = this.store.scanRevision;
+      this.renderScanStatus();
+    }
+    if (!this.store.isLoaded || !this.store.reader) return;
+
+    const isNewArchive = this.loadedReader !== this.store.reader;
+    if (isNewArchive) {
+      this.loadedReader = this.store.reader;
+      this.onArchiveLoaded();
+      return;
+    }
+
+    if (this.lastSidebarRevision !== this.store.sidebarRevision) {
+      this.lastSidebarRevision = this.store.sidebarRevision;
+      this.lastRowsRevision = this.store.rowsRevision;
+      this.renderSidebar();
+    } else if (this.lastRowsRevision !== this.store.rowsRevision) {
+      this.lastRowsRevision = this.store.rowsRevision;
+      this.refreshTable(true);
+    }
+  }
+
   private onArchiveLoaded(): void {
+    this.resetForNewArchive();
+    this.lastSidebarRevision = this.store.sidebarRevision;
+    this.lastRowsRevision = this.store.rowsRevision;
     this.renderSidebar();
-    this.refreshTable();
     this.restoreSession();
     this.handleUrlParam();
   }
 
   private renderSidebar(): void {
     this.sidebarEl.replaceChildren();
-    for (const node of this.store.buildSidebarNodes()) {
+    const nodes = this.store.buildSidebarNodes();
+    const availableIds = new Set(nodes.flatMap((node) => (node.kind === "single" ? [node.id] : [node.id, ...node.children.map((c) => c.id)])));
+    for (const node of nodes) {
       this.renderSidebarNode(node);
     }
-    const allItem = this.sidebarEl.querySelector<HTMLElement>(`[data-node-id="${SIDEBAR_GROUP.all}"]`);
-    if (allItem) this.selectSidebarNode(allItem, SIDEBAR_GROUP.all);
+
+    const nextFilter = availableIds.has(this.currentFilter) ? this.currentFilter : SIDEBAR_GROUP.all;
+    const selected = this.sidebarEl.querySelector<HTMLElement>(`[data-node-id="${nextFilter}"]`);
+    if (selected) {
+      this.selectSidebarNode(selected, nextFilter, true);
+    }
   }
 
   private renderSidebarNode(node: SidebarNode): void {
@@ -286,28 +328,41 @@ export class App {
     el.className = className;
     el.dataset.nodeId = nodeId;
     el.textContent = label;
-    el.addEventListener("click", () => this.selectSidebarNode(el, nodeId));
+    el.addEventListener("click", () => this.selectSidebarNode(el, nodeId, false));
     return el;
   }
 
-  private selectSidebarNode(el: HTMLElement, nodeId: string): void {
+  private selectSidebarNode(el: HTMLElement, nodeId: string, preserveScroll: boolean): void {
     this.selectedSidebarItem?.classList.remove("selected");
     el.classList.add("selected");
     this.selectedSidebarItem = el;
     this.currentFilter = nodeId;
-    this.refreshTable();
+    this.refreshTable(preserveScroll);
   }
 
   // ---- table ----
 
-  private refreshTable(): void {
+  private refreshTable(preserveScroll = false): void {
     if (!this.store.isLoaded) return;
     const rows = this.searchRows(this.store.getFilteredRows(this.currentFilter));
-    this.table.setData(rows);
+    this.table.setData(rows, { preserveScroll });
+    if (this.activeTabId != null) {
+      this.table.setSelection(this.mftIdForBaseId(this.activeTabId));
+    }
 
     const modKey = navigator.platform.toLowerCase().includes("mac") ? "⌘" : "Ctrl";
     const filterTag = this.currentFilter === SIDEBAR_GROUP.all ? "" : ` · filter: ${this.currentFilter}`;
-    this.fileTableFooterEl.textContent = `${rows.length.toLocaleString()} files${filterTag} · ${modKey}/middle-click for new tab`;
+    const scan = this.store.currentScanState;
+    const scanTag =
+      scan.status === "scanning"
+        ? ` · scan: ${scan.progressPct}% (${scan.scanned.toLocaleString()}/${Math.max(scan.total, scan.scanned).toLocaleString()})`
+        : scan.status === "error"
+          ? " · scan failed"
+          : scan.status === "complete"
+            ? " · scan complete"
+            : "";
+    this.fileTableFooterEl.textContent =
+      `${rows.length.toLocaleString()} files${filterTag}${scanTag} · ${modKey}/middle-click for new tab`;
   }
 
   private searchRows(rows: FileRow[]): FileRow[] {
@@ -448,6 +503,40 @@ export class App {
     t.textContent = msg;
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 3000);
+  }
+
+  private renderScanStatus(): void {
+    const scan = this.store.currentScanState;
+    if (!this.store.isLoaded || scan.status === "idle") {
+      this.scanStatusEl.hidden = true;
+      this.scanStatusEl.textContent = "";
+      this.scanStatusEl.className = "scan-status";
+      return;
+    }
+
+    this.scanStatusEl.hidden = false;
+    this.scanStatusEl.className = `scan-status ${scan.status}`;
+    if (scan.status === "scanning") {
+      const total = Math.max(scan.total, scan.scanned);
+      this.scanStatusEl.textContent = `${scan.progressLabel} ${scan.progressPct}% (${scan.scanned.toLocaleString()}/${total.toLocaleString()})`;
+    } else if (scan.status === "complete") {
+      this.scanStatusEl.textContent = "Type scan complete";
+    } else if (scan.status === "error") {
+      this.scanStatusEl.textContent = scan.errorMessage ? `Type scan failed: ${scan.errorMessage}` : "Type scan failed";
+    }
+  }
+
+  private resetForNewArchive(): void {
+    for (const viewer of this.openTabs.values()) {
+      viewer.dispose();
+      viewer.root.remove();
+    }
+    this.openTabs.clear();
+    this.activeTabId = null;
+    this.selectedSidebarItem = null;
+    this.tabsStrip.clear();
+    this.viewerHostEl.replaceChildren(buildEmptyPlaceholder());
+    history.replaceState(null, "", window.location.pathname);
   }
 }
 

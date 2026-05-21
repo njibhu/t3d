@@ -61,7 +61,7 @@ export default class DataReader {
       this._scanCallbacks[id] = [{ resolve, reject }];
       this._scanByMft.set(mftId, id);
 
-      const workerId = this._getBestWorkerIndex();
+      const workerId = this._getBestWorkerIndex("scan");
       this._workerLoad[workerId] += 1;
       this._workerPool[workerId].postMessage({
         type: "scan",
@@ -116,7 +116,7 @@ export default class DataReader {
       }
 
       // Add the load to the worker
-      const workerId = this._getBestWorkerIndex();
+      const workerId = this._getBestWorkerIndex("read");
       this._workerLoad[workerId] += 1;
       this._workerPool[workerId].postMessage([mftId, arrayBuffer, isImage === true, capLength], [arrayBuffer]);
     });
@@ -197,15 +197,16 @@ export default class DataReader {
   }
 
   // Get the worker with the less load
-  _getBestWorkerIndex(): number {
+  _getBestWorkerIndex(jobType: "scan" | "read" = "read"): number {
     if (this._workerLoad.length === 0) {
       throw new Error("No workers initialized");
     }
 
+    const limit = jobType === "scan" && this._workerLoad.length > 1 ? this._workerLoad.length - 1 : this._workerLoad.length;
     let bestWorkerIndex = 0;
     let bestWorkerLoad = this._workerLoad[0];
 
-    for (let i = 1; i < this._workerLoad.length; i++) {
+    for (let i = 1; i < limit; i++) {
       if (this._workerLoad[i] < bestWorkerLoad) {
         bestWorkerLoad = this._workerLoad[i];
         bestWorkerIndex = i;

@@ -11,12 +11,35 @@ interface LocalReaderSettings {
   workersNb: number; // amount of threads spawned for decompression.
 }
 
-interface FileItem {
+export interface FileItem {
   mftId: number;
   baseIdList: number[];
   size: number;
   crc: number;
   fileType: string;
+}
+
+export interface ScanEntry {
+  mftId: number;
+  baseIdList: number[];
+  size: number;
+  crc: number;
+  fileType: string;
+}
+
+export interface ScanProgress {
+  scanned: number;
+  total: number;
+  label: string;
+  pct: number;
+}
+
+export interface ScanCallbacks {
+  onStart?: (totalCandidates: number) => void;
+  onEntry?: (entry: ScanEntry) => void;
+  onProgress?: (progress: ScanProgress) => void;
+  onComplete?: (finalList: Array<FileItem>) => void;
+  onError?: (error: Error) => void;
 }
 
 interface LocalFile {
@@ -131,11 +154,27 @@ class LocalReader {
     // This is a way for platforms not supporting indexDB to provide their own persistant storage.
     oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>
   ): Promise<Array<FileItem>> {
+    return this._readFileListInternal(oldFileList);
+  }
+
+  async readFileListIncremental(
+    callbacks: ScanCallbacks,
+    oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>
+  ): Promise<Array<FileItem>> {
+    return this._readFileListInternal(oldFileList, callbacks);
+  }
+
+  private async _readFileListInternal(
+    oldFileList?: Array<{ baseId: number; size: number; crc: number; fileType: string }>,
+    callbacks?: ScanCallbacks
+  ): Promise<Array<FileItem>> {
     if (!this.file) throw new Error("No file loaded");
     const self = this;
 
     let persistantList = oldFileList || [];
     let persistantId: number | undefined;
+
+    try {
 
     // Load previously saved data
     if (this.persistantStore) {
@@ -147,11 +186,15 @@ class LocalReader {
       }
     }
 
+    const reverseIndex = this.getReverseIndex();
+
     // Create a list of all the baseIds we need to inspect
     const iterateList = Object.keys(self.indexTable).map((i) => Number(i));
     for (const index in persistantList) {
       if (!(index in self.indexTable)) iterateList.push(index as any);
     }
+
+    callbacks?.onStart?.(iterateList.length);
 
     // Run up to `concurrency` _readFileType calls in flight at once. The pool
     // matches the worker count so every decompression worker can be kept busy.
@@ -180,18 +223,33 @@ class LocalReader {
               crc: scanResult.crc,
               fileType: scanResult.fileType,
             };
+            const entry = this._toScanEntry(baseId, persistantList[baseId], reverseIndex);
+            if (entry) callbacks?.onEntry?.(entry);
           }
         });
         const tracked = task.finally(() => inFlight.delete(tracked));
         inFlight.add(tracked);
+      } else if (result.change === "none" && persistantList[baseId]) {
+        const entry = this._toScanEntry(baseId, persistantList[baseId], reverseIndex);
+        if (entry) callbacks?.onEntry?.(entry);
       }
       if (result.change === "removed") {
         delete persistantList[baseId];
       }
       if (result.change !== "none") persistantNeedsUpdate = true;
 
-      if (i % progressStep === 0) {
-        Logger.log(Logger.TYPE_PROGRESS, "Finding types", i / progressStep);
+      const scanned = i + 1;
+      if (i % progressStep === 0 || scanned === iterateList.length) {
+        const pct = Math.floor((scanned / Math.max(1, iterateList.length)) * 100);
+        if (!callbacks?.onProgress) {
+          Logger.log(Logger.TYPE_PROGRESS, "Finding types", pct);
+        }
+        callbacks?.onProgress?.({
+          scanned,
+          total: iterateList.length,
+          label: "Finding types",
+          pct,
+        });
       }
 
       // Throttled IDB write — only when no write is pending so we don't pile
@@ -215,7 +273,13 @@ class LocalReader {
       await self.persistantStore.putListing(persistantId, persistantList, self.file!.name, true);
     }
     this.persistantData = persistantList;
-    return this.getFileList();
+    const finalList = this.getFileList();
+    callbacks?.onComplete?.(finalList);
+    return finalList;
+    } catch (err) {
+      callbacks?.onError?.(err as Error);
+      throw err;
+    }
   }
 
   /**
@@ -415,6 +479,23 @@ class LocalReader {
     }
     if (fileBuffer.byteLength < 4) return undefined;
     return { fileType: FileTypes.getFileType(fileBuffer), crc: metaData.crc, size: metaData.size };
+  }
+
+  private _toScanEntry(
+    baseId: number,
+    item: { baseId: number; size: number; crc: number; fileType: string },
+    reverseIndex: number[][]
+  ): ScanEntry | null {
+    const mftId = this.getFileIndex(baseId);
+    const meta = this.getFileMeta(mftId);
+    if (!meta || meta.size <= 0 || mftId <= 15) return null;
+    return {
+      mftId,
+      baseIdList: reverseIndex[mftId] ?? [],
+      size: item.size,
+      crc: item.crc,
+      fileType: item.fileType,
+    };
   }
 }
 

@@ -77,12 +77,14 @@ export class VirtualTable<T> {
 
   // ---- public API ----
 
-  setData(rows: T[]): void {
+  setData(rows: T[], opts?: { preserveScroll?: boolean }): void {
+    const scrollTop = this.scroller.scrollTop;
     this.data = rows;
     this.order = rows.map((_, i) => i);
     if (this.sortField) this.applySort();
-    this.scroller.scrollTop = 0;
+    this.scroller.scrollTop = opts?.preserveScroll ? scrollTop : 0;
     this.getRecordsHTML();
+    if (opts?.preserveScroll) this.scroll(true);
   }
 
   setSelection(key: number | string | null): void {
