@@ -587,7 +587,7 @@ export function loadLocalTexture(
   );
 
   // Threejs r71 is using these settings by default, r72+ changed it
-  texture.minFilter = THREE.LinearMipMapLinearFilter;
+  texture.minFilter = THREE.LinearMipmapLinearFilter;
   texture.magFilter = THREE.LinearFilter;
   texture.generateMipmaps = true;
   texture.flipY = true;

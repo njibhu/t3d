@@ -150,6 +150,9 @@ export default class PropertiesRenderer extends DataRenderer {
           instancedIndex += 1;
         }
       }
+      instancedMesh.instanceMatrix.needsUpdate = true;
+      instancedMesh.computeBoundingBox();
+      instancedMesh.computeBoundingSphere();
     }
     for (const instancedMesh of instancedMeshes) {
       this.getOutput().meshes.push(instancedMesh);
