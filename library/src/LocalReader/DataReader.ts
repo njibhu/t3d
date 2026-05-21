@@ -198,7 +198,13 @@ export default class DataReader {
     };
   }
 
-  private _handleScanResponse(data: { type: string; id: number; mftId?: number; buffer?: ArrayBuffer; error?: string }): void {
+  private _handleScanResponse(data: {
+    type: string;
+    id: number;
+    mftId?: number;
+    buffer?: ArrayBuffer;
+    error?: string;
+  }): void {
     const callbacks = this._scanCallbacks[data.id];
     this._scanCallbacks[data.id] = undefined;
     // Drop the mftId→id mapping. We don't know which mftId this was for from
@@ -269,10 +275,7 @@ export default class DataReader {
 
   private _dispatchInflateJob(workerId: number, job: InflateJob): void {
     this._workerLoad[workerId] = 1;
-    this._workerPool[workerId].postMessage(
-      [job.mftId, job.buffer, job.isImage, job.capLength],
-      [job.buffer]
-    );
+    this._workerPool[workerId].postMessage([job.mftId, job.buffer, job.isImage, job.capLength], [job.buffer]);
   }
 
   private _findIdleWorkerIndex(): number {

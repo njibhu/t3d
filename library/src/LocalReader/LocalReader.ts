@@ -175,107 +175,106 @@ class LocalReader {
     let persistantId: number | undefined;
 
     try {
-
-    // Load previously saved data
-    if (this.persistantStore) {
-      const lastListing = await this.persistantStore.getLastListing(this.file.name);
-      persistantList = lastListing.array;
-      // If the last scan was not completed then we will just update it..
-      if (!lastListing.complete) {
-        persistantId = lastListing.key;
-      }
-    }
-
-    const reverseIndex = this.getReverseIndex();
-
-    // Create a list of all the baseIds we need to inspect
-    const iterateList = Object.keys(self.indexTable).map((i) => Number(i));
-    for (const index in persistantList) {
-      if (!(index in self.indexTable)) iterateList.push(index as any);
-    }
-
-    callbacks?.onStart?.(iterateList.length);
-
-    // Run up to `concurrency` _readFileType calls in flight at once. The pool
-    // matches the worker count so every decompression worker can be kept busy.
-    const concurrency = Math.max(1, this.settings.workersNb || 1);
-    const inFlight = new Set<Promise<void>>();
-    let persistantNeedsUpdate = false;
-    let pendingIdbWrite: Promise<void> | null = null;
-    const progressStep = Math.max(1, Math.floor(iterateList.length / 100));
-    // Only persist progress every ~10% — full-array structured clone on every
-    // 1% used to dominate once the scan went parallel.
-    const idbWriteStep = progressStep * 10;
-
-    for (let i = 0; i < iterateList.length; i++) {
-      const baseId = iterateList[i];
-      const result = this._needsScan(baseId, persistantList);
-
-      if (result.scan === true) {
-        if (inFlight.size >= concurrency) {
-          await Promise.race(inFlight);
+      // Load previously saved data
+      if (this.persistantStore) {
+        const lastListing = await this.persistantStore.getLastListing(this.file.name);
+        persistantList = lastListing.array;
+        // If the last scan was not completed then we will just update it..
+        if (!lastListing.complete) {
+          persistantId = lastListing.key;
         }
-        const task = this._readFileType(baseId).then((scanResult) => {
-          if (scanResult) {
-            persistantList[baseId] = {
-              baseId: baseId,
-              size: scanResult.size,
-              crc: scanResult.crc,
-              fileType: scanResult.fileType,
-            };
-            const entry = this._toScanEntry(baseId, persistantList[baseId], reverseIndex);
-            if (entry) callbacks?.onEntry?.(entry);
+      }
+
+      const reverseIndex = this.getReverseIndex();
+
+      // Create a list of all the baseIds we need to inspect
+      const iterateList = Object.keys(self.indexTable).map((i) => Number(i));
+      for (const index in persistantList) {
+        if (!(index in self.indexTable)) iterateList.push(index as any);
+      }
+
+      callbacks?.onStart?.(iterateList.length);
+
+      // Run up to `concurrency` _readFileType calls in flight at once. The pool
+      // matches the worker count so every decompression worker can be kept busy.
+      const concurrency = Math.max(1, this.settings.workersNb || 1);
+      const inFlight = new Set<Promise<void>>();
+      let persistantNeedsUpdate = false;
+      let pendingIdbWrite: Promise<void> | null = null;
+      const progressStep = Math.max(1, Math.floor(iterateList.length / 100));
+      // Only persist progress every ~10% — full-array structured clone on every
+      // 1% used to dominate once the scan went parallel.
+      const idbWriteStep = progressStep * 10;
+
+      for (let i = 0; i < iterateList.length; i++) {
+        const baseId = iterateList[i];
+        const result = this._needsScan(baseId, persistantList);
+
+        if (result.scan === true) {
+          if (inFlight.size >= concurrency) {
+            await Promise.race(inFlight);
           }
-        });
-        const tracked = task.finally(() => inFlight.delete(tracked));
-        inFlight.add(tracked);
-      } else if (result.change === "none" && persistantList[baseId]) {
-        const entry = this._toScanEntry(baseId, persistantList[baseId], reverseIndex);
-        if (entry) callbacks?.onEntry?.(entry);
-      }
-      if (result.change === "removed") {
-        delete persistantList[baseId];
-      }
-      if (result.change !== "none") persistantNeedsUpdate = true;
-
-      const scanned = i + 1;
-      if (i % progressStep === 0 || scanned === iterateList.length) {
-        const pct = Math.floor((scanned / Math.max(1, iterateList.length)) * 100);
-        if (!callbacks?.onProgress) {
-          Logger.log(Logger.TYPE_PROGRESS, "Finding types", pct);
-        }
-        callbacks?.onProgress?.({
-          scanned,
-          total: iterateList.length,
-          label: "Finding types",
-          pct,
-        });
-      }
-
-      // Throttled IDB write — only when no write is pending so we don't pile
-      // them up. The final write below catches anything we skipped.
-      if (i % idbWriteStep === 0 && self.persistantStore && persistantNeedsUpdate && !pendingIdbWrite) {
-        persistantNeedsUpdate = false;
-        pendingIdbWrite = self.persistantStore
-          .putListing(persistantId, persistantList, self.file!.name, false)
-          .then((res) => {
-            persistantId = res;
-          })
-          .finally(() => {
-            pendingIdbWrite = null;
+          const task = this._readFileType(baseId).then((scanResult) => {
+            if (scanResult) {
+              persistantList[baseId] = {
+                baseId: baseId,
+                size: scanResult.size,
+                crc: scanResult.crc,
+                fileType: scanResult.fileType,
+              };
+              const entry = this._toScanEntry(baseId, persistantList[baseId], reverseIndex);
+              if (entry) callbacks?.onEntry?.(entry);
+            }
           });
-      }
-    }
+          const tracked = task.finally(() => inFlight.delete(tracked));
+          inFlight.add(tracked);
+        } else if (result.change === "none" && persistantList[baseId]) {
+          const entry = this._toScanEntry(baseId, persistantList[baseId], reverseIndex);
+          if (entry) callbacks?.onEntry?.(entry);
+        }
+        if (result.change === "removed") {
+          delete persistantList[baseId];
+        }
+        if (result.change !== "none") persistantNeedsUpdate = true;
 
-    await Promise.all(inFlight);
-    if (pendingIdbWrite) await pendingIdbWrite;
-    if (self.persistantStore) {
-      await self.persistantStore.putListing(persistantId, persistantList, self.file!.name, true);
-    }
-    this.persistantData = persistantList;
-    const finalList = this.getFileList();
-    callbacks?.onComplete?.(finalList);
-    return finalList;
+        const scanned = i + 1;
+        if (i % progressStep === 0 || scanned === iterateList.length) {
+          const pct = Math.floor((scanned / Math.max(1, iterateList.length)) * 100);
+          if (!callbacks?.onProgress) {
+            Logger.log(Logger.TYPE_PROGRESS, "Finding types", pct);
+          }
+          callbacks?.onProgress?.({
+            scanned,
+            total: iterateList.length,
+            label: "Finding types",
+            pct,
+          });
+        }
+
+        // Throttled IDB write — only when no write is pending so we don't pile
+        // them up. The final write below catches anything we skipped.
+        if (i % idbWriteStep === 0 && self.persistantStore && persistantNeedsUpdate && !pendingIdbWrite) {
+          persistantNeedsUpdate = false;
+          pendingIdbWrite = self.persistantStore
+            .putListing(persistantId, persistantList, self.file!.name, false)
+            .then((res) => {
+              persistantId = res;
+            })
+            .finally(() => {
+              pendingIdbWrite = null;
+            });
+        }
+      }
+
+      await Promise.all(inFlight);
+      if (pendingIdbWrite) await pendingIdbWrite;
+      if (self.persistantStore) {
+        await self.persistantStore.putListing(persistantId, persistantList, self.file!.name, true);
+      }
+      this.persistantData = persistantList;
+      const finalList = this.getFileList();
+      callbacks?.onComplete?.(finalList);
+      return finalList;
     } catch (err) {
       callbacks?.onError?.(err as Error);
       throw err;

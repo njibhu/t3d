@@ -304,7 +304,9 @@ export class App {
   private renderSidebar(): void {
     this.sidebarEl.replaceChildren();
     const nodes = this.store.buildSidebarNodes();
-    const availableIds = new Set(nodes.flatMap((node) => (node.kind === "single" ? [node.id] : [node.id, ...node.children.map((c) => c.id)])));
+    const availableIds = new Set(
+      nodes.flatMap((node) => (node.kind === "single" ? [node.id] : [node.id, ...node.children.map((c) => c.id)]))
+    );
     for (const node of nodes) {
       this.renderSidebarNode(node);
     }
@@ -368,8 +370,7 @@ export class App {
           : scan.status === "complete"
             ? " · scan complete"
             : "";
-    this.fileTableFooterEl.textContent =
-      `${rowCount.toLocaleString()} files${filterTag}${scanTag} · ${modKey}/middle-click for new tab`;
+    this.fileTableFooterEl.textContent = `${rowCount.toLocaleString()} files${filterTag}${scanTag} · ${modKey}/middle-click for new tab`;
   }
 
   private searchRows(rows: FileRow[]): FileRow[] {
