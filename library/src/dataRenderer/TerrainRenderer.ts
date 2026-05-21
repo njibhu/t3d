@@ -11,6 +11,29 @@ import type Logger from "../Logger";
 import type { Material } from "three";
 import { createMultiMaterialObject } from "three/examples/jsm/utils/SceneUtils.js";
 
+const LEGACY_CHUNK_SEGMENTS = 32;
+const LEGACY_CHUNK_SAMPLE_WIDTH = 35;
+
+function getChunkResolution(terrainData: any): { chunkSegments: number; chunkSampleWidth: number } {
+  const preferredChunkSegments = terrainData.verticesPerChunkSide ?? LEGACY_CHUNK_SEGMENTS;
+  const preferredChunkSampleWidth = preferredChunkSegments + 3;
+  const chunkCount = terrainData.chunkArray.length;
+  const samplesPerChunk = chunkCount > 0 ? terrainData.heightMapArray.length / chunkCount : 0;
+  const expectedSamplesPerChunk = preferredChunkSampleWidth * preferredChunkSampleWidth;
+
+  if (samplesPerChunk === expectedSamplesPerChunk) {
+    return {
+      chunkSegments: preferredChunkSegments,
+      chunkSampleWidth: preferredChunkSampleWidth,
+    };
+  }
+
+  return {
+    chunkSegments: LEGACY_CHUNK_SEGMENTS,
+    chunkSampleWidth: LEGACY_CHUNK_SAMPLE_WIDTH,
+  };
+}
+
 /**
  *
  * A renderer that generates the meshes for the terrain of a map.
@@ -75,8 +98,17 @@ export default class TerrainRenderer extends DataRenderer {
     /// Read settings
     const maxAnisotropy = this.settings.anisotropy ? this.settings.anisotropy : 1;
 
-    //let chunks = [];
-    const chunkW = 35;
+    const { chunkSegments, chunkSampleWidth } = getChunkResolution(terrainData);
+    const expectedSamplesPerChunk = chunkSampleWidth * chunkSampleWidth;
+    const samplesPerChunk = terrainData.chunkArray.length > 0 ? terrainData.heightMapArray.length / terrainData.chunkArray.length : 0;
+
+    if (samplesPerChunk !== expectedSamplesPerChunk) {
+      self.logger.log(
+        self.logger.TYPE_WARNING,
+        "TerrainRenderer",
+        `Unexpected terrain chunk sample count (${samplesPerChunk}); falling back to legacy ${LEGACY_CHUNK_SAMPLE_WIDTH}x${LEGACY_CHUNK_SAMPLE_WIDTH} height grid`
+      );
+    }
 
     /// Calculate numChunksD_1 and _2
     this.parseNumChunks(terrainData);
@@ -252,16 +284,16 @@ export default class TerrainRenderer extends DataRenderer {
       allMats.push(mat);
 
       /// -1 for faces -> vertices , -2 for ignoring outer faces
-      const chunkGeo = new THREE.PlaneGeometry(cdx, cdy, chunkW - 3, chunkW - 3);
+      const chunkGeo = new THREE.PlaneGeometry(cdx, cdy, chunkSegments, chunkSegments);
 
       let cn = 0;
 
       /// Render chunk
 
       /// Each chunk vertex
-      for (let y = 0; y < chunkW; y++) {
-        for (let x = 0; x < chunkW; x++) {
-          if (x !== 0 && x !== chunkW - 1 && y !== 0 && y !== chunkW - 1) {
+      for (let y = 0; y < chunkSampleWidth; y++) {
+        for (let x = 0; x < chunkSampleWidth; x++) {
+          if (x !== 0 && x !== chunkSampleWidth - 1 && y !== 0 && y !== chunkSampleWidth - 1) {
             //@ts-ignore
             chunkGeo.getAttribute("position").array[cn * 3 + 2] = terrainData.heightMapArray[n];
             cn++;
