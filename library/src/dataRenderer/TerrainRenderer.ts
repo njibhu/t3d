@@ -11,6 +11,62 @@ import type Logger from "../Logger";
 import type { Material } from "three";
 import { createMultiMaterialObject } from "three/examples/jsm/utils/SceneUtils.js";
 
+const LEGACY_CHUNK_SEGMENTS = 32;
+const LEGACY_CHUNK_SAMPLE_WIDTH = 35;
+
+function getChunkResolution(terrainData: any): { chunkSegments: number; chunkSampleWidth: number } {
+  const preferredChunkSegments = terrainData.verticesPerChunkSide ?? LEGACY_CHUNK_SEGMENTS;
+  const preferredChunkSampleWidth = preferredChunkSegments + 3;
+  const chunkCount = terrainData.chunkArray.length;
+  const samplesPerChunk = chunkCount > 0 ? terrainData.heightMapArray.length / chunkCount : 0;
+  const expectedSamplesPerChunk = preferredChunkSampleWidth * preferredChunkSampleWidth;
+
+  if (samplesPerChunk === expectedSamplesPerChunk) {
+    return {
+      chunkSegments: preferredChunkSegments,
+      chunkSampleWidth: preferredChunkSampleWidth,
+    };
+  }
+
+  return {
+    chunkSegments: LEGACY_CHUNK_SEGMENTS,
+    chunkSampleWidth: LEGACY_CHUNK_SAMPLE_WIDTH,
+  };
+}
+
+function getPageTextureKey(page: any): string {
+  const coord = page.coord ?? [0, 0];
+  return `${page.layer}:${coord[0]},${coord[1]}`;
+}
+
+function getSolidColorKey(color: ArrayLike<number>): string {
+  return Array.from(color).join(",");
+}
+
+function getPageSolidColorValue(page: any): number[] | null {
+  if (!page?.solidColor) return null;
+
+  const solidColor = Array.from(page.solidColor as ArrayLike<number>);
+  if (solidColor.length !== 4) return null;
+
+  if (page.filename > 0) return null;
+
+  if (page.flags || solidColor.some((value) => value !== 0)) {
+    return solidColor;
+  }
+
+  return null;
+}
+
+function makeSolidColorTexture(color: ArrayLike<number>): THREE.DataTexture {
+  const [r = 0, g = 0, b = 0, a = 255] = Array.from(color);
+  const texture = MaterialUtils.generateDataTexture(1, 1, new THREE.Color(r / 255, g / 255, b / 255));
+  const imageData = texture.image.data as Uint8Array;
+  imageData[3] = a;
+  texture.needsUpdate = true;
+  return texture;
+}
+
 /**
  *
  * A renderer that generates the meshes for the terrain of a map.
@@ -75,8 +131,18 @@ export default class TerrainRenderer extends DataRenderer {
     /// Read settings
     const maxAnisotropy = this.settings.anisotropy ? this.settings.anisotropy : 1;
 
-    //let chunks = [];
-    const chunkW = 35;
+    const { chunkSegments, chunkSampleWidth } = getChunkResolution(terrainData);
+    const expectedSamplesPerChunk = chunkSampleWidth * chunkSampleWidth;
+    const samplesPerChunk =
+      terrainData.chunkArray.length > 0 ? terrainData.heightMapArray.length / terrainData.chunkArray.length : 0;
+
+    if (samplesPerChunk !== expectedSamplesPerChunk) {
+      self.logger.log(
+        self.logger.TYPE_WARNING,
+        "TerrainRenderer",
+        `Unexpected terrain chunk sample count (${samplesPerChunk}); falling back to legacy ${LEGACY_CHUNK_SAMPLE_WIDTH}x${LEGACY_CHUNK_SAMPLE_WIDTH} height grid`
+      );
+    }
 
     /// Calculate numChunksD_1 and _2
     this.parseNumChunks(terrainData);
@@ -114,6 +180,38 @@ export default class TerrainRenderer extends DataRenderer {
 
     /// Load textures from PIMG and inject as material maps (textures)
     const chunkTextures: any = {};
+    const generatedPickerTextures: Record<string, THREE.Texture> = {};
+
+    const resolvePickerTexture = function (page: any): THREE.Texture {
+      const pageTextureKey = getPageTextureKey(page);
+      if (generatedPickerTextures[pageTextureKey]) {
+        return generatedPickerTextures[pageTextureKey];
+      }
+
+      if (page.filename > 0) {
+        const texture = MaterialUtils.loadLocalTexture(self.localReader, page.filename);
+        generatedPickerTextures[pageTextureKey] = texture;
+        return texture;
+      }
+
+      const solidColor = getPageSolidColorValue(page);
+      if (solidColor) {
+        const solidColorKey = `solid:${getSolidColorKey(solidColor)}`;
+        if (!generatedPickerTextures[solidColorKey]) {
+          generatedPickerTextures[solidColorKey] = makeSolidColorTexture(solidColor);
+        }
+        generatedPickerTextures[pageTextureKey] = generatedPickerTextures[solidColorKey];
+        return generatedPickerTextures[pageTextureKey];
+      }
+
+      const fallbackColor = page.layer === 1 ? [128, 128, 128, 255] : [0, 0, 0, 255];
+      const fallbackKey = `fallback:${page.layer}:${getSolidColorKey(fallbackColor)}`;
+      if (!generatedPickerTextures[fallbackKey]) {
+        generatedPickerTextures[fallbackKey] = makeSolidColorTexture(fallbackColor);
+      }
+      generatedPickerTextures[pageTextureKey] = generatedPickerTextures[fallbackKey];
+      return generatedPickerTextures[pageTextureKey];
+    };
 
     /// Load textures
     if (pimgData) {
@@ -123,7 +221,6 @@ export default class TerrainRenderer extends DataRenderer {
       strippedPages.forEach(function (page: any) {
         /// Only load layer 0 and 1
         if (page.layer <= 1) {
-          const filename = page.filename;
           //let color = page.solidColor;
           const coord = page.coord;
 
@@ -132,8 +229,7 @@ export default class TerrainRenderer extends DataRenderer {
 
           /// Add texture to list, note that coord name is used, not actual file name
           if (!chunkTextures[matName]) {
-            /// Load local texture, here we use file name!
-            const chunkTex = MaterialUtils.loadLocalTexture(self.localReader, filename);
+            const chunkTex = resolvePickerTexture(page);
 
             if (chunkTex) {
               /// Set repeat, antistropy and repeat Y
@@ -252,16 +348,16 @@ export default class TerrainRenderer extends DataRenderer {
       allMats.push(mat);
 
       /// -1 for faces -> vertices , -2 for ignoring outer faces
-      const chunkGeo = new THREE.PlaneGeometry(cdx, cdy, chunkW - 3, chunkW - 3);
+      const chunkGeo = new THREE.PlaneGeometry(cdx, cdy, chunkSegments, chunkSegments);
 
       let cn = 0;
 
       /// Render chunk
 
       /// Each chunk vertex
-      for (let y = 0; y < chunkW; y++) {
-        for (let x = 0; x < chunkW; x++) {
-          if (x !== 0 && x !== chunkW - 1 && y !== 0 && y !== chunkW - 1) {
+      for (let y = 0; y < chunkSampleWidth; y++) {
+        for (let x = 0; x < chunkSampleWidth; x++) {
+          if (x !== 0 && x !== chunkSampleWidth - 1 && y !== 0 && y !== chunkSampleWidth - 1) {
             //@ts-ignore
             chunkGeo.getAttribute("position").array[cn * 3 + 2] = terrainData.heightMapArray[n];
             cn++;
