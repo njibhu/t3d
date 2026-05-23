@@ -22,6 +22,9 @@ module.exports = {
       targets: [
         { src: "../t3dtools.js/t3dworker.js", dest: "dist/static" },
         { src: "../t3dtools.js/t3dworker.wasm", dest: "dist/static" },
+        { src: "../node_modules/jquery/dist/jquery.js", dest: "dist/static" },
+        { src: "../node_modules/w2ui/w2ui-1.4.3.min.js", dest: "dist/static" },
+        { src: "../node_modules/w2ui/w2ui-1.4.3.min.css", dest: "dist/static" },
       ],
     }),
   ],
