@@ -1,11 +1,6 @@
 import T3D from "t3d-lib";
 import { getCntcFiles, getEntries, getMainChunk, getTypeId, getUniqueId, readCntcFile } from "./lib/cntc.js";
-import {
-  getType35ItemTypeEnum,
-  getType35ItemTypeLabel,
-  parseType35Item,
-  readUint32LE,
-} from "./lib/cntc_item35.js";
+import { getType35ItemTypeEnum, getType35ItemTypeLabel, parseType35Item, readUint32LE } from "./lib/cntc_item35.js";
 
 const cntcFileCache = {};
 const fileTypeSets = {};
@@ -13,10 +8,7 @@ const cntcEntriesByType = {};
 let selectedCntcType = null;
 
 function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
+  return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 }
 
 function formatHexByte(value) {
@@ -25,12 +17,6 @@ function formatHexByte(value) {
 
 function formatAsciiByte(value) {
   return value >= 32 && value <= 126 ? String.fromCharCode(value) : ".";
-}
-
-function createHexPreview(bytes, limit = 16) {
-  return Array.from(bytes.slice(0, limit))
-    .map(formatHexByte)
-    .join(" ");
 }
 
 function escapeHtmlAttribute(value) {
@@ -121,7 +107,9 @@ function buildHexAnnotations(entryRecord) {
 
   return annotations.filter(
     (annotation) =>
-      annotation.offset >= 0 && annotation.length > 0 && annotation.offset + annotation.length <= entryRecord.contentSlice.length
+      annotation.offset >= 0 &&
+      annotation.length > 0 &&
+      annotation.offset + annotation.length <= entryRecord.contentSlice.length
   );
 }
 
@@ -154,7 +142,9 @@ function createHexDump(entryRecord, bytesPerLine = 16) {
         }
       }
 
-      const byteTitle = annotation ? `${annotation.label} | offset 0x${byteOffset.toString(16).toUpperCase()}` : `offset 0x${byteOffset.toString(16).toUpperCase()}`;
+      const byteTitle = annotation
+        ? `${annotation.label} | offset 0x${byteOffset.toString(16).toUpperCase()}`
+        : `offset 0x${byteOffset.toString(16).toUpperCase()}`;
 
       if (!annotation) {
         hexText += `<span class="hex-byte" data-byte-offset="${byteOffset}" title="${escapeHtmlAttribute(byteTitle)}" style="cursor:pointer">${byteText}</span>`;
@@ -171,14 +161,11 @@ function createHexDump(entryRecord, bytesPerLine = 16) {
         styles.push("padding-right:2px", "border-top-right-radius:2px", "border-bottom-right-radius:2px");
       }
 
-      hexText +=
-        `<span class="hex-byte" data-byte-offset="${byteOffset}" title="${escapeHtmlAttribute(byteTitle)}" style="${styles.join(";")}">${byteText}</span>`
+      hexText += `<span class="hex-byte" data-byte-offset="${byteOffset}" title="${escapeHtmlAttribute(byteTitle)}" style="${styles.join(";")}">${byteText}</span>`;
     }
 
     const ascii = lineBytes.map(formatAsciiByte).join("");
-    lines.push(
-      `${offset.toString(16).toUpperCase().padStart(8, "0")}  ${hexText}  ${escapeHtml(ascii)}`
-    );
+    lines.push(`${offset.toString(16).toUpperCase().padStart(8, "0")}  ${hexText}  ${escapeHtml(ascii)}`);
   }
   return lines.join("\n");
 }
@@ -203,7 +190,6 @@ function formatUint32Inspector(entryRecord, offset) {
 
   return `offset 0x${offset.toString(16).toUpperCase()} (${offset}) | uint32 = ${value} | 0x${value.toString(16).toUpperCase()}`;
 }
-
 
 function getCntcTypeDescription(type) {
   if (Number(type) === 0) {
@@ -539,7 +525,12 @@ function setupUi() {
   $("#layout").w2layout({
     name: "layout",
     panels: [
-      { type: "top", size: 42, style: pstyle, content: '<div id="cntcToolbar" style="width: 100%; height: 100%"></div>' },
+      {
+        type: "top",
+        size: 42,
+        style: pstyle,
+        content: '<div id="cntcToolbar" style="width: 100%; height: 100%"></div>',
+      },
       { type: "left", size: "25%", resizable: true, style: pstyle, content: "left" },
       { type: "main", content: "main", style: pstyle },
       //{ type: "preview", size: "50%", resizable: true, style: pstyle, content: "preview" },

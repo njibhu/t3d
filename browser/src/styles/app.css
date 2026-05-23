@@ -840,7 +840,6 @@ body {
   color: var(--t3d-text-muted);
 }
 
-
 /* Dialog (native <dialog>) */
 dialog {
   background: var(--t3d-bg-panel);

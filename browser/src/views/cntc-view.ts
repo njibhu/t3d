@@ -209,7 +209,7 @@ export class CntcView {
 
   private selectEntry(entry: CntcEntryRecord | null): void {
     this.selectedEntry = entry;
-    const entries = this.selectedType == null ? [] : this.entriesByType.get(this.selectedType) ?? [];
+    const entries = this.selectedType == null ? [] : (this.entriesByType.get(this.selectedType) ?? []);
     if (entry == null) {
       this.entryTable.setSelection(null);
     } else {
@@ -227,7 +227,9 @@ export class CntcView {
     }
     this.detailInspectorEl.textContent = "Click a hex byte to inspect the uint32 at that offset.";
 
-    this.detailToolbarEl.append(this.buildDownloadButton("Download entry BIN", () => this.downloadSelectedEntryBinary()));
+    this.detailToolbarEl.append(
+      this.buildDownloadButton("Download entry BIN", () => this.downloadSelectedEntryBinary())
+    );
 
     this.renderHexDump(entry);
   }
@@ -296,8 +298,7 @@ export class CntcView {
     const value = readUint32LE(entry.contentSlice, offset);
     if (value === null) {
       this.detailInspectorEl.textContent =
-        `offset 0x${offset.toString(16).toUpperCase()} (${offset}) | ` +
-        "uint32 unavailable: not enough bytes";
+        `offset 0x${offset.toString(16).toUpperCase()} (${offset}) | ` + "uint32 unavailable: not enough bytes";
       return;
     }
     this.detailInspectorEl.textContent =
@@ -345,11 +346,8 @@ function readUint32LE(bytes: Uint8Array | undefined, offset: number): number | n
     return null;
   }
   return (
-    bytes[offset] |
-    (bytes[offset + 1] << 8) |
-    (bytes[offset + 2] << 16) |
-    ((bytes[offset + 3] << 24) >>> 0)
-  ) >>> 0;
+    (bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16) | ((bytes[offset + 3] << 24) >>> 0)) >>> 0
+  );
 }
 
 function getUniqueId(entryRecord: CntcEntryRecord): number | null {

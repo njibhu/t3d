@@ -63,7 +63,7 @@ function buildChunkActions(chunk: PackChunk, fileBaseName: string, getJson: () =
   logBtn.textContent = "Log to console";
   logBtn.addEventListener("click", () => {
     T3D.Logger.log(T3D.Logger.TYPE_MESSAGE, "Logging", chunk.header.type, "chunk");
-    // eslint-disable-next-line no-console
+
     console.log(chunk.data);
   });
 

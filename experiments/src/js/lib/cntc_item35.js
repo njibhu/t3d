@@ -50,11 +50,8 @@ export function readUint32LE(bytes, offset) {
   }
 
   return (
-    bytes[offset] |
-    (bytes[offset + 1] << 8) |
-    (bytes[offset + 2] << 16) |
-    (bytes[offset + 3] << 24 >>> 0)
-  ) >>> 0;
+    (bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16) | ((bytes[offset + 3] << 24) >>> 0)) >>> 0
+  );
 }
 
 export function getType35ItemTypeEnum(entryRecord) {
@@ -92,9 +89,9 @@ function parseArmorDetails(bytes) {
   const weightClassEnum = readUint32LE(bytes, 280);
 
   return {
-    type: slotEnum !== null ? TYPE35_ARMOR_SLOT_LABELS[slotEnum] ?? null : null,
+    type: slotEnum !== null ? (TYPE35_ARMOR_SLOT_LABELS[slotEnum] ?? null) : null,
     type_id: slotEnum,
-    weight_class: weightClassEnum !== null ? TYPE35_ARMOR_WEIGHT_CLASS_LABELS[weightClassEnum] ?? null : null,
+    weight_class: weightClassEnum !== null ? (TYPE35_ARMOR_WEIGHT_CLASS_LABELS[weightClassEnum] ?? null) : null,
     weight_class_id: weightClassEnum,
     field_0x4C: readUint32LE(bytes, 76),
     field_0xBC: readUint32LE(bytes, 188),
@@ -115,7 +112,7 @@ export function parseType35Item(entryRecord) {
     id: readUint32LE(bytes, 40),
     type: itemTypeLabel,
     type_id: itemTypeEnum,
-    rarity: rarityEnum !== null ? TYPE35_RARITY_LABELS[rarityEnum] ?? null : null,
+    rarity: rarityEnum !== null ? (TYPE35_RARITY_LABELS[rarityEnum] ?? null) : null,
     rarity_id: rarityEnum,
     level: readUint32LE(bytes, 116),
     details: {},

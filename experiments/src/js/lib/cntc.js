@@ -83,11 +83,8 @@ function readEntryUint32(entryRecord, offset) {
     return null;
   }
   return (
-    bytes[offset] |
-    (bytes[offset + 1] << 8) |
-    (bytes[offset + 2] << 16) |
-    ((bytes[offset + 3] << 24) >>> 0)
-  ) >>> 0;
+    (bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16) | ((bytes[offset + 3] << 24) >>> 0)) >>> 0
+  );
 }
 
 export function getUniqueId(entryRecord) {

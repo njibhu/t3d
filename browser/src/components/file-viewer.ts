@@ -182,15 +182,15 @@ export class FileViewer {
         ? "map"
         : isCntc
           ? "cntc"
-        : texKind
-          ? "texture"
-          : isSound
-            ? "sound"
-            : isStrings
-              ? "string"
-              : packfile
-                ? "pack"
-                : "raw";
+          : texKind
+            ? "texture"
+            : isSound
+              ? "sound"
+              : isStrings
+                ? "string"
+                : packfile
+                  ? "pack"
+                  : "raw";
 
     // Build tabs in their display order (Raw, Hex, Pack, Texture, then the
     // type-specific tab) so the strip is stable across file kinds.
