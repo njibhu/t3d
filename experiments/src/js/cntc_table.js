@@ -1,5 +1,5 @@
 import T3D from "t3d-lib";
-import { getCntcFiles, getEntries, getMainChunk, readCntcFile } from "./lib/cntc.js";
+import { getCntcFiles, getEntries, getMainChunk, getTypeId, getUniqueId, readCntcFile } from "./lib/cntc.js";
 import {
   getType35ItemTypeEnum,
   getType35ItemTypeLabel,
@@ -39,8 +39,10 @@ function escapeHtmlAttribute(value) {
 
 const FIELD_COLORS = {
   "embedded type @0x10": "#d8ecff",
-  "unknown unique id @0x14": "#f4d8ff",
+  "unique id @0x14": "#f4d8ff",
   "item id @0x28": "#d8ffe1",
+  "map id @0x28": "#d8ffe1",
+  "id @0x28": "#d8ffe1",
   "item type @0x2C": "#ffe7d6",
   "weapon field @0x38": "#ffe1ea",
   "unknown ref @0x40": "#e1f0ff",
@@ -60,19 +62,39 @@ function getFieldColor(label) {
   return FIELD_COLORS[label] ?? "#e9ecef";
 }
 
+function getTypeIdLabel(type) {
+  if (Number(type) === 35) {
+    return "item id @0x28";
+  }
+  if (Number(type) === 45) {
+    return "map id @0x28";
+  }
+  return "id @0x28";
+}
+
+function getTypeIdCaption(type) {
+  if (Number(type) === 35) {
+    return "item id";
+  }
+  if (Number(type) === 45) {
+    return "map id";
+  }
+  return "id @0x28";
+}
+
 function buildHexAnnotations(entryRecord) {
   if (!entryRecord?.contentSlice) {
     return [];
   }
 
-  const annotations = [{ offset: 16, length: 4, label: "embedded type @0x10" }];
+  const annotations = [
+    { offset: 16, length: 4, label: "embedded type @0x10" },
+    { offset: 20, length: 4, label: "unique id @0x14" },
+    { offset: 40, length: 4, label: getTypeIdLabel(entryRecord.type) },
+  ];
 
   if (entryRecord.type === 35) {
-    annotations.push(
-      { offset: 20, length: 4, label: "unknown unique id @0x14" },
-      { offset: 40, length: 4, label: "item id @0x28" },
-      { offset: 44, length: 4, label: "item type @0x2C" }
-    );
+    annotations.push({ offset: 44, length: 4, label: "item type @0x2C" });
   }
 
   if (entryRecord.type === 35 && getType35ItemTypeEnum(entryRecord) === 24) {
@@ -132,14 +154,16 @@ function createHexDump(entryRecord, bytesPerLine = 16) {
         }
       }
 
+      const byteTitle = annotation ? `${annotation.label} | offset 0x${byteOffset.toString(16).toUpperCase()}` : `offset 0x${byteOffset.toString(16).toUpperCase()}`;
+
       if (!annotation) {
-        hexText += byteText;
+        hexText += `<span class="hex-byte" data-byte-offset="${byteOffset}" title="${escapeHtmlAttribute(byteTitle)}" style="cursor:pointer">${byteText}</span>`;
         continue;
       }
 
       const first = byteOffset === annotation.offset;
       const last = byteOffset === annotation.offset + annotation.length - 1;
-      const styles = [`background:${getFieldColor(annotation.label)}`];
+      const styles = [`background:${getFieldColor(annotation.label)}`, "cursor:pointer"];
       if (first) {
         styles.push("padding-left:2px", "border-top-left-radius:2px", "border-bottom-left-radius:2px");
       }
@@ -148,7 +172,7 @@ function createHexDump(entryRecord, bytesPerLine = 16) {
       }
 
       hexText +=
-        `<span title="${escapeHtmlAttribute(annotation.label)}" style="${styles.join(";")}">${byteText}</span>`
+        `<span class="hex-byte" data-byte-offset="${byteOffset}" title="${escapeHtmlAttribute(byteTitle)}" style="${styles.join(";")}">${byteText}</span>`
     }
 
     const ascii = lineBytes.map(formatAsciiByte).join("");
@@ -167,17 +191,43 @@ function formatFieldValue(value) {
   return String(value);
 }
 
-function getParsedPublicItemId(entryRecord) {
-  if (!entryRecord || entryRecord.type !== 35) {
-    return null;
+function formatUint32Inspector(entryRecord, offset) {
+  if (!entryRecord?.contentSlice || offset < 0 || offset >= entryRecord.contentSlice.length) {
+    return "Click a hex byte to inspect the uint32 at that offset.";
   }
 
-  return readUint32LE(entryRecord.contentSlice, 40);
+  const value = readUint32LE(entryRecord.contentSlice, offset);
+  if (value === null) {
+    return `offset 0x${offset.toString(16).toUpperCase()} (${offset}) | uint32 unavailable: not enough bytes`;
+  }
+
+  return `offset 0x${offset.toString(16).toUpperCase()} (${offset}) | uint32 = ${value} | 0x${value.toString(16).toUpperCase()}`;
 }
 
+
 function getCntcTypeDescription(type) {
+  if (Number(type) === 0) {
+    return "Achievements";
+  }
+
+  if (Number(type) === 1) {
+    return "Achievement Categories";
+  }
+
+  if (Number(type) === 12) {
+    return "Crafting Recipes";
+  }
+
   if (Number(type) === 35) {
     return "Items";
+  }
+
+  if (Number(type) === 66) {
+    return "Skins";
+  }
+
+  if (Number(type) === 45) {
+    return "Maps";
   }
 
   return "";
@@ -185,18 +235,17 @@ function getCntcTypeDescription(type) {
 
 function getEntryGridColumns(type) {
   const columns = [
-    { field: "fileId", caption: "file id", size: "16%", sortable: true, resizable: true },
-    { field: "baseId", caption: "base id", size: "16%", sortable: true, resizable: true },
-    { field: "rootIndex", caption: "root", size: "14%", sortable: true, resizable: true },
-    { field: "namespaceIndex", caption: "namespace", size: "18%", sortable: true, resizable: true },
-    { field: "size", caption: "size", size: "12%", sortable: true, resizable: true },
+    { field: "fileId", caption: "file id", size: "12%", sortable: true, resizable: true },
+    { field: "baseId", caption: "base id", size: "12%", sortable: true, resizable: true },
+    { field: "rootIndex", caption: "root", size: "10%", sortable: true, resizable: true },
+    { field: "namespaceIndex", caption: "namespace", size: "14%", sortable: true, resizable: true },
+    { field: "size", caption: "size", size: "8%", sortable: true, resizable: true },
+    { field: "uniqueId", caption: "unique id", size: "12%", sortable: true, resizable: true },
+    { field: "typeId", caption: getTypeIdCaption(type), size: "12%", sortable: true, resizable: true },
   ];
 
   if (String(type) === "35") {
-    columns.push(
-      { field: "itemType", caption: "item type", size: "14%", sortable: true, resizable: true },
-      { field: "itemId", caption: "item id", size: "10%", sortable: true, resizable: true }
-    );
+    columns.push({ field: "itemType", caption: "item type", size: "14%", sortable: true, resizable: true });
   }
 
   return columns;
@@ -212,12 +261,12 @@ function decodeKnownFields(entryRecord) {
   const fields = [
     { label: "decoded length", value: bytes.length },
     { label: "embedded type @0x10", value: readUint32LE(bytes, 16) },
+    { label: "unique id @0x14", value: getUniqueId(entryRecord) },
+    { label: getTypeIdLabel(entryRecord.type), value: getTypeId(entryRecord) },
   ];
 
   if (entryRecord.type === 35) {
     fields.push(
-      { label: "unknown unique id @0x14", value: readUint32LE(bytes, 20) },
-      { label: "item id @0x28", value: parsedItem?.id ?? readUint32LE(bytes, 40) },
       { label: "item type @0x2C", value: getType35ItemTypeLabel(entryRecord) },
       {
         label: "rarity @0x60",
@@ -410,14 +459,56 @@ function renderHexPreview(entryRecord) {
     "preview",
     `<div style="height:100%; display:flex; flex-direction:column; background:#fafafa;">` +
       `<div style="padding:8px 12px; border-bottom:1px solid #ddd; font-family:monospace;">${escapeHtml(header)}</div>` +
+      `<div id="hexInspectorInfo" style="padding:6px 12px; border-bottom:1px solid #ddd; font-family:monospace; font-size:12px; background:#fff;">${escapeHtml(
+        formatUint32Inspector(null, -1)
+      )}</div>` +
       `<div style="flex:1; min-height:0; display:flex;">` +
       `<div style="flex:1 1 70%; overflow:auto; border-right:1px solid #ddd;">` +
-      `<pre style="margin:0; padding:12px; font-family:Consolas, Monaco, monospace; font-size:12px; line-height:1.4;">${createHexDump(entryRecord)}</pre>` +
+      `<pre id="hexDumpView" style="margin:0; padding:12px; font-family:Consolas, Monaco, monospace; font-size:12px; line-height:1.4;">${createHexDump(entryRecord)}</pre>` +
       `</div>` +
       `<div style="flex:0 0 320px; min-width:280px; background:#fff;">${renderDecodedFields(entryRecord)}</div>` +
       `</div>` +
       `</div>`
   );
+
+  const hexDumpView = document.getElementById("hexDumpView");
+  const hexInspectorInfo = document.getElementById("hexInspectorInfo");
+  if (hexDumpView && hexInspectorInfo) {
+    hexDumpView.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const byteSpan = target.closest(".hex-byte");
+      if (!(byteSpan instanceof HTMLElement)) {
+        return;
+      }
+
+      const offset = Number(byteSpan.dataset.byteOffset);
+      if (!Number.isFinite(offset)) {
+        return;
+      }
+
+      hexDumpView.querySelectorAll(".hex-byte.uint32-selected").forEach((element) => {
+        element.classList.remove("uint32-selected");
+        if (element instanceof HTMLElement) {
+          element.style.boxShadow = "";
+        }
+      });
+
+      for (let selectedOffset = offset; selectedOffset < offset + 4; selectedOffset += 1) {
+        const selectedByte = hexDumpView.querySelector(`.hex-byte[data-byte-offset="${selectedOffset}"]`);
+        if (!(selectedByte instanceof HTMLElement)) {
+          continue;
+        }
+        selectedByte.classList.add("uint32-selected");
+        selectedByte.style.boxShadow = "inset 0 0 0 9999px rgba(255, 235, 59, 0.7)";
+      }
+
+      hexInspectorInfo.textContent = formatUint32Inspector(entryRecord, offset);
+    });
+  }
 }
 
 function showTypeEntries(type) {
@@ -433,8 +524,9 @@ function showTypeEntries(type) {
     rootIndex: entryRecord.rootIndex,
     namespaceIndex: entryRecord.namespaceIndex,
     size: entryRecord.size,
+    uniqueId: getUniqueId(entryRecord),
+    typeId: getTypeId(entryRecord),
     itemType: getType35ItemTypeLabel(entryRecord),
-    itemId: getParsedPublicItemId(entryRecord),
     _entryRecord: entryRecord,
   }));
   w2ui.entryGrid.refresh();

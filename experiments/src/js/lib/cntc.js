@@ -76,3 +76,24 @@ export function parseId(uarr) {
   const dataView = new DataView(uarr.buffer, uarr.byteOffset, uarr.byteLength);
   return dataView.getUint32(32, true);
 }
+
+function readEntryUint32(entryRecord, offset) {
+  const bytes = entryRecord?.contentSlice;
+  if (!bytes || offset + 4 > bytes.length) {
+    return null;
+  }
+  return (
+    bytes[offset] |
+    (bytes[offset + 1] << 8) |
+    (bytes[offset + 2] << 16) |
+    ((bytes[offset + 3] << 24) >>> 0)
+  ) >>> 0;
+}
+
+export function getUniqueId(entryRecord) {
+  return readEntryUint32(entryRecord, 20);
+}
+
+export function getTypeId(entryRecord) {
+  return readEntryUint32(entryRecord, 40);
+}
