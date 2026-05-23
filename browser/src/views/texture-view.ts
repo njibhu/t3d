@@ -58,6 +58,23 @@ export function renderTextureView(host: HTMLElement, input: TextureViewInput, ki
   }
 }
 
+export async function exportRenderedTextureAsPng(host: HTMLElement): Promise<Blob> {
+  const canvas = host.querySelector("canvas");
+  if (canvas) return canvasToPngBlob(canvas);
+
+  const img = host.querySelector("img");
+  if (img) {
+    await ensureImageReady(img);
+    const canvas = document.createElement("canvas");
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    canvas.getContext("2d")!.drawImage(img, 0, 0);
+    return canvasToPngBlob(canvas);
+  }
+
+  throw new Error("Texture preview is not available.");
+}
+
 interface ParsedDDS {
   width: number;
   height: number;
@@ -172,6 +189,35 @@ function flipUvsVertically(geometry: THREE.PlaneGeometry): void {
   const uv = geometry.attributes.uv;
   for (let i = 0; i < uv.count; i++) uv.setY(i, 1 - uv.getY(i));
   uv.needsUpdate = true;
+}
+
+function canvasToPngBlob(canvas: HTMLCanvasElement): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) resolve(blob);
+      else reject(new Error("PNG export failed."));
+    }, "image/png");
+  });
+}
+
+function ensureImageReady(img: HTMLImageElement): Promise<void> {
+  if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const onLoad = () => {
+      cleanup();
+      resolve();
+    };
+    const onError = () => {
+      cleanup();
+      reject(new Error("Texture image failed to load."));
+    };
+    const cleanup = () => {
+      img.removeEventListener("load", onLoad);
+      img.removeEventListener("error", onError);
+    };
+    img.addEventListener("load", onLoad);
+    img.addEventListener("error", onError);
+  });
 }
 
 function showError(host: HTMLElement, msg: string): void {

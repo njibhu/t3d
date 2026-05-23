@@ -11,7 +11,7 @@ import T3D, {
 } from "t3d-lib";
 import { renderRawView } from "../views/raw-view";
 import { renderPackView } from "../views/pack-view";
-import { detectTextureKind, renderTextureView } from "../views/texture-view";
+import { detectTextureKind, exportRenderedTextureAsPng, renderTextureView } from "../views/texture-view";
 import { StringView } from "../views/string-view";
 import { SoundEntry, SoundView } from "../views/sound-view";
 import { ModelView } from "../views/model-view";
@@ -216,9 +216,11 @@ export class FileViewer {
     if (texKind) {
       const t = this.ensureTab("texture");
       renderTextureView(t.pane, texInput, texKind);
-      if (texKind === "png")
-        this.addAction("Download PNG", () => triggerDownload(new Blob([rawData]), `${fileId}.png`));
-      else if (texKind === "riff")
+      this.addAction("Download Image", async () => {
+        const blob = await exportRenderedTextureAsPng(t.pane);
+        triggerDownload(blob, `${fileId}.png`);
+      });
+      if (texKind === "riff")
         this.addAction("Download RIFF", () => triggerDownload(new Blob([rawData]), `${fileId}.riff`));
       else if (texKind === "dds")
         this.addAction("Download DDS", () => triggerDownload(new Blob([rawData]), `${fileId}.dds`));
