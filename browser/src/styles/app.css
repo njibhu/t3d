@@ -652,6 +652,22 @@ body {
   gap: 12px;
   max-width: 600px;
 }
+.sound-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: var(--t3d-bg-panel);
+  border: 1px solid var(--t3d-border);
+  border-radius: 4px;
+}
+.sound-entry-title {
+  margin: 0;
+  color: var(--t3d-accent);
+  font-family: var(--t3d-mono);
+  font-size: 13px;
+  font-weight: 600;
+}
 .sound-view .info {
   color: var(--t3d-text-muted);
   font-size: 12px;

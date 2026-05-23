@@ -6,60 +6,100 @@ export interface SoundData {
   length: number;
 }
 
+export interface SoundEntry {
+  data: SoundData;
+  fileName: string;
+  title?: string;
+  meta?: string;
+}
+
 export class SoundView {
   private host: HTMLElement;
-  private blobUrl?: string;
-  private audio?: HTMLAudioElement;
+  private activeUrls: string[] = [];
+  private activeAudio: HTMLAudioElement[] = [];
 
   constructor(host: HTMLElement) {
     this.host = host;
     this.host.className = "view-pane padded";
   }
 
-  render(data: SoundData, fileName: string): void {
-    this.disposeUrl();
+  render(entries: SoundEntry[]): void {
+    this.disposeMedia();
     this.host.replaceChildren();
 
     const wrap = document.createElement("div");
     wrap.className = "sound-view";
 
-    const info = document.createElement("div");
-    info.className = "info";
-    info.innerHTML = `Length: ${data.length}s &middot; ${formatBytes(data.audioData.length)}`;
-    wrap.appendChild(info);
+    if (entries.length === 0) {
+      const empty = document.createElement("div");
+      empty.className = "info";
+      empty.textContent = "No embedded audio tracks found.";
+      wrap.appendChild(empty);
+      this.host.appendChild(wrap);
+      return;
+    }
 
-    // The audioData buffer may live in a SharedArrayBuffer, which Blob's
-    // typing refuses. Slicing copies into a plain ArrayBuffer.
-    const blob = new Blob([data.audioData.slice().buffer as ArrayBuffer], { type: "audio/mpeg" });
-    this.blobUrl = URL.createObjectURL(blob);
-
-    this.audio = document.createElement("audio");
-    this.audio.controls = true;
-    this.audio.preload = "metadata";
-    this.audio.src = this.blobUrl;
-    wrap.appendChild(this.audio);
-
-    const dlBtn = document.createElement("button");
-    dlBtn.className = "download-btn";
-    dlBtn.textContent = "Download MP3";
-    dlBtn.addEventListener("click", () => triggerDownload(blob, `${fileName}.mp3`));
-    wrap.appendChild(dlBtn);
+    for (const entry of entries) {
+      wrap.appendChild(this.buildEntry(entry));
+    }
 
     this.host.appendChild(wrap);
   }
 
   dispose(): void {
-    this.disposeUrl();
+    this.disposeMedia();
   }
 
-  private disposeUrl(): void {
-    if (this.audio) {
-      this.audio.pause();
-      this.audio.src = "";
+  private buildEntry(entry: SoundEntry): HTMLElement {
+    const card = document.createElement("section");
+    card.className = "sound-entry";
+
+    if (entry.title) {
+      const title = document.createElement("h3");
+      title.className = "sound-entry-title";
+      title.textContent = entry.title;
+      card.appendChild(title);
     }
-    if (this.blobUrl) {
-      URL.revokeObjectURL(this.blobUrl);
-      this.blobUrl = undefined;
+
+    const info = document.createElement("div");
+    info.className = "info";
+    const parts = [`Length: ${entry.data.length}s`, formatBytes(entry.data.audioData.length)];
+    if (entry.meta) parts.unshift(entry.meta);
+    info.innerHTML = parts.join(" &middot; ");
+    card.appendChild(info);
+
+    // The audioData buffer may live in a SharedArrayBuffer, which Blob's
+    // typing refuses. Slicing copies into a plain ArrayBuffer.
+    const blob = new Blob([entry.data.audioData.slice().buffer as ArrayBuffer], { type: "audio/mpeg" });
+    const blobUrl = URL.createObjectURL(blob);
+    this.activeUrls.push(blobUrl);
+
+    const audio = document.createElement("audio");
+    audio.controls = true;
+    audio.preload = "metadata";
+    audio.src = blobUrl;
+    this.activeAudio.push(audio);
+    card.appendChild(audio);
+
+    const dlBtn = document.createElement("button");
+    dlBtn.className = "download-btn";
+    dlBtn.textContent = "Download MP3";
+    dlBtn.addEventListener("click", () => triggerDownload(blob, `${entry.fileName}.mp3`));
+    card.appendChild(dlBtn);
+
+    return card;
+  }
+
+  private disposeMedia(): void {
+    for (const audio of this.activeAudio) {
+      audio.pause();
+      audio.src = "";
     }
+    this.activeAudio = [];
+
+    for (const blobUrl of this.activeUrls) {
+      URL.revokeObjectURL(blobUrl);
+    }
+    this.activeUrls = [];
   }
 }

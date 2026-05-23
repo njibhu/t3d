@@ -13,7 +13,7 @@ import { renderRawView } from "../views/raw-view";
 import { renderPackView } from "../views/pack-view";
 import { detectTextureKind, renderTextureView } from "../views/texture-view";
 import { StringView } from "../views/string-view";
-import { SoundView } from "../views/sound-view";
+import { SoundEntry, SoundView } from "../views/sound-view";
 import { ModelView } from "../views/model-view";
 import { HexView } from "../views/hex-view";
 import { DEFAULT_MAP_LAYERS, MapView, MapLayerOptions } from "../views/map-view";
@@ -174,6 +174,7 @@ export class FileViewer {
     const isModel = packfile?.header.type === "MODL";
     const isMap = packfile?.header.type === "mapc";
     const isSound = packfile?.header.type === "ASND";
+    const isSoundBank = packfile?.header.type === "ABNK";
     const isStrings = !packfile && fcc === "strs";
     const isCntc = packfile?.header.type === "cntc";
     const primary: TabKind = isModel
@@ -184,7 +185,7 @@ export class FileViewer {
           ? "cntc"
           : texKind
             ? "texture"
-            : isSound
+            : isSound || isSoundBank
               ? "sound"
               : isStrings
                 ? "string"
@@ -234,7 +235,7 @@ export class FileViewer {
         this.mapView = new MapView(m.pane);
         this.mapView.setOnReload((layers) => this.loadMap(layers));
       }
-    } else if (isSound) {
+    } else if (isSound || isSoundBank) {
       this.ensureTab("sound");
     } else if (isStrings) {
       this.ensureTab("string");
@@ -244,7 +245,7 @@ export class FileViewer {
 
     if (isModel) void this.loadModel();
     else if (isMap) this.loadMap({ ...DEFAULT_MAP_LAYERS });
-    else if (isSound) this.loadSound(packfile);
+    else if (isSound || isSoundBank) this.loadSound(packfile);
     else if (isStrings) void this.loadStrings();
   }
 
@@ -286,11 +287,35 @@ export class FileViewer {
   }
 
   private loadSound(packfile: FileParser): void {
-    const chunk = packfile.getChunk("ASND");
-    if (!chunk) return;
     const pane = this.tabs.get("sound")!.pane;
     this.soundView ??= new SoundView(pane);
-    this.soundView.render(chunk.data, this.fileName);
+    this.soundView.render(this.getSoundEntries(packfile));
+  }
+
+  private getSoundEntries(packfile: FileParser): SoundEntry[] {
+    if (packfile.header.type === "ASND") {
+      const chunk = packfile.getChunk("ASND");
+      if (!chunk) return [];
+      return [{ data: chunk.data, fileName: this.fileName }];
+    }
+
+    if (packfile.header.type === "ABNK") {
+      const chunk = packfile.getChunk("BKCK");
+      if (!chunk?.data?.asndFile) return [];
+      return chunk.data.asndFile.map(
+        (entry: { audioData: Uint8Array; length: number; voiceId?: number }, index: number) => {
+          const voiceSuffix = entry.voiceId != null ? `.voice-${entry.voiceId}` : `.sample-${index + 1}`;
+          return {
+            data: entry,
+            fileName: `${this.fileName}${voiceSuffix}`,
+            title: entry.voiceId != null ? `Voice ${entry.voiceId}` : `Sample ${index + 1}`,
+            meta: `Entry ${index + 1}`,
+          };
+        }
+      );
+    }
+
+    return [];
   }
 
   private async loadStrings(): Promise<void> {
