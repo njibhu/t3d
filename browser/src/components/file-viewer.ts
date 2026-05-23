@@ -17,10 +17,11 @@ import { SoundView } from "../views/sound-view";
 import { ModelView } from "../views/model-view";
 import { HexView } from "../views/hex-view";
 import { DEFAULT_MAP_LAYERS, MapView, MapLayerOptions } from "../views/map-view";
+import { CntcView } from "../views/cntc-view";
 import { onProgress } from "../store/progress-bus";
 import { triggerDownload } from "../util/download";
 
-type TabKind = "raw" | "hex" | "pack" | "texture" | "string" | "model" | "map" | "sound";
+type TabKind = "raw" | "hex" | "pack" | "texture" | "string" | "model" | "map" | "sound" | "cntc";
 
 const TAB_LABELS: Record<TabKind, string> = {
   raw: "Raw",
@@ -31,6 +32,7 @@ const TAB_LABELS: Record<TabKind, string> = {
   model: "Model",
   map: "Map",
   sound: "Sound",
+  cntc: "CNTC",
 };
 
 export interface FileViewerInit {
@@ -60,6 +62,7 @@ export class FileViewer {
   private soundView?: SoundView;
   private modelView?: ModelView;
   private mapView?: MapView;
+  private cntcView?: CntcView;
 
   private context: any = {};
 
@@ -172,10 +175,13 @@ export class FileViewer {
     const isMap = packfile?.header.type === "mapc";
     const isSound = packfile?.header.type === "ASND";
     const isStrings = !packfile && fcc === "strs";
+    const isCntc = packfile?.header.type === "cntc";
     const primary: TabKind = isModel
       ? "model"
       : isMap
         ? "map"
+        : isCntc
+          ? "cntc"
         : texKind
           ? "texture"
           : isSound
@@ -198,6 +204,12 @@ export class FileViewer {
     if (packfile) {
       const p = this.ensureTab("pack");
       renderPackView(p.pane, packfile, this.fileName);
+    }
+
+    if (isCntc) {
+      const c = this.ensureTab("cntc");
+      this.cntcView ??= new CntcView(c.pane);
+      this.cntcView.setData(packfile, this.fileName);
     }
 
     if (texKind) {
