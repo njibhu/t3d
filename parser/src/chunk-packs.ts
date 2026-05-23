@@ -27,6 +27,7 @@ export const fileChunkMap = {
   },
   //AFNT: {"AFNT"},
   CINP: { CSCN: "CSCN" },
+  ARMF: { MFST: "MFST" },
   prlt: { mfst: "MFST_2" },
   txtm: { txtm: "TXTM" },
   eula: { eula: "EULA" },
