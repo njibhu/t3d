@@ -19,7 +19,11 @@ export default class AppRenderer {
     // Defaults
     this.fog = 25000;
     this.movementSpeed = 10000;
-    this.lightIntensity = 1.25;
+    this.useEnvironmentLighting = true;
+    this.directionalLightIntensity = 1;
+    this.ambientLightIntensity = 1;
+    this.fogHazeStrength = 1;
+    this.terrainContrast = 0.85;
     this.loadedMapID = undefined;
     this.controllerType = "fly";
 
@@ -75,14 +79,7 @@ export default class AppRenderer {
 
   setFogDistance(value) {
     this.fog = value;
-    if (this._threeContext.scene && this._threeContext.scene.fog) {
-      this._threeContext.scene.fog.near = this.fog;
-      this._threeContext.scene.fog.far = this.fog + FOG_LENGTH;
-    }
-    if (this._threeContext.camera) {
-      this._threeContext.camera.far = this.fog + FOG_LENGTH;
-      this._threeContext.camera.updateProjectionMatrix();
-    }
+    this._applyFog();
   }
 
   setMovementSpeed(value) {
@@ -117,12 +114,32 @@ export default class AppRenderer {
   }
 
   setLightIntensity(value) {
-    this.lightIntensity = value;
-    if (this._threeContext.sceneLights) {
-      for (const light of this._threeContext.sceneLights) {
-        light.intensity = value;
-      }
-    }
+    this.setDirectionalLightIntensity(value);
+  }
+
+  setRealLightingEnabled(value) {
+    this.useEnvironmentLighting = value;
+    this._applySceneEnvironment();
+  }
+
+  setDirectionalLightIntensity(value) {
+    this.directionalLightIntensity = value;
+    this._applySceneEnvironment();
+  }
+
+  setAmbientLightIntensity(value) {
+    this.ambientLightIntensity = value;
+    this._applySceneEnvironment();
+  }
+
+  setFogHazeStrength(value) {
+    this.fogHazeStrength = value;
+    this._applyFog();
+  }
+
+  setTerrainContrast(value) {
+    this.terrainContrast = value;
+    this._applyTerrainMaterialSettings();
   }
 
   takeScreenShot() {
@@ -163,6 +180,9 @@ export default class AppRenderer {
     this._mapContext = undefined;
     this._renderOptions = undefined;
     this.loadedMapID = undefined;
+    this._terrainTiles = [];
+    this._environmentProfile = undefined;
+    this._fogProfile = undefined;
     for (const mesh of this._mapMeshes) {
       this._threeContext.scene.remove(mesh);
     }
@@ -180,27 +200,11 @@ export default class AppRenderer {
     context.scene = new THREE.Scene();
     context.skyScene = new THREE.Scene();
     context.clock = new THREE.Clock();
-
-    context.ambientLight = new THREE.AmbientLight(0x555555);
-    context.scene.add(context.ambientLight);
-
-    context.sceneLights = [
-      new THREE.DirectionalLight(0xffffff, this.lightIntensity),
-      new THREE.DirectionalLight(0xffffff, this.lightIntensity),
-      new THREE.DirectionalLight(0xffffff, this.lightIntensity),
-    ];
-    context.sceneLights[0].position.set(0, 0, 1);
-    context.sceneLights[0].position.set(0, 1, 0);
-    context.sceneLights[0].position.set(1, 0, 0);
-    for (const light of context.sceneLights) {
-      context.scene.add(light);
-    }
-
     context.scene.fog = new THREE.Fog(0xffffff, this.fog, this.fog + FOG_LENGTH);
-    context.camera.far = this.fog + FOG_LENGTH;
-    context.camera.updateProjectionMatrix();
 
     this.setupWebGLRenderer(true);
+    this._applySceneEnvironment();
+    this._applyFog();
     this.setupController();
     this._render();
   }
@@ -250,6 +254,11 @@ export default class AppRenderer {
       loadProp: !!this._renderOptions.props,
       showHavok: !!this._renderOptions.collisions,
       fog: this.fog,
+      useRealLighting: this.useEnvironmentLighting,
+      directionalLightIntensity: this.directionalLightIntensity,
+      ambientLightIntensity: this.ambientLightIntensity,
+      fogHazeStrength: this.fogHazeStrength,
+      terrainContrast: this.terrainContrast,
     };
   }
 
@@ -272,9 +281,11 @@ export default class AppRenderer {
     this._mapContext = context;
 
     // Add all the data from the context to the threejs scene
+    this._terrainTiles = [];
     for (const tile of T3D.getContextValue(context, T3D.TerrainRenderer, "terrainTiles")) {
       this._threeContext.scene.add(tile);
       this._mapMeshes.push(tile);
+      this._terrainTiles.push(tile);
     }
     const water = T3D.getContextValue(context, T3D.TerrainRenderer, "water");
     this._threeContext.scene.add(water);
@@ -282,12 +293,17 @@ export default class AppRenderer {
 
     const skyBox = T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyBox");
     this._threeContext.skyScene.add(skyBox);
+    this._environmentProfile = T3D.getContextValue(context, T3D.EnvironmentRenderer, "environmentLights");
+    this._fogProfile = T3D.getContextValue(context, T3D.EnvironmentRenderer, "fogProfile");
     const hazeColor = T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeColor");
     if (hazeColor) {
       this._threeContext.renderer.setClearColor(
         new THREE.Color(hazeColor[2] / 255, hazeColor[1] / 255, hazeColor[0] / 255)
       );
     }
+    this._applySceneEnvironment();
+    this._applyFog();
+    this._applyTerrainMaterialSettings();
 
     if (renderOptions.zone) {
       for (const zoneModel of T3D.getContextValue(context, T3D.ZoneRenderer, "meshes")) {
@@ -330,6 +346,56 @@ export default class AppRenderer {
       this._threeContext.camera.position.x = 0;
       this._threeContext.camera.position.y = bounds ? bounds.y2 : 0;
       this._threeContext.camera.position.z = 0;
+    }
+  }
+
+  _applySceneEnvironment() {
+    if (!this._threeContext.scene) {
+      return;
+    }
+
+    this._threeContext.sceneLights = T3D.EnvironmentUtils.applyEnvironmentToScene(
+      this._threeContext.scene,
+      this._threeContext.sceneLights || [],
+      this._environmentProfile,
+      {
+        useEnvironmentLighting: this.useEnvironmentLighting,
+        directionalIntensityScale: this.directionalLightIntensity,
+        ambientIntensityScale: this.ambientLightIntensity,
+      }
+    );
+  }
+
+  _applyFog() {
+    if (!this._threeContext.scene || !this._threeContext.camera || !this._threeContext.scene.fog) {
+      return;
+    }
+
+    const fogScale = T3D.EnvironmentUtils.getFogDistanceScale(this._fogProfile, this.fogHazeStrength);
+    const fogColor = T3D.EnvironmentUtils.blendFogColor(this._fogProfile, this.fogHazeStrength);
+    const fogNear = this.fog * fogScale;
+    const fogFar = fogNear + FOG_LENGTH;
+
+    this._threeContext.scene.fog.color.copy(fogColor);
+    this._threeContext.scene.fog.near = fogNear;
+    this._threeContext.scene.fog.far = fogFar;
+    this._threeContext.camera.far = fogFar;
+    this._threeContext.camera.updateProjectionMatrix();
+  }
+
+  _applyTerrainMaterialSettings() {
+    if (!this._terrainTiles) {
+      return;
+    }
+
+    for (const tile of this._terrainTiles) {
+      const materials = Array.isArray(tile.material) ? tile.material : [tile.material];
+      for (const material of materials) {
+        const uniforms = material?.userData?.t3dTerrainUniforms;
+        if (uniforms) {
+          uniforms.terrainContrast.value = this.terrainContrast;
+        }
+      }
     }
   }
 }

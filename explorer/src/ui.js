@@ -71,6 +71,13 @@ export default class UI {
     $("#takeScreenshot").on("click", () => this.appRenderer.takeScreenShot());
     $("#mvntSpeedRange").on("change", (event) => this.appRenderer.setMovementSpeed(event.target.valueAsNumber));
     $("#fogRange").on("change", (event) => this.appRenderer.setFogDistance(event.target.valueAsNumber));
+    $("#useRealLighting").on("change", (event) => this.appRenderer.setRealLightingEnabled(event.target.checked));
+    $("#directionalLightRange").on("change", (event) =>
+      this.appRenderer.setDirectionalLightIntensity(event.target.valueAsNumber)
+    );
+    $("#ambientLightRange").on("change", (event) => this.appRenderer.setAmbientLightIntensity(event.target.valueAsNumber));
+    $("#hazeStrengthRange").on("change", (event) => this.appRenderer.setFogHazeStrength(event.target.valueAsNumber));
+    $("#terrainContrastRange").on("change", (event) => this.appRenderer.setTerrainContrast(event.target.valueAsNumber));
 
     window.addEventListener("resize", () => this.appRenderer.onWindowResize());
   }
@@ -105,6 +112,21 @@ export default class UI {
     $("#loading-ui").fadeIn();
     this.appRenderer.loadMap(mapId, renderOptions, () => {
       this.appRenderer.setupController(this.autoLoad.cameraType || "orbital");
+      if (this.autoLoad.useRealLighting !== undefined) {
+        this.appRenderer.setRealLightingEnabled(this.autoLoad.useRealLighting);
+      }
+      if (this.autoLoad.directionalLightIntensity !== undefined) {
+        this.appRenderer.setDirectionalLightIntensity(this.autoLoad.directionalLightIntensity);
+      }
+      if (this.autoLoad.ambientLightIntensity !== undefined) {
+        this.appRenderer.setAmbientLightIntensity(this.autoLoad.ambientLightIntensity);
+      }
+      if (this.autoLoad.fogHazeStrength !== undefined) {
+        this.appRenderer.setFogHazeStrength(this.autoLoad.fogHazeStrength);
+      }
+      if (this.autoLoad.terrainContrast !== undefined) {
+        this.appRenderer.setTerrainContrast(this.autoLoad.terrainContrast);
+      }
       this.appRenderer.move(this.autoLoad.x, this.autoLoad.y, this.autoLoad.z);
       this.appRenderer.rotate(this.autoLoad.rx, this.autoLoad.ry, this.autoLoad.rz);
       // Don't forget to cleanup autoLoad, if not it might break map choice UI
@@ -150,6 +172,11 @@ export default class UI {
     // Sync the input ranges with their value in the appRenderer
     $("#fogRange").val(this.appRenderer.fog);
     $("#mvntSpeedRange").val(this.appRenderer.movementSpeed);
+    $("#useRealLighting").prop("checked", this.appRenderer.useEnvironmentLighting);
+    $("#directionalLightRange").val(this.appRenderer.directionalLightIntensity);
+    $("#ambientLightRange").val(this.appRenderer.ambientLightIntensity);
+    $("#hazeStrengthRange").val(this.appRenderer.fogHazeStrength);
+    $("#terrainContrastRange").val(this.appRenderer.terrainContrast);
     this.shouldUpdateUrl = true;
   }
 
@@ -271,6 +298,11 @@ function getParsedUrl() {
   data.loadProp = data.loadProp ? data.loadProp === "true" : undefined;
   data.showHavok = data.showHavok ? data.showHavok === "true" : undefined;
   data.fog = data.fog ? parseInt(data.fog) : undefined;
+  data.useRealLighting = data.useRealLighting ? data.useRealLighting === "true" : undefined;
+  data.directionalLightIntensity = data.directionalLightIntensity ? parseFloat(data.directionalLightIntensity) : undefined;
+  data.ambientLightIntensity = data.ambientLightIntensity ? parseFloat(data.ambientLightIntensity) : undefined;
+  data.fogHazeStrength = data.fogHazeStrength ? parseFloat(data.fogHazeStrength) : undefined;
+  data.terrainContrast = data.terrainContrast ? parseFloat(data.terrainContrast) : undefined;
 
   // Backward compatibility with Tyria3DApp
   if (data.pitch && data.yaw) {

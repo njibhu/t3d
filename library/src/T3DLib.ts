@@ -15,6 +15,7 @@ import MapFileList from "./MapFileList";
 import * as MaterialUtils from "./util/MaterialUtils";
 import * as MathUtils from "./util/MathUtils";
 import * as RenderUtils from "./util/RenderUtils";
+import * as EnvironmentUtils from "./util/EnvironmentUtils";
 
 import PersistantStore from "./LocalReader/PersistantStore";
 import * as FileTypes from "./LocalReader/FileTypes";
@@ -45,6 +46,7 @@ const T3D = {
   MaterialUtils: MaterialUtils,
   MathUtils: MathUtils,
   RenderUtils: RenderUtils,
+  EnvironmentUtils: EnvironmentUtils,
   PersistantStore: PersistantStore,
   FileTypes: FileTypes,
 

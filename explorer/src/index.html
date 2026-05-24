@@ -169,6 +169,62 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
               <span>Fog:</span>
               <input class="range" type="range" id="fogRange" name="fogRange" min="0" max="100000" value="25000" />
             </label>
+            <label class="control toggle" for="useRealLighting">
+              <span>Real lights</span>
+              <input type="checkbox" id="useRealLighting" checked />
+            </label>
+            <label class="control" for="directionalLightRange">
+              <span>Dir light:</span>
+              <input
+                class="range"
+                type="range"
+                id="directionalLightRange"
+                name="directionalLightRange"
+                min="0"
+                max="2.5"
+                step="0.05"
+                value="1"
+              />
+            </label>
+            <label class="control" for="ambientLightRange">
+              <span>Ambient:</span>
+              <input
+                class="range"
+                type="range"
+                id="ambientLightRange"
+                name="ambientLightRange"
+                min="0"
+                max="2.5"
+                step="0.05"
+                value="1"
+              />
+            </label>
+            <label class="control" for="hazeStrengthRange">
+              <span>Haze:</span>
+              <input
+                class="range"
+                type="range"
+                id="hazeStrengthRange"
+                name="hazeStrengthRange"
+                min="0"
+                max="1.5"
+                step="0.05"
+                value="1"
+              />
+            </label>
+            <label class="control" for="terrainContrastRange">
+              <span>Terrain:</span>
+              <input
+                class="range"
+                type="range"
+                id="terrainContrastRange"
+                name="terrainContrastRange"
+                min="0.35"
+                max="2"
+                step="0.05"
+                value="0.85"
+              />
+            </label>
           </div>
         </div>
         <div id="helper">
