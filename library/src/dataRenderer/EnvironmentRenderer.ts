@@ -1,6 +1,7 @@
 import * as MaterialUtils from "../util/MaterialUtils";
 import DataRenderer from "./DataRenderer";
 import * as THREE from "three";
+import { trackObject3DResources } from "../util/RenderContextUtils";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
@@ -237,6 +238,7 @@ export default class EnvironmentRenderer extends DataRenderer {
 
     /// Write to output
     this.getOutput().skyBox = skyBox;
+    trackObject3DResources(this.context, skyBox);
   }
 
   /**
@@ -264,6 +266,7 @@ export default class EnvironmentRenderer extends DataRenderer {
 
     /// Add directional lights to output. Also write hasLight flag
     this.parseLights(environmentChunkData);
+    this.getOutput().lights.forEach((light: any) => trackObject3DResources(this.context, light));
 
     /// Generate skybox
     this.parseSkybox(environmentChunkData, parameterChunkData, hazeColorAsInt);

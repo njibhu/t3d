@@ -2,6 +2,7 @@ import { FileParser } from "t3d-parser";
 import * as MaterialUtils from "./MaterialUtils";
 import * as MathUtils from "./MathUtils";
 import * as THREE from "three";
+import { trackGeometry, trackMaterialCollection, trackObject3DResources } from "./RenderContextUtils";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type { InstancedMesh, Material, Mesh } from "three";
@@ -354,10 +355,45 @@ export function getInstancedMeshes(meshes: any[], size: number, filterFlags?: nu
       continue;
     }
     const im = new THREE.InstancedMesh(mesh.geometry, mesh.material, size);
+    im.instanceMatrix.setUsage(THREE.StaticDrawUsage);
     instancedMeshes.push(im);
   }
 
   return instancedMeshes;
+}
+
+export function getMaxConcurrentModelLoads(localReader: LocalReader, override?: number): number {
+  if (override !== undefined) {
+    return Math.max(1, override);
+  }
+
+  return Math.min(4, Math.max(1, localReader.settings.workersNb || 1));
+}
+
+export async function runWithConcurrency<T>(
+  items: T[],
+  concurrency: number,
+  task: (item: T, index: number) => Promise<void>
+): Promise<void> {
+  if (items.length === 0) return;
+
+  let cursor = 0;
+  const workerCount = Math.min(Math.max(1, concurrency), items.length);
+
+  await Promise.all(
+    Array.from({ length: workerCount }, async () => {
+      while (true) {
+        const currentIndex = cursor;
+        cursor += 1;
+
+        if (currentIndex >= items.length) {
+          return;
+        }
+
+        await task(items[currentIndex], currentIndex);
+      }
+    })
+  );
 }
 
 /**
@@ -583,16 +619,28 @@ export function getMeshesForFilename(
   showUnmaterialed: boolean,
   callback: (meshes: FinalMesh[], isCached: boolean, boundingSphere?: any) => unknown
 ): void {
+  const cachedEntry = sharedMeshes[filename];
+
   /// If this file has already been loaded, just return a reference to the meshes.
   /// isCached will be set to true to inform the caller the meshes will probably
   /// have to be cloned in some way.
-  if (sharedMeshes[filename]) {
-    callback(sharedMeshes[filename].meshes, true, sharedMeshes[filename].boundingSphere);
+  if (cachedEntry?.meshes) {
+    callback(cachedEntry.meshes, true, cachedEntry.boundingSphere);
+    return;
+  }
+
+  if (cachedEntry?.callbacks) {
+    cachedEntry.callbacks.push(callback);
+    return;
   }
 
   /// If this file has never been loaded, load it using loadMeshFromModelFile
   /// the resulting mesh array will be cached within this model's scope.
   else {
+    sharedMeshes[filename] = {
+      callbacks: [callback],
+    };
+
     loadMeshFromModelFile(
       filename,
       color,
@@ -600,19 +648,61 @@ export function getMeshesForFilename(
       sharedTextures,
       showUnmaterialed,
       function (meshes, boundingSphere) {
+        const pendingCallbacks = sharedMeshes[filename]?.callbacks || [];
+
         /// Cache result if any.
         if (meshes) {
           sharedMeshes[filename] = {
             meshes: meshes,
             boundingSphere: boundingSphere,
           };
+        } else {
+          delete sharedMeshes[filename];
         }
 
         /// Allways fire callback.
-        callback(meshes, false, boundingSphere);
+        for (const pendingCallback of pendingCallbacks) {
+          pendingCallback(meshes, false, boundingSphere);
+        }
       }
     );
   }
+}
+
+export function getMeshesForFilenameAsync(
+  filename: number,
+  color: any,
+  localReader: LocalReader,
+  sharedMeshes: any,
+  sharedTextures: any,
+  showUnmaterialed: boolean
+): Promise<{ meshes: FinalMesh[]; isCached: boolean; boundingSphere?: any }> {
+  return new Promise((resolve) => {
+    getMeshesForFilename(
+      filename,
+      color,
+      localReader,
+      sharedMeshes,
+      sharedTextures,
+      showUnmaterialed,
+      (meshes, isCached, boundingSphere) => {
+        resolve({
+          meshes,
+          isCached,
+          boundingSphere,
+        });
+      }
+    );
+  });
+}
+
+export function trackMeshResources(context: any, mesh: Mesh): void {
+  trackGeometry(context, mesh.geometry as any);
+  trackMaterialCollection(context, mesh.material as any);
+}
+
+export function trackObjectResources(context: any, object: THREE.Object3D): void {
+  trackObject3DResources(context, object);
 }
 
 /**

@@ -15,6 +15,7 @@ import MapFileList from "./MapFileList";
 import * as MaterialUtils from "./util/MaterialUtils";
 import * as MathUtils from "./util/MathUtils";
 import * as RenderUtils from "./util/RenderUtils";
+import { disposeRenderContextResources } from "./util/RenderContextUtils";
 
 import PersistantStore from "./LocalReader/PersistantStore";
 import * as FileTypes from "./LocalReader/FileTypes";
@@ -224,6 +225,11 @@ const T3D = {
       return (output[propName] ? output[propName] : defaultValue) as T;
     }
     return defaultValue as T;
+  },
+
+  disposeRenderContext: function (context: any): void {
+    if (!context) return;
+    disposeRenderContextResources(context);
   },
 
   /**

@@ -1,5 +1,6 @@
 import DataRenderer from "./DataRenderer";
 import * as THREE from "three";
+import * as RenderUtils from "../util/RenderUtils";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
@@ -170,6 +171,7 @@ export default class HavokRenderer extends DataRenderer {
 
     /// Add mesh to scene and collisions
     this.getOutput().meshes.push(mesh);
+    RenderUtils.trackMeshResources(this.context, mesh);
   }
 
   /**
