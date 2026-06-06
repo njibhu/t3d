@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { MapControls } from "three/examples/jsm/controls/MapControls.js";
+import T3D from "t3d-lib";
 
 const FOG_LENGTH = 5000;
 
@@ -23,6 +24,7 @@ export class MapCanvas {
 
   private mapMeshes: THREE.Object3D[] = [];
   private skyMeshes: THREE.Object3D[] = [];
+  private currentMapContext: any = null;
 
   private fog = 25000;
 
@@ -82,6 +84,10 @@ export class MapCanvas {
 
   applyMapContext(context: any, opts: { zone: boolean; props: boolean; collisions: boolean }): void {
     this.clearMapMeshes();
+    if (this.currentMapContext) {
+      T3D.disposeEnvironmentResources(this.currentMapContext);
+    }
+    this.currentMapContext = context;
 
     const terrainTiles = pickFromContext<THREE.Object3D[]>(context, "TerrainRenderer", "terrainTiles", []);
     for (const tile of terrainTiles) this.addMapMesh(tile);
@@ -184,6 +190,10 @@ export class MapCanvas {
     this.pause();
     this.resizeObserver?.disconnect();
     this.clearMapMeshes();
+    if (this.currentMapContext) {
+      T3D.disposeEnvironmentResources(this.currentMapContext);
+      this.currentMapContext = null;
+    }
     this.controls?.dispose();
     this.renderer?.dispose();
     this.renderer?.forceContextLoss();

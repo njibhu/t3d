@@ -3,6 +3,7 @@ import LocalReader from "./LocalReader/LocalReader";
 import type { ScanCallbacks, ScanEntry, ScanOptions, ScanProgress } from "./LocalReader/LocalReader";
 import DataRenderer from "./dataRenderer/DataRenderer";
 import EnvironmentRenderer from "./dataRenderer/EnvironmentRenderer";
+import { disposeEnvironmentResources, setActiveEnvironmentVariant } from "./dataRenderer/EnvironmentRenderer";
 import HavokRenderer from "./dataRenderer/HavokRenderer";
 import PropertiesRenderer from "./dataRenderer/PropertiesRenderer";
 import SingleModelRenderer from "./dataRenderer/SingleModelRenderer";
@@ -224,6 +225,14 @@ const T3D = {
       return (output[propName] ? output[propName] : defaultValue) as T;
     }
     return defaultValue as T;
+  },
+
+  setEnvironmentVariant: function (context: any, variantId?: string | null) {
+    return setActiveEnvironmentVariant(context, variantId);
+  },
+
+  disposeEnvironmentResources: function (context: any) {
+    return disposeEnvironmentResources(context);
   },
 
   /**

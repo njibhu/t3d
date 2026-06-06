@@ -71,6 +71,7 @@ export default class UI {
     });
     $("#goToMapSelectButton").on("click", () => this.onBackToMapSelect());
     $("#takeScreenshot").on("click", () => this.appRenderer.takeScreenShot());
+    $("#environmentSelect").on("change", (event) => this.onEnvironmentChange(event));
     $("#mvntSpeedRange").on("change", (event) => this.appRenderer.setMovementSpeed(event.target.valueAsNumber));
     $("#fogRange").on("change", (event) => this.appRenderer.setFogDistance(event.target.valueAsNumber));
 
@@ -109,6 +110,9 @@ export default class UI {
       this.appRenderer.setupController(this.autoLoad.cameraType || "orbital");
       this.appRenderer.move(this.autoLoad.x, this.autoLoad.y, this.autoLoad.z);
       this.appRenderer.rotate(this.autoLoad.rx, this.autoLoad.ry, this.autoLoad.rz);
+      if (this.autoLoad.env) {
+        this.appRenderer.setEnvironmentVariant(this.autoLoad.env);
+      }
       // Don't forget to cleanup autoLoad, if not it might break map choice UI
       this.autoLoad = undefined;
       this.onMapLoaded();
@@ -142,6 +146,7 @@ export default class UI {
   }
 
   onMapLoaded() {
+    this.syncEnvironmentSelect();
     this.showingProgress = false;
     this.isMapViewActive = true;
     $("#loading-ui").slideUp(() => {
@@ -154,6 +159,11 @@ export default class UI {
     $("#fogRange").val(this.appRenderer.fog);
     $("#mvntSpeedRange").val(this.appRenderer.movementSpeed);
     this.shouldUpdateUrl = true;
+  }
+
+  onEnvironmentChange(event) {
+    const variantId = event.target.value || undefined;
+    this.appRenderer.setEnvironmentVariant(variantId);
   }
 
   onBackToMapSelect() {
@@ -255,6 +265,32 @@ export default class UI {
     this.genMapSelect();
   }
 
+  syncEnvironmentSelect() {
+    const variants = this.appRenderer.getEnvironmentVariants();
+    const activeVariantId = this.appRenderer.getActiveEnvironmentVariantId();
+    const wrap = $("#environmentSelectWrap");
+    const select = $("#environmentSelect");
+    select.empty();
+
+    if (!variants || variants.length <= 1) {
+      wrap.prop("hidden", true).hide();
+      return;
+    }
+
+    for (const variant of variants) {
+      const opt = document.createElement("option");
+      opt.value = variant.id;
+      opt.innerHTML = variant.label;
+      select.append(opt);
+    }
+
+    if (activeVariantId) {
+      select.val(activeVariantId);
+    }
+
+    wrap.prop("hidden", false).show();
+  }
+
   updateUrl(shouldClear = false) {
     if (this.shouldUpdateUrl) {
       if (shouldClear) {
@@ -290,6 +326,7 @@ function getParsedUrl() {
   data.loadProp = data.loadProp ? data.loadProp === "true" : undefined;
   data.showHavok = data.showHavok ? data.showHavok === "true" : undefined;
   data.fog = data.fog ? parseInt(data.fog) : undefined;
+  data.env = data.env ? data.env : undefined;
 
   // Backward compatibility with Tyria3DApp
   if (data.pitch && data.yaw) {

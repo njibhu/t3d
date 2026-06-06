@@ -193,6 +193,10 @@ a:hover {
   margin: 5px 0;
 }
 
+#environmentSelectWrap select {
+  max-width: 220px;
+}
+
 #controls input {
   vertical-align: middle;
 }
