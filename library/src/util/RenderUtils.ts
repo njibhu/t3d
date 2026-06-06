@@ -251,7 +251,6 @@ export function renderGeomChunk(
     geom.setIndex(new THREE.BufferAttribute(faces, 1));
 
     if (normals) {
-      console.log("adding normals");
       geom.setAttribute("normal", new THREE.BufferAttribute(normals, 3));
       geom.normalizeNormals();
       //@ts-ignore
@@ -293,7 +292,6 @@ export function renderGeomChunk(
       materialFile = matFiles[mat.filename];
     }
 
-    console.log(`material file:`, materialFile);
     let finalMaterial = MaterialUtils.getMaterial(mat, materialFile, localReader, sharedTextures);
 
     /// IF we could not find a material abort OR use a wireframe placeholder.

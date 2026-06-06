@@ -486,7 +486,6 @@ export function getSimpleMaterial(
   let ft: ModelMaterialData["textures"][number] | undefined;
   let nt: ModelMaterialData["textures"][number] | undefined;
   material.textures.forEach(function (t) {
-    console.log(t);
     // Flag for diffuse map
     if (!ft && Number(t.token) === 1733499172) ft = t;
     if (!ft && t.token === 27219515885689124n) ft = t;
@@ -496,7 +495,6 @@ export function getSimpleMaterial(
     if (!nt && t.token === 850610087184878n) nt = t;
   });
 
-  console.log(ft);
   if (!ft || ft.filename <= 0) {
     return;
   }
