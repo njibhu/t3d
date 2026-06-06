@@ -67,6 +67,87 @@ function makeSolidColorTexture(color: ArrayLike<number>): THREE.DataTexture {
   return texture;
 }
 
+type TerrainHeightChunk = {
+  minX: number;
+  maxX: number;
+  minZ: number;
+  maxZ: number;
+  columns: number;
+  rows: number;
+  heights: Float32Array;
+};
+
+type TerrainHeightSampler = {
+  sampleHeight(x: number, z: number): number | null;
+};
+
+function sampleTerrainHeightChunk(chunk: TerrainHeightChunk, x: number, z: number): number | null {
+  const width = chunk.maxX - chunk.minX;
+  const depth = chunk.maxZ - chunk.minZ;
+  if (width <= 0 || depth <= 0) {
+    return null;
+  }
+
+  const u = (x - chunk.minX) / width;
+  const v = (z - chunk.minZ) / depth;
+  if (u < 0 || u > 1 || v < 0 || v > 1) {
+    return null;
+  }
+
+  const colFloat = Math.max(0, Math.min(chunk.columns - 1, u * (chunk.columns - 1)));
+  const rowFloat = Math.max(0, Math.min(chunk.rows - 1, v * (chunk.rows - 1)));
+
+  const col0 = Math.floor(colFloat);
+  const row0 = Math.floor(rowFloat);
+  const col1 = Math.min(chunk.columns - 1, col0 + 1);
+  const row1 = Math.min(chunk.rows - 1, row0 + 1);
+
+  const tx = colFloat - col0;
+  const ty = rowFloat - row0;
+
+  const h00 = chunk.heights[row0 * chunk.columns + col0];
+  const h10 = chunk.heights[row0 * chunk.columns + col1];
+  const h01 = chunk.heights[row1 * chunk.columns + col0];
+  const h11 = chunk.heights[row1 * chunk.columns + col1];
+
+  const hx0 = h00 + (h10 - h00) * tx;
+  const hx1 = h01 + (h11 - h01) * tx;
+  return hx0 + (hx1 - hx0) * ty;
+}
+
+function createTerrainHeightSampler(state: {
+  originX: number;
+  originZ: number;
+  chunkWidth: number;
+  chunkHeight: number;
+  xChunks: number;
+  yChunks: number;
+  chunks: TerrainHeightChunk[];
+}): TerrainHeightSampler {
+  return {
+    sampleHeight(x: number, z: number): number | null {
+      const localX = x - state.originX;
+      const localZ = z - state.originZ;
+      if (localX < 0 || localZ < 0) {
+        return null;
+      }
+
+      const chunkX = Math.min(state.xChunks - 1, Math.floor(localX / state.chunkWidth));
+      const chunkZ = Math.min(state.yChunks - 1, Math.floor(localZ / state.chunkHeight));
+      if (chunkX < 0 || chunkX >= state.xChunks || chunkZ < 0 || chunkZ >= state.yChunks) {
+        return null;
+      }
+
+      const chunk = state.chunks[chunkZ * state.xChunks + chunkX];
+      if (!chunk) {
+        return null;
+      }
+
+      return sampleTerrainHeightChunk(chunk, x, z);
+    },
+  };
+}
+
 /**
  *
  * A renderer that generates the meshes for the terrain of a map.
@@ -117,6 +198,7 @@ export default class TerrainRenderer extends DataRenderer {
 
     // Prep output array
     self.getOutput().terrainTiles = [];
+    self.getOutput().terrainHeightSampler = undefined;
 
     const pimgFile = new FileParser(inflatedBuffer);
     const pimgTableDataChunk = pimgFile.getChunk("pgtb");
@@ -181,6 +263,9 @@ export default class TerrainRenderer extends DataRenderer {
     /// Load textures from PIMG and inject as material maps (textures)
     const chunkTextures: any = {};
     const generatedPickerTextures: Record<string, THREE.Texture> = {};
+    const terrainHeightChunks: TerrainHeightChunk[] = [];
+    let terrainHeightOriginX: number | null = null;
+    let terrainHeightOriginZ: number | null = null;
 
     const resolvePickerTexture = function (page: any): THREE.Texture {
       const pageTextureKey = getPageTextureKey(page);
@@ -349,6 +434,7 @@ export default class TerrainRenderer extends DataRenderer {
 
       /// -1 for faces -> vertices , -2 for ignoring outer faces
       const chunkGeo = new THREE.PlaneGeometry(cdx, cdy, chunkSegments, chunkSegments);
+      const chunkHeights = new Float32Array((chunkSegments + 1) * (chunkSegments + 1));
 
       let cn = 0;
 
@@ -358,8 +444,10 @@ export default class TerrainRenderer extends DataRenderer {
       for (let y = 0; y < chunkSampleWidth; y++) {
         for (let x = 0; x < chunkSampleWidth; x++) {
           if (x !== 0 && x !== chunkSampleWidth - 1 && y !== 0 && y !== chunkSampleWidth - 1) {
+            const sampledHeight = terrainData.heightMapArray[n];
             //@ts-ignore
-            chunkGeo.getAttribute("position").array[cn * 3 + 2] = terrainData.heightMapArray[n];
+            chunkGeo.getAttribute("position").array[cn * 3 + 2] = sampledHeight;
+            chunkHeights[cn] = -sampledHeight;
             cn++;
           }
 
@@ -428,6 +516,24 @@ export default class TerrainRenderer extends DataRenderer {
       chunk.updateMatrix();
       chunk.updateMatrixWorld();
 
+      const chunkMinX = chunk.position.x - cdx / 2;
+      const chunkMinZ = chunk.position.z - cdy / 2;
+      terrainHeightChunks[chunkIndex] = {
+        minX: chunkMinX,
+        maxX: chunk.position.x + cdx / 2,
+        minZ: chunkMinZ,
+        maxZ: chunk.position.z + cdy / 2,
+        columns: chunkSegments + 1,
+        rows: chunkSegments + 1,
+        heights: chunkHeights,
+      };
+      if (terrainHeightOriginX === null || chunkMinX < terrainHeightOriginX) {
+        terrainHeightOriginX = chunkMinX;
+      }
+      if (terrainHeightOriginZ === null || chunkMinZ < terrainHeightOriginZ) {
+        terrainHeightOriginZ = chunkMinZ;
+      }
+
       /// Add to list of stuff to render
       /// TODO: Perhaps use some kind of props for each entry instead?
       self.getOutput().terrainTiles.push(chunk);
@@ -445,6 +551,17 @@ export default class TerrainRenderer extends DataRenderer {
 
         /// Set bounds in output VO
         self.getOutput().bounds = self.mapRect;
+        if (terrainHeightOriginX !== null && terrainHeightOriginZ !== null) {
+          self.getOutput().terrainHeightSampler = createTerrainHeightSampler({
+            originX: terrainHeightOriginX,
+            originZ: terrainHeightOriginZ,
+            chunkWidth: cdx,
+            chunkHeight: cdy,
+            xChunks: xChunks,
+            yChunks: yChunks,
+            chunks: terrainHeightChunks,
+          });
+        }
 
         /// Fire call back, we're done rendering.
         callback();

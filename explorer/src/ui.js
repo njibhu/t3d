@@ -99,7 +99,7 @@ export default class UI {
   onAutoLoad() {
     const mapId = this.autoLoad.map;
     const renderOptions = {
-      zone: this.autoLoad.loadZone === undefined ? false : this.autoLoad.loadZone,
+      zone: this.autoLoad.loadZone === undefined ? true : this.autoLoad.loadZone,
       props: this.autoLoad.loadProp === undefined ? true : this.autoLoad.loadProp,
       collisions: this.autoLoad.showHavok === undefined ? false : this.autoLoad.showHavok,
     };
