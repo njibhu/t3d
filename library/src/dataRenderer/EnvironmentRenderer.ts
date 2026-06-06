@@ -39,6 +39,10 @@ export default class EnvironmentRenderer extends DataRenderer {
     });
   }
 
+  getEnvironmentGlobals(environmentChunkData: any) {
+    return environmentChunkData?.dataGlobal ?? null;
+  }
+
   loadTextureWithFallback(
     targetMatIndices: number[],
     materialArray: Material[],
@@ -72,7 +76,7 @@ export default class EnvironmentRenderer extends DataRenderer {
   }
 
   getHazeColor(environmentChunkData: any) {
-    const hazes = environmentChunkData && environmentChunkData.dataGlobal.haze;
+    const hazes = this.getEnvironmentGlobals(environmentChunkData)?.haze;
 
     if (!hazes || hazes.length <= 0) {
       return [190, 160, 60];
@@ -83,19 +87,18 @@ export default class EnvironmentRenderer extends DataRenderer {
 
   parseLights(environmentChunkData: any) {
     const self = this;
+    const environmentGlobals = this.getEnvironmentGlobals(environmentChunkData);
 
     /// Set up output array
     self.getOutput().lights = [];
 
-    const lights = environmentChunkData
-      ? environmentChunkData.dataGlobal.lighting
-      : [
-          {
-            lights: [],
-            backlightIntensity: 1.0,
-            backlightColor: [255, 255, 255],
-          },
-        ];
+    const lights = environmentGlobals?.lighting ?? [
+      {
+        lights: [],
+        backlightIntensity: 1.0,
+        backlightColor: [255, 255, 255],
+      },
+    ];
 
     let ambientLight: any;
 
@@ -173,6 +176,8 @@ export default class EnvironmentRenderer extends DataRenderer {
   }
 
   parseSkybox(environmentChunkData: any, _parameterChunkData: any, hazeColorAsInt: number) {
+    const environmentGlobals = this.getEnvironmentGlobals(environmentChunkData);
+
     /// set up output array
     this.getOutput().skyCubeTexture = null;
     this.getOutput().skyBox = null;
@@ -180,7 +185,7 @@ export default class EnvironmentRenderer extends DataRenderer {
     /// Grab sky texture.
     /// index 0 and 1 day
     /// index 2 and 3 evening
-    let skyModeTex = environmentChunkData && environmentChunkData.dataGlobal.skyModeTex[0];
+    let skyModeTex = environmentGlobals?.skyModeTex?.[0];
 
     /// Fallback skyboxfrom dat.
     if (!skyModeTex) {
@@ -254,8 +259,8 @@ export default class EnvironmentRenderer extends DataRenderer {
     if (!this.mapFile) {
       throw new Error("No map file available for EnvironmentRenderer");
     }
-    const environmentChunkData = this.mapFile.getChunk("env")!.data;
-    const parameterChunkData = this.mapFile.getChunk("parm")!.data;
+    const environmentChunkData = this.mapFile.getChunk("env")?.data;
+    const parameterChunkData = this.mapFile.getChunk("parm")?.data;
 
     /// Set renderer clear color from environment haze
     const hazeColor = this.getHazeColor(environmentChunkData);
