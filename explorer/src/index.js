@@ -4,9 +4,26 @@ import AppRenderer from "./renderer";
 import UI from "./ui";
 
 const stats = new Stats();
+stats.showPanel(0);
 $("body").append(stats.domElement);
-$(stats.domElement).hide();
-stats.toggle = () => $(stats.domElement).toggle();
+stats.isVisible = false;
+stats.show = () => {
+  stats.showPanel(0);
+  stats.isVisible = true;
+  $(stats.domElement).show();
+};
+stats.hide = () => {
+  stats.isVisible = false;
+  $(stats.domElement).hide();
+};
+stats.toggle = () => {
+  if (stats.isVisible) {
+    stats.hide();
+  } else {
+    stats.show();
+  }
+};
+stats.hide();
 
 const appRenderer = new AppRenderer(stats);
 const ui = new UI(appRenderer);

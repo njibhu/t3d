@@ -7,6 +7,7 @@ export default class UI {
 
     this.showingProgress = false;
     this.archiveLoaded = false;
+    this.isMapViewActive = false;
     this.mapFileList = [];
     this.autoLoad = undefined;
     this.shouldUpdateUrl = false;
@@ -43,6 +44,7 @@ export default class UI {
     this.appRenderer.renderHook = (data) => this.updateUrl(data);
 
     $("canvas").on("wheel", (event) => this.onMouseWheel(event));
+    window.addEventListener("keydown", (event) => this.onWindowKeyDown(event));
 
     this.checkAutoLoad();
   }
@@ -141,6 +143,7 @@ export default class UI {
 
   onMapLoaded() {
     this.showingProgress = false;
+    this.isMapViewActive = true;
     $("#loading-ui").slideUp(() => {
       $("canvas").fadeIn();
       $("#controls").fadeIn();
@@ -155,6 +158,8 @@ export default class UI {
 
   onBackToMapSelect() {
     $("#controls").slideUp(() => {
+      this.isMapViewActive = false;
+      this.appRenderer.stats.hide();
       $("canvas").hide(0);
       $("#choose-map").fadeIn();
       this.appRenderer.cleanupMap();
@@ -193,6 +198,20 @@ export default class UI {
 
     this.appRenderer.setMovementSpeed(newSpeed);
     $("#mvntSpeedRange").val(newSpeed);
+  }
+
+  onWindowKeyDown(event) {
+    const target = event.target;
+    const isEditableTarget =
+      target instanceof HTMLElement &&
+      (target.isContentEditable ||
+        target.closest("input, textarea, select, button, [contenteditable='true']") !== null);
+
+    if (event.code !== "Backquote" || event.repeat || !this.isMapViewActive || isEditableTarget) {
+      return;
+    }
+
+    this.appRenderer.stats.toggle();
   }
 
   /* UTILS */
