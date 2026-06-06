@@ -14,6 +14,7 @@ export default class AppRenderer {
     this._mapMeshes = [];
     this._mapContext = undefined;
     this._renderOptions = undefined;
+    this._activeEnvironmentVariantId = undefined;
     this.stats = stats;
 
     // Defaults
@@ -162,11 +163,12 @@ export default class AppRenderer {
   cleanupMap() {
     this._mapContext = undefined;
     this._renderOptions = undefined;
+    this._activeEnvironmentVariantId = undefined;
     this.loadedMapID = undefined;
     for (const mesh of this._mapMeshes) {
       this._threeContext.scene.remove(mesh);
     }
-    for (const skyBox of this._threeContext.skyScene.children) {
+    for (const skyBox of Array.from(this._threeContext.skyScene.children)) {
       this._threeContext.skyScene.remove(skyBox);
     }
     this._mapMeshes = [];
@@ -250,7 +252,26 @@ export default class AppRenderer {
       loadProp: !!this._renderOptions.props,
       showHavok: !!this._renderOptions.collisions,
       fog: this.fog,
+      env: this._activeEnvironmentVariantId,
     };
+  }
+
+  getEnvironmentVariants() {
+    if (!this._mapContext) return [];
+    return T3D.getContextValue(this._mapContext, T3D.EnvironmentRenderer, "variants", []);
+  }
+
+  getActiveEnvironmentVariantId() {
+    return this._activeEnvironmentVariantId;
+  }
+
+  setEnvironmentVariant(variantId) {
+    if (!this._mapContext) return null;
+    const variant = T3D.setEnvironmentVariant(this._mapContext, variantId);
+    if (!variant) return null;
+    this._activeEnvironmentVariantId = variant.id;
+    this._applyEnvironmentFromContext();
+    return variant;
   }
 
   /** PRIVATE methods */
@@ -280,14 +301,8 @@ export default class AppRenderer {
     this._threeContext.scene.add(water);
     this._mapMeshes.push(water);
 
-    const skyBox = T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyBox");
-    this._threeContext.skyScene.add(skyBox);
-    const hazeColor = T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeColor");
-    if (hazeColor) {
-      this._threeContext.renderer.setClearColor(
-        new THREE.Color(hazeColor[2] / 255, hazeColor[1] / 255, hazeColor[0] / 255)
-      );
-    }
+    this._activeEnvironmentVariantId = T3D.getContextValue(context, T3D.EnvironmentRenderer, "activeVariantId");
+    this._applyEnvironmentFromContext();
 
     if (renderOptions.zone) {
       for (const zoneModel of T3D.getContextValue(context, T3D.ZoneRenderer, "meshes")) {
@@ -330,6 +345,26 @@ export default class AppRenderer {
       this._threeContext.camera.position.x = 0;
       this._threeContext.camera.position.y = bounds ? bounds.y2 : 0;
       this._threeContext.camera.position.z = 0;
+    }
+  }
+
+  _applyEnvironmentFromContext() {
+    for (const skyBox of Array.from(this._threeContext.skyScene.children)) {
+      this._threeContext.skyScene.remove(skyBox);
+    }
+
+    const skyBox = T3D.getContextValue(this._mapContext, T3D.EnvironmentRenderer, "skyBox");
+    if (skyBox) {
+      this._threeContext.skyScene.add(skyBox);
+    }
+
+    const hazeColor = T3D.getContextValue(this._mapContext, T3D.EnvironmentRenderer, "hazeColor");
+    if (hazeColor) {
+      this._threeContext.renderer.setClearColor(
+        new THREE.Color(hazeColor[2] / 255, hazeColor[1] / 255, hazeColor[0] / 255)
+      );
+    } else {
+      this._threeContext.renderer.setClearColor(CANVAS_CLEAR_COLOR);
     }
   }
 }

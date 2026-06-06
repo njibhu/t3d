@@ -19,7 +19,7 @@
     "lint:fix": "eslint src --fix",
     "format:fix": "prettier --write ./src",
     "format:check": "prettier --check ./src",
-    "test": "exit 0"
+    "test": "node --test ./test/*.test.mjs"
   },
   "dependencies": {
     "t3d-parser": "*",
