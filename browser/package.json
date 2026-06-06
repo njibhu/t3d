@@ -22,6 +22,6 @@
     "@types/three": "0.184.0",
     "typescript": "5.5.4",
     "vite": "5.4.8",
-    "vite-plugin-static-copy": "1.0.6"
+    "vite-plugin-static-copy": "2.3.2"
   }
 }
