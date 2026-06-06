@@ -161,6 +161,7 @@ export default class AppRenderer {
   }
 
   cleanupMap() {
+    const mapContext = this._mapContext;
     this._mapContext = undefined;
     this._renderOptions = undefined;
     this._activeEnvironmentVariantId = undefined;
@@ -172,6 +173,9 @@ export default class AppRenderer {
       this._threeContext.skyScene.remove(skyBox);
     }
     this._mapMeshes = [];
+    if (mapContext) {
+      T3D.disposeEnvironmentResources(mapContext);
+    }
   }
 
   setupScene() {

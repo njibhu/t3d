@@ -4,7 +4,7 @@ import * as THREE from "three";
 
 import type LocalReader from "../LocalReader/LocalReader";
 import type Logger from "../Logger";
-import type { Light, Material, MeshBasicMaterial, Object3D } from "three";
+import type { Light, Material, MeshBasicMaterial, Object3D, Texture } from "three";
 import { FileParser } from "t3d-parser";
 
 export type EnvironmentVariantSourceType = "global" | "override";
@@ -127,6 +127,67 @@ export function setActiveEnvironmentVariant(
 
   applyVariantToOutput(output, variant);
   return variant;
+}
+
+function collectMaterialTextures(material: Material, textures: Set<Texture>): void {
+  for (const value of Object.values(material as unknown as Record<string, unknown>)) {
+    if (value && typeof value === "object" && "isTexture" in value && (value as Texture).isTexture) {
+      textures.add(value as Texture);
+    }
+  }
+}
+
+function collectObjectResources(
+  object: Object3D | null | undefined,
+  geometries: Set<THREE.BufferGeometry>,
+  materials: Set<Material>,
+  textures: Set<Texture>
+): void {
+  if (!object) return;
+
+  object.traverse((node) => {
+    const mesh = node as THREE.Mesh;
+    if (mesh.geometry && "dispose" in mesh.geometry) {
+      geometries.add(mesh.geometry);
+    }
+
+    const material = mesh.material;
+    if (Array.isArray(material)) {
+      material.forEach((entry) => {
+        materials.add(entry);
+        collectMaterialTextures(entry, textures);
+      });
+      return;
+    }
+
+    if (material) {
+      materials.add(material);
+      collectMaterialTextures(material, textures);
+    }
+  });
+}
+
+export function disposeEnvironmentResources(context: any): void {
+  const output = context?.[EnvironmentRenderer.rendererName] as EnvironmentRendererOutput | undefined;
+  if (!output) return;
+
+  const geometries = new Set<THREE.BufferGeometry>();
+  const materials = new Set<Material>();
+  const textures = new Set<Texture>();
+
+  for (const variant of Array.isArray(output.variants) ? output.variants : []) {
+    collectObjectResources(variant.skyBox, geometries, materials, textures);
+    if (variant.skyCubeTexture) {
+      textures.add(variant.skyCubeTexture);
+    }
+  }
+
+  for (const texture of textures) texture.dispose();
+  for (const material of materials) material.dispose();
+  for (const geometry of geometries) geometry.dispose();
+
+  output.variants = [];
+  applyVariantToOutput(output, null);
 }
 
 /**

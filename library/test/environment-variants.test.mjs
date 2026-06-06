@@ -83,3 +83,15 @@ test("mapc3 can switch the active environment variant on the existing context", 
   assert.equal(T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyBox"), targetVariant.skyBox);
   assert.deepEqual(T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeColor"), targetVariant.hazeColor);
 });
+
+test("disposing environment resources clears prepared variants and legacy aliases", async () => {
+  const context = await renderEnvironmentFixture("mapc2.bin");
+
+  T3D.disposeEnvironmentResources(context);
+  T3D.disposeEnvironmentResources(context);
+
+  assert.deepEqual(T3D.getContextValue(context, T3D.EnvironmentRenderer, "variants", []), []);
+  assert.equal(T3D.getContextValue(context, T3D.EnvironmentRenderer, "activeVariantId", null), null);
+  assert.equal(T3D.getContextValue(context, T3D.EnvironmentRenderer, "skyBox", null), null);
+  assert.equal(T3D.getContextValue(context, T3D.EnvironmentRenderer, "hazeColor", null), null);
+});
