@@ -504,7 +504,7 @@ export default class EnvironmentRenderer extends DataRenderer {
       ? `fallback:${sourceType}:${sourceIndex}:${modeType}:${slotIndex}`
       : createVariantId(sourceType, sourceIndex, modeType, slotIndex);
     const label = fallback
-      ? sourceName ?? "Default skybox"
+      ? (sourceName ?? "Default skybox")
       : getVariantLabel(sourceType, sourceIndex, modeType, slotIndex, sourceName);
 
     let skyBox: Object3D | null;
@@ -562,7 +562,9 @@ export default class EnvironmentRenderer extends DataRenderer {
     const globalData = this.getEnvironmentGlobals(environmentChunkData);
     variants.push(...this.collectVariantsFromSource(globalData, "global", 0));
 
-    const overrides = Array.isArray(environmentChunkData?.dataOverrideArray) ? environmentChunkData.dataOverrideArray : [];
+    const overrides = Array.isArray(environmentChunkData?.dataOverrideArray)
+      ? environmentChunkData.dataOverrideArray
+      : [];
     overrides.forEach((sourceData: EnvironmentSourceData, sourceIndex: number) => {
       variants.push(...this.collectVariantsFromSource(sourceData, "override", sourceIndex));
     });
