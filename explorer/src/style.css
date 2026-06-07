@@ -214,6 +214,21 @@ a:hover {
   vertical-align: middle;
 }
 
+#pointerLockHint {
+  position: fixed;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(34, 49, 68, 0.78);
+  color: #f4f8ff;
+  font-size: 14px;
+  line-height: 1.2;
+  text-shadow: none;
+  pointer-events: none;
+}
+
 canvas {
   position: fixed;
   left: 0;
