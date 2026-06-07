@@ -317,7 +317,6 @@ export class CntcExplorer {
     this.detailInspectorEl.textContent = this.buildHeaderLine(entry);
 
     const fields = Cntc.describeCntcEntry(entry);
-    const references = Cntc.describeCntcReferences(entry);
 
     const annotations: HexAnnotation[] = fields
       .map((field, index) =>
@@ -328,8 +327,29 @@ export class CntcExplorer {
       .filter((annotation): annotation is HexAnnotation => annotation !== null);
 
     this.renderHexDump(entry, annotations);
-    const refRows = this.renderDecodedFields(fields, references);
+    // Render decoded fields now; references are discovered from the file's fixup
+    // tables (async), then appended + resolved.
+    const fieldsTable = this.renderDecodedFields(fields);
+    void this.discoverAndResolveReferences(entry, fieldsTable, fields.length, token);
+  }
 
+  /** Discovers an entry's references from the fixup tables, appends a row per
+   *  reference, then resolves each into a displayable, navigable value. */
+  private async discoverAndResolveReferences(
+    entry: CntcExplorerEntry,
+    table: HTMLTableElement,
+    fieldCount: number,
+    token: number
+  ): Promise<void> {
+    let references: CntcReference[];
+    try {
+      references = await this.resolver.listReferences(entry.baseId, entry);
+    } catch {
+      return;
+    }
+    if (token !== this.detailToken || references.length === 0) return;
+
+    const refRows = this.appendReferenceRows(table, fieldCount, references);
     for (const refRow of refRows) {
       void this.resolveReference(entry, refRow, token);
     }
@@ -413,11 +433,10 @@ export class CntcExplorer {
   }
 
   /**
-   * Renders the library's field list (coloured by position) plus a placeholder
-   * row per cross-file reference; returns handles to fill in once resolution
-   * completes.
+   * Renders the library's field list (coloured by position) and returns the
+   * table so reference rows can be appended once they are discovered/resolved.
    */
-  private renderDecodedFields(fields: CntcField[], references: CntcReference[]): CntcRefRowHandle[] {
+  private renderDecodedFields(fields: CntcField[]): HTMLTableElement {
     this.detailFieldsEl.replaceChildren();
 
     const title = document.createElement("div");
@@ -433,16 +452,24 @@ export class CntcExplorer {
       table.appendChild(row.element);
     });
 
-    const handles = references.map((reference, refIndex) => {
-      const colorIndex = fields.length + refIndex;
+    this.detailFieldsEl.append(title, table);
+    return table;
+  }
+
+  /** Appends a placeholder row per discovered reference (coloured after the
+   *  fields); returns handles to fill in once resolution completes. */
+  private appendReferenceRows(
+    table: HTMLTableElement,
+    fieldCount: number,
+    references: CntcReference[]
+  ): CntcRefRowHandle[] {
+    return references.map((reference, refIndex) => {
+      const colorIndex = fieldCount + refIndex;
       const row = this.buildFieldRow(reference.label, cntcFieldColor(colorIndex));
       row.value.textContent = "Resolving…";
       table.appendChild(row.element);
       return { reference, colorIndex, label: row.label, value: row.value };
     });
-
-    this.detailFieldsEl.append(title, table);
-    return handles;
   }
 
   private buildFieldRow(
@@ -503,7 +530,9 @@ export class CntcExplorer {
   /** A reference value that jumps internally when possible, else navigates out. */
   private buildReferenceLink(resolved: CntcResolvedReference): HTMLElement {
     const navigation = resolved.navigation;
-    if (navigation.target === "file" && !this.onOpenFile) {
+    // Display-only references (e.g. a resolved codename) and file references with
+    // no open handler render as plain, unlinked text.
+    if (navigation.target === "none" || (navigation.target === "file" && !this.onOpenFile)) {
       const span = document.createElement("span");
       span.textContent = resolved.display;
       return span;

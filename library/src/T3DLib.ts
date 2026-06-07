@@ -306,6 +306,7 @@ export type {
   CntcIndexEntry,
   CntcTypeInfo,
   CntcExternalOffsetFixup,
+  CntcFileIndexFixup,
 } from "./cntc/cntc-content";
 export type { CntcItem, CntcItemArmor } from "./cntc/cntc-item";
 export type { CntcField } from "./cntc/cntc-fields";

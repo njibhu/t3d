@@ -9,5 +9,6 @@
 export * from "./cntc-content";
 export * from "./cntc-types";
 export * from "./cntc-item";
+export * from "./cntc-map";
 export * from "./cntc-fields";
 export * from "./cntc-resolver";
