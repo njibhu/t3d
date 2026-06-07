@@ -3,6 +3,8 @@ import { MapControls } from "three/examples/jsm/controls/MapControls.js";
 import T3D from "t3d-lib";
 
 const FOG_LENGTH = 5000;
+const CLEAR_COLOR = T3D.LightingUtils.DEFAULT_CANVAS_CLEAR_COLOR;
+const DEFAULT_LIGHTING = T3D.LightingUtils.DEFAULT_LIGHTING_PROFILE;
 
 /**
  * WebGL viewer for a single map file. Each instance owns its own GL context
@@ -24,6 +26,7 @@ export class MapCanvas {
 
   private mapMeshes: THREE.Object3D[] = [];
   private skyMeshes: THREE.Object3D[] = [];
+  private sceneLights: THREE.Light[] = [];
   private currentMapContext: any = null;
 
   private fog = 25000;
@@ -32,20 +35,10 @@ export class MapCanvas {
     this.scene = new THREE.Scene();
     this.skyScene = new THREE.Scene();
 
-    this.scene.add(new THREE.AmbientLight(0x555555));
-    for (const dir of [
-      [0, 0, 1],
-      [0, 1, 0],
-      [1, 0, 0],
-    ] as const) {
-      const light = new THREE.DirectionalLight(0xffffff, 1.25);
-      light.position.set(dir[0], dir[1], dir[2]);
-      this.scene.add(light);
-    }
-
-    this.scene.fog = new THREE.Fog(0xffffff, this.fog, this.fog + FOG_LENGTH);
+    this.scene.fog = new THREE.Fog(CLEAR_COLOR, this.fog, this.fog + FOG_LENGTH);
     this.camera = new THREE.PerspectiveCamera(60, 1, 0.1, this.fog + FOG_LENGTH);
     this.skyCamera = new THREE.PerspectiveCamera(60, 1, 0.1, 100000);
+    this.refreshSceneLights([]);
   }
 
   mount(host: HTMLElement): void {
@@ -60,7 +53,10 @@ export class MapCanvas {
       });
       this.renderer.sortObjects = false;
       this.renderer.autoClear = false;
-      this.renderer.setClearColor(0x342920);
+      T3D.LightingUtils.applyRendererColorManagement(this.renderer, {
+        exposure: DEFAULT_LIGHTING.exposure,
+      });
+      this.renderer.setClearColor(CLEAR_COLOR);
       this.controls = new MapControls(this.camera, this.renderer.domElement);
       this.controls.enableDamping = true;
     }
@@ -103,9 +99,21 @@ export class MapCanvas {
 
     // The library hands us hazeColor as BGR bytes, not RGB.
     const hazeBgr = pickFromContext<number[] | null>(context, "EnvironmentRenderer", "hazeColor", null);
+    const clearColor = new THREE.Color(CLEAR_COLOR);
     if (hazeBgr && this.renderer) {
-      this.renderer.setClearColor(new THREE.Color(hazeBgr[2] / 255, hazeBgr[1] / 255, hazeBgr[0] / 255));
+      clearColor.setRGB(hazeBgr[2] / 255, hazeBgr[1] / 255, hazeBgr[0] / 255);
     }
+
+    if (this.renderer) {
+      this.renderer.setClearColor(clearColor);
+    }
+    if (this.scene.fog instanceof THREE.Fog) {
+      this.scene.fog.color.copy(clearColor);
+    }
+
+    const envLights = pickFromContext<THREE.Light[]>(context, "EnvironmentRenderer", "lights", []);
+    this.refreshSceneLights(envLights);
+    T3D.LightingUtils.applyTerrainSunDirection(terrainTiles, this.sceneLights);
 
     if (opts.zone)
       for (const m of pickFromContext<THREE.Object3D[]>(context, "ZoneRenderer", "meshes", [])) this.addMapMesh(m);
@@ -154,6 +162,20 @@ export class MapCanvas {
     }
     this.camera.far = this.fog + FOG_LENGTH;
     this.camera.updateProjectionMatrix();
+  }
+
+  private refreshSceneLights(environmentLights: THREE.Light[]): void {
+    for (const light of this.sceneLights) {
+      this.scene.remove(light);
+    }
+
+    const nextLights =
+      environmentLights.length > 0
+        ? T3D.LightingUtils.cloneLights(environmentLights)
+        : T3D.LightingUtils.createFallbackLightRig({ directionalIntensity: DEFAULT_LIGHTING.directionalIntensity });
+
+    this.sceneLights = nextLights;
+    this.sceneLights.forEach((light) => this.scene.add(light));
   }
 
   private resize(): void {

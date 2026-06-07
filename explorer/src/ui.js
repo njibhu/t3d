@@ -41,6 +41,8 @@ export default class UI {
 
     this.appRenderer.setMovementSpeed(parseInt($("#mvntSpeedRange").val(), 10));
     this.appRenderer.setFogDistance(parseInt($("#fogRange").val(), 10));
+    this.appRenderer.setLightIntensity(parseFloat($("#lightRange").val()));
+    this.appRenderer.setShadowStrength(parseFloat($("#shadowRange").val()));
     this.appRenderer.renderHook = (data) => this.updateUrl(data);
 
     $("canvas").on("wheel", (event) => this.onMouseWheel(event));
@@ -74,6 +76,8 @@ export default class UI {
     $("#environmentSelect").on("change", (event) => this.onEnvironmentChange(event));
     $("#mvntSpeedRange").on("change", (event) => this.appRenderer.setMovementSpeed(event.target.valueAsNumber));
     $("#fogRange").on("change", (event) => this.appRenderer.setFogDistance(event.target.valueAsNumber));
+    $("#lightRange").on("change", (event) => this.appRenderer.setLightIntensity(event.target.valueAsNumber));
+    $("#shadowRange").on("change", (event) => this.appRenderer.setShadowStrength(event.target.valueAsNumber));
 
     window.addEventListener("resize", () => this.appRenderer.onWindowResize());
   }
@@ -99,6 +103,13 @@ export default class UI {
 
   onAutoLoad() {
     const mapId = this.autoLoad.map;
+    if (typeof this.autoLoad.li === "number") {
+      this.appRenderer.setLightIntensity(this.autoLoad.li);
+    }
+    if (typeof this.autoLoad.sh === "number") {
+      this.appRenderer.setShadowStrength(this.autoLoad.sh);
+    }
+
     const renderOptions = {
       zone: this.autoLoad.loadZone === undefined ? true : this.autoLoad.loadZone,
       props: this.autoLoad.loadProp === undefined ? true : this.autoLoad.loadProp,
@@ -123,8 +134,8 @@ export default class UI {
     // Anti aliasing option can only be enabled when creating the webgl context
     // So we update that first if needed
     const aaEnabled = $("#enableAA").is(":checked");
-    if (this.appRenderer.webGLRendererOptions.antialiasing !== aaEnabled) {
-      this.appRenderer.webGLRendererOptions.antialiasing = aaEnabled;
+    if (this.appRenderer.webGLRendererOptions.antialias !== aaEnabled) {
+      this.appRenderer.webGLRendererOptions.antialias = aaEnabled;
       this.appRenderer.setupWebGLRenderer(true);
     }
 
@@ -158,6 +169,8 @@ export default class UI {
     // Sync the input ranges with their value in the appRenderer
     $("#fogRange").val(this.appRenderer.fog);
     $("#mvntSpeedRange").val(this.appRenderer.movementSpeed);
+    $("#lightRange").val(this.appRenderer.lightIntensity);
+    $("#shadowRange").val(this.appRenderer.shadowStrength);
     this.shouldUpdateUrl = true;
   }
 
@@ -326,6 +339,8 @@ function getParsedUrl() {
   data.loadProp = data.loadProp ? data.loadProp === "true" : undefined;
   data.showHavok = data.showHavok ? data.showHavok === "true" : undefined;
   data.fog = data.fog ? parseInt(data.fog) : undefined;
+  data.li = data.li ? parseFloat(data.li) : undefined;
+  data.sh = data.sh ? parseFloat(data.sh) : undefined;
   data.env = data.env ? data.env : undefined;
 
   // Backward compatibility with Tyria3DApp
