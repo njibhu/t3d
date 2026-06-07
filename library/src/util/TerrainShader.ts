@@ -12,6 +12,7 @@ export function getFragmentShader(): string {
     "uniform sampler2D texture4;",
     "uniform float lightScale;",
     "uniform float shadowStrength;",
+    "uniform vec3 sunDirection;",
 
     "#include <common>",
     "#include <logdepthbuf_pars_fragment>",
@@ -69,7 +70,7 @@ export function getFragmentShader(): string {
 
     // Stable terrain lighting: keeps render reliability and gives terrain shape/slider response.
     "vec3 normal = normalize(vecNormal);",
-    "vec3 sunDir = normalize(vec3(0.35, 0.9, 0.2));",
+    "vec3 sunDir = normalize(sunDirection);",
     "float diffuse = max(dot(normal, sunDir), 0.0);",
     "float shaded = 0.35 + 0.65 * diffuse;",
     "float shading = mix(1.0, shaded, clamp(shadowStrength, 0.0, 1.0));",

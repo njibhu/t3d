@@ -3,11 +3,8 @@ import { MapControls } from "three/examples/jsm/controls/MapControls.js";
 import T3D from "t3d-lib";
 
 const FOG_LENGTH = 5000;
-const CLEAR_COLOR = T3D.LightingUtils?.DEFAULT_CANVAS_CLEAR_COLOR ?? 0x342920;
-const DEFAULT_LIGHTING = T3D.LightingUtils?.DEFAULT_LIGHTING_PROFILE ?? {
-  directionalIntensity: 0.7,
-  exposure: 0.95,
-};
+const CLEAR_COLOR = T3D.LightingUtils.DEFAULT_CANVAS_CLEAR_COLOR;
+const DEFAULT_LIGHTING = T3D.LightingUtils.DEFAULT_LIGHTING_PROFILE;
 
 /**
  * WebGL viewer for a single map file. Each instance owns its own GL context
@@ -56,7 +53,7 @@ export class MapCanvas {
       });
       this.renderer.sortObjects = false;
       this.renderer.autoClear = false;
-      T3D.LightingUtils?.applyRendererColorManagement(this.renderer, {
+      T3D.LightingUtils.applyRendererColorManagement(this.renderer, {
         exposure: DEFAULT_LIGHTING.exposure,
       });
       this.renderer.setClearColor(CLEAR_COLOR);
@@ -116,6 +113,7 @@ export class MapCanvas {
 
     const envLights = pickFromContext<THREE.Light[]>(context, "EnvironmentRenderer", "lights", []);
     this.refreshSceneLights(envLights);
+    T3D.LightingUtils.applyTerrainSunDirection(terrainTiles, this.sceneLights);
 
     if (opts.zone)
       for (const m of pickFromContext<THREE.Object3D[]>(context, "ZoneRenderer", "meshes", [])) this.addMapMesh(m);
@@ -171,25 +169,10 @@ export class MapCanvas {
       this.scene.remove(light);
     }
 
-    let nextLights: THREE.Light[];
-    if (environmentLights.length > 0) {
-      nextLights = T3D.LightingUtils?.cloneLights(environmentLights) ?? environmentLights.map((light) => light.clone());
-    } else if (T3D.LightingUtils?.createFallbackLightRig) {
-      nextLights = T3D.LightingUtils.createFallbackLightRig({
-        directionalIntensity: DEFAULT_LIGHTING.directionalIntensity,
-      });
-    } else {
-      nextLights = [new THREE.AmbientLight(0x777777)];
-      for (const dir of [
-        [0, 1, 0],
-        [1, 2, 1],
-        [-1, -2, -1],
-      ]) {
-        const light = new THREE.DirectionalLight(0xffffff, DEFAULT_LIGHTING.directionalIntensity);
-        light.position.set(dir[0], dir[1], dir[2]).normalize();
-        nextLights.push(light);
-      }
-    }
+    const nextLights =
+      environmentLights.length > 0
+        ? T3D.LightingUtils.cloneLights(environmentLights)
+        : T3D.LightingUtils.createFallbackLightRig({ directionalIntensity: DEFAULT_LIGHTING.directionalIntensity });
 
     this.sceneLights = nextLights;
     this.sceneLights.forEach((light) => this.scene.add(light));

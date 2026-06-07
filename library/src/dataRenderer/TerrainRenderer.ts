@@ -2,6 +2,7 @@ import DataRenderer from "./DataRenderer";
 import * as RenderUtils from "../util/RenderUtils";
 import * as MaterialUtils from "../util/MaterialUtils";
 import * as TerrainShader from "../util/TerrainShader";
+import { DEFAULT_LIGHTING_PROFILE } from "../util/LightingUtils";
 import * as THREE from "three";
 import EnvironmentRenderer from "./EnvironmentRenderer";
 import { FileParser } from "t3d-parser";
@@ -418,8 +419,11 @@ export default class TerrainRenderer extends DataRenderer {
       uniforms.texture2 = { value: chunkTextures[fileNames[1]] };
       uniforms.texture3 = { value: chunkTextures[fileNames[2]] };
       uniforms.texture4 = { value: chunkTextures[fileNames[3]] };
-      uniforms.lightScale = { value: 1.0 };
-      uniforms.shadowStrength = { value: 0.6 };
+      uniforms.lightScale = { value: DEFAULT_LIGHTING_PROFILE.lightScale };
+      uniforms.shadowStrength = { value: DEFAULT_LIGHTING_PROFILE.shadowStrength };
+      uniforms.sunDirection = {
+        value: new THREE.Vector3(...DEFAULT_LIGHTING_PROFILE.terrainSunDirection).normalize(),
+      };
 
       if (self.settings && self.settings.export) {
         mat = new THREE.MeshBasicMaterial({ visible: true });

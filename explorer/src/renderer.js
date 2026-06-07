@@ -4,13 +4,10 @@ import * as THREE from "three";
 import { FlyControls } from "three/examples/jsm/controls/FlyControls.js";
 import { MapControls } from "three/examples/jsm/controls/MapControls.js";
 
-const CANVAS_CLEAR_COLOR = 0x342920;
 const FOG_LENGTH = 5000;
 
-const DEFAULT_LIGHTING = T3D.LightingUtils?.DEFAULT_LIGHTING_PROFILE ?? {
-  directionalIntensity: 0.7,
-  exposure: 0.95,
-};
+const DEFAULT_LIGHTING = T3D.LightingUtils.DEFAULT_LIGHTING_PROFILE;
+const CANVAS_CLEAR_COLOR = T3D.LightingUtils.DEFAULT_CANVAS_CLEAR_COLOR;
 
 export default class AppRenderer {
   constructor(stats) {
@@ -25,8 +22,8 @@ export default class AppRenderer {
     // Defaults
     this.fog = 25000;
     this.movementSpeed = 10000;
-    this.lightIntensity = 1;
-    this.shadowStrength = 0.6;
+    this.lightIntensity = DEFAULT_LIGHTING.lightScale;
+    this.shadowStrength = DEFAULT_LIGHTING.shadowStrength;
     this.loadedMapID = undefined;
     this.controllerType = "fly";
 
@@ -125,16 +122,7 @@ export default class AppRenderer {
 
   setLightIntensity(value) {
     this.lightIntensity = value;
-    if (T3D.LightingUtils?.scaleDirectionalLights) {
-      T3D.LightingUtils.scaleDirectionalLights(this._threeContext.sceneLights || [], value);
-    } else if (this._threeContext.sceneLights) {
-      for (const light of this._threeContext.sceneLights) {
-        if (light.isDirectionalLight) {
-          light.intensity = value;
-        }
-      }
-    }
-
+    T3D.LightingUtils.scaleDirectionalLights(this._threeContext.sceneLights || [], value);
     this._updateTerrainShadingUniforms();
   }
 
@@ -240,7 +228,7 @@ export default class AppRenderer {
 
     context.renderer = new THREE.WebGLRenderer(this.webGLRendererOptions);
     context.renderer.autoClear = false;
-    T3D.LightingUtils?.applyRendererColorManagement(context.renderer, { exposure: DEFAULT_LIGHTING.exposure });
+    T3D.LightingUtils.applyRendererColorManagement(context.renderer, { exposure: DEFAULT_LIGHTING.exposure });
     context.renderer.setSize(window.innerWidth, window.innerHeight);
     context.renderer.setClearColor(CANVAS_CLEAR_COLOR);
     if (hidden) {
@@ -421,52 +409,26 @@ export default class AppRenderer {
     }
 
     const existingLights = context.sceneLights || [];
-    if (T3D.LightingUtils?.removeLightsFromScene) {
-      T3D.LightingUtils.removeLightsFromScene(context.scene, existingLights);
-    } else {
-      existingLights.forEach((light) => context.scene.remove(light));
-    }
+    T3D.LightingUtils.removeLightsFromScene(context.scene, existingLights);
 
     const envLights = this._mapContext
       ? T3D.getContextValue(this._mapContext, T3D.EnvironmentRenderer, "lights", [])
       : [];
-    let nextLights;
 
-    if (envLights && envLights.length > 0) {
-      nextLights = T3D.LightingUtils?.cloneLights(envLights) ?? envLights.map((light) => light.clone());
-    } else if (T3D.LightingUtils?.createFallbackLightRig) {
-      nextLights = T3D.LightingUtils.createFallbackLightRig({
-        directionalIntensity: DEFAULT_LIGHTING.directionalIntensity,
-      });
-    } else {
-      nextLights = [new THREE.AmbientLight(0x777777)];
-      for (const dir of [
-        [0, 1, 0],
-        [1, 2, 1],
-        [-1, -2, -1],
-      ]) {
-        const light = new THREE.DirectionalLight(0xffffff, DEFAULT_LIGHTING.directionalIntensity);
-        light.position.set(dir[0], dir[1], dir[2]).normalize();
-        nextLights.push(light);
-      }
-    }
+    const nextLights =
+      envLights && envLights.length > 0
+        ? T3D.LightingUtils.cloneLights(envLights)
+        : T3D.LightingUtils.createFallbackLightRig({ directionalIntensity: DEFAULT_LIGHTING.directionalIntensity });
 
-    if (T3D.LightingUtils?.scaleDirectionalLights) {
-      T3D.LightingUtils.scaleDirectionalLights(nextLights, this.lightIntensity);
-    } else {
-      nextLights.forEach((light) => {
-        if (light.isDirectionalLight) {
-          light.intensity *= this.lightIntensity;
-        }
-      });
-    }
+    T3D.LightingUtils.scaleDirectionalLights(nextLights, this.lightIntensity);
 
     context.sceneLights = nextLights;
-    if (T3D.LightingUtils?.addLightsToScene) {
-      T3D.LightingUtils.addLightsToScene(context.scene, nextLights);
-    } else {
-      nextLights.forEach((light) => context.scene.add(light));
-    }
+    T3D.LightingUtils.addLightsToScene(context.scene, nextLights);
+
+    const terrainTiles = this._mapContext
+      ? T3D.getContextValue(this._mapContext, T3D.TerrainRenderer, "terrainTiles", [])
+      : [];
+    T3D.LightingUtils.applyTerrainSunDirection(terrainTiles, nextLights);
 
     this._syncShadowFillLight();
   }

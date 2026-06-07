@@ -3,11 +3,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { OBJExporter } from "three/examples/jsm/exporters/OBJExporter.js";
 import T3D from "t3d-lib";
 
-const CLEAR_COLOR = T3D.LightingUtils?.DEFAULT_CANVAS_CLEAR_COLOR ?? 0x342920;
-const DEFAULT_LIGHTING = T3D.LightingUtils?.DEFAULT_LIGHTING_PROFILE ?? {
-  directionalIntensity: 0.7,
-  exposure: 0.95,
-};
+const CLEAR_COLOR = T3D.LightingUtils.DEFAULT_CANVAS_CLEAR_COLOR;
+const DEFAULT_LIGHTING = T3D.LightingUtils.DEFAULT_LIGHTING_PROFILE;
 
 /**
  * WebGL viewer for a single model file. Each instance owns its own GL
@@ -27,23 +24,10 @@ export class ModelCanvas {
 
   constructor() {
     this.scene = new THREE.Scene();
-    if (T3D.LightingUtils?.createFallbackLightRig) {
-      const lights = T3D.LightingUtils.createFallbackLightRig({
-        directionalIntensity: DEFAULT_LIGHTING.directionalIntensity * 0.95,
-      });
-      lights.forEach((light) => this.scene.add(light));
-    } else {
-      this.scene.add(new THREE.AmbientLight(0x777777));
-      for (const dir of [
-        [0, 1, 0],
-        [1, 2, 1],
-        [-1, -2, -1],
-      ] as const) {
-        const light = new THREE.DirectionalLight(0xffffff, DEFAULT_LIGHTING.directionalIntensity);
-        light.position.set(dir[0], dir[1], dir[2]).normalize();
-        this.scene.add(light);
-      }
-    }
+    const lights = T3D.LightingUtils.createFallbackLightRig({
+      directionalIntensity: DEFAULT_LIGHTING.directionalIntensity,
+    });
+    lights.forEach((light) => this.scene.add(light));
     this.camera = new THREE.PerspectiveCamera(60, 1, 0.1, 500000);
   }
 
@@ -52,7 +36,7 @@ export class ModelCanvas {
     this.host = host;
     if (!this.renderer) {
       this.renderer = new THREE.WebGLRenderer({ antialias: true });
-      T3D.LightingUtils?.applyRendererColorManagement(this.renderer, {
+      T3D.LightingUtils.applyRendererColorManagement(this.renderer, {
         exposure: DEFAULT_LIGHTING.exposure,
       });
       this.renderer.setClearColor(CLEAR_COLOR);
