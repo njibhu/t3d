@@ -3,12 +3,18 @@ import { ArchiveStore, FileRow, SIDEBAR_GROUP, SidebarNode } from "./store/archi
 import { VirtualTable } from "./components/virtual-table";
 import { FileViewer } from "./components/file-viewer";
 import { FileTabsStrip } from "./components/file-tabs-strip";
+import type { CntcNavigationTarget } from "./views/cntc-view";
+import { CntcTableView } from "./views/cntc-table-view";
 import { wireSplitter } from "./components/splitter";
 import { loadTabs, saveTabs, PERSIST_KEYS } from "./store/tab-store";
 import { showOpenArchiveDialog } from "./components/open-archive-dialog";
 import { formatBytes } from "./util/format";
 
 const MAX_OPEN_TABS = 12;
+
+/** Reserved tab id for the archive-wide CNTC table. Real baseIds are positive,
+ *  so this sentinel never collides and stays out of `openTabs`/persistence. */
+const CNTC_TABLE_TAB_ID = -1;
 
 const clampPaneWidth = (px: number): number => {
   const min = 240;
@@ -52,6 +58,8 @@ export class App {
   private openTabs = new Map<number, FileViewer>();
   private activeTabId: number | null = null;
   private searchTerm = "";
+  private cntcTableView: CntcTableView | null = null;
+  private cntcTableLoaded = false;
 
   constructor(root: HTMLElement) {
     this.root = root;
@@ -78,6 +86,8 @@ export class App {
     const title = document.createElement("h1");
     title.textContent = "T3D Browser";
     toolbar.appendChild(title);
+
+    toolbar.appendChild(this.buildSpecialMenu());
 
     toolbar.append(...this.buildJumpToBaseId());
 
@@ -127,6 +137,51 @@ export class App {
     button.addEventListener("click", (e) => this.openByBaseId(parseInt(input.value, 10), e.ctrlKey || e.metaKey));
 
     return [input, button];
+  }
+
+  /** "Special ▾" dropdown for archive-wide views that aren't tied to one file. */
+  private buildSpecialMenu(): HTMLDivElement {
+    const menu = document.createElement("div");
+    menu.className = "special-menu";
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "special-menu-button";
+    button.textContent = "Special ▾";
+    button.setAttribute("aria-haspopup", "true");
+    button.setAttribute("aria-expanded", "false");
+
+    const list = document.createElement("div");
+    list.className = "special-menu-list";
+    list.hidden = true;
+
+    const close = (): void => {
+      list.hidden = true;
+      button.setAttribute("aria-expanded", "false");
+    };
+
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "special-menu-item";
+    item.textContent = "Open CNTC table view";
+    item.addEventListener("click", () => {
+      close();
+      this.openCntcTableTab();
+    });
+    list.appendChild(item);
+
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const willOpen = list.hidden;
+      list.hidden = !willOpen;
+      button.setAttribute("aria-expanded", String(willOpen));
+    });
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target as Node)) close();
+    });
+
+    menu.append(button, list);
+    return menu;
   }
 
   private buildMainSplit(): HTMLDivElement {
@@ -297,6 +352,10 @@ export class App {
     } else if (scanChanged) {
       this.updateFileTableFooter(this.searchRows(this.store.getFilteredRows(this.currentFilter)).length);
     }
+
+    // Once the type scan completes we know the full set of CNTC files, so an
+    // open-but-waiting table can now be populated.
+    if (scanChanged) this.maybeLoadCntcTable();
   }
 
   private onArchiveLoaded(): void {
@@ -412,7 +471,16 @@ export class App {
 
     this.viewerHostEl.querySelector(".viewer-empty")?.remove();
 
-    const viewer = new FileViewer({ reader: this.store.reader, fileId: baseId });
+    const viewer = new FileViewer({
+      reader: this.store.reader,
+      fileId: baseId,
+      onNavigateToCntcEntry: (target) => {
+        void this.openCntcEntry(target);
+      },
+      onOpenFile: (targetBaseId, openInNewTab) => {
+        this.openByBaseId(targetBaseId, openInNewTab);
+      },
+    });
     this.viewerHostEl.appendChild(viewer.root);
     this.openTabs.set(baseId, viewer);
     this.tabsStrip.addChip(baseId, String(baseId));
@@ -425,37 +493,117 @@ export class App {
     this.updateUrl(baseId);
   }
 
-  private activateTab(fileId: number): void {
-    const viewer = this.openTabs.get(fileId);
-    if (!viewer || this.activeTabId === fileId) return;
-
-    if (this.activeTabId != null) {
-      const prev = this.openTabs.get(this.activeTabId);
-      if (prev) {
-        prev.root.hidden = true;
-        prev.onHide();
-      }
+  private async openCntcEntry(target: CntcNavigationTarget): Promise<void> {
+    this.openByBaseId(target.baseId, target.newTab === true);
+    const viewer = this.openTabs.get(target.baseId);
+    if (!viewer) {
+      return;
     }
-    viewer.root.hidden = false;
-    viewer.onShow();
+    await viewer.focusCntcEntry(target);
+  }
+
+  /** Opens (or focuses) the archive-wide CNTC table as a tab in the right pane. */
+  private openCntcTableTab(): void {
+    if (!this.store.reader) {
+      this.toast("Open an archive first.");
+      return;
+    }
+    if (this.cntcTableView) {
+      this.activateTab(CNTC_TABLE_TAB_ID);
+      return;
+    }
+
+    this.viewerHostEl.querySelector(".viewer-empty")?.remove();
+    this.cntcTableView = new CntcTableView({
+      reader: this.store.reader,
+      onNavigateToEntry: (target) => {
+        void this.openCntcEntry(target);
+      },
+      onOpenFile: (targetBaseId, openInNewTab) => {
+        this.openByBaseId(targetBaseId, openInNewTab);
+      },
+    });
+    this.viewerHostEl.appendChild(this.cntcTableView.root);
+    this.tabsStrip.addChip(CNTC_TABLE_TAB_ID, "CNTC Table");
+    this.activateTab(CNTC_TABLE_TAB_ID);
+    this.maybeLoadCntcTable();
+  }
+
+  /** Parsing every CNTC file needs the full type scan, so defer until it lands. */
+  private maybeLoadCntcTable(): void {
+    if (!this.cntcTableView || this.cntcTableLoaded) return;
+    const scan = this.store.currentScanState;
+    if (scan.status === "complete") {
+      this.cntcTableLoaded = true;
+      void this.cntcTableView.load(this.cntcFiles());
+    } else if (scan.status === "error") {
+      this.cntcTableView.setWaiting("Type scan failed — reopen the archive to retry.");
+    } else {
+      this.cntcTableView.setWaiting("Waiting for type scan to finish…");
+    }
+  }
+
+  private cntcFiles(): { mftId: number; baseId: number }[] {
+    return this.store.getFilteredRows("PF_cntc").map((row) => ({
+      mftId: row.mftId,
+      baseId: row.baseIds[0] ?? row.mftId,
+    }));
+  }
+
+  /** The pane backing a tab id: a file viewer, or the CNTC table sentinel. */
+  private paneForId(id: number | null): { root: HTMLElement; onShow(): void; onHide(): void } | null {
+    if (id == null) return null;
+    if (id === CNTC_TABLE_TAB_ID) return this.cntcTableView;
+    return this.openTabs.get(id) ?? null;
+  }
+
+  /** Picks a remaining tab to activate after one closes (files first). */
+  private nextTabId(): number | null {
+    const [firstFile] = this.openTabs.keys();
+    if (firstFile != null) return firstFile;
+    return this.cntcTableView ? CNTC_TABLE_TAB_ID : null;
+  }
+
+  private activateTab(fileId: number): void {
+    const pane = this.paneForId(fileId);
+    if (!pane || this.activeTabId === fileId) return;
+
+    const prev = this.paneForId(this.activeTabId);
+    if (prev) {
+      prev.root.hidden = true;
+      prev.onHide();
+    }
+    pane.root.hidden = false;
+    pane.onShow();
     this.activeTabId = fileId;
     this.tabsStrip.setActive(fileId);
-    this.table.setSelection(this.mftIdForBaseId(fileId));
+    // The CNTC table isn't a file, so it has no row in the file table or URL.
+    if (fileId !== CNTC_TABLE_TAB_ID) {
+      this.table.setSelection(this.mftIdForBaseId(fileId));
+      this.updateUrl(fileId);
+    }
     this.persistTabs();
-    this.updateUrl(fileId);
   }
 
   private closeTab(fileId: number): void {
-    const viewer = this.openTabs.get(fileId);
-    if (!viewer) return;
-    viewer.dispose();
-    viewer.root.remove();
-    this.openTabs.delete(fileId);
+    if (fileId === CNTC_TABLE_TAB_ID) {
+      if (!this.cntcTableView) return;
+      this.cntcTableView.dispose();
+      this.cntcTableView.root.remove();
+      this.cntcTableView = null;
+      this.cntcTableLoaded = false;
+    } else {
+      const viewer = this.openTabs.get(fileId);
+      if (!viewer) return;
+      viewer.dispose();
+      viewer.root.remove();
+      this.openTabs.delete(fileId);
+    }
     this.tabsStrip.removeChip(fileId);
 
     if (this.activeTabId === fileId) {
       this.activeTabId = null;
-      const [next] = this.openTabs.keys();
+      const next = this.nextTabId();
       if (next != null) this.activateTab(next);
       else this.showEmpty();
     }
@@ -474,7 +622,10 @@ export class App {
   // ---- persistence ----
 
   private persistTabs(): void {
-    saveTabs({ openIds: [...this.openTabs.keys()], activeId: this.activeTabId });
+    // The CNTC table sentinel is never a real file id, so keep it out of the
+    // persisted set (it is also intentionally not restored across reloads).
+    const activeId = this.activeTabId === CNTC_TABLE_TAB_ID ? null : this.activeTabId;
+    saveTabs({ openIds: [...this.openTabs.keys()], activeId });
   }
 
   private restoreSession(): void {
@@ -551,6 +702,12 @@ export class App {
       viewer.root.remove();
     }
     this.openTabs.clear();
+    if (this.cntcTableView) {
+      this.cntcTableView.dispose();
+      this.cntcTableView.root.remove();
+      this.cntcTableView = null;
+    }
+    this.cntcTableLoaded = false;
     this.activeTabId = null;
     this.selectedSidebarItem = null;
     this.tabsStrip.clear();

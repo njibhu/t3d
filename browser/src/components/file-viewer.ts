@@ -17,7 +17,7 @@ import { SoundEntry, SoundView } from "../views/sound-view";
 import { ModelView } from "../views/model-view";
 import { HexView } from "../views/hex-view";
 import { DEFAULT_MAP_LAYERS, MapView, MapLayerOptions } from "../views/map-view";
-import { CntcView } from "../views/cntc-view";
+import { CntcView, type CntcNavigationTarget } from "../views/cntc-view";
 import { onProgress } from "../store/progress-bus";
 import { triggerDownload } from "../util/download";
 
@@ -38,6 +38,8 @@ const TAB_LABELS: Record<TabKind, string> = {
 export interface FileViewerInit {
   reader: LocalReader;
   fileId: number;
+  onNavigateToCntcEntry?: (target: CntcNavigationTarget) => void;
+  onOpenFile?: (baseId: number, newTab: boolean) => void;
 }
 
 export class FileViewer {
@@ -51,6 +53,8 @@ export class FileViewer {
   readonly ready: Promise<void>;
 
   private reader: LocalReader;
+  private onNavigateToCntcEntry?: (target: CntcNavigationTarget) => void;
+  private onOpenFile?: (baseId: number, newTab: boolean) => void;
   private titleEl!: HTMLHeadingElement;
   private actionsEl!: HTMLDivElement;
   private tabsEl!: HTMLDivElement;
@@ -68,6 +72,8 @@ export class FileViewer {
 
   constructor(init: FileViewerInit) {
     this.reader = init.reader;
+    this.onNavigateToCntcEntry = init.onNavigateToCntcEntry;
+    this.onOpenFile = init.onOpenFile;
     this.fileId = init.fileId;
     this.root = document.createElement("div");
     this.root.className = "file-viewer";
@@ -137,6 +143,17 @@ export class FileViewer {
   onHide(): void {
     this.modelView?.deactivate();
     this.mapView?.deactivate();
+  }
+
+  async focusCntcEntry(
+    target: Pick<CntcNavigationTarget, "type" | "typeId" | "uniqueId" | "offset">
+  ): Promise<boolean> {
+    await this.ready;
+    if (!this.cntcView) {
+      return false;
+    }
+    this.activateTab("cntc");
+    return this.cntcView.focusEntry(target);
   }
 
   dispose(): void {
@@ -209,7 +226,11 @@ export class FileViewer {
 
     if (isCntc) {
       const c = this.ensureTab("cntc");
-      this.cntcView ??= new CntcView(c.pane);
+      this.cntcView ??= new CntcView(c.pane, {
+        reader: this.reader,
+        onNavigateToEntry: this.onNavigateToCntcEntry,
+        onOpenFile: this.onOpenFile,
+      });
       this.cntcView.setData(packfile, this.fileName);
     }
 

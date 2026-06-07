@@ -44,7 +44,13 @@ export default class FileParser {
       console.log(
         `Parsing chunk ${metadata.chunkHeader.type} with version ${metadata.chunkHeader.chunkVersion}, flags ${this.header.flags}`
       );
-      const parserResult = new DataParser(def, this.header.flags === 5).safeParse(
+      // The PF header `flags` field uses bit 0x4 to select 64-bit (8-byte)
+      // pointers/offsets. Both the common packfiles (flags=5) and the asset
+      // manifests in Local.dat (flags=4) set it; the old `=== 5` check parsed
+      // flags=4 files as 32-bit, so their array offsets drifted after the first
+      // DynArray.
+      const is64Bit = (this.header.flags & 0x4) === 0x4;
+      const parserResult = new DataParser(def, is64Bit).safeParse(
         this.dataView,
         metadata.chunkPosition + metadata.chunkHeader.chunkHeaderSize
       );
