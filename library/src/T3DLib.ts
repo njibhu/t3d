@@ -20,6 +20,7 @@ import * as RenderUtils from "./util/RenderUtils";
 
 import PersistantStore from "./LocalReader/PersistantStore";
 import * as FileTypes from "./LocalReader/FileTypes";
+import * as Cntc from "./cntc";
 
 import { FileParser } from "t3d-parser";
 import packageJson from "../package.json";
@@ -50,6 +51,7 @@ const T3D = {
   RenderUtils: RenderUtils,
   PersistantStore: PersistantStore,
   FileTypes: FileTypes,
+  Cntc: Cntc,
 
   /**
    * Creates a new instance of LocalReader with an pNaCl inflater connected to it.
@@ -293,10 +295,27 @@ export {
   RenderUtils,
   PersistantStore,
   FileTypes,
+  Cntc,
   LocalReader,
   FileParser,
 };
 export type { ScanCallbacks, ScanEntry, ScanProgress };
+export type {
+  CntcEntry,
+  CntcMainContent,
+  CntcIndexEntry,
+  CntcTypeInfo,
+  CntcExternalOffsetFixup,
+} from "./cntc/cntc-content";
+export type { CntcItem, CntcItemArmor } from "./cntc/cntc-item";
+export type { CntcField } from "./cntc/cntc-fields";
+export type {
+  CntcResolvedFile,
+  CntcSkinReference,
+  CntcReference,
+  CntcReferenceNavigation,
+  CntcResolvedReference,
+} from "./cntc/cntc-resolver";
 
 /* PRIVATE METHODS */
 
