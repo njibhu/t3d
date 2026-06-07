@@ -31,12 +31,21 @@ export interface CntcExternalOffsetFixup {
   targetFileIndex: number;
 }
 
+/** Marks an offset in `content` that holds a `fileRefs` index (an asset file-ref). */
+export interface CntcFileIndexFixup {
+  relocOffset: number;
+}
+
 /** The fields of the parsed `Main` chunk this module relies on. */
 export interface CntcMainContent {
   typeInfos: CntcTypeInfo[];
   fileRefs: number[];
   indexEntries: CntcIndexEntry[];
   externalOffsets: CntcExternalOffsetFixup[];
+  /** Fixups marking the offsets that hold a `fileRefs` index → an external asset file. */
+  fileIndices: CntcFileIndexFixup[];
+  /** Per-file UTF-16 string table (`RefString16`); entries reference it by index. */
+  strings: string[];
   content: Uint8Array;
 }
 
@@ -133,4 +142,13 @@ export function getCntcEntryDataId(entry: CntcEntry): number | null {
 /** Finds the entry whose `[begin, end)` byte range contains `offset`. */
 export function findCntcEntryAtOffset(entries: CntcEntry[], offset: number): CntcEntry | null {
   return entries.find((entry) => offset >= entry.begin && offset < entry.end) ?? null;
+}
+
+/** Resolves an index into a packfile's {@link CntcMainContent.strings} table, or `null`. */
+export function resolveCntcString(strings: string[] | undefined, index: number | null): string | null {
+  if (!strings || index == null || index < 0 || index >= strings.length) {
+    return null;
+  }
+  const value = strings[index];
+  return typeof value === "string" ? value : null;
 }
