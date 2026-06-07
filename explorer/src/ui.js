@@ -134,8 +134,8 @@ export default class UI {
     // Anti aliasing option can only be enabled when creating the webgl context
     // So we update that first if needed
     const aaEnabled = $("#enableAA").is(":checked");
-    if (this.appRenderer.webGLRendererOptions.antialiasing !== aaEnabled) {
-      this.appRenderer.webGLRendererOptions.antialiasing = aaEnabled;
+    if (this.appRenderer.webGLRendererOptions.antialias !== aaEnabled) {
+      this.appRenderer.webGLRendererOptions.antialias = aaEnabled;
       this.appRenderer.setupWebGLRenderer(true);
     }
 

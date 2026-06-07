@@ -35,7 +35,7 @@ export default class AppRenderer {
       logarithmicDepthBuffer: true,
       stencil: false,
       premultipliedAlpha: false,
-      antialiasing: true,
+      antialias: true,
     };
   }
 
