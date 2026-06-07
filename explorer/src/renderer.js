@@ -237,7 +237,10 @@ export default class AppRenderer {
     if (controllerType === "orbital") {
       this._threeContext.controls = new MapControls(this._threeContext.camera, this._threeContext.renderer.domElement);
     } else if (controllerType === "fly") {
-      this._threeContext.controls = new PointerLockControls(this._threeContext.camera, this._threeContext.renderer.domElement);
+      this._threeContext.controls = new PointerLockControls(
+        this._threeContext.camera,
+        this._threeContext.renderer.domElement
+      );
       this._attachPointerLockHandlers();
     } else {
       throw new Error("Invalid controller type");
