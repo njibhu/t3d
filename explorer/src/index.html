@@ -107,8 +107,8 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
               <input type="checkbox" id="loadProps" checked />
             </label>
             <label>
-              <span>Visible collisions:</span>
-              <input type="checkbox" id="loadColl" />
+              <span>Load collisions:</span>
+              <input type="checkbox" id="loadColl" checked />
             </label>
           </div>
         </section>
@@ -116,9 +116,8 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
           <p>Enabling <span>Zone models</span> allows you to view trees, plants and various 'nature' models.</p>
           <p>Enabling <span>Props models</span> allows you to view most of the 3d models in a map.</p>
           <p>
-            Enabling <span>Visible collisions</span> allows you to view all the collision data in a map. The collision
-            data has no textures but will give you a hint of how the map looks with actual 3d models. Consider enabling
-            only Visible collisions to reduce map loading times.
+            Enabling <span>Load collisions</span> loads the map collision meshes for visualization and physics.
+            Collision opacity can be adjusted in the top controls while exploring.
           </p>
           <p>Missing maps ? <a id="scanMapLink">Scan the archive</a></p>
         </section>
@@ -199,13 +198,31 @@ along with the T3D Project. If not, see <http://www.gnu.org/licenses/>.
                 value="0.6"
               />
             </label>
+            <label id="collOpacityWrap" class="control" for="collOpacityRange" hidden>
+              <span>Collision opacity:</span>
+              <input
+                class="range"
+                type="range"
+                id="collOpacityRange"
+                name="collOpacityRange"
+                min="0"
+                max="1"
+                step="0.05"
+                value="0"
+              />
+            </label>
+            <label id="physicsWrap" class="control" for="enablePhysics" hidden>
+              <span>Enable physics:</span>
+              <input type="checkbox" id="enablePhysics" />
+            </label>
           </div>
         </div>
+        <div id="pointerLockHint" hidden>Pointer locked. Press Esc to release cursor.</div>
         <div id="helper">
           <label>?</label>
           <p id="keys">
-            <u>Map Camera:</u> Move: Mouse drag - Rotate: Right click drag<br /><u>Fly Camera:</u> Move: W/A/S/D - Tilt:
-            Q/E - Up: R - Down: F - Look: Press mouse / Arrow keys
+            <u>Map Camera:</u> Move: Mouse drag - Rotate: Right click drag<br /><u>Fly Camera:</u> Click canvas to lock
+            cursor - Move: W/A/S/D - Up: Space - Down: Shift - Unlock: Esc (with physics: Space jumps) - Physics: Tab
           </p>
         </div>
       </div>

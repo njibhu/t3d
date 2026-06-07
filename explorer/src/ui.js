@@ -39,6 +39,11 @@ export default class UI {
     this.setupMapChoice();
     this.setupMapExplorer();
 
+    this.appRenderer.setPointerLockChangeHandler((isLocked) => this.syncPointerLockHint(isLocked));
+    this.appRenderer.setPhysicsChangeHandler((isEnabled) => this.syncPhysicsToggle(isEnabled));
+    this.syncPointerLockHint(false);
+    this.syncPhysicsControlVisibility();
+
     this.appRenderer.setMovementSpeed(parseInt($("#mvntSpeedRange").val(), 10));
     this.appRenderer.setFogDistance(parseInt($("#fogRange").val(), 10));
     this.appRenderer.setLightIntensity(parseFloat($("#lightRange").val()));
@@ -78,6 +83,14 @@ export default class UI {
     $("#fogRange").on("change", (event) => this.appRenderer.setFogDistance(event.target.valueAsNumber));
     $("#lightRange").on("change", (event) => this.appRenderer.setLightIntensity(event.target.valueAsNumber));
     $("#shadowRange").on("change", (event) => this.appRenderer.setShadowStrength(event.target.valueAsNumber));
+    $("#collOpacityRange").on("input", (event) => this.appRenderer.setCollisionOpacity(event.target.valueAsNumber));
+    $("#enablePhysics").on("change", (event) => {
+      const enabled = this.appRenderer.setPhysicsEnabled(event.target.checked);
+      this.syncPhysicsToggle(enabled);
+      if (enabled) {
+        $("#collOpacityRange").val(this.appRenderer.collisionOpacity);
+      }
+    });
 
     window.addEventListener("resize", () => this.appRenderer.onWindowResize());
   }
@@ -110,10 +123,13 @@ export default class UI {
       this.appRenderer.setShadowStrength(this.autoLoad.sh);
     }
 
+    const collisions = this.autoLoad.showHavok === undefined ? true : this.autoLoad.showHavok;
     const renderOptions = {
       zone: this.autoLoad.loadZone === undefined ? true : this.autoLoad.loadZone,
       props: this.autoLoad.loadProp === undefined ? true : this.autoLoad.loadProp,
-      collisions: this.autoLoad.showHavok === undefined ? false : this.autoLoad.showHavok,
+      collisions,
+      collOpacity: this.autoLoad.collOpacity,
+      enablePhysics: this.autoLoad.enablePhysics === undefined ? collisions : this.autoLoad.enablePhysics,
     };
     this.showingProgress = true;
     $("#loading-ui").fadeIn();
@@ -140,10 +156,13 @@ export default class UI {
     }
 
     const mapId = $("#mapSelect").val();
+    const collisions = $("#loadColl").is(":checked");
     const renderOptions = {
       zone: $("#loadZone").is(":checked"),
       props: $("#loadProps").is(":checked"),
-      collisions: $("#loadColl").is(":checked"),
+      collisions,
+      collOpacity: $("#collOpacityRange")[0].valueAsNumber,
+      enablePhysics: collisions,
     };
     $("#choose-map").slideUp(() => {
       this.showingProgress = true;
@@ -158,8 +177,11 @@ export default class UI {
 
   onMapLoaded() {
     this.syncEnvironmentSelect();
+    this.syncCollisionOpacityControl();
+    this.syncPhysicsControlVisibility();
     this.showingProgress = false;
     this.isMapViewActive = true;
+    this.syncPointerLockHint(this.appRenderer.isPointerLocked());
     $("#loading-ui").slideUp(() => {
       $("canvas").fadeIn();
       $("#controls").fadeIn();
@@ -171,6 +193,8 @@ export default class UI {
     $("#mvntSpeedRange").val(this.appRenderer.movementSpeed);
     $("#lightRange").val(this.appRenderer.lightIntensity);
     $("#shadowRange").val(this.appRenderer.shadowStrength);
+    $("#collOpacityRange").val(this.appRenderer.collisionOpacity);
+    this.syncPhysicsToggle(this.appRenderer.isPhysicsEnabled());
     this.shouldUpdateUrl = true;
   }
 
@@ -182,6 +206,8 @@ export default class UI {
   onBackToMapSelect() {
     $("#controls").slideUp(() => {
       this.isMapViewActive = false;
+      this.syncPointerLockHint(false);
+      this.syncPhysicsControlVisibility();
       this.appRenderer.stats.hide();
       $("canvas").hide(0);
       $("#choose-map").fadeIn();
@@ -229,6 +255,16 @@ export default class UI {
       target instanceof HTMLElement &&
       (target.isContentEditable ||
         target.closest("input, textarea, select, button, [contenteditable='true']") !== null);
+
+    if (event.code === "Tab" && !event.repeat && this.isMapViewActive && !isEditableTarget) {
+      event.preventDefault();
+      const enabled = this.appRenderer.setPhysicsEnabled(!this.appRenderer.isPhysicsEnabled());
+      this.syncPhysicsToggle(enabled);
+      if (enabled) {
+        $("#collOpacityRange").val(this.appRenderer.collisionOpacity);
+      }
+      return;
+    }
 
     if (event.code !== "Backquote" || event.repeat || !this.isMapViewActive || isEditableTarget) {
       return;
@@ -304,6 +340,45 @@ export default class UI {
     wrap.prop("hidden", false).show();
   }
 
+  syncCollisionOpacityControl() {
+    const wrap = $("#collOpacityWrap");
+    const shouldShow = this.appRenderer.hasCollisionsLoaded();
+
+    if (shouldShow) {
+      wrap.prop("hidden", false).show();
+    } else {
+      wrap.prop("hidden", true).hide();
+    }
+  }
+
+  syncPhysicsControlVisibility() {
+    const wrap = $("#physicsWrap");
+    const shouldShow = this.appRenderer.hasCollisionsLoaded();
+
+    if (shouldShow) {
+      wrap.prop("hidden", false).show();
+      this.syncPhysicsToggle(this.appRenderer.isPhysicsEnabled());
+    } else {
+      wrap.prop("hidden", true).hide();
+      this.syncPhysicsToggle(false);
+    }
+  }
+
+  syncPhysicsToggle(isEnabled) {
+    $("#enablePhysics").prop("checked", !!isEnabled);
+  }
+
+  syncPointerLockHint(isLocked) {
+    const hint = $("#pointerLockHint");
+    const shouldShow = this.isMapViewActive && !!isLocked;
+
+    if (shouldShow) {
+      hint.prop("hidden", false).show();
+    } else {
+      hint.prop("hidden", true).hide();
+    }
+  }
+
   updateUrl(shouldClear = false) {
     if (this.shouldUpdateUrl) {
       if (shouldClear) {
@@ -322,6 +397,13 @@ export default class UI {
     const urlData = getParsedUrl();
     if (urlData.map) {
       this.autoLoad = urlData;
+      if (typeof urlData.collOpacity === "number") {
+        this.appRenderer.setCollisionOpacity(urlData.collOpacity);
+        $("#collOpacityRange").val(urlData.collOpacity);
+      }
+      if (typeof urlData.enablePhysics === "boolean") {
+        this.syncPhysicsToggle(urlData.enablePhysics);
+      }
     }
   }
 }
@@ -338,6 +420,8 @@ function getParsedUrl() {
   data.loadZone = data.loadZone ? data.loadZone === "true" : undefined;
   data.loadProp = data.loadProp ? data.loadProp === "true" : undefined;
   data.showHavok = data.showHavok ? data.showHavok === "true" : undefined;
+  data.collOpacity = data.collOpacity !== undefined ? parseFloat(data.collOpacity) : undefined;
+  data.enablePhysics = data.enablePhysics ? data.enablePhysics === "true" : undefined;
   data.fog = data.fog ? parseInt(data.fog) : undefined;
   data.li = data.li ? parseFloat(data.li) : undefined;
   data.sh = data.sh ? parseFloat(data.sh) : undefined;
