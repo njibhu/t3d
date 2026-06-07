@@ -7,6 +7,11 @@ import { MapControls } from "three/examples/jsm/controls/MapControls.js";
 const CANVAS_CLEAR_COLOR = 0x342920;
 const FOG_LENGTH = 5000;
 
+const DEFAULT_LIGHTING = T3D.LightingUtils?.DEFAULT_LIGHTING_PROFILE ?? {
+  directionalIntensity: 0.7,
+  exposure: 0.95,
+};
+
 export default class AppRenderer {
   constructor(stats) {
     this.localReader = undefined;
@@ -20,7 +25,8 @@ export default class AppRenderer {
     // Defaults
     this.fog = 25000;
     this.movementSpeed = 10000;
-    this.lightIntensity = 1.25;
+    this.lightIntensity = 1;
+    this.shadowStrength = 0.6;
     this.loadedMapID = undefined;
     this.controllerType = "fly";
 
@@ -119,11 +125,23 @@ export default class AppRenderer {
 
   setLightIntensity(value) {
     this.lightIntensity = value;
-    if (this._threeContext.sceneLights) {
+    if (T3D.LightingUtils?.scaleDirectionalLights) {
+      T3D.LightingUtils.scaleDirectionalLights(this._threeContext.sceneLights || [], value);
+    } else if (this._threeContext.sceneLights) {
       for (const light of this._threeContext.sceneLights) {
-        light.intensity = value;
+        if (light.isDirectionalLight) {
+          light.intensity = value;
+        }
       }
     }
+
+    this._updateTerrainShadingUniforms();
+  }
+
+  setShadowStrength(value) {
+    this.shadowStrength = Math.max(0, Math.min(1, value));
+    this._syncShadowFillLight();
+    this._updateTerrainShadingUniforms();
   }
 
   takeScreenShot() {
@@ -173,6 +191,13 @@ export default class AppRenderer {
       this._threeContext.skyScene.remove(skyBox);
     }
     this._mapMeshes = [];
+    this._refreshSceneLights();
+    if (this._threeContext.renderer) {
+      this._threeContext.renderer.setClearColor(CANVAS_CLEAR_COLOR);
+    }
+    if (this._threeContext.scene?.fog) {
+      this._threeContext.scene.fog.color.set(CANVAS_CLEAR_COLOR);
+    }
     if (mapContext) {
       T3D.disposeEnvironmentResources(mapContext);
     }
@@ -187,26 +212,12 @@ export default class AppRenderer {
     context.skyScene = new THREE.Scene();
     context.clock = new THREE.Clock();
 
-    context.ambientLight = new THREE.AmbientLight(0x555555);
-    context.scene.add(context.ambientLight);
-
-    context.sceneLights = [
-      new THREE.DirectionalLight(0xffffff, this.lightIntensity),
-      new THREE.DirectionalLight(0xffffff, this.lightIntensity),
-      new THREE.DirectionalLight(0xffffff, this.lightIntensity),
-    ];
-    context.sceneLights[0].position.set(0, 0, 1);
-    context.sceneLights[0].position.set(0, 1, 0);
-    context.sceneLights[0].position.set(1, 0, 0);
-    for (const light of context.sceneLights) {
-      context.scene.add(light);
-    }
-
-    context.scene.fog = new THREE.Fog(0xffffff, this.fog, this.fog + FOG_LENGTH);
+    context.scene.fog = new THREE.Fog(CANVAS_CLEAR_COLOR, this.fog, this.fog + FOG_LENGTH);
     context.camera.far = this.fog + FOG_LENGTH;
     context.camera.updateProjectionMatrix();
 
     this.setupWebGLRenderer(true);
+    this._refreshSceneLights();
     this.setupController();
     this._render();
   }
@@ -226,8 +237,10 @@ export default class AppRenderer {
   setupWebGLRenderer(hidden) {
     const { _threeContext: context } = this;
     const oldRenderer = context.renderer;
+
     context.renderer = new THREE.WebGLRenderer(this.webGLRendererOptions);
     context.renderer.autoClear = false;
+    T3D.LightingUtils?.applyRendererColorManagement(context.renderer, { exposure: DEFAULT_LIGHTING.exposure });
     context.renderer.setSize(window.innerWidth, window.innerHeight);
     context.renderer.setClearColor(CANVAS_CLEAR_COLOR);
     if (hidden) {
@@ -257,6 +270,8 @@ export default class AppRenderer {
       showHavok: !!this._renderOptions.collisions,
       fog: this.fog,
       env: this._activeEnvironmentVariantId,
+      li: Math.round(this.lightIntensity * 1000) / 1000,
+      sh: Math.round(this.shadowStrength * 1000) / 1000,
     };
   }
 
@@ -336,7 +351,54 @@ export default class AppRenderer {
       this.setFogDistance(bounds.y2 * 2);
     }
 
+    this._updateTerrainShadingUniforms();
+
     return externalCallback();
+  }
+
+  _updateTerrainShadingUniforms() {
+    if (!this._mapContext) {
+      return;
+    }
+
+    const terrainTiles = T3D.getContextValue(this._mapContext, T3D.TerrainRenderer, "terrainTiles", []);
+    for (const tile of terrainTiles) {
+      const material = tile?.material;
+      if (!material) {
+        continue;
+      }
+
+      const materialList = Array.isArray(material) ? material : [material];
+      for (const mat of materialList) {
+        if (!mat?.uniforms) {
+          continue;
+        }
+
+        if (mat.uniforms.lightScale) {
+          mat.uniforms.lightScale.value = this.lightIntensity;
+        }
+        if (mat.uniforms.shadowStrength) {
+          mat.uniforms.shadowStrength.value = this.shadowStrength;
+        }
+      }
+    }
+  }
+
+  _syncShadowFillLight() {
+    const { _threeContext: context } = this;
+    if (!context.scene) {
+      return;
+    }
+
+    if (!context.shadowFillLight) {
+      context.shadowFillLight = new THREE.HemisphereLight(0xffffff, 0x6f6456, 0);
+      context.scene.add(context.shadowFillLight);
+    }
+
+    const minFill = 0.05;
+    const maxFill = 0.9;
+    const liftAmount = 1 - this.shadowStrength;
+    context.shadowFillLight.intensity = minFill + (maxFill - minFill) * liftAmount;
   }
 
   _resetCameraLocation(bounds) {
@@ -352,6 +414,63 @@ export default class AppRenderer {
     }
   }
 
+  _refreshSceneLights() {
+    const { _threeContext: context } = this;
+    if (!context.scene) {
+      return;
+    }
+
+    const existingLights = context.sceneLights || [];
+    if (T3D.LightingUtils?.removeLightsFromScene) {
+      T3D.LightingUtils.removeLightsFromScene(context.scene, existingLights);
+    } else {
+      existingLights.forEach((light) => context.scene.remove(light));
+    }
+
+    const envLights = this._mapContext
+      ? T3D.getContextValue(this._mapContext, T3D.EnvironmentRenderer, "lights", [])
+      : [];
+    let nextLights;
+
+    if (envLights && envLights.length > 0) {
+      nextLights = T3D.LightingUtils?.cloneLights(envLights) ?? envLights.map((light) => light.clone());
+    } else if (T3D.LightingUtils?.createFallbackLightRig) {
+      nextLights = T3D.LightingUtils.createFallbackLightRig({
+        directionalIntensity: DEFAULT_LIGHTING.directionalIntensity,
+      });
+    } else {
+      nextLights = [new THREE.AmbientLight(0x777777)];
+      for (const dir of [
+        [0, 1, 0],
+        [1, 2, 1],
+        [-1, -2, -1],
+      ]) {
+        const light = new THREE.DirectionalLight(0xffffff, DEFAULT_LIGHTING.directionalIntensity);
+        light.position.set(dir[0], dir[1], dir[2]).normalize();
+        nextLights.push(light);
+      }
+    }
+
+    if (T3D.LightingUtils?.scaleDirectionalLights) {
+      T3D.LightingUtils.scaleDirectionalLights(nextLights, this.lightIntensity);
+    } else {
+      nextLights.forEach((light) => {
+        if (light.isDirectionalLight) {
+          light.intensity *= this.lightIntensity;
+        }
+      });
+    }
+
+    context.sceneLights = nextLights;
+    if (T3D.LightingUtils?.addLightsToScene) {
+      T3D.LightingUtils.addLightsToScene(context.scene, nextLights);
+    } else {
+      nextLights.forEach((light) => context.scene.add(light));
+    }
+
+    this._syncShadowFillLight();
+  }
+
   _applyEnvironmentFromContext() {
     for (const skyBox of Array.from(this._threeContext.skyScene.children)) {
       this._threeContext.skyScene.remove(skyBox);
@@ -364,11 +483,18 @@ export default class AppRenderer {
 
     const hazeColor = T3D.getContextValue(this._mapContext, T3D.EnvironmentRenderer, "hazeColor");
     if (hazeColor) {
-      this._threeContext.renderer.setClearColor(
-        new THREE.Color(hazeColor[2] / 255, hazeColor[1] / 255, hazeColor[0] / 255)
-      );
+      const haze = new THREE.Color(hazeColor[2] / 255, hazeColor[1] / 255, hazeColor[0] / 255);
+      this._threeContext.renderer.setClearColor(haze);
+      if (this._threeContext.scene?.fog) {
+        this._threeContext.scene.fog.color.copy(haze);
+      }
     } else {
       this._threeContext.renderer.setClearColor(CANVAS_CLEAR_COLOR);
+      if (this._threeContext.scene?.fog) {
+        this._threeContext.scene.fog.color.set(CANVAS_CLEAR_COLOR);
+      }
     }
+
+    this._refreshSceneLights();
   }
 }

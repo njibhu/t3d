@@ -185,12 +185,25 @@ a:hover {
   border-radius: 0 0 6px 6px;
   height: max-content;
   width: max-content;
+  max-width: calc(100vw - 20px);
+  overflow-x: auto;
   pointer-events: auto;
+}
+
+.barFloat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
 .control {
   display: inline-block;
-  margin: 5px 0;
+  margin: 3px 0;
+}
+
+.control .range {
+  width: 130px;
 }
 
 #environmentSelectWrap select {

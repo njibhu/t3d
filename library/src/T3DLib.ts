@@ -14,6 +14,7 @@ import Logger from "./Logger";
 
 import MapFileList from "./MapFileList";
 import * as MaterialUtils from "./util/MaterialUtils";
+import * as LightingUtils from "./util/LightingUtils";
 import * as MathUtils from "./util/MathUtils";
 import * as RenderUtils from "./util/RenderUtils";
 
@@ -44,6 +45,7 @@ const T3D = {
   Logger: Logger,
   MapFileList: MapFileList,
   MaterialUtils: MaterialUtils,
+  LightingUtils: LightingUtils,
   MathUtils: MathUtils,
   RenderUtils: RenderUtils,
   PersistantStore: PersistantStore,

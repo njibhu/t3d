@@ -10,6 +10,8 @@ export function getFragmentShader(): string {
     "uniform sampler2D texture2;",
     "uniform sampler2D texture3;",
     "uniform sampler2D texture4;",
+    "uniform float lightScale;",
+    "uniform float shadowStrength;",
 
     "#include <common>",
     "#include <logdepthbuf_pars_fragment>",
@@ -64,6 +66,15 @@ export function getFragmentShader(): string {
     "t4, tp1.r",
     ");",
     "color *= 0.5+tp2.r;",
+
+    // Stable terrain lighting: keeps render reliability and gives terrain shape/slider response.
+    "vec3 normal = normalize(vecNormal);",
+    "vec3 sunDir = normalize(vec3(0.35, 0.9, 0.2));",
+    "float diffuse = max(dot(normal, sunDir), 0.0);",
+    "float shaded = 0.35 + 0.65 * diffuse;",
+    "float shading = mix(1.0, shaded, clamp(shadowStrength, 0.0, 1.0));",
+    "color *= shading * lightScale;",
+
     "gl_FragColor = vec4(color,1.0);",
 
     "#include <logdepthbuf_fragment>",

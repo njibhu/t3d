@@ -418,6 +418,8 @@ export default class TerrainRenderer extends DataRenderer {
       uniforms.texture2 = { value: chunkTextures[fileNames[1]] };
       uniforms.texture3 = { value: chunkTextures[fileNames[2]] };
       uniforms.texture4 = { value: chunkTextures[fileNames[3]] };
+      uniforms.lightScale = { value: 1.0 };
+      uniforms.shadowStrength = { value: 0.6 };
 
       if (self.settings && self.settings.export) {
         mat = new THREE.MeshBasicMaterial({ visible: true });
