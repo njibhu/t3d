@@ -78,6 +78,7 @@ export default class UI {
     $("#fogRange").on("change", (event) => this.appRenderer.setFogDistance(event.target.valueAsNumber));
     $("#lightRange").on("change", (event) => this.appRenderer.setLightIntensity(event.target.valueAsNumber));
     $("#shadowRange").on("change", (event) => this.appRenderer.setShadowStrength(event.target.valueAsNumber));
+    $("#collOpacityRange").on("input", (event) => this.appRenderer.setCollisionOpacity(event.target.valueAsNumber));
 
     window.addEventListener("resize", () => this.appRenderer.onWindowResize());
   }
@@ -114,6 +115,8 @@ export default class UI {
       zone: this.autoLoad.loadZone === undefined ? true : this.autoLoad.loadZone,
       props: this.autoLoad.loadProp === undefined ? true : this.autoLoad.loadProp,
       collisions: this.autoLoad.showHavok === undefined ? false : this.autoLoad.showHavok,
+      collOpacity:
+        this.autoLoad.collOpacity === undefined ? this.appRenderer.collisionOpacity : this.autoLoad.collOpacity,
     };
     this.showingProgress = true;
     $("#loading-ui").fadeIn();
@@ -144,6 +147,7 @@ export default class UI {
       zone: $("#loadZone").is(":checked"),
       props: $("#loadProps").is(":checked"),
       collisions: $("#loadColl").is(":checked"),
+      collOpacity: $("#collOpacityRange")[0].valueAsNumber,
     };
     $("#choose-map").slideUp(() => {
       this.showingProgress = true;
@@ -158,6 +162,7 @@ export default class UI {
 
   onMapLoaded() {
     this.syncEnvironmentSelect();
+    this.syncCollisionOpacityControl();
     this.showingProgress = false;
     this.isMapViewActive = true;
     $("#loading-ui").slideUp(() => {
@@ -171,6 +176,7 @@ export default class UI {
     $("#mvntSpeedRange").val(this.appRenderer.movementSpeed);
     $("#lightRange").val(this.appRenderer.lightIntensity);
     $("#shadowRange").val(this.appRenderer.shadowStrength);
+    $("#collOpacityRange").val(this.appRenderer.collisionOpacity);
     this.shouldUpdateUrl = true;
   }
 
@@ -304,6 +310,17 @@ export default class UI {
     wrap.prop("hidden", false).show();
   }
 
+  syncCollisionOpacityControl() {
+    const wrap = $("#collOpacityWrap");
+    const shouldShow = this.appRenderer.hasCollisionsLoaded();
+
+    if (shouldShow) {
+      wrap.prop("hidden", false).show();
+    } else {
+      wrap.prop("hidden", true).hide();
+    }
+  }
+
   updateUrl(shouldClear = false) {
     if (this.shouldUpdateUrl) {
       if (shouldClear) {
@@ -322,6 +339,10 @@ export default class UI {
     const urlData = getParsedUrl();
     if (urlData.map) {
       this.autoLoad = urlData;
+      if (typeof urlData.collOpacity === "number") {
+        this.appRenderer.setCollisionOpacity(urlData.collOpacity);
+        $("#collOpacityRange").val(urlData.collOpacity);
+      }
     }
   }
 }
@@ -338,6 +359,7 @@ function getParsedUrl() {
   data.loadZone = data.loadZone ? data.loadZone === "true" : undefined;
   data.loadProp = data.loadProp ? data.loadProp === "true" : undefined;
   data.showHavok = data.showHavok ? data.showHavok === "true" : undefined;
+  data.collOpacity = data.collOpacity !== undefined ? parseFloat(data.collOpacity) : undefined;
   data.fog = data.fog ? parseInt(data.fog) : undefined;
   data.li = data.li ? parseFloat(data.li) : undefined;
   data.sh = data.sh ? parseFloat(data.sh) : undefined;

@@ -24,6 +24,7 @@ export default class AppRenderer {
     this.movementSpeed = 10000;
     this.lightIntensity = DEFAULT_LIGHTING.lightScale;
     this.shadowStrength = DEFAULT_LIGHTING.shadowStrength;
+    this.collisionOpacity = 1;
     this.loadedMapID = undefined;
     this.controllerType = "fly";
 
@@ -69,7 +70,10 @@ export default class AppRenderer {
       renderers.push({ renderClass: T3D.PropertiesRenderer, settings: { visible: true } });
     }
     if (renderOptions.collisions) {
-      renderers.push({ renderClass: T3D.HavokRenderer, settings: { visible: true } });
+      renderers.push({
+        renderClass: T3D.HavokRenderer,
+        settings: { visible: true, opacity: renderOptions.collOpacity ?? this.collisionOpacity },
+      });
     }
 
     T3D.renderMapContentsAsync(this.localReader, this.loadedMapID, renderers, (context) => {
@@ -130,6 +134,36 @@ export default class AppRenderer {
     this.shadowStrength = Math.max(0, Math.min(1, value));
     this._syncShadowFillLight();
     this._updateTerrainShadingUniforms();
+  }
+
+  setCollisionOpacity(value) {
+    const normalized = Math.max(0, Math.min(1, Number(value)));
+    if (Number.isNaN(normalized)) {
+      return;
+    }
+
+    this.collisionOpacity = normalized;
+
+    if (!this._mapContext || !this._renderOptions?.collisions) {
+      return;
+    }
+
+    const collisions = T3D.getContextValue(this._mapContext, T3D.HavokRenderer, "meshes", []);
+    const transparent = normalized < 1;
+
+    for (const mesh of collisions) {
+      const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+      for (const material of materials) {
+        if (!material) {
+          continue;
+        }
+
+        material.opacity = normalized;
+        material.transparent = transparent;
+        material.depthWrite = !transparent;
+        material.needsUpdate = true;
+      }
+    }
   }
 
   takeScreenShot() {
@@ -253,9 +287,10 @@ export default class AppRenderer {
       ry: Math.round(rot.y * 10000) / 10000,
       rz: Math.round(rot.z * 10000) / 10000,
       cameraType: this.controllerType,
-      loadZone: !!this._renderOptions.zone,
-      loadProp: !!this._renderOptions.props,
-      showHavok: !!this._renderOptions.collisions,
+      loadZone: !!this._renderOptions?.zone,
+      loadProp: !!this._renderOptions?.props,
+      showHavok: !!this._renderOptions?.collisions,
+      collOpacity: this.collisionOpacity,
       fog: this.fog,
       env: this._activeEnvironmentVariantId,
       li: Math.round(this.lightIntensity * 1000) / 1000,
@@ -270,6 +305,10 @@ export default class AppRenderer {
 
   getActiveEnvironmentVariantId() {
     return this._activeEnvironmentVariantId;
+  }
+
+  hasCollisionsLoaded() {
+    return !!this._renderOptions?.collisions;
   }
 
   setEnvironmentVariant(variantId) {
