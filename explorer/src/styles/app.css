@@ -441,8 +441,28 @@ input {
   border-color: var(--t3d-accent);
 }
 
+.combo-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.combo-selected-icon {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 22px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.combo-selected-icon[hidden] {
+  display: none;
+}
+
 .combo-input {
   width: 100%;
+  min-width: 0;
   padding: 7px 0;
   border: 0;
   outline: none;
@@ -508,7 +528,7 @@ input {
   width: 44px;
   height: 24px;
   object-fit: contain;
-  object-position: left center;
+  object-position: center;
 }
 
 .combo-option-label {

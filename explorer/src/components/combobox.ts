@@ -14,6 +14,7 @@ export class Combobox extends Component<HTMLDivElement> {
   readonly root: HTMLDivElement;
 
   private readonly input: HTMLInputElement;
+  private readonly selectedIcon: HTMLImageElement;
   private readonly button: HTMLButtonElement;
   private readonly list: HTMLDivElement;
   private readonly empty: HTMLDivElement;
@@ -40,6 +41,17 @@ export class Combobox extends Component<HTMLDivElement> {
     const chrome = document.createElement("div");
     chrome.className = "combo-chrome";
 
+    const field = document.createElement("div");
+    field.className = "combo-field";
+
+    // Mirrors the selected option's logo next to the input. The input alone can only show
+    // text, so without this the icon would vanish once an option is committed.
+    this.selectedIcon = document.createElement("img");
+    this.selectedIcon.className = "combo-selected-icon";
+    this.selectedIcon.alt = "";
+    this.selectedIcon.hidden = true;
+    field.appendChild(this.selectedIcon);
+
     this.input = document.createElement("input");
     this.input.className = "combo-input";
     this.input.type = "text";
@@ -49,7 +61,9 @@ export class Combobox extends Component<HTMLDivElement> {
     this.input.setAttribute("aria-controls", this.listId);
     this.input.setAttribute("aria-expanded", "false");
     this.input.autocomplete = "off";
-    chrome.appendChild(this.input);
+    field.appendChild(this.input);
+
+    chrome.appendChild(field);
 
     this.button = document.createElement("button");
     this.button.className = "combo-button";
@@ -197,6 +211,7 @@ export class Combobox extends Component<HTMLDivElement> {
     this.open = true;
     this.root.classList.add("open");
     this.input.setAttribute("aria-expanded", "true");
+    this.renderSelectedIcon();
     this.filter();
   }
 
@@ -224,9 +239,22 @@ export class Combobox extends Component<HTMLDivElement> {
   }
 
   private syncInputValue(): void {
+    this.renderSelectedIcon();
     if (this.open) return;
     const option = this.getSelectedOption();
     this.input.value = option?.label ?? "";
+  }
+
+  /** Show the selected option's logo beside the input, except while typing/browsing the list. */
+  private renderSelectedIcon(): void {
+    const icon = this.open ? null : (this.getSelectedOption()?.icon ?? null);
+    if (icon) {
+      this.selectedIcon.src = icon;
+      this.selectedIcon.hidden = false;
+    } else {
+      this.selectedIcon.removeAttribute("src");
+      this.selectedIcon.hidden = true;
+    }
   }
 
   private renderOptions(): void {

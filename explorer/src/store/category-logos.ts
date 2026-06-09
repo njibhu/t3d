@@ -1,14 +1,19 @@
-import coreLogo from "../../external-assets/gw2/400px-GW2Logo_new.png";
-import hotLogo from "../../external-assets/gw2/400px-HoT_Texture_Centered_Trans.png";
-import pofLogo from "../../external-assets/gw2/400px-GW2-PoF_Texture_Centered_Trans.png";
-import eodLogo from "../../external-assets/gw2/400px-EoD_Texture_Trans.png";
-import sotoLogo from "../../external-assets/gw2/Secrets_of_the_Obscure_logo.png";
-import janthirLogo from "../../external-assets/gw2/400px-Janthir_Wilds_logo.png";
-import voeLogo from "../../external-assets/gw2/400px-Visions_of_Eternity_logo.png";
-import lwLogo from "../../external-assets/gw2/300px-Living_World_logo.png";
-import lw3Logo from "../../external-assets/gw2/300px-Living_World_Season_3_logo.png";
-import lw4Logo from "../../external-assets/gw2/300px-Living_World_Season_4_logo.png";
-import lw5Logo from "../../external-assets/gw2/300px-Living_World_Season_5_logo.png";
+import coreLogo from "../../external-assets/gw2/guild-wars-2.png";
+import hotLogo from "../../external-assets/gw2/heart-of-thorns.png";
+import pofLogo from "../../external-assets/gw2/path-of-fire.png";
+import eodLogo from "../../external-assets/gw2/end-of-dragons.png";
+import sotoLogo from "../../external-assets/gw2/secrets-of-the-obscure.png";
+import janthirLogo from "../../external-assets/gw2/janthir-wilds.png";
+import voeLogo from "../../external-assets/gw2/visions-of-eternity.png";
+import lwLogo from "../../external-assets/gw2/living-world.png";
+import lw3Logo from "../../external-assets/gw2/living-world-season-3.png";
+import lw4Logo from "../../external-assets/gw2/living-world-season-4.png";
+import lw5Logo from "../../external-assets/gw2/living-world-season-5.png";
+import guildHallsLogo from "../../external-assets/gw2/guild-halls.png";
+import fractalsLogo from "../../external-assets/gw2/fractals-of-the-mists.png";
+import pvpLogo from "../../external-assets/gw2/player-vs-player.png";
+import wvwLogo from "../../external-assets/gw2/world-vs-world.png";
+import festivalsLogo from "../../external-assets/gw2/festivals.png";
 
 /**
  * Maps the `(X#)` / `(LW#)` prefix codes that t3d-lib puts in front of every category name
@@ -32,6 +37,19 @@ const LOGO_BY_CODE: Record<string, string> = {
 
 const CODE_PREFIX = /^\((X\d+|LW\d+)\)\s*/;
 
+/**
+ * Game-mode / activity categories carry no `(X#)`/`(LW#)` code, so they're matched on their
+ * full category name instead. These use the in-game menu-bar / activity icons rather than
+ * the marketing wordmarks the expansions get.
+ */
+const LOGO_BY_NAME: Record<string, string> = {
+  "Guild Halls & Homesteads": guildHallsLogo,
+  "Fractals of the Mists [Infinite]": fractalsLogo,
+  "Player vs. Player [PvP]": pvpLogo,
+  "World vs. World [WvW]": wvwLogo,
+  "Festivals & Bonus Events": festivalsLogo,
+};
+
 export interface CategoryDisplay {
   /** Logo URL for the category's expansion/season, or null when there's no match. */
   icon: string | null;
@@ -47,6 +65,10 @@ export function resolveCategoryDisplay(category: string): CategoryDisplay {
     if (icon) {
       return { icon, label: category.slice(match[0].length) };
     }
+  }
+  const namedIcon = LOGO_BY_NAME[category] ?? null;
+  if (namedIcon) {
+    return { icon: namedIcon, label: category };
   }
   return { icon: null, label: category };
 }
