@@ -70,6 +70,8 @@ export class MapContent {
   private currentMapId: number | null = null;
 
   private readonly terrainObjects: Object3D[] = [];
+  /** Terrain tiles (excluding water) used as the ground surface for physics traversal. */
+  private readonly groundMeshes: Object3D[] = [];
   private readonly skyObjects: Object3D[] = [];
   private readonly layerObjects: SceneLayerRecord = { zone: [], props: [], collisions: [] };
   private readonly layerLoaded: SceneFlagRecord = { zone: false, props: false, collisions: false };
@@ -141,7 +143,7 @@ export class MapContent {
       }
       if (key === "collisions") {
         this.collisionMeshes = meshes;
-        this.host.setCollisionMeshes(meshes);
+        this.updatePhysicsCollision();
         this.applyCollisionOpacity();
       }
     }
@@ -174,6 +176,7 @@ export class MapContent {
       disposeObjectTree(mesh);
     }
     this.terrainObjects.length = 0;
+    this.groundMeshes.length = 0;
 
     for (const key of Object.keys(this.layerObjects) as LayerKey[]) {
       for (const mesh of this.layerObjects[key]) {
@@ -237,12 +240,15 @@ export class MapContent {
     for (const mesh of T3D.getContextValue<Object3D[]>(this.context, TerrainRenderer, "terrainTiles", [])) {
       this.host.scene.add(mesh);
       this.terrainObjects.push(mesh);
+      this.groundMeshes.push(mesh);
     }
     const water = T3D.getContextValue<Object3D | null>(this.context, TerrainRenderer, "water", null);
     if (water) {
       this.host.scene.add(water);
       this.terrainObjects.push(water);
     }
+    // The terrain is the walkable ground, so it must collide even before the Havok layer loads.
+    this.updatePhysicsCollision();
 
     const bounds = T3D.getContextValue<MapBounds | null>(this.context, TerrainRenderer, "bounds", null);
     if (bounds) {
@@ -291,6 +297,11 @@ export class MapContent {
 
     const lights = T3D.getContextValue<Light[]>(this.context, EnvironmentRenderer, "lights", []);
     this.host.lighting.refresh(lights);
+  }
+
+  /** Physics collides with the terrain ground plus the Havok collision layer (once loaded). */
+  private updatePhysicsCollision(): void {
+    this.host.setCollisionMeshes([...this.groundMeshes, ...this.collisionMeshes]);
   }
 
   private applyCollisionOpacity(): void {

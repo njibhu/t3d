@@ -108,10 +108,28 @@ input {
   text-transform: uppercase;
 }
 
-.side-handle {
+/* Vertically-centered stacks of edge handles, one per screen side. */
+.side-rail {
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   z-index: 28;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.side-rail--left {
+  left: 0;
+  align-items: flex-start;
+}
+
+.side-rail--right {
+  right: 0;
+  align-items: flex-end;
+}
+
+.side-handle {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,17 +162,13 @@ input {
 }
 
 .side-handle--left {
-  left: 0;
   border-left: 0;
   border-radius: 0 8px 8px 0;
-  transform: translateY(-50%);
 }
 
 .side-handle--right {
-  right: 0;
   border-right: 0;
   border-radius: 8px 0 0 8px;
-  transform: translateY(-50%);
 }
 
 .side-handle-label {
@@ -616,6 +630,30 @@ input {
   transform: translateX(calc(100% + 48px));
   opacity: 0;
   pointer-events: none;
+}
+
+/* Keybind rows: the action label sits left, the assignable key button right. */
+.keybind-key {
+  min-width: 96px;
+  text-align: center;
+  font-family: var(--t3d-mono);
+  font-size: 12px;
+}
+
+.keybind-key.listening {
+  border-color: var(--t3d-accent);
+  color: var(--t3d-accent);
+}
+
+.keybind-key--static {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--t3d-border);
+  border-radius: 4px;
+  color: var(--t3d-text-muted);
 }
 
 .settings-header {

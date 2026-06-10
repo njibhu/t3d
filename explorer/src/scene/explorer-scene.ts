@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import T3D, { type LocalReader } from "t3d-lib";
 import type { CameraMode, CameraSnapshot, LayerKey } from "../types.js";
+import type { Keybindings } from "../store/keybindings.js";
 import { CLEAR_COLOR, DEFAULT_LIGHTING, FOG_LENGTH, type MapBounds } from "./three-utils.js";
 import { CameraRig } from "./camera-rig.js";
 import { PhysicsController } from "./physics-controller.js";
@@ -193,6 +194,10 @@ export class ExplorerScene implements MapContentHost {
 
   setMovementSpeed(value: number): void {
     this.fly.setMovementSpeed(value);
+  }
+
+  setKeybindings(bindings: Keybindings): void {
+    this.fly.setKeybindings(bindings);
   }
 
   setClipEnabled(value: boolean): void {

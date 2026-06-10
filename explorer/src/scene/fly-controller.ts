@@ -2,6 +2,7 @@ import * as THREE from "three";
 import type { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls.js";
 import { isEditableTarget } from "./three-utils.js";
 import type { PhysicsController } from "./physics-controller.js";
+import { DEFAULT_KEYBINDINGS, MOVEMENT_ACTIONS, type Keybindings, type MovementAction } from "../store/keybindings.js";
 
 interface PointerHandlers {
   controls: PointerLockControls;
@@ -27,6 +28,7 @@ const SPEED_WHEEL_STEP = 500;
  */
 export class FlyController {
   private movementSpeed = 10000;
+  private bindings: Keybindings = { ...DEFAULT_KEYBINDINGS };
   private handlers?: PointerHandlers;
 
   private readonly move = { forward: false, backward: false, left: false, right: false, up: false, down: false };
@@ -50,6 +52,17 @@ export class FlyController {
     return this.movementSpeed;
   }
 
+  setKeybindings(bindings: Keybindings): void {
+    this.bindings = { ...bindings };
+  }
+
+  private actionForCode(code: string): MovementAction | null {
+    for (const action of MOVEMENT_ACTIONS) {
+      if (this.bindings[action] === code) return action;
+    }
+    return null;
+  }
+
   attach(domElement: HTMLCanvasElement, controls: PointerLockControls): void {
     this.detach();
 
@@ -65,67 +78,21 @@ export class FlyController {
     };
     const onKeyDown = (event: KeyboardEvent): void => {
       if (isEditableTarget(event.target)) return;
-      switch (event.code) {
-        case "KeyW":
-        case "ArrowUp":
-          this.move.forward = true;
-          break;
-        case "KeyS":
-        case "ArrowDown":
-          this.move.backward = true;
-          break;
-        case "KeyA":
-        case "ArrowLeft":
-          this.move.left = true;
-          break;
-        case "KeyD":
-        case "ArrowRight":
-          this.move.right = true;
-          break;
-        case "Space":
-          if (this.physics.isEnabled()) {
-            if (!event.repeat) {
-              this.physics.requestJump();
-            }
-          } else {
-            this.move.up = true;
-          }
-          event.preventDefault();
-          break;
-        case "ShiftLeft":
-        case "ShiftRight":
-          this.move.down = true;
-          break;
+      const action = this.actionForCode(event.code);
+      if (!action) return;
+      event.preventDefault();
+      if (action === "up" && this.physics.isEnabled()) {
+        if (!event.repeat) this.physics.requestJump();
+        return;
       }
+      this.move[action] = true;
     };
     const onKeyUp = (event: KeyboardEvent): void => {
-      switch (event.code) {
-        case "KeyW":
-        case "ArrowUp":
-          this.move.forward = false;
-          break;
-        case "KeyS":
-        case "ArrowDown":
-          this.move.backward = false;
-          break;
-        case "KeyA":
-        case "ArrowLeft":
-          this.move.left = false;
-          break;
-        case "KeyD":
-        case "ArrowRight":
-          this.move.right = false;
-          break;
-        case "Space":
-          this.move.up = false;
-          this.physics.cancelJump();
-          event.preventDefault();
-          break;
-        case "ShiftLeft":
-        case "ShiftRight":
-          this.move.down = false;
-          break;
-      }
+      const action = this.actionForCode(event.code);
+      if (!action) return;
+      event.preventDefault();
+      this.move[action] = false;
+      if (action === "up") this.physics.cancelJump();
     };
 
     // While the pointer is locked the cursor can't reach the settings slider, so map the

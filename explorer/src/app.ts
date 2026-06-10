@@ -1,13 +1,24 @@
 import { ProgressBar } from "./components/progress-bar.js";
 import { ExplorerScene } from "./scene/explorer-scene.js";
+import { isEditableTarget } from "./scene/three-utils.js";
 import { ArchiveStore } from "./store/archive-store.js";
 import { onProgress } from "./store/progress-bus.js";
 import { createExplorerSessionState, setRendererAntialias, switchCameraMode } from "./store/session-state.js";
 import { createDefaultExplorerUrlState, parseExplorerUrl } from "./store/url-state.js";
 import { UrlSync } from "./store/url-sync.js";
+import {
+  assignKeybinding,
+  DEFAULT_KEYBINDINGS,
+  formatKeyCode,
+  loadKeybindings,
+  saveKeybindings,
+  type Keybindings,
+  type MovementAction,
+} from "./store/keybindings.js";
 import { toErrorMessage } from "./errors.js";
 import { LauncherPanel } from "./ui/launcher-panel.js";
 import { SettingsDrawer } from "./ui/settings-drawer.js";
+import { ControlsDrawer } from "./ui/controls-drawer.js";
 import { showToast } from "./ui/toast.js";
 import { showConfirmDialog } from "./ui/confirm-dialog.js";
 import type { ExplorerController } from "./ui/explorer-controller.js";
@@ -35,18 +46,22 @@ export class App implements ExplorerController {
   private currentUrlState: ExplorerUrlState = createDefaultExplorerUrlState();
   private sessionState = createExplorerSessionState();
   private layerState: Record<LayerKey, boolean> = { ...DEFAULT_LAYER_SELECTION };
+  private keybindings: Keybindings = loadKeybindings();
   private autoLoadAttempted = false;
 
   private launcherOpen = true;
   private settingsOpen = false;
+  private controlsOpen = false;
   private sceneProgress: ProgressState = { visible: false, label: "", pct: null };
 
   private globalProgress!: ProgressBar;
   private pointerHintEl!: HTMLDivElement;
   private launcherHandle!: HTMLButtonElement;
   private settingsHandle!: HTMLButtonElement;
+  private controlsHandle!: HTMLButtonElement;
   private launcher!: LauncherPanel;
   private settings!: SettingsDrawer;
+  private controls!: ControlsDrawer;
   private urlSync!: UrlSync;
 
   constructor(root: HTMLElement) {
@@ -70,6 +85,7 @@ export class App implements ExplorerController {
     this.buildShell();
     this.attachStore();
     this.attachSceneEvents();
+    this.attachGlobalShortcuts();
     this.applyInitialSettingsToScene();
     this.urlSync = new UrlSync({
       getMapId: () => this.scene.getCurrentMapId(),
@@ -111,6 +127,14 @@ export class App implements ExplorerController {
 
   isSettingsOpen(): boolean {
     return this.settingsOpen;
+  }
+
+  isControlsOpen(): boolean {
+    return this.controlsOpen;
+  }
+
+  getKeybindings(): Keybindings {
+    return this.keybindings;
   }
 
   getCameraMode(): CameraMode {
@@ -224,6 +248,23 @@ export class App implements ExplorerController {
     this.scene.setClipHeight(value);
   }
 
+  setKeybinding(action: MovementAction, code: string): void {
+    this.keybindings = assignKeybinding(this.keybindings, action, code);
+    this.applyKeybindings();
+    this.render();
+  }
+
+  resetKeybindings(): void {
+    this.keybindings = { ...DEFAULT_KEYBINDINGS };
+    this.applyKeybindings();
+    this.render();
+  }
+
+  private applyKeybindings(): void {
+    saveKeybindings(this.keybindings);
+    this.scene.setKeybindings(this.keybindings);
+  }
+
   setEnvironment(id: string | null): void {
     this.currentUrlState.environmentId = id;
     this.scene.setEnvironmentVariant(id);
@@ -269,16 +310,33 @@ export class App implements ExplorerController {
     this.settings = new SettingsDrawer(this);
     shell.appendChild(this.settings.root);
 
-    // Edge handles that slide the panels in and out (shown once a map is loaded).
+    this.controls = new ControlsDrawer(this);
+    shell.appendChild(this.controls.root);
+
+    // Edge handles that slide the panels in and out (shown once a map is loaded). Settings and
+    // Controls share the right edge and the same drawer slot, so opening one closes the other.
     this.launcherHandle = this.buildSideHandle("Maps", "left", () => {
       this.launcherOpen = !this.launcherOpen;
       this.render();
     });
     this.settingsHandle = this.buildSideHandle("Settings", "right", () => {
       this.settingsOpen = !this.settingsOpen;
+      if (this.settingsOpen) this.controlsOpen = false;
       this.render();
     });
-    shell.append(this.launcherHandle, this.settingsHandle);
+    this.controlsHandle = this.buildSideHandle("Controls", "right", () => {
+      this.controlsOpen = !this.controlsOpen;
+      if (this.controlsOpen) this.settingsOpen = false;
+      this.render();
+    });
+
+    const leftRail = document.createElement("div");
+    leftRail.className = "side-rail side-rail--left";
+    leftRail.appendChild(this.launcherHandle);
+    const rightRail = document.createElement("div");
+    rightRail.className = "side-rail side-rail--right";
+    rightRail.append(this.settingsHandle, this.controlsHandle);
+    shell.append(leftRail, rightRail);
 
     this.pointerHintEl = document.createElement("div");
     this.pointerHintEl.className = "pointer-hint";
@@ -328,6 +386,15 @@ export class App implements ExplorerController {
     this.scene.setMovementSpeedChangeHandler((value) => {
       this.currentUrlState.movementSpeed = value;
       this.settings.sync();
+    });
+  }
+
+  private attachGlobalShortcuts(): void {
+    window.addEventListener("keydown", (event) => {
+      // Plain "P" toggles physics; ignore repeats, text fields, and OS combos like Ctrl+P.
+      if (event.code !== "KeyP" || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (isEditableTarget(event.target) || this.scene.getCurrentMapId() == null) return;
+      this.togglePhysics();
     });
   }
 
@@ -467,6 +534,7 @@ export class App implements ExplorerController {
     this.scene.setShadowStrength(this.currentUrlState.shadowStrength);
     this.scene.setClipHeight(this.currentUrlState.clipHeight);
     this.scene.setClipEnabled(this.currentUrlState.clipEnabled);
+    this.scene.setKeybindings(this.keybindings);
   }
 
   private syncLayerSelectionToState(): void {
@@ -482,13 +550,17 @@ export class App implements ExplorerController {
     // launcher is the only entry point.
     this.launcherHandle.hidden = !mapLoaded;
     this.settingsHandle.hidden = !mapLoaded;
+    this.controlsHandle.hidden = !mapLoaded;
     this.launcherHandle.classList.toggle("open", this.launcherOpen);
     this.launcherHandle.setAttribute("aria-expanded", String(this.launcherOpen));
     this.settingsHandle.classList.toggle("open", this.settingsOpen);
     this.settingsHandle.setAttribute("aria-expanded", String(this.settingsOpen));
+    this.controlsHandle.classList.toggle("open", this.controlsOpen);
+    this.controlsHandle.setAttribute("aria-expanded", String(this.controlsOpen));
 
     this.launcher.sync();
     this.settings.sync();
+    this.controls.sync();
     this.renderProgress();
     this.renderPointerHint(this.scene.isPointerLocked());
   }
@@ -505,7 +577,7 @@ export class App implements ExplorerController {
     this.pointerHintEl.textContent = locked
       ? "First Person active. Esc releases the cursor."
       : this.scene.isPhysicsEnabled()
-        ? "First Person active. Click the map to capture the cursor. Space jumps while physics is enabled."
+        ? `First Person active. Click the map to capture the cursor. ${formatKeyCode(this.keybindings.up)} jumps while physics is enabled.`
         : "First Person active. Click the map to capture the cursor. Esc releases the cursor.";
   }
 
