@@ -1,8 +1,19 @@
 export type MovementAction = "forward" | "backward" | "left" | "right" | "up" | "down";
 
-export type Keybindings = Record<MovementAction, string>;
+/** Non-movement actions that can also be rebound (handled outside the fly controller). */
+export type ActionKey = "togglePhysics";
+
+/** Every rebindable action — movement plus standalone actions. */
+export type BindableAction = MovementAction | ActionKey;
+
+export type Keybindings = Record<BindableAction, string>;
 
 export const MOVEMENT_ACTIONS: MovementAction[] = ["forward", "backward", "left", "right", "up", "down"];
+
+export const ACTION_KEYS: ActionKey[] = ["togglePhysics"];
+
+/** All rebindable actions, used for the duplicate-key swap so no two actions share a key. */
+export const BINDABLE_ACTIONS: BindableAction[] = [...MOVEMENT_ACTIONS, ...ACTION_KEYS];
 
 export const MOVEMENT_ACTION_LABELS: Record<MovementAction, string> = {
   forward: "Move forward",
@@ -13,6 +24,10 @@ export const MOVEMENT_ACTION_LABELS: Record<MovementAction, string> = {
   down: "Move down",
 };
 
+export const ACTION_LABELS: Record<ActionKey, string> = {
+  togglePhysics: "Toggle physics",
+};
+
 export const DEFAULT_KEYBINDINGS: Keybindings = {
   forward: "KeyW",
   backward: "KeyS",
@@ -20,6 +35,7 @@ export const DEFAULT_KEYBINDINGS: Keybindings = {
   right: "KeyD",
   up: "Space",
   down: "ShiftLeft",
+  togglePhysics: "KeyP",
 };
 
 const STORAGE_KEY = "t3d-explorer-keybindings";
@@ -29,9 +45,9 @@ export function loadKeybindings(): Keybindings {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return { ...DEFAULT_KEYBINDINGS };
-    const parsed = JSON.parse(raw) as Partial<Record<MovementAction, unknown>>;
+    const parsed = JSON.parse(raw) as Partial<Record<BindableAction, unknown>>;
     const result = { ...DEFAULT_KEYBINDINGS };
-    for (const action of MOVEMENT_ACTIONS) {
+    for (const action of BINDABLE_ACTIONS) {
       const code = parsed[action];
       if (typeof code === "string" && code) result[action] = code;
     }
@@ -53,10 +69,10 @@ export function saveKeybindings(bindings: Keybindings): void {
  * Assign `code` to `action`. If another action already uses `code`, the two swap keys so
  * every action stays bound to exactly one key.
  */
-export function assignKeybinding(bindings: Keybindings, action: MovementAction, code: string): Keybindings {
+export function assignKeybinding(bindings: Keybindings, action: BindableAction, code: string): Keybindings {
   const next = { ...bindings };
   const previous = next[action];
-  for (const other of MOVEMENT_ACTIONS) {
+  for (const other of BINDABLE_ACTIONS) {
     if (other !== action && next[other] === code) {
       next[other] = previous;
     }

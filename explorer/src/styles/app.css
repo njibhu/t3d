@@ -213,6 +213,136 @@ input {
   .hud-brand:focus-visible {
     transform: none;
   }
+
+  /* Keep the fade but drop the slide/scale motion. */
+  .info-popover,
+  .info-bubble.open .info-popover {
+    transform: none;
+    transition:
+      opacity 160ms ease,
+      visibility 0s linear 0s;
+  }
+
+  .info-popover {
+    transition:
+      opacity 160ms ease,
+      visibility 0s linear 160ms;
+  }
+}
+
+/* Top-right "about" bubble: an "i" trigger and the popover it toggles. */
+.info-bubble {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 30;
+}
+
+.info-bubble-trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--t3d-border);
+  border-radius: 50%;
+  background: var(--t3d-bg-panel);
+  box-shadow: var(--t3d-shadow);
+  color: var(--t3d-text-muted);
+  font-family: var(--t3d-mono);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.info-bubble-trigger:hover,
+.info-bubble-trigger:focus-visible,
+.info-bubble.open .info-bubble-trigger {
+  border-color: var(--t3d-accent);
+  color: var(--t3d-accent);
+  outline: none;
+}
+
+.info-bubble-trigger:hover {
+  transform: translateY(-1px);
+}
+
+.info-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  box-sizing: border-box;
+  width: min(340px, calc(100vw - 24px));
+  max-height: calc(100vh - 84px);
+  overflow: auto;
+  padding: 14px 16px;
+  background: var(--t3d-bg-panel);
+  border: 1px solid var(--t3d-border);
+  border-radius: 8px;
+  box-shadow: var(--t3d-shadow);
+  /* Closed: faded out, nudged up toward the trigger, and lifted out of the layout/tab order.
+     The visibility delay lets the fade play out before it's hidden from assistive tech. */
+  transform: translateY(-6px) scale(0.97);
+  transform-origin: top right;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 0s linear 160ms;
+}
+
+.info-bubble.open .info-popover {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 0s linear 0s;
+}
+
+.info-popover p {
+  margin: 6px 0 0;
+  color: var(--t3d-text-muted);
+  line-height: 1.5;
+}
+
+.info-section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--t3d-border);
+}
+
+.info-section h3 {
+  margin: 0;
+  color: var(--t3d-accent);
+  font-family: var(--t3d-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.info-popover a {
+  color: var(--t3d-accent);
+  text-decoration: none;
+}
+
+.info-popover a:hover {
+  text-decoration: underline;
+}
+
+.info-copyright p {
+  font-size: 11px;
+  line-height: 1.45;
 }
 
 /* Vertically-centered stacks of edge handles, one per screen side. */
@@ -1046,6 +1176,11 @@ input {
 
   .hud-brand {
     width: auto;
+  }
+
+  .info-bubble {
+    top: 8px;
+    right: 8px;
   }
 
   .launcher-panel {

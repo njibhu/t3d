@@ -1,5 +1,5 @@
 import type { ArchiveStoreSnapshot } from "../store/archive-store.js";
-import type { Keybindings, MovementAction } from "../store/keybindings.js";
+import type { BindableAction, Keybindings } from "../store/keybindings.js";
 import type { CameraMode, ExplorerUrlState, LayerKey } from "../types.js";
 
 /**
@@ -38,7 +38,7 @@ export interface ExplorerController {
   setShadowStrength(value: number): void;
   setClipEnabled(value: boolean): void;
   setClipHeight(value: number): void;
-  setKeybinding(action: MovementAction, code: string): void;
+  setKeybinding(action: BindableAction, code: string): void;
   resetKeybindings(): void;
   getEnvironmentOptions(): Array<{ id: string; label: string }>;
   getActiveEnvironmentId(): string | null;

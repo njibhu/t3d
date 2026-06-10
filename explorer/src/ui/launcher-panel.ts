@@ -43,8 +43,7 @@ export class LauncherPanel extends Component<HTMLDivElement> {
 
     this.subtitleEl = document.createElement("p");
     this.subtitleEl.className = "panel-subtitle";
-    this.subtitleEl.textContent =
-      "The map canvas is already live in the background. Open your archive, search for a map, and jump straight in.";
+    this.subtitleEl.textContent = "Open your archive, search for a map, and jump straight in.";
     header.appendChild(this.subtitleEl);
     this.root.appendChild(header);
 
@@ -65,7 +64,7 @@ export class LauncherPanel extends Component<HTMLDivElement> {
     this.dropzone.innerHTML = `
       <span class="archive-dropzone-kicker">Local archive</span>
       <strong>Choose or drop a Gw2.dat file</strong>
-      <span class="archive-dropzone-copy">The archive opens locally in your browser. Initial indexing can take a while, then later sessions are faster.</span>
+      <span class="archive-dropzone-copy">The archive opens locally in your browser.</span>
     `;
     this.dropzone.appendChild(this.fileInput);
     this.attachDropTarget(this.dropzone);
@@ -203,7 +202,7 @@ export class LauncherPanel extends Component<HTMLDivElement> {
     this.titleEl.textContent = mapLoaded ? "Load another map" : "Load your Guild Wars 2 archive";
     this.subtitleEl.textContent = archiveReady
       ? "Search for a map and load it, or change the archive below."
-      : "The map canvas is already live in the background. Open your archive, search for a map, and jump straight in.";
+      : "Open your archive, search for a map, and jump straight in.";
 
     // Swap between the prominent dropzone (idle) and the compact loaded summary (ready).
     this.dropzone.hidden = archiveReady;

@@ -12,11 +12,12 @@ import {
   formatKeyCode,
   loadKeybindings,
   saveKeybindings,
+  type BindableAction,
   type Keybindings,
-  type MovementAction,
 } from "./store/keybindings.js";
 import { toErrorMessage } from "./errors.js";
 import { LauncherPanel } from "./ui/launcher-panel.js";
+import { InfoBubble } from "./ui/info-bubble.js";
 import { SettingsDrawer } from "./ui/settings-drawer.js";
 import { ControlsDrawer } from "./ui/controls-drawer.js";
 import { showToast } from "./ui/toast.js";
@@ -60,6 +61,7 @@ export class App implements ExplorerController {
   private settingsHandle!: HTMLButtonElement;
   private controlsHandle!: HTMLButtonElement;
   private launcher!: LauncherPanel;
+  private infoBubble!: InfoBubble;
   private settings!: SettingsDrawer;
   private controls!: ControlsDrawer;
   private urlSync!: UrlSync;
@@ -248,7 +250,7 @@ export class App implements ExplorerController {
     this.scene.setClipHeight(value);
   }
 
-  setKeybinding(action: MovementAction, code: string): void {
+  setKeybinding(action: BindableAction, code: string): void {
     this.keybindings = assignKeybinding(this.keybindings, action, code);
     this.applyKeybindings();
     this.render();
@@ -311,6 +313,10 @@ export class App implements ExplorerController {
       </span>`;
     hud.appendChild(brand);
     shell.appendChild(hud);
+
+    // Top-right corner: an "i" bubble explaining the site, with contact + copyright details.
+    this.infoBubble = new InfoBubble();
+    shell.appendChild(this.infoBubble.root);
 
     this.globalProgress = new ProgressBar("global-progress");
     shell.appendChild(this.globalProgress.root);
@@ -402,8 +408,10 @@ export class App implements ExplorerController {
 
   private attachGlobalShortcuts(): void {
     window.addEventListener("keydown", (event) => {
-      // Plain "P" toggles physics; ignore repeats, text fields, and OS combos like Ctrl+P.
-      if (event.code !== "KeyP" || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
+      // The configured physics key toggles physics; ignore repeats, text fields, and OS combos
+      // like Ctrl+P.
+      if (event.code !== this.keybindings.togglePhysics || event.repeat) return;
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
       if (isEditableTarget(event.target) || this.scene.getCurrentMapId() == null) return;
       this.togglePhysics();
     });
@@ -414,6 +422,9 @@ export class App implements ExplorerController {
   private async runOpenArchive(file: File): Promise<void> {
     try {
       await this.archiveStore.openArchive(file);
+      // The about bubble is a first-run greeting; once an archive has finished loading, get it
+      // out of the way.
+      this.infoBubble.close();
       this.launcher.syncOptions();
       this.render();
     } catch (error) {

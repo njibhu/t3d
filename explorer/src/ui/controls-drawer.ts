@@ -1,12 +1,18 @@
 import { Component } from "../components/component.js";
 import {
+  ACTION_KEYS,
+  ACTION_LABELS,
+  BINDABLE_ACTIONS,
   MOVEMENT_ACTIONS,
   MOVEMENT_ACTION_LABELS,
   formatKeyCode,
-  type MovementAction,
+  type BindableAction,
 } from "../store/keybindings.js";
 import type { ExplorerController } from "./explorer-controller.js";
 import { buildSection, wrapSettingRow } from "./controls.js";
+
+/** Label for any rebindable action, drawn from the movement and standalone-action maps. */
+const ACTION_LABEL: Record<BindableAction, string> = { ...MOVEMENT_ACTION_LABELS, ...ACTION_LABELS };
 
 /** Non-rebindable controls shown for reference (handled by the browser / pointer lock). */
 const REFERENCE_CONTROLS: ReadonlyArray<{ label: string; keys: string }> = [
@@ -14,7 +20,6 @@ const REFERENCE_CONTROLS: ReadonlyArray<{ label: string; keys: string }> = [
   { label: "Capture cursor", keys: "Click" },
   { label: "Release cursor", keys: "Esc" },
   { label: "Adjust movement speed", keys: "Scroll" },
-  { label: "Toggle physics", keys: "P" },
 ];
 
 /**
@@ -25,8 +30,8 @@ const REFERENCE_CONTROLS: ReadonlyArray<{ label: string; keys: string }> = [
 export class ControlsDrawer extends Component<HTMLElement> {
   readonly root: HTMLElement;
 
-  private readonly keyButtons = new Map<MovementAction, HTMLButtonElement>();
-  private listeningAction: MovementAction | null = null;
+  private readonly keyButtons = new Map<BindableAction, HTMLButtonElement>();
+  private listeningAction: BindableAction | null = null;
 
   constructor(private readonly controller: ExplorerController) {
     super();
@@ -43,6 +48,12 @@ export class ControlsDrawer extends Component<HTMLElement> {
     for (const action of MOVEMENT_ACTIONS) {
       keybindSection.appendChild(this.buildKeybindRow(action));
     }
+    this.root.appendChild(keybindSection);
+
+    const actionSection = buildSection("Actions");
+    for (const action of ACTION_KEYS) {
+      actionSection.appendChild(this.buildKeybindRow(action));
+    }
     const resetBtn = document.createElement("button");
     resetBtn.type = "button";
     resetBtn.className = "ghost-button wide";
@@ -51,8 +62,8 @@ export class ControlsDrawer extends Component<HTMLElement> {
       this.cancelListening();
       this.controller.resetKeybindings();
     });
-    keybindSection.appendChild(resetBtn);
-    this.root.appendChild(keybindSection);
+    actionSection.appendChild(resetBtn);
+    this.root.appendChild(actionSection);
 
     const referenceSection = buildSection("Reference");
     for (const entry of REFERENCE_CONTROLS) {
@@ -72,7 +83,7 @@ export class ControlsDrawer extends Component<HTMLElement> {
     this.root.dataset.open = String(this.controller.isMapLoaded() && this.controller.isControlsOpen());
     if (!this.controller.isControlsOpen()) this.listeningAction = null;
     const bindings = this.controller.getKeybindings();
-    for (const action of MOVEMENT_ACTIONS) {
+    for (const action of BINDABLE_ACTIONS) {
       const button = this.keyButtons.get(action);
       if (!button) continue;
       const listening = this.listeningAction === action;
@@ -81,16 +92,16 @@ export class ControlsDrawer extends Component<HTMLElement> {
     }
   }
 
-  private buildKeybindRow(action: MovementAction): HTMLDivElement {
+  private buildKeybindRow(action: BindableAction): HTMLDivElement {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "setting-toggle keybind-key";
     this.listen(button, "click", () => this.toggleListening(action));
     this.keyButtons.set(action, button);
-    return wrapSettingRow(MOVEMENT_ACTION_LABELS[action], button);
+    return wrapSettingRow(ACTION_LABEL[action], button);
   }
 
-  private toggleListening(action: MovementAction): void {
+  private toggleListening(action: BindableAction): void {
     this.listeningAction = this.listeningAction === action ? null : action;
     this.sync();
   }
