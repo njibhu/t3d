@@ -94,13 +94,18 @@ input {
   box-shadow: var(--t3d-shadow);
   text-decoration: none;
   cursor: pointer;
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .hud-brand:hover,
 .hud-brand:focus-visible {
   border-color: var(--t3d-accent-dim);
-  box-shadow: var(--t3d-shadow), 0 0 0 1px rgba(212, 154, 58, 0.28);
+  box-shadow:
+    var(--t3d-shadow),
+    0 0 0 1px rgba(212, 154, 58, 0.28);
   transform: translateY(-1px);
   outline: none;
 }
@@ -167,7 +172,10 @@ input {
   font-size: 11px;
   font-weight: 600;
   opacity: 0;
-  transition: max-height 200ms ease, margin-top 200ms ease, opacity 200ms ease;
+  transition:
+    max-height 200ms ease,
+    margin-top 200ms ease,
+    opacity 200ms ease;
 }
 
 .hud-brand:hover .hud-brand-reveal,
@@ -257,7 +265,10 @@ input {
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
-  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .info-bubble-trigger:hover,

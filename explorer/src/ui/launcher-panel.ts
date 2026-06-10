@@ -145,7 +145,7 @@ export class LauncherPanel extends Component<HTMLDivElement> {
     this.listen(target, "drop", (event) => {
       event.preventDefault();
       target.classList.remove("dragging");
-      const file = (event as DragEvent).dataTransfer?.files?.[0];
+      const file = (event as DragEvent).dataTransfer?.files[0];
       if (file) {
         this.controller.openArchive(file);
       }

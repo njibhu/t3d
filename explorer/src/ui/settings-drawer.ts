@@ -61,7 +61,9 @@ export class SettingsDrawer extends Component<HTMLElement> {
     this.clipToggleBtn.type = "button";
     this.clipToggleBtn.className = "setting-toggle";
     this.clipToggleBtn.textContent = "Clip plane";
-    this.listen(this.clipToggleBtn, "click", () => this.controller.setClipEnabled(!this.controller.getUrlState().clipEnabled));
+    this.listen(this.clipToggleBtn, "click", () =>
+      this.controller.setClipEnabled(!this.controller.getUrlState().clipEnabled)
+    );
     cameraSection.appendChild(wrapSettingRow("Clip plane", this.clipToggleBtn));
 
     // Collapsible wrapper so the clip-height slider can animate in/out with the clip plane.
