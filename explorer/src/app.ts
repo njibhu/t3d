@@ -295,9 +295,20 @@ export class App implements ExplorerController {
     const hud = document.createElement("header");
     hud.className = "hud";
 
-    const brand = document.createElement("div");
+    // The logo doubles as a portal to the sibling Browser app. A subtle pulsing spark hints
+    // there's "more here", and hovering slides out a labelled link with a travelling arrow.
+    const brand = document.createElement("a");
     brand.className = "hud-brand";
-    brand.innerHTML = `<span class="hud-kicker">Tyria 3D</span><strong>T3D Explorer</strong>`;
+    brand.href = "https://njibhu.github.io/t3d/browser";
+    brand.setAttribute("aria-label", "T3D Explorer — open the T3D Browser");
+    brand.innerHTML = `
+      <span class="hud-kicker">Tyria 3D</span>
+      <strong>T3D Explorer</strong>
+      <span class="hud-spark" aria-hidden="true"></span>
+      <span class="hud-brand-reveal" aria-hidden="true">
+        <span class="hud-brand-arrow">↗</span>
+        <span class="hud-brand-reveal-text">Open the T3D Browser app</span>
+      </span>`;
     hud.appendChild(brand);
     shell.appendChild(hud);
 

@@ -78,6 +78,7 @@ input {
 }
 
 .hud-brand {
+  position: relative;
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: column;
@@ -91,6 +92,17 @@ input {
   border: 1px solid var(--t3d-border);
   border-radius: 8px;
   box-shadow: var(--t3d-shadow);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.hud-brand:hover,
+.hud-brand:focus-visible {
+  border-color: var(--t3d-accent-dim);
+  box-shadow: var(--t3d-shadow), 0 0 0 1px rgba(212, 154, 58, 0.28);
+  transform: translateY(-1px);
+  outline: none;
 }
 
 .hud-brand strong {
@@ -106,6 +118,101 @@ input {
   font-size: 10px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+/* The "something special" hint: a small accent spark pulsing in the corner of the logo. */
+.hud-spark {
+  position: absolute;
+  top: 7px;
+  right: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--t3d-accent);
+  box-shadow: 0 0 0 0 rgba(212, 154, 58, 0.5);
+  animation: hud-spark-pulse 2.6s ease-out infinite;
+}
+
+.hud-brand:hover .hud-spark,
+.hud-brand:focus-visible .hud-spark {
+  animation-duration: 1.3s;
+}
+
+@keyframes hud-spark-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 154, 58, 0.5);
+    opacity: 1;
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(212, 154, 58, 0);
+    opacity: 0.85;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 154, 58, 0);
+    opacity: 1;
+  }
+}
+
+/* Hover-revealed link affordance. It lives INSIDE the logo box (which is itself the link),
+   so the whole logo is one target — hovering the revealed text never breaks the hover. */
+.hud-brand-reveal {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  max-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--t3d-accent);
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0;
+  transition: max-height 200ms ease, margin-top 200ms ease, opacity 200ms ease;
+}
+
+.hud-brand:hover .hud-brand-reveal,
+.hud-brand:focus-visible .hud-brand-reveal {
+  max-height: 20px;
+  margin-top: 3px;
+  opacity: 1;
+}
+
+.hud-brand-arrow {
+  color: var(--t3d-accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hud-brand:hover .hud-brand-arrow,
+.hud-brand:focus-visible .hud-brand-arrow {
+  animation: hud-arrow-nudge 1.1s ease-in-out infinite;
+}
+
+@keyframes hud-arrow-nudge {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-spark,
+  .hud-brand-arrow {
+    animation: none !important;
+  }
+
+  .hud-brand-reveal {
+    transition: opacity 200ms ease;
+    transform: none;
+  }
+
+  .hud-brand:hover,
+  .hud-brand:focus-visible {
+    transform: none;
+  }
 }
 
 /* Vertically-centered stacks of edge handles, one per screen side. */
