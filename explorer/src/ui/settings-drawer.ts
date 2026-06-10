@@ -4,11 +4,17 @@ import { SegmentedControl } from "../components/segmented-control.js";
 import { LAYER_KEYS, type CameraMode, type LayerKey } from "../types.js";
 import type { ExplorerController } from "./explorer-controller.js";
 import { buildRange, buildSection, fieldWithLabel, wrapSettingRow, type RangeRef } from "./controls.js";
-import { describeLayerState, formatRangeValue } from "./format.js";
+import { formatRangeValue } from "./format.js";
+
+const LAYER_LABELS: Record<LayerKey, string> = {
+  zone: "Zone",
+  props: "Props",
+  collisions: "Collisions",
+};
 
 /**
  * Live render & camera controls shown once a map is loaded: camera mode, environment,
- * per-layer toggles, physics, anti-aliasing, fog/movement/light/shadow/opacity sliders,
+ * per-layer visibility toggles, physics, anti-aliasing, fog/movement/light/shadow sliders,
  * and screenshot. Owns its controls; routes every change through the controller and
  * refreshes from scene/state via {@link sync}.
  */
@@ -16,6 +22,8 @@ export class SettingsDrawer extends Component<HTMLElement> {
   readonly root: HTMLElement;
 
   private readonly cameraControl: SegmentedControl<CameraMode>;
+  private readonly clipToggleBtn: HTMLButtonElement;
+  private readonly clipHeightCollapse: HTMLDivElement;
   private readonly environmentCombo: Combobox;
   private readonly physicsToggleBtn: HTMLButtonElement;
   private readonly aaToggleBtn: HTMLButtonElement;
@@ -41,12 +49,31 @@ export class SettingsDrawer extends Component<HTMLElement> {
         [
           { value: "firstPerson", label: "First Person" },
           { value: "orbital", label: "Orbital" },
+          { value: "topDown", label: "Top Down" },
         ],
         controller.getCameraMode(),
         (value) => this.controller.setCameraMode(value)
       )
     );
     cameraSection.appendChild(this.cameraControl.root);
+
+    this.clipToggleBtn = document.createElement("button");
+    this.clipToggleBtn.type = "button";
+    this.clipToggleBtn.className = "setting-toggle";
+    this.clipToggleBtn.textContent = "Clip plane";
+    this.listen(this.clipToggleBtn, "click", () => this.controller.setClipEnabled(!this.controller.getUrlState().clipEnabled));
+    cameraSection.appendChild(wrapSettingRow("Clip plane", this.clipToggleBtn));
+
+    // Collapsible wrapper so the clip-height slider can animate in/out with the clip plane.
+    this.clipHeightCollapse = document.createElement("div");
+    this.clipHeightCollapse.className = "collapsible";
+    const clipHeightInner = document.createElement("div");
+    clipHeightInner.className = "collapsible-inner";
+    clipHeightInner.appendChild(
+      this.range("clipHeight", "Clip height", 0, 30000, 100, url.clipHeight, (v) => this.controller.setClipHeight(v))
+    );
+    this.clipHeightCollapse.appendChild(clipHeightInner);
+    cameraSection.appendChild(this.clipHeightCollapse);
     this.root.appendChild(cameraSection);
 
     const worldSection = buildSection("World");
@@ -86,16 +113,12 @@ export class SettingsDrawer extends Component<HTMLElement> {
     renderSection.appendChild(
       this.range("speed", "Movement", 500, 10000, 100, url.movementSpeed, (v) => this.controller.setMovementSpeed(v))
     );
+    this.attachWheelStep("speed");
     renderSection.appendChild(
       this.range("light", "Light", 0.2, 2, 0.01, url.lightIntensity, (v) => this.controller.setLightIntensity(v))
     );
     renderSection.appendChild(
       this.range("shadow", "Shadow", 0, 1, 0.01, url.shadowStrength, (v) => this.controller.setShadowStrength(v))
-    );
-    renderSection.appendChild(
-      this.range("collOpacity", "Collision opacity", 0, 1, 0.05, url.collisionOpacity, (v) =>
-        this.controller.setCollisionOpacity(v)
-      )
     );
     this.root.appendChild(renderSection);
 
@@ -114,6 +137,14 @@ export class SettingsDrawer extends Component<HTMLElement> {
     this.root.dataset.open = String(this.controller.isMapLoaded() && this.controller.isSettingsOpen());
 
     this.cameraControl.setValue(this.controller.getCameraMode(), true);
+
+    const topDown = this.controller.getCameraMode() === "topDown";
+    const clipUrl = this.controller.getUrlState();
+    this.clipToggleBtn.disabled = !topDown;
+    this.clipToggleBtn.classList.toggle("active", clipUrl.clipEnabled);
+    this.clipToggleBtn.textContent = clipUrl.clipEnabled ? "Clip plane on" : "Clip plane off";
+    this.clipHeightCollapse.dataset.show = String(topDown && clipUrl.clipEnabled);
+
     this.physicsToggleBtn.classList.toggle("active", this.controller.isPhysicsEnabled());
     this.physicsToggleBtn.disabled = !this.controller.hasCollisionsLoaded();
     this.physicsToggleBtn.textContent = this.controller.isPhysicsEnabled() ? "Physics on" : "Physics off";
@@ -131,7 +162,7 @@ export class SettingsDrawer extends Component<HTMLElement> {
     this.updateRange("speed", url.movementSpeed);
     this.updateRange("light", url.lightIntensity);
     this.updateRange("shadow", url.shadowStrength);
-    this.updateRange("collOpacity", url.collisionOpacity);
+    this.updateRange("clipHeight", url.clipHeight);
   }
 
   private syncEnvironment(): void {
@@ -150,11 +181,7 @@ export class SettingsDrawer extends Component<HTMLElement> {
     for (const key of LAYER_KEYS) {
       const button = this.sceneLayerButtons.get(key);
       if (!button) continue;
-      const state = layerState[key];
-      button.classList.toggle("active", state.requested);
-      button.classList.toggle("loading", state.status === "loading");
-      button.classList.toggle("error", state.status === "error");
-      button.textContent = describeLayerState(key, state);
+      button.classList.toggle("active", layerState[key]);
     }
   }
 
@@ -163,6 +190,7 @@ export class SettingsDrawer extends Component<HTMLElement> {
     button.type = "button";
     button.className = "setting-toggle";
     button.dataset.layer = key;
+    button.textContent = LAYER_LABELS[key];
     this.listen(button, "click", () => this.controller.toggleSceneLayer(key));
     this.sceneLayerButtons.set(key, button);
     return button;
@@ -187,5 +215,27 @@ export class SettingsDrawer extends Component<HTMLElement> {
     if (!ref) return;
     ref.input.value = String(value);
     ref.value.textContent = formatRangeValue(value, parseFloat(ref.input.step) || 1);
+  }
+
+  /** Let the scroll wheel nudge a slider by one step (scroll up = increase) instead of scrolling the panel. */
+  private attachWheelStep(key: string): void {
+    const ref = this.rangeRefs.get(key);
+    if (!ref) return;
+    this.listen(
+      ref.input,
+      "wheel",
+      (event) => {
+        event.preventDefault();
+        const step = parseFloat(ref.input.step) || 1;
+        const min = parseFloat(ref.input.min);
+        const max = parseFloat(ref.input.max);
+        const direction = (event as WheelEvent).deltaY < 0 ? 1 : -1;
+        const next = Math.min(max, Math.max(min, ref.input.valueAsNumber + direction * step));
+        if (next === ref.input.valueAsNumber) return;
+        ref.input.value = String(next);
+        ref.input.dispatchEvent(new Event("input"));
+      },
+      { passive: false }
+    );
   }
 }

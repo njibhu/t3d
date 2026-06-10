@@ -7,14 +7,16 @@ const DEFAULT_STATE: ExplorerUrlState = {
   rotation: null,
   orbitalTarget: null,
   layers: { ...DEFAULT_LAYER_SELECTION },
-  fog: 25000,
+  fog: 50000,
   movementSpeed: 10000,
   lightIntensity: 1,
   shadowStrength: 0.6,
-  collisionOpacity: 0,
   physics: false,
   environmentId: null,
   antialias: true,
+  clipEnabled: false,
+  clipHeight: 5000,
+  orthoZoom: null,
 };
 
 export function createDefaultExplorerUrlState(): ExplorerUrlState {
@@ -39,10 +41,12 @@ export function parseExplorerUrl(hash: string): ExplorerUrlState {
   state.movementSpeed = readFloat(params, "speed") ?? readFloat(params, "mv") ?? state.movementSpeed;
   state.lightIntensity = readFloat(params, "light") ?? readFloat(params, "li") ?? state.lightIntensity;
   state.shadowStrength = readFloat(params, "shadow") ?? readFloat(params, "sh") ?? state.shadowStrength;
-  state.collisionOpacity = readFloat(params, "collOpacity") ?? state.collisionOpacity;
   state.physics = readBoolean(params, "physics") ?? readBoolean(params, "enablePhysics") ?? state.physics;
   state.environmentId = params.get("env") || params.get("environment") || null;
   state.antialias = readBoolean(params, "aa") ?? state.antialias;
+  state.clipEnabled = readBoolean(params, "clip") ?? state.clipEnabled;
+  state.clipHeight = readFloat(params, "clipH") ?? state.clipHeight;
+  state.orthoZoom = readFloat(params, "oz");
 
   return state;
 }
@@ -66,9 +70,13 @@ export function serializeExplorerUrl(state: ExplorerUrlState): string {
   writeNumber(params, "speed", state.movementSpeed, DEFAULT_STATE.movementSpeed);
   writeNumber(params, "light", state.lightIntensity, DEFAULT_STATE.lightIntensity, 3);
   writeNumber(params, "shadow", state.shadowStrength, DEFAULT_STATE.shadowStrength, 3);
-  writeNumber(params, "collOpacity", state.collisionOpacity, DEFAULT_STATE.collisionOpacity, 3);
   writeBoolean(params, "physics", state.physics, DEFAULT_STATE.physics);
   writeBoolean(params, "aa", state.antialias, DEFAULT_STATE.antialias);
+  writeBoolean(params, "clip", state.clipEnabled, DEFAULT_STATE.clipEnabled);
+  writeNumber(params, "clipH", state.clipHeight, DEFAULT_STATE.clipHeight);
+  if (state.orthoZoom != null) {
+    writeNumber(params, "oz", state.orthoZoom, null, 4);
+  }
 
   if (state.environmentId) {
     params.set("env", state.environmentId);
@@ -81,6 +89,7 @@ function parseCameraMode(value: string | null): CameraMode | null {
   if (!value) return null;
   if (value === "orbital") return "orbital";
   if (value === "firstPerson" || value === "fly") return "firstPerson";
+  if (value === "topDown" || value === "topdown") return "topDown";
   return null;
 }
 
@@ -161,6 +170,7 @@ export function urlStateFromScene(
     position: Vector3Like;
     rotation: Vector3Like;
     orbitalTarget: Vector3Like | null;
+    zoom?: number | null;
   }
 ): ExplorerUrlState {
   return {
@@ -169,5 +179,6 @@ export function urlStateFromScene(
     position: camera.position,
     rotation: camera.rotation,
     orbitalTarget: camera.orbitalTarget,
+    orthoZoom: camera.zoom ?? null,
   };
 }

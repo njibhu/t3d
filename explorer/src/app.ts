@@ -1,16 +1,6 @@
 import { ProgressBar } from "./components/progress-bar.js";
 import { ExplorerScene } from "./scene/explorer-scene.js";
 import { ArchiveStore } from "./store/archive-store.js";
-import {
-  createLayerState,
-  markLayerError,
-  markLayerHidden,
-  markLayerLoading,
-  markLayerVisible,
-  setLayerRequested,
-  visibleLayerSelection,
-  type LayerStateRecord,
-} from "./store/layer-state.js";
 import { onProgress } from "./store/progress-bus.js";
 import { createExplorerSessionState, setRendererAntialias, switchCameraMode } from "./store/session-state.js";
 import { createDefaultExplorerUrlState, parseExplorerUrl } from "./store/url-state.js";
@@ -19,7 +9,7 @@ import { toErrorMessage } from "./errors.js";
 import { LauncherPanel } from "./ui/launcher-panel.js";
 import { SettingsDrawer } from "./ui/settings-drawer.js";
 import { showToast } from "./ui/toast.js";
-import { layerLabel } from "./ui/format.js";
+import { showConfirmDialog } from "./ui/confirm-dialog.js";
 import type { ExplorerController } from "./ui/explorer-controller.js";
 import type { ArchiveStoreSnapshot } from "./store/archive-store.js";
 import {
@@ -44,7 +34,7 @@ export class App implements ExplorerController {
   private readonly initialUrlState = parseExplorerUrl(window.location.hash);
   private currentUrlState: ExplorerUrlState = createDefaultExplorerUrlState();
   private sessionState = createExplorerSessionState();
-  private layerState = createLayerState();
+  private layerState: Record<LayerKey, boolean> = { ...DEFAULT_LAYER_SELECTION };
   private autoLoadAttempted = false;
 
   private launcherOpen = true;
@@ -73,7 +63,7 @@ export class App implements ExplorerController {
       physics: this.currentUrlState.physics,
       layers: this.currentUrlState.layers,
     });
-    this.layerState = createLayerState(this.currentUrlState.layers);
+    this.layerState = { ...DEFAULT_LAYER_SELECTION, ...this.currentUrlState.layers };
   }
 
   init(): void {
@@ -87,7 +77,7 @@ export class App implements ExplorerController {
       isPhysicsEnabled: () => this.scene.isPhysicsEnabled(),
       getActiveEnvironmentId: () => this.scene.getActiveEnvironmentId(),
       getAntialias: () => this.sessionState.antialias,
-      getVisibleLayers: () => visibleLayerSelection(this.layerState),
+      getVisibleLayers: () => ({ ...this.layerState }),
       getUrlState: () => this.currentUrlState,
       setUrlState: (next) => {
         this.currentUrlState = next;
@@ -107,7 +97,7 @@ export class App implements ExplorerController {
     return this.currentUrlState;
   }
 
-  getLayerState(): LayerStateRecord {
+  getLayerState(): Record<LayerKey, boolean> {
     return this.layerState;
   }
 
@@ -165,21 +155,26 @@ export class App implements ExplorerController {
     void this.loadMap(false);
   }
 
-  toggleStartupLayer(key: LayerKey): void {
-    const current = this.layerState[key].requested;
-    this.layerState = setLayerRequested(this.layerState, key, !current);
+  toggleSceneLayer(key: LayerKey): void {
+    const visible = !this.layerState[key];
+    this.layerState = { ...this.layerState, [key]: visible };
+    this.scene.setLayerVisible(key, visible);
     this.syncLayerSelectionToState();
     this.render();
   }
 
-  toggleSceneLayer(key: LayerKey): void {
-    void this.toggleSceneLayerTask(key);
-  }
-
   setCameraMode(mode: CameraMode): void {
+    const previousMode = this.currentUrlState.cameraMode;
     this.sessionState = switchCameraMode(this.sessionState, mode, this.scene.hasCollisionsLoaded());
     this.currentUrlState.cameraMode = mode;
     this.scene.setCameraMode(mode);
+    // Top-down is meant for slicing the map open: turn the clip plane on entering it and
+    // off when leaving (the clip plane is global, so it must not linger in other views).
+    if (mode === "topDown" && previousMode !== "topDown") {
+      this.applyClipEnabled(true);
+    } else if (mode !== "topDown" && previousMode === "topDown") {
+      this.applyClipEnabled(false);
+    }
     this.render();
   }
 
@@ -214,9 +209,19 @@ export class App implements ExplorerController {
     this.scene.setShadowStrength(value);
   }
 
-  setCollisionOpacity(value: number): void {
-    this.currentUrlState.collisionOpacity = value;
-    this.scene.setCollisionOpacity(value);
+  setClipEnabled(value: boolean): void {
+    this.applyClipEnabled(value);
+    this.render();
+  }
+
+  private applyClipEnabled(value: boolean): void {
+    this.currentUrlState.clipEnabled = value;
+    this.scene.setClipEnabled(value);
+  }
+
+  setClipHeight(value: number): void {
+    this.currentUrlState.clipHeight = value;
+    this.scene.setClipHeight(value);
   }
 
   setEnvironment(id: string | null): void {
@@ -320,6 +325,10 @@ export class App implements ExplorerController {
       this.settings.sync();
       this.renderPointerHint(this.scene.isPointerLocked());
     });
+    this.scene.setMovementSpeedChangeHandler((value) => {
+      this.currentUrlState.movementSpeed = value;
+      this.settings.sync();
+    });
   }
 
   // --- intents (async implementations) ------------------------------------
@@ -349,7 +358,17 @@ export class App implements ExplorerController {
     if (!match) return;
     this.autoLoadAttempted = true;
     this.launcher.selectMap(match.category, String(match.baseId));
-    void this.loadMap(true);
+    // Don't silently load a map from a shared link — confirm first. On cancel the map stays
+    // pre-selected in the launcher so it can still be loaded manually.
+    void showConfirmDialog({
+      kicker: "Shared link",
+      title: "Load shared map?",
+      message: `This link opens "${match.name}". Load it now?`,
+      confirmLabel: "Load map",
+      cancelLabel: "Stay here",
+    }).then((confirmed) => {
+      if (confirmed) void this.loadMap(true);
+    });
   }
 
   private async loadMap(fromAutoLoad: boolean): Promise<void> {
@@ -362,9 +381,8 @@ export class App implements ExplorerController {
       }
 
       this.currentUrlState.mapId = mapId;
-      this.currentUrlState.layers = { ...visibleLayerSelection(this.layerState) };
-      this.sessionState = { ...this.sessionState, mapId, layers: { ...this.currentUrlState.layers } };
-      this.layerState = createLayerState(this.currentUrlState.layers);
+      this.currentUrlState.layers = { ...this.layerState };
+      this.sessionState = { ...this.sessionState, mapId, layers: { ...this.layerState } };
       const shouldRestoreCamera = fromAutoLoad && this.initialUrlState.mapId === mapId;
 
       // Slide the launcher out to the side as soon as loading starts, rather than letting it
@@ -375,15 +393,10 @@ export class App implements ExplorerController {
       await this.runSceneTask("Loading terrain & environment", async () => {
         await this.scene.loadBaseMap(reader, mapId);
         this.applyInitialSettingsToScene();
+        // Everything loads up front now; the per-layer toggles only control visibility.
         for (const key of LAYER_KEYS) {
-          if (this.layerState[key].requested) {
-            this.layerState = markLayerLoading(this.layerState, key);
-            this.render();
-            await this.scene.ensureLayerVisible(key);
-            this.layerState = markLayerVisible(this.layerState, key);
-          } else {
-            this.scene.setLayerVisible(key, false);
-          }
+          await this.scene.ensureLayerVisible(key);
+          this.scene.setLayerVisible(key, this.layerState[key]);
         }
         this.scene.setCameraMode(this.sessionState.cameraMode);
         if (shouldRestoreCamera) {
@@ -392,6 +405,7 @@ export class App implements ExplorerController {
             position: this.currentUrlState.position ?? undefined,
             rotation: this.currentUrlState.rotation ?? undefined,
             orbitalTarget: this.currentUrlState.orbitalTarget ?? undefined,
+            zoom: this.currentUrlState.orthoZoom ?? undefined,
           });
         }
         this.scene.setEnvironmentVariant(this.currentUrlState.environmentId);
@@ -403,32 +417,6 @@ export class App implements ExplorerController {
     } catch (error) {
       // Bring the launcher back so the user can retry (it has no edge handle until a map loads).
       this.launcherOpen = true;
-      showToast(toErrorMessage(error));
-      this.render();
-    }
-  }
-
-  private async toggleSceneLayerTask(key: LayerKey): Promise<void> {
-    const state = this.layerState[key];
-    try {
-      if (state.requested) {
-        this.scene.setLayerVisible(key, false);
-        this.layerState = markLayerHidden(this.layerState, key);
-      } else if (state.loaded) {
-        this.scene.setLayerVisible(key, true);
-        this.layerState = markLayerVisible(this.layerState, key);
-      } else {
-        this.layerState = markLayerLoading(this.layerState, key);
-        this.render();
-        await this.runSceneTask(`Loading ${layerLabel(key)}`, async () => {
-          await this.scene.ensureLayerVisible(key);
-        });
-        this.layerState = markLayerVisible(this.layerState, key);
-      }
-      this.syncLayerSelectionToState();
-      this.render();
-    } catch (error) {
-      this.layerState = markLayerError(this.layerState, key, toErrorMessage(error));
       showToast(toErrorMessage(error));
       this.render();
     }
@@ -477,11 +465,12 @@ export class App implements ExplorerController {
     this.scene.setMovementSpeed(this.currentUrlState.movementSpeed);
     this.scene.setLightIntensity(this.currentUrlState.lightIntensity);
     this.scene.setShadowStrength(this.currentUrlState.shadowStrength);
-    this.scene.setCollisionOpacity(this.currentUrlState.collisionOpacity);
+    this.scene.setClipHeight(this.currentUrlState.clipHeight);
+    this.scene.setClipEnabled(this.currentUrlState.clipEnabled);
   }
 
   private syncLayerSelectionToState(): void {
-    const selection = visibleLayerSelection(this.layerState);
+    const selection = { ...this.layerState };
     this.currentUrlState.layers = { ...selection };
     this.sessionState = { ...this.sessionState, layers: { ...selection } };
   }

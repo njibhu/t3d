@@ -12,6 +12,8 @@ import { toVec, type MapBounds } from "./three-utils.js";
  */
 export class CameraRig {
   readonly camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100000);
+  /** Top-down orthographic camera. Its frustum is sized in {@link frameBounds}/{@link resize}. */
+  readonly orthoCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 200000);
 
   private orbitalControls: MapControls | null = null;
   private pointerControls: PointerLockControls | null = null;
@@ -19,9 +21,20 @@ export class CameraRig {
   private currentMode: CameraMode = "orbital";
   private readonly orbitalTarget = new THREE.Vector3(0, 0, 0);
   private readonly forwardTmp = new THREE.Vector3();
+  /** Half-extent of the ortho frustum at zoom 1, kept so resize can rebuild L/R/T/B from aspect. */
+  private orthoFrustumSize = 10000;
+  /** Latest viewport aspect, so the ortho frustum can be rebuilt when its size changes. */
+  private viewportAspect = 1;
+  /** Fixed height the top-down ortho camera hovers above its target. */
+  private static readonly ORTHO_HEIGHT = 100000;
 
   get mode(): CameraMode {
     return this.currentMode;
+  }
+
+  /** The camera currently driving rendering: ortho in top-down mode, perspective otherwise. */
+  get activeCamera(): THREE.Camera {
+    return this.currentMode === "topDown" ? this.orthoCamera : this.camera;
   }
 
   setMode(mode: CameraMode): void {
@@ -42,9 +55,22 @@ export class CameraRig {
       active.dispose();
     }
 
-    if (mode === "orbital") {
-      const controls = new MapControls(this.camera, domElement);
+    if (mode === "orbital" || mode === "topDown") {
+      const camera = mode === "topDown" ? this.orthoCamera : this.camera;
+      if (mode === "topDown") {
+        // Park the ortho camera straight above the (possibly panned) target so the
+        // control's derived offset stays vertical — i.e. a true top-down view.
+        this.orthoCamera.position.set(this.orbitalTarget.x, CameraRig.ORTHO_HEIGHT, this.orbitalTarget.z);
+        this.orthoCamera.up.set(0, 0, -1);
+        this.orthoCamera.lookAt(this.orbitalTarget);
+      }
+      const controls = new MapControls(camera, domElement);
       controls.enableDamping = true;
+      controls.enableRotate = mode !== "topDown";
+      // The straight-down view's screen plane IS the ground plane, so pan in screen space.
+      // MapControls' default ground-pan math derives its vertical axis from `camera.up`,
+      // which our (0,0,-1) up vector turns into a world-Y slide — sending the camera flying.
+      controls.screenSpacePanning = mode === "topDown";
       controls.target.copy(this.orbitalTarget);
       if (!initialMount) controls.update();
       this.orbitalControls = controls;
@@ -79,16 +105,47 @@ export class CameraRig {
     this.camera.position.set(bounds.x2 * 0.12, Math.max(bounds.y2, 7000), bounds.y2 * 0.42);
     this.orbitalTarget.set(0, 0, 0);
     this.camera.lookAt(this.orbitalTarget);
+
+    // Frame the top-down ortho camera: hover high above the target looking straight down,
+    // with +up pointing "north" (-Z) so the view orientation is well defined.
+    this.orthoFrustumSize = Math.max(bounds.x2 - bounds.x1, bounds.y2 - bounds.y1) / 2 || this.orthoFrustumSize;
+    this.orthoCamera.position.set(this.orbitalTarget.x, CameraRig.ORTHO_HEIGHT, this.orbitalTarget.z);
+    this.orthoCamera.up.set(0, 0, -1);
+    this.orthoCamera.lookAt(this.orbitalTarget);
+    this.orthoCamera.zoom = 1;
+    this.applyOrthoFrustum();
+
     this.orbitalControls?.target.copy(this.orbitalTarget);
     this.orbitalControls?.update();
   }
 
+  /** Update both cameras' projection for a new viewport aspect ratio. */
+  resize(aspect: number): void {
+    this.viewportAspect = aspect;
+    this.camera.aspect = aspect;
+    this.camera.updateProjectionMatrix();
+    this.applyOrthoFrustum();
+  }
+
+  private applyOrthoFrustum(): void {
+    const halfH = this.orthoFrustumSize;
+    const halfW = halfH * this.viewportAspect;
+    this.orthoCamera.left = -halfW;
+    this.orthoCamera.right = halfW;
+    this.orthoCamera.top = halfH;
+    this.orthoCamera.bottom = -halfH;
+    this.orthoCamera.updateProjectionMatrix();
+  }
+
   getSnapshot(): CameraSnapshot {
+    const topDown = this.currentMode === "topDown";
+    const camera = topDown ? this.orthoCamera : this.camera;
     return {
       mode: this.currentMode,
-      position: toVec(this.camera.position),
-      rotation: toVec(this.camera.rotation),
-      orbitalTarget: this.currentMode === "orbital" ? toVec(this.orbitalTarget) : null,
+      position: toVec(camera.position),
+      rotation: toVec(camera.rotation),
+      orbitalTarget: this.currentMode === "firstPerson" ? null : toVec(this.orbitalTarget),
+      zoom: topDown ? this.orthoCamera.zoom : null,
     };
   }
 
@@ -97,12 +154,33 @@ export class CameraRig {
     position?: Vector3Like | null;
     rotation?: Vector3Like | null;
     orbitalTarget?: Vector3Like | null;
+    zoom?: number | null;
   }): void {
+    // A top-down view is fully described by its pan target + zoom; the saved position/rotation
+    // are redundant and, if even slightly non-vertical, would make MapControls.update() restore
+    // a tilted angle. So re-derive a strictly straight-down pose instead of trusting them.
+    if (this.currentMode === "topDown") {
+      if (transform.orbitalTarget) {
+        this.orbitalTarget.set(transform.orbitalTarget.x, transform.orbitalTarget.y, transform.orbitalTarget.z);
+      }
+      if (transform.zoom != null) {
+        this.orthoCamera.zoom = transform.zoom;
+      }
+      this.orthoCamera.position.set(this.orbitalTarget.x, CameraRig.ORTHO_HEIGHT, this.orbitalTarget.z);
+      this.orthoCamera.up.set(0, 0, -1);
+      this.orthoCamera.lookAt(this.orbitalTarget);
+      this.orthoCamera.updateProjectionMatrix();
+      this.orbitalControls?.target.copy(this.orbitalTarget);
+      this.orbitalControls?.update();
+      return;
+    }
+
+    const camera = this.activeCamera;
     if (transform.position) {
-      this.camera.position.set(transform.position.x, transform.position.y, transform.position.z);
+      camera.position.set(transform.position.x, transform.position.y, transform.position.z);
     }
     if (transform.rotation) {
-      this.camera.rotation.set(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+      camera.rotation.set(transform.rotation.x, transform.rotation.y, transform.rotation.z);
     }
     if (transform.orbitalTarget && this.orbitalControls) {
       this.orbitalTarget.set(transform.orbitalTarget.x, transform.orbitalTarget.y, transform.orbitalTarget.z);

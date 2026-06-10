@@ -1,6 +1,5 @@
-export type CameraMode = "orbital" | "firstPerson";
+export type CameraMode = "orbital" | "firstPerson" | "topDown";
 export type LayerKey = "zone" | "props" | "collisions";
-export type LayerStatus = "off" | "loading" | "on" | "error";
 
 export interface Vector3Like {
   x: number;
@@ -35,17 +34,12 @@ export interface ExplorerUrlState {
   movementSpeed: number;
   lightIntensity: number;
   shadowStrength: number;
-  collisionOpacity: number;
   physics: boolean;
   environmentId: string | null;
   antialias: boolean;
-}
-
-export interface LayerRuntimeState {
-  requested: boolean;
-  loaded: boolean;
-  status: LayerStatus;
-  error: string | null;
+  clipEnabled: boolean;
+  clipHeight: number;
+  orthoZoom: number | null;
 }
 
 export interface ProgressState {
@@ -61,6 +55,8 @@ export interface CameraSnapshot {
   position: Vector3Like;
   rotation: Vector3Like;
   orbitalTarget: Vector3Like | null;
+  /** Orthographic zoom, captured only in top-down mode. */
+  zoom?: number | null;
 }
 
 export const LAYER_KEYS: LayerKey[] = ["zone", "props", "collisions"];

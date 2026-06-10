@@ -78,7 +78,7 @@ export class MapContent {
   private collisionMeshes: Object3D[] = [];
   private environmentOptions: EnvironmentVariant[] = [];
   private activeEnvironmentId: string | null = null;
-  private collisionOpacity = 0;
+  private collisionOpacity = 1;
 
   constructor(private readonly host: MapContentHost) {}
 
@@ -108,10 +108,6 @@ export class MapContent {
 
   hasCollisionsLoaded(): boolean {
     return this.layerLoaded.collisions;
-  }
-
-  getCollisionOpacity(): number {
-    return this.collisionOpacity;
   }
 
   async loadBaseMap(reader: LocalReader, mapId: number): Promise<void> {
@@ -168,13 +164,6 @@ export class MapContent {
     const variant = T3D.setEnvironmentVariant(this.context, id);
     this.activeEnvironmentId = variant?.id ?? null;
     this.applyEnvironmentFromContext();
-  }
-
-  setCollisionOpacity(value: number): void {
-    const normalized = Math.max(0, Math.min(1, value));
-    if (Number.isNaN(normalized)) return;
-    this.collisionOpacity = normalized;
-    this.applyCollisionOpacity();
   }
 
   cleanup(): void {

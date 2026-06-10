@@ -1,5 +1,4 @@
 import type { ArchiveStoreSnapshot } from "../store/archive-store.js";
-import type { LayerStateRecord } from "../store/layer-state.js";
 import type { CameraMode, ExplorerUrlState, LayerKey } from "../types.js";
 
 /**
@@ -11,7 +10,7 @@ export interface ExplorerController {
   // shared state (read)
   getArchiveState(): ArchiveStoreSnapshot;
   getUrlState(): ExplorerUrlState;
-  getLayerState(): LayerStateRecord;
+  getLayerState(): Record<LayerKey, boolean>;
   isMapLoaded(): boolean;
   isLauncherOpen(): boolean;
   isSettingsOpen(): boolean;
@@ -20,7 +19,6 @@ export interface ExplorerController {
   openArchive(file: File): void;
   runDeepScan(): void;
   loadSelectedMap(): void;
-  toggleStartupLayer(key: LayerKey): void;
 
   // settings intents + scene reads
   getCameraMode(): CameraMode;
@@ -35,7 +33,8 @@ export interface ExplorerController {
   setMovementSpeed(value: number): void;
   setLightIntensity(value: number): void;
   setShadowStrength(value: number): void;
-  setCollisionOpacity(value: number): void;
+  setClipEnabled(value: boolean): void;
+  setClipHeight(value: number): void;
   getEnvironmentOptions(): Array<{ id: string; label: string }>;
   getActiveEnvironmentId(): string | null;
   setEnvironment(id: string | null): void;

@@ -9,9 +9,15 @@ interface PointerHandlers {
   onCanvasClick: () => void;
   onKeyDown: (event: KeyboardEvent) => void;
   onKeyUp: (event: KeyboardEvent) => void;
+  onWheel: (event: WheelEvent) => void;
   onLock: () => void;
   onUnlock: () => void;
 }
+
+/** Movement-speed bounds for wheel adjustment, matching the settings slider. */
+const SPEED_MIN = 500;
+const SPEED_MAX = 10000;
+const SPEED_WHEEL_STEP = 500;
 
 /**
  * First-person navigation: keyboard + pointer-lock input and the per-frame movement step.
@@ -32,7 +38,8 @@ export class FlyController {
   constructor(
     private readonly camera: THREE.PerspectiveCamera,
     private readonly physics: PhysicsController,
-    private readonly onPointerLockChange: (locked: boolean) => void
+    private readonly onPointerLockChange: (locked: boolean) => void,
+    private readonly onMovementSpeedChange: (value: number) => void
   ) {}
 
   setMovementSpeed(value: number): void {
@@ -121,18 +128,33 @@ export class FlyController {
       }
     };
 
+    // While the pointer is locked the cursor can't reach the settings slider, so map the
+    // wheel to movement speed here and report the change back so the slider/URL stay in sync.
+    const onWheel = (event: WheelEvent): void => {
+      if (!controls.isLocked) return;
+      event.preventDefault();
+      const direction = event.deltaY < 0 ? 1 : -1;
+      const stepped = Math.round((this.movementSpeed + direction * SPEED_WHEEL_STEP) / 100) * 100;
+      const next = Math.min(SPEED_MAX, Math.max(SPEED_MIN, stepped));
+      if (next === this.movementSpeed) return;
+      this.movementSpeed = next;
+      this.onMovementSpeedChange(next);
+    };
+
     domElement.addEventListener("click", onCanvasClick);
+    domElement.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("keyup", onKeyUp);
     controls.addEventListener("lock", onLock);
     controls.addEventListener("unlock", onUnlock);
-    this.handlers = { controls, domElement, onCanvasClick, onKeyDown, onKeyUp, onLock, onUnlock };
+    this.handlers = { controls, domElement, onCanvasClick, onKeyDown, onKeyUp, onWheel, onLock, onUnlock };
   }
 
   detach(): void {
     if (!this.handlers) return;
-    const { controls, domElement, onCanvasClick, onKeyDown, onKeyUp, onLock, onUnlock } = this.handlers;
+    const { controls, domElement, onCanvasClick, onKeyDown, onKeyUp, onWheel, onLock, onUnlock } = this.handlers;
     domElement.removeEventListener("click", onCanvasClick);
+    domElement.removeEventListener("wheel", onWheel);
     window.removeEventListener("keydown", onKeyDown);
     window.removeEventListener("keyup", onKeyUp);
     controls.removeEventListener("lock", onLock);

@@ -663,12 +663,33 @@ input {
 
 .segmented {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 4px;
   padding: 4px;
   background: var(--t3d-bg);
   border: 1px solid var(--t3d-border);
   border-radius: 6px;
+}
+
+/* Collapsible row that animates its height (grid 0fr -> 1fr) and fades in/out. */
+.collapsible {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 180ms ease,
+    opacity 140ms ease;
+}
+
+.collapsible[data-show="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.collapsible-inner {
+  overflow: hidden;
+  min-height: 0;
 }
 
 .segmented-button {
@@ -792,6 +813,45 @@ input {
   border: 1px solid var(--t3d-accent);
   border-radius: 6px;
   box-shadow: var(--t3d-shadow);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+  display: grid;
+  gap: 10px;
+  width: min(380px, 100%);
+  padding: 18px;
+  background: var(--t3d-bg-panel);
+  border: 1px solid var(--t3d-border);
+  border-radius: 10px;
+  box-shadow: var(--t3d-shadow);
+}
+
+.modal-title {
+  font-size: 16px;
+}
+
+.modal-message {
+  margin: 0;
+  color: var(--t3d-text-muted);
+  line-height: 1.4;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
 }
 
 @keyframes t3d-progress-indeterminate {

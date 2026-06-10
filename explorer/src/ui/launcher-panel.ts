@@ -1,21 +1,14 @@
 import { Component } from "../components/component.js";
 import { Combobox } from "../components/combobox.js";
 import { buildCategoryOptions, buildMapOptions } from "../store/map-catalog.js";
-import { LAYER_KEYS, type LayerKey } from "../types.js";
 import type { ExplorerController } from "./explorer-controller.js";
 import { buildArchiveInfo } from "./format.js";
 import { fieldWithLabel } from "./controls.js";
 
-const STARTUP_LAYERS: ReadonlyArray<{ key: LayerKey; label: string }> = [
-  { key: "zone", label: "Zone" },
-  { key: "props", label: "Props" },
-  { key: "collisions", label: "Collisions" },
-];
-
 /**
- * The archive launcher: open/drop a .dat, search region + map, choose startup layers, and
- * load. Owns its comboboxes and their coordination; reads archive/layer state and triggers
- * load intents through the {@link ExplorerController}.
+ * The archive launcher: open/drop a .dat, search region + map, and load. Owns its
+ * comboboxes and their coordination; reads archive state and triggers load intents
+ * through the {@link ExplorerController}.
  */
 export class LauncherPanel extends Component<HTMLDivElement> {
   readonly root: HTMLDivElement;
@@ -32,7 +25,6 @@ export class LauncherPanel extends Component<HTMLDivElement> {
   private readonly mapCombo: Combobox;
   private readonly loadMapBtn: HTMLButtonElement;
   private readonly deepScanBtn: HTMLButtonElement;
-  private readonly layerChips = new Map<LayerKey, HTMLButtonElement>();
 
   constructor(private readonly controller: ExplorerController) {
     super();
@@ -117,13 +109,6 @@ export class LauncherPanel extends Component<HTMLDivElement> {
       fieldWithLabel("Region / category", this.categoryCombo.root),
       fieldWithLabel("Map", this.mapCombo.root)
     );
-
-    const startupToggles = document.createElement("div");
-    startupToggles.className = "startup-layer-grid";
-    for (const { key, label } of STARTUP_LAYERS) {
-      startupToggles.appendChild(this.buildLayerChip(key, label));
-    }
-    form.appendChild(startupToggles);
 
     const actions = document.createElement("div");
     actions.className = "launcher-actions";
@@ -236,25 +221,6 @@ export class LauncherPanel extends Component<HTMLDivElement> {
     this.mapCombo.setDisabled(!archiveReady);
     this.loadMapBtn.disabled = !archiveReady;
     this.deepScanBtn.disabled = !archiveReady || archive.scan.status === "scanning";
-
-    const layerState = this.controller.getLayerState();
-    for (const key of LAYER_KEYS) {
-      const chip = this.layerChips.get(key);
-      if (!chip) continue;
-      chip.classList.toggle("active", layerState[key].requested);
-      chip.classList.toggle("loading", layerState[key].status === "loading");
-    }
-  }
-
-  private buildLayerChip(key: LayerKey, label: string): HTMLButtonElement {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "chip-toggle";
-    button.dataset.layer = key;
-    button.textContent = label;
-    this.listen(button, "click", () => this.controller.toggleStartupLayer(key));
-    this.layerChips.set(key, button);
-    return button;
   }
 
   private onCategorySelected(categoryId: string | null): void {

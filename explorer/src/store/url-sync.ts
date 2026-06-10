@@ -60,6 +60,7 @@ export class UrlSync {
         position: snapshot.position,
         rotation: snapshot.rotation,
         orbitalTarget: snapshot.orbitalTarget,
+        zoom: snapshot.zoom,
       }
     );
     this.deps.setUrlState(next);

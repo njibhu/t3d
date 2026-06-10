@@ -35,7 +35,11 @@ export class ExplorerScene implements MapContentHost {
   private rafId = 0;
   private playing = false;
   private antialias = true;
-  private fog = 25000;
+  private fog = 50000;
+  private readonly worldFog = new THREE.Fog(CLEAR_COLOR, this.fog, this.fog + FOG_LENGTH);
+  private clipEnabled = false;
+  // Horizontal cut plane (normal -Y) keeping everything at or below `clipHeight`.
+  private readonly clipPlane = new THREE.Plane(new THREE.Vector3(0, -1, 0), 5000);
 
   private readonly rig = new CameraRig();
   private readonly physics = new PhysicsController();
@@ -45,13 +49,19 @@ export class ExplorerScene implements MapContentHost {
   private pointerLockChangeHandler?: (locked: boolean) => void;
   private physicsChangeHandler?: (enabled: boolean) => void;
   private cameraModeChangeHandler?: (mode: CameraMode) => void;
+  private movementSpeedChangeHandler?: (value: number) => void;
 
   constructor() {
     this.lighting = new SceneLighting(this.scene, () => this.content.getContext());
-    this.fly = new FlyController(this.rig.camera, this.physics, (locked) => this.pointerLockChangeHandler?.(locked));
+    this.fly = new FlyController(
+      this.rig.camera,
+      this.physics,
+      (locked) => this.pointerLockChangeHandler?.(locked),
+      (value) => this.movementSpeedChangeHandler?.(value)
+    );
     this.content = new MapContent(this);
 
-    this.scene.fog = new THREE.Fog(CLEAR_COLOR, this.fog, this.fog + FOG_LENGTH);
+    this.scene.fog = this.worldFog;
     this.rig.camera.far = this.fog + FOG_LENGTH;
     this.rig.camera.updateProjectionMatrix();
     this.lighting.refresh([]);
@@ -68,6 +78,7 @@ export class ExplorerScene implements MapContentHost {
     if (this.renderer.domElement.parentElement !== host) {
       host.replaceChildren(this.renderer.domElement);
     }
+    this.applyClipping();
     this.resize();
     this.resizeObserver?.disconnect();
     this.resizeObserver = new ResizeObserver(() => this.resize());
@@ -105,10 +116,6 @@ export class ExplorerScene implements MapContentHost {
     this.content.setEnvironmentVariant(id);
   }
 
-  setCollisionOpacity(value: number): void {
-    this.content.setCollisionOpacity(value);
-  }
-
   getCurrentMapId(): number | null {
     return this.content.getCurrentMapId();
   }
@@ -140,6 +147,7 @@ export class ExplorerScene implements MapContentHost {
   }
 
   setCameraMode(mode: CameraMode): void {
+    this.setFogActive(mode !== "topDown");
     if (!this.renderer || this.rig.mode === mode) {
       this.rig.setMode(mode);
       return;
@@ -164,6 +172,7 @@ export class ExplorerScene implements MapContentHost {
       position: snapshot.position,
       rotation: snapshot.rotation,
       orbitalTarget: snapshot.orbitalTarget,
+      zoom: snapshot.zoom,
     });
   }
 
@@ -171,16 +180,28 @@ export class ExplorerScene implements MapContentHost {
 
   setFogDistance(value: number): void {
     this.fog = Math.max(0, value);
-    if (this.scene.fog instanceof THREE.Fog) {
-      this.scene.fog.near = this.fog;
-      this.scene.fog.far = this.fog + FOG_LENGTH;
-    }
+    this.worldFog.near = this.fog;
+    this.worldFog.far = this.fog + FOG_LENGTH;
     this.rig.camera.far = this.fog + FOG_LENGTH;
     this.rig.camera.updateProjectionMatrix();
   }
 
+  /** Distance fog overwhelms the top-down ortho view (camera sits far above), so toggle it off there. */
+  setFogActive(active: boolean): void {
+    this.scene.fog = active ? this.worldFog : null;
+  }
+
   setMovementSpeed(value: number): void {
     this.fly.setMovementSpeed(value);
+  }
+
+  setClipEnabled(value: boolean): void {
+    this.clipEnabled = value;
+    this.applyClipping();
+  }
+
+  setClipHeight(value: number): void {
+    this.clipPlane.constant = value;
   }
 
   setLightIntensity(value: number): void {
@@ -215,6 +236,10 @@ export class ExplorerScene implements MapContentHost {
     this.cameraModeChangeHandler = handler;
   }
 
+  setMovementSpeedChangeHandler(handler: ((value: number) => void) | undefined): void {
+    this.movementSpeedChangeHandler = handler;
+  }
+
   // --- renderer ------------------------------------------------------------
 
   recreateRenderer(antialias: boolean): void {
@@ -236,6 +261,7 @@ export class ExplorerScene implements MapContentHost {
 
     this.renderer = this.createRenderer();
     this.hostElement.replaceChildren(this.renderer.domElement);
+    this.applyClipping();
     this.configureControls(snapshot.mode, true);
     this.applySnapshot(snapshot);
     this.resize();
@@ -247,9 +273,9 @@ export class ExplorerScene implements MapContentHost {
     if (!screenshotWindow) return;
     screenshotWindow.document.title = "T3D Explorer Screenshot";
     this.renderer.clear();
-    this.skyCamera.quaternion.copy(this.rig.camera.quaternion);
+    this.skyCamera.quaternion.copy(this.rig.activeCamera.quaternion);
     this.renderer.render(this.skyScene, this.skyCamera);
-    this.renderer.render(this.scene, this.rig.camera);
+    this.renderer.render(this.scene, this.rig.activeCamera);
     const image = new Image();
     image.src = this.renderer.domElement.toDataURL();
     screenshotWindow.document.body.appendChild(image);
@@ -266,16 +292,12 @@ export class ExplorerScene implements MapContentHost {
 
   applyEnvironmentColors(clearColor: THREE.Color): void {
     this.renderer?.setClearColor(clearColor);
-    if (this.scene.fog instanceof THREE.Fog) {
-      this.scene.fog.color.copy(clearColor);
-    }
+    this.worldFog.color.copy(clearColor);
   }
 
   resetEnvironmentColors(): void {
     this.renderer?.setClearColor(CLEAR_COLOR);
-    if (this.scene.fog instanceof THREE.Fog) {
-      this.scene.fog.color.set(CLEAR_COLOR);
-    }
+    this.worldFog.color.set(CLEAR_COLOR);
   }
 
   setCollisionMeshes(meshes: THREE.Object3D[]): void {
@@ -338,9 +360,9 @@ export class ExplorerScene implements MapContentHost {
         this.rig.updateOrbital();
       }
       this.renderer.clear();
-      this.skyCamera.quaternion.copy(this.rig.camera.quaternion);
+      this.skyCamera.quaternion.copy(this.rig.activeCamera.quaternion);
       this.renderer.render(this.skyScene, this.skyCamera);
-      this.renderer.render(this.scene, this.rig.camera);
+      this.renderer.render(this.scene, this.rig.activeCamera);
       this.rafId = requestAnimationFrame(loop);
     };
     this.rafId = requestAnimationFrame(loop);
@@ -360,9 +382,13 @@ export class ExplorerScene implements MapContentHost {
     const height = this.hostElement.clientHeight;
     if (!width || !height) return;
     this.renderer.setSize(width, height, false);
-    this.rig.camera.aspect = width / height;
-    this.rig.camera.updateProjectionMatrix();
+    this.rig.resize(width / height);
     this.skyCamera.aspect = width / height;
     this.skyCamera.updateProjectionMatrix();
+  }
+
+  private applyClipping(): void {
+    if (!this.renderer) return;
+    this.renderer.clippingPlanes = this.clipEnabled ? [this.clipPlane] : [];
   }
 }
