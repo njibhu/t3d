@@ -1,6 +1,7 @@
 import { Cntc, FileParser, type LocalReader } from "t3d-lib";
 import { triggerDownload } from "../util/download";
 import { CntcExplorer, type CntcExplorerEntry, type CntcNavigationTarget } from "./cntc/cntc-explorer";
+import type { ArchiveToolView } from "./archive-tool";
 
 /**
  * Archive-wide CNTC table: scans every cntc file in the open archive, aggregates
@@ -18,7 +19,7 @@ interface CntcTableViewInit {
   onOpenFile?: (baseId: number, newTab: boolean) => void;
 }
 
-export class CntcTableView {
+export class CntcTableView implements ArchiveToolView {
   readonly root: HTMLDivElement;
 
   private reader: LocalReader;
@@ -37,16 +38,16 @@ export class CntcTableView {
     this.resolver = new Cntc.CntcResolver(this.reader);
 
     this.root = document.createElement("div");
-    this.root.className = "cntc-table-view";
+    this.root.className = "archive-tool-view cntc-table-view";
 
     const toolbar = document.createElement("div");
-    toolbar.className = "cntc-table-toolbar";
+    toolbar.className = "archive-tool-toolbar cntc-table-toolbar";
     this.statusEl = document.createElement("div");
-    this.statusEl.className = "cntc-table-status";
+    this.statusEl.className = "archive-tool-status cntc-table-status";
     this.exportTypeBtn = this.buildButton("Download selected type", () => this.downloadSelectedType());
     this.exportAllBtn = this.buildButton("Download all types", () => this.downloadAllTypes());
     const spacer = document.createElement("div");
-    spacer.className = "cntc-table-toolbar-spacer";
+    spacer.className = "archive-tool-toolbar-spacer cntc-table-toolbar-spacer";
     toolbar.append(this.statusEl, spacer, this.exportTypeBtn, this.exportAllBtn);
 
     this.explorer = new CntcExplorer({
