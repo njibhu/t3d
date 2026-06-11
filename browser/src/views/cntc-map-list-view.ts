@@ -178,7 +178,9 @@ export class CntcMapListView implements ArchiveToolView {
       `${files.length.toLocaleString()} CNTC files`;
     this.summaryEl.textContent =
       `Generated ${this.records.length.toLocaleString()} map baseId > codename mappings.` +
-      (unresolvedMapDataRefs > 0 ? ` Skipped ${unresolvedMapDataRefs.toLocaleString()} entries with unresolved map data refs.` : "") +
+      (unresolvedMapDataRefs > 0
+        ? ` Skipped ${unresolvedMapDataRefs.toLocaleString()} entries with unresolved map data refs.`
+        : "") +
       (conflictCount > 0 ? ` ${conflictCount.toLocaleString()} map baseIds resolved to multiple codenames.` : "");
     this.listEl.textContent = this.records.map((record) => `${record.mapBaseId} > ${record.codename}`).join("\n");
     this.updateExportState();
