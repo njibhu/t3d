@@ -3,7 +3,9 @@ import { ArchiveStore, FileRow, SIDEBAR_GROUP, SidebarNode } from "./store/archi
 import { VirtualTable } from "./components/virtual-table";
 import { FileViewer } from "./components/file-viewer";
 import { FileTabsStrip } from "./components/file-tabs-strip";
+import type { ArchiveToolView } from "./views/archive-tool";
 import type { CntcNavigationTarget } from "./views/cntc-view";
+import { CntcMapListView } from "./views/cntc-map-list-view";
 import { CntcTableView } from "./views/cntc-table-view";
 import { wireSplitter } from "./components/splitter";
 import { loadTabs, saveTabs, PERSIST_KEYS } from "./store/tab-store";
@@ -15,6 +17,8 @@ const MAX_OPEN_TABS = 12;
 /** Reserved tab id for the archive-wide CNTC table. Real baseIds are positive,
  *  so this sentinel never collides and stays out of `openTabs`/persistence. */
 const CNTC_TABLE_TAB_ID = -1;
+/** Reserved tab id for the archive-wide map baseId > codename list. */
+const CNTC_MAP_LIST_TAB_ID = -2;
 
 const clampPaneWidth = (px: number): number => {
   const min = 240;
@@ -60,6 +64,8 @@ export class App {
   private searchTerm = "";
   private cntcTableView: CntcTableView | null = null;
   private cntcTableLoaded = false;
+  private cntcMapListView: CntcMapListView | null = null;
+  private cntcMapListLoaded = false;
 
   constructor(root: HTMLElement) {
     this.root = root;
@@ -169,6 +175,16 @@ export class App {
       this.openCntcTableTab();
     });
     list.appendChild(item);
+
+    const mapListItem = document.createElement("button");
+    mapListItem.type = "button";
+    mapListItem.className = "special-menu-item";
+    mapListItem.textContent = "Generate map baseId > codename list";
+    mapListItem.addEventListener("click", () => {
+      close();
+      this.openCntcMapListTab();
+    });
+    list.appendChild(mapListItem);
 
     button.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -354,8 +370,11 @@ export class App {
     }
 
     // Once the type scan completes we know the full set of CNTC files, so an
-    // open-but-waiting table can now be populated.
-    if (scanChanged) this.maybeLoadCntcTable();
+    // open-but-waiting archive tool can now be populated.
+    if (scanChanged) {
+      this.maybeLoadCntcTable();
+      this.maybeLoadCntcMapList();
+    }
   }
 
   private onArchiveLoaded(): void {
@@ -529,6 +548,27 @@ export class App {
     this.maybeLoadCntcTable();
   }
 
+  /** Opens (or focuses) the archive-wide CNTC-derived map codename list. */
+  private openCntcMapListTab(): void {
+    if (!this.store.reader) {
+      this.toast("Open an archive first.");
+      return;
+    }
+    if (this.cntcMapListView) {
+      this.activateTab(CNTC_MAP_LIST_TAB_ID);
+      return;
+    }
+
+    this.viewerHostEl.querySelector(".viewer-empty")?.remove();
+    this.cntcMapListView = new CntcMapListView({
+      reader: this.store.reader,
+    });
+    this.viewerHostEl.appendChild(this.cntcMapListView.root);
+    this.tabsStrip.addChip(CNTC_MAP_LIST_TAB_ID, "Map Codenames");
+    this.activateTab(CNTC_MAP_LIST_TAB_ID);
+    this.maybeLoadCntcMapList();
+  }
+
   /** Parsing every CNTC file needs the full type scan, so defer until it lands. */
   private maybeLoadCntcTable(): void {
     if (!this.cntcTableView || this.cntcTableLoaded) return;
@@ -543,6 +583,20 @@ export class App {
     }
   }
 
+  /** The map-codename list also needs the full type scan so it can find all CNTC files. */
+  private maybeLoadCntcMapList(): void {
+    if (!this.cntcMapListView || this.cntcMapListLoaded) return;
+    const scan = this.store.currentScanState;
+    if (scan.status === "complete") {
+      this.cntcMapListLoaded = true;
+      void this.cntcMapListView.load(this.cntcFiles());
+    } else if (scan.status === "error") {
+      this.cntcMapListView.setWaiting("Type scan failed â€” reopen the archive to retry.");
+    } else {
+      this.cntcMapListView.setWaiting("Waiting for type scan to finishâ€¦");
+    }
+  }
+
   private cntcFiles(): { mftId: number; baseId: number }[] {
     return this.store.getFilteredRows("PF_cntc").map((row) => ({
       mftId: row.mftId,
@@ -550,10 +604,11 @@ export class App {
     }));
   }
 
-  /** The pane backing a tab id: a file viewer, or the CNTC table sentinel. */
-  private paneForId(id: number | null): { root: HTMLElement; onShow(): void; onHide(): void } | null {
+  /** The pane backing a tab id: a file viewer, or one of the archive-wide tool sentinels. */
+  private paneForId(id: number | null): ArchiveToolView | FileViewer | null {
     if (id == null) return null;
     if (id === CNTC_TABLE_TAB_ID) return this.cntcTableView;
+    if (id === CNTC_MAP_LIST_TAB_ID) return this.cntcMapListView;
     return this.openTabs.get(id) ?? null;
   }
 
@@ -561,7 +616,8 @@ export class App {
   private nextTabId(): number | null {
     const [firstFile] = this.openTabs.keys();
     if (firstFile != null) return firstFile;
-    return this.cntcTableView ? CNTC_TABLE_TAB_ID : null;
+    if (this.cntcTableView) return CNTC_TABLE_TAB_ID;
+    return this.cntcMapListView ? CNTC_MAP_LIST_TAB_ID : null;
   }
 
   private activateTab(fileId: number): void {
@@ -577,8 +633,8 @@ export class App {
     pane.onShow();
     this.activeTabId = fileId;
     this.tabsStrip.setActive(fileId);
-    // The CNTC table isn't a file, so it has no row in the file table or URL.
-    if (fileId !== CNTC_TABLE_TAB_ID) {
+    // Archive-wide tools aren't files, so they have no row in the file table or URL.
+    if (fileId !== CNTC_TABLE_TAB_ID && fileId !== CNTC_MAP_LIST_TAB_ID) {
       this.table.setSelection(this.mftIdForBaseId(fileId));
       this.updateUrl(fileId);
     }
@@ -592,6 +648,12 @@ export class App {
       this.cntcTableView.root.remove();
       this.cntcTableView = null;
       this.cntcTableLoaded = false;
+    } else if (fileId === CNTC_MAP_LIST_TAB_ID) {
+      if (!this.cntcMapListView) return;
+      this.cntcMapListView.dispose();
+      this.cntcMapListView.root.remove();
+      this.cntcMapListView = null;
+      this.cntcMapListLoaded = false;
     } else {
       const viewer = this.openTabs.get(fileId);
       if (!viewer) return;
@@ -622,9 +684,10 @@ export class App {
   // ---- persistence ----
 
   private persistTabs(): void {
-    // The CNTC table sentinel is never a real file id, so keep it out of the
-    // persisted set (it is also intentionally not restored across reloads).
-    const activeId = this.activeTabId === CNTC_TABLE_TAB_ID ? null : this.activeTabId;
+    // Archive-wide tool sentinels are never real file ids, so keep them out of
+    // the persisted set (they are also intentionally not restored across reloads).
+    const activeId =
+      this.activeTabId === CNTC_TABLE_TAB_ID || this.activeTabId === CNTC_MAP_LIST_TAB_ID ? null : this.activeTabId;
     saveTabs({ openIds: [...this.openTabs.keys()], activeId });
   }
 
@@ -707,7 +770,13 @@ export class App {
       this.cntcTableView.root.remove();
       this.cntcTableView = null;
     }
+    if (this.cntcMapListView) {
+      this.cntcMapListView.dispose();
+      this.cntcMapListView.root.remove();
+      this.cntcMapListView = null;
+    }
     this.cntcTableLoaded = false;
+    this.cntcMapListLoaded = false;
     this.activeTabId = null;
     this.selectedSidebarItem = null;
     this.tabsStrip.clear();

@@ -917,23 +917,26 @@ body {
 }
 
 /* Archive-wide CNTC table (Special ▸ Open CNTC table view) */
-.viewer-host > .cntc-table-view {
+.viewer-host > .archive-tool-view {
   position: absolute;
   inset: 0;
 }
-.viewer-host > .cntc-table-view[hidden] {
+.viewer-host > .archive-tool-view[hidden] {
   display: none !important;
 }
-.cntc-table-view {
+.archive-tool-view {
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 0;
   overflow: hidden;
 }
+.cntc-table-view {
+  display: grid;
+}
 .cntc-table-view > .cntc-view {
   min-height: 0;
 }
-.cntc-table-toolbar {
+.archive-tool-toolbar {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -941,15 +944,15 @@ body {
   border-bottom: 1px solid var(--t3d-border);
   background: var(--t3d-bg-panel);
 }
-.cntc-table-toolbar-spacer {
+.archive-tool-toolbar-spacer {
   flex: 1;
 }
-.cntc-table-status {
+.archive-tool-status {
   color: var(--t3d-text-muted);
   font-family: var(--t3d-mono);
   font-size: 11px;
 }
-.cntc-table-toolbar button {
+.archive-tool-toolbar button {
   background: var(--t3d-bg-panel-2);
   border: 1px solid var(--t3d-border);
   color: var(--t3d-text);
@@ -958,12 +961,39 @@ body {
   cursor: pointer;
   font-size: 11px;
 }
-.cntc-table-toolbar button:hover:not(:disabled) {
+.archive-tool-toolbar button:hover:not(:disabled) {
   background: var(--t3d-row-hover);
 }
-.cntc-table-toolbar button:disabled {
+.archive-tool-toolbar button:disabled {
   opacity: 0.5;
   cursor: default;
+}
+.cntc-map-list-body {
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+.cntc-map-list-summary {
+  color: var(--t3d-text-muted);
+  font-size: 12px;
+}
+.cntc-map-list-output {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 12px;
+  overflow: auto;
+  border: 1px solid var(--t3d-border);
+  border-radius: 4px;
+  background: var(--t3d-bg-panel);
+  color: var(--t3d-text);
+  font-family: var(--t3d-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
 }
 .cntc-table-detail {
   min-height: 0;
