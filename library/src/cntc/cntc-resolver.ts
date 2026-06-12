@@ -14,9 +14,15 @@ import {
 import {
   CNTC_MAP_DATA_FILEREF_OFFSET,
   CNTC_MAP_NAME_STRING_OFFSET,
+  CNTC_MAP_REGION_REFERENCE_OFFSET,
   CNTC_MAP_REGION_STRING_OFFSET,
+  CNTC_REGION_CONTINENT_REFERENCE_OFFSET,
+  getCntcMapContinentName,
+  getCntcMapLocationFallback,
   getCntcMapNameIndex,
+  getCntcMapRegionName,
   getCntcMapRegionIndex,
+  getCntcMapTypeValue,
 } from "./cntc-map";
 
 /**
@@ -54,9 +60,12 @@ export interface CntcSkinReference {
  *  - `asset`: a `fileRefs` index → an external asset file (model/texture/audio/
  *    portal/mapc), discovered from the `fileIndices` fixup table.
  *  - `skin`: an item → its skin entry (an `externalOffsets` pointer).
- *  - `mapName` / `mapRegion`: a map's codename / region string (a `strings` index). */
+ *  - `mapName` / `mapRegion`: a map's codename / region-group string (a `strings` index).
+ *  - `mapApiRegion` / `mapApiContinent`: the reconstructed public API location
+ *    carried primarily through the map's linked sibling entries.
+ *  - `regionApiContinent`: a type-60 region's linked continent carrier. */
 export interface CntcReference {
-  kind: "asset" | "skin" | "mapName" | "mapRegion";
+  kind: "asset" | "skin" | "mapName" | "mapRegion" | "mapApiRegion" | "mapApiContinent" | "regionApiContinent";
   label: string;
   /** Known source offset within the entry, when fixed (asset/map refs); the skin
    *  ref's offset is only known after resolution. */
@@ -82,6 +91,26 @@ export interface CntcResolvedReference {
   navigation: CntcReferenceNavigation;
 }
 
+/** A resolved sibling cntc entry target, suitable for public library consumers. */
+export interface CntcResolvedEntryTarget {
+  baseId: number;
+  type: number;
+  dataId: number | null;
+  uniqueId: number | null;
+  offset: number;
+}
+
+/** The reconstructed public map location for a type-45 entry. */
+export interface CntcResolvedMapLocation {
+  regionId: number | null;
+  regionName: string | null;
+  continentId: number | null;
+  continentName: string | null;
+  derivedFrom: "type60-chain" | "fallback" | "unknown";
+  regionCarrier: CntcResolvedEntryTarget | null;
+  continentCarrier: CntcResolvedEntryTarget | null;
+}
+
 /**
  * The entry-only references a given entry carries — the ones that don't come
  * from the `fileIndices` asset table: an item's skin pointer and a map's
@@ -93,8 +122,13 @@ export function describeCntcReferences(entry: CntcEntry): CntcReference[] {
   if (entry.type === 45) {
     return [
       { kind: "mapName", label: "codename @0xB0", offset: CNTC_MAP_NAME_STRING_OFFSET, length: 4 },
-      { kind: "mapRegion", label: "region @0x110", offset: CNTC_MAP_REGION_STRING_OFFSET, length: 4 },
+      { kind: "mapRegion", label: "region group @0x110", offset: CNTC_MAP_REGION_STRING_OFFSET, length: 4 },
+      { kind: "mapApiRegion", label: "region", length: 4 },
+      { kind: "mapApiContinent", label: "continent", length: 4 },
     ];
+  }
+  if (entry.type === 60) {
+    return [{ kind: "regionApiContinent", label: "continent @0x68", offset: CNTC_REGION_CONTINENT_REFERENCE_OFFSET, length: 4 }];
   }
   return [];
 }
@@ -140,6 +174,7 @@ export class CntcResolver {
   private reader: LocalReader;
   private fileCache = new Map<number, Promise<CntcResolvedFile | null>>();
   private packBaseIdCache = new Map<number, Promise<number | null>>();
+  private mapLocationCache = new Map<string, Promise<CntcResolvedMapLocation | null>>();
 
   constructor(reader: LocalReader) {
     this.reader = reader;
@@ -240,7 +275,59 @@ export class CntcResolver {
       };
     }
 
+    if (reference.kind === "mapApiRegion" || reference.kind === "mapApiContinent") {
+      const location = await this.resolveMapLocation(baseId, entry);
+      if (!location) return null;
+
+      if (reference.kind === "mapApiRegion") {
+        if (location.regionId == null) return null;
+        return {
+          label: location.derivedFrom === "type60-chain" ? "region @0x108" : "region (derived)",
+          offset: location.derivedFrom === "type60-chain" ? CNTC_MAP_REGION_REFERENCE_OFFSET : undefined,
+          length: reference.length,
+          display: formatMapLocationValue(location.regionId, location.regionName),
+          navigation: location.regionCarrier ? toEntryNavigation(location.regionCarrier) : { target: "none" },
+        };
+      }
+
+      if (location.continentId == null) return null;
+      return {
+        label: location.derivedFrom === "type60-chain" ? "continent via region" : "continent (derived)",
+        length: reference.length,
+        display: formatMapLocationValue(location.continentId, location.continentName),
+        navigation: location.continentCarrier ? toEntryNavigation(location.continentCarrier) : { target: "none" },
+      };
+    }
+
+    if (reference.kind === "regionApiContinent") {
+      const continentCarrier = await this.resolveExternalEntry(baseId, entry, CNTC_REGION_CONTINENT_REFERENCE_OFFSET, 11);
+      if (!continentCarrier) return null;
+      return {
+        label: reference.label,
+        offset: reference.offset,
+        length: reference.length,
+        display: formatMapLocationValue(continentCarrier.dataId ?? 0, getCntcMapContinentName(continentCarrier.dataId)),
+        navigation: toEntryNavigation(continentCarrier),
+      };
+    }
+
     return null;
+  }
+
+  /**
+   * Reconstructs a type-45 entry's public API `region_id` / `continent_id`,
+   * primarily through the verified `type45 @0x108 -> type60 -> type11` chain.
+   */
+  async resolveMapLocation(baseId: number, entry: CntcEntry): Promise<CntcResolvedMapLocation | null> {
+    if (entry.type !== 45) return null;
+
+    const cacheKey = `${baseId}:${entry.begin}`;
+    let pending = this.mapLocationCache.get(cacheKey);
+    if (!pending) {
+      pending = this.readMapLocation(baseId, entry);
+      this.mapLocationCache.set(cacheKey, pending);
+    }
+    return pending;
   }
 
   /**
@@ -295,6 +382,52 @@ export class CntcResolver {
     return resolveCntcString(file.mainContent.strings, stringIndex);
   }
 
+  private async readMapLocation(baseId: number, entry: CntcEntry): Promise<CntcResolvedMapLocation> {
+    const regionCarrier = await this.resolveExternalEntry(baseId, entry, CNTC_MAP_REGION_REFERENCE_OFFSET, 60);
+    if (regionCarrier) {
+      const continentCarrier = await this.resolveExternalEntry(
+        regionCarrier.baseId,
+        regionCarrier.entry,
+        CNTC_REGION_CONTINENT_REFERENCE_OFFSET,
+        11
+      );
+      const regionId = regionCarrier.dataId;
+      const continentId = continentCarrier?.dataId ?? null;
+      return {
+        regionId,
+        regionName: getCntcMapRegionName(regionId),
+        continentId,
+        continentName: getCntcMapContinentName(continentId),
+        derivedFrom: "type60-chain",
+        regionCarrier: toResolvedEntryTarget(regionCarrier),
+        continentCarrier: continentCarrier ? toResolvedEntryTarget(continentCarrier) : null,
+      };
+    }
+
+    const fallback = getCntcMapLocationFallback(
+      await this.resolveMapString(baseId, getCntcMapRegionIndex(entry)),
+      getCntcMapTypeValue(entry)
+    );
+    if (fallback) {
+      return {
+        ...fallback,
+        derivedFrom: "fallback",
+        regionCarrier: null,
+        continentCarrier: null,
+      };
+    }
+
+    return {
+      regionId: null,
+      regionName: null,
+      continentId: null,
+      continentName: null,
+      derivedFrom: "unknown",
+      regionCarrier: null,
+      continentCarrier: null,
+    };
+  }
+
   /** Looks up a pack-wide `fileRefs` index (anchored near `anchorBaseId`) → file baseId. */
   private async resolveFileRef(anchorBaseId: number, fileRefIndex: number | null): Promise<number | null> {
     if (fileRefIndex == null) return null;
@@ -330,6 +463,40 @@ export class CntcResolver {
     return pending;
   }
 
+  private async resolveExternalEntry(
+    anchorBaseId: number,
+    sourceEntry: CntcEntry,
+    sourceOffset: number,
+    expectedType: number
+  ): Promise<(CntcResolvedEntryTarget & { entry: CntcEntry }) | null> {
+    const file = await this.loadFile(anchorBaseId);
+    if (!file) return null;
+
+    const fixup = file.mainContent.externalOffsets.find((candidate) => candidate.relocOffset === sourceEntry.begin + sourceOffset);
+    if (!fixup) return null;
+
+    const targetOffset = readUint32LE(file.mainContent.content, fixup.relocOffset);
+    if (targetOffset == null) return null;
+
+    const targetBaseId = await this.resolveTargetBaseId(anchorBaseId, fixup.targetFileIndex);
+    if (targetBaseId == null) return null;
+
+    const targetFile = await this.loadFile(targetBaseId);
+    if (!targetFile) return null;
+
+    const targetEntry = findCntcEntryAtOffset(targetFile.entries, targetOffset);
+    if (!targetEntry || targetEntry.type !== expectedType) return null;
+
+    return {
+      baseId: targetBaseId,
+      type: targetEntry.type,
+      dataId: getCntcEntryDataId(targetEntry),
+      uniqueId: getCntcEntryUniqueId(targetEntry),
+      offset: targetEntry.begin,
+      entry: targetEntry,
+    };
+  }
+
   private async readFile(baseId: number): Promise<CntcResolvedFile | null> {
     const mftId = this.reader.getFileIndex(baseId);
     if (!Number.isFinite(mftId)) return null;
@@ -343,4 +510,32 @@ export class CntcResolver {
     const mainContent = getCntcMainContent(packfile);
     return { baseId, mainContent, entries: getCntcEntries(mainContent) };
   }
+}
+
+function formatMapLocationValue(id: number, name: string | null): string {
+  if (name == null) {
+    return String(id);
+  }
+  return `${id} | ${name || "(blank)"}`;
+}
+
+function toResolvedEntryTarget(reference: CntcResolvedEntryTarget): CntcResolvedEntryTarget {
+  return {
+    baseId: reference.baseId,
+    type: reference.type,
+    dataId: reference.dataId,
+    uniqueId: reference.uniqueId,
+    offset: reference.offset,
+  };
+}
+
+function toEntryNavigation(reference: CntcResolvedEntryTarget): CntcReferenceNavigation {
+  return {
+    target: "entry",
+    baseId: reference.baseId,
+    type: reference.type,
+    dataId: reference.dataId,
+    uniqueId: reference.uniqueId,
+    offset: reference.offset,
+  };
 }

@@ -1,4 +1,11 @@
 import {
+  CNTC_MAP_TYPE_OFFSET,
+  CNTC_REGION_CONTINENT_REFERENCE_OFFSET,
+  getCntcMapContinentName,
+  getCntcMapRegionName,
+  getCntcMapTypeValue,
+} from "./cntc-map";
+import {
   type CntcEntry,
   getCntcEntryDataId,
   getCntcEntryEmbeddedType,
@@ -28,6 +35,8 @@ export interface CntcField {
 export function getCntcDataIdLabel(type: number): string {
   if (type === 35) return "item id @0x28";
   if (type === 45) return "map id @0x28";
+  if (type === 60) return "region id @0x28";
+  if (type === 11) return "continent id @0x28";
   return "id @0x28";
 }
 
@@ -35,6 +44,8 @@ export function getCntcDataIdLabel(type: number): string {
 export function getCntcDataIdCaption(type: number): string {
   if (type === 35) return "item id";
   if (type === 45) return "map id";
+  if (type === 60) return "region id";
+  if (type === 11) return "continent id";
   return "data id";
 }
 
@@ -50,6 +61,12 @@ export function describeCntcEntry(entry: CntcEntry): CntcField[] {
 
   if (entry.type === 35) {
     fields.push(...describeItemFields(entry));
+  } else if (entry.type === 45) {
+    fields.push(...describeMapFields(entry));
+  } else if (entry.type === 60) {
+    fields.push(...describeRegionFields(entry));
+  } else if (entry.type === 11) {
+    fields.push(...describeContinentFields(entry));
   }
 
   return fields;
@@ -107,4 +124,26 @@ function describeItemFields(entry: CntcEntry): CntcField[] {
   }
 
   return fields;
+}
+
+function describeMapFields(entry: CntcEntry): CntcField[] {
+  return [{ label: "map type @0x2C", offset: CNTC_MAP_TYPE_OFFSET, length: 4, value: getCntcMapTypeValue(entry) }];
+}
+
+function describeRegionFields(entry: CntcEntry): CntcField[] {
+  const regionId = getCntcEntryDataId(entry);
+  return [
+    { label: "region name", value: getCntcMapRegionName(regionId) },
+    {
+      label: "continent ref @0x68",
+      offset: CNTC_REGION_CONTINENT_REFERENCE_OFFSET,
+      length: 4,
+      value: readUint32LE(entry.contentSlice, CNTC_REGION_CONTINENT_REFERENCE_OFFSET),
+    },
+  ];
+}
+
+function describeContinentFields(entry: CntcEntry): CntcField[] {
+  const continentId = getCntcEntryDataId(entry);
+  return [{ label: "continent name", value: getCntcMapContinentName(continentId) }];
 }
