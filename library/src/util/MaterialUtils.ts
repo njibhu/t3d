@@ -199,6 +199,33 @@ interface ModelMaterialData {
   texCoordCount: number;
 }
 
+const DIFFUSE_TEXTURE_TOKENS = [1733499172, 27219515885689124n] as const;
+const NORMAL_TEXTURE_TOKENS = [404146670, 850610087184878n] as const;
+
+function textureTokenMatches(token: bigint, candidates: readonly (number | bigint)[]): boolean {
+  return candidates.some((candidate) => token === BigInt(candidate));
+}
+
+export function pickMaterialTextures(
+  material: ModelMaterialData,
+  preferredTextures?: ModelMaterialData["textures"]
+): { diffuse?: ModelMaterialData["textures"][number]; normal?: ModelMaterialData["textures"][number] } {
+  const textures = preferredTextures && preferredTextures.length ? preferredTextures : material.textures;
+  const allTextures = material.textures;
+
+  const diffuse =
+    textures.find((texture) => texture.filename > 0 && textureTokenMatches(texture.token, DIFFUSE_TEXTURE_TOKENS)) ||
+    allTextures.find((texture) => texture.filename > 0 && textureTokenMatches(texture.token, DIFFUSE_TEXTURE_TOKENS)) ||
+    textures.find((texture) => texture.filename > 0) ||
+    allTextures.find((texture) => texture.filename > 0);
+
+  const normal =
+    textures.find((texture) => texture.filename > 0 && textureTokenMatches(texture.token, NORMAL_TEXTURE_TOKENS)) ||
+    allTextures.find((texture) => texture.filename > 0 && textureTokenMatches(texture.token, NORMAL_TEXTURE_TOKENS));
+
+  return { diffuse, normal };
+}
+
 /**
  * Builds a THREE texture from a ModelMaterialData by reading settings and
  * loading any required data from the localReader. Uses sharedTextures for
@@ -232,6 +259,7 @@ export function getMaterial(
 
   /// Append all textures to the custom material
   const finalTextures: (Texture & { uvIdx?: number })[] = [];
+  const samplerTextures: ModelMaterialData["textures"] = [];
 
   // Some materials don't use textures..
   if (material && material.textures.length && dxChunk.data.techniques.length > 0) {
@@ -261,7 +289,6 @@ export function getMaterial(
     }); */
     // var samplerIdx = effect.samplerIndex[0];
 
-    const samplerTextures = [];
     let textureToken: number; // UINT64
     let samplerTex: ModelMaterialData["textures"][number] | null;
     for (let i = 0; i < effect.samplerIndex.length; i++) {
@@ -339,15 +366,7 @@ export function getMaterial(
       //@ts-ignore
       finalMaterial = getUVMat(finalTextures, material.texCoordCount, grChunk.data.flags !== 16460);
     } else {
-      let ft: ModelMaterialData["textures"][number] | undefined;
-      let nt: ModelMaterialData["textures"][number] | undefined;
-      material.textures.forEach(function (t) {
-        // Flag for diffuse map
-        if (!ft && Number(t.token) === 1733499172) ft = t;
-
-        // Flag for normal map
-        if (!nt && Number(t.token) === 404146670) nt = t;
-      });
+      const { diffuse: ft, normal: nt } = pickMaterialTextures(material, samplerTextures);
 
       if (!ft || ft.filename <= 0) return;
 
@@ -483,17 +502,7 @@ export function getSimpleMaterial(
 
   const grChunk = materialFile.getChunk("grmt")! as { header: ChunkHead; data: GRMT.V5_U };
 
-  let ft: ModelMaterialData["textures"][number] | undefined;
-  let nt: ModelMaterialData["textures"][number] | undefined;
-  material.textures.forEach(function (t) {
-    // Flag for diffuse map
-    if (!ft && Number(t.token) === 1733499172) ft = t;
-    if (!ft && t.token === 27219515885689124n) ft = t;
-
-    // Flag for normal map
-    if (!nt && Number(t.token) === 404146670) nt = t;
-    if (!nt && t.token === 850610087184878n) nt = t;
-  });
+  const { diffuse: ft, normal: nt } = pickMaterialTextures(material);
 
   if (!ft || ft.filename <= 0) {
     return;
