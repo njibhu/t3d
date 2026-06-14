@@ -22,6 +22,7 @@ export class SettingsDrawer extends Component<HTMLElement> {
   readonly root: HTMLElement;
 
   private readonly cameraControl: SegmentedControl<CameraMode>;
+  private readonly recenterBtn: HTMLButtonElement;
   private readonly clipToggleBtn: HTMLButtonElement;
   private readonly clipHeightCollapse: HTMLDivElement;
   private readonly environmentCombo: Combobox;
@@ -56,6 +57,13 @@ export class SettingsDrawer extends Component<HTMLElement> {
       )
     );
     cameraSection.appendChild(this.cameraControl.root);
+
+    this.recenterBtn = document.createElement("button");
+    this.recenterBtn.type = "button";
+    this.recenterBtn.className = "ghost-button wide";
+    this.recenterBtn.textContent = "Re-center on map";
+    this.listen(this.recenterBtn, "click", () => this.controller.recenterCamera());
+    cameraSection.appendChild(this.recenterBtn);
 
     this.clipToggleBtn = document.createElement("button");
     this.clipToggleBtn.type = "button";
@@ -139,6 +147,7 @@ export class SettingsDrawer extends Component<HTMLElement> {
     this.root.dataset.open = String(this.controller.isMapLoaded() && this.controller.isSettingsOpen());
 
     this.cameraControl.setValue(this.controller.getCameraMode(), true);
+    this.recenterBtn.disabled = this.controller.getCurrentMapId() == null;
 
     const topDown = this.controller.getCameraMode() === "topDown";
     const clipUrl = this.controller.getUrlState();

@@ -26,6 +26,7 @@ export interface ExplorerController {
   // settings intents + scene reads
   getCameraMode(): CameraMode;
   setCameraMode(mode: CameraMode): void;
+  recenterCamera(): void;
   isPhysicsEnabled(): boolean;
   togglePhysics(): void;
   hasCollisionsLoaded(): boolean;

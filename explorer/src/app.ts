@@ -204,6 +204,11 @@ export class App implements ExplorerController {
     this.render();
   }
 
+  recenterCamera(): void {
+    if (!this.scene.recenterCamera()) return;
+    this.render();
+  }
+
   togglePhysics(): void {
     const enabled = this.scene.setPhysicsEnabled(!this.scene.isPhysicsEnabled());
     this.currentUrlState.physics = enabled;
