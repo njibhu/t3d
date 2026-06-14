@@ -1,4 +1,10 @@
-import { type CntcEntry, getCntcEntryDataId, getCntcEntryEmbeddedType, getCntcEntryUniqueId, readUint32LE } from "./content";
+import {
+  type CntcEntry,
+  getCntcEntryDataId,
+  getCntcEntryEmbeddedType,
+  getCntcEntryUniqueId,
+  readUint32LE,
+} from "./content";
 
 export type CntcReferenceKind = "asset" | "skin" | "mapName" | "mapRegion";
 export type CntcLookupDefinition = Record<number, string>;

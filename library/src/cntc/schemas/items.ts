@@ -175,12 +175,14 @@ export function parseCntcItem(entry: CntcEntry): CntcItem | null {
   const item: CntcItem = {
     id: getCntcEntryDataId(entry),
     itemTypeId,
-    itemType: String(formatCntcLookupValue(itemTypeId, CNTC_ITEM_TYPE_LOOKUP, { unknownLabel: "Unknown" }) ?? "Unknown"),
+    itemType: String(
+      formatCntcLookupValue(itemTypeId, CNTC_ITEM_TYPE_LOOKUP, { unknownLabel: "Unknown" }) ?? "Unknown"
+    ),
     rarityId,
     rarity:
       rarityId == null
         ? null
-        : (formatCntcLookupValue(rarityId, CNTC_ITEM_RARITY_LOOKUP) as string | number | null)?.toString() ?? null,
+        : ((formatCntcLookupValue(rarityId, CNTC_ITEM_RARITY_LOOKUP) as string | number | null)?.toString() ?? null),
     level: readUint32LE(entry.contentSlice, CNTC_ITEM_LEVEL_OFFSET),
   };
 
@@ -192,13 +194,14 @@ export function parseCntcItem(entry: CntcEntry): CntcItem | null {
       slot:
         slotId == null
           ? null
-          : (formatCntcLookupValue(slotId, CNTC_ARMOR_SLOT_LOOKUP) as string | number | null)?.toString() ?? null,
+          : ((formatCntcLookupValue(slotId, CNTC_ARMOR_SLOT_LOOKUP) as string | number | null)?.toString() ?? null),
       weightClassId,
       weightClass:
         weightClassId == null
           ? null
-          : (formatCntcLookupValue(weightClassId, CNTC_ARMOR_WEIGHT_CLASS_LOOKUP) as string | number | null)?.toString() ??
-            null,
+          : ((
+              formatCntcLookupValue(weightClassId, CNTC_ARMOR_WEIGHT_CLASS_LOOKUP) as string | number | null
+            )?.toString() ?? null),
     };
   }
 
