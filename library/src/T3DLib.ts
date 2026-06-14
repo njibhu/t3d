@@ -312,6 +312,8 @@ export type { CntcItem, CntcItemArmor } from "./cntc/cntc-item";
 export type { CntcField } from "./cntc/cntc-fields";
 export type {
   CntcResolvedFile,
+  CntcResolvedEntryTarget,
+  CntcResolvedMapLocation,
   CntcSkinReference,
   CntcReference,
   CntcReferenceNavigation,
