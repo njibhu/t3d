@@ -1,4 +1,22 @@
 import {
+  CNTC_CONTENT_ACCESS_GROUP_MEMBER_STRIDE,
+  CNTC_CONTENT_ACCESS_GROUP_MEMBERS_OFFSET,
+  CNTC_CONTENT_ACCESS_PRODUCT_ORDINAL_OFFSET,
+  CNTC_CONTENT_ACCESS_TEXT_KEY_OFFSET,
+  getCntcContentAccessInfoForEntry,
+  getCntcContentAccessInfoForOrdinal,
+  getCntcContentAccessProductOrdinal,
+  getCntcContentAccessGroupMemberSlots,
+} from "./cntc-access";
+import {
+  CNTC_STORY_SEASON_ORDER_OFFSET,
+  CNTC_STORY_SEASON_TEXT_KEY_OFFSET,
+  getCntcStoryInfo,
+  getCntcStorySeasonInfoForEntry,
+  getCntcStorySeasonOrder,
+  getCntcStoryTextKeyOffset,
+} from "./cntc-story";
+import {
   CNTC_MAP_TYPE_OFFSET,
   CNTC_REGION_CONTINENT_REFERENCE_OFFSET,
   getCntcMapContinentName,
@@ -35,8 +53,12 @@ export interface CntcField {
 export function getCntcDataIdLabel(type: number): string {
   if (type === 35) return "item id @0x28";
   if (type === 45) return "map id @0x28";
+  if (type === 68) return "story id @0x28";
+  if (type === 151) return "access value @0x28";
   if (type === 60) return "region id @0x28";
   if (type === 11) return "continent id @0x28";
+  if (type === 152) return "group value @0x28";
+  if (type === 388) return "season value @0x28";
   return "id @0x28";
 }
 
@@ -44,8 +66,12 @@ export function getCntcDataIdLabel(type: number): string {
 export function getCntcDataIdCaption(type: number): string {
   if (type === 35) return "item id";
   if (type === 45) return "map id";
+  if (type === 68) return "story id";
+  if (type === 151) return "access value";
   if (type === 60) return "region id";
   if (type === 11) return "continent id";
+  if (type === 152) return "group value";
+  if (type === 388) return "season value";
   return "data id";
 }
 
@@ -63,6 +89,14 @@ export function describeCntcEntry(entry: CntcEntry): CntcField[] {
     fields.push(...describeItemFields(entry));
   } else if (entry.type === 45) {
     fields.push(...describeMapFields(entry));
+  } else if (entry.type === 68) {
+    fields.push(...describeStoryFields(entry));
+  } else if (entry.type === 151) {
+    fields.push(...describeContentAccessFields(entry));
+  } else if (entry.type === 152) {
+    fields.push(...describeContentAccessGroupFields(entry));
+  } else if (entry.type === 388) {
+    fields.push(...describeStorySeasonFields(entry));
   } else if (entry.type === 60) {
     fields.push(...describeRegionFields(entry));
   } else if (entry.type === 11) {
@@ -128,6 +162,108 @@ function describeItemFields(entry: CntcEntry): CntcField[] {
 
 function describeMapFields(entry: CntcEntry): CntcField[] {
   return [{ label: "map type @0x2C", offset: CNTC_MAP_TYPE_OFFSET, length: 4, value: getCntcMapTypeValue(entry) }];
+}
+
+function describeStoryFields(entry: CntcEntry): CntcField[] {
+  const storyId = getCntcEntryDataId(entry);
+  const story = getCntcStoryInfo(storyId);
+  const textKeyOffset = getCntcStoryTextKeyOffset(entry);
+  const fields: CntcField[] = [{ label: "story visibility", value: story?.visibility ?? null }];
+
+  if (textKeyOffset != null) {
+    fields.push({
+      label: `text key @0x${textKeyOffset.toString(16).toUpperCase()}`,
+      offset: textKeyOffset,
+      length: 4,
+      value: readUint32LE(entry.contentSlice, textKeyOffset),
+    });
+  }
+
+  return fields;
+}
+
+function describeContentAccessFields(entry: CntcEntry): CntcField[] {
+  const info = getCntcContentAccessInfoForEntry(entry);
+  const ordinal = getCntcContentAccessProductOrdinal(entry);
+  const fields: CntcField[] = [
+    { label: "access name", value: info?.name ?? null },
+    {
+      label: "product ordinal @0x4C",
+      offset: CNTC_CONTENT_ACCESS_PRODUCT_ORDINAL_OFFSET,
+      length: 4,
+      value: ordinal,
+    },
+    { label: "ordinal name", value: getCntcContentAccessInfoForOrdinal(ordinal)?.name ?? null },
+    {
+      label: "text key @0x50",
+      offset: CNTC_CONTENT_ACCESS_TEXT_KEY_OFFSET,
+      length: 4,
+      value: readUint32LE(entry.contentSlice, CNTC_CONTENT_ACCESS_TEXT_KEY_OFFSET),
+    },
+  ];
+  if (info) {
+    fields.push({ label: "name confidence", value: info.confidence });
+    if (info.notes) {
+      fields.push({ label: "name notes", value: info.notes });
+    }
+  }
+  return fields;
+}
+
+function describeContentAccessGroupFields(entry: CntcEntry): CntcField[] {
+  const info = getCntcContentAccessInfoForEntry(entry);
+  const members = getCntcContentAccessGroupMemberSlots(entry);
+  const fields: CntcField[] = [
+    { label: "group name", value: info?.name ?? null },
+    { label: "member count", value: members.length },
+  ];
+
+  for (const member of members) {
+    fields.push({
+      label: `member @0x${member.offset.toString(16).toUpperCase()}`,
+      offset: member.offset,
+      length: 4,
+      value: member.value,
+    });
+    if (member.offset + CNTC_CONTENT_ACCESS_GROUP_MEMBER_STRIDE <= entry.size) {
+      fields.push({
+        label: `member field @0x${(member.offset + 4).toString(16).toUpperCase()}`,
+        offset: member.offset + 4,
+        length: 4,
+        value: readUint32LE(entry.contentSlice, member.offset + 4),
+        experimental: true,
+      });
+    }
+  }
+
+  if (info) {
+    fields.push({ label: "name confidence", value: info.confidence });
+    if (info.notes) {
+      fields.push({ label: "name notes", value: info.notes });
+    }
+  } else if (members.length > 0) {
+    fields.push({
+      label: `member table @0x${CNTC_CONTENT_ACCESS_GROUP_MEMBERS_OFFSET.toString(16).toUpperCase()}`,
+      value: "same-file access entry offsets",
+    });
+  }
+
+  return fields;
+}
+
+function describeStorySeasonFields(entry: CntcEntry): CntcField[] {
+  const info = getCntcStorySeasonInfoForEntry(entry);
+  const order = getCntcStorySeasonOrder(entry);
+  return [
+    { label: "season name", value: info?.name ?? null },
+    { label: "season order @0x34", offset: CNTC_STORY_SEASON_ORDER_OFFSET, length: 4, value: order },
+    {
+      label: "text key @0x58",
+      offset: CNTC_STORY_SEASON_TEXT_KEY_OFFSET,
+      length: 4,
+      value: readUint32LE(entry.contentSlice, CNTC_STORY_SEASON_TEXT_KEY_OFFSET),
+    },
+  ];
 }
 
 function describeRegionFields(entry: CntcEntry): CntcField[] {
