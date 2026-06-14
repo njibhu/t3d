@@ -25,6 +25,8 @@ export class CameraRig {
   private orthoFrustumSize = 10000;
   /** Latest viewport aspect, so the ortho frustum can be rebuilt when its size changes. */
   private viewportAspect = 1;
+  /** Latest framed map bounds so the camera can be reset on demand. */
+  private mapBounds: MapBounds | null = null;
   /** Fixed height the top-down ortho camera hovers above its target. */
   private static readonly ORTHO_HEIGHT = 100000;
 
@@ -102,6 +104,7 @@ export class CameraRig {
 
   /** Position the camera to frame a freshly loaded map's bounds. */
   frameBounds(bounds: MapBounds): void {
+    this.mapBounds = { ...bounds };
     this.camera.position.set(bounds.x2 * 0.12, Math.max(bounds.y2, 7000), bounds.y2 * 0.42);
     this.orbitalTarget.set(0, 0, 0);
     this.camera.lookAt(this.orbitalTarget);
@@ -117,6 +120,12 @@ export class CameraRig {
 
     this.orbitalControls?.target.copy(this.orbitalTarget);
     this.orbitalControls?.update();
+  }
+
+  recenterOnMap(): boolean {
+    if (!this.mapBounds) return false;
+    this.frameBounds(this.mapBounds);
+    return true;
   }
 
   /** Update both cameras' projection for a new viewport aspect ratio. */

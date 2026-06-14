@@ -165,6 +165,10 @@ export class ExplorerScene implements MapContentHost {
     this.pointerLockChangeHandler?.(this.rig.isPointerLocked());
   }
 
+  recenterCamera(): boolean {
+    return this.rig.recenterOnMap();
+  }
+
   applySnapshot(snapshot: Partial<CameraSnapshot>): void {
     if (snapshot.mode && snapshot.mode !== this.rig.mode) {
       this.setCameraMode(snapshot.mode);
