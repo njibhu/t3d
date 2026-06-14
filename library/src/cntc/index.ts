@@ -6,9 +6,11 @@
  * certain decoding of type 35 ("Items") entries. Use it as the home for new,
  * well-established `cntc` type knowledge.
  */
-export * from "./cntc-content";
-export * from "./cntc-types";
-export * from "./cntc-item";
-export * from "./cntc-map";
-export * from "./cntc-fields";
-export * from "./cntc-resolver";
+export * from "./content";
+export * from "./schema";
+export * from "./fields";
+export * from "./resolver";
+export * from "./schemas/items";
+export * from "./schemas/maps";
+export * from "./schemas/registry";
+export * from "./schemas/type-ids";

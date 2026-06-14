@@ -1,0 +1,26 @@
+import type { CntcEntry } from "./content";
+import { BASE_FIELD_DEFINITIONS, readBaseCntcFieldValue } from "./schema";
+import { getCntcFieldDefinitions, getCntcTypeDefinition } from "./schemas/registry";
+
+export interface CntcField {
+  label: string;
+  offset?: number;
+  length?: number;
+  value: string | number | null;
+  experimental?: boolean;
+}
+
+export function describeCntcEntry(entry: CntcEntry): CntcField[] {
+  const typeDefinition = getCntcTypeDefinition(entry.type);
+  const fieldDefinitions = [...BASE_FIELD_DEFINITIONS, ...getCntcFieldDefinitions(entry.type)].filter(
+    (definition) => !definition.includeWhen || definition.includeWhen(entry)
+  );
+
+  return fieldDefinitions.map((definition) => ({
+    label: typeof definition.label === "function" ? definition.label(entry, typeDefinition) : definition.label,
+    offset: definition.offset,
+    length: definition.length,
+    value: readBaseCntcFieldValue(entry, definition),
+    experimental: definition.experimental,
+  }));
+}

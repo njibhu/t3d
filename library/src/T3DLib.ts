@@ -307,16 +307,23 @@ export type {
   CntcTypeInfo,
   CntcExternalOffsetFixup,
   CntcFileIndexFixup,
-} from "./cntc/cntc-content";
-export type { CntcItem, CntcItemArmor } from "./cntc/cntc-item";
-export type { CntcField } from "./cntc/cntc-fields";
+} from "./cntc/content";
+export type { CntcItem, CntcItemArmor } from "./cntc/schemas/items";
+export type { CntcField } from "./cntc/fields";
+export type {
+  CntcAssetReferenceDefinition,
+  CntcFieldDefinition,
+  CntcLookupDefinition,
+  CntcReferenceDefinition,
+  CntcTypeDefinition,
+} from "./cntc/schema";
 export type {
   CntcResolvedFile,
   CntcSkinReference,
   CntcReference,
   CntcReferenceNavigation,
   CntcResolvedReference,
-} from "./cntc/cntc-resolver";
+} from "./cntc/resolver";
 
 /* PRIVATE METHODS */
 
