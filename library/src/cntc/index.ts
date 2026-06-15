@@ -1,17 +1,30 @@
 /**
- * `cntc` (PackContent) parsing utilities.
+ * Public CNTC API.
  *
- * This module collects the parsing structures we are confident about: the
- * record layout of the `Main` chunk, known content-type descriptions, and the
- * certain decoding of type 35 ("Items") entries. Use it as the home for new,
- * well-established `cntc` type knowledge.
+ * Keep this facade narrow. Schema-building helpers and registry internals are
+ * intentionally imported by sibling modules directly instead of exported here.
  */
-export * from "./content";
-export * from "./schema";
-export * from "./fields";
-export * from "./resolver";
-export * from "./schemas/items";
-export * from "./schemas/maps";
-export * from "./schemas/skins";
-export * from "./schemas/registry";
-export * from "./schemas/type-ids";
+export {
+  getCntcEntries,
+  getCntcEntryDataId,
+  getCntcEntryUniqueId,
+  getCntcMainContent,
+  readUint32LE,
+  resolveCntcString,
+} from "./content";
+export type { CntcEntry, CntcMainContent } from "./content";
+
+export {
+  CNTC_TYPE_IDS,
+  getCntcDataIdCaption,
+  getCntcEntrySummaryCaption,
+  getCntcEntrySummaryValue,
+  getCntcTypeDefinition,
+  getCntcTypeDescription,
+} from "./definitions";
+
+export { describeCntcEntry } from "./fields";
+export type { CntcField } from "./fields";
+
+export { CntcResolver } from "./resolver";
+export type { CntcReference, CntcReferenceNavigation, CntcResolvedFile, CntcResolvedReference } from "./resolver";

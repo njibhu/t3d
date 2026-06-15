@@ -109,16 +109,17 @@ export class CntcMapListView implements ArchiveToolView {
         const entries = Cntc.getCntcEntries(mainContent);
         this.resolver.seedFile({ baseId, mainContent, entries });
 
+        const mapSchema = Cntc.getCntcTypeDefinition(Cntc.CNTC_TYPE_IDS.MAPS);
+
         for (const entry of entries) {
-          if (entry.type !== 45) continue;
+          if (entry.type !== Cntc.CNTC_TYPE_IDS.MAPS) continue;
           mapDefinitions += 1;
 
           const codename =
-            Cntc.resolveCntcString(mainContent.strings, Cntc.CNTC_MAP_SCHEMA.getNameIndex(entry)) ??
-            "(unknown codename)";
-          const region = Cntc.resolveCntcString(mainContent.strings, Cntc.CNTC_MAP_SCHEMA.getRegionIndex(entry));
+            Cntc.resolveCntcString(mainContent.strings, mapSchema.codename.read(entry)) ?? "(unknown codename)";
+          const region = Cntc.resolveCntcString(mainContent.strings, mapSchema.region.read(entry));
           const mapDataReference = (await this.resolver.listReferences(baseId, entry)).find(
-            (reference) => reference.kind === "asset" && reference.offset === Cntc.CNTC_MAP_SCHEMA.mapData.offset
+            (reference) => reference.kind === "asset" && reference.offset === mapSchema.mapData.offset
           );
           const resolved = mapDataReference
             ? await this.resolver.resolveReference(baseId, entry, mapDataReference)

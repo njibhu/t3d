@@ -11,8 +11,8 @@ import {
   readUint32LE,
   resolveCntcString,
 } from "./content";
+import { getCntcAssetReferenceLabel, getCntcReferenceDefinitions } from "./definitions";
 import type { CntcReferenceKind } from "./schema";
-import { getCntcAssetReferenceLabel, getCntcReferenceDefinitions } from "./schemas/registry";
 
 export interface CntcResolvedFile {
   baseId: number;

@@ -300,29 +300,9 @@ export {
   FileParser,
 };
 export type { ScanCallbacks, ScanEntry, ScanProgress };
-export type {
-  CntcEntry,
-  CntcMainContent,
-  CntcIndexEntry,
-  CntcTypeInfo,
-  CntcExternalOffsetFixup,
-  CntcFileIndexFixup,
-} from "./cntc/content";
+export type { CntcEntry, CntcMainContent } from "./cntc/content";
 export type { CntcField } from "./cntc/fields";
-export type {
-  CntcAssetReferenceDefinition,
-  CntcFieldDefinition,
-  CntcLookupDefinition,
-  CntcReferenceDefinition,
-  CntcTypeDefinition,
-} from "./cntc/schema";
-export type {
-  CntcResolvedFile,
-  CntcSkinReference,
-  CntcReference,
-  CntcReferenceNavigation,
-  CntcResolvedReference,
-} from "./cntc/resolver";
+export type { CntcResolvedFile, CntcReference, CntcReferenceNavigation, CntcResolvedReference } from "./cntc/resolver";
 
 /* PRIVATE METHODS */
 

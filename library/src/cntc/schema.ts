@@ -11,7 +11,7 @@ export type CntcLookupDefinition = Record<number, string>;
 
 export interface CntcFieldDefinition {
   key: string;
-  label: string | ((entry: CntcEntry, definition: CntcTypeDefinition | undefined) => string);
+  label: string | ((entry: CntcEntry, definition: CntcTypeSchema | undefined) => string);
   valueKind: "entrySize" | "entryAccessor" | "uint32" | "lookup";
   offset?: number;
   length?: number;
@@ -35,18 +35,6 @@ export type CntcAssetReferenceDefinition =
   | { label: string; offset: number }
   | { label: string; offsets: number[] }
   | { label: string; start: number; stride: number };
-
-export interface CntcTypeDefinition {
-  type: number;
-  description: string;
-  dataIdLabel?: string;
-  dataIdCaption?: string;
-  summaryCaption?: string;
-  fields?: readonly CntcFieldDefinition[];
-  references?: readonly CntcReferenceDefinition[];
-  assetReferences?: readonly CntcAssetReferenceDefinition[];
-  summaryFieldKey?: string;
-}
 
 export interface CntcFieldOptions {
   length?: number;
@@ -184,6 +172,22 @@ export abstract class CntcTypeSchema {
   protected readonly referenceDefs: CntcReferenceDefinition[] = [];
   protected readonly assetReferenceDefs: CntcAssetReferenceDefinition[] = [];
 
+  get fields(): readonly CntcFieldDefinition[] {
+    return this.fieldRefs.map((field) => field.toFieldDefinition());
+  }
+
+  get references(): readonly CntcReferenceDefinition[] {
+    return this.referenceDefs;
+  }
+
+  get assetReferences(): readonly CntcAssetReferenceDefinition[] {
+    return this.assetReferenceDefs;
+  }
+
+  get summaryFieldKey(): string | undefined {
+    return this.summaryField?.key;
+  }
+
   protected dataId(label: string, caption = label): CntcDataIdRef {
     this.dataIdLabel = label;
     this.dataIdCaption = caption;
@@ -217,25 +221,24 @@ export abstract class CntcTypeSchema {
     this.summaryCaption = caption;
   }
 
-  toDefinition(): CntcTypeDefinition {
-    return {
-      type: this.type,
-      description: this.description,
-      dataIdLabel: this.dataIdLabel,
-      dataIdCaption: this.dataIdCaption,
-      summaryCaption: this.summaryCaption,
-      fields: this.fieldRefs.map((field) => field.toFieldDefinition()),
-      references: this.referenceDefs,
-      assetReferences: this.assetReferenceDefs,
-      summaryFieldKey: this.summaryField?.key,
-    };
-  }
-
   private addField(field: CntcFieldRef): CntcFieldRef {
     this.fieldRefs.push(field);
     return field;
   }
 }
+
+export class CntcBaseDefinition extends CntcTypeSchema {
+  readonly description: string;
+  readonly type: number;
+
+  constructor(description: string, type: number) {
+    super();
+    this.description = description;
+    this.type = type;
+  }
+}
+
+export type CntcTypeDefinition = CntcTypeSchema;
 
 export function assetReference(label: string, offset: number): CntcAssetReferenceDefinition;
 export function assetReference(label: string, offsets: number[]): CntcAssetReferenceDefinition;

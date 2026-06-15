@@ -1,6 +1,6 @@
 import type { CntcEntry } from "./content";
+import { getCntcFieldDefinitions, getCntcTypeDefinition } from "./definitions";
 import { BASE_FIELD_DEFINITIONS, formatCntcFieldLabel, readBaseCntcFieldValue } from "./schema";
-import { getCntcFieldDefinitions, getCntcTypeDefinition } from "./schemas/registry";
 
 export interface CntcField {
   label: string;
