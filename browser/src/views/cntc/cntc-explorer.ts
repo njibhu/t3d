@@ -267,15 +267,16 @@ export class CntcExplorer {
       size: entry.size,
       uniqueId: Cntc.getCntcEntryUniqueId(entry),
       dataId: Cntc.getCntcEntryDataId(entry),
-      itemType: Cntc.getCntcItemTypeLabel(entry),
+      itemType: Cntc.getCntcEntrySummaryValue(entry),
       entry,
     }));
 
     // The column set varies (source columns + a data-driven item-type column),
     // and VirtualTable fixes columns at construction, so rebuild per selection.
-    const hasItemType = this.currentRows.some((row) => row.itemType !== "");
+    const summaryCaption = Cntc.getCntcEntrySummaryCaption(type);
+    const hasItemType = summaryCaption !== "" && this.currentRows.some((row) => row.itemType !== "");
     this.entryTable = new VirtualTable<CntcEntryRow>({
-      columns: buildEntryColumns(type, this.showSource, hasItemType),
+      columns: buildEntryColumns(type, this.showSource, hasItemType, summaryCaption || "Item Type"),
       getRowKey: (row) => row.recid,
       onRowClick: (row) => this.selectEntry(row),
       onRowActivate: (row) => this.selectEntry(row),
@@ -608,7 +609,12 @@ export class CntcExplorer {
   }
 }
 
-function buildEntryColumns(type: number, showSource: boolean, hasItemType: boolean): VTColumn<CntcEntryRow>[] {
+function buildEntryColumns(
+  type: number,
+  showSource: boolean,
+  hasItemType: boolean,
+  summaryCaption: string
+): VTColumn<CntcEntryRow>[] {
   const columns: VTColumn<CntcEntryRow>[] = [];
   if (showSource) {
     columns.push(
@@ -624,7 +630,7 @@ function buildEntryColumns(type: number, showSource: boolean, hasItemType: boole
     { field: "dataId", caption: Cntc.getCntcDataIdCaption(type), width: "1fr", align: "right", sortable: true }
   );
   if (hasItemType) {
-    columns.push({ field: "itemType", caption: "Item Type", width: "120px", sortable: true });
+    columns.push({ field: "itemType", caption: summaryCaption, width: "120px", sortable: true });
   }
   return columns;
 }
