@@ -6,7 +6,7 @@ import {
   readUint32LE,
 } from "./content";
 
-export type CntcReferenceKind = "asset" | "skin" | "mapName" | "mapRegion";
+export type CntcReferenceKind = "asset" | "skin" | "string";
 export type CntcLookupDefinition = Record<number, string>;
 
 export interface CntcFieldDefinition {
@@ -28,6 +28,7 @@ export interface CntcReferenceDefinition {
   label: string;
   offset?: number;
   length?: number;
+  targetType?: number;
 }
 
 export type CntcAssetReferenceDefinition =
@@ -47,24 +48,24 @@ export interface CntcTypeDefinition {
   summaryFieldKey?: string;
 }
 
-interface CntcFieldOptions {
+export interface CntcFieldOptions {
   length?: number;
   includeWhen?: (entry: CntcEntry) => boolean;
   experimental?: boolean;
 }
 
-interface CntcLookupFieldOptions extends CntcFieldOptions {
+export interface CntcLookupFieldOptions extends CntcFieldOptions {
   includeId?: boolean;
   unknownLabel?: string;
 }
 
 export const BASE_FIELD_DEFINITIONS: readonly CntcFieldDefinition[] = [
   { key: "decodedLength", label: "decoded length", valueKind: "entrySize" },
-  { key: "embeddedType", label: "embedded type @0x10", valueKind: "entryAccessor", offset: 16, length: 4 },
-  { key: "uniqueId", label: "unique id @0x14", valueKind: "entryAccessor", offset: 20, length: 4 },
+  { key: "embeddedType", label: "embedded type", valueKind: "entryAccessor", offset: 16, length: 4 },
+  { key: "uniqueId", label: "unique id", valueKind: "entryAccessor", offset: 20, length: 4 },
   {
     key: "dataId",
-    label: (_entry, definition) => definition?.dataIdLabel ?? "id @0x28",
+    label: (_entry, definition) => definition?.dataIdLabel ?? "id",
     valueKind: "entryAccessor",
     offset: 40,
     length: 4,
@@ -111,6 +112,147 @@ export function lookupField(
     includeWhen: options.includeWhen,
     experimental: options.experimental,
   };
+}
+
+export class CntcFieldRef {
+  readonly key: string;
+  readonly label: string;
+  readonly offset: number;
+  private readonly valueKind: "uint32" | "lookup";
+  private readonly lookup?: CntcLookupDefinition;
+  private readonly options: CntcLookupFieldOptions;
+
+  constructor(
+    key: string,
+    label: string,
+    offset: number,
+    options: CntcLookupFieldOptions & { valueKind?: "uint32" | "lookup"; lookup?: CntcLookupDefinition } = {}
+  ) {
+    this.key = key;
+    this.label = label;
+    this.offset = offset;
+    this.valueKind = options.valueKind ?? "uint32";
+    this.lookup = options.lookup;
+    this.options = options;
+  }
+
+  read(entry: CntcEntry): number | null {
+    return readUint32LE(entry.contentSlice, this.offset);
+  }
+
+  equals(expected: number): (entry: CntcEntry) => boolean {
+    return (entry) => this.read(entry) === expected;
+  }
+
+  assetReference(label: string): CntcAssetReferenceDefinition {
+    return { label, offset: this.offset };
+  }
+
+  reference(key: string, kind: CntcReferenceKind, label: string): CntcReferenceDefinition {
+    return { key, kind, label, offset: this.offset, length: this.options.length ?? 4 };
+  }
+
+  toFieldDefinition(): CntcFieldDefinition {
+    return {
+      key: this.key,
+      label: this.label,
+      valueKind: this.valueKind,
+      offset: this.offset,
+      length: this.options.length ?? 4,
+      lookup: this.lookup,
+      includeId: this.options.includeId,
+      unknownLabel: this.options.unknownLabel,
+      includeWhen: this.options.includeWhen,
+      experimental: this.options.experimental,
+    };
+  }
+}
+
+export interface CntcDataIdRef {
+  readonly label: string;
+}
+
+export abstract class CntcTypeSchema {
+  abstract readonly type: number;
+  abstract readonly description: string;
+
+  dataIdLabel?: string;
+  dataIdCaption?: string;
+  summaryCaption?: string;
+  protected summaryField?: CntcFieldRef;
+  protected readonly fieldRefs: CntcFieldRef[] = [];
+  protected readonly referenceDefs: CntcReferenceDefinition[] = [];
+  protected readonly assetReferenceDefs: CntcAssetReferenceDefinition[] = [];
+
+  protected dataId(label: string, caption = label): CntcDataIdRef {
+    this.dataIdLabel = label;
+    this.dataIdCaption = caption;
+    return { label };
+  }
+
+  protected uint32(key: string, label: string, offset: number, options: CntcFieldOptions = {}): CntcFieldRef {
+    return this.addField(new CntcFieldRef(key, label, offset, options));
+  }
+
+  protected lookup(
+    key: string,
+    label: string,
+    offset: number,
+    lookup: CntcLookupDefinition,
+    options: CntcLookupFieldOptions = {}
+  ): CntcFieldRef {
+    return this.addField(new CntcFieldRef(key, label, offset, { ...options, valueKind: "lookup", lookup }));
+  }
+
+  protected addReference(...references: CntcReferenceDefinition[]): void {
+    this.referenceDefs.push(...references);
+  }
+
+  protected addAssetReference(...references: CntcAssetReferenceDefinition[]): void {
+    this.assetReferenceDefs.push(...references);
+  }
+
+  protected setSummaryField(field: CntcFieldRef, caption?: string): void {
+    this.summaryField = field;
+    this.summaryCaption = caption;
+  }
+
+  toDefinition(): CntcTypeDefinition {
+    return {
+      type: this.type,
+      description: this.description,
+      dataIdLabel: this.dataIdLabel,
+      dataIdCaption: this.dataIdCaption,
+      summaryCaption: this.summaryCaption,
+      fields: this.fieldRefs.map((field) => field.toFieldDefinition()),
+      references: this.referenceDefs,
+      assetReferences: this.assetReferenceDefs,
+      summaryFieldKey: this.summaryField?.key,
+    };
+  }
+
+  private addField(field: CntcFieldRef): CntcFieldRef {
+    this.fieldRefs.push(field);
+    return field;
+  }
+}
+
+export function assetReference(label: string, offset: number): CntcAssetReferenceDefinition;
+export function assetReference(label: string, offsets: number[]): CntcAssetReferenceDefinition;
+export function assetReference(label: string, start: number, stride: number): CntcAssetReferenceDefinition;
+export function assetReference(
+  label: string,
+  offsetOrOffsetsOrStart: number | number[],
+  stride?: number
+): CntcAssetReferenceDefinition {
+  if (Array.isArray(offsetOrOffsetsOrStart)) return { label, offsets: offsetOrOffsetsOrStart };
+  if (stride != null) return { label, start: offsetOrOffsetsOrStart, stride };
+  return { label, offset: offsetOrOffsetsOrStart };
+}
+
+export function formatCntcFieldLabel(label: string, offset: number | undefined): string {
+  if (offset == null) return label;
+  return `${label} @0x${offset.toString(16).toUpperCase()}`;
 }
 
 export function formatCntcLookupValue(

@@ -12,5 +12,6 @@ export * from "./fields";
 export * from "./resolver";
 export * from "./schemas/items";
 export * from "./schemas/maps";
+export * from "./schemas/skins";
 export * from "./schemas/registry";
 export * from "./schemas/type-ids";

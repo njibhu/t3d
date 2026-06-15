@@ -1,16 +1,25 @@
-import { type CntcEntry, getCntcEntryDataId, readUint32LE } from "../content";
-import {
-  formatCntcLookupValue,
-  lookupField,
-  type CntcFieldDefinition,
-  type CntcLookupDefinition,
-  type CntcTypeDefinition,
-  uint32Field,
-  whenUint32Equals,
-} from "../schema";
+import { type CntcEntry, getCntcEntryDataId } from "../content";
+import { assetReference, CntcTypeSchema, formatCntcLookupValue, type CntcLookupDefinition } from "../schema";
 import { CNTC_TYPE_IDS } from "./type-ids";
 
-export const CNTC_ITEM_TYPE_LOOKUP: CntcLookupDefinition = {
+interface CntcItemArmor {
+  slotId: number | null;
+  slot: string | null;
+  weightClassId: number | null;
+  weightClass: string | null;
+}
+
+interface CntcItem {
+  id: number | null;
+  itemTypeId: number | null;
+  itemType: string;
+  rarityId: number | null;
+  rarity: string | null;
+  level: number | null;
+  armor?: CntcItemArmor;
+}
+
+const ITEM_TYPE_LOOKUP: CntcLookupDefinition = {
   0: "Armor",
   2: "Back",
   3: "Bag",
@@ -30,7 +39,7 @@ export const CNTC_ITEM_TYPE_LOOKUP: CntcLookupDefinition = {
   24: "Weapon",
 };
 
-export const CNTC_ITEM_RARITY_LOOKUP: CntcLookupDefinition = {
+const ITEM_RARITY_LOOKUP: CntcLookupDefinition = {
   0: "Junk",
   1: "Basic",
   2: "Fine",
@@ -40,7 +49,7 @@ export const CNTC_ITEM_RARITY_LOOKUP: CntcLookupDefinition = {
   6: "Ascended",
 };
 
-export const CNTC_ARMOR_SLOT_LOOKUP: CntcLookupDefinition = {
+const ARMOR_SLOT_LOOKUP: CntcLookupDefinition = {
   0: "Coat",
   1: "Leggings",
   2: "Gloves",
@@ -50,160 +59,105 @@ export const CNTC_ARMOR_SLOT_LOOKUP: CntcLookupDefinition = {
   6: "Shoulders",
 };
 
-export const CNTC_ARMOR_WEIGHT_CLASS_LOOKUP: CntcLookupDefinition = {
+const ARMOR_WEIGHT_CLASS_LOOKUP: CntcLookupDefinition = {
   1: "Light",
   2: "Medium",
   3: "Heavy",
 };
 
-export const CNTC_ITEM_TYPE_OFFSET = 44;
-export const CNTC_ITEM_RARITY_OFFSET = 96;
-export const CNTC_ITEM_LEVEL_OFFSET = 116;
-export const CNTC_ARMOR_SLOT_OFFSET = 184;
-export const CNTC_ARMOR_WEIGHT_CLASS_OFFSET = 280;
+class CntcItemSchema extends CntcTypeSchema {
+  readonly type = CNTC_TYPE_IDS.ITEMS;
+  readonly description = "Items";
 
-const ITEM_FIELD_DEFINITIONS: readonly CntcFieldDefinition[] = [
-  lookupField("itemType", "item type @0x2C", CNTC_ITEM_TYPE_OFFSET, CNTC_ITEM_TYPE_LOOKUP, {
+  readonly itemId = this.dataId("item id");
+  readonly itemTypeLookup = ITEM_TYPE_LOOKUP;
+  readonly rarityLookup = ITEM_RARITY_LOOKUP;
+  readonly armorSlotLookup = ARMOR_SLOT_LOOKUP;
+  readonly armorWeightClassLookup = ARMOR_WEIGHT_CLASS_LOOKUP;
+  readonly itemType = this.lookup("itemType", "item type", 44, this.itemTypeLookup, {
     includeId: true,
     unknownLabel: "Unknown",
-  }),
-  lookupField("rarity", "rarity @0x60", CNTC_ITEM_RARITY_OFFSET, CNTC_ITEM_RARITY_LOOKUP, {
+  });
+  readonly rarity = this.lookup("rarity", "rarity", 96, this.rarityLookup, {
     includeId: true,
     unknownLabel: "Unknown",
-  }),
-  uint32Field("level", "level @0x74", CNTC_ITEM_LEVEL_OFFSET),
-  uint32Field("weaponField38", "weapon field @0x38", 56, {
-    includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 24),
-    experimental: true,
-  }),
-  uint32Field("weaponUnknownRef40", "unknown ref @0x40", 64, {
-    includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 24),
-    experimental: true,
-  }),
-  uint32Field("weaponFlag48", "flag @0x48", 72, {
-    includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 24),
-    experimental: true,
-  }),
-  uint32Field("weaponSubtype4c", "subtype enum @0x4C", 76, {
-    includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 24),
-    experimental: true,
-  }),
-  uint32Field("weaponFieldC0", "weapon field @0xC0", 192, {
-    includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 24),
-    experimental: true,
-  }),
-  lookupField("armorSlot", "armor slot @0xB8", CNTC_ARMOR_SLOT_OFFSET, CNTC_ARMOR_SLOT_LOOKUP, {
+  });
+  readonly level = this.uint32("level", "level", 116);
+  readonly armorSlot = this.lookup("armorSlot", "armor slot", 184, this.armorSlotLookup, {
     includeId: true,
     unknownLabel: "Unknown",
-    includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 0),
-  }),
-  lookupField(
-    "armorWeightClass",
-    "armor weight class @0x118",
-    CNTC_ARMOR_WEIGHT_CLASS_OFFSET,
-    CNTC_ARMOR_WEIGHT_CLASS_LOOKUP,
-    {
-      includeId: true,
-      unknownLabel: "Unknown",
-      includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 0),
+    includeWhen: this.itemType.equals(0),
+  });
+  readonly armorWeightClass = this.lookup("armorWeightClass", "armor weight class", 280, this.armorWeightClassLookup, {
+    includeId: true,
+    unknownLabel: "Unknown",
+    includeWhen: this.itemType.equals(0),
+  });
+
+  constructor() {
+    super();
+
+    this.setSummaryField(this.itemType, "Item Type");
+    this.addReference({ key: "skin", kind: "skin", label: "skin ref", length: 4, targetType: CNTC_TYPE_IDS.SKINS });
+    this.addAssetReference(assetReference("icon", 64));
+  }
+
+  getTypeEnum(entry: CntcEntry): number | null {
+    if (entry.type !== CNTC_TYPE_IDS.ITEMS) {
+      return null;
     }
-  ),
-  uint32Field("armorField4c", "armor field @0x4C", 76, {
-    includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 0),
-    experimental: true,
-  }),
-  uint32Field("armorFieldBc", "armor field @0xBC", 188, {
-    includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 0),
-    experimental: true,
-  }),
-  uint32Field("armorFieldC0", "armor field @0xC0", 192, {
-    includeWhen: whenUint32Equals(CNTC_ITEM_TYPE_OFFSET, 0),
-    experimental: true,
-  }),
-];
-
-export const CNTC_ITEM_DEFINITION: CntcTypeDefinition = {
-  type: CNTC_TYPE_IDS.ITEMS,
-  description: "Items",
-  dataIdLabel: "item id @0x28",
-  dataIdCaption: "item id",
-  summaryCaption: "Item Type",
-  summaryFieldKey: "itemType",
-  fields: ITEM_FIELD_DEFINITIONS,
-  references: [{ key: "skin", kind: "skin", label: "skin ref", length: 4 }],
-  assetReferences: [{ label: "icon", offset: 64 }],
-};
-
-export interface CntcItemArmor {
-  slotId: number | null;
-  slot: string | null;
-  weightClassId: number | null;
-  weightClass: string | null;
-}
-
-export interface CntcItem {
-  id: number | null;
-  itemTypeId: number | null;
-  itemType: string;
-  rarityId: number | null;
-  rarity: string | null;
-  level: number | null;
-  armor?: CntcItemArmor;
-}
-
-export function getCntcItemTypeEnum(entry: CntcEntry): number | null {
-  if (entry.type !== CNTC_TYPE_IDS.ITEMS) {
-    return null;
-  }
-  return readUint32LE(entry.contentSlice, CNTC_ITEM_TYPE_OFFSET);
-}
-
-export function getCntcItemTypeLabel(entry: CntcEntry): string {
-  const itemTypeId = getCntcItemTypeEnum(entry);
-  return itemTypeId == null
-    ? ""
-    : String(formatCntcLookupValue(itemTypeId, CNTC_ITEM_TYPE_LOOKUP, { includeId: true, unknownLabel: "Unknown" }));
-}
-
-export function parseCntcItem(entry: CntcEntry): CntcItem | null {
-  if (entry.type !== CNTC_TYPE_IDS.ITEMS || !entry.contentSlice) {
-    return null;
+    return this.itemType.read(entry);
   }
 
-  const itemTypeId = getCntcItemTypeEnum(entry);
-  const rarityId = readUint32LE(entry.contentSlice, CNTC_ITEM_RARITY_OFFSET);
-  const item: CntcItem = {
-    id: getCntcEntryDataId(entry),
-    itemTypeId,
-    itemType: String(
-      formatCntcLookupValue(itemTypeId, CNTC_ITEM_TYPE_LOOKUP, { unknownLabel: "Unknown" }) ?? "Unknown"
-    ),
-    rarityId,
-    rarity:
-      rarityId == null
-        ? null
-        : ((formatCntcLookupValue(rarityId, CNTC_ITEM_RARITY_LOOKUP) as string | number | null)?.toString() ?? null),
-    level: readUint32LE(entry.contentSlice, CNTC_ITEM_LEVEL_OFFSET),
-  };
+  getTypeLabel(entry: CntcEntry): string {
+    const itemTypeId = this.getTypeEnum(entry);
+    return itemTypeId == null
+      ? ""
+      : String(formatCntcLookupValue(itemTypeId, this.itemTypeLookup, { includeId: true, unknownLabel: "Unknown" }));
+  }
 
-  if (itemTypeId === 0) {
-    const slotId = readUint32LE(entry.contentSlice, CNTC_ARMOR_SLOT_OFFSET);
-    const weightClassId = readUint32LE(entry.contentSlice, CNTC_ARMOR_WEIGHT_CLASS_OFFSET);
-    item.armor = {
-      slotId,
-      slot:
-        slotId == null
+  parse(entry: CntcEntry): CntcItem | null {
+    if (entry.type !== CNTC_TYPE_IDS.ITEMS || !entry.contentSlice) {
+      return null;
+    }
+
+    const itemTypeId = this.getTypeEnum(entry);
+    const rarityId = this.rarity.read(entry);
+    const item: CntcItem = {
+      id: getCntcEntryDataId(entry),
+      itemTypeId,
+      itemType: String(
+        formatCntcLookupValue(itemTypeId, this.itemTypeLookup, { unknownLabel: "Unknown" }) ?? "Unknown"
+      ),
+      rarityId,
+      rarity:
+        rarityId == null
           ? null
-          : ((formatCntcLookupValue(slotId, CNTC_ARMOR_SLOT_LOOKUP) as string | number | null)?.toString() ?? null),
-      weightClassId,
-      weightClass:
-        weightClassId == null
-          ? null
-          : ((
-              formatCntcLookupValue(weightClassId, CNTC_ARMOR_WEIGHT_CLASS_LOOKUP) as string | number | null
-            )?.toString() ?? null),
+          : ((formatCntcLookupValue(rarityId, this.rarityLookup) as string | number | null)?.toString() ?? null),
+      level: this.level.read(entry),
     };
-  }
 
-  return item;
+    if (itemTypeId === 0) {
+      const slotId = this.armorSlot.read(entry);
+      const weightClassId = this.armorWeightClass.read(entry);
+      item.armor = {
+        slotId,
+        slot:
+          slotId == null
+            ? null
+            : ((formatCntcLookupValue(slotId, this.armorSlotLookup) as string | number | null)?.toString() ?? null),
+        weightClassId,
+        weightClass:
+          weightClassId == null
+            ? null
+            : ((
+                formatCntcLookupValue(weightClassId, this.armorWeightClassLookup) as string | number | null
+              )?.toString() ?? null),
+      };
+    }
+
+    return item;
+  }
 }
+
+export const CNTC_ITEM_SCHEMA = new CntcItemSchema();

@@ -7,8 +7,9 @@ import {
   type CntcReferenceDefinition,
   type CntcTypeDefinition,
 } from "../schema";
-import { CNTC_ITEM_DEFINITION } from "./items";
-import { CNTC_MAP_DEFINITION } from "./maps";
+import { CNTC_ITEM_SCHEMA } from "./items";
+import { CNTC_MAP_SCHEMA } from "./maps";
+import { CNTC_SKIN_SCHEMA } from "./skins";
 import { CNTC_TYPE_IDS } from "./type-ids";
 
 const KNOWN_TYPE_DEFINITIONS: readonly CntcTypeDefinition[] = [
@@ -16,20 +17,12 @@ const KNOWN_TYPE_DEFINITIONS: readonly CntcTypeDefinition[] = [
   { type: CNTC_TYPE_IDS.ACHIEVEMENT_CATEGORIES, description: "Achievement Categories" },
   { type: CNTC_TYPE_IDS.CRAFTING_RECIPES, description: "Crafting Recipes" },
   { type: CNTC_TYPE_IDS.GUILD_UPGRADES, description: "Guild Upgrades" },
-  CNTC_ITEM_DEFINITION,
-  CNTC_MAP_DEFINITION,
+  CNTC_ITEM_SCHEMA.toDefinition(),
+  CNTC_MAP_SCHEMA.toDefinition(),
   { type: CNTC_TYPE_IDS.MINIPETS, description: "Minipets" },
   { type: CNTC_TYPE_IDS.OUTFITS, description: "Outfits" },
   { type: CNTC_TYPE_IDS.SKILLS, description: "Skills" },
-  {
-    type: CNTC_TYPE_IDS.SKINS,
-    description: "Skins",
-    assetReferences: [
-      { label: "model", offset: 48 },
-      { label: "icon", offset: 88 },
-      { label: "model", start: 192, stride: 32 },
-    ],
-  },
+  CNTC_SKIN_SCHEMA.toDefinition(),
   { type: CNTC_TYPE_IDS.WVW_RANK_DEFINITIONS, description: "WvW Rank Definitions" },
   { type: CNTC_TYPE_IDS.ANIMATION_LISTENERS, description: "Animation Listeners" },
   { type: CNTC_TYPE_IDS.ANIMATION_BLEND_TREES, description: "Animation Blend Trees" },
@@ -77,7 +70,7 @@ export function getCntcTypeDescription(type: number): string {
 }
 
 export function getCntcDataIdLabel(type: number): string {
-  return getCntcTypeDefinition(type)?.dataIdLabel ?? "id @0x28";
+  return getCntcTypeDefinition(type)?.dataIdLabel ?? "id";
 }
 
 export function getCntcDataIdCaption(type: number): string {

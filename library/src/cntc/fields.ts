@@ -1,5 +1,5 @@
 import type { CntcEntry } from "./content";
-import { BASE_FIELD_DEFINITIONS, readBaseCntcFieldValue } from "./schema";
+import { BASE_FIELD_DEFINITIONS, formatCntcFieldLabel, readBaseCntcFieldValue } from "./schema";
 import { getCntcFieldDefinitions, getCntcTypeDefinition } from "./schemas/registry";
 
 export interface CntcField {
@@ -16,11 +16,14 @@ export function describeCntcEntry(entry: CntcEntry): CntcField[] {
     (definition) => !definition.includeWhen || definition.includeWhen(entry)
   );
 
-  return fieldDefinitions.map((definition) => ({
-    label: typeof definition.label === "function" ? definition.label(entry, typeDefinition) : definition.label,
-    offset: definition.offset,
-    length: definition.length,
-    value: readBaseCntcFieldValue(entry, definition),
-    experimental: definition.experimental,
-  }));
+  return fieldDefinitions.map((definition) => {
+    const label = typeof definition.label === "function" ? definition.label(entry, typeDefinition) : definition.label;
+    return {
+      label: formatCntcFieldLabel(label, definition.offset),
+      offset: definition.offset,
+      length: definition.length,
+      value: readBaseCntcFieldValue(entry, definition),
+      experimental: definition.experimental,
+    };
+  });
 }

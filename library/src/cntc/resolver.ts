@@ -13,8 +13,6 @@ import {
 } from "./content";
 import type { CntcReferenceKind } from "./schema";
 import { getCntcAssetReferenceLabel, getCntcReferenceDefinitions } from "./schemas/registry";
-import { getCntcMapNameIndex, getCntcMapRegionIndex } from "./schemas/maps";
-import { CNTC_TYPE_IDS } from "./schemas/type-ids";
 
 export interface CntcResolvedFile {
   baseId: number;
@@ -37,6 +35,7 @@ export interface CntcReference {
   label: string;
   offset?: number;
   length: number;
+  targetType?: number;
 }
 
 export type CntcReferenceNavigation =
@@ -58,6 +57,7 @@ export function describeCntcReferences(entry: CntcEntry): CntcReference[] {
     label: definition.label,
     offset: definition.offset,
     length: definition.length ?? 4,
+    targetType: definition.targetType,
   }));
 }
 
@@ -110,7 +110,7 @@ export class CntcResolver {
     reference: CntcReference
   ): Promise<CntcResolvedReference | null> {
     if (reference.kind === "skin") {
-      const skin = await this.resolveItemSkin(baseId, entry);
+      const skin = await this.resolveSkinReference(baseId, entry, reference.targetType);
       if (!skin) return null;
       return {
         label: `skin ref @0x${skin.sourceOffset.toString(16).toUpperCase()}`,
@@ -141,9 +141,9 @@ export class CntcResolver {
       };
     }
 
-    if (reference.kind === "mapName" || reference.kind === "mapRegion") {
-      const index = reference.kind === "mapName" ? getCntcMapNameIndex(entry) : getCntcMapRegionIndex(entry);
-      const value = await this.resolveMapString(baseId, index);
+    if (reference.kind === "string") {
+      const stringIndex = reference.offset == null ? null : readUint32LE(entry.contentSlice, reference.offset);
+      const value = await this.resolveString(baseId, stringIndex);
       if (value == null) return null;
       return {
         label: reference.label,
@@ -157,8 +157,11 @@ export class CntcResolver {
     return null;
   }
 
-  private async resolveItemSkin(itemBaseId: number, itemEntry: CntcEntry): Promise<CntcSkinReference | null> {
-    if (itemEntry.type !== CNTC_TYPE_IDS.ITEMS) return null;
+  private async resolveSkinReference(
+    itemBaseId: number,
+    itemEntry: CntcEntry,
+    targetType: number | undefined
+  ): Promise<CntcSkinReference | null> {
     const file = await this.loadFile(itemBaseId);
     if (!file) return null;
 
@@ -181,7 +184,7 @@ export class CntcResolver {
       if (!targetFile) continue;
 
       const targetEntry = findCntcEntryAtOffset(targetFile.entries, targetOffset);
-      if (!targetEntry || targetEntry.type !== CNTC_TYPE_IDS.SKINS) continue;
+      if (!targetEntry || (targetType != null && targetEntry.type !== targetType)) continue;
 
       return {
         skinId: getCntcEntryDataId(targetEntry),
@@ -197,9 +200,9 @@ export class CntcResolver {
     return null;
   }
 
-  private async resolveMapString(mapBaseId: number, stringIndex: number | null): Promise<string | null> {
+  private async resolveString(baseId: number, stringIndex: number | null): Promise<string | null> {
     if (stringIndex == null) return null;
-    const file = await this.loadFile(mapBaseId);
+    const file = await this.loadFile(baseId);
     if (!file) return null;
     return resolveCntcString(file.mainContent.strings, stringIndex);
   }
