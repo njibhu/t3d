@@ -15,13 +15,6 @@ interface MapCodenameRecord {
   sourceCntcBaseIds: number[];
 }
 
-const MAP_DATA_REFERENCE: Cntc.CntcReference = {
-  kind: "asset",
-  label: "map data @0x68",
-  offset: Cntc.CNTC_MAP_DATA_FILEREF_OFFSET,
-  length: 4,
-};
-
 export class CntcMapListView implements ArchiveToolView {
   readonly root: HTMLDivElement;
 
@@ -116,14 +109,21 @@ export class CntcMapListView implements ArchiveToolView {
         const entries = Cntc.getCntcEntries(mainContent);
         this.resolver.seedFile({ baseId, mainContent, entries });
 
+        const mapSchema = Cntc.getCntcTypeDefinition(Cntc.CNTC_TYPE_IDS.MAPS);
+
         for (const entry of entries) {
-          if (entry.type !== 45) continue;
+          if (entry.type !== Cntc.CNTC_TYPE_IDS.MAPS) continue;
           mapDefinitions += 1;
 
           const codename =
-            Cntc.resolveCntcString(mainContent.strings, Cntc.getCntcMapNameIndex(entry)) ?? "(unknown codename)";
-          const region = Cntc.resolveCntcString(mainContent.strings, Cntc.getCntcMapRegionIndex(entry));
-          const resolved = await this.resolver.resolveReference(baseId, entry, MAP_DATA_REFERENCE);
+            Cntc.resolveCntcString(mainContent.strings, mapSchema.codename.read(entry)) ?? "(unknown codename)";
+          const region = Cntc.resolveCntcString(mainContent.strings, mapSchema.region.read(entry));
+          const mapDataReference = (await this.resolver.listReferences(baseId, entry)).find(
+            (reference) => reference.kind === "asset" && reference.offset === mapSchema.mapData.offset
+          );
+          const resolved = mapDataReference
+            ? await this.resolver.resolveReference(baseId, entry, mapDataReference)
+            : null;
           const mapBaseId = resolved?.navigation.target === "file" ? resolved.navigation.baseId : null;
           if (mapBaseId == null) {
             unresolvedMapDataRefs += 1;
