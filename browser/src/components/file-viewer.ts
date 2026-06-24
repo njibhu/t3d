@@ -257,6 +257,7 @@ export class FileViewer {
       if (!this.mapView) {
         this.mapView = new MapView(m.pane);
         this.mapView.setOnReload((layers) => this.loadMap(layers));
+        this.mapView.setOnOpenFile((baseId, newTab) => this.onOpenFile?.(baseId, newTab));
       }
     } else if (isSound || isSoundBank) {
       this.ensureTab("sound");

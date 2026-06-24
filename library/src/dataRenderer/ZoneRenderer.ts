@@ -155,6 +155,13 @@ export default class ZoneRenderer extends DataRenderer {
       instancedMesh.instanceMatrix.needsUpdate = true;
       instancedMesh.computeBoundingBox();
       instancedMesh.computeBoundingSphere();
+      instancedMesh.userData.t3dInspect = {
+        ...(instancedMesh.userData.t3dInspect ?? {}),
+        inspectable: true,
+        sourceKind: "zone",
+        objectLabel: "Zone model",
+        instanceCount: placements.length,
+      };
       this.getOutput().meshes.push(instancedMesh);
     }
   }

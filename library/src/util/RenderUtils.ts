@@ -88,12 +88,55 @@ export type FinalMesh = Mesh & {
   materialFlags?: any;
   materialFilename?: number;
   materialName?: any;
+  textureRefs?: InspectTextureRef[];
   numLods?: number;
   lodOverride?: any;
   flags?: any;
   numUV?: number;
   boundingSphere?: any;
 };
+
+export type InspectTextureRef = {
+  fileId: number;
+  label: string;
+};
+
+export type InspectMeshMetadata = {
+  inspectable: true;
+  sourceKind?: "prop" | "zone" | "collision";
+  objectLabel?: string;
+  modelId?: number;
+  materialFileId?: number;
+  materialName?: string;
+  materialFlags?: number;
+  meshFlags?: number;
+  meshName?: string;
+  numUv?: number;
+  textureRefs?: InspectTextureRef[];
+  collisionIndex?: number;
+  instanceCount?: number;
+};
+
+function textureLabelFromToken(token: bigint | number, index: number): string {
+  const asNumber = typeof token === "bigint" ? Number(token) : token;
+  if (asNumber === 1733499172 || token === 27219515885689124n) return "Diffuse";
+  if (asNumber === 404146670 || token === 850610087184878n) return "Normal";
+  return `Texture ${index + 1}`;
+}
+
+function cloneTextureRefs(textureRefs: InspectTextureRef[] | undefined): InspectTextureRef[] | undefined {
+  return textureRefs?.map((textureRef) => ({ ...textureRef }));
+}
+
+export function setInspectMetadata(mesh: Mesh, metadata: Partial<InspectMeshMetadata>): void {
+  const current = (mesh.userData?.t3dInspect ?? {}) as Partial<InspectMeshMetadata>;
+  mesh.userData.t3dInspect = {
+    ...current,
+    ...metadata,
+    inspectable: true,
+    textureRefs: cloneTextureRefs(metadata.textureRefs) ?? cloneTextureRefs(current.textureRefs),
+  };
+}
 
 /**
  * Returns a THREE representation of the data contained by a GW2 model file.
@@ -307,11 +350,21 @@ export function renderGeomChunk(
       }
     }
 
+    const textureRefs = mat
+      ? mat.textures
+          .filter((texture: any) => texture.filename > 0)
+          .map((texture: any, index: number) => ({
+            fileId: texture.filename,
+            label: textureLabelFromToken(texture.token, index),
+          }))
+      : [];
+
     /// Create the final mesh from the BufferedGeometry and MeshBasicMaterial
     const finalMesh: Mesh & {
       materialFlags?: any;
       materialFilename?: number;
       materialName?: any;
+      textureRefs?: InspectTextureRef[];
       numLods?: number;
       lodOverride?: any;
       flags?: any;
@@ -325,6 +378,7 @@ export function renderGeomChunk(
     }
 
     finalMesh.materialName = rawMesh.materialName;
+    finalMesh.textureRefs = textureRefs;
 
     /// Use materialFilename, materialName, and material.textureFilename in order to build export
 
@@ -335,6 +389,15 @@ export function renderGeomChunk(
     /// Set flag and UV info on the returned mehs
     finalMesh.flags = rawMesh.flags;
     finalMesh.numUV = numUV;
+    setInspectMetadata(finalMesh, {
+      materialFileId: mat?.filename,
+      materialFlags: mat?.materialFlags,
+      materialName: String(rawMesh.materialName ?? ""),
+      meshFlags: rawMesh.flags,
+      meshName: String(rawMesh.materialName ?? ""),
+      numUv: numUV,
+      textureRefs,
+    });
 
     /// Add mesh to returned Array
     meshes.push(finalMesh);
@@ -352,6 +415,14 @@ export function getInstancedMeshes(meshes: any[], size: number, filterFlags?: nu
       continue;
     }
     const im = new THREE.InstancedMesh(mesh.geometry, mesh.material, size);
+    const inspectMetadata = mesh.userData?.t3dInspect as InspectMeshMetadata | undefined;
+    if (inspectMetadata?.inspectable) {
+      im.userData.t3dInspect = {
+        ...inspectMetadata,
+        textureRefs: cloneTextureRefs(inspectMetadata.textureRefs),
+        instanceCount: size,
+      };
+    }
     instancedMeshes.push(im);
   }
 
@@ -450,6 +521,9 @@ export function loadMeshFromModelFile(
 
         // Build mesh group
         meshes.forEach(function (mesh) {
+          setInspectMetadata(mesh, {
+            modelId: filename,
+          });
           /// Material flags
           const knownflags = [
             /*
@@ -542,6 +616,12 @@ export function loadMeshFromModelFile(
       mesh.materialFlags = 2056;
       //@ts-ignore
       mesh.lodOverride = [1000000, 1000000];
+      setInspectMetadata(mesh, {
+        modelId: filename,
+        materialFlags: 2056,
+        meshFlags: 4,
+        objectLabel: "Fallback mesh",
+      });
       finalMeshes.push(mesh);
 
       /// Send the final meshes to callback function
