@@ -88,12 +88,7 @@ export class MapView {
     this.inspectorDetails = document.createElement("div");
     this.inspectorDetails.className = "map-inspector-details";
 
-    inspectorPane.append(
-      inspectorHeader,
-      this.previewFrame,
-      this.inspectorMeta,
-      this.inspectorDetails
-    );
+    inspectorPane.append(inspectorHeader, this.previewFrame, this.inspectorMeta, this.inspectorDetails);
     mount.append(canvasPane, inspectorPane);
     host.append(toolbar, mount);
 
@@ -235,22 +230,37 @@ export class MapView {
 
     this.inspectorDetails.replaceChildren(
       this.buildDetailRow("Source", labelForSourceKind(metadata.sourceKind)),
-      this.buildDetailRow("Model ID", this.buildFileLinkList(metadata.modelId != null ? [{ fileId: metadata.modelId, label: String(metadata.modelId) }] : [])),
+      this.buildDetailRow(
+        "Model ID",
+        this.buildFileLinkList(
+          metadata.modelId != null ? [{ fileId: metadata.modelId, label: String(metadata.modelId) }] : []
+        )
+      ),
       this.buildDetailRow("Material", metadata.materialName || "—"),
       this.buildDetailRow(
         "Material File",
         this.buildFileLinkList(
-          metadata.materialFileId != null ? [{ fileId: metadata.materialFileId, label: String(metadata.materialFileId) }] : []
+          metadata.materialFileId != null
+            ? [{ fileId: metadata.materialFileId, label: String(metadata.materialFileId) }]
+            : []
         )
       ),
       this.buildDetailRow(
         "Textures",
-        this.buildFileLinkList(textureRefs.map((textureRef) => ({ fileId: textureRef.fileId, label: `${textureRef.label}: ${textureRef.fileId}` })))
+        this.buildFileLinkList(
+          textureRefs.map((textureRef) => ({
+            fileId: textureRef.fileId,
+            label: `${textureRef.label}: ${textureRef.fileId}`,
+          }))
+        )
       ),
       this.buildDetailRow("Material Flags", formatNullableNumber(metadata.materialFlags)),
       this.buildDetailRow("Mesh Flags", formatNullableNumber(metadata.meshFlags)),
       this.buildDetailRow("UV Sets", formatNullableNumber(metadata.numUv)),
-      this.buildDetailRow("Instance", selection.instanceId != null ? `${selection.instanceId + 1} / ${selection.instanceCount}` : "Single mesh"),
+      this.buildDetailRow(
+        "Instance",
+        selection.instanceId != null ? `${selection.instanceId + 1} / ${selection.instanceCount}` : "Single mesh"
+      ),
       this.buildDetailRow("Position", formatVector(selection.position)),
       this.buildDetailRow("Rotation", formatEuler(selection.rotation)),
       this.buildDetailRow("Scale", formatVector(selection.scale)),

@@ -317,7 +317,10 @@ export class MapCanvas {
     const rect = this.renderer.domElement.getBoundingClientRect();
     if (!rect.width || !rect.height) return null;
 
-    this.pointerNdc.set(((event.clientX - rect.left) / rect.width) * 2 - 1, -((event.clientY - rect.top) / rect.height) * 2 + 1);
+    this.pointerNdc.set(
+      ((event.clientX - rect.left) / rect.width) * 2 - 1,
+      -((event.clientY - rect.top) / rect.height) * 2 + 1
+    );
     this.raycaster.setFromCamera(this.pointerNdc, this.camera);
 
     const intersections = this.raycaster.intersectObjects(this.inspectTargets, false);
@@ -327,7 +330,9 @@ export class MapCanvas {
       if (!target || !metadata) continue;
 
       const instanceId =
-        target instanceof THREE.InstancedMesh && typeof intersection.instanceId === "number" ? intersection.instanceId : null;
+        target instanceof THREE.InstancedMesh && typeof intersection.instanceId === "number"
+          ? intersection.instanceId
+          : null;
       const instanceCount = target instanceof THREE.InstancedMesh ? target.count : 1;
 
       if (target instanceof THREE.InstancedMesh && instanceId !== null) {
