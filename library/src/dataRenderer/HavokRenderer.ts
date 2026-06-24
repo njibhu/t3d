@@ -227,6 +227,13 @@ export default class HavokRenderer extends DataRenderer {
       }
 
       instancedMesh.instanceMatrix.needsUpdate = true;
+      instancedMesh.userData.t3dInspect = {
+        inspectable: true,
+        sourceKind: "collision",
+        objectLabel: "Collision mesh",
+        collisionIndex,
+        instanceCount,
+      };
       this.getOutput().meshes.push(instancedMesh);
     }
   }

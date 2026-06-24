@@ -32,7 +32,10 @@ export class ModelCanvas {
   }
 
   mount(host: HTMLElement): void {
-    if (this.host === host && this.renderer) return;
+    if (this.host === host && this.renderer) {
+      this.play();
+      return;
+    }
     this.host = host;
     if (!this.renderer) {
       this.renderer = new THREE.WebGLRenderer({ antialias: true });

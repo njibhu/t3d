@@ -153,6 +153,14 @@ export default class PropertiesRenderer extends DataRenderer {
       instancedMesh.instanceMatrix.needsUpdate = true;
       instancedMesh.computeBoundingBox();
       instancedMesh.computeBoundingSphere();
+      instancedMesh.userData.t3dInspect = {
+        ...(instancedMesh.userData.t3dInspect ?? {}),
+        inspectable: true,
+        sourceKind: "prop",
+        objectLabel: "Prop model",
+        modelId: modelName,
+        instanceCount: model.size,
+      };
     }
     for (const instancedMesh of instancedMeshes) {
       this.getOutput().meshes.push(instancedMesh);
